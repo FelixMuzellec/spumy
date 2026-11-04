@@ -1,0 +1,42 @@
+name: Spumy — Construction, Tests & Publication automatique
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "scripts/**"
+      - "package.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupération du dépôt
+        uses: actions/checkout@v4
+
+      - name: Installation de Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Installation des dépendances
+        run: npm ci
+
+      - name: Compilation de Spumy (npm run build)
+        run: npm run build
+
+      - name: Tests unitaires des 7 guides (npm run test:unit)
+        run: npm run test:unit
+
+      - name: Publication automatique des fichiers construits sur la branche main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html home.js *.html manifest.json sw.js .nojekyll *.png
+          git diff --staged --quiet || (git commit -m "chore(spumy): build automatique du site" && git push)
