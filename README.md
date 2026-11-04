@@ -1,2 +1,0 @@
-# Spumy
-Guide de pêche
