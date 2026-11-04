@@ -1,0 +1,69 @@
+{
+  "name": "SPUMY — Intelligence Pêche du Bar",
+  "short_name": "SPUMY",
+  "lang": "fr",
+  "dir": "ltr",
+  "description": "SPUMY : aide à la décision pour la pêche du bar aux leurres du bord. Sept secteurs en Finistère et dans la Manche, 3 scores de décision (/100), marée harmonique, météo AROME/ECMWF par spot.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#050d1a",
+  "theme_color": "#050d1a",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Logonna-Daoulas",
+      "url": "./logonna.html",
+      "icons": [{ "src": "logonna.png", "sizes": "512x512", "type": "image/png" }]
+    },
+    {
+      "name": "Pirou Plage",
+      "url": "./pirou.html",
+      "icons": [{ "src": "pirou.png", "sizes": "512x512", "type": "image/png" }]
+    },
+    {
+      "name": "Plouguerneau",
+      "url": "./plouguerneau.html",
+      "icons": [{ "src": "plouguerneau.png", "sizes": "512x512", "type": "image/png" }]
+    },
+    {
+      "name": "Audierne",
+      "url": "./audierne.html",
+      "icons": [{ "src": "audierne.png", "sizes": "512x512", "type": "image/png" }]
+    },
+    {
+      "name": "Carantec",
+      "url": "./carantec.html",
+      "icons": [{ "src": "carantec.png", "sizes": "512x512", "type": "image/png" }]
+    },
+    {
+      "name": "Concarneau",
+      "url": "./concarneau.html",
+      "icons": [{ "src": "concarneau.png", "sizes": "512x512", "type": "image/png" }]
+    },
+    {
+      "name": "Crozon",
+      "url": "./crozon.html",
+      "icons": [{ "src": "crozon.png", "sizes": "512x512", "type": "image/png" }]
+    }
+  ]
+}
