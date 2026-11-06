@@ -1,0 +1,584 @@
+// Configuration du site Carantec (baie de Morlaix, Finistère nord) : tout ce qui est propre au lieu
+// (spots, zones, ports de marée, principes). Le moteur (src/engine) est commun aux guides.
+//
+// Recherche du 29/10/2026. Chaque fait porte sa source ; ce qui n'en a pas est marqué « déduit »
+// (confidence:"inference"). Aucun spot commun avec les autres guides (Plouguerneau s'arrête à Kerlouan).
+// Spots retenus : ceux que citent au moins deux sources indépendantes, ou une source de pêcheur local
+// avec un jugement explicite (Saint-Jean-du-Doigt), signalé dans la fiche. Non retenus faute d'une
+// deuxième source : pointe de Perharidy et abords du port de Roscoff (une liste sans détail ; revérifié
+// le 29/10/2026 : la seule autre fiche, « plage de Roscoff » d'atout-pecheur, ne nomme pas de plage
+// et sa position n'est pas à Perharidy). Ajoutée le 29/10/2026 : la baie du Kernic (Haut-Léon), deux sources.
+export const SITE = {
+  id: "carantec",
+  name: "Carantec",
+  region: "Baie de Morlaix et Haut-Léon, Finistère nord",
+  dept: "29660",
+  headerLabel: "BAIE DE MORLAIX",
+  // Position du port de Carantec (marinatips.com) : requise pour le calcul solaire réel.
+  lat: 48.672222, lon: -3.923333,
+  tidePort: "Le château du Taureau",
+  tideSources: "constantes TICON-4 (Roscoff) ; ports secondaires ajustés sur les tables publiées par marine.meteoconsult.fr (données SHOM) : Château du Taureau, anse de Primel, Locquirec, Brignogan-Plage",
+  weatherSources: "Open-Meteo (AROME, ECMWF), modèle de vagues Open-Meteo",
+  zones: {
+    local: { label: "Carantec", anchor: "Carantec (29660)", sea: "open" },
+    // Rivières de Morlaix et de la Penzé : zones ostréicoles « mer calme et peu d'eau » (office de tourisme) ;
+    // la houle du large y arrive amortie, le clapot naît du vent. fetchKm : ordre de grandeur déduit de la carte.
+    riviere: { label: "Rivières de Morlaix et de la Penzé", anchor: "Carantec / Plouezoc'h (29660, 29252)", sea: "rade", fetchKm: 3 },
+    inter: { label: "Plougasnou", anchor: "Primel / Saint-Jean-du-Doigt (29630)", sea: "open" },
+    far:   { label: "Locquirec", anchor: "Locquirec (29241)", sea: "open" },
+    // Haut-Léon : la baie du Kernic, à l'ouest de Roscoff (hors baie de Morlaix, même guide pour la marée de Roscoff).
+    ouest: { label: "Haut-Léon (baie du Kernic)", anchor: "Plouescat / Plounévez-Lochrist (29430)", sea: "open" },
+  },
+  // Marnage moyen morte-eau ↔ vive-eau au château du Taureau (coefficients 45 et 95) : moyenne 2026 du calcul
+  // de marée, cohérente avec les tables d'octobre et novembre 2026.
+  marnage: { neap: 3.9, spring: 7.7 },
+  preyCalendar: [
+    { name:"Crevette (bouquet, grise)", couche:"sous-surface", months:[1,2,3,4,5,6,7,8,9,10,11,12], weight:2,
+      size:"3-7 cm", guidance:"Profil court et discret. Souple 8-10 cm animé lentement sur les bordures et autour des parcs." },
+    { name:"Lançon / équille", couche:"sous-surface", months:[4,5,6,7,8,9], weight:5,
+      size:"8-15 cm", guidance:"La proie reine de l'été sur les fonds de sable. Profils fins et allongés : souple fin, stickbait élancé." },
+    { name:"Crabe (vert, mou en période de mue)", couche:"fond", months:[5,6,7,8,9], weight:3,
+      size:"3-6 cm", guidance:"Source peche-poissons.com (2026) : imitations de crabe « très efficaces sur les bars d'estuaire ». Souple compact très lent au ras du fond, en rivière et autour des parcs." },
+    { name:"Alevins de mulet", couche:"surface", months:[6,7,8,9], weight:3,
+      size:"3-8 cm", guidance:"Bancs en surface près des bordures et des ports. Petit stickbait ou souple weightless au bord du banc." },
+    { name:"Gobies et blennies", couche:"fond", months:[1,2,3,4,5,6,7,8,9,10,11,12], weight:2,
+      size:"5-10 cm", guidance:"Proie de fond permanente des côtes rocheuses. Souple plombé ou texan gratté sur les plaques de sable entre les roches." },
+    { name:"Sprat", couche:"mi-eau", months:[10,11,12,1,2,3], weight:4,
+      size:"8-12 cm", guidance:"Bancs d'hiver. Shad de 10 cm plombé de 12 à 25 g selon profondeur et courant (peche.com). Suivre les oiseaux." },
+  ],
+  seedJournal: [],
+  // ── Marée : calculée localement ─────────────────────────────────
+  // Roscoff : station harmonique TICON-4. Les ports de la baie sont ajustés sur les tables
+  // d'octobre 2026, puis contrôlés sur novembre 2026 (mois jamais utilisé pour l'ajustement).
+  tide: {
+    defaultPort: "chateaudutaureau",
+    ports: {
+      roscoff: { label: "Roscoff", kind: "harmonic", station: "roscoff", z0: 5.27, lagH: 1.07,
+        accuracy: "contrôlée contre les tables SHOM : ±3,1 min · ±5 cm (novembre 2026)" },
+      chateaudutaureau: { label: "Le château du Taureau (baie de Morlaix)", kind: "secondary", ref: "roscoff", lagH: 1.03,
+        hw: { t: [-4.81716, 0.3656], h: [5.45095, 0.95482] }, lw: { t: [-7.55678, 0.95712], h: [5.24533, 0.99351] },
+        accuracy: "contrôlée contre les tables SHOM : ±3,1 min · ±4 cm (novembre 2026, mois de contrôle)" },
+      primel: { label: "L'anse de Primel", kind: "secondary", ref: "roscoff", lagH: 1.11,
+        hw: { t: [0.15801, 0.36121], h: [5.4549, 0.98122] }, lw: { t: [-2.55922, 0.95758], h: [5.33723, 1.01666] },
+        accuracy: "contrôlée contre les tables SHOM : ±3,0 min · ±4 cm (novembre 2026, mois de contrôle)" },
+      locquirec: { label: "Locquirec", kind: "secondary", ref: "roscoff", lagH: 1.11,
+        hw: { t: [0.15903, 0.36107], h: [5.55921, 1.00791] }, lw: { t: [-4.85922, 1.73872], h: [5.30879, 0.94655] },
+        accuracy: "contrôlée contre les tables SHOM : ±2,9 min · ±4 cm (novembre 2026, mois de contrôle)" },
+      // Même port et mêmes paramètres que le guide de Plouguerneau (ajustés sur octobre 2026, contrôlés sur novembre).
+      brignogan: { label: "Brignogan-Plage", kind: "secondary", ref: "roscoff", lagH: 0.72,
+        hw: { t: [-21.3489, -0.11107], h: [5.047, 0.92842] }, lw: { t: [-22.5792, 0.96275], h: [4.9603, 0.94737] },
+        accuracy: "contrôlée contre les tables SHOM : ±2,8 min · ±4 cm (novembre 2026, mois de contrôle)" },
+    },
+  },
+  sstTypical: [10, 17],
+};
+
+// ═══════════════════════════════════════════════════════════════════
+// PRINCIPES DE PÊCHE DU SECTEUR (sourcés)
+// ═══════════════════════════════════════════════════════════════════
+export const GENERAL_PRINCIPLES = {
+  title: "Principes de la pêche du bar du bord en baie de Morlaix",
+  items: [
+    {
+      rule: "Les parcs à huîtres : marée montante, et à vue en fin de descendante et début de montante",
+      source: "baiedemorlaix.bzh — office de tourisme, « La pêche du bord de mer en Baie de Morlaix » · peche-poissons.com — J.-B. Vidal (19/10/2026)",
+      explain: "Les zones ostréicoles (Dourduff, Kerarmel, Locquénolé, Le Frout, Kelenn, Barnenez) sont « à privilégier à marée montante » : « mer calme et peu d'eau », pêche « au leurre et à la mouche ». À propos des parcs à huîtres du golfe du Morbihan, Vidal écrit : « On peut y pêcher à vue en fin de descendante et début de montante » ; le guide l'applique aux parcs de la baie par déduction.",
+    },
+    {
+      rule: "Coefficients de 70 à 80 les plus propices",
+      source: "baiedemorlaix.wordpress.com — office de tourisme (11/07/2014) · peche-poissons.com — J.-B. Vidal (19/10/2026)",
+      explain: "L'office de tourisme cite les coefficients de 70 à 80 comme « les plus propices » ; Vidal conseille, pour le bar en Bretagne, les coefficients de 50 à 80, « plus réguliers et stables ».",
+    },
+    {
+      rule: "L'automne, la meilleure saison de la baie",
+      source: "pesketa.com — guide de pêche (Morlaix), « Pêche du bar au leurre » (mod. 01/03/2025)",
+      explain: "« La période de prédilection pour la pêche du bar est l'automne » ; « Octobre et novembre comptent parmi les mois les plus intéressants en baie de Morlaix ». Postes du guide : « dans les parcs à huitre, les zones de passages ou encore les zones estuariennes ».",
+    },
+    {
+      rule: "Les bars suivent les courants de la baie",
+      source: "peche-poissons.com — J.-B. Vidal (19/10/2026) · baiedemorlaix.bzh — « La pêche au bar avec un guide pêche »",
+      explain: "« La Baie de Morlaix est très prisée par les pêcheurs locaux qui recherchent les bars dans les différents courants » ; « Du bord, les plages, zones de roches et parcs à huitres sont nombreux ». Les bars se déplacent « au gré du mouvement des marées » et chassent dans la profondeur des estuaires et près des parcs.",
+    },
+    {
+      rule: "Leurres : shads, poissons nageurs, et surface sur les parcs",
+      source: "sport-decouverte.com — pêche du bar en bord de mer à Carantec · mieuxpecher.com (2018) · office de tourisme (2014)",
+      explain: "Le guide de Carantec emploie des « Leurres souples type shads ou leurres de surface » ; mieuxpecher cite « la baie de Morlaix et ses parcs au leurre de surface » ; l'office de tourisme, des « leurres souples ou dures (Rapala – poisson nageur) ». Vidal y a pêché au leurre de surface.",
+    },
+    {
+      rule: "La mer montante et les vasières",
+      source: "office de tourisme (2014) · patrimoine.bzh (inventaire, Carantec) · visorando.com",
+      explain: "« Gardez un œil sur la marée montante. » Au pied des pointes de Carantec, les plages se confondent à marée basse avec des vasières « qui découvrent plusieurs centaines de mètres » ; certains passages du sentier (quais du pont de la Corde, chaussée de l'île Callot) sont submersibles.",
+    },
+  ],
+};
+
+// ═══════════════════════════════════════════════════════════════════
+// 7 SPOTS — chaque champ marqué par niveau de confiance
+// Distances : estimées (vol d'oiseau depuis le port de Carantec × 1,4, à 50 km/h), avec le détour
+// par Morlaix pour la rive est (pont de la rivière de Morlaix). À corriger avec ton expérience.
+// ═══════════════════════════════════════════════════════════════════
+export const SPOTS = [
+
+  // ══════════════════════════════════════════════════════════
+  // 1. CARANTEC — PENN AL LANN, COSMEUR, KELENN
+  // ══════════════════════════════════════════════════════════
+  {
+    id:"carantec", tidePort:"chateaudutaureau", zone:"local", isLocal:true, dangerLevel:1,
+    name:"Carantec : Penn al Lann – Cosmeur", subtitle:"Pointes, plages et parcs du Kelenn",
+    distance:"≈ 5 min", distMin:3, coords:"48°40,4'N 3°53,9'W", lat:48.6731989, lon:-3.898978,
+    type:"POINTES + PLAGES ET PARCS", color:"#22c55e",
+    terrain:{
+      fond:"Pointes de Penn al Lann (« assez élevée (50 m) ») et du Cosmeur ; à leur pied, plages en pente douce qui se confondent à marée basse avec des vasières (patrimoine.bzh) ; plage du Cosmeur de sable fin (tourismebretagne) ; parcs à huîtres du Kelenn (office de tourisme).",
+      encombrement:2,
+      gratter:"texan",
+      prof:{ cls:"estran", why:"Plages en pente douce et vasières qui découvrent « plusieurs centaines de mètres » (patrimoine.bzh) : très peu d'eau à marée basse." },
+      couches:["surface", "sous-surface", "mi-eau", "fond"],
+      montage:"Surface ou souple léger sur les parcs et la vasière ; texan près des roches des pointes.",
+      conseils:["Pêcher la marée montante sur les parcs du Kelenn et le pied des pointes (office de tourisme).", "Le guide de pêche de Carantec pratique le rock-fishing et la prospection du bord « sur les secteurs les plus propices de la baie » (sport-decouverte), sans nommer ses postes."],
+      confidence:"inference",
+      source:"Office de tourisme (pêcheur local), mieuxpecher, inventaire du patrimoine, tourismebretagne",
+      faits:[
+        { t:"« Pointe de Penn al Lan (Carantec) » parmi les spots à bar ; zones ostréicoles dont le Kelenn « à privilégier à marée montante ».", s:"baiedemorlaix.bzh — office de tourisme, « La pêche du bord de mer en Baie de Morlaix » (Christian, pêcheur de Plougasnou)" },
+        { t:"« Pointe du Cosmeur à Carantec » citée parmi les coins de pêche du Finistère nord.", s:"mieuxpecher.com — « Coins de pêche – Finistère NORD » (Norbert, 2018)" },
+        { t:"Penn al Lann, sur la rive ouest de la rivière de Morlaix, « assez élevée (50 m) » ; à la base, des plages en pente douce se confondent à marée basse avec des vasières « qui découvrent plusieurs centaines de mètres ».", s:"patrimoine.bzh — inventaire, ensemble fortifié de la pointe de Penn al Lann (IA29000698)" },
+        { t:"Plage du Cosmeur : sable fin, orientée nord-ouest, plage sauvage non surveillée ; accès par le sentier côtier depuis Pen Al Lan ou le Kelenn, ou par la pointe du Cosmeur.", s:"tourismebretagne.com — Plage du Cosmeur (48,6731989 / -3,898978)" },
+        { t:"Rock-fishing et prospection du bord en baie ; « les bars fréquentent régulièrement cette zone riche en nourriture » (ostréiculture).", s:"sport-decouverte.com — pêche du bar en bord de mer à Carantec" },
+        { t:"Autre poste de Carantec cité pour le bar du bord : « Carantec (pointe rocheuse dite \"La Chaise du Curé\") ». Ce gros rocher en forme de fauteuil est près de la Grève Blanche et donne une « vue élevée de l'île Callot et de l'entrée en rade de Morlaix » (ideoz).", s:"cannes-peche.blog4ever.com — « Les coins de pêche à bar / loup (du bord) » (Alain, 07/11/2016) · voyages.ideoz.fr — Carantec" },
+      ],
+    },
+    coefBand:[35,50,80,100],
+    houleMax:1.5,
+    // Plage du Cosmeur orientée NO (tourismebretagne) : vent et houle de NO de face, vent de SE de dos.
+    exposedAngles:[292.5,315,337.5], shelteredAngles:[112.5,135,157.5],
+    weatherNote:"Rive de la baie tournée vers le nord-ouest (plage du Cosmeur, tourismebretagne) ; depuis Penn al Lann, vue sur l'île Noire, l'île Louët et le château du Taureau (visorando). Le vent de sud-est est de dos.",
+    sources:[
+      "baiedemorlaix.bzh — office de tourisme : pointe de Penn al Lan, zones ostréicoles (Kelenn)",
+      "mieuxpecher.com — « Coins de pêche – Finistère NORD » : pointe du Cosmeur",
+      "patrimoine.bzh — inventaire, pointe de Penn al Lann",
+      "tourismebretagne.com — Plage du Cosmeur",
+      "sport-decouverte.com — pêche du bar en bord de mer à Carantec",
+      "visorando.com — « Tour de Carantec au départ d'Henvic »",
+      "cannes-peche.blog4ever.com — Carantec : pointe rocheuse dite « La Chaise du Curé »",
+    ],
+    topology:{
+      fond:{ text:"Plages en pente douce, vasières qui découvrent, sable fin au Cosmeur (patrimoine.bzh, tourismebretagne).", confidence:"verified" },
+      structure:{ text:"Deux pointes (Penn al Lann, Cosmeur), plages du Cosmeur, du Penquer et du Kelenn (visorando), parcs à huîtres.", confidence:"verified" },
+      exposition:{ text:"Tournée vers le nord-ouest (tourismebretagne).", confidence:"verified" },
+      courant:{ text:"Courant de marée de la baie ; heure non estimée (aucune source chiffrée).", confidence:"inference" },
+      bars:{ text:"Penn al Lan et les parcs du Kelenn (office de tourisme), le Cosmeur (mieuxpecher) ; le guide de Carantec pêche la baie du bord (sport-decouverte).", confidence:"verified" },
+    },
+    tidalRules:{
+      typeHeure:"MARÉE MONTANTE (PARCS)",
+      montantOuDescendant:"Zones ostréicoles « à privilégier à marée montante » (office de tourisme) ; à vue en fin de descendante et début de montante (Vidal, à propos des parcs du Morbihan ; appliqué ici par déduction).",
+      description:"Le flot recouvre la vasière et les parcs : les bars montent avec l'eau.",
+      windows:[
+        { id:"ca1", label:"Fin de descendant → début de montant", phase:"bm", offsetBefore:-1.5, offsetAfter:2.0, tidePhaseType:"variable", priority:"prime",
+          note:"Pêche à vue en bordure des parcs (Vidal, parcs du Morbihan, par déduction). Surface ou souple léger." },
+        { id:"ca2", label:"Montant", phase:"bm", offsetBefore:2.0, offsetAfter:5.5, tidePhaseType:"montant", priority:"bon",
+          note:"Marée montante sur les parcs et le pied des pointes (office de tourisme)." },
+      ],
+      lifeHack:"La vasière découvre sur des centaines de mètres : à marée montante, repartir avant que l'eau ne te coupe du bord.",
+    },
+    lures:[
+      { name:"Stickbait 90-110 mm", color:"Naturel / ghost", weight:"10-16 g", technique:"Surface sur les parcs (mieuxpecher : « parcs au leurre de surface »)." },
+      { name:"Shad 9-10 cm", color:"Naturel", weight:"tête 5-10 g", technique:"Leurre du guide de Carantec (« shads ») ; lent sur la vasière qui se couvre." },
+      { name:"Imitation de crabe", color:"Vert / brun", weight:"texan 5-10 g", technique:"Bars d'estuaire (Vidal, 2026), au pied des parcs." },
+    ],
+    access:"Sentier côtier (GR34) depuis la rue de Penn al Lann, l'allée du Cosmeur ou la plage du Kelenn (visorando, tourismebretagne).",
+    securite:[
+      { t:"Vasières qui découvrent « plusieurs centaines de mètres » : surveiller la marée montante pour ne pas être coupé du bord.", s:"patrimoine.bzh · office de tourisme (« gardez un œil sur la marée montante »)" },
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════
+  // 2. EMBOUCHURE DE LA PENZÉ — port de Carantec
+  // ══════════════════════════════════════════════════════════
+  {
+    id:"penze", tidePort:"chateaudutaureau", zone:"riviere", isLocal:true, dangerLevel:1,
+    name:"Embouchure de la Penzé", subtitle:"Port de Carantec",
+    riviere:"Penzé",
+    distance:"≈ 2 min", distMin:1, coords:"48°40,3'N 3°55,4'W", lat:48.672222, lon:-3.923333,
+    type:"EMBOUCHURE + PORT", color:"#16a34a",
+    terrain:{
+      fond:"Estuaire de la Penzé au port de Carantec ; grèves qui découvrent (Grande Grève au sud de Carantec) (visorando). Nature du fond non décrite.",
+      encombrement:1,
+      gratter:"oui",
+      prof:{ cls:"estran", why:"Embouchure qui découvre à marée basse, quais submersibles à pleine mer (visorando) : très peu d'eau au bord (déduit)." },
+      couches:["surface", "sous-surface", "mi-eau", "fond"],
+      montage:"Imitation de crabe ou souple léger au fond ; surface au flot.",
+      conseils:["Règle générale de Vidal pour le bar : souvent les trois premières heures de montante et les trois dernières de descendante, à recaler sur place.", "Pêcher la veine du chenal de la Penzé quand la grève se couvre."],
+      confidence:"inference",
+      source:"Déduit des descriptions du sentier (visorando) et des sources de pêche",
+      faits:[
+        { t:"« L'embouchure de la Penzée à Carantec » citée parmi les coins de pêche du Finistère nord.", s:"mieuxpecher.com — « Coins de pêche – Finistère NORD » (Norbert, 2018)" },
+        { t:"Le guide de pêche du bord couvre la côte « de la Penzé aux pointes rocheuses de Locquirec, en passant par Primel à Plougasnou ».", s:"baiedemorlaix.bzh — « La pêche au bar avec un guide pêche »" },
+        { t:"Port de Carantec sur l'estuaire de la Penzé ; à pleine mer de fort coefficient, passer par les rues ; quais du pont de la Corde et Grande Grève submersibles.", s:"visorando.com — « Tour de Carantec au départ d'Henvic »" },
+        { t:"« Les estuaires bretons et notamment finistériens » sont « très prisés par les pêcheurs de bars notamment à vue » ; imitations de crabe « très efficaces sur les bars d'estuaire ».", s:"peche-poissons.com — J.-B. Vidal (19/10/2026)" },
+      ],
+    },
+    coefBand:[35,50,80,100],
+    houleMax:2.0,
+    exposedAngles:[315,337.5,0], shelteredAngles:[135,157.5,180],
+    weatherNote:"Estuaire abrité de la houle du large ; le vent de nord remonte la Penzé et lève un clapot. Orientation déduite de la carte.",
+    sources:[
+      "mieuxpecher.com — « Coins de pêche – Finistère NORD » : embouchure de la Penzé à Carantec",
+      "baiedemorlaix.bzh — « La pêche au bar avec un guide pêche »",
+      "visorando.com — « Tour de Carantec au départ d'Henvic »",
+      "peche-poissons.com — J.-B. Vidal (19/10/2026) : estuaires",
+      "marinatips.com — Port de Carantec (coordonnées)",
+    ],
+    topology:{
+      fond:{ text:"Estuaire et grèves qui découvrent (visorando).", confidence:"verified" },
+      structure:{ text:"Port de Carantec, chenal de la Penzé, pont de la Corde en amont (visorando).", confidence:"verified" },
+      exposition:{ text:"Abrité de la houle, ouvert au vent de nord dans l'axe de l'estuaire. Déduit de la carte.", confidence:"inference" },
+      courant:{ text:"Courant d'estuaire entrant et sortant, maximal à mi-marée (règle des douzièmes).", confidence:"inference" },
+      bars:{ text:"Embouchure citée (mieuxpecher) ; estuaires réputés pour le bar (Vidal).", confidence:"verified" },
+    },
+    tidalRules:{
+      typeHeure:"3 PREMIÈRES HEURES DE MONTANTE · 3 DERNIÈRES DE DESCENDANTE (RÈGLE GÉNÉRALE)",
+      montantOuDescendant:"Règle générale de la source pour le bar (« souvent » les 3 premières heures de montante et les 3 dernières de descendante ; « les phases de marée […] vont dépendre de chaque coin ») : Vidal, 2026. Non propre à ce poste : à recaler avec ton journal.",
+      description:"Le flot fait entrer le poisson dans la Penzé, le jusant le fait ressortir par le chenal.",
+      windows:[
+        { id:"pz1", label:"3 premières heures de montante", phase:"bm", offsetBefore:0.0, offsetAfter:3.0, tidePhaseType:"montant", priority:"prime",
+          note:"Règle générale de la source (Vidal). Bordures du chenal, imitation de crabe ou souple léger." },
+        { id:"pz2", label:"3 dernières heures de descendante", phase:"bm", offsetBefore:-3.0, offsetAfter:0.0, tidePhaseType:"descendant", priority:"prime",
+          note:"Règle générale de la source (Vidal). Veine du chenal qui se vide." },
+      ],
+      lifeHack:"À pleine mer de fort coefficient, les quais du pont de la Corde sont submergés (visorando) : prévoir l'accès par les rues.",
+    },
+    lures:[
+      { name:"Imitation de crabe", color:"Vert / brun", weight:"texan 5-10 g", technique:"Bars d'estuaire (Vidal, 2026)." },
+      { name:"Shad 9-10 cm", color:"Naturel", weight:"tête 5-10 g", technique:"Veine du chenal." },
+      { name:"Stickbait 90-110 mm", color:"Naturel / ghost", weight:"10-16 g", technique:"Au flot, par eau calme." },
+    ],
+    access:"Port de Carantec par le sentier côtier ; à pleine mer de fort coefficient, passer par les rues (visorando).",
+    securite:[
+      { t:"Quais du pont de la Corde et Grande Grève submersibles à pleine mer : ne pas s'y laisser surprendre.", s:"visorando.com" },
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════
+  // 3. BARNÉNEZ – DOURDUFF — rive est de la rivière de Morlaix
+  // ══════════════════════════════════════════════════════════
+  {
+    id:"barnenez", tidePort:"chateaudutaureau", zone:"riviere", isLocal:false, dangerLevel:2,
+    name:"Barnénez – Dourduff", subtitle:"Parcs et pointe, rive est de la rivière de Morlaix (Plouezoc'h)",
+    riviere:"rivière de Morlaix (Dourduff)",
+    distance:"≈ 35 min", distMin:34, coords:"48°40,0'N 3°51,3'W", lat:48.667377, lon:-3.855132,
+    type:"PARCS + POINTE (RIVIÈRE)", color:"#34d399",
+    terrain:{
+      fond:"Zones ostréicoles du Dourduff, de Kerarmel et de Barnénez, « mer calme et peu d'eau » (office de tourisme) ; à la pointe, passages rocheux sous le sentier, sans plage (visorando).",
+      encombrement:2,
+      gratter:"texan",
+      prof:{ cls:"peu", why:"Parcs « peu d'eau » (office de tourisme) ; la rivière et l'anse du Dourduff sont citées pour la « profondeur des estuaires » (office de tourisme) : profondeur non mesurée." },
+      couches:["surface", "sous-surface", "mi-eau", "fond"],
+      montage:"Surface ou souple léger sur les parcs ; texan ou crabe le long des roches de la pointe.",
+      conseils:["Parcs : marée montante (office de tourisme), à vue en fin de descendante et début de montante (Vidal, à propos des parcs du Morbihan ; appliqué ici par déduction).", "Pointe : « le passage entre la pointe et l'île de Stérec » (office de tourisme)."],
+      confidence:"inference",
+      source:"Office de tourisme (pêcheur local), Vidal, visorando, portbooker",
+      faits:[
+        { t:"Pointe de Barnenez : « le passage entre la pointe et l'île de Stérec » ; zones ostréicoles Dourduff, Kerarmel et Barnenez (rive est) « à privilégier à marée montante », « mer calme et peu d'eau ».", s:"baiedemorlaix.bzh — office de tourisme, « La pêche du bord de mer en Baie de Morlaix »" },
+        { t:"Les bars chassent dans « la profondeur des estuaires (rade de Morlaix, anse du Dourduff, baie de Locquirec) » et près des parcs.", s:"baiedemorlaix.bzh — « La pêche au bar avec un guide pêche »" },
+        { t:"Parking du port de Barnénez (quai Louis le Port), sur la rivière de Morlaix ; balcon de Kerarmel sur l'estuaire ; pointe de Barnénez face à l'île Noire et au château du Taureau, puis face à l'île Stérec ; « be careful of the tide », pas de plage sous le sentier, seulement des passages rocheux.", s:"visorando.com — « Presqu'île de Barnenez et anse de Térénez » (48,667377 / -3,855132)" },
+        { t:"À propos des parcs à huîtres du golfe du Morbihan (La Trinité, Étel) : « On peut y pêcher à vue en fin de descendante et début de montante ». Appliqué ici par déduction.", s:"peche-poissons.com — J.-B. Vidal (19/10/2026)" },
+      ],
+    },
+    coefBand:[35,50,80,100],
+    houleMax:2.0,
+    exposedAngles:[315,337.5,0,22.5], shelteredAngles:[135,157.5,180,202.5],
+    weatherNote:"Rive est de la rivière de Morlaix, abritée de la houle ; le vent de nord entre dans l'estuaire. Orientation déduite de la carte.",
+    sources:[
+      "baiedemorlaix.bzh — office de tourisme : pointe de Barnenez, zones ostréicoles de la rive est",
+      "baiedemorlaix.bzh — « La pêche au bar avec un guide pêche » : anse du Dourduff",
+      "visorando.com — « Presqu'île de Barnenez et anse de Térénez »",
+      "peche-poissons.com — J.-B. Vidal (19/10/2026) : parcs à huîtres (du Morbihan)",
+      "portbooker.com — port du Dourduff (Plouezoc'h)",
+    ],
+    topology:{
+      fond:{ text:"Parcs à huîtres, « peu d'eau » ; passages rocheux à la pointe (office de tourisme, visorando).", confidence:"verified" },
+      structure:{ text:"Rivière de Morlaix, anse du Dourduff, presqu'île de Barnénez, île Stérec (office de tourisme, visorando).", confidence:"verified" },
+      exposition:{ text:"Abritée de la houle, ouverte au nord sur la baie. Déduit de la carte.", confidence:"inference" },
+      courant:{ text:"Courant d'estuaire, maximal à mi-marée (règle des douzièmes) ; « passage » entre la pointe et Stérec.", confidence:"inference" },
+      bars:{ text:"Pointe et parcs cités par un pêcheur local (office de tourisme) ; la pêche à vue des parcs est décrite par Vidal pour le Morbihan.", confidence:"verified" },
+    },
+    tidalRules:{
+      typeHeure:"MARÉE MONTANTE (PARCS) · FIN DE DESCENDANTE À VUE",
+      montantOuDescendant:"Zones ostréicoles « à privilégier à marée montante » (office de tourisme) ; à vue en fin de descendante et début de montante (Vidal, à propos des parcs du Morbihan ; appliqué ici par déduction).",
+      description:"Le flot recouvre les parcs : les bars y entrent avec l'eau.",
+      windows:[
+        { id:"bn1", label:"Fin de descendant → début de montant", phase:"bm", offsetBefore:-1.5, offsetAfter:2.0, tidePhaseType:"variable", priority:"prime",
+          note:"À vue en bordure des parcs (Vidal, parcs du Morbihan, par déduction)." },
+        { id:"bn2", label:"Montant", phase:"bm", offsetBefore:2.0, offsetAfter:5.5, tidePhaseType:"montant", priority:"bon",
+          note:"Marée montante sur les parcs ; passage de Stérec à la pointe." },
+      ],
+      lifeHack:"Entre le parking et la pointe, le sentier passe au-dessus de l'estran sans plage : ne pas descendre sur les roches par marée montante (visorando).",
+    },
+    lures:[
+      { name:"Stickbait 90-110 mm", color:"Naturel / ghost", weight:"10-16 g", technique:"Surface sur les parcs (mieuxpecher)." },
+      { name:"Imitation de crabe", color:"Vert / brun", weight:"texan 5-10 g", technique:"Bars d'estuaire (Vidal, 2026)." },
+      { name:"Shad 9-10 cm", color:"Naturel", weight:"tête 5-10 g", technique:"Passage de Stérec, au montant." },
+    ],
+    access:"Parking du port de Barnénez (quai Louis le Port), puis sentier côtier (GR34) vers Kerarmel et la pointe (visorando).",
+    securite:[
+      { t:"Sentier au-dessus d'un estran sans plage, passages rocheux : prudence avec la marée.", s:"visorando.com" },
+      { t:"« Gardez un œil sur la marée montante. »", s:"office de tourisme (2014)" },
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════
+  // 4. POINTE DE PRIMEL (Plougasnou)
+  // ══════════════════════════════════════════════════════════
+  {
+    id:"primel", tidePort:"primel", zone:"inter", isLocal:false, dangerLevel:2,
+    name:"Pointe de Primel", subtitle:"Primel-Trégastel, Plougasnou",
+    distance:"≈ 45 min", distMin:43, coords:"48°42,9'N 3°49,1'W", lat:48.7154, lon:-3.81788,
+    type:"POINTE ROCHEUSE", color:"#f59e0b",
+    terrain:{
+      fond:"Pointe de granite (site d'escalade, oblyk.org) ; éperon rocheux barré (patrimoine.bzh). Nature du fond au large non décrite.",
+      encombrement:3,
+      gratter:"non",
+      prof:{ cls:"peu", why:"Pointe rocheuse : profondeur non décrite par les sources (déduit)." },
+      couches:["surface", "sous-surface", "mi-eau"],
+      montage:"Stickbait ou souple plombé tenu au-dessus des roches.",
+      conseils:["Le poste cité : « au niveau du menhir est le meilleur coin » (office de tourisme).", "Lancer depuis un rocher sûr, la pointe est ventée."],
+      confidence:"inference",
+      source:"Office de tourisme (pêcheur local), mieuxpecher, oblyk, patrimoine.bzh",
+      faits:[
+        { t:"Pointe de Primel-Trégastel (Plougasnou) : « au niveau du menhir est le meilleur coin » ; la pointe de Primel est aussi un lieu « privilégié pour le surfcasting ».", s:"baiedemorlaix.bzh — office de tourisme, « La pêche du bord de mer en Baie de Morlaix »" },
+        { t:"« Les alentours de la pointe de Primel » cités parmi les coins de pêche du Finistère nord.", s:"mieuxpecher.com — « Coins de pêche – Finistère NORD » (Norbert, 2018)" },
+        { t:"Le guide de pêche du bord passe « par Primel à Plougasnou ».", s:"baiedemorlaix.bzh — « La pêche au bar avec un guide pêche »" },
+        { t:"Pointe de Primel : granite, 51 voies d'escalade ; 48,7154 / -3,81788.", s:"oblyk.org — La pointe de Primel" },
+        { t:"Ouvrage fortifié (éperon barré) à la pointe de Primel.", s:"patrimoine.bzh — inventaire, pointe de Primel" },
+      ],
+    },
+    coefBand:[35,50,80,100],
+    houleMax:1.5,
+    exposedAngles:[292.5,315,337.5,0,22.5], shelteredAngles:[135,157.5,180],
+    weatherNote:"Pointe avancée vers le nord, entre la baie de Morlaix et la Manche : exposée de nord-ouest à nord-est ; le vent de sud l'abrite. Orientation déduite de la carte.",
+    sources:[
+      "baiedemorlaix.bzh — office de tourisme : pointe de Primel (menhir), surfcasting",
+      "mieuxpecher.com — « Coins de pêche – Finistère NORD » : alentours de la pointe de Primel",
+      "baiedemorlaix.bzh — « La pêche au bar avec un guide pêche »",
+      "oblyk.org — La pointe de Primel (roche, coordonnées)",
+      "patrimoine.bzh — inventaire, pointe de Primel",
+    ],
+    topology:{
+      fond:{ text:"Granite (oblyk).", confidence:"verified" },
+      structure:{ text:"Éperon rocheux (patrimoine.bzh), menhir cité comme poste (office de tourisme).", confidence:"verified" },
+      exposition:{ text:"Nord-ouest à nord-est. Déduit de la carte.", confidence:"inference" },
+      courant:{ text:"Courant de marée en bout de pointe ; heure non estimée (côte ouverte, aucune source).", confidence:"inference" },
+      bars:{ text:"« Meilleur coin » au menhir (pêcheur local, office de tourisme) ; cité par mieuxpecher et le guide de pêche.", confidence:"verified" },
+    },
+    tidalRules:{
+      typeHeure:"FLOT + COEFFICIENTS MOYENS",
+      montantOuDescendant:"Aucune source ne donne l'heure de marée à la pointe ; le guide garde le flot et la pleine mer, avec les coefficients de 70 à 80 que l'office de tourisme dit les plus propices.",
+      description:"Pointe de roche : la houle de nord décide d'abord si l'on peut y aller.",
+      windows:[
+        { id:"pr1", label:"Montant", phase:"bm", offsetBefore:1.0, offsetAfter:5.0, tidePhaseType:"montant", priority:"prime",
+          note:"Au niveau du menhir (office de tourisme). Stickbait ou souple plombé." },
+        { id:"pr2", label:"Pleine mer → début de descendant", phase:"pm", offsetBefore:-1.0, offsetAfter:2.0, tidePhaseType:"variable", priority:"bon",
+          note:"Roches couvertes, surface par mer calme." },
+      ],
+      lifeHack:"Le port de marée de l'anse de Primel est au pied de la pointe : l'heure de marée est celle du poste.",
+    },
+    lures:[
+      { name:"Stickbait 110-130 mm", color:"Ghost / sardine", weight:"14-27 g", technique:"Lancer loin depuis la pointe, mer calme." },
+      { name:"Souple 12 cm tête plombée", color:"Blanc / naturel", weight:"tête 10-21 g", technique:"Tenu au-dessus des roches." },
+      { name:"Poisson nageur 110-130 mm", color:"Naturel", weight:"14-20 g", technique:"« Leurres souples ou dures (Rapala – poisson nageur) » (office de tourisme)." },
+    ],
+    access:"Primel-Trégastel (Plougasnou) ; un site de photographie signale le parking « in the near of the Camping Areal » (locationscout.net), puis la pointe à pied.",
+    securite:[
+      { t:"Pointe ventée, roches de granite : bonnes chaussures, jamais au ras de l'eau par houle de nord.", s:"locationscout.net (« Good Shoes. It's Windy ») · prudence du guide" },
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════
+  // 5. SAINT-JEAN-DU-DOIGT (Plougasnou)
+  // ══════════════════════════════════════════════════════════
+  {
+    id:"saintjean", tidePort:"primel", zone:"inter", isLocal:false, dangerLevel:1,
+    name:"Saint-Jean-du-Doigt", subtitle:"Rochers à droite de la plage, Plougasnou",
+    distance:"≈ 40 min", distMin:41, coords:"48°42,0'N 3°47,1'W", lat:48.7005284, lon:-3.785285,
+    type:"PLAGE + ROCHERS", color:"#84cc16",
+    terrain:{
+      fond:"Très grande plage de sable et de galets (tourismebretagne) ; rochers à droite de la plage (office de tourisme).",
+      encombrement:2,
+      gratter:"texan",
+      prof:{ cls:"peu", why:"Plage de sable et galets : peu d'eau au bord (déduit, aucune sonde)." },
+      couches:["surface", "sous-surface", "mi-eau", "fond"],
+      montage:"Souple plombé sur le sable ; texan ou weightless le long des rochers.",
+      conseils:["Le poste est la droite de la plage, côté rochers (office de tourisme).", "Une seule source pour ce spot : à confirmer par ton journal."],
+      confidence:"inference",
+      source:"Office de tourisme (pêcheur local), tourismebretagne",
+      faits:[
+        { t:"« À droite de la plage de St-Jean-du-Doigt (très bon lieu du bar). » ; La Roche Large à Saint-Jean-du-Doigt, lieu « privilégié pour le surfcasting ».", s:"baiedemorlaix.wordpress.com — office de tourisme (11/07/2014) · baiedemorlaix.bzh" },
+        { t:"Très grande plage de sable et de galets entre le centre de Plougasnou et le village de Saint-Jean-du-Doigt ; non surveillée ; parking gratuit ; connue pour la pêche à pied.", s:"tourismebretagne.com — Plage de Plougasnou – Saint-Jean-du-Doigt (48,7005284 / -3,785285)" },
+      ],
+    },
+    coefBand:[35,50,80,100],
+    houleMax:1.8,
+    exposedAngles:[315,337.5,0,22.5], shelteredAngles:[135,157.5,180,202.5],
+    weatherNote:"Grande plage de la côte nord ouverte sur la Manche : houle et vent de nord de face. Orientation déduite de la carte.",
+    sources:[
+      "baiedemorlaix.wordpress.com / baiedemorlaix.bzh — office de tourisme (pêcheur local de Plougasnou)",
+      "tourismebretagne.com — Plage de Plougasnou – Saint-Jean-du-Doigt",
+    ],
+    topology:{
+      fond:{ text:"Sable et galets (tourismebretagne).", confidence:"verified" },
+      structure:{ text:"Grande plage, rochers sur sa droite (office de tourisme).", confidence:"verified" },
+      exposition:{ text:"Nord. Déduit de la carte.", confidence:"inference" },
+      courant:{ text:"Courants de plage par houle ; pas de mesure.", confidence:"inference" },
+      bars:{ text:"« Très bon lieu du bar » selon un pêcheur local (office de tourisme) — seule source.", confidence:"verified" },
+    },
+    tidalRules:{
+      typeHeure:"FLOT",
+      montantOuDescendant:"Aucune source propre au poste : flot qui couvre le pied des rochers, comme sur les autres plages du guide.",
+      description:"Plage de la côte nord : les rochers de droite sont le poste.",
+      windows:[
+        { id:"sj1", label:"Montant (BM+1 → BM+5,5)", phase:"bm", offsetBefore:1.0, offsetAfter:5.5, tidePhaseType:"montant", priority:"prime",
+          note:"Le flot couvre le pied des rochers de droite." },
+        { id:"sj2", label:"Début de descendant", phase:"pm", offsetBefore:0.0, offsetAfter:2.0, tidePhaseType:"descendant", priority:"bon",
+          note:"Sortie des rochers." },
+      ],
+      lifeHack:"Note chaque sortie dans le journal : c'est le seul moyen de confirmer l'heure de ce poste.",
+    },
+    lures:[
+      { name:"Souple 12 cm tête plombée", color:"Blanc / naturel", weight:"tête 10-15 g", technique:"Sur le sable devant les rochers." },
+      { name:"Stickbait 110-130 mm", color:"Ghost / sardine", weight:"14-27 g", technique:"Mer calme, aube ou crépuscule." },
+    ],
+    access:"Route de la plage (Plougasnou), parking gratuit (tourismebretagne).",
+    securite:[],
+  },
+
+  // ══════════════════════════════════════════════════════════
+  // 6. LOCQUIREC — pointe et digue
+  // ══════════════════════════════════════════════════════════
+  {
+    id:"locquirec", tidePort:"locquirec", zone:"far", isLocal:false, dangerLevel:1,
+    name:"Locquirec : pointe et digue", subtitle:"Port de Locquirec, baie de Locquirec",
+    distance:"≈ 50 min", distMin:49, coords:"48°41,4'N 3°38,8'W", lat:48.6898, lon:-3.6469,
+    type:"POINTE + DIGUE", color:"#a3e635",
+    terrain:{
+      fond:"Pointe rocheuse et digue du port (mieuxpecher, office de tourisme) ; sable et roches (fiche de surf de Locquirec, mondo.surf). Nature du fond devant la digue non décrite.",
+      encombrement:2,
+      gratter:"texan",
+      prof:{ cls:"estran", why:"« Port d'échouage » ; en dedans de la jetée, le fond « assèche de 5 à 6 m » (fiche du port, Météo Consult) : très peu d'eau à marée basse." },
+      couches:["surface", "sous-surface", "mi-eau", "fond"],
+      montage:"Stickbait ou souple léger le long de la digue ; texan sur les roches de la pointe.",
+      conseils:["La digue « à la nuit tombée » (mieuxpecher).", "La baie de Locquirec est citée pour la profondeur de son estuaire, où chassent les bars (office de tourisme)."],
+      confidence:"inference",
+      source:"mieuxpecher, office de tourisme, sea-seek, mondo.surf",
+      faits:[
+        { t:"« La pointe de Locquirec » et « La digue de Locquirec à la nuit tombée » citées parmi les coins de pêche du Finistère nord.", s:"mieuxpecher.com — « Coins de pêche – Finistère NORD » (Norbert, 2018)" },
+        { t:"Guide de pêche du bord jusqu'« aux pointes rocheuses de Locquirec » ; les bars chassent dans « la profondeur des estuaires (… baie de Locquirec) ».", s:"baiedemorlaix.bzh — « La pêche au bar avec un guide pêche »" },
+        { t:"Port de Locquirec : 304 bouées d'échouage, 26 en pleine eau ; 48,6898 / -3,6469.", s:"sea-seek.com — Locquirec" },
+        { t:"Fiche de surf « Locquirec » : fond de sable et de roches, houle idéale d'ouest, vent idéal de sud-ouest, marée moyenne à haute.", s:"mondo.surf — Locquirec (48,694933 / -3,650467)" },
+        { t:"Moulin de la Rive à Locquirec, lieu « privilégié pour le surfcasting » ; criques de la côte sauvage de Locquirec à Barnenez « accessibles en fonction des marées ».", s:"baiedemorlaix.bzh — office de tourisme" },
+      ],
+    },
+    coefBand:[35,50,80,100],
+    houleMax:1.8,
+    exposedAngles:[315,337.5,0,22.5,45], shelteredAngles:[202.5,225,247.5],
+    weatherNote:"Le port est « Abrité des vents d'W et N », avec « Fort clapot par vents de NW à NE » ; « une jetée débordée au N par des rochers », fond qui « assèche de 5 à 6 m » en dedans (fiche du port, Météo Consult). La digue prend donc le clapot de nord-ouest à nord-est ; le vent de sud-ouest est de dos.",
+    sources:[
+      "mieuxpecher.com — « Coins de pêche – Finistère NORD » : pointe et digue de Locquirec",
+      "baiedemorlaix.bzh — « La pêche au bar avec un guide pêche » ; office de tourisme",
+      "sea-seek.com — Locquirec (port, coordonnées)",
+      "mondo.surf — Locquirec (fond, houle et vent)",
+      "figaronautisme.meteoconsult.fr — informations du port de Locquirec (abri, clapot, échouage)",
+    ],
+    topology:{
+      fond:{ text:"Sable et roches (mondo.surf) ; port d'échouage (sea-seek).", confidence:"verified" },
+      structure:{ text:"Pointe rocheuse, digue du port, baie de Locquirec (mieuxpecher, office de tourisme).", confidence:"verified" },
+      exposition:{ text:"Port abrité des vents d'ouest et de nord, fort clapot par vents de nord-ouest à nord-est (fiche du port).", confidence:"verified" },
+      courant:{ text:"Courant de marée en bout de pointe ; heure non estimée (aucune source).", confidence:"inference" },
+      bars:{ text:"Pointe et digue (mieuxpecher), baie et pointes rocheuses (office de tourisme).", confidence:"verified" },
+    },
+    tidalRules:{
+      typeHeure:"FLOT + NUIT TOMBANTE",
+      montantOuDescendant:"La seule consigne datée est l'heure de la journée : la digue « à la nuit tombée » (mieuxpecher). Marée : flot et pleine mer, port d'échouage (déduit).",
+      description:"La digue se pêche au crépuscule ; le port d'échouage (bouées d'échouage, sea-seek) découvre en partie à marée basse : le flot et la pleine mer sont retenus (déduit).",
+      windows:[
+        { id:"lq1", label:"Montant", phase:"bm", offsetBefore:2.0, offsetAfter:5.5, tidePhaseType:"montant", priority:"prime",
+          note:"Le long de la digue quand le port se remplit ; idéalement à la nuit tombée (mieuxpecher)." },
+        { id:"lq2", label:"Pleine mer → début de descendant", phase:"pm", offsetBefore:-1.0, offsetAfter:2.0, tidePhaseType:"variable", priority:"bon",
+          note:"Bout de la pointe et digue." },
+      ],
+      lifeHack:"Pour la digue, vise un créneau de marée qui tombe au crépuscule : c'est la consigne de la source.",
+    },
+    lures:[
+      { name:"Stickbait 110-130 mm", color:"Naturel / ghost", weight:"14-27 g", technique:"À la nuit tombée le long de la digue." },
+      { name:"Souple 12 cm tête plombée", color:"Blanc / naturel", weight:"tête 10-15 g", technique:"Pied de la digue et roches de la pointe." },
+    ],
+    access:"Port de Locquirec (sea-seek) ; la digue et la pointe à pied (mieuxpecher).",
+    securite:[
+      { t:"Criques de la côte sauvage « accessibles en fonction des marées » : vérifier l'heure de la marée avant d'y descendre.", s:"office de tourisme" },
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════
+  // 7. BAIE DU KERNIC — Haut-Léon (Plouescat, Plounévez-Lochrist, Tréflez)
+  // ══════════════════════════════════════════════════════════
+  {
+    id:"kernic", tidePort:"brignogan", zone:"ouest", isLocal:false, dangerLevel:2,
+    name:"Baie du Kernic", subtitle:"Plouescat, Plounévez-Lochrist et Ker Emma (Haut-Léon)",
+    // Position : accès de la plage de Plounévez-Lochrist donné par atout-pecheur, à 1,6 km à l'ouest de la baie elle-même.
+    distance:"≈ 40 min", distMin:39, coords:"48°39,0'N 4°14,1'W", lat:48.650361, lon:-4.235063,
+    type:"BAIE + PLAGE", color:"#84cc16",
+    terrain:{
+      fond:"Baie de 250 ha ; en fond de baie, « des sables très fins et riches en matière organique et en limon », le « sable bleu » (office de tourisme de Roscoff). Grande plage de Ker Emma à l'ouest (cannes-peche), Porz ar Streat de l'autre côté de la baie (atout-pecheur).",
+      encombrement:1,
+      gratter:"oui",
+      prof:{ cls:"estran", why:"La baie sert d'hippodrome en août depuis 1882 et a été un terrain d'aviation dans les années 1930 (office de tourisme de Roscoff) : elle découvre largement à marée basse (déduit)." },
+      couches:["surface", "sous-surface", "mi-eau", "fond"],
+      montage:"Souple léger ou leurre de surface lancé-ramené côté Porz ar Streat ; la plage se pêche aussi au surfcasting (atout-pecheur).",
+      conseils:["« Baie du Kernic et la grande plage de Ker Emma » parmi les coins à bar du bord (cannes-peche).", "Une seule source nomme le bar ici (cannes-peche) ; atout-pecheur cite le poste pour la pêche sans dire l'espèce.", "Aucune source ne donne l'heure de marée de ce poste : le guide applique la règle du secteur (marée montante) ; ton journal dira mieux."],
+      confidence:"inference",
+      source:"cannes-peche, atout-pecheur, office de tourisme de Roscoff",
+      faits:[
+        { t:"« Plounévez-Lochrist / Tréflez (baie du Kernic et la grande plage de Ker Emma) » parmi les coins à bar du bord.", s:"cannes-peche.blog4ever.com — « Les coins de pêche à bar / loup (du bord) » (Alain, 07/11/2016)" },
+        { t:"« Surf casting sur la plage et lancer/ramener du coté de porz ar streat de l'autre coté de la baie de Kernic » ; position 48,650361 / -4,235063 (espèces non précisées).", s:"atout-pecheur.fr — Plage de Plounévez-Lochrist (29430 Plouescat)" },
+        { t:"« La baie du Kernic couvre aujourd'hui 250 hectares » ; en fond de baie, des sables très fins, riches en matière organique et en limon ; courses hippiques dans la baie chaque mois d'août depuis 1882, terrain d'aviation dans les années 30.", s:"roscoff-tourisme.com — « Plouescat grandeur nature » (brochure)" },
+        { t:"Côté Pen An Théven, à l'entrée du Goulet : « Par grande marée, l'étroitesse de cette entrée peut provoquer un courant violent. Amis nageurs, attention ! » ; les dunes de Keremma sont « juste en face ».", s:"roscoff-tourisme.com — « Plouescat grandeur nature »" },
+        { t:"La pêche à pied se pratique sur les 13 km de côte de Plouescat, « à l'exception de la baie du Kernic ».", s:"roscoff-tourisme.com — « Plouescat grandeur nature »" },
+      ],
+    },
+    coefBand:[35,50,80,100],
+    houleMax:1.5,
+    exposedAngles:[292.5,315,337.5,0,22.5], shelteredAngles:[135,157.5,180],
+    weatherNote:"Baie ouverte vers le nord-ouest par une entrée étroite entre Pen An Théven et les dunes de Keremma (office de tourisme de Roscoff) ; orientation déduite de la carte : vent et houle de nord-ouest de face, vent de sud de dos.",
+    sources:[
+      "cannes-peche.blog4ever.com — baie du Kernic et grande plage de Ker Emma",
+      "atout-pecheur.fr — Plage de Plounévez-Lochrist",
+      "roscoff-tourisme.com — « Plouescat grandeur nature »",
+    ],
+    topology:{
+      fond:{ text:"Sables très fins, riches en limon en fond de baie (office de tourisme de Roscoff).", confidence:"verified" },
+      structure:{ text:"Baie de 250 ha, entrée étroite côté Pen An Théven, dunes et plage de Keremma, Porz ar Streat (office de tourisme, cannes-peche, atout-pecheur).", confidence:"verified" },
+      exposition:{ text:"Nord-ouest. Déduit de la carte.", confidence:"inference" },
+      courant:{ text:"« Par grande marée, l'étroitesse de cette entrée peut provoquer un courant violent » (office de tourisme de Roscoff).", confidence:"verified" },
+      bars:{ text:"Une seule source nomme le bar : baie et plage de Ker Emma (cannes-peche). atout-pecheur cite le lancer-ramener côté Porz ar Streat, sans espèce.", confidence:"inference" },
+    },
+    tidalRules:{
+      typeHeure:"MARÉE MONTANTE (RÈGLE DU SECTEUR)",
+      montantOuDescendant:"Aucune source propre au poste ; règle du secteur : « gardez un œil sur la marée montante » et pêche de la mer qui monte sur les fonds qui découvrent (office de tourisme de la baie de Morlaix).",
+      description:"Baie qui découvre : le flot la remplit par son entrée étroite et ramène le poisson sur le sable.",
+      windows:[
+        { id:"ke1", label:"Montant", phase:"bm", offsetBefore:1.0, offsetAfter:5.0, tidePhaseType:"montant", priority:"prime",
+          note:"Règle du secteur, non propre au poste. Lancer-ramener côté Porz ar Streat." },
+        { id:"ke2", label:"Pleine mer", phase:"pm", offsetBefore:-1.0, offsetAfter:1.0, tidePhaseType:"variable", priority:"bon",
+          note:"Baie pleine, plage de Ker Emma." },
+      ],
+      lifeHack:"Le port de marée est Brignogan-Plage, à 7 km à l'ouest : c'est le port SHOM le plus proche de la baie.",
+    },
+    lures:[
+      { name:"Souple 10-12 cm tête légère", color:"Naturel / blanc", weight:"tête 5-10 g", technique:"Lancer-ramener sur le sable, côté Porz ar Streat." },
+      { name:"Stickbait 110-130 mm", color:"Ghost / sardine", weight:"14-27 g", technique:"Mer calme, aube ou crépuscule." },
+    ],
+    access:"Plage de Plounévez-Lochrist (atout-pecheur) ; Porz ar Streat, à Plouescat, de l'autre côté de la baie.",
+    securite:[
+      { t:"Par grande marée, l'entrée étroite de la baie « peut provoquer un courant violent » (avertissement aux nageurs) : ne pas s'y avancer dans l'eau. Seuil de 95 retenu par le guide pour « grande marée ».", s:"roscoff-tourisme.com — « Plouescat grandeur nature » · seuil déduit", when:{ coefAbove:95 } },
+      { t:"Baie qui découvre largement : à marée montante, garder le chemin du retour vers le haut de plage.", s:"prudence du guide (baie qui découvre, déduit)" },
+    ],
+  },
+];

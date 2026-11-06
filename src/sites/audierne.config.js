@@ -1,0 +1,822 @@
+// Configuration du site Audierne (Cap Sizun, baie d'Audierne et Penmarc'h, Finistère sud) : tout ce qui
+// est propre au lieu (spots, zones, ports de marée, principes). Le moteur (src/engine) est commun.
+//
+// Recherche du 29/10/2026. Chaque fait porte sa source ; ce qui n'en a pas est marqué « déduit »
+// (confidence:"inference"). Le secteur est à cheval sur le 48e parallèle : le Cap Sizun est au nord
+// (règles de la Manche et de l'Iroise), la baie d'Audierne sud et Penmarc'h au sud (golfe de Gascogne).
+export const SITE = {
+  id: "audierne",
+  name: "Audierne",
+  region: "Cap Sizun et baie d'Audierne, Finistère sud",
+  dept: "29770",
+  headerLabel: "CAP SIZUN",
+  // Position du marégraphe d'Audierne (TICON-4) : requise pour le calcul solaire réel.
+  lat: 48.0215, lon: -4.5376,
+  tidePort: "Audierne",
+  tideSources: "constantes TICON-4 (Audierne) ; port secondaire de Saint-Guénolé ajusté sur les tables publiées par marine.meteoconsult.fr (données SHOM)",
+  weatherSources: "Open-Meteo (AROME, ECMWF), modèle de vagues Open-Meteo",
+  zones: {
+    local: { label: "Cap Sizun", anchor: "Audierne / Plogoff (29770)", sea: "open" },
+    inter: { label: "Baie d'Audierne", anchor: "Pouldreuzic (29710)", sea: "open" },
+    far:   { label: "Pays bigouden sud", anchor: "Plomeur / Penmarc'h (29120, 29760)", sea: "open" },
+  },
+  // Marnage moyen morte-eau ↔ vive-eau à Audierne (coefficients 45 et 95) : moyenne 2026 du calcul de marée,
+  // cohérente avec les tables d'octobre 2026.
+  marnage: { neap: 2.1, spring: 4.3 },
+  preyCalendar: [
+    { name:"Crevette (bouquet, grise)", couche:"sous-surface", months:[1,2,3,4,5,6,7,8,9,10,11,12], weight:2,
+      size:"3-7 cm", guidance:"Profil court et discret. Souple 8-10 cm animé lentement sur les bordures de goémon et les fonds mixtes." },
+    { name:"Lançon / équille", couche:"sous-surface", months:[4,5,6,7,8,9], weight:5,
+      size:"8-15 cm", guidance:"La proie reine de l'été sur les plages de sable. Repère d'un guide du cap Sizun : Sand Eel monté sur tête de 21 g." },
+    { name:"Crabe (vert, mou en période de mue)", couche:"fond", months:[5,6,7,8,9], weight:3,
+      size:"3-6 cm", guidance:"Source peche-poissons.com (2026) : imitations de crabe « très efficaces sur les bars d'estuaire » (Goyen). Souple compact très lent au ras du fond." },
+    { name:"Alevins de mulet", couche:"surface", months:[6,7,8,9], weight:3,
+      size:"3-8 cm", guidance:"Bancs en surface près des bordures et des ports. Petit stickbait ou souple weightless au bord du banc." },
+    { name:"Sardine", couche:"mi-eau", months:[6,7,8,9,10], weight:4,
+      size:"15-20 cm", guidance:"Source peche.com : en présence de sardines, monter en taille (souple de 14 cm sur tête de 20 g en linéaire). Les oiseaux restent le meilleur indicateur de chasse." },
+    { name:"Sprat", couche:"mi-eau", months:[10,11,12,1,2,3], weight:4,
+      size:"8-12 cm", guidance:"Bancs d'hiver. Shad de 10 cm plombé de 12 à 25 g selon profondeur et courant (peche.com). Suivre les oiseaux." },
+  ],
+  seedJournal: [],
+  tide: {
+    defaultPort: "audierne",
+    ports: {
+      audierne: { label: "Audierne", kind: "harmonic", station: "audierne", z0: 2.998, lagH: -0.37,
+        accuracy: "contrôlée contre les tables SHOM : ±4,5 min · ±3,5 cm (novembre 2026, mois de contrôle)" },
+      saintguenole: { label: "Saint-Guénolé", kind: "secondary", ref: "audierne", lagH: -0.45,
+        hw: { t: [8.2491, -2.90207], h: [2.9655, 0.98539] }, lw: { t: [5.3484, -4.27845], h: [2.9289, 0.98183] },
+        accuracy: "contrôlée contre les tables SHOM : ±2,5 min · ±4 cm (novembre 2026, mois de contrôle)" },
+      // Penhors est entre Audierne et Saint-Guénolé : poids d'après la latitude (47,94 entre 48,02 et 47,82).
+      penhors: { label: "Penhors (interpolé)", kind: "interp", a: "audierne", b: "saintguenole", w: 0.4,
+        accuracy: "Interpolé Audierne / Saint-Guénolé, non contrôlé sur place (les deux ports sont à ±2,5 à ±4,5 min)" },
+    },
+  },
+  sstTypical: [10, 17],
+};
+
+// ═══════════════════════════════════════════════════════════════════
+// PRINCIPES DE PÊCHE DU SECTEUR (sourcés)
+// ═══════════════════════════════════════════════════════════════════
+export const GENERAL_PRINCIPLES = {
+  title: "Principes de la pêche du bar du bord au Cap Sizun et en baie d'Audierne",
+  items: [
+    {
+      rule: "À la pointe du Raz : sur place une heure avant la pleine mer, pêcher deux à trois heures",
+      source: "peche-poissons.com — julien, « Au leurre, à la pointe du Raz » (17/12/2021), conseils du guide Yves Pennanen",
+      explain: "« Le début de la montante est souvent excellent. » Bars et lieus se tiennent dans les zones de courant. Le poste est un promontoire à une trentaine de mètres au-dessus de l'eau : canne de 2,40 à 2,70 m, assez puissante pour remonter le poisson ; rochers couverts d'algues et de lichen glissants.",
+    },
+    {
+      rule: "Raz de Sein : renverse peu avant les pleines et basses mers de Brest, 6 nœuds en vive-eau",
+      source: "bateaux.com — C. Fernbach, « Le Raz de Sein, les bons conseils pour ce passage délicat » (08/07/2025) · lordjimcroisieres.com",
+      explain: "Le courant s'inverse 20 minutes avant la basse mer de Brest et 45 minutes avant la pleine mer (bateaux.com) ; « environ 1 h avant la PM de Brest » selon une autre source. L'étale dure une trentaine de minutes. En vive-eau, 6 nœuds, et une « mer démontée dès qu'il s'opposera au vent même modéré ».",
+    },
+    {
+      rule: "Une saison qui démarre tard sur le cap",
+      source: "Pêche-Rando Bar (guide de pêche du bar au cap Sizun) — bilans 2016 et 2018",
+      explain: "L'eau du cap dépasse rarement 15 °C en début de saison ; en 2018, l'eau froide « jusqu'à début juin » a retardé l'arrivée des poissons. Les fonds de baie peu profonds, plus chauds, se réveillent les premiers.",
+    },
+    {
+      rule: "Eau claire et calme : descendre en diamètre ; le matin tôt",
+      source: "Pêche-Rando Bar — « Petit bilan 2018 » (06/03/2019)",
+      explain: "Par eau claire et mer calme, le guide descend en diamètre de bas de ligne ; ses meilleurs poissons sont venus tôt le matin. En octobre, par forte houle, les leurres de surface ne sont « quasiment pas utilisables ».",
+    },
+    {
+      rule: "Grosse houle : leurre lourd, et un 93 cm au fond d'une crique",
+      source: "Pêche-Rando Bar — « Une petite sélection de leurres pour pêcher du bord » (24/02/2020) et bilan 2017",
+      explain: "Sélection du guide : Sand Eel sur tête de 21 g, Gambler 5\" sur tête de 7 g, Nitro Shad 90 sur tête de 15 g, Dolive Shad 4,5\" sans plomb ; Chihuahua 110 par mer formée ; jig dans le gros ressac. Un bar de 93 cm pris « en très forte houle dans un fond de crique rocheuse ». Waders sur les plages des baies d'Audierne et de Douarnenez.",
+    },
+    {
+      rule: "Estuaires et plages du Finistère sud",
+      source: "peche-poissons.com — J.-B. Vidal, « Bar en Bretagne… où, quand, comment ? » (19/10/2026)",
+      explain: "Estuaires (dont le Goyen) : « très prisés par les pêcheurs de bars notamment à vue », imitations de crabe « très efficaces sur les bars d'estuaire ». Règle générale de la source pour le bar (pas propre aux estuaires) : souvent les trois premières heures de montante et les trois dernières de descendante, coefficients de 50 à 80, les phases « vont dépendre de chaque coin ». « Dans le Finistère Sud toutes les plages tiennent du poisson » ; sur chaque plage, le bon moment s'apprend sur plusieurs sorties.",
+    },
+  ],
+};
+
+// Raz de Sein : renverse retenue 0,35 h avant les extrêmes d'Audierne (dont la pleine mer précède
+// celle de Brest d'environ 22 min, calcul TICON-4) — voir la fiche de la pointe du Raz.
+const RAZ_SEIN = {
+  slackH: -0.35,
+  labels: { 1: "plein courant du raz (vers la mi-marée)", 2: "courant du raz qui forcit ou faiblit", 0: "près de la renverse du raz (vers la pleine ou la basse mer)" },
+  why: "Dans le Raz de Sein, le courant s'inverse peu avant les pleines et basses mers de Brest (20 min avant la basse mer, 45 min avant la pleine mer) ; il est donc maximal vers la mi-marée, jusqu'à 6 nœuds en vive-eau.",
+  src: "razSein",
+  deduit: "Renverse retenue 20 min avant la pleine et la basse mer d'Audierne (qui précède Brest d'environ 22 min). Deux autres sources disent « environ 1 h avant » Brest ; une troisième (2026) la place 1 h après : écart non tranché.",
+};
+
+// ═══════════════════════════════════════════════════════════════════
+// 11 SPOTS — chaque champ marqué par niveau de confiance
+// Distances : estimées (vol d'oiseau depuis le port d'Audierne × 1,4, à 50 km/h).
+// ═══════════════════════════════════════════════════════════════════
+export const SPOTS = [
+
+  // ══════════════════════════════════════════════════════════
+  // 1. EMBOUCHURE DU GOYEN — Audierne / Poulgoazec
+  // ══════════════════════════════════════════════════════════
+  {
+    id:"goyen", tidePort:"audierne", zone:"local", isLocal:true, dangerLevel:1,
+    name:"Embouchure du Goyen", subtitle:"Digues d'Audierne et de Poulgoazec",
+    riviere: "Goyen",
+    distance:"≈ 5 min", distMin:3, coords:"48°01,0'N 4°32,0'W", lat:48.016666, lon:-4.532755,
+    type:"EMBOUCHURE + DIGUE", color:"#22c55e",
+    terrain:{
+      fond:"Chenal d'entrée du port entre digues et môles ; embouchure du Goyen, plage de Trescadec (visorando). Nature du fond non décrite.",
+      encombrement:2,
+      gratter:"texan",
+      prof:{ cls:"peu", why:"Chenal de port à l'embouchure, bordures qui découvrent (déduit, aucune sonde)." },
+      couches:["surface", "sous-surface", "mi-eau", "fond"],
+      montage:"Texan ou tête légère le long des enrochements ; imitation de crabe dans l'estuaire.",
+      conseils:["Les digues sont le poste cité (mieuxpecher) : pêcher le pied des enrochements et la veine du chenal.", "Ne pas gêner les ligneurs et fileyeurs du port."],
+      confidence:"inference",
+      source:"Déduit de la description du port (visorando) et des sources de pêche",
+      faits:[
+        { t:"Une digue mène au phare du Raoulic, « marquant l'entrée du port d'Audierne » ; « Ne pas s'y aventurer par gros temps ».", s:"visorando.com — « Port d'Audierne depuis le quartier maritime de Poulgoazec à Plouhinec »" },
+        { t:"Activité principale du port : « les ligneurs et les fileyeurs » ; criée à Poulgoazec.", s:"visorando.com — même circuit (départ 48,016666 / -4,532755)" },
+        { t:"Le Goyen figure parmi « les estuaires bretons et notamment finistériens » « très prisés par les pêcheurs de bars notamment à vue » ; imitations de crabe « très efficaces sur les bars d'estuaire ».", s:"peche-poissons.com — J.-B. Vidal (19/10/2026)" },
+      ],
+    },
+    coefBand:[35,50,80,100],
+    houleMax:1.8,
+    exposedAngles:[180,202.5,225], shelteredAngles:[0,22.5,337.5],
+    weatherNote:"Embouchure ouverte au sud sur la baie d'Audierne : la houle de sud-ouest entre dans le chenal, le vent de nord est de dos. Orientation déduite de la carte.",
+    sources:[
+      "mieuxpecher.com — « Coins de pêche – Finistère NORD » (liste jusqu'au Cap Sizun) : « Les digue à Audierne »",
+      "peche-poissons.com — J.-B. Vidal (19/10/2026) : estuaire du Goyen",
+      "visorando.com — « Port d'Audierne depuis le quartier maritime de Poulgoazec à Plouhinec »",
+    ],
+    topology:{
+      fond:{ text:"Chenal de port, digues et môles, embouchure du Goyen (visorando).", confidence:"verified" },
+      structure:{ text:"Digue du Raoulic, vieux môle, chenal ; estuaire en amont.", confidence:"verified" },
+      exposition:{ text:"Ouvert au sud sur la baie. Déduit de la carte.", confidence:"inference" },
+      courant:{ text:"Courant d'estuaire entrant et sortant, maximal à mi-marée (règle des douzièmes).", confidence:"inference" },
+      bars:{ text:"Digues citées (mieuxpecher) ; estuaire du Goyen cité pour le bar à vue (Vidal).", confidence:"verified" },
+    },
+    tidalRules:{
+      typeHeure:"3 PREMIÈRES HEURES DE MONTANTE · 3 DERNIÈRES DE DESCENDANTE (RÈGLE GÉNÉRALE)",
+      montantOuDescendant:"Règle générale de la source pour le bar (« souvent » les 3 premières heures de montante et les 3 dernières de descendante ; « les phases de marée […] vont dépendre de chaque coin ») : Vidal, 2026. Non propre à ce poste : à recaler avec ton journal.",
+      description:"Embouchure de port : le flot fait entrer le poisson le long des digues, le jusant le fait ressortir par le chenal.",
+      windows:[
+        { id:"gy1", label:"3 premières heures de montante", phase:"bm", offsetBefore:0.0, offsetAfter:3.0, tidePhaseType:"montant", priority:"prime",
+          note:"Règle générale de la source (Vidal). Pied des enrochements, souple texan." },
+        { id:"gy2", label:"3 dernières heures de descendante", phase:"bm", offsetBefore:-3.0, offsetAfter:0.0, tidePhaseType:"descendant", priority:"prime",
+          note:"Règle générale de la source (Vidal). Veine du chenal." },
+      ],
+      lifeHack:"Le marégraphe de référence est dans le port même : l'heure de marée est celle du poste.",
+    },
+    lures:[
+      { name:"Imitation de crabe", color:"Vert / brun", weight:"texan 5-10 g", technique:"Bars d'estuaire (Vidal, 2026)." },
+      { name:"Shad 9-10 cm tête plombée", color:"Naturel", weight:"tête 10-15 g", technique:"Veine du chenal. Repère d'un guide du cap : Nitro Shad 90 sur tête de 15 g." },
+      { name:"Stickbait 110-130 mm", color:"Ghost / sardine", weight:"14-27 g", technique:"Au crépuscule le long des digues, mer calme." },
+    ],
+    access:"Parking près de l'église de Poulgoazec (Plouhinec) ou quais d'Audierne ; digue du Raoulic à pied (visorando).",
+    securite:[
+      { t:"Digue du Raoulic : « Ne pas s'y aventurer par gros temps ».", s:"visorando.com" },
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════
+  // 2. PLAGE DE SAINT-TUGEN (Primelin)
+  // ══════════════════════════════════════════════════════════
+  {
+    id:"sainttugen", tidePort:"audierne", zone:"local", isLocal:true, dangerLevel:1,
+    name:"Plage de Saint-Tugen", subtitle:"Primelin, baie d'Audierne",
+    distance:"≈ 10 min", distMin:10, coords:"48°00,7'N 4°35,9'W", lat:48.01219, lon:-4.597628,
+    type:"PLAGE + ROCHER", color:"#4ade80",
+    terrain:{
+      fond:"Sable, avec un rocher au centre de la baie à pleine mer (mondo.surf).",
+      encombrement:1,
+      gratter:"oui",
+      prof:{ cls:"peu", why:"Plage de sable exposée, vagues déferlantes : peu d'eau au bord (déduit)." },
+      couches:["surface", "sous-surface", "mi-eau", "fond"],
+      montage:"Souple sur tête plombée ou slug sur le sable ; weightless près du rocher.",
+      conseils:["Pêcher l'écume des premières vagues et le rocher central quand il se couvre.", "Waders utiles sur les plages de la baie (Pêche-Rando Bar).", "Une seule source pêche (cannes-peche : « plage de Saint-Tugen ») ; ton journal fera foi."],
+      confidence:"inference",
+      source:"Déduit des fiches surf (mondo.surf, surf-forecast) et du guide du cap",
+      faits:[
+        { t:"Fond de sable, un rocher au centre de la baie à pleine mer ; « all tides are good » pour le surf ; parking au bout de la route de la plage.", s:"mondo.surf — Saint Tugen (48,012190 / -4,597628)" },
+        { t:"« An exposed beach break » ; houle idéale d'ouest-sud-ouest, meilleur vent de nord-est.", s:"surf-forecast.com — St Tugen" },
+        { t:"Plage de Saint-Tugen citée parmi les coins à bar du bord.", s:"cannes-peche.blog4ever.com (Alain, 07/11/2016)" },
+      ],
+    },
+    coefBand:[30,45,85,105],
+    houleMax:1.8,
+    // Houle idéale OSO et vent idéal NE (surf-forecast) : plage tournée vers le SO.
+    exposedAngles:[202.5,225,247.5], shelteredAngles:[22.5,45,67.5],
+    weatherNote:"Plage tournée vers le sud-ouest (houle idéale OSO, vent de terre NE d'après surf-forecast). Clapot de sud-ouest de face.",
+    sources:[
+      "cannes-peche.blog4ever.com — Primelin : « plage de Saint-Tugen »",
+      "mondo.surf — Saint Tugen (fond, rocher, accès, coordonnées)",
+      "surf-forecast.com — St Tugen (houle et vent idéaux)",
+      "Pêche-Rando Bar — plages de la baie d'Audierne, waders",
+    ],
+    topology:{
+      fond:{ text:"Sable, un rocher au centre de la baie (mondo.surf).", confidence:"verified" },
+      structure:{ text:"Petite baie encadrée de roches, rocher central.", confidence:"inference" },
+      exposition:{ text:"Tournée vers le SO : houle d'OSO directe (surf-forecast).", confidence:"verified" },
+      courant:{ text:"Courants de plage et de baïne par houle ; pas de mesure.", confidence:"inference" },
+      bars:{ text:"Plage citée pour le bar du bord (cannes-peche) ; « toutes les plages tiennent du poisson » dans le Finistère sud (Vidal).", confidence:"verified" },
+    },
+    tidalRules:{
+      typeHeure:"FLOT + MATIN TÔT",
+      montantOuDescendant:"Sur chaque plage, le bon moment s'apprend (Vidal) : le guide part du flot, qui couvre le sable et le rocher, et des sorties au lever du jour (Pêche-Rando Bar : meilleurs poissons tôt le matin).",
+      description:"Plage de baie exposée : l'écume et le rocher central sont les postes.",
+      windows:[
+        { id:"st1", label:"Montant (BM+1 → BM+5,5)", phase:"bm", offsetBefore:1.0, offsetAfter:5.5, tidePhaseType:"montant", priority:"prime",
+          note:"Le flot couvre le sable et le rocher. Souple sur tête de 10-15 g dans l'écume." },
+        { id:"st2", label:"Début de descendant", phase:"pm", offsetBefore:0.0, offsetAfter:2.0, tidePhaseType:"descendant", priority:"bon",
+          note:"Sortie du rocher central." },
+      ],
+      lifeHack:"Repère du journal à construire : note pour chaque sortie la phase de marée et le résultat, c'est la règle de la source.",
+    },
+    lures:[
+      { name:"Souple 12 cm tête plombée", color:"Blanc / naturel", weight:"tête 10-21 g", technique:"Dans l'écume des premières vagues. Repère du guide : Sand Eel sur tête de 21 g." },
+      { name:"Stickbait 110-130 mm", color:"Ghost / sardine", weight:"14-27 g", technique:"Mer calme, aube." },
+    ],
+    access:"Village de Saint-Tugen, suivre « la plage » jusqu'au parking (mondo.surf).",
+    securite:[],
+  },
+
+  // ══════════════════════════════════════════════════════════
+  // 3. PORT-ABRI DE FEUNTEUN AOD (Plogoff)
+  // ══════════════════════════════════════════════════════════
+  {
+    id:"feunteunaod", tidePort:"audierne", zone:"local", isLocal:false, dangerLevel:2,
+    name:"Feunteun Aod", subtitle:"Port-abri, Plogoff",
+    distance:"≈ 20 min", distMin:20, coords:"48°01,8'N 4°41,7'W", lat:48.029394, lon:-4.69559,
+    type:"POINTE + PORT-ABRI", color:"#84cc16",
+    terrain:{
+      fond:"Anse au pied d'une falaise d'environ 25 m, abritée par une longue pointe ; cale de 28 m (inventaire du patrimoine).",
+      encombrement:3,
+      gratter:"non",
+      prof:{ cls:"peu", why:"Anse rocheuse qui reste en eau (inventaire) ; profondeur non chiffrée (déduit)." },
+      couches:["surface", "sous-surface", "mi-eau"],
+      montage:"Weightless, texan ou surface au pied des roches.",
+      conseils:["Pêcher le bout de la pointe qui abrite le port, côté large.", "Ne pas gêner la mise à l'eau à la cale."],
+      confidence:"inference",
+      source:"Déduit de l'inventaire du patrimoine (port-abri)",
+      faits:[
+        { t:"Port « protégé des vents de noroît par une haute et longue pointe » ; anse qui reste en eau ; falaise de 25 m qui domine les ouvrages (éboulements en 1935).", s:"patrimoine.bzh — inventaire, « Port-abri de Feunteun Aod (Plogoff) »" },
+        { t:"Une vingtaine de bateaux, surtout de plaisance ; quelques pêcheurs de bar y mouillent de mai à septembre.", s:"patrimoine.bzh — même fiche" },
+        { t:"Coordonnées du port : 48,029394 / -4,69559.", s:"komoot.com — « Port de Feunteun Aod »" },
+      ],
+    },
+    coefBand:[30,50,85,105],
+    houleMax:1.6,
+    // Abrité du noroît par la pointe (inventaire) ; ouvert au sud sur la baie d'Audierne (déduit de la carte).
+    exposedAngles:[180,202.5,225], shelteredAngles:[315,337.5,292.5],
+    weatherNote:"Côte sud du cap, abritée du nord-ouest par la pointe (inventaire du patrimoine) ; exposée au sud et au sud-ouest.",
+    sources:[
+      "mieuxpecher.com — liste des coins de pêche : « Pointe de Feunteun Aod à Plogoff »",
+      "patrimoine.bzh — inventaire du patrimoine, port-abri de Feunteun Aod",
+      "komoot.com — Port de Feunteun Aod (coordonnées)",
+    ],
+    topology:{
+      fond:{ text:"Anse rocheuse sous falaise, en eau à toute marée (inventaire).", confidence:"verified" },
+      structure:{ text:"Longue pointe qui ferme l'anse ; cale côté est.", confidence:"verified" },
+      exposition:{ text:"Abritée du noroît, ouverte au sud (inventaire, carte).", confidence:"verified" },
+      courant:{ text:"Courant côtier du sud du cap, le Raz de Sein à quelques kilomètres ; pas de mesure.", confidence:"inference" },
+      bars:{ text:"Pointe citée pour la pêche (mieuxpecher) ; des pêcheurs de bar y mouillent l'été (inventaire).", confidence:"verified" },
+    },
+    tidalRules:{
+      typeHeure:"MI-MARÉE",
+      montantOuDescendant:"Pointe rocheuse : courant établi aux 3e et 4e heures (douzièmes). Aucune source propre au poste.",
+      description:"Poste abrité du noroît : une solution quand la pointe du Raz est trop exposée.",
+      windows:[
+        { id:"fa1", label:"Montant établi", phase:"bm", offsetBefore:1.5, offsetAfter:4.0, tidePhaseType:"montant", priority:"prime",
+          note:"Bout de la pointe, côté large." },
+        { id:"fa2", label:"Descendant établi", phase:"pm", offsetBefore:1.5, offsetAfter:4.0, tidePhaseType:"descendant", priority:"bon",
+          note:"Même poste, courant inverse." },
+      ],
+      lifeHack:"Par vent de NO, c'est l'abri du cap : la pointe casse le vent et la houle (inventaire).",
+    },
+    lures:[
+      { name:"Souple weightless 12 cm", color:"Naturel / blanc", weight:"sans plomb", technique:"Au pied des roches. Repère du guide du cap : Dolive Shad 4,5\" sans plomb." },
+      { name:"Stickbait 110-130 mm", color:"Ghost / sardine", weight:"14-27 g", technique:"Crépuscule, mer calme." },
+    ],
+    access:"Village de Pendreff (Plogoff), descente au port-abri ; site isolé (inventaire).",
+    securite:[
+      { t:"Falaise de 25 m qui s'est déjà éboulée sur le port (1935) : ne pas stationner au pied de la falaise.", s:"patrimoine.bzh — inventaire" },
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════
+  // 4. POINTE DU RAZ — Raz de Sein
+  // ══════════════════════════════════════════════════════════
+  {
+    id:"raz", tidePort:"audierne", zone:"local", isLocal:false, dangerLevel:3,
+    name:"Pointe du Raz", subtitle:"Plogoff, Raz de Sein",
+    distance:"≈ 25 min", distMin:25, coords:"48°02,4'N 4°44,5'W", lat:48.04028, lon:-4.74111,
+    type:"RAZ / COURANT EXTRÊME", color:"#ef4444",
+    raz: RAZ_SEIN,
+    terrain:{
+      fond:"Promontoire rocheux ; poste à une trentaine de mètres au-dessus de l'eau (peche-poissons.com).",
+      encombrement:3,
+      gratter:"non",
+      prof:{ cls:"tombant", why:"Poste en falaise au-dessus du Raz de Sein : eau profonde au pied (déduit, aucune sonde)." },
+      couches:["surface", "sous-surface", "mi-eau"],
+      montage:"Leurre lourd tenu au-dessus des roches : jig de lancer, souple plombé, texan pour limiter les accrochages (peche-poissons.com).",
+      conseils:["Éviter que la ligne touche la roche : « c'est l'accrochage assuré » (peche-poissons.com).", "Canne de 2,40 à 2,70 m, assez puissante pour remonter le poisson le long de la falaise."],
+      confidence:"verified",
+      source:"peche-poissons.com — « Au leurre, à la pointe du Raz » (17/12/2021)",
+      faits:[
+        { t:"Conseil du guide Yves Pennanen : être sur place « une heure avant la marée haute » et pêcher deux à trois heures ; « Le début de la montante est souvent excellent ».", s:"peche-poissons.com — julien, 17/12/2021" },
+        { t:"Bars et lieus en zone de courant ; poste sur un promontoire à ~30 m au-dessus de l'eau ; rochers couverts d'algues et de lichen glissants, surtout par temps de pluie.", s:"peche-poissons.com — même article" },
+        { t:"Raz de Sein : 6 nœuds en vive-eau ; mer démontée dès que le courant s'oppose au vent, même modéré.", s:"bateaux.com — C. Fernbach (08/07/2025)" },
+        { t:"Sorties guidées de pêche du bar au leurre du bord à la pointe du Raz, d'avril à décembre, selon les marées.", s:"toutcommenceenfinistere.com — « Pêche Rando Bar »" },
+      ],
+    },
+    coefBand:[30,45,80,100],
+    // Aucune source ne fixe de limite de coefficient du bord : pas de porte dure. Plateau déduit (courant violent en vive-eau).
+    houleMax:1.5,
+    exposedAngles:[225,247.5,270,292.5,315], shelteredAngles:[67.5,90,112.5],
+    weatherNote:"Pointe ouest du cap : exposée du sud-ouest au nord-ouest. Mer démontée dès que le vent s'oppose au courant du raz (bateaux.com).",
+    sources:[
+      "peche-poissons.com — julien, « Au leurre, à la pointe du Raz » (17/12/2021)",
+      "bateaux.com — C. Fernbach, « Le Raz de Sein, les bons conseils pour ce passage délicat » (08/07/2025)",
+      "lordjimcroisieres.com — « Passage du Raz de Sein en voilier » (étale environ 1 h avant la PM de Brest ; 7 nœuds au flot, 6 au jusant en vive-eau)",
+      "toutcommenceenfinistere.com — « Pêche Rando Bar » (sorties guidées à la pointe du Raz)",
+      "Wikipédia (en) — Pointe du Raz (48°02′25″N 4°44′28″W)",
+    ],
+    topology:{
+      fond:{ text:"Promontoire rocheux en falaise (peche-poissons.com).", confidence:"verified" },
+      structure:{ text:"Pointe extrême du cap face au Raz de Sein et à l'île de Sein.", confidence:"verified" },
+      exposition:{ text:"Exposée de SO à NO ; vent contre courant = mer démontée (bateaux.com).", confidence:"verified" },
+      courant:{ text:"Raz de Sein : renverse peu avant les pleines et basses mers de Brest, 6 nœuds en vive-eau (bateaux.com), 7 au flot (Lord Jim).", confidence:"verified" },
+      bars:{ text:"Bars et lieus dans les zones de courant (peche-poissons.com) ; spot de sorties guidées.", confidence:"verified" },
+    },
+    tidalRules:{
+      typeHeure:"PM−1h → PM+2h · DÉBUT DE MONTANTE",
+      montantOuDescendant:"Deux règles de la source : être sur place une heure avant la pleine mer et pêcher deux à trois heures ; « le début de la montante est souvent excellent ».",
+      description:"Le poste le plus engagé du guide : courant violent, falaise, rochers glissants.",
+      windows:[
+        { id:"rz1", label:"PM − 1 h → PM + 2 h", phase:"pm", offsetBefore:-1.0, offsetAfter:2.0, tidePhaseType:"variable", priority:"prime",
+          note:"Règle du guide local (peche-poissons.com). Le courant du raz est faible vers la pleine mer et forcit ensuite." },
+        { id:"rz2", label:"Début de montante", phase:"bm", offsetBefore:0.0, offsetAfter:2.0, tidePhaseType:"montant", priority:"prime",
+          note:"« Le début de la montante est souvent excellent » (même source)." },
+      ],
+      lifeHack:"Vent contre courant, même modéré : mer démontée (bateaux.com). Choisir le créneau où le courant porte dans le sens du vent.",
+    },
+    lures:[
+      { name:"Jig de lancer", color:"Argent / sardine", weight:"30-40 g", technique:"Source : jigs de lancer cités pour ce poste (peche-poissons.com). Dans ta boîte : Drag Metal Cast 30-40 g ; vérifier la plage de la canne." },
+      { name:"Souple plombé ou texan", color:"Blanc / naturel", weight:"tête 21 g et plus", technique:"Gratter les blocs en texan pour limiter les accrochages (même source). Repère du guide du cap : Sand Eel sur tête de 21 g." },
+      { name:"Poisson nageur à bavette", color:"Sardine / maquereau", weight:"20-30 g", technique:"Cité par la même source." },
+    ],
+    access:"Parking du site de la pointe du Raz (Plogoff), puis sentiers à travers la lande ; poste en falaise (peche-poissons.com).",
+    securite:[
+      { t:"Rochers couverts d'algues et de lichen glissants, surtout par temps de pluie : « la prudence est de mise ».", s:"peche-poissons.com (17/12/2021)" },
+      { t:"Courant du raz jusqu'à 6 nœuds en vive-eau ; mer démontée dès que le vent s'oppose au courant.", s:"bateaux.com (08/07/2025)" },
+      { t:"Poste en falaise à ~30 m au-dessus de l'eau : jamais seul, et pas par mer forte.", s:"peche-poissons.com · prudence du guide" },
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════
+  // 5. BAIE DES TRÉPASSÉS
+  // ══════════════════════════════════════════════════════════
+  {
+    id:"trepasses", tidePort:"audierne", zone:"local", isLocal:false, dangerLevel:2,
+    name:"Baie des Trépassés", subtitle:"Plogoff / Cléden-Cap-Sizun",
+    distance:"≈ 20 min", distMin:22, coords:"48°02,8'N 4°42,4'W", lat:48.0469, lon:-4.7068,
+    type:"PLAGE EXPOSÉE", color:"#a3e635",
+    terrain:{
+      fond:"Large plage de sable (Wikipédia) ; beachbreak d'environ 800 m entre la pointe du Raz et la pointe du Van, fond de sable (surf-report).",
+      encombrement:1,
+      gratter:"oui",
+      prof:{ cls:"peu", why:"Plage de sable battue par la houle : peu d'eau au bord (déduit)." },
+      couches:["surface", "sous-surface", "mi-eau", "fond"],
+      montage:"Souple sur tête plombée dans l'écume ; slug ou jig par grosse houle.",
+      conseils:["Pêcher les bords de baïne et l'écume des premières vagues.", "Par houle d'octobre, la surface est inutilisable (Pêche-Rando Bar) : passer au souple plombé ou au jig.", "Une seule source pêche, celle d'un guide de pêche local (Pêche-Rando Bar) : son jugement de terrain est retenu, à confirmer par ton journal."],
+      confidence:"inference",
+      source:"Déduit des fiches surf et du guide du cap",
+      faits:[
+        { t:"Plage de sable large, entre la pointe du Raz et la pointe du Van.", s:"Wikipédia (en) — Baie des Trépassés (48,0469 / -4,7068)" },
+        { t:"Beachbreak ~800 m, houle idéale ONO, vent idéal ESE, fond de sable ; « Au large circulent des courants extrêmement forts », baïne.", s:"surf-report.com — Baie des Trépassés" },
+        { t:"Les meilleurs poissons de la saison 2018 du guide : plages et baie des Trépassés, surtout tôt le matin.", s:"Pêche-Rando Bar — « Petit bilan 2018 » (06/03/2019)" },
+      ],
+    },
+    coefBand:[30,45,85,105],
+    houleMax:2.0,
+    exposedAngles:[247.5,270,292.5], shelteredAngles:[67.5,90,112.5],
+    weatherNote:"Baie tournée vers l'ouest entre deux pointes : houle d'O-NO directe ; vent d'E-SE de terre (surf-report).",
+    sources:[
+      "Pêche-Rando Bar — bilan 2018 : « plages et Baie des Trépassés »",
+      "surf-report.com — Baie des Trépassés",
+      "surf-forecast.com — Baie des Trépassés (« Be wary of rips »)",
+      "Wikipédia (en) — Baie des Trépassés",
+    ],
+    topology:{
+      fond:{ text:"Sable (Wikipédia, surf-report).", confidence:"verified" },
+      structure:{ text:"Baie de 800 m fermée par deux pointes ; baïnes.", confidence:"verified" },
+      exposition:{ text:"Ouverte à l'O-NO (surf-report).", confidence:"verified" },
+      courant:{ text:"Baïne et courants « extrêmement forts » au large (surf-report) ; rips (surf-forecast).", confidence:"verified" },
+      bars:{ text:"Meilleurs poissons de la saison 2018 du guide du cap (Pêche-Rando Bar).", confidence:"verified" },
+    },
+    tidalRules:{
+      typeHeure:"MATIN TÔT + FLOT",
+      montantOuDescendant:"La source donne le moment de la journée (tôt le matin), pas la marée : le guide part du flot, à recaler avec ton journal.",
+      description:"Plage battue : l'écume et les bords de baïne concentrent les proies.",
+      windows:[
+        { id:"tr1", label:"Montant", phase:"bm", offsetBefore:1.0, offsetAfter:5.0, tidePhaseType:"montant", priority:"prime",
+          note:"Bords de baïne et écume. Souple plombé." },
+        { id:"tr2", label:"Début de descendant", phase:"pm", offsetBefore:0.0, offsetAfter:2.0, tidePhaseType:"descendant", priority:"bon",
+          note:"Sorties de baïne : le courant qui repart vers le large concentre les proies." },
+      ],
+      lifeHack:"Le créneau du lever du jour pèse plus que la marée selon le guide du cap : la lumière est déjà dans le score du jour.",
+    },
+    lures:[
+      { name:"Souple 12 cm tête plombée", color:"Blanc / naturel", weight:"tête 15-21 g", technique:"Écume, bords de baïne. Repère du guide : Sand Eel sur tête de 21 g." },
+      { name:"Jig de lancer", color:"Argent", weight:"20-40 g", technique:"Dans le gros ressac (Pêche-Rando Bar, bilan 2017)." },
+      { name:"Stickbait 110-150 mm", color:"Ghost / sardine", weight:"15-32 g", technique:"Mer calme seulement : inutilisable par houle d'octobre (même guide)." },
+    ],
+    access:"De Plogoff, D784 vers Lescoff puis suivre « Baie des Trépassés » ; parking (surf-report).",
+    securite:[
+      { t:"Baïnes et courants très forts au large : ne pas entrer dans l'eau au-delà des genoux par houle.", s:"surf-report.com · surf-forecast.com · prudence du guide" },
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════
+  // 6. POINTE DU VAN (Cléden-Cap-Sizun)
+  // ══════════════════════════════════════════════════════════
+  {
+    id:"van", tidePort:"audierne", zone:"local", isLocal:false, dangerLevel:3,
+    name:"Pointe du Van", subtitle:"Cléden-Cap-Sizun, mer d'Iroise",
+    distance:"≈ 25 min", distMin:25, coords:"48°03,9'N 4°42,9'W", lat:48.0644, lon:-4.715,
+    type:"POINTE ROCHEUSE / FALAISE", color:"#f87171",
+    terrain:{
+      fond:"Pointe très étalée, nombreux éperons rocheux et rochers monumentaux ; roche plus friable qu'à la pointe du Raz (Wikipédia).",
+      encombrement:3,
+      gratter:"non",
+      prof:{ cls:"tombant", why:"Pointe à falaises sur l'Iroise : eau profonde au pied (déduit, aucune sonde)." },
+      couches:["surface", "sous-surface", "mi-eau"],
+      montage:"Surface, weightless, ou souple plombé tenu au-dessus des roches.",
+      conseils:["Roches escarpées (cannes-peche) : choisir un poste où l'on peut remonter le poisson.", "Le flanc sud (baie des Trépassés) ou nord (baie de Douarnenez) selon le vent.", "Une seule source pêche (cannes-peche : pointe du Van « et ses roches escarpées ») ; ton journal fera foi."],
+      confidence:"inference",
+      source:"Déduit de la description de la pointe (Wikipédia)",
+      faits:[
+        { t:"La pointe ferme le nord de la baie des Trépassés ; roche « plus friable que celle de la pointe du Raz » ; nombreux éperons, quelques rochers monumentaux (rocher Morgane).", s:"Wikipédia (fr), via wikimonde.com — Pointe du Van (48°03′52″N 4°42′54″W)" },
+        { t:"« Pointe de Brézellec et Pointe du Van et leurs roches escarpées » citées pour le bar du bord.", s:"cannes-peche.blog4ever.com (Alain, 07/11/2016)" },
+        { t:"Accès par un sentier côtier escarpé.", s:"visorando.com — « De la pointe de Brézellec à la pointe du Van »" },
+      ],
+    },
+    coefBand:[30,50,85,105],
+    houleMax:1.5,
+    exposedAngles:[247.5,270,292.5,315], shelteredAngles:[90,112.5,135],
+    weatherNote:"Pointe nord-ouest du cap face à l'Iroise : exposée d'OSO à NO. Abri relatif d'un flanc à l'autre selon le vent.",
+    sources:[
+      "cannes-peche.blog4ever.com — Cléden-Cap-Sizun : « Pointe de Brézellec et Pointe du Van et leurs roches escarpées »",
+      "Wikipédia (fr) — Pointe du Van",
+      "visorando.com — « De la pointe de Brézellec à la pointe du Van et la chapelle Saint-They »",
+    ],
+    topology:{
+      fond:{ text:"Éperons rocheux, roche friable (Wikipédia).", confidence:"verified" },
+      structure:{ text:"Pointe étalée entre la baie des Trépassés et la baie de Douarnenez.", confidence:"verified" },
+      exposition:{ text:"Face à l'Iroise, d'OSO à NO. Déduit de la carte.", confidence:"inference" },
+      courant:{ text:"Courants de l'Iroise ; le Raz de Sein est au sud. Heure non estimée (côte ouverte).", confidence:"inference" },
+      bars:{ text:"Roches citées pour le bar du bord (cannes-peche).", confidence:"verified" },
+    },
+    tidalRules:{
+      typeHeure:"MI-MARÉE + CRÉPUSCULES",
+      montantOuDescendant:"Pointe océanique : courant établi et lumière faible (principe général). Aucune source propre au poste.",
+      description:"Pointe engagée : la houle décide d'abord.",
+      windows:[
+        { id:"va1", label:"Montant établi", phase:"bm", offsetBefore:1.5, offsetAfter:4.0, tidePhaseType:"montant", priority:"prime",
+          note:"Pied des éperons, courant établi." },
+        { id:"va2", label:"Descendant établi", phase:"pm", offsetBefore:1.5, offsetAfter:4.0, tidePhaseType:"descendant", priority:"bon",
+          note:"L'autre flanc de la pointe." },
+      ],
+      lifeHack:"Un bar de 93 cm du guide du cap est venu d'un fond de crique rocheuse par très forte houle (Pêche-Rando Bar) : les criques abritées d'une pointe exposée sont à voir quand la pointe elle-même n'est pas pêchable.",
+    },
+    lures:[
+      { name:"Stickbait 130-150 mm", color:"Ghost / sardine", weight:"25-32 g", technique:"Lancer loin face au vent, mer calme." },
+      { name:"Souple 12 cm tête plombée", color:"Blanc", weight:"tête 15-21 g", technique:"Au-dessus des roches, dans les criques par mer formée." },
+    ],
+    access:"Sentier côtier (GR34) depuis la pointe de Brézellec ou les parkings du cap ; chemin escarpé (visorando).",
+    securite:[
+      { t:"Roches escarpées et friables : jamais seul, gilet, mer calme.", s:"cannes-peche (roches escarpées) · Wikipédia (roche friable) · prudence du guide" },
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════
+  // 7. POINTE DE BRÉZELLEC (Cléden-Cap-Sizun)
+  // ══════════════════════════════════════════════════════════
+  {
+    id:"brezellec", tidePort:"audierne", zone:"local", isLocal:false, dangerLevel:3,
+    name:"Pointe de Brézellec", subtitle:"Cléden-Cap-Sizun, baie de Douarnenez",
+    distance:"≈ 20 min", distMin:20, coords:"48°04,2'N 4°39,9'W", lat:48.0696, lon:-4.6642,
+    type:"POINTE ROCHEUSE / FALAISE", color:"#fb923c",
+    terrain:{
+      fond:"Fond rocheux à laminaires puis himanthales ; la profondeur passe à 10 puis 15 m à quelques mètres du bord (lechasseursousmarin.com).",
+      encombrement:3,
+      gratter:"non",
+      prof:{ cls:"tombant", why:"10 puis 15 m à quelques mètres du bord (lechasseursousmarin.com)." },
+      couches:["surface", "sous-surface", "mi-eau"],
+      montage:"Leurres souples ou de surface (avis park4night) ; tête plombée seulement tenue au-dessus des laminaires.",
+      conseils:["Courant décrit comme faible ici (fiche de chasse sous-marine) : poste de surface et de sous-surface plus que de dérive.", "Falaises de plus de 60 m : repérer la descente avant la session."],
+      confidence:"verified",
+      source:"lechasseursousmarin.com (H. Maldent, 26/11/2025) · patrimoine.bzh · park4night",
+      faits:[
+        { t:"Fond rocheux à laminaires puis himanthales ; 10 puis 15 m à quelques mètres du bord ; courant faible ; bars de passage.", s:"lechasseursousmarin.com — Pointe de Brézellec (H. Maldent, 26/11/2025)" },
+        { t:"Port-abri à l'est de la pointe, anse en eau profonde sans hauts-fonds, abritée des vents d'ouest par la pointe, « très exposé aux vents du nord et du nord-est » ; falaises de plus de 60 m, escalier d'une centaine de marches.", s:"patrimoine.bzh — inventaire, port-abri de Brézellec" },
+        { t:"Parking de la pointe (48,0696 / -4,6642) ; « pêche du bar avec leurres souples ou en surface » ; « Bon spot de pêche : bar et maquereau » (avis, 2018) ; « site escarpé », descente au port « très abrupte ».", s:"park4night.com — lieu n° 4587 (avis d'utilisateurs)" },
+      ],
+    },
+    coefBand:[30,45,85,105],
+    houleMax:1.6,
+    // Exposé N et NE, abrité des vents d'ouest par la pointe (inventaire du patrimoine).
+    exposedAngles:[0,22.5,45], shelteredAngles:[247.5,270,292.5],
+    weatherNote:"Côte nord du cap, sur la baie de Douarnenez : « très exposé aux vents du nord et du nord-est », abrité des vents d'ouest par la pointe (inventaire du patrimoine).",
+    sources:[
+      "cannes-peche.blog4ever.com — « Pointe de Brézellec et Pointe du Van et leurs roches escarpées »",
+      "mieuxpecher.com — liste des coins de pêche : « La pointe de Brezellec »",
+      "lechasseursousmarin.com — Pointe de Brézellec (H. Maldent, 26/11/2025)",
+      "patrimoine.bzh — port-abri de Brézellec",
+      "park4night.com — lieu n° 4587 (avis d'utilisateurs)",
+    ],
+    topology:{
+      fond:{ text:"Laminaires puis himanthales, 10 à 15 m près du bord (lechasseursousmarin).", confidence:"verified" },
+      structure:{ text:"Pointe et anse profonde sans hauts-fonds (inventaire).", confidence:"verified" },
+      exposition:{ text:"Exposée N-NE, abritée O (inventaire).", confidence:"verified" },
+      courant:{ text:"Faible (lechasseursousmarin).", confidence:"verified" },
+      bars:{ text:"Bars de passage (lechasseursousmarin) ; bar et maquereau du bord (avis park4night).", confidence:"verified" },
+    },
+    tidalRules:{
+      typeHeure:"MONTANT + CRÉPUSCULES",
+      montantOuDescendant:"Courant faible : le moment se règle surtout sur la lumière et le flot (principe général). Aucune source propre au poste.",
+      description:"Eau profonde au pied, peu de courant : poste de surface et de sous-surface, l'abri du cap par vent d'ouest.",
+      windows:[
+        { id:"bz1", label:"Montant", phase:"bm", offsetBefore:1.0, offsetAfter:5.0, tidePhaseType:"montant", priority:"prime",
+          note:"Bordure de laminaires, souple weightless ou stickbait." },
+        { id:"bz2", label:"Pleine mer et début de descendant", phase:"pm", offsetBefore:-0.5, offsetAfter:2.0, tidePhaseType:"variable", priority:"bon",
+          note:"Même approche." },
+      ],
+      lifeHack:"Par vent d'ouest, c'est l'abri du cap (pointe protectrice) ; par vent de nord, il faut aller au sud du cap.",
+    },
+    lures:[
+      { name:"Souple weightless 12 cm", color:"Naturel / blanc", weight:"sans plomb", technique:"« Leurres souples » (park4night), au-dessus des laminaires." },
+      { name:"Stickbait 110-150 mm", color:"Ghost / sardine", weight:"15-32 g", technique:"« En surface » (park4night), crépuscule." },
+    ],
+    access:"Parking de la pointe de Brézellec (park4night n° 4587) ; descente au port-abri très abrupte, escalier d'une centaine de marches (inventaire).",
+    securite:[
+      { t:"Falaises de plus de 60 m, site escarpé, descente très abrupte.", s:"patrimoine.bzh · park4night.com (avis)" },
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════
+  // 8. PENHORS (Pouldreuzic)
+  // ══════════════════════════════════════════════════════════
+  {
+    id:"penhors", tidePort:"penhors", zone:"inter", isLocal:false, dangerLevel:1,
+    name:"Penhors", subtitle:"Pouldreuzic, baie d'Audierne",
+    distance:"≈ 25 min", distMin:25, coords:"47°56,4'N 4°24,2'W", lat:47.9395769, lon:-4.4031143,
+    type:"PLAGE + PLATIER ROCHEUX", color:"#f59e0b",
+    terrain:{
+      fond:"Plage de la baie d'Audierne et petit port ; break de récif d'après les fiches de surf (surf-forecast). Nature exacte non décrite.",
+      encombrement:2,
+      gratter:"texan",
+      prof:{ cls:"peu", why:"Plage et platier de la baie, battus par la houle (déduit, aucune sonde)." },
+      couches:["surface", "sous-surface", "mi-eau", "fond"],
+      montage:"Souple sur tête plombée sur le sable, texan près du platier.",
+      conseils:["Waders sur les plages de la baie d'Audierne (Pêche-Rando Bar).", "Jig dans le gros ressac (même guide).", "Une seule source nomme le bar ici (cannes-peche) ; atout-pecheur parle du surfcasting en baie d'Audierne en général."],
+      confidence:"inference",
+      source:"Déduit des fiches surf et du guide du cap",
+      faits:[
+        { t:"Plage de Penhors (47,9395769 / -4,4031143), petit port de Penhors sur le GR34 ; surveillée en juillet-août.", s:"destination-paysbigouden.com — Plage de Penhors" },
+        { t:"Break de récif « exposé » ; houle idéale de sud-ouest, vent idéal d'est-nord-est.", s:"surf-forecast.com — Penhors" },
+        { t:"« Plage de Penhors » citée parmi les coins à bar du bord.", s:"cannes-peche.blog4ever.com (Alain, 07/11/2016)" },
+      ],
+    },
+    coefBand:[30,45,85,105],
+    houleMax:1.8,
+    exposedAngles:[202.5,225,247.5,270], shelteredAngles:[45,67.5,90],
+    weatherNote:"Plage de la baie d'Audierne tournée vers le sud-ouest (houle idéale SO, vent de terre ENE d'après surf-forecast).",
+    sources:[
+      "cannes-peche.blog4ever.com — Pouldreuzic : « Plage de Penhors »",
+      "Pêche-Rando Bar — plages de la baie d'Audierne",
+      "surf-forecast.com — Penhors",
+      "destination-paysbigouden.com — Plage de Penhors",
+    ],
+    topology:{
+      fond:{ text:"Plage et récif (surf-forecast).", confidence:"verified" },
+      structure:{ text:"Grande baie ouverte, petit port, platier.", confidence:"inference" },
+      exposition:{ text:"Tournée vers le SO (surf-forecast).", confidence:"verified" },
+      courant:{ text:"Courants de plage par houle ; pas de mesure.", confidence:"inference" },
+      bars:{ text:"Plage citée pour le bar du bord (cannes-peche) ; plages de la baie pêchées par le guide du cap.", confidence:"verified" },
+    },
+    tidalRules:{
+      typeHeure:"FLOT",
+      montantOuDescendant:"Le bon moment s'apprend plage par plage (Vidal) : le guide part du flot, à recaler avec ton journal.",
+      description:"Grande plage de baie : l'écume et le bord du platier sont les postes.",
+      windows:[
+        { id:"ph1", label:"Montant", phase:"bm", offsetBefore:1.0, offsetAfter:5.0, tidePhaseType:"montant", priority:"prime",
+          note:"Écume et bord du platier." },
+        { id:"ph2", label:"Début de descendant", phase:"pm", offsetBefore:0.0, offsetAfter:2.0, tidePhaseType:"descendant", priority:"bon",
+          note:"Sortie du platier." },
+      ],
+      lifeHack:"Penhors est au sud du 48e parallèle : 2 bars par jour toute l'année (zone CIEM 8).",
+    },
+    lures:[
+      { name:"Souple 12 cm tête plombée", color:"Blanc / naturel", weight:"tête 15-21 g", technique:"Dans l'écume. Repère du guide : Sand Eel sur tête de 21 g." },
+      { name:"Jig de lancer", color:"Argent", weight:"20-40 g", technique:"Gros ressac (Pêche-Rando Bar)." },
+    ],
+    access:"Penhors (Pouldreuzic), accès direct à la plage, GR34 (destination-paysbigouden).",
+    securite:[],
+  },
+
+  // ══════════════════════════════════════════════════════════
+  // 9. POINTE DE LA TORCHE (Plomeur)
+  // ══════════════════════════════════════════════════════════
+  {
+    id:"torche", tidePort:"saintguenole", zone:"far", isLocal:false, dangerLevel:2,
+    name:"Pointe de la Torche", subtitle:"Plomeur, sud de la baie d'Audierne",
+    // Position : la pointe (Google Maps, 29/10/2026) ; l'ancienne position était à 700 m à l'est.
+    distance:"≈ 40 min", distMin:40, coords:"47°50,2'N 4°21,2'W", lat:47.837068, lon:-4.353274,
+    type:"POINTE ROCHEUSE ENTRE DEUX PLAGES", color:"#f97316",
+    terrain:{
+      fond:"Promontoire rocheux entre la plage de la Torche et celle de Pors Carn ; fond de sable de part et d'autre (visorando, surf-report).",
+      encombrement:2,
+      gratter:"texan",
+      prof:{ cls:"peu", why:"Pointe basse entre deux plages battues (déduit, aucune sonde)." },
+      couches:["surface", "sous-surface", "mi-eau", "fond"],
+      montage:"Souple plombé sur les flancs sableux, texan au pied de la pointe.",
+      conseils:["Pointe rocheuse citée pour le bar (cannes-peche) : pêcher la jonction roche-sable.", "Spot de surf très fréquenté : pêcher hors des heures de surf ou loin des pics.", "Une seule source pêche (cannes-peche : « pointe rocheuse de la Torche ») ; ton journal fera foi."],
+      confidence:"inference",
+      source:"Déduit des fiches (Wikipédia, visorando, surf-report)",
+      faits:[
+        { t:"Promontoire « at the southeastern end of the Baie d'Audierne », site officiellement classé, tumulus préhistorique au sommet.", s:"Wikipédia (en) — Pointe de la Torche" },
+        { t:"Houle idéale d'ouest, vent offshore d'est, fond de sable ; « baïnes et courants latéraux importants » ; vagues de 3 à 3,5 m possibles.", s:"surf-report.com — La Torche" },
+        { t:"Parking à droite avant la pointe (47,837635 / -4,343878) ; plage de Porzh Carn de l'autre côté.", s:"visorando.com — « Circuit mégalithique depuis la pointe de la Torche »" },
+      ],
+    },
+    coefBand:[30,45,85,105],
+    houleMax:1.8,
+    exposedAngles:[247.5,270,292.5], shelteredAngles:[67.5,90,112.5],
+    weatherNote:"Pointe tournée vers l'ouest (houle idéale O, vent offshore E d'après surf-report).",
+    sources:[
+      "cannes-peche.blog4ever.com — Plomeur : « pointe rocheuse de la Torche »",
+      "Wikipédia (en) — Pointe de la Torche",
+      "surf-report.com — La Torche",
+      "visorando.com — « Circuit mégalithique depuis la pointe de la Torche »",
+    ],
+    topology:{
+      fond:{ text:"Roche de la pointe, sable des deux plages (visorando, surf-report).", confidence:"verified" },
+      structure:{ text:"Pointe entre deux grandes plages ; bancs de sable mobiles.", confidence:"verified" },
+      exposition:{ text:"Tournée vers l'ouest (surf-report).", confidence:"verified" },
+      courant:{ text:"Baïnes et courants latéraux importants (surf-report).", confidence:"verified" },
+      bars:{ text:"Pointe citée pour le bar du bord (cannes-peche).", confidence:"verified" },
+    },
+    tidalRules:{
+      typeHeure:"FLOT",
+      montantOuDescendant:"Aucune source propre au poste : le guide part du flot sur la jonction roche-sable.",
+      description:"Jonction roche-sable sur une côte de houle : l'écume et les courants de baïne concentrent les proies.",
+      windows:[
+        { id:"to1", label:"Montant", phase:"bm", offsetBefore:1.0, offsetAfter:5.0, tidePhaseType:"montant", priority:"prime",
+          note:"Pied de la pointe et flancs sableux." },
+        { id:"to2", label:"Début de descendant", phase:"pm", offsetBefore:0.0, offsetAfter:2.0, tidePhaseType:"descendant", priority:"bon",
+          note:"Courants de baïne sortants." },
+      ],
+      lifeHack:"Au sud du 48e parallèle : 2 bars par jour toute l'année, pas de no-kill en février-mars (zone CIEM 8).",
+    },
+    lures:[
+      { name:"Souple 12 cm tête plombée", color:"Blanc / naturel", weight:"tête 15-21 g", technique:"Flancs sableux, écume." },
+      { name:"Stickbait 110-150 mm", color:"Ghost / sardine", weight:"15-32 g", technique:"Mer calme, pied de la pointe." },
+    ],
+    access:"De Plomeur, D785 vers Penmarc'h puis la Torche ; grand parking (surf-report).",
+    securite:[
+      { t:"Baïnes et forts courants latéraux : ne pas entrer dans l'eau par houle.", s:"surf-report.com · prudence du guide" },
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════
+  // 10. PORS CARN — ROCHERS DE SAINT-GUÉNOLÉ (Penmarc'h)
+  // ══════════════════════════════════════════════════════════
+  {
+    id:"saintguenole", tidePort:"saintguenole", zone:"far", isLocal:false, dangerLevel:3,
+    name:"Rochers de Saint-Guénolé", subtitle:"Côte sauvage de Saint-Guénolé (Rocher des Victimes), Penmarc'h",
+    // Position : « Les rochers de Saint-Guénolé » (Google Maps, 29/10/2026) ; l'ancienne position était la plage de Pors Carn, à 2,3 km.
+    distance:"≈ 40 min", distMin:42, coords:"47°49,2'N 4°22,9'W", lat:47.820643, lon:-4.381132,
+    type:"ROCHERS DE CÔTE SAUVAGE", color:"#ef4444",
+    terrain:{
+      fond:"Côte granitique « sauvage », blocs sculptés par la mer ; plage de sable de Pors Carn au nord (Wikipédia, OT Pays bigouden, surf-report).",
+      encombrement:3,
+      gratter:"non",
+      prof:{ cls:"peu", why:"Rochers d'estran sur une côte de houle (déduit, aucune sonde)." },
+      couches:["surface", "sous-surface"],
+      montage:"Weightless, texan ou surface : le fond de blocs garde les têtes plombées.",
+      conseils:["Pêcher depuis un poste haut et sûr, jamais au ras de l'eau par houle.", "Les roches de Saint-Guénolé sont citées pour le bar (cannes-peche)."],
+      confidence:"inference",
+      source:"Déduit des descriptions de la côte (Wikipédia, office de tourisme, surf-report)",
+      faits:[
+        { t:"Rochers de Saint-Guénolé : site naturel classé ; plaque à la mémoire de cinq membres de la famille du préfet emportés par une lame de fond le 10 octobre 1870.", s:"destination-paysbigouden.com — fiche visite Penmarc'h (2025) · visorando.com" },
+        { t:"Escalader les rochers « avec prudence » même par mer calme.", s:"visorando.com — « Circuit mégalithique depuis la pointe de la Torche »" },
+        { t:"« The coast is known to be very dangerous for sailors » ; côte granitique dite « côte sauvage » à Saint-Guénolé.", s:"Wikipédia (en) — Penmarch" },
+        { t:"Pors Carn : courants, « zone de surf dangereuse » ; coordonnées 47,831367 / -4,354283.", s:"surf-report.com — Pors Carn · mondo.surf" },
+      ],
+    },
+    coefBand:[30,45,85,105],
+    houleMax:1.2,
+    exposedAngles:[225,247.5,270,292.5], shelteredAngles:[67.5,90,112.5],
+    weatherNote:"Côte tournée vers l'ouest et le sud-ouest, pleine houle d'Atlantique. Orientation d'après les fiches de surf (houle idéale O).",
+    sources:[
+      "cannes-peche.blog4ever.com — Penmarc'h / Saint-Guénolé : « Île Conq et ses roches »",
+      "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : « Île Conq à Saint Guénolé »",
+      "destination-paysbigouden.com — fiche visite Penmarc'h (2025)",
+      "visorando.com — « Circuit mégalithique depuis la pointe de la Torche »",
+      "Wikipédia (en) — Penmarch",
+      "surf-report.com — Pors Carn ; mondo.surf — Pors Carn",
+    ],
+    topology:{
+      fond:{ text:"Granite, blocs sculptés (OT, Wikipédia) ; sable à Pors Carn.", confidence:"verified" },
+      structure:{ text:"Rochers de côte sauvage entre Pors Carn et le port de Saint-Guénolé.", confidence:"verified" },
+      exposition:{ text:"Plein ouest à sud-ouest (surf-report).", confidence:"verified" },
+      courant:{ text:"Courants à Pors Carn (surf-report) ; pas de mesure aux rochers.", confidence:"verified" },
+      bars:{ text:"Roches citées pour le bar du bord (cannes-peche).", confidence:"verified" },
+    },
+    tidalRules:{
+      typeHeure:"FLOT + MER MANIABLE",
+      montantOuDescendant:"Aucune source propre au poste : flot et mer maniable avant tout.",
+      description:"Le spot le plus dangereux du guide par houle : lame de fond mortelle en 1870.",
+      windows:[
+        { id:"sg1", label:"Montant", phase:"bm", offsetBefore:1.0, offsetAfter:5.0, tidePhaseType:"montant", priority:"prime",
+          note:"Depuis un poste haut, weightless ou stickbait le long des blocs." },
+        { id:"sg2", label:"Pleine mer", phase:"pm", offsetBefore:-1.0, offsetAfter:1.0, tidePhaseType:"variable", priority:"bon",
+          note:"Blocs couverts, surface par mer calme." },
+      ],
+      lifeHack:"Seuil de houle volontairement bas (1,2 m) : choix de prudence du guide sur une côte où une lame de fond a tué en 1870.",
+    },
+    lures:[
+      { name:"Souple weightless 12 cm", color:"Naturel / blanc", weight:"sans plomb", technique:"Le long des blocs, lent." },
+      { name:"Stickbait 110-130 mm", color:"Ghost / sardine", weight:"14-27 g", technique:"Mer calme seulement." },
+    ],
+    access:"Grand parking de la Torche, puis GR34 le long des rochers vers Saint-Guénolé (visorando).",
+    securite:[
+      { t:"Lame de fond : cinq personnes emportées le 10 octobre 1870 sur ces rochers. Jamais au ras de l'eau par houle, même faible.", s:"destination-paysbigouden.com (2025) · visorando.com" },
+      { t:"Escalader les rochers « avec prudence » même par mer calme.", s:"visorando.com" },
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════
+  // 11. POINTE DE PENMARC'H — phare d'Eckmühl
+  // ══════════════════════════════════════════════════════════
+  {
+    id:"penmarch", tidePort:"saintguenole", zone:"far", isLocal:false, dangerLevel:3,
+    name:"Pointe de Penmarc'h", subtitle:"Phare d'Eckmühl, Saint-Pierre (Penmarc'h)",
+    distance:"≈ 45 min", distMin:47, coords:"47°47,9'N 4°22,4'W", lat:47.798306, lon:-4.37275,
+    type:"POINTE ROCHEUSE", color:"#ef4444",
+    terrain:{
+      fond:"Pointe rocheuse au pied du phare d'Eckmühl ; roches basses que la mer montante submerge (carnet-de-peche.com). Nature du fond au large non décrite.",
+      encombrement:3,
+      gratter:"non",
+      prof:{ cls:"peu", why:"Roches d'estran sur une pointe de houle (déduit, aucune sonde)." },
+      couches:["surface", "sous-surface", "mi-eau"],
+      montage:"Leurres lancés depuis les bordures hautes : stickbait, souple plombé tenu au-dessus des roches, jig dans le gros ressac.",
+      conseils:["« Tu pêches aux leurres depuis les bordures hautes, jamais au ras de l'eau » (carnet-de-peche.com).", "Le bar « chasse dans le ressac dès que la mer bouge » : une mer formée mais maniable, depuis un poste haut et sûr."],
+      confidence:"inference",
+      source:"Sources de pêche (Le Figaro Nautisme, mieuxpecher, carnet-de-peche) ; orientation et profondeur déduites de la carte",
+      faits:[
+        { t:"Pointe de Penmarc'h « réputée pour la pêche au bar » (aussi lieu, vieille, tacaud) ; surfcasting, jigging et traîne sur fonds rocheux.", s:"Le Figaro Nautisme — « Top 10 des spots de pêche en mer en France métropolitaine » (01/03/2026)" },
+        { t:"« Autour du phare d'Eckmühl à Penmarch » cité parmi les coins de pêche du Finistère sud.", s:"mieuxpecher.com — « Coins de Pêche – Finistère SUD » (Norbert, 2018, mod. 2022)" },
+        { t:"« Où le bar chasse dans le ressac dès que la mer bouge » ; « Tu pêches aux leurres depuis les bordures hautes, jamais au ras de l'eau » ; « Accès à pied depuis le phare d'Eckmühl ».", s:"carnet-de-peche.com — Pointe de Penmarc'h (page sans auteur)" },
+        { t:"La pointe est la limite nord du golfe de Gascogne ; phare d'Eckmühl au port de Saint-Pierre, 47°47′53,9″N 4°22′21,9″W.", s:"Wikipédia (en) — Point Penmarc'h · Penmarc'h Lighthouse" },
+        { t:"Rochers voisins de Saint-Guénolé : « très exposée au vent dominant d'ouest », « La prudence est de rigueur sur ce lieu ».", s:"toutcommenceenfinistere.com — « Circuit la pointe de Penmarc'h »" },
+      ],
+    },
+    coefBand:[30,45,85,105],
+    houleMax:1.2,
+    exposedAngles:[202.5,225,247.5,270], shelteredAngles:[22.5,45,67.5],
+    weatherNote:"Pointe sud-ouest du pays bigouden, entre la baie d'Audierne et le golfe de Gascogne : exposée d'ouest à sud-ouest ; seul un vent de nord-est l'abrite. Orientation déduite de la carte.",
+    sources:[
+      "Le Figaro Nautisme — Top 10 des spots de pêche en mer en France (01/03/2026) : Pointe de Penmarc'h",
+      "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : autour du phare d'Eckmühl",
+      "carnet-de-peche.com — Pointe de Penmarc'h (description, dangers, accès)",
+      "Wikipédia (en) — Point Penmarc'h ; Penmarc'h Lighthouse (coordonnées)",
+      "toutcommenceenfinistere.com — Circuit la pointe de Penmarc'h",
+    ],
+    topology:{
+      fond:{ text:"Roches basses submergées à marée montante (carnet-de-peche) ; fonds rocheux (Le Figaro Nautisme).", confidence:"verified" },
+      structure:{ text:"Pointe au pied du phare d'Eckmühl, port de Saint-Pierre (Wikipédia).", confidence:"verified" },
+      exposition:{ text:"Ouest à sud-ouest. Déduit de la carte ; rochers voisins « très exposés au vent dominant d'ouest ».", confidence:"inference" },
+      courant:{ text:"Aucune source sur le courant à la pointe.", confidence:"inference" },
+      bars:{ text:"« Réputée pour la pêche au bar » (Le Figaro Nautisme, 2026) ; bar dans le ressac (carnet-de-peche).", confidence:"verified" },
+    },
+    tidalRules:{
+      typeHeure:"MER QUI BOUGE + FLOT (PRUDENCE)",
+      montantOuDescendant:"Aucune source ne donne l'heure de marée à la pointe ; la seule consigne datée est le danger de la mer montante sur les roches basses. Le guide garde le flot, depuis un poste haut, et la mi-marée descendante.",
+      description:"Le bar chasse dans le ressac quand la mer bouge : c'est aussi quand la pointe est la plus dangereuse.",
+      windows:[
+        { id:"pm1", label:"Montant", phase:"bm", offsetBefore:1.0, offsetAfter:5.0, tidePhaseType:"montant", priority:"prime",
+          note:"Depuis les bordures hautes : la mer montante submerge les roches basses." },
+        { id:"pm2", label:"Descendant", phase:"pm", offsetBefore:1.0, offsetAfter:4.0, tidePhaseType:"descendant", priority:"bon",
+          note:"Le ressac sur les roches qui découvrent." },
+      ],
+      lifeHack:"Seuil de houle bas (1,2 m), comme à Saint-Guénolé : la source parle de vagues scélérates.",
+    },
+    lures:[
+      { name:"Stickbait 110-130 mm", color:"Ghost / sardine", weight:"14-27 g", technique:"Dans l'écume du ressac, mer maniable." },
+      { name:"Souple 12 cm tête plombée", color:"Blanc / naturel", weight:"tête 15-21 g", technique:"Tenu au-dessus des roches. Repère d'un guide du cap : Sand Eel sur tête de 21 g." },
+      { name:"Jig 20-30 g", color:"Argent", weight:"20-30 g", technique:"Dans le gros ressac : le jig est le choix d'un guide du cap Sizun par grosse houle (Pêche-Rando Bar) ; poids de ta boîte (Drag Metal Cast)." },
+    ],
+    access:"À pied depuis le phare d'Eckmühl (carnet-de-peche.com), quartier de Saint-Pierre à Penmarc'h ; le circuit de la pointe part du parking du port de Saint-Guénolé (toutcommenceenfinistere.com).",
+    securite:[
+      { t:"Vagues scélérates, ressac et retour de vague, rochers glissants, submersion à marée montante : « Ne descends jamais sur les roches basses, garde de la hauteur et ne viens pas seul ».", s:"carnet-de-peche.com — Pointe de Penmarc'h" },
+      { t:"Lame de fond : cinq personnes emportées le 10 octobre 1870 sur les rochers voisins de Saint-Guénolé.", s:"destination-paysbigouden.com (2025)" },
+    ],
+  },
+];

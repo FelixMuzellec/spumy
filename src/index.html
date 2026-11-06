@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SPUMY · pêche du bar aux leurres</title>
+<meta name="description" content="SPUMY : où et quand pêcher le bar aux leurres du bord, sept guides en Finistère et dans la Manche, et la pêche en bateau. Marée calculée, météo et houle par spot, journal, analyse de photos.">
+<meta name="theme-color" content="#020617">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SPUMY">
+<!-- Une seule application installable : cet accueil et les guides partagent ce manifeste. -->
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+  :root { color-scheme: dark; }
+  [hidden] { display: none !important; }
+  body { margin: 0; background: #020617; color: #e2e8f0; font: 15px/1.55 system-ui, -apple-system, sans-serif; }
+  main { max-width: 560px; margin: 0 auto; padding: calc(28px + env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 48px max(16px, env(safe-area-inset-left)); }
+  /* v9.1 — En-tête SPUMY : la marque en image, le nom et la promesse en vrai texte (toujours net, lu par les lecteurs d'écran). */
+  header.brand { display: flex; align-items: center; gap: 14px; margin: 0 0 18px; }
+  header.brand img { width: 56px; height: 56px; border-radius: 14px; flex-shrink: 0; box-shadow: 0 6px 18px rgba(3, 105, 161, 0.35); }
+  header.brand div { min-width: 0; }
+  h1 { font-size: 26px; line-height: 1.1; margin: 0; font-weight: 800; letter-spacing: 0.14em; color: #f8fafc; }
+  p.tagline { margin: 3px 0 0; font-size: 15px; font-weight: 600; color: #7dd3fc; text-wrap: balance; }
+  p.sub { color: #94a3b8; margin: 0 0 18px; font-size: 13px; text-wrap: pretty; }
+  /* Recherche d'un spot par son nom, sa commune ou son guide */
+  #search { margin: 0 0 22px; }
+  #search label { display: block; font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+  #search .hint { font-weight: 500; font-size: 13px; color: #94a3b8; }
+  #q { box-sizing: border-box; width: 100%; min-height: 50px; padding: 10px 14px; border: 1px solid #334155; border-radius: 12px;
+       background: #0b1626; color: #f1f5f9; font: 16px system-ui, -apple-system, sans-serif; }
+  #q::placeholder { color: #8a9bb1; }
+  #q:focus { border-color: #38bdf8; outline: 2px solid #38bdf8; outline-offset: 1px; }
+  #near { display: block; width: 100%; min-height: 48px; margin-top: 8px; border: 1px solid #0ea5e9; border-radius: 12px;
+          background: rgba(14,165,233,0.12); color: #e0f2fe; font: 700 15px system-ui, -apple-system, sans-serif; cursor: pointer; }
+  #near:disabled { opacity: 0.85; cursor: progress; }
+  #count { margin: 8px 2px 0; font-size: 13px; color: #94a3b8; }
+  #count:empty { display: none; }
+  #results { list-style: none; margin: 8px 0 0; padding: 0; border: 1px solid #1e293b; border-radius: 12px; overflow: hidden; }
+  #results li + li { border-top: 1px solid #1e293b; }
+  #results a { display: flex; gap: 12px; align-items: center; min-height: 56px; padding: 10px 14px; color: inherit; text-decoration: none; background: rgba(10,20,38,0.85); }
+  #results a:hover, #results a:focus-visible { background: #0b2a42; }
+  #results img { width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0; }
+  #results .t { min-width: 0; }
+  #results strong { display: block; font-size: 15.5px; }
+  #results .s { display: block; color: #cbd5e1; font-size: 13px; }
+  #results .g { display: block; color: #94a3b8; font-size: 12.5px; }
+  #results .d { display: block; color: #7dd3fc; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  /* v8.15 — Note du jour et tendance vers demain, à droite de chaque résultat (remplies par home.js) */
+  #results .t { flex: 1; }
+  #results .sc { flex-shrink: 0; min-width: 48px; text-align: right; font-variant-numeric: tabular-nums; }
+  #results .sc:empty { display: none; }
+  #results .sc b { display: block; font-size: 17px; font-weight: 800; white-space: nowrap; }
+  #results .sc small { display: block; font-size: 12px; color: #94a3b8; white-space: nowrap; }
+  .sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  /* Guides regroupés par département, chaque département replié par défaut (v8.15) */
+  details.dept { margin: 0 0 10px; border: 1px solid #1e293b; border-radius: 12px; background: rgba(10,20,38,0.5); }
+  details.dept > summary { list-style: none; display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 6px 14px; cursor: pointer; border-radius: 12px; }
+  details.dept > summary::-webkit-details-marker { display: none; }
+  details.dept > summary::after { content: "▾"; margin-left: auto; color: #38bdf8; font-size: 16px; transition: transform .15s; }
+  details.dept:not([open]) > summary::after { transform: rotate(-90deg); }
+  details.dept > summary:hover { background: rgba(14,165,233,0.08); }
+  details.dept h2 { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; font-size: 17px; margin: 0; }
+  details.dept h2 small { font-size: 12.5px; font-weight: 600; color: #94a3b8; }
+  details.dept > .cards { padding: 4px 10px 2px; }
+  /* Onglets Inshore / Offshore (v8.15) */
+  .tabs { display: flex; gap: 6px; margin: 0 0 18px; padding: 4px; border: 1px solid #1e293b; border-radius: 14px; background: #0b1626; }
+  .tabs [role=tab] { flex: 1; min-width: 0; min-height: 56px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 6px 8px; border: 0; border-radius: 10px;
+                    background: transparent; color: #cbd5e1; font: 700 15px system-ui, -apple-system, sans-serif; cursor: pointer; text-align: left; }
+  .tabs [role=tab] svg { width: 26px; height: 26px; flex-shrink: 0; fill: none; stroke: #7dd3fc; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .tabs [role=tab] circle:last-of-type { fill: #7dd3fc; stroke: none; }
+  .tabs [role=tab] span { min-width: 0; }
+  .tabs [role=tab] small { display: block; font-weight: 500; font-size: 12px; color: #94a3b8; }
+  .tabs [role=tab][aria-selected=true] { background: #0b2a42; color: #f1f5f9; box-shadow: inset 0 0 0 1px #38bdf8; }
+  #offshore-app .wait { margin: 0; padding: 14px; border: 1px solid #1e293b; border-radius: 12px; color: #94a3b8; font-size: 14px; }
+  a.card { display: flex; gap: 14px; align-items: center; padding: 14px 16px; margin-bottom: 10px; border: 1px solid #1e293b; border-radius: 12px;
+           background: rgba(10,20,38,0.8); color: inherit; text-decoration: none; }
+  a.card:active, a.card:hover { border-color: #0ea5e9; }
+  a.card img { width: 52px; height: 52px; border-radius: 12px; flex-shrink: 0; }
+  a.card div { min-width: 0; }
+  a.card strong { display: block; font-size: 16px; }
+  a.card span { color: #94a3b8; font-size: 13px; }
+  #install { margin-top: 20px; padding: 14px 16px; border: 1px solid #1e293b; border-radius: 12px; background: rgba(10,20,38,0.5); }
+  #install-btn { display: block; width: 100%; min-height: 48px; margin-bottom: 10px; border: 1px solid #0ea5e9; border-radius: 10px;
+                 background: #0369a1; color: #fff; font: 700 15px system-ui, -apple-system, sans-serif; cursor: pointer; }
+  #install-msg { margin: 0 0 10px; color: #4ade80; font-size: 14px; }
+  #install summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; color: #38bdf8; font-weight: 600; font-size: 14.5px; }
+  #install p { margin: 8px 0 0; font-size: 13.5px; color: #cbd5e1; }
+  #install b { color: #e2e8f0; }
+  :focus-visible { outline: 2px solid #38bdf8; outline-offset: 2px; }
+  footer { color: #94a3b8; font-size: 11.5px; margin-top: 28px; }
+  footer a { color: #94a3b8; }
+  /* Affichage « plein soleil » choisi dans un guide (réglage commun à l'appareil) */
+  html.sun body { background: #f5f7fa; }
+  html.sun main { background: #020617; filter: invert(1) hue-rotate(180deg); }
+  html.sun main img, html.sun main .leaflet-tile-pane { filter: invert(1) hue-rotate(180deg); }
+  /* v8.14 — Carte de tous les spots et ajout d'un spot (home.js) */
+  section#carte { margin: 0 0 22px; }
+  section#carte > h2 { font-size: 17px; margin: 0 0 4px; }
+  section#carte > p.lead { margin: 0 0 10px; font-size: 13px; color: #94a3b8; }
+  #home-app .wait { margin: 0; padding: 14px; border: 1px solid #1e293b; border-radius: 12px; color: #94a3b8; font-size: 14px; }
+  #home-app a:focus-visible { outline: 2px solid #38bdf8; outline-offset: -2px; }
+/*__LEAFLET_CSS__*/
+</style>
+</head>
+<body>
+<main>
+  <header class="brand">
+    <img src="icon-192.png" width="56" height="56" alt="">
+    <div><h1>SPUMY</h1><p class="tagline">Où et quand pêcher le bar aux leurres</p></div>
+  </header>
+  <p class="sub">Marée calculée sur l'appareil · météo AROME et houle par spot · carte · réglementation · journal de session · analyse de photos.</p>
+
+  <div class="tabs" role="tablist" aria-label="Type de pêche">
+    <button type="button" role="tab" id="tab-inshore" aria-controls="panel-inshore" aria-selected="true">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21.4h7.5"/><path d="M3.6 20.6 16.6 3"/><circle cx="6.6" cy="16.9" r="1.7"/><path d="M16.6 3c2.9 3.2 4.1 7 3.9 11.2"/><circle cx="20.5" cy="15.4" r="1.3"/><path d="M11.6 21.2c1.5 0 1.5-.9 3-.9s1.5.9 3 .9 1.5-.9 3-.9"/></svg>
+      <span>Inshore<small>du bord · bar</small></span></button>
+    <button type="button" role="tab" id="tab-offshore" aria-controls="panel-offshore" aria-selected="false" tabindex="-1">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 13.5h19l-2.8 4.6H5.6z"/><path d="M7.5 13.5V8.2h5.2l2.4 5.3"/><path d="M17.2 13.5 20 5"/><path d="M2 21.2c1.7 0 1.7-1 3.3-1s1.7 1 3.3 1 1.7-1 3.4-1 1.6 1 3.3 1 1.7-1 3.3-1 1.7 1 3.4 1"/></svg>
+      <span>Offshore<small>en bateau · toutes espèces</small></span></button>
+  </div>
+
+  <div role="tabpanel" id="panel-inshore" aria-labelledby="tab-inshore">
+  <form id="search" role="search" aria-label="Chercher un spot">
+    <label for="q">Chercher un spot <span class="hint">par son nom, sa commune ou son guide</span></label>
+    <input id="q" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go"
+           placeholder="Trévignon, Pen-Hir, Goury…" aria-describedby="count" aria-controls="results">
+    <button id="near" type="button">📍 Les spots les plus proches de moi</button>
+    <p id="count" role="status" aria-live="polite"></p>
+    <ul id="results" aria-label="Spots trouvés" hidden></ul>
+  </form>
+
+  <section id="carte" aria-labelledby="carte-h">
+    <h2 id="carte-h">Carte de tous les spots</h2>
+    <p class="lead">Chaque pastille est la note du jour du spot, calculée par son guide avec la météo de ses coordonnées.</p>
+    <div id="home-app"><p class="wait">Chargement de la carte…</p></div>
+    <noscript><p>La carte nécessite JavaScript.</p></noscript>
+  </section>
+
+  <!--__GUIDES__-->
+  </div>
+
+  <div role="tabpanel" id="panel-offshore" aria-labelledby="tab-offshore" hidden>
+    <div id="offshore-app"><p class="wait">Chargement de la pêche en bateau…</p></div>
+  </div>
+
+  <!-- Masqué dans l'application installée ; affiché par le script dans le navigateur. -->
+  <section id="install" hidden aria-label="Installer l'application">
+    <button id="install-btn" type="button" hidden>Installer l'application</button>
+    <p id="install-msg" role="status" hidden></p>
+    <details id="install-help">
+      <summary>Installer sur le téléphone</summary>
+      <p>Une seule application regroupe cet accueil et les sept guides. Elle s'ouvre sur cette page. Sur Android, un appui long sur son icône propose des raccourcis vers les trois premiers guides (Chrome n'en affiche pas plus) ; la recherche ci-dessus mène à tous les spots.</p>
+      <p><b>Android (Chrome)</b> : la page doit être ouverte dans Chrome lui-même. Si elle s'affiche dans l'aperçu d'une autre application (lien ouvert depuis un message, GitHub…), passe d'abord par menu ⋮ → « Ouvrir dans Chrome ». Ensuite, menu ⋮ → « Installer l'application », ou « Ajouter à l'écran d'accueil » puis « Installer ». Téléphone en anglais : « Install app », ou « Add to Home screen » puis « Install ».</p>
+      <p><b>iPhone (Safari)</b> : bouton Partager → « Sur l'écran d'accueil ».</p>
+      <p>Si tu avais déjà ajouté un guide seul à l'écran d'accueil, tu peux retirer cette ancienne icône.</p>
+    </details>
+  </section>
+
+  <footer>
+    Chaque guide a sa propre météo et son propre journal ; la clé API des photos sert à tous.<br>
+    Météo : <a href="https://open-meteo.com/">Open-Meteo.com</a> (CC BY 4.0) · Marée : constantes TICON-4 (CC BY 4.0), calcul d'après Neaps (MIT).<br>
+    Version __VERSION__
+  </footer>
+</main>
+<script>
+(function () {
+  // Hors ligne : le service worker garde l'accueil et les guides en cache.
+  if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) {
+    navigator.serviceWorker.register("sw.js", { scope: "./" }).catch(function () {});
+  }
+  try { if (localStorage.getItem("bar:theme") === "sun") document.documentElement.classList.add("sun"); } catch (e) { /* stockage refusé */ }
+
+  // ── Recherche d'un spot ──
+  // Index écrit par scripts/build.mjs depuis les fiches des guides : [guide, id, nom, sous-titre, guide affiché, département, autres mots, lat, lon].
+  var SPOTS = /*__SPOTS__*/[];
+  // Tes spots, ajoutés dans les guides sur cet appareil (même stockage que les guides) : [guide, identifiant du guide, nom, département].
+  var GUIDES = /*__GUIDE_IDS__*/[];
+  var BUILT = SPOTS.length;
+  function addMine() {
+    SPOTS.length = BUILT;
+    GUIDES.forEach(function (gd) {
+      var mine = [];
+      try { mine = JSON.parse(localStorage.getItem("bar:myspots:" + gd[1]) || "[]"); } catch (e) { mine = []; }
+      if (!Array.isArray(mine)) return;
+      mine.forEach(function (r) {
+        if (r && !r.deleted && /^moi-[a-z0-9]{4,24}$/.test(String(r.id)) && typeof r.name === "string" && r.name.trim().length >= 2)
+          SPOTS.push([gd[0], r.id, r.name.trim().slice(0, 60), "Ton spot", gd[2], gd[3], "", +r.lat, +r.lon]);
+      });
+    });
+  }
+  addMine();
+  // Sans accents, apostrophes, tirets ni espaces : « penhir », « pen hir » et « Pen-Hir » se valent, « laita » trouve « Laïta ».
+  function fold(s) { return String(s).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/œ/g, "oe").replace(/æ/g, "ae"); }
+  function compact(s) { return fold(s).replace(/[^a-z0-9]+/g, ""); }
+  function entry(r) {
+    return { r: r, name: fold(r[2]), nameC: compact(r[2]), nameWords: fold(r[2]).split(/[^a-z0-9]+/).filter(Boolean),
+             sub: compact(r[3]), all: compact([r[2], r[3], r[4], r[5], r[6]].join(" ")) };
+  }
+  var IDX = SPOTS.map(entry);
+  // v8.14 — Un spot ajouté depuis la carte (home.js) entre aussitôt dans la recherche.
+  window.barReindex = function () { addMine(); IDX = SPOTS.map(entry); if (q.value) show(); };
+  var q = document.getElementById("q"), list = document.getElementById("results"), count = document.getElementById("count");
+  // Rang : nom qui commence par la saisie, puis un mot du nom, puis le nom, puis le reste de la fiche.
+  function rank(e, toks, qc) {
+    if (!toks.every(function (t) { return e.all.indexOf(t) >= 0; })) return -1;
+    if (e.nameC.indexOf(qc) === 0) return 0;
+    if (e.nameWords.some(function (w) { return w.indexOf(toks[0]) === 0; }) && toks.every(function (t) { return e.nameC.indexOf(t) >= 0; })) return 1;
+    if (toks.every(function (t) { return e.nameC.indexOf(t) >= 0; })) return 2;
+    if (toks.every(function (t) { return e.sub.indexOf(t) >= 0; })) return 3;
+    return 4;
+  }
+  function el(tag, cls, text) { var x = document.createElement(tag); if (cls) x.className = cls; if (text != null) x.textContent = text; return x; }
+  // Une ligne de résultat ; `dist` : distance à vol d'oiseau quand on cherche autour de soi.
+  function render(hits, distOf) {
+    list.textContent = "";
+    hits.forEach(function (h) {
+      var r = h.e.r, li = el("li"), a = el("a"), img = el("img"), t = el("span", "t");
+      a.href = r[0] + ".html#spot=" + r[1];
+      a.setAttribute("data-k", r[0] + "/" + r[1]);
+      img.src = r[0] + ".png"; img.alt = "";
+      t.appendChild(el("strong", null, r[2])); t.appendChild(el("span", "s", r[3]));
+      if (distOf) t.appendChild(el("span", "d", distOf(h)));
+      t.appendChild(el("span", "g", "Guide " + r[4] + " · " + r[5]));
+      a.appendChild(img); a.appendChild(t); a.appendChild(el("span", "sc")); li.appendChild(a); list.appendChild(li);
+    });
+    list.hidden = !hits.length;
+    paintScores();
+  }
+  // v8.15 — Note du jour et flèche vers demain (↗ en hausse, ↘ en baisse, → stable à 0,2 point près), calculées
+  // par home.js avec le moteur de chaque guide ; arrivent après l'affichage, et se mettent à jour en place.
+  function paintScores() {
+    var S = window.BAR_SCORES || {};
+    Array.prototype.forEach.call(list.querySelectorAll("a[data-k]"), function (a) {
+      var sc = a.querySelector(".sc"), x = S[a.getAttribute("data-k")];
+      sc.textContent = "";
+      if (!x) return;
+      var b = el("b", null, x.txt + (x.arrow ? " " + x.arrow : "")); b.style.color = x.color; b.setAttribute("aria-hidden", "true");
+      sc.appendChild(b);
+      if (x.tomorrow != null) { var sm = el("small", null, "dem. " + x.tomorrow); sm.setAttribute("aria-hidden", "true"); sc.appendChild(sm); }
+      sc.appendChild(el("span", "sr", x.label));
+    });
+  }
+  window.addEventListener("bar:scores", paintScores);
+  function show() {
+    var raw = q.value.trim();
+    var toks = fold(raw).split(/\s+/).map(compact).filter(Boolean);
+    list.textContent = "";
+    if (!toks.length) { list.hidden = true; count.textContent = ""; return; }
+    var hits = IDX.map(function (e, i) { return { e: e, k: rank(e, toks, compact(raw)), i: i }; })
+      .filter(function (h) { return h.k >= 0; })
+      .sort(function (a, b) { return a.k - b.k || a.e.name.localeCompare(b.e.name, "fr"); });
+    if (!hits.length) { list.hidden = true; count.textContent = "Aucun spot ne correspond à « " + raw + " ». Essaie un autre nom, une commune ou un guide."; return; }
+    render(hits.slice(0, 12));
+    count.textContent = hits.length === 1 ? "1 spot trouvé." : hits.length > 12 ? hits.length + " spots trouvés, les 12 premiers sont affichés." : hits.length + " spots trouvés.";
+  }
+  q.addEventListener("input", show);
+
+  // ── Départements repliables : ceux que tu as ouverts le restent sur cet appareil ──
+  var DEPT_KEY = "bar:home:depts", depts = document.querySelectorAll("details.dept"), openDepts = [];
+  try { openDepts = JSON.parse(localStorage.getItem(DEPT_KEY) || "[]"); } catch (e) { openDepts = []; }
+  Array.prototype.forEach.call(depts, function (d) {
+    if (Array.isArray(openDepts) && openDepts.indexOf(d.getAttribute("data-dept")) >= 0) d.open = true;
+    d.addEventListener("toggle", function () {
+      var now = Array.prototype.filter.call(depts, function (x) { return x.open; }).map(function (x) { return x.getAttribute("data-dept"); });
+      try { localStorage.setItem(DEPT_KEY, JSON.stringify(now)); } catch (e) { /* stockage refusé */ }
+    });
+  });
+
+  // ── Autour de moi : les spots les plus proches de la position du téléphone (GPS) ──
+  var nearBtn = document.getElementById("near"), nearLabel = nearBtn.textContent;
+  function kmBetween(a, b) {
+    var R = 6371, r = Math.PI / 180, dLat = (b.lat - a.lat) * r, dLon = (b.lon - a.lon) * r;
+    var x = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(a.lat * r) * Math.cos(b.lat * r) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    return 2 * R * Math.asin(Math.sqrt(x));
+  }
+  function fmtKm(k) {
+    if (k < 1) return Math.max(10, Math.round(k * 100) * 10) + " m";
+    return (k < 10 ? String(Math.round(k * 10) / 10).replace(".", ",") : String(Math.round(k))) + " km";
+  }
+  function showNear(me, acc) {
+    var hits = IDX.filter(function (e) { return isFinite(e.r[7]) && isFinite(e.r[8]); })
+      .map(function (e) { return { e: e, d: kmBetween(me, { lat: e.r[7], lon: e.r[8] }) }; })
+      .sort(function (a, b) { return a.d - b.d; });
+    if (!hits.length) { list.hidden = true; count.textContent = "Aucun spot à afficher."; return; }
+    render(hits.slice(0, 8), function (h) { return "à " + fmtKm(h.d) + " à vol d'oiseau"; });
+    var prec = acc ? " (position à ±" + (acc < 1000 ? Math.round(acc) + " m" : fmtKm(acc / 1000)) + ")" : "";
+    count.textContent = hits[0].d > 60
+      ? "Aucun guide ne couvre ta position" + prec + " : le spot le plus proche, " + hits[0].e.r[2] + ", est à " + fmtKm(hits[0].d) + "."
+      : "Les spots les plus proches de toi" + prec + ", du plus près au plus loin :";
+  }
+  nearBtn.addEventListener("click", function () {
+    if (!navigator.geolocation) { count.textContent = "Ce navigateur ne donne pas la position du téléphone."; return; }
+    nearBtn.disabled = true; nearBtn.textContent = "📍 Localisation…"; count.textContent = "Localisation en cours…";
+    navigator.geolocation.getCurrentPosition(function (p) {
+      nearBtn.disabled = false; nearBtn.textContent = nearLabel; q.value = "";
+      showNear({ lat: p.coords.latitude, lon: p.coords.longitude }, p.coords.accuracy);
+    }, function (err) {
+      nearBtn.disabled = false; nearBtn.textContent = nearLabel; list.hidden = true;
+      count.textContent = err && err.code === 1 ? "Position refusée : autorise la localisation pour cette page dans les réglages du navigateur, puis réessaie."
+        : err && err.code === 3 ? "Position introuvable à temps (signal GPS faible ?) : réessaie à découvert."
+        : "Position indisponible pour l'instant : réessaie.";
+    }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 60000 });
+  });
+  // Touche « Aller » du clavier : ouvre le premier spot trouvé.
+  document.getElementById("search").addEventListener("submit", function (e) {
+    e.preventDefault(); var a = list.querySelector("a"); if (a && !list.hidden) location.href = a.href;
+  });
+  // Clavier : flèches entre le champ et les résultats ; Échap vide la recherche.
+  q.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowDown") { var a = list.querySelector("a"); if (a && !list.hidden) { e.preventDefault(); a.focus(); } }
+    else if (e.key === "Escape" && q.value) { e.preventDefault(); q.value = ""; show(); }
+  });
+  list.addEventListener("keydown", function (e) {
+    var links = Array.prototype.slice.call(list.querySelectorAll("a")), i = links.indexOf(document.activeElement);
+    if (i < 0) return;
+    if (e.key === "ArrowDown" && i < links.length - 1) { e.preventDefault(); links[i + 1].focus(); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); (i > 0 ? links[i - 1] : q).focus(); }
+    else if (e.key === "Escape") { e.preventDefault(); q.value = ""; show(); q.focus(); }
+  });
+  // Retour arrière depuis un guide : la saisie restée dans le champ affiche de nouveau ses résultats.
+  window.addEventListener("pageshow", function () { if (q.value) show(); });
+
+  // ── v8.15 : onglets Inshore / Offshore (lien #offshore ; le dernier choisi est gardé sur l'appareil) ──
+  var tabs = [document.getElementById("tab-inshore"), document.getElementById("tab-offshore")];
+  function pickTab(i, focus) {
+    tabs.forEach(function (t, j) {
+      t.setAttribute("aria-selected", i === j ? "true" : "false"); t.tabIndex = i === j ? 0 : -1;
+      document.getElementById(t.getAttribute("aria-controls")).hidden = i !== j;
+    });
+    if (focus) tabs[i].focus();
+    try { localStorage.setItem("bar:hometab", i ? "offshore" : "inshore"); } catch (e) { /* stockage refusé */ }
+    try { window.BAR_TAB = i ? "offshore" : "inshore"; window.dispatchEvent(new Event("bar:tab")); } catch (e) { /* ancien navigateur */ }
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener("click", function () { pickTab(i); try { history.replaceState(null, "", i ? "#offshore" : "#inshore"); } catch (e) { /* sans effet */ } });
+    t.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); pickTab(1 - i, true); }
+      else if (e.key === "Home") { e.preventDefault(); pickTab(0, true); } else if (e.key === "End") { e.preventDefault(); pickTab(1, true); }
+    });
+  });
+  function tabFromHash() {
+    if (location.hash === "#offshore") return 1;
+    if (location.hash === "#ajouter" || location.hash === "#inshore") return 0;
+    var m = null; try { m = localStorage.getItem("bar:hometab"); } catch (e) { /* stockage refusé */ }
+    return m === "offshore" ? 1 : 0;
+  }
+  pickTab(tabFromHash());
+  window.addEventListener("hashchange", function () { if (/^#(offshore|inshore|ajouter)$/.test(location.hash)) pickTab(tabFromHash()); });
+
+  // ── Installation ──
+  var standalone = (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || navigator.standalone === true;
+  if (standalone) return;   // déjà dans l'application installée
+  var box = document.getElementById("install"), btn = document.getElementById("install-btn"),
+      msg = document.getElementById("install-msg"), help = document.getElementById("install-help"), deferred = null;
+  box.hidden = false;
+  // Chrome signale que l'installation est possible : un vrai bouton au lieu du menu ⋮.
+  window.addEventListener("beforeinstallprompt", function (e) {
+    e.preventDefault(); deferred = e; btn.hidden = false;
+  });
+  btn.addEventListener("click", function () {
+    if (!deferred) return;
+    var d = deferred; deferred = null; btn.hidden = true;
+    d.prompt();
+    if (d.userChoice) d.userChoice.then(function (c) {
+      if (c && c.outcome !== "accepted") { msg.textContent = "Installation annulée. Elle reste possible depuis le menu ⋮ de Chrome."; msg.hidden = false; }
+    }).catch(function () {});
+  });
+  window.addEventListener("appinstalled", function () {
+    btn.hidden = true; help.open = false;
+    msg.textContent = "Application installée : ouvre-la depuis l'écran d'accueil (icône « SPUMY »).";
+    msg.hidden = false;
+  });
+})();
+</script>
+<script src="home.js" defer></script>
+</body>
+</html>
