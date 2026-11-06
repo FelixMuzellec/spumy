@@ -36,7 +36,13 @@ for (const label of ["logonna", "pirou"]) {
   try { L = await E.fetchLive(today); } catch (e) { err = e; }
   t("prévision du jour téléchargée", !!L, err ? err.message : "");
   if (L) {
-    t("les deux modèles répondent (AROME et ECMWF)", L.models.includes("AROME") && L.models.includes("ECMWF"), L.models.join(" + "));
+    // v9.3 : AROME (meteofrance_seamless) couvre désormais toutes les heures ; ECMWF ne remplit plus de trou et
+    // ne sert qu'au vent de comparaison (wind2, écart entre modèles). On vérifie donc qu'il le fournit vraiment,
+    // au lieu de compter les modèles « utilisés » pour combler des trous.
+    t("AROME est le modèle principal", L.models.includes("AROME"), L.models.join(" + "));
+    const cmp = E.SPOTS.filter((s) => { const ser = L.series[s.id]; if (!ser?.wind2) return false;
+      return Array.from({ length: 17 }, (_, i) => E.idxAt(ser, E.msAtLocal(today, 6 + i))).some((i) => i >= 0 && ser.wind2[i] != null); });
+    t("ECMWF fournit le vent de comparaison (écart entre modèles)", cmp.length === E.SPOTS.length, `${cmp.length}/${E.SPOTS.length} spots`);
     t("aucun modèle remplacé par un relais", !L.warnings.some((w) => /Modèle indisponible/.test(w)), L.warnings.join(" | "));
     t("houle et température d'eau disponibles", !L.warnings.some((w) => /Houle et température d'eau indisponibles/.test(w)), L.warnings.join(" | "));
     const weak = E.SPOTS.filter((s) => {
