@@ -17,7 +17,7 @@ concurrency:
 
 jobs:
   tests:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04   # Playwright 1.56 ne prend pas en charge Ubuntu 26.04
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
