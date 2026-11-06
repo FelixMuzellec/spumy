@@ -2,24 +2,34 @@
   "name": "spumy",
   "version": "9.2.0",
   "description": "SPUMY — où et quand pêcher le bar aux leurres du bord (sept guides en Finistère et dans la Manche) et pêche en bateau toutes espèces.",
+  "private": true,
+  "type": "module",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "build": "node scripts/build.mjs",
+    "icons": "node scripts/icons.mjs",
+    "lint": "eslint -c .eslintrc.json --ext .js,.jsx,.mjs src scripts tests",
     "test:unit": "node tests/unit.mjs logonna && node tests/unit.mjs pirou && node tests/unit.mjs plouguerneau && node tests/unit.mjs audierne && node tests/unit.mjs carantec && node tests/unit.mjs concarneau && node tests/unit.mjs crozon && TZ=Pacific/Auckland node tests/unit.mjs logonna",
     "test:e2e": "node tests/e2e.mjs",
     "test:contract": "node tests/contract.mjs",
-    "test": "npm run test:unit && npm run test:e2e && CONTRACT_MOCK=1 npm run test:contract",
-    "icons": "node scripts/icons.mjs"
+    "test:a11y": "node tests/a11y.mjs",
+    "test:studio": "node scripts/build-studio.mjs && node tests/studio.mjs",
+    "test": "npm run lint && npm run test:unit && npm run test:e2e && CONTRACT_MOCK=1 npm run test:contract"
   },
-  "license": "UNLICENSED",
   "dependencies": {
     "leaflet": "^1.9.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "axe-core": "^4.10.2",
     "esbuild": "^0.28.2",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^4.6.2",
     "playwright": "^1.56.0"
-  },
-  "private": true,
-  "type": "module"
+  }
 }

@@ -1,0 +1,51 @@
+# SPUMY_AUDIT_CONTINUITY.md
+
+Document de continuité unique du chantier « audit, amélioration et refonte » (section 24 du prompt maître). Il dit où en est le travail ; il ne prouve rien à lui seul : vérifier l'état réel du dépôt avant de reprendre.
+
+## Périmètre
+
+Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVED — PROCEED TO PHASE X`). Modes BORD (pêche du bord) et BATEAU. Référence visuelle : maquette en 8 écrans fournie par Félix.
+
+## État
+
+| Phase | Statut | Livrable |
+| --- | --- | --- |
+| 1. Audit initial | VALIDATED (6 nov. 2026) | Rapport « SPUMY — Phase 1 : audit initial » (document Claude de Félix) |
+| 2. Architecture cible | VALIDATED (6 nov. 2026, 22 h 59) | Document « SPUMY — Phase 2 : architecture cible » ; résumé dans `docs/ARCHITECTURE.md` |
+| 3. Socle technique | IN PROGRESS | Branche `claude/phase-3-socle` |
+| 4 à 17 | NOT STARTED | — |
+
+### Phase 3, lots
+
+| Lot | Statut | Preuve |
+| --- | --- | --- |
+| 3.1 Code source dans le dépôt | TESTED | `npm ci && npm run build` = fichiers publiés (build b930d9512616) ; unitaires 3 182/3 182 ; contrat simulé 24/24 |
+| 3.2 Outils et documentation | TESTED | `npm run lint` 0 erreur ; `npm run test:a11y` 0 violation (guide de Logonna et accueil) ; build inchangé ; test unitaire du README vert |
+| 3.3 à 3.8 | NOT STARTED | — |
+
+## Décisions prises
+
+- Trois scores sur 100 (favorabilité, pertinence, confiance), chacun décomposé et expliqué.
+- Photos fournies par Félix (générées) : ambiance et illustration seulement, jamais présentées comme la photo réelle d'un spot ou d'une prise ; 32 retenues.
+- Historique Git conservé tel quel (pas de réécriture).
+- Accès en écriture de Claude au dépôt : actif depuis le 6 novembre ; fusion dans `main` seulement avec l'accord de Félix.
+
+## Décisions ouvertes
+
+1. Adresse dédiée (organisation GitHub, nom de domaine ou statu quo) — avant le lot 3.8.
+2. Profil pour le score de pertinence — avant la phase 6.
+3. Historique de sorties réelles comme référence — avant la phase 6.
+4. Gratuit et sans publicité ? — avant la phase 15.
+5. Direction artistique appliquée à BORD en phase 13 élargie — avant la phase 11.
+6. Espèces du mode BORD — avant la phase 5.
+
+## Défauts bloquants connus (audit de phase 1)
+
+1. Code source absent du dépôt — corrigé par le lot 3.1 (en attente de fusion).
+2. Sécurité qui ne retire un spot que pour la houle (essai : force 9 et rafales à 85 km/h, spot encore proposé) — phases 6 et 7.
+3. Houle inconnue comptée 0 m dans la note — phase 7.
+4. Interface non conforme à la référence visuelle — phases 11 et 13.
+
+## Prochaine action
+
+Lot 3.3 (intégration continue), 3.4, 3.6, 3.5, 3.7, 3.8 ; rapport de fin de phase 3 ; attendre la validation.

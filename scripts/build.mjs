@@ -221,6 +221,6 @@ if (homeOut.includes("__LEAFLET_CSS__")) throw new Error("index.html : feuille d
 fs.writeFileSync(path.join(OUT, "index.html"), withCsp(homeOut, cspFor(scriptOf(homeOut), { selfScript: true, connect: CONNECT.filter((u) => /open-meteo|api\.github\.com/.test(u)), img: ["https://tile.openstreetmap.org"] })));
 // GitHub Pages sert les fichiers tels quels (pas de traitement Jekyll).
 fs.writeFileSync(path.join(OUT, ".nojekyll"), "");
-// Ancienne sortie (v7–v8 : docs/) supprimée pour qu'il n'en reste qu'une version.
-fs.rmSync(path.join(root, "docs"), { recursive: true, force: true });
+// v9.3 : docs/ est désormais la documentation du projet (ARCHITECTURE, FONCTIONNALITES) ; l'ancienne sortie
+// compilée des v7–v8 qui s'y trouvait n'existe plus depuis longtemps, on ne la supprime donc plus.
 console.log("build", buildId);
