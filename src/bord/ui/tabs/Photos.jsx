@@ -31,9 +31,31 @@ const refColor = (r) => (r[0] === "o" ? C.accent : r[0] === "t" ? C.violet : r[0
 const visualTokens = (p) => Math.ceil(p.w / 28) * Math.ceil(p.h / 28);
 const hasExifTime = (p) => p.when?.source === "exif" || p.when?.source === "exif-paris";
 
+// ── Où vit la clé (lot 3.8) ──
+// Par défaut, la clé API ne reste que le temps de la session (sessionStorage : oubliée à la fermeture de
+// l'application ou de l'onglet) ; elle n'est gardée sur le téléphone que si tu le demandes. Le modèle choisi,
+// lui, est toujours gardé. Une clé déjà enregistrée avant ce changement reste gardée (choix « garder »).
+const KEY_SESSION = `${CLAUDE_CFG_KEY}:session`;
+const ssGet = (k) => { try { return sessionStorage.getItem(k); } catch { return null; } };
+const ssSet = (k, v) => { try { if (v == null) sessionStorage.removeItem(k); else sessionStorage.setItem(k, v); } catch { /* stockage refusé */ } };
+function loadClaude() {
+  const saved = lsGet(CLAUDE_CFG_KEY);
+  if (saved?.key) return { ...saved, remember: true };
+  const key = ssGet(KEY_SESSION);
+  if (!saved && !key) return null;
+  return { ...(saved || {}), ...(key ? { key } : {}), remember: false };
+}
+function saveClaude(c) {
+  if (!c) { lsSet(CLAUDE_CFG_KEY, null); ssSet(KEY_SESSION, null); return; }
+  const { key, model, remember } = c;
+  if (remember && key) { lsSet(CLAUDE_CFG_KEY, { key, model, remember: true }); ssSet(KEY_SESSION, null); }
+  else { lsSet(CLAUDE_CFG_KEY, model ? { model } : null); ssSet(KEY_SESSION, key || null); }
+}
+
 // ── Réglage de la clé ──
 function KeyCard({ cfg, setCfg }) {
   const [key, setKey] = useState(""), [model, setModel] = useState(cfg?.model || DEFAULT_MODEL);
+  const [remember, setRemember] = useState(!!cfg?.remember);
   const [state, setState] = useState(null);
   const test = async () => {
     const k = key.trim() || cfg?.key;
@@ -42,7 +64,8 @@ function KeyCard({ cfg, setCfg }) {
     try {
       const r = await fetch(MODELS_URL, { headers: apiHeaders(k) });
       if (!r.ok) { let j = null; try { j = await r.json(); } catch { /* vide */ } throw new Error(apiError(r.status, j)); }
-      setCfg({ key: k, model }); setKey(""); setState({ ok: "Clé acceptée et enregistrée sur cet appareil." });
+      setCfg({ key: k, model, remember }); setKey("");
+      setState({ ok: remember ? "Clé acceptée et gardée sur ce téléphone." : "Clé acceptée, gardée jusqu'à la fermeture de l'application." });
     } catch (e) { setState({ err: e.message || "Échec du test." }); }
   };
   return (
@@ -56,7 +79,7 @@ function KeyCard({ cfg, setCfg }) {
           <Muted>Chaque analyse coûte quelques dizaines de centimes, estimés avant et affichés après. Crédits prépayés, non remboursables, valables un an.</Muted>
         </div>
       ) : (
-        <Muted style={{marginTop:0}}>Clé enregistrée sur cet appareil : …{cfg.key.slice(-4)}. Elle sert à tous les guides et ne part que vers api.anthropic.com.</Muted>
+        <Muted style={{marginTop:0}}>{cfg.remember ? "Clé gardée sur ce téléphone" : "Clé gardée le temps de la session (oubliée à la fermeture de l'application)"} : …{cfg.key.slice(-4)}. Elle sert à tous les guides et ne part que vers api.anthropic.com.</Muted>
       )}
       <label style={{display:"block",marginTop:10,fontSize:13.5,color:C.muted}}>{cfg?.key ? "Remplacer la clé" : "Clé API"}
         <input style={{...inp,fontFamily:"monospace",marginTop:4}} type="password" value={key} placeholder="sk-ant-…" onChange={(e) => setKey(e.target.value)} autoCapitalize="off" autoCorrect="off" spellCheck={false}/>
@@ -66,9 +89,14 @@ function KeyCard({ cfg, setCfg }) {
           {Object.entries(CLAUDE_MODELS).map(([k, m]) => <option key={k} value={k}>{m.label}</option>)}
         </select>
       </label>
+      <label style={{display:"flex",gap:10,alignItems:"flex-start",marginTop:12,fontSize:14,lineHeight:1.45,color:C.text,cursor:"pointer"}}>
+        <input type="checkbox" checked={remember} style={{width:22,height:22,flexShrink:0,marginTop:1}}
+          onChange={(e) => { setRemember(e.target.checked); if (cfg?.key) setCfg({ ...cfg, remember: e.target.checked }); }}/>
+        <span>Garder la clé sur ce téléphone<span style={{display:"block",fontSize:13,color:C.muted}}>Sinon, elle est oubliée à la fermeture de l'application : plus sûr si le téléphone est prêté ou perdu.</span></span>
+      </label>
       <div style={{display:"flex",gap:8,flexWrap:"wrap",marginTop:12}}>
         <button style={btn(C.accent, true)} disabled={state?.busy || (!key.trim() && !cfg?.key)} onClick={test}>{state?.busy ? "Test…" : "Enregistrer et tester"}</button>
-        {cfg?.key && <button style={btn(C.muted)} onClick={() => { setCfg(null); setState({ ok: "Clé supprimée de cet appareil." }); }}>Supprimer la clé</button>}
+        {cfg?.key && <button style={btn(C.muted)} onClick={() => { setCfg(null); setRemember(false); setState({ ok: "Clé supprimée de cet appareil." }); }}>Supprimer la clé</button>}
       </div>
       {state?.ok && <div style={{marginTop:10}}><Alert tone={C.good}>{state.ok}</Alert></div>}
       {state?.err && <div style={{marginTop:10}}><Alert tone={C.bad} role="alert">{state.err}</Alert></div>}
@@ -419,8 +447,8 @@ function JobPanel({ job, cfg, spots }) {
 // ── Onglet ──
 export function Photos({ g }) {
   const ph = usePhotoState();
-  const [cfg, setCfgState] = useState(() => lsGet(CLAUDE_CFG_KEY));
-  const setCfg = (c) => { setCfgState(c); lsSet(CLAUDE_CFG_KEY, c); };
+  const [cfg, setCfgState] = useState(loadClaude);
+  const setCfg = (c) => { setCfgState(c); saveClaude(c); };
   const [prepErr, setPrepErr] = useState(null);
   const [preparing, setPreparing] = useState(false);
   const [copied, setCopied] = useState(false);

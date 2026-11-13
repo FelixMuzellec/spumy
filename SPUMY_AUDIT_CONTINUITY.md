@@ -12,7 +12,7 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | --- | --- | --- |
 | 1. Audit initial | VALIDATED (6 nov. 2026) | Rapport « SPUMY — Phase 1 : audit initial » (document Claude de Félix) |
 | 2. Architecture cible | VALIDATED (6 nov. 2026, 22 h 59) | Document « SPUMY — Phase 2 : architecture cible » ; résumé dans `docs/ARCHITECTURE.md` |
-| 3. Socle technique | IN PROGRESS | Branche `claude/phase-3-socle` |
+| 3. Socle technique | TESTED, en attente de validation | Branche `claude/phase-3-socle`, demande de fusion n° 1 ; rapport « SPUMY — Phase 3 : socle technique » https://claude.ai/artifact/NYumZHjRgLUa9jMQcBGXK9 |
 | 4 à 17 | NOT STARTED | — |
 
 ### Phase 3, lots
@@ -26,7 +26,7 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 3.6 Fiches en données + schéma | TESTED | `data/schema/site.schema.json` ; `test:data` 69/69 : 7 fiches valides, export JSON sans perte, 16 erreurs de saisie refusées, 66 spots identiques à l'empreinte v9.2 (tirée du commit a03e074) ; un spot modifié d'essai est bien signalé ; la construction refuse une fiche invalide (essai fait) ; build inchangé b930d9512616 |
 | 3.5 Application unique | TESTED | Un seul `app.js` (847 Ko) pour l'accueil et les sept guides, fiches `<guide>.json` ; anciennes adresses gardées comme portes d'entrée (pas de redirection) ; poids publié 7,0 → 1,7 Mo ; e2e 774/774 ; mise à jour d'un téléphone `test:upgrade` 11/11 (5 passages de suite) ; axe 0 violation ; unitaires, données, couches, contrat simulé, studio verts ; build 470565a6a9c8 |
 | 3.7 Jetons de design | TESTED | `src/design/tokens.js` (valeurs actuelles) ; jauge, pastille, chargement et style de bouton dans `src/design/components.jsx` ; 22 vues capturées avant/après identiques pixel pour pixel (`tests/visual.mjs`, deux captures de suite identiques aussi) ; axe 0 violation ; e2e 774/774 ; couleurs en dur hors design 298 → 291, compte bloqué à la hausse |
-| 3.8 | IN PROGRESS | — |
+| 3.8 Sécurité rapide | TESTED (adresse dédiée : BLOCKED, décision 1) | Écriture GitHub refusée vers un dépôt public (e2e : aucune écriture, message, session gardée) ; clé Claude en session par défaut, case « garder » (e2e dans les deux sens) ; export puis import du journal sur un téléphone neuf (e2e) ; axe 0 violation ; mise à jour 11/11 |
 
 ## Décisions prises
 
@@ -34,6 +34,12 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 - Photos fournies par Félix (générées) : ambiance et illustration seulement, jamais présentées comme la photo réelle d'un spot ou d'une prise ; 32 retenues.
 - Historique Git conservé tel quel (pas de réécriture).
 - Accès en écriture de Claude au dépôt : actif depuis le 6 novembre ; fusion dans `main` seulement avec l'accord de Félix.
+
+## Écarts au plan de la phase 2 (à valider)
+
+1. Pas de redirection : `logonna.html` et les autres restent les portes d'entrée des guides (même garantie pour les anciens liens).
+2. Fiches en JavaScript commenté (données pures, provenance en commentaire), publiées en JSON à la construction.
+3. Une seule branche et une seule demande de fusion pour la phase, un ou plusieurs commits par lot.
 
 ## Décisions ouvertes
 
@@ -57,4 +63,4 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 
 ## Prochaine action
 
-Lot 3.8 ; rapport de fin de phase 3 ; attendre `APPROVED — PROCEED TO PHASE 4`.
+Attendre `APPROVED — PROCEED TO PHASE 4`. Ne rien fusionner dans `main` sans l'accord écrit de Félix. Décisions attendues : publier la phase 3 (fusion), adresse dédiée (décision 1), trois écarts au plan (pas de redirection, fiches en JavaScript commenté, une seule branche), clé Claude déjà enregistrée, réglage Pages à vérifier.

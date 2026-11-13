@@ -1,6 +1,6 @@
 # Architecture de SPUMY
 
-État au 13 novembre 2026 : v9.2, lot 3.7 de la phase 3. La première partie décrit le code tel qu'il est ; la seconde, l'architecture cible décidée en phase 2, atteinte lot par lot. Ce document est mis à jour à chaque lot qui change l'organisation.
+État au 13 novembre 2026 : v9.2, fin de la phase 3. La première partie décrit le code tel qu'il est ; la seconde, l'architecture cible décidée en phase 2, atteinte lot par lot. Ce document est mis à jour à chaque lot qui change l'organisation.
 
 ## Aujourd'hui (v9.2)
 
@@ -45,7 +45,8 @@ src/                  les sources (lot 3.4 : une couche par dossier, règles vé
     storage.js            stockage de l'appareil (API window.storage sur localStorage) ; signale chaque écriture du journal
     persist.js            sonde réelle du stockage et écriture non destructive
     idb.js                IndexedDB (photos)
-    ghsync.js             accès au dépôt GitHub du journal, partagé par les guides et l'accueil (offshore.json)
+    ghsync.js             accès au dépôt GitHub du journal, partagé par les guides et l'accueil (offshore.json) ;
+                          refuse d'écrire si le dépôt n'est pas privé (lot 3.8)
   bord/                 la pêche du bord
     engine/
       model.js              fenêtres, note, saison, terrain, proies, pression, orientation

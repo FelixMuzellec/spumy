@@ -55,7 +55,7 @@ function fakeGitHub(opts = {}) {
     const json = (status, body) => route.fulfill({ status, contentType: "application/json", headers: { "access-control-allow-origin": "*" }, body: JSON.stringify(body) });
     if (opts.status401 || auth !== "Bearer github_pat_TEST") return json(401, { message: "Bad credentials" });
     if (!m) return json(404, { message: "Not Found" });
-    if (!m[3]) return json(200, { full_name: `${m[1]}/${m[2]}`, private: true });
+    if (!m[3]) return json(200, { full_name: `${m[1]}/${m[2]}`, private: !opts.publicRepo });
     const file = decodeURIComponent(m[3]);
     if (req.method() === "GET") {
       const f = files.get(file);
@@ -823,6 +823,19 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
   ok(gh3.files.has("journal-pirou-plage.json"), "conflit 409 : résolu par relecture et fusion");
   await o3.ctx.close();
 
+  // c bis) lot 3.8 — dépôt de sauvegarde PUBLIC : aucune écriture, message clair, le journal reste sur le téléphone
+  const gh3b = fakeGitHub({ publicRepo: true });
+  const o3b = await openApp("logonna", { sync: SYNC, gh: gh3b });
+  await waitText(o3b.page, READY);
+  await tab(o3b.page, "Journal");
+  await o3b.page.fill('input[placeholder^="Asturie"]', "Essai sauvegarde refusée");
+  await btn(o3b.page, /^Enregistrer$/).click();
+  await waitText(o3b.page, /dépôt FelixMuzellec\/guide-peche-bar-journal public/, 10000).catch(() => {});
+  const local3b = await o3b.page.evaluate(() => localStorage.getItem("bar:journal:logonna-daoulas") || "");
+  ok(!gh3b.log.some((l) => l.startsWith("PUT")) && /dépôt FelixMuzellec\/guide-peche-bar-journal public/.test(await T(o3b.page)) && /Essai sauvegarde refusée/.test(local3b),
+    "[sécurité] dépôt de sauvegarde public : rien n'est envoyé, message clair, la session reste sur le téléphone" + ` — ${gh3b.log.join(", ")}`);
+  await o3b.ctx.close();
+
   // d) jeton refusé : message clair, l'application fonctionne
   const gh4 = fakeGitHub({ status401: true });
   const o4 = await openApp("logonna", { sync: SYNC, gh: gh4 });
@@ -1025,6 +1038,34 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
   await ctx.close();
 }
 
+// ── 5 quater. Lot 3.8 — Sauvegarde sans GitHub : export du journal, puis import sur un téléphone neuf ──
+{
+  const a = await openApp("logonna");
+  await waitText(a.page, READY);
+  await tab(a.page, "Journal");
+  await a.page.fill('input[placeholder^="Asturie"]', "Essai export");
+  await a.page.fill('input[type="time"]', "07:40");
+  await btn(a.page, /^Enregistrer$/).click(); await a.page.waitForTimeout(400);
+  const before = await a.page.evaluate(() => JSON.parse(localStorage.getItem("bar:journal:logonna-daoulas") || "[]"));
+  const [dl] = await Promise.all([a.page.waitForEvent("download"), btn(a.page, /^Exporter$/).click()]);
+  const file = path.join(SHOTS, "journal-export.json");
+  await dl.saveAs(file);
+  const exported = JSON.parse(fs.readFileSync(file, "utf8"));
+  ok(dl.suggestedFilename() === "journal-bar-logonna-daoulas.json" && exported.length === before.length && exported.some((e) => e.lure === "Essai export" && e.heure === "07:40"),
+    `journal : export complet (${exported.length} sessions, fichier ${dl.suggestedFilename()})`);
+  await a.ctx.close();
+  const b = await openApp("logonna");   // téléphone neuf : stockage vide
+  await waitText(b.page, READY);
+  await tab(b.page, "Journal");
+  await b.page.setInputFiles('input[type="file"][accept*="json"]', file);
+  await waitText(b.page, /Essai export/, 8000).catch(() => {});
+  const after = await b.page.evaluate(() => JSON.parse(localStorage.getItem("bar:journal:logonna-daoulas") || "[]"));
+  ok(before.every((e) => after.some((x) => JSON.stringify(x) === JSON.stringify(e))) && /Essai export/.test(await T(b.page)),
+    `journal : import sur un téléphone neuf, chaque session retrouvée à l'identique (${before.length} → ${after.length})`);
+  ok(!a.errors.length && !b.errors.length, "journal : export et import sans erreur JavaScript");
+  await b.ctx.close();
+}
+
 // ── 5 ter. Sécurité : la politique CSP bloque une injection et une fuite de données ──
 // (contexte non surveillé : les violations provoquées ici sont voulues)
 {
@@ -1166,7 +1207,11 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
   await page.fill('input[type=password]', "sk-ant-test");
   await btn(page, "Enregistrer et tester").click();
   await waitText(page, /Nouvelle analyse/, 5000);
-  ok(JSON.parse(await page.evaluate(() => localStorage.getItem("bar:claude"))).key === "sk-ant-test", L("clé acceptée : enregistrée sur l'appareil"));
+  // Lot 3.8 : par défaut, la clé ne reste que le temps de la session (rien dans le stockage durable).
+  const keyAt = () => page.evaluate(() => ({ ls: localStorage.getItem("bar:claude"), ss: sessionStorage.getItem("bar:claude:session") }));
+  const k1 = await keyAt();
+  ok(k1.ss === "sk-ant-test" && !/sk-ant/.test(k1.ls || ""),
+    L("[sécurité] clé acceptée : gardée le temps de la session seulement, rien dans le stockage durable") + ` — ${JSON.stringify(k1)}`);
   await choose(["exif_complet.jpg", "sans_exif_grande.jpg"]);
   await waitText(page, /Photo 2 ·/, 10000);
   const t1 = await T(page);
@@ -1289,6 +1334,16 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
   await opens.last().click();
   await waitText(page, /Bordure du platier/, 5000);
   ok(true, L("analyse enregistrée rouverte"));
+  // Lot 3.8 : « Garder la clé sur ce téléphone » la met dans le stockage durable ; décochée, elle en ressort.
+  await page.getByText("Clé API et modèle").first().click(); await page.waitForTimeout(200);
+  ok(/Clé gardée le temps de la session \(oubliée à la fermeture de l'application\)/.test(await T(page)), L("clé : l'écran dit qu'elle n'est gardée que le temps de la session"));
+  const keep = page.getByRole("checkbox", { name: /Garder la clé sur ce téléphone/ });
+  await keep.check(); await page.waitForTimeout(200);
+  const k2 = await keyAt();
+  await keep.uncheck(); await page.waitForTimeout(200);
+  const k3 = await keyAt();
+  ok(JSON.parse(k2.ls || "{}").key === "sk-ant-test" && !k2.ss && k3.ss === "sk-ant-test" && !/sk-ant/.test(k3.ls || ""),
+    L("clé : « garder sur ce téléphone » coché → stockage durable ; décoché → session seulement") + ` — ${JSON.stringify([k2, k3])}`);
   ok(errors.length === 0, L(`aucune erreur JavaScript${errors.length ? " — " + errors.join(" | ") : ""}`));
   await ctx.close();
 }
