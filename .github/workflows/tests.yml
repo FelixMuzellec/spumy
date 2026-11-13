@@ -58,6 +58,10 @@ jobs:
         run: |
           git fetch --no-tags --depth=1 https://github.com/FelixMuzellec/guide-peche-bar ecfe367dddba69d78637890961c2c0af9c90bb52:refs/remotes/gpb/v8.15
           UPGRADE_FROM=gpb/v8.15 npm run -s test:upgrade
+      # Changement d'adresse (organisation GitHub « spumy ») : le journal de la v8.15 passe par son fichier d'export
+      # à la nouvelle origine, sans perte.
+      - name: Changement d'adresse (journal v8.15 → spumy.github.io)
+        run: npm run -s test:migration
       - name: Studio photo
         run: npm run -s test:studio
       - name: Accessibilité (axe-core)

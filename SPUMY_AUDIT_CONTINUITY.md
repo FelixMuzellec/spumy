@@ -81,7 +81,7 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 
 ## Décisions ouvertes
 
-1. Adresse dédiée (organisation GitHub, nom de domaine ou statu quo) — ouverte depuis le lot 3.8.
+1. Adresse dédiée — **décidée le 13 nov. (14 h 25)** : organisation GitHub gratuite « spumy » (`spumy.github.io`), sans perdre le journal. Procédure : `docs/CHANGEMENT-ADRESSE.md` ; passage du journal testé (`npm run test:migration`). Création de l'organisation, transfert et activation de Pages : à faire par Félix.
 2. Profil pour le score de pertinence — avant la phase 6.
 3. Historique de sorties réelles comme référence — avant la phase 6.
 4. Gratuit et sans publicité ? — avant la phase 15.
