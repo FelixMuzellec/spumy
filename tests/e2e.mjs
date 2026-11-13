@@ -767,6 +767,15 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
     if (sc === "offline") ok(/Pas de réseau/.test(txt) && /marée et la lumière seules/.test(txt), L("offline : « Pas de réseau », conseil sur la marée et la lumière seules"));
     if (sc === "allfail") ok(/Open-Meteo n'a pas répondu/.test(txt) && /Simulated failure/.test(txt), L("allfail : message cite la réponse"));
     if (sc === "range") ok(/horizon/.test(txt), L("range : message d'horizon"));
+    // Revue finale des phases 3 et 4 : sans météo, le vent est inconnu → tout est « à vérifier », rade comprise
+    // (avant : les spots de rade passaient au vert, vent compté calme).
+    {
+      const hero = await page.evaluate(() => document.getElementById("hero-h")?.textContent || "");
+      const rings = await page.evaluate(() => [...document.querySelectorAll('svg[role="img"][aria-label^="Note "]')].map((s) => [s.getAttribute("aria-label"), [...s.querySelectorAll("circle")].map((c) => c.getAttribute("stroke")).join()]));
+      ok((!hero || /Conditions à vérifier/.test(hero)) && rings.every(([l, st]) => /à vérifier/.test(l) && !/#22c55e/i.test(st)),
+        L(`${sc} : sans météo, rien au vert — bandeau « ${hero.trim().slice(0, 30)} », ${rings.length} jauge(s) « à vérifier »`));
+      if (sc === "allfail") ok(/vent inconnu|vent et houle inconnus/.test(txt), L("allfail : la raison (vent inconnu) est affichée"));
+    }
     ok(errors.length === 0, L(`${sc} : aucune erreur JavaScript` + (errors.length ? " — " + errors[0] : "")));
     if (sc === "allfail") await page.screenshot({ path: `${SHOTS}/${site}-allfail.png` });
     await ctx.close();

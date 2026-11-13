@@ -286,6 +286,10 @@ export function WindowRow({ w, lure }) {
         </div>
       )}
       {w.zw?.fromSpot && <ModelSpread zw={w.zw}/>}
+      {w.eligible && w.verify?.length > 0 && (
+        // Revue finale des phases 3 et 4 : la raison du doute est dite là où la note est lue.
+        <div style={{fontSize:13.5,fontWeight:700,color:C.warn,marginTop:6,lineHeight:1.45}}>⚠ À vérifier : {w.verify.map((v) => v.t).join(", ")}</div>
+      )}
       {w.zw?.rain36 >= 5 && <div style={{fontSize:13,color:C.muted,marginTop:4}}>🌧 {String(w.zw.rain36).replace(".",",")} mm de pluie dans les 36 h précédentes{w.zw.rain36 >= 15 ? " : eau probablement teintée près des rivières (déduit)" : ""}</div>}
       {lure && <div style={{fontSize:13.5,color:C.text,marginTop:6}}>🎣 <b>{lure}</b></div>}
       {w.light?.mismatch && (

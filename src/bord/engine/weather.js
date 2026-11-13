@@ -37,6 +37,9 @@ export function zoneWeather(live, spot) {
     // v8.9 : direction inconnue → « ? » (jamais un vent d'ouest inventé) ; l'exposition n'est alors pas notée.
     wind_dir: live?.wind_dir || "?",
     wind_force: parseInt(live?.wind_force) || 0,
+    // Revue finale des phases 3 et 4 : sans météo, le vent est INCONNU (la force 0 ci-dessus n'est qu'un repli
+    // pour le calcul) ; le filtre de sécurité met alors le créneau « à vérifier », rade comprise.
+    windKnown: Number.isFinite(parseInt(live?.wind_force)),
     sky: live?.sky || "partly",
     houle: parseFloat(live?.houle) || 0,
     // v8.9 : sans météo (ou sans modèle de vagues), la houle est inconnue — pas 0 m.
@@ -48,6 +51,7 @@ export function zoneWeather(live, spot) {
   return {
     wind_dir: z.wind_dir || fb.wind_dir,
     wind_force: z.wind_force != null ? parseInt(z.wind_force) : fb.wind_force,
+    windKnown: z.wind_force != null || fb.windKnown,
     sky: z.sky || fb.sky,
     houle: z.houle != null ? parseFloat(z.houle) : fb.houle,
     houleKnown: z.houle != null || fb.houleKnown,
@@ -248,7 +252,7 @@ export function spotWxBetween(live, spot, h0, h1) {
   }
   return {
     wind_dir: dir16Of(ag.dirDeg) || "?",
-    wind_force: beaufortOf(ag.kmh) ?? 0,
+    wind_force: beaufortOf(ag.kmh) ?? 0, windKnown: true,
     wind_kmh: Math.round(ag.kmh), gust_kmh: ag.gust != null ? Math.round(ag.gust) : null,
     dirDeg: ag.dirDeg != null ? Math.round(ag.dirDeg) : null,
     sky: skyOf(ag.cloud) || "partly", cloud: ag.cloud != null ? Math.round(ag.cloud) : null,

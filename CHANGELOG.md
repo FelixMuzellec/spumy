@@ -1,5 +1,16 @@
 # Journal des versions
 
+## Non publié — revue finale des phases 3 et 4, avant fusion (13 novembre)
+
+Faite à la demande de Félix (« tu peux fusionner si, après la revue finale, la version remplit parfaitement le cahier des charges »).
+
+- **Vent inconnu** Sans aucune météo (Open-Meteo injoignable, rien en cache), le vent était compté calme : les 11 spots de rade passaient au vert (8,5 sur 10, « Très bonnes conditions »). Le vent est désormais marqué inconnu et le créneau « à vérifier », rade comprise ; plus aucun spot au vert sans météo.
+- **Rafales inconnues** Quand le modèle ne donne pas de rafales, on ne peut pas savoir si elles dépassent 75 ou 90 km/h : « à vérifier » (avant : comptées absentes). **Direction du vent inconnue** à partir de la force 2 : « à vérifier » (l'exposition du spot n'est pas jugée). L'indicateur de sécurité le dit aussi.
+- **Raison du doute** affichée sous la note de chaque créneau (« ⚠ À vérifier : houle inconnue »), là où la note est lue.
+- **Hors ligne** Le service worker ne supprime plus que les copies en cache situées sous sa propre adresse : la copie hors ligne de l'ancienne adresse (/guide-peche-bar/, même origine felixmuzellec.github.io et même nom de cache) n'est plus effacée.
+- **Tests** Grille de scénarios : rafales « aucune » remplacées par des rafales faibles connues (45 km/h) et des rafales inconnues, plus un cas « aucune météo » par spot (73 986 cas). Mise à jour d'un téléphone : site servi sous /spumy/ comme sur GitHub Pages, contrôle du cache d'une autre adresse, et nouveau passage depuis la v8.15 de l'ancienne adresse (CI).
+- **Constat** GitHub Pages n'est pas activé sur ce dépôt (API GitHub, 13 nov.) : fusionner dans `main` ne met rien en ligne. Mettre en ligne demande d'activer Pages (*Settings → Pages*) ou de copier les fichiers vers l'ancienne adresse.
+
 ## Non publié — phase 4, audit BORD et corrections météo et sécurité
 
 Branche `claude/phase-4-bord` (à partir de la phase 3). Demandé par Félix le 13 novembre : résoudre les défauts bloquants liés à la météo.

@@ -21,7 +21,7 @@ Elle s'ouvre dans le navigateur du téléphone et s'installe sur l'écran d'accu
 
 Une fois ouverte, elle fonctionne hors ligne : l'accueil et les sept guides sont mis en cache dès la première visite (recherche comprise), la marée est calculée sur l'appareil, et la dernière météo téléchargée reste affichée.
 
-Adresse de publication : GitHub Pages de ce dépôt (*Settings → Pages*). L'ancienne adresse du projet était <https://felixmuzellec.github.io/guide-peche-bar/>.
+Adresse de publication prévue : GitHub Pages de ce dépôt (*Settings → Pages*). Au 13 novembre 2026, Pages n'y est pas activé (API GitHub) : fusionner dans `main` ne met donc rien en ligne tant qu'il ne l'est pas. L'ancienne adresse du projet était <https://felixmuzellec.github.io/guide-peche-bar/>.
 
 ## État des fonctionnalités
 

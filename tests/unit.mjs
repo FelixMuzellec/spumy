@@ -1000,7 +1000,7 @@ if (E.SITE.id === "pirou-plage") {
   const sp = E.SPOTS.find((s) => s.dangerLevel < 3 && E.SITE.zones[s.zone]?.sea !== "rade") || E.SPOTS[0];
   const rade = E.SPOTS.find((s) => E.SITE.zones[s.zone]?.sea === "rade");
   const win = { ...sp.tidalRules.windows[0], coeff: 70, light: { band: "aube", label: "Aube" } };
-  const zw0 = { wind_dir: "E", wind_force: 2, wind_kmh: 9, gust_kmh: null, houle: 0.5, houleKnown: true, sky: "partly", cloud: 50 };
+  const zw0 = { wind_dir: "E", wind_force: 2, wind_kmh: 9, windKnown: true, gust_kmh: 20, houle: 0.5, houleKnown: true, sky: "partly", cloud: 50 };
   const ctx = (zw) => ({ zw: { ...zw0, ...zw }, coeff: 70, pressure: 1015, pressureTrend: "stable", sst: 15, sstConf: "modele", calib: {}, month: 9 });
   const sw = (s, zw) => E.scoreWindow(s, { ...s.tidalRules.windows[0], coeff: 70, light: { band: "aube", label: "Aube" } }, ctx(zw));
   const calm = E.scoreWindow(sp, win, ctx({}));
@@ -1037,6 +1037,25 @@ if (E.SITE.id === "pirou-plage") {
     const r = sw(mm, { wind_dir: "NE", wind_force: 9, wind_kmh: 81, gust_kmh: 85 });
     t("cas de la phase 1 : Moulin Mer, NE force 9, rafales 85 km/h → non recommandé", r.eligible === false && /Coup de vent/.test(r.reason), r.reason);
   }
+  // Revue finale des phases 3 et 4 : une donnée de vent qui manque est un doute, jamais un calme supposé.
+  const gu = sw(sp, { gust_kmh: null });
+  t("rafales inconnues → à vérifier (on ne sait pas si elles dépassent 75 ou 90 km/h)", gu.eligible && gu.verify.some((v) => v.t === "rafales inconnues"), gu.reason);
+  const du = sw(sp, { wind_dir: "?", wind_force: 3, wind_kmh: 15 });
+  t("direction du vent inconnue (force 3) → à vérifier", du.eligible && du.verify.some((v) => v.t === "direction du vent inconnue"));
+  const d0 = sw(sp, { wind_dir: "?", wind_force: 0, wind_kmh: 1 });
+  t("vent calme sans direction (force 0) : pas de doute sur la direction", !d0.verify.some((v) => /direction/.test(v.t)));
+  const noWx = E.SPOTS.map((s) => [s, E.zoneWeather(null, s)]);
+  t("sans météo : vent marqué inconnu (jamais un calme supposé)", noWx.every(([, z]) => z.windKnown === false && z.houleKnown === false));
+  const greenNoWx = noWx.map(([s, z]) => [s, E.scoreWindow(s, { ...s.tidalRules.windows[0], coeff: 70, light: { band: "aube", label: "Aube" } }, { ...ctx({}), zw: z })])
+    .filter(([, r]) => r.eligible && !r.verify.length);
+  t("sans météo : aucun spot sans doute, rade comprise (vent inconnu → à vérifier)", greenNoWx.length === 0, greenNoWx.map(([s]) => s.id).join(", "));
+  if (rade) {
+    const r0 = E.scoreWindow(rade, { ...rade.tidalRules.windows[0], coeff: 70, light: { band: "aube", label: "Aube" } }, { ...ctx({}), zw: E.zoneWeather(null, rade) });
+    t("sans météo, en rade : « vent inconnu » annoncé", !r0.eligible || r0.verify.some((v) => v.t === "vent inconnu"), r0.reason);
+  }
+  const sNo = E.safetyOf(sp, { zw: { ...zw0, gust_kmh: null }, light: win.light });
+  t("indicateur de sécurité : rafales inconnues → prudence", sNo.level !== "neutre" && sNo.items.some((i) => /Rafales inconnues/.test(i.t)));
+  t("météo complète (vent, direction, rafales, houle) : aucun doute ajouté par la revue", calm.verify.length === 0 && E.safetyOf(sp, { zw: zw0, light: win.light }).items.every((i) => !/inconnu/.test(i.t)));
 }
 
 // ── 16 octies. v8.9 : le README liste exactement les fichiers à déposer ──
@@ -1286,7 +1305,7 @@ if (E.SITE.id === "pirou-plage") {
 // ── v9.1 — Sécurité et confiance : deux indicateurs à part de la note ──
 {
   const sp = E.SPOTS.find((x) => x.dangerLevel === 1 && Number.isFinite(x.houleMax)) || E.SPOTS[0];
-  const zw = (o) => ({ wind_dir: "O", wind_force: 3, wind_kmh: 15, houle: 0.4, houleKnown: true, model: "AROME", ...o });
+  const zw = (o) => ({ wind_dir: "O", wind_force: 3, wind_kmh: 15, gust_kmh: 25, houle: 0.4, houleKnown: true, model: "AROME", ...o });
   const calm = E.safetyOf(sp, { zw: zw(), light: { band: "jour" } }, { alerts: [] });
   t("sécurité : sans alerte, état neutre et jamais « sûr »", calm.level === "neutre" && calm.label === "Aucune alerte connue" && !/sûr|sans danger|serein/i.test(JSON.stringify(calm)), JSON.stringify(calm));
   t("sécurité : « vérifie sur place » toujours dit", /Vérifie sur place/.test(E.ON_SITE));

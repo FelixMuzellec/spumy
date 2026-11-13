@@ -50,6 +50,12 @@ jobs:
         run: |
           git fetch --no-tags --depth=1 origin +refs/heads/main:refs/remotes/origin/main
           npm run -s test:upgrade
+      # Revue finale des phases 3 et 4 : les téléphones peuvent encore avoir la v8.15 de l'ancienne adresse
+      # (dépôt guide-peche-bar, même origine felixmuzellec.github.io, donc même stockage). Version figée par son commit.
+      - name: Mise à jour depuis la v8.15 (ancienne adresse /guide-peche-bar/)
+        run: |
+          git fetch --no-tags --depth=1 https://github.com/FelixMuzellec/guide-peche-bar ecfe367dddba69d78637890961c2c0af9c90bb52:refs/remotes/gpb/v8.15
+          UPGRADE_FROM=gpb/v8.15 npm run -s test:upgrade
       - name: Studio photo
         run: npm run -s test:studio
       - name: Accessibilité (axe-core)

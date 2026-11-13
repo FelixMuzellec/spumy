@@ -29,6 +29,10 @@ const SRC_BEAUFORT = "échelle de Beaufort ; Météo-France émet un BMS côte d
 //   rafales ≥ 75 km/h                 → à vérifier. Vitesse d'un vent de force 9 ; seuil DÉDUIT (aucune
 //                                        source ne fixe de rafale pour la pêche du bord), à valider par Félix.
 //   houle inconnue en côte ouverte    → à vérifier (0 m n'est pas une mesure ; la rade a sa mer du vent calculée).
+// Revue finale des phases 3 et 4 : une donnée de vent qui manque est un doute, jamais un calme supposé.
+//   vent inconnu (aucune météo)       → à vérifier, rade comprise (sinon la rade passait au vert sans météo).
+//   rafales inconnues                 → à vérifier : on ne peut pas savoir si elles dépassent 75 ou 90 km/h.
+//   direction inconnue, force ≥ 2     → à vérifier : l'exposition du spot au vent n'est pas jugée.
 // Sources : Météo-France, « Guide marine » (oct. 2022) et « Qu'est-ce qu'un vent violent ? » (vigilance.meteofrance.fr).
 export const WIND_LIMITS = { blockForce: 8, blockGust: 90, doubtForce: 7, doubtGust: 75 };
 export const SRC_WIND = "Météo-France : BMS côte dès la force 7, avis de coup de vent dès 62 km/h, tempête au-delà de 90 km/h de rafales";
@@ -44,8 +48,13 @@ export function windSafety(spot, zw) {
     return { block: `Coup de vent : force ${f}${Number.isFinite(kmh) ? ` (${kmh} km/h de vent moyen)` : ""}, non recommandé`, verify: [] };
   if (Number.isFinite(g) && g >= WIND_LIMITS.blockGust) return { block: `Rafales à ${g} km/h, non recommandé`, verify: [] };
   const verify = [];
-  if (Number.isFinite(f) && f >= WIND_LIMITS.doubtForce) verify.push({ k: "vent", t: `grand frais, force ${f}` });
-  if (Number.isFinite(g) && g >= WIND_LIMITS.doubtGust) verify.push({ k: "rafales", t: `rafales à ${g} km/h` });
+  if (!zw || zw.windKnown === false) verify.push({ k: "vent", t: "vent inconnu" });
+  else {
+    if (Number.isFinite(f) && f >= WIND_LIMITS.doubtForce) verify.push({ k: "vent", t: `grand frais, force ${f}` });
+    else if (zw.wind_dir === "?" && Number.isFinite(f) && f >= 2) verify.push({ k: "vent", t: "direction du vent inconnue" });
+    if (Number.isFinite(g) && g >= WIND_LIMITS.doubtGust) verify.push({ k: "rafales", t: `rafales à ${g} km/h` });
+    else if (!Number.isFinite(g)) verify.push({ k: "rafales", t: "rafales inconnues" });
+  }
   if (zw && zw.houleKnown === false && !isRade(spot)) verify.push({ k: "houle", t: "houle inconnue" });
   return { block: null, verify };
 }
@@ -80,6 +89,11 @@ export function safetyOf(spot, w, { alerts = [], degraded = false } = {}) {
     const g = zw.gust_kmh;
     if (Number.isFinite(g) && g >= WIND_LIMITS.blockGust) add("alerte", `Rafales à ${g} km/h : spot non recommandé.`, SRC_WIND);
     else if (Number.isFinite(g) && g >= WIND_LIMITS.doubtGust) add("prudence", `Rafales à ${g} km/h : lancer et équilibre difficiles, à vérifier sur place.`, SRC_GUST_DOUBT);
+    if (zw.windKnown === false) add("prudence", "Vent inconnu pour ce créneau : regarde le plan d'eau avant de t'engager.", "SPUMY");
+    else {
+      if (!Number.isFinite(g)) add("prudence", "Rafales inconnues pour ce créneau (le modèle n'en donne pas) : à vérifier sur place.", "SPUMY");
+      if (zw.wind_dir === "?" && Number.isFinite(f) && f >= 2 && f < 7) add("prudence", "Direction du vent inconnue : l'exposition du spot n'a pas pu être jugée.", "SPUMY");
+    }
     if (zw.houleKnown === false) {
       if (!isRade(spot)) add("prudence", "Houle inconnue (modèle de vagues indisponible) : regarde la mer avant de t'engager.", "SPUMY");
     } else if (Number.isFinite(spot?.houleMax) && zw.houle > spot.houleMax) {
