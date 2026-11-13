@@ -40,6 +40,8 @@ jobs:
         run: npm run -s test:layers
       - name: Fiches des sites (schéma, données pures, empreinte de chaque spot)
         run: npm run -s test:data
+      - name: Connaissances halieutiques (niveaux de preuve, sources, rubriques des spots)
+        run: npm run -s test:knowledge
       - name: Tests unitaires (7 guides + fuseau Auckland)
         run: npm run -s test:unit
       - name: Parcours complets (Chromium)

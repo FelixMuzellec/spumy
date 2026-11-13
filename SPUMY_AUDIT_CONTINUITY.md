@@ -12,9 +12,9 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | --- | --- | --- |
 | 1. Audit initial | VALIDATED (6 nov. 2026) | Rapport « SPUMY — Phase 1 : audit initial » (document Claude de Félix) |
 | 2. Architecture cible | VALIDATED (6 nov. 2026, 22 h 59) | Document « SPUMY — Phase 2 : architecture cible » ; résumé dans `docs/ARCHITECTURE.md` |
-| 3. Socle technique | VALIDATED (13 nov. 2026, 3 h 57, « APPROVED — PROCEED TO PHASE 4 ») ; fusion dans `main` avec la phase 4, après la revue finale | Branche `claude/phase-3-socle`, demande de fusion n° 1 ; rapport « SPUMY — Phase 3 : socle technique » https://claude.ai/artifact/NYumZHjRgLUa9jMQcBGXK9 |
-| 4. Audit BORD approfondi + corrections météo et sécurité demandées par Félix | VALIDATED (13 nov. 2026, 12 h 37, « APPROVED — PROCEED TO PHASE 5 ») ; revue finale avant fusion : voir plus bas | Branche `claude/phase-4-bord` (partie de `claude/phase-3-socle`), demande de fusion n° 2 (brouillon) ; rapport « SPUMY — Phase 4 : audit BORD et corrections météo » https://claude.ai/artifact/LryzgD9Q9KbMNec91sMYNx |
-| 5. Connaissances halieutiques | IN PROGRESS (13 nov. 2026) | Branche `claude/phase-5-halieutique` (à partir de `main` après fusion) |
+| 3. Socle technique | VALIDATED (13 nov. 2026, 3 h 57, « APPROVED — PROCEED TO PHASE 4 ») ; fusionnée dans `main` le 13 nov. (e743b10), pas en ligne | Branche `claude/phase-3-socle`, demande de fusion n° 1 ; rapport « SPUMY — Phase 3 : socle technique » https://claude.ai/artifact/NYumZHjRgLUa9jMQcBGXK9 |
+| 4. Audit BORD approfondi + corrections météo et sécurité demandées par Félix | VALIDATED (13 nov. 2026, 12 h 37, « APPROVED — PROCEED TO PHASE 5 ») ; revue finale puis fusion dans `main` le 13 nov. (e743b10, propositions n° 1 et n° 2), pas en ligne | Branche `claude/phase-4-bord` (partie de `claude/phase-3-socle`), demande de fusion n° 2 (brouillon) ; rapport « SPUMY — Phase 4 : audit BORD et corrections météo » https://claude.ai/artifact/LryzgD9Q9KbMNec91sMYNx |
+| 5. Connaissances halieutiques | TESTED, en attente de validation | Branche `claude/phase-5-halieutique` (à partir de `main` e743b10) ; rapport « SPUMY — Phase 5 : connaissances halieutiques » |
 | 6 à 17 | NOT STARTED | — |
 
 ### Phase 4, lots
@@ -26,6 +26,16 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 4.2 Vent et rafales | TESTED | Danger annoncé (force ≥ 8 ou rafales ≥ 90 km/h) : 69,3 % proposés avant, 0 après ; doute (force 7, rafales ≥ 75, houle inconnue) : 27,2 % au vert avant, 0 après ; sans doute : 13 376 cas identiques ; Moulin Mer NE force 9 non recommandé |
 | 4.3 Source météo, fiche injoignable | TESTED | « AROME · vent comparé à ECMWF » (unitaire et contrat) ; écran « Le guide n'a pas pu se charger » (e2e) |
 | 4.4 Audit BORD | TESTED | `tests/audit-spots.mjs` : 396 rubriques de preuve (192 vérifiées, 191 déduites, 13 connaissance locale) ; 3 spots sans rubrique vérifiée ; 9 spots sans consigne de sécurité ; 7 positions en degrés-minutes seulement |
+
+### Phase 5, lots
+
+| Lot | Statut | Preuve |
+| --- | --- | --- |
+| 5.0 Échelle à cinq niveaux | TESTED | `data/knowledge/bar-bord.json` (champ « echelle ») et `data/schema/knowledge.schema.json` |
+| 5.1 Connaissances du moteur BORD | TESTED | 27 connaissances : niveau 1 : 4, niveau 2 : 7, hypothèses : 9, heuristiques : 7 ; 82 règles de leurres classées par source |
+| 5.2 Rubriques des spots | TESTED | `data/knowledge/preuves-spots.json` : 396 rubriques ; les 192 « verified » relues : 8 → 1, 145 → 2, 31 → 3, 3 → 4, 5 → 5 |
+| 5.3 Vérifications prioritaires | TESTED | Réglementation revue (inchangée ; « retrait de RecFishing » = poisson d'avril) ; 3 spots sans source de pêche trouvée ; 22 mentions « à confirmer » classées ; 7 positions de Pirou : décision |
+| 5.4 Tests | TESTED | `npm run test:knowledge` 15/15 (9 erreurs de saisie refusées) ; dans l'intégration continue |
 
 ### Revue finale des phases 3 et 4 (13 nov. 2026, avant fusion)
 
@@ -104,4 +114,4 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 
 ## Prochaine action
 
-Fusionner `claude/phase-4-bord` (phases 3 et 4, revue finale comprise) dans `main` une fois GitHub vert sur le commit exact, puis phase 5 sur `claude/phase-5-halieutique`. Rien n'est mis en ligne sans la décision 1.
+Phase 5 terminée côté données et tests ; rapport « SPUMY — Phase 5 : connaissances halieutiques ». Attendre `APPROVED — PROCEED TO PHASE 6`. La fusion de la phase 5 dans `main` sera faite seulement avec l'accord de Félix ; rien n'est mis en ligne sans la décision 1.

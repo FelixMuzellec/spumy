@@ -1,0 +1,3203 @@
+{
+ "titre": "Niveau de preuve des rubriques de chaque spot du mode BORD (fond, terrain, structure, exposition, courant, bars)",
+ "version": 1,
+ "relu_le": "2026-11-13",
+ "echelle": "voir bar-bord.json, champ « echelle » (niveaux 1 à 5)",
+ "methode": [
+  "Chaque rubrique « verified » (192) a été relue à la main : le niveau est celui de la source qui porte l'énoncé principal ; une affirmation propre au spot que la source ne dit pas fait descendre la rubrique au niveau 4.",
+  "Rubriques « inference » (191) : niveau 4 (hypothèse propre au spot), ou 5 quand le texte applique une règle générale (« classique », « typique », « principe »).",
+  "Rubriques « local_knowledge » (13) : niveau 3 quand la source est identifiable (Félix, son journal, un pêcheur nommé) ; sinon 4 ou 5, avec la mention de ce qui la ferait passer au niveau 3.",
+  "Ce fichier ne change pas l'application : l'affichage des niveaux est prévu avec le moteur v2 (phase 7)."
+ ],
+ "resume": {
+  "par_niveau": {
+   "1": 8,
+   "2": 145,
+   "3": 34,
+   "4": 196,
+   "5": 13
+  },
+  "ancien_vers_nouveau": {
+   "inference → 4": 184,
+   "inference → 5": 7,
+   "local_knowledge → 3": 3,
+   "local_knowledge → 4": 9,
+   "local_knowledge → 5": 1,
+   "verified → 1": 8,
+   "verified → 2": 145,
+   "verified → 3": 31,
+   "verified → 4": 3,
+   "verified → 5": 5
+  }
+ },
+ "rubriques": [
+  {
+   "guide": "logonna",
+   "spot": "moulinmer",
+   "rubrique": "terrain",
+   "ancien": "local_knowledge",
+   "niveau": 3,
+   "motif": "Félix, pêche sur place et journal (sessions datées)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "moulinmer",
+   "rubrique": "fond",
+   "ancien": "local_knowledge",
+   "niveau": 3,
+   "motif": "Félix, pêche sur place et journal (sessions datées)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "moulinmer",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Retour d'un pêcheur identifié (Relec29, forum Desperadiens) citant les bordures de Moulin Mer"
+  },
+  {
+   "guide": "logonna",
+   "spot": "moulinmer",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "moulinmer",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 4,
+   "motif": "Les vitesses citées valent pour toute la rade (navigation-croisière) ; « tranche basse » pour Logonna est déduit"
+  },
+  {
+   "guide": "logonna",
+   "spot": "moulinmer",
+   "rubrique": "bars",
+   "ancien": "local_knowledge",
+   "niveau": 3,
+   "motif": "Félix, pêche sur place et journal (sessions datées)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "bendy",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "bendy",
+   "rubrique": "fond",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "bendy",
+   "rubrique": "structure",
+   "ancien": "local_knowledge",
+   "niveau": 5,
+   "motif": "Configuration générale d'une pointe de rade, non propre au spot"
+  },
+  {
+   "guide": "logonna",
+   "spot": "bendy",
+   "rubrique": "exposition",
+   "ancien": "local_knowledge",
+   "niveau": 4,
+   "motif": "Connaissance locale non attribuée dans la fiche : devient niveau 3 si Félix (ou un pêcheur nommé) en est la source"
+  },
+  {
+   "guide": "logonna",
+   "spot": "bendy",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "bendy",
+   "rubrique": "bars",
+   "ancien": "local_knowledge",
+   "niveau": 4,
+   "motif": "Connaissance locale non attribuée dans la fiche : devient niveau 3 si Félix (ou un pêcheur nommé) en est la source"
+  },
+  {
+   "guide": "logonna",
+   "spot": "rostiviec",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "rostiviec",
+   "rubrique": "fond",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "rostiviec",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "rostiviec",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "rostiviec",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "rostiviec",
+   "rubrique": "bars",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "camfrout",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "camfrout",
+   "rubrique": "fond",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "camfrout",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "camfrout",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "camfrout",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "camfrout",
+   "rubrique": "bars",
+   "ancien": "inference",
+   "niveau": 5,
+   "motif": "Règle générale appliquée au spot (heuristique)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "lauberlach",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "lauberlach",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "lauberlach",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 5,
+   "motif": "Règle générale du sillon breton, non propre au spot"
+  },
+  {
+   "guide": "logonna",
+   "spot": "lauberlach",
+   "rubrique": "exposition",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "lauberlach",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "lauberlach",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 4,
+   "motif": "La source (camping Saint-Jean) parle de Plougastel en général ; le comportement des bars est déduit"
+  },
+  {
+   "guide": "logonna",
+   "spot": "armorique",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "armorique",
+   "rubrique": "fond",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "armorique",
+   "rubrique": "structure",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "armorique",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "armorique",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "armorique",
+   "rubrique": "bars",
+   "ancien": "inference",
+   "niveau": 5,
+   "motif": "Règle générale appliquée au spot (heuristique)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "landevennec",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "landevennec",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "landevennec",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "landevennec",
+   "rubrique": "exposition",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "landevennec",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "landevennec",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "terenez",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "terenez",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 4,
+   "motif": "Aucune source citée pour la répartition des fonds et les tombants"
+  },
+  {
+   "guide": "logonna",
+   "spot": "terenez",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "terenez",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "terenez",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "terenez",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "espagnols",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "espagnols",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "espagnols",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "espagnols",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "espagnols",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "espagnols",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "minou",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "minou",
+   "rubrique": "fond",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "minou",
+   "rubrique": "structure",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "minou",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "minou",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "minou",
+   "rubrique": "bars",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "penhir",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "penhir",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "penhir",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "penhir",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "penhir",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "logonna",
+   "spot": "penhir",
+   "rubrique": "bars",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "pirou",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "pirou",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "pirou",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Pêcheurs locaux du forum pechemercotentin (retours datés)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "pirou",
+   "rubrique": "exposition",
+   "ancien": "local_knowledge",
+   "niveau": 4,
+   "motif": "Connaissance locale non attribuée dans la fiche : devient niveau 3 si Félix (ou un pêcheur nommé) en est la source"
+  },
+  {
+   "guide": "pirou",
+   "spot": "pirou",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "pirou",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Pêcheurs locaux du forum pechemercotentin (retours datés)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "regneville",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "regneville",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "regneville",
+   "rubrique": "structure",
+   "ancien": "local_knowledge",
+   "niveau": 4,
+   "motif": "Connaissance locale non attribuée dans la fiche : devient niveau 3 si Félix (ou un pêcheur nommé) en est la source"
+  },
+  {
+   "guide": "pirou",
+   "spot": "regneville",
+   "rubrique": "exposition",
+   "ancien": "local_knowledge",
+   "niveau": 4,
+   "motif": "Connaissance locale non attribuée dans la fiche : devient niveau 3 si Félix (ou un pêcheur nommé) en est la source"
+  },
+  {
+   "guide": "pirou",
+   "spot": "regneville",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 5,
+   "motif": "Règle générale appliquée au spot (heuristique)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "regneville",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Secteur apprécié des locaux (sylco-peche-brehal) ; le comportement du bar en sortie de chenal est une règle générale"
+  },
+  {
+   "guide": "pirou",
+   "spot": "gouville",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "gouville",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 1,
+   "motif": "INPN (Muséum national d'histoire naturelle), fiche ZNIEFF marine"
+  },
+  {
+   "guide": "pirou",
+   "spot": "gouville",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "gouville",
+   "rubrique": "exposition",
+   "ancien": "local_knowledge",
+   "niveau": 4,
+   "motif": "Connaissance locale non attribuée dans la fiche : devient niveau 3 si Félix (ou un pêcheur nommé) en est la source"
+  },
+  {
+   "guide": "pirou",
+   "spot": "gouville",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "gouville",
+   "rubrique": "bars",
+   "ancien": "local_knowledge",
+   "niveau": 4,
+   "motif": "Connaissance locale non attribuée dans la fiche : devient niveau 3 si Félix (ou un pêcheur nommé) en est la source"
+  },
+  {
+   "guide": "pirou",
+   "spot": "agon",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "agon",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "agon",
+   "rubrique": "structure",
+   "ancien": "local_knowledge",
+   "niveau": 4,
+   "motif": "Connaissance locale non attribuée dans la fiche : devient niveau 3 si Félix (ou un pêcheur nommé) en est la source"
+  },
+  {
+   "guide": "pirou",
+   "spot": "agon",
+   "rubrique": "exposition",
+   "ancien": "local_knowledge",
+   "niveau": 4,
+   "motif": "Connaissance locale non attribuée dans la fiche : devient niveau 3 si Félix (ou un pêcheur nommé) en est la source"
+  },
+  {
+   "guide": "pirou",
+   "spot": "agon",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "agon",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "portbail",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "portbail",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "portbail",
+   "rubrique": "structure",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "portbail",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "portbail",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "portbail",
+   "rubrique": "bars",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "carteret",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "carteret",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "carteret",
+   "rubrique": "structure",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "carteret",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "carteret",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "carteret",
+   "rubrique": "bars",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "granville",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "granville",
+   "rubrique": "fond",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "granville",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "granville",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 5,
+   "motif": "Règle générale appliquée au spot (heuristique)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "granville",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "granville",
+   "rubrique": "bars",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "sciotot",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "sciotot",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "sciotot",
+   "rubrique": "structure",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "sciotot",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "sciotot",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "sciotot",
+   "rubrique": "bars",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "surtainville",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "surtainville",
+   "rubrique": "fond",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "surtainville",
+   "rubrique": "structure",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "surtainville",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "surtainville",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "surtainville",
+   "rubrique": "bars",
+   "ancien": "inference",
+   "niveau": 5,
+   "motif": "Règle générale appliquée au spot (heuristique)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "goury",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "goury",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "goury",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "goury",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "goury",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "pirou",
+   "spot": "goury",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "pennenez",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 5,
+   "motif": "Règle générale appliquée au spot (heuristique)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "pennenez",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "pennenez",
+   "rubrique": "structure",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "pennenez",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "pennenez",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "pennenez",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Listes de coins de pêche tenues par des pêcheurs (mieuxpecher, blogs) : retour local identifiable"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "pelguent",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "pelguent",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "pelguent",
+   "rubrique": "structure",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "pelguent",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "pelguent",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "pelguent",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Listes de coins de pêche tenues par des pêcheurs (mieuxpecher, blogs) : retour local identifiable"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "paluden",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "paluden",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "paluden",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 5,
+   "motif": "Fonctionnement général d'un aber, non propre au spot"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "paluden",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "paluden",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "paluden",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "saintemarguerite",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "saintemarguerite",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "saintemarguerite",
+   "rubrique": "structure",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "saintemarguerite",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "saintemarguerite",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "saintemarguerite",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Listes de coins de pêche tenues par des pêcheurs (mieuxpecher, blogs) : retour local identifiable"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "aberbenoit",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "aberbenoit",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "aberbenoit",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "aberbenoit",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "aberbenoit",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Vitesse attribuée au SHOM par Voile-Aviron, non relue à la source SHOM"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "aberbenoit",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "kerlouan",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 5,
+   "motif": "Règle générale appliquée au spot (heuristique)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "kerlouan",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "kerlouan",
+   "rubrique": "structure",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "kerlouan",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "kerlouan",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "kerlouan",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Listes de coins de pêche tenues par des pêcheurs (mieuxpecher, blogs) : retour local identifiable"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "aberildut",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "aberildut",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Listes de coins de pêche tenues par des pêcheurs (mieuxpecher, blogs) : retour local identifiable"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "aberildut",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "aberildut",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "aberildut",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "aberildut",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Listes de coins de pêche tenues par des pêcheurs (mieuxpecher, blogs) : retour local identifiable"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "corsen",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "corsen",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "corsen",
+   "rubrique": "structure",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "corsen",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "corsen",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "corsen",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Listes de coins de pêche tenues par des pêcheurs (mieuxpecher, blogs) : retour local identifiable"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "blancssablons",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "blancssablons",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "blancssablons",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "blancssablons",
+   "rubrique": "exposition",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "blancssablons",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "blancssablons",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Listes de coins de pêche tenues par des pêcheurs (mieuxpecher, blogs) : retour local identifiable"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "kermorvan",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "kermorvan",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "kermorvan",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "kermorvan",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "kermorvan",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "plouguerneau",
+   "spot": "kermorvan",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Listes de coins de pêche tenues par des pêcheurs (mieuxpecher, blogs) : retour local identifiable"
+  },
+  {
+   "guide": "audierne",
+   "spot": "goyen",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "goyen",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "goyen",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "goyen",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "goyen",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "goyen",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "sainttugen",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "sainttugen",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "sainttugen",
+   "rubrique": "structure",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "sainttugen",
+   "rubrique": "exposition",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "sainttugen",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "sainttugen",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Blogs et bilans de pêcheurs identifiés (cannes-peche, Pêche-Rando Bar, mieuxpecher)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "feunteunaod",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "feunteunaod",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 1,
+   "motif": "Inventaire du patrimoine culturel de Bretagne (Région Bretagne)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "feunteunaod",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "feunteunaod",
+   "rubrique": "exposition",
+   "ancien": "verified",
+   "niveau": 1,
+   "motif": "Inventaire du patrimoine culturel de Bretagne (Région Bretagne)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "feunteunaod",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "feunteunaod",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Blogs et bilans de pêcheurs identifiés (cannes-peche, Pêche-Rando Bar, mieuxpecher)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "raz",
+   "rubrique": "terrain",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "raz",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "raz",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "raz",
+   "rubrique": "exposition",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "raz",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "raz",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "trepasses",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "trepasses",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "trepasses",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "trepasses",
+   "rubrique": "exposition",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "trepasses",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "trepasses",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Blogs et bilans de pêcheurs identifiés (cannes-peche, Pêche-Rando Bar, mieuxpecher)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "van",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "van",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "van",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "van",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "van",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "van",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Blogs et bilans de pêcheurs identifiés (cannes-peche, Pêche-Rando Bar, mieuxpecher)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "brezellec",
+   "rubrique": "terrain",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "brezellec",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "brezellec",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 1,
+   "motif": "Inventaire du patrimoine culturel de Bretagne (Région Bretagne)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "brezellec",
+   "rubrique": "exposition",
+   "ancien": "verified",
+   "niveau": 1,
+   "motif": "Inventaire du patrimoine culturel de Bretagne (Région Bretagne)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "brezellec",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "brezellec",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "penhors",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "penhors",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "penhors",
+   "rubrique": "structure",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "penhors",
+   "rubrique": "exposition",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "penhors",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "penhors",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Blogs et bilans de pêcheurs identifiés (cannes-peche, Pêche-Rando Bar, mieuxpecher)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "torche",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "torche",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "torche",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "torche",
+   "rubrique": "exposition",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "torche",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "torche",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Blogs et bilans de pêcheurs identifiés (cannes-peche, Pêche-Rando Bar, mieuxpecher)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "saintguenole",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "saintguenole",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "saintguenole",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "saintguenole",
+   "rubrique": "exposition",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "saintguenole",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "saintguenole",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Blogs et bilans de pêcheurs identifiés (cannes-peche, Pêche-Rando Bar, mieuxpecher)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "penmarch",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "penmarch",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "penmarch",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "penmarch",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "penmarch",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "audierne",
+   "spot": "penmarch",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "carantec",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "carantec",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 1,
+   "motif": "Inventaire du patrimoine culturel de Bretagne (Région Bretagne)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "carantec",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "carantec",
+   "rubrique": "exposition",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "carantec",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "carantec",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "penze",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "penze",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "penze",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "penze",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "penze",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "penze",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Pêcheur local cité par l'office de tourisme, ou liste de spots tenue par un pêcheur"
+  },
+  {
+   "guide": "carantec",
+   "spot": "barnenez",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "barnenez",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "barnenez",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "barnenez",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "barnenez",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "barnenez",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Pêcheur local cité par l'office de tourisme, ou liste de spots tenue par un pêcheur"
+  },
+  {
+   "guide": "carantec",
+   "spot": "primel",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "primel",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "primel",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 1,
+   "motif": "Inventaire du patrimoine culturel de Bretagne (Région Bretagne)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "primel",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "primel",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "primel",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Pêcheur local cité par l'office de tourisme, ou liste de spots tenue par un pêcheur"
+  },
+  {
+   "guide": "carantec",
+   "spot": "saintjean",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "saintjean",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "saintjean",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "saintjean",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "saintjean",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "saintjean",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Pêcheur local cité par l'office de tourisme, ou liste de spots tenue par un pêcheur"
+  },
+  {
+   "guide": "carantec",
+   "spot": "locquirec",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "locquirec",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "locquirec",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "locquirec",
+   "rubrique": "exposition",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "locquirec",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "locquirec",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "kernic",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "kernic",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "kernic",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "kernic",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "kernic",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "carantec",
+   "spot": "kernic",
+   "rubrique": "bars",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "sablesblancs",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "sablesblancs",
+   "rubrique": "fond",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "sablesblancs",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Blogs et listes de spots tenus par des pêcheurs (cannes-peche, mieuxpecher, chtipecheur)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "sablesblancs",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "sablesblancs",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "sablesblancs",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Blogs et listes de spots tenus par des pêcheurs (cannes-peche, mieuxpecher, chtipecheur)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "capcoz",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "capcoz",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "capcoz",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "capcoz",
+   "rubrique": "exposition",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "capcoz",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "capcoz",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "begmeil",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "begmeil",
+   "rubrique": "fond",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "begmeil",
+   "rubrique": "structure",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "begmeil",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "begmeil",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "begmeil",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Blogs et listes de spots tenus par des pêcheurs (cannes-peche, mieuxpecher, chtipecheur)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "mousterlin",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "mousterlin",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "mousterlin",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "mousterlin",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "mousterlin",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "mousterlin",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "odet",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "odet",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "odet",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "odet",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "odet",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "odet",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "trevignon",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "trevignon",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "trevignon",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "trevignon",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "trevignon",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 5,
+   "motif": "Phrase générale de l'office de tourisme sur les pointes, non propre au spot"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "trevignon",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "kerjean",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "kerjean",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "kerjean",
+   "rubrique": "structure",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "kerjean",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "kerjean",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 5,
+   "motif": "Phrase générale de l'office de tourisme sur les pointes, non propre au spot"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "kerjean",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "rospico",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "rospico",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "rospico",
+   "rubrique": "structure",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "rospico",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "rospico",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 5,
+   "motif": "Phrase générale de l'office de tourisme sur les pointes, non propre au spot"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "rospico",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "portmanech",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "portmanech",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "portmanech",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "portmanech",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "portmanech",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "portmanech",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Blogs et listes de spots tenus par des pêcheurs (cannes-peche, mieuxpecher, chtipecheur)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "laita",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "laita",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "laita",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "laita",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "laita",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "concarneau",
+   "spot": "laita",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Blogs et listes de spots tenus par des pêcheurs (cannes-peche, mieuxpecher, chtipecheur)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "dinan",
+   "rubrique": "terrain",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "dinan",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "dinan",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Pêcheur local identifié sur le forum carnalor (Guy535)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "dinan",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "dinan",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "dinan",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "lostmarch",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "lostmarch",
+   "rubrique": "fond",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "lostmarch",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 1,
+   "motif": "Réserve naturelle régionale de la presqu'île de Crozon"
+  },
+  {
+   "guide": "crozon",
+   "spot": "lostmarch",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "lostmarch",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "lostmarch",
+   "rubrique": "bars",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "morgat",
+   "rubrique": "terrain",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "morgat",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "morgat",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "morgat",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "morgat",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "morgat",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "trezbellec",
+   "rubrique": "terrain",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "trezbellec",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "trezbellec",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "trezbellec",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "trezbellec",
+   "rubrique": "courant",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "trezbellec",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 3,
+   "motif": "Pêcheur local identifié sur le forum carnalor (Guy535)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "pentrez",
+   "rubrique": "terrain",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "pentrez",
+   "rubrique": "fond",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "pentrez",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "pentrez",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "pentrez",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "pentrez",
+   "rubrique": "bars",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "leyde",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "leyde",
+   "rubrique": "fond",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "leyde",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "leyde",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "leyde",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "leyde",
+   "rubrique": "bars",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "trenaouret",
+   "rubrique": "terrain",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "trenaouret",
+   "rubrique": "fond",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "trenaouret",
+   "rubrique": "structure",
+   "ancien": "verified",
+   "niveau": 2,
+   "motif": "Publication attribuable citée dans la rubrique (article, guide, encyclopédie, office de tourisme, site de surf ou de randonnée)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "trenaouret",
+   "rubrique": "exposition",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "trenaouret",
+   "rubrique": "courant",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  },
+  {
+   "guide": "crozon",
+   "spot": "trenaouret",
+   "rubrique": "bars",
+   "ancien": "inference",
+   "niveau": 4,
+   "motif": "Déduit par le guide (hypothèse propre au spot, à vérifier)"
+  }
+ ]
+}

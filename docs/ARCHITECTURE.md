@@ -83,11 +83,17 @@ data/
                         données pures écrites en JavaScript commenté : les commentaires portent la provenance
                         (source, date, à confirmer sur place) et JSON n'en admet pas ; exportables en JSON sans perte
   schema/site.schema.json  le schéma d'une fiche (JSON Schema 2020-12) : chaque champ, son type, son unité, ses valeurs
+  knowledge/            phase 5 : connaissances halieutiques, lues par les tests et par toi, pas encore par l'application
+    bar-bord.json       chaque connaissance du moteur BORD sur le bar : énoncé, niveau de preuve (1 à 5), sources,
+                        limites, code qui l'utilise ; et le niveau des 82 règles du moteur de leurres
+    preuves-spots.json  le niveau de preuve (1 à 5) de chacune des 396 rubriques des 66 spots, avec son motif
+  schema/knowledge.schema.json  le schéma du fichier de connaissances
 tests/
   unit.mjs              moteur + schéma des fiches + contrôle de la marée (Pirou, ports du Finistère)
   e2e.mjs               parcours complet dans Chromium (téléphone simulé)
   studio.mjs            page d'analyse par l'abonnement, avec un Claude simulé
   contract.mjs          contrat avec le vrai service Open-Meteo
+  knowledge.mjs         connaissances halieutiques : schéma, niveaux, sources, code utilisé, rubriques des spots
   om_mock.mjs           simulateur d'Open-Meteo
   a11y.mjs              accessibilité (axe-core) sur toutes les pages et tous les onglets
   layers.mjs            règles de couches : qui a le droit d'importer quoi ; couleurs en dur hors de src/design/ (compte qui ne peut que baisser)
