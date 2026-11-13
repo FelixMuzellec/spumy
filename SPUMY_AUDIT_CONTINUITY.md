@@ -13,7 +13,7 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 1. Audit initial | VALIDATED (6 nov. 2026) | Rapport « SPUMY — Phase 1 : audit initial » (document Claude de Félix) |
 | 2. Architecture cible | VALIDATED (6 nov. 2026, 22 h 59) | Document « SPUMY — Phase 2 : architecture cible » ; résumé dans `docs/ARCHITECTURE.md` |
 | 3. Socle technique | VALIDATED (13 nov. 2026, 3 h 57, « APPROVED — PROCEED TO PHASE 4 ») ; non fusionnée dans `main` (pas d'accord de publication) | Branche `claude/phase-3-socle`, demande de fusion n° 1 ; rapport « SPUMY — Phase 3 : socle technique » https://claude.ai/artifact/NYumZHjRgLUa9jMQcBGXK9 |
-| 4. Audit BORD approfondi + corrections météo et sécurité demandées par Félix | TESTED, en attente de validation | Branche `claude/phase-4-bord` (partie de `claude/phase-3-socle`) |
+| 4. Audit BORD approfondi + corrections météo et sécurité demandées par Félix | TESTED, en attente de validation | Branche `claude/phase-4-bord` (partie de `claude/phase-3-socle`), demande de fusion n° 2 (brouillon) ; rapport « SPUMY — Phase 4 : audit BORD et corrections météo » https://claude.ai/artifact/LryzgD9Q9KbMNec91sMYNx |
 | 5 à 17 | NOT STARTED | — |
 
 ### Phase 4, lots
@@ -56,18 +56,21 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 
 ## Décisions ouvertes
 
-1. Adresse dédiée (organisation GitHub, nom de domaine ou statu quo) — avant le lot 3.8.
+1. Adresse dédiée (organisation GitHub, nom de domaine ou statu quo) — ouverte depuis le lot 3.8.
 2. Profil pour le score de pertinence — avant la phase 6.
 3. Historique de sorties réelles comme référence — avant la phase 6.
 4. Gratuit et sans publicité ? — avant la phase 15.
 5. Direction artistique appliquée à BORD en phase 13 élargie — avant la phase 11.
 6. Espèces du mode BORD — avant la phase 5.
+7. Seuils de vent (force 8 / rafales 90 → non recommandé ; force 7 / rafales 75 → à vérifier ; 75 km/h déduit) — avant la phase 6.
+8. Seuils en rade : les mêmes qu'en côte ouverte, ou par exposition — phase 6.
+9. Publication des phases 3 et 4 (fusion dans `main`) — à la demande de Félix.
 
 ## Défauts bloquants connus (audit de phase 1)
 
 1. Code source absent du dépôt — corrigé par le lot 3.1 (en attente de fusion).
-2. Sécurité qui ne retire un spot que pour la houle (essai : force 9 et rafales à 85 km/h, spot encore proposé) — phases 6 et 7.
-3. Houle inconnue comptée 0 m dans la note — phase 7.
+2. Sécurité qui ne retire un spot que pour la houle (essai : force 9 et rafales à 85 km/h, spot encore proposé) — corrigé par le lot 4.2 (en attente de fusion) ; seuils à valider en phase 6.
+3. Houle inconnue comptée 0 m dans la note — corrigé par le lot 4.1 (en attente de fusion).
 4. Interface non conforme à la référence visuelle — phases 11 et 13.
 
 ## Incident
