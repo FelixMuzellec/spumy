@@ -7,10 +7,11 @@ import { useEffect, useRef, useState } from "react";
 import L from "leaflet";
 import { DIRS8, MY_DANGER, MY_FONDS, MY_PHASES, MY_PROFS, MY_TYPES, MYSPOT_COLOR, MYSPOT_WARN_KM, newMySpotId, parseUserCoords } from "./myspots-core.js";
 import { Alert, C, Chip, Muted, num } from "../design/kit.jsx";
+import { buttonStyle } from "../design/components.jsx";
 
 const lbl = { display: "block", fontSize: 14, fontWeight: 700, color: C.strong, margin: "14px 0 6px" };
 const inp = { width: "100%", boxSizing: "border-box", minHeight: 44, padding: "9px 11px", borderRadius: 10, border: `1px solid ${C.line}`, background: "#060f1e", color: C.text, fontSize: 16 };
-const btn = (color, solid) => ({ minHeight: 48, padding: "0 16px", borderRadius: 10, border: `1px solid ${color}`, background: solid ? `${color}30` : "none", color: solid ? C.strong : color, fontSize: 15, fontWeight: 700, cursor: "pointer" });
+const btn = buttonStyle;   // lot 3.7 : style commun (src/design/components.jsx)
 const fr1 = (x) => String(Math.round(x * 10) / 10).replace(".", ",");
 
 /** Petite carte : un appui place le spot. */

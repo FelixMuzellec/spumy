@@ -2,7 +2,7 @@
 // lumière du jour et proies du mois.
 import { fmtH } from "../../../core/core.js";
 import { SEASON, preyForMonth, regimeOf, seasonPresence } from "../../engine/model.js";
-import { Pill } from "../components.jsx";
+import { Pill } from "../../../design/components.jsx";
 import { C, Card, GoLink, Muted, Row, Src, Stack, fr, num } from "../../../design/kit.jsx";
 
 const IFREMER = { label: "Ifremer — synthèse des marquages de bars adultes (Bargip)", url: "https://bar.ifremer.fr/content/download/116111/file/4PagesMarquageAdultes_Final-3.pdf" };

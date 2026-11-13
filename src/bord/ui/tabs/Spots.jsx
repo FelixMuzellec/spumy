@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ALL_HOURS } from "../../engine/model.js";
 import { MYSPOT_COLOR, MYSPOTS_MAX } from "../../engine/myspots.js";
-import { Pill } from "../components.jsx";
+import { Pill } from "../../../design/components.jsx";
 import { C, Card, Muted, Stack, fr, num, scoreColor } from "../../../design/kit.jsx";
 import { MapView } from "../MapView.jsx";
 import { SpotDetail } from "./SpotDetail.jsx";

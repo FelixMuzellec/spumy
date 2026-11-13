@@ -4,6 +4,8 @@
 
 - On ne modifie jamais à la main les fichiers compilés de la racine (`*.html`, `home.js`, `sw.js`, `manifest.json`, icônes) : on change `src/` ou `data/`, puis `npm run build`.
 - Chaque fichier va dans sa couche : `src/core/` (commun au bord et au bateau), `src/bord/`, `src/bateau/`, `src/design/` (style sans métier), `src/app/` (coquille), `data/` (fiches des sites). Le bord et le bateau ne s'importent jamais l'un l'autre ; `npm run test:layers` le vérifie.
+- Couleurs, tailles de texte, rayons : par les jetons de `src/design/tokens.js`, jamais une valeur écrite en dur ailleurs (`npm run test:layers` compte les couleurs en dur hors de `src/design/` ; ce compte ne peut que baisser).
+- Un changement qui ne doit pas changer l'écran se prouve par les captures : `node tests/visual.mjs capture <avant>` sur l'ancienne construction, puis `capture <après>` et `compare <avant> <après>` (22 vues, pixel par pixel).
 - Aucun secret dans le dépôt : ni jeton GitHub, ni clé d'API, ni coordonnées d'un spot personnel.
 - Toute information halieutique ajoutée porte sa source, sa date et son niveau de preuve (scientifique ou institutionnel, observation documentée, retour local identifiable, hypothèse, heuristique).
 - Une valeur inconnue reste inconnue : jamais remplacée en silence par une valeur neutre.

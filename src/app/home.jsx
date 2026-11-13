@@ -11,7 +11,8 @@ import { MYSPOT_COLOR, MYSPOT_MAX_KM, noGuideMsg, ownerOf } from "../core/myspot
 import { trendOf } from "../core/scale.js";
 import { MySpotForm } from "../core/MySpotForm.jsx";
 import { Offshore } from "../bateau/Offshore.jsx";
-import { C, fr, scoreColor } from "../design/kit.jsx";
+import { fr, scoreColor } from "../design/kit.jsx";
+import { buttonStyle } from "../design/components.jsx";
 
 const INDEX = __HOME_INDEX__;     // fiches d'origine : [[clé du guide, id, lat, lon, nom], …]
 const GUIDES = __HOME_GUIDES__;   // [{ key, id, name }, …], dans l'ordre de l'accueil
@@ -21,8 +22,7 @@ const DAYS = [["0", "Aujourd'hui"], ["1", "Demain"]];
 const UNKNOWN = "#475569";
 const PAR = 3;   // guides calculés en même temps (Open-Meteo limite les rafales)
 
-const btn = (color, solid) => ({ minHeight: 48, padding: "0 16px", borderRadius: 10, border: `1px solid ${color}`, background: solid ? `${color}30` : "none",
-  color: solid ? C.strong : color, fontSize: 15, fontWeight: 700, cursor: "pointer" });
+const btn = buttonStyle;   // lot 3.7 : style commun (src/design/components.jsx)
 const timeFr = (ms) => new Date(ms).toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris", hour: "2-digit", minute: "2-digit" });
 
 /** Spots connus sans note (avant calcul, ou guide en échec) : fiches d'origine et tes spots enregistrés. */

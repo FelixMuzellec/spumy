@@ -2,7 +2,7 @@
 // Tout ce qui est dessiné vient des données : la lumière (aube, jour, crépuscule, nuit) et le ciel du créneau retenu
 // colorent la scène ; aucune photo, aucun paysage prétendant montrer le spot.
 import { factorGroups } from "../engine/factors.js";
-import { ScoreRing } from "./components.jsx";
+import { ScoreRing } from "../../design/components.jsx";
 import { Icon } from "../../design/icons.jsx";
 import { C, fr, num } from "../../design/kit.jsx";
 

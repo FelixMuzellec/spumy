@@ -12,6 +12,7 @@ import { b64dec, b64enc, explain, getCfg, gh } from "../core/ghsync.js";
 import { dir16, fetchPoints, isoAdd } from "./wx.js";
 import { PickMap } from "../core/MySpotForm.jsx";
 import { Alert, C, Chip, fr, scoreColor } from "../design/kit.jsx";
+import { buttonStyle } from "../design/components.jsx";
 
 const engine = (key) => window.BAR_SITES?.[key] || null;
 const WX_KEY = "bar:offshore:wx", WX_TTL = 90 * 6e4, TIDE_KM = 40;
@@ -20,7 +21,7 @@ const box = { marginTop: 14, padding: "14px 16px", border: "1px solid #1e293b", 
 const h2 = { fontSize: 17, margin: "0 0 8px" };
 const lbl = { display: "block", fontSize: 14, fontWeight: 700, color: C.strong, margin: "12px 0 6px" };
 const inp = { width: "100%", boxSizing: "border-box", minHeight: 44, padding: "9px 11px", borderRadius: 10, border: `1px solid ${C.line}`, background: "#060f1e", color: C.text, fontSize: 16 };
-const btn = (color, solid) => ({ minHeight: 48, padding: "0 16px", borderRadius: 10, border: `1px solid ${color}`, background: solid ? `${color}30` : "none", color: solid ? C.strong : color, fontSize: 15, fontWeight: 700, cursor: "pointer" });
+const btn = buttonStyle;   // lot 3.7 : style commun (src/design/components.jsx)
 const muted = { fontSize: 13, color: C.muted, margin: "6px 0 0", lineHeight: 1.5 };
 const hh = (ms) => new Date(ms).toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris", hour: "2-digit", minute: "2-digit" }).replace(":", "h");
 const dayLbl = (iso, i) => (i === 0 ? "Auj." : i === 1 ? "Dem." : new Date(iso + "T12:00Z").toLocaleDateString("fr-FR", { weekday: "short", day: "numeric" }).replace(".", ""));

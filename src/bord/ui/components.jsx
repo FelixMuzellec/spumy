@@ -5,6 +5,7 @@ import { msAtLocal, parisParts } from "../../core/tide.js";
 import { beaufortOf, idxAt } from "../engine/weather.js";
 import { BOITE, CATALOGUE as BASE_CATALOGUE } from "../engine/tackle.js";
 import { C, num, scoreColor } from "../../design/kit.jsx";
+import { Pill } from "../../design/components.jsx";
 
 export function ConfidenceBadge({ level }) {
   const cfg = {
@@ -127,30 +128,6 @@ export function DayStrip({ spot, date, live, tide, sun, hours, nowDec }) {
       </g>}
     </svg>
   );
-}
-/**
- * v9.2 — Anneau de note /10 : l'arc suit la note, sa couleur est celle de la note (vert ≥ 7, orange ≥ 5, gris en dessous).
- * Une seule échelle partout. size : diamètre en px ; label : texte sous le chiffre (« sur 10 » par défaut).
- */
-export function ScoreRing({ score, size = 76, color, label = "sur 10", track = "#1b2b44" }) {
-  const sw = Math.max(5, Math.round(size / 11)), r = (size - sw) / 2 - 1, circ = 2 * Math.PI * r, cx = size / 2;
-  const ok = score != null && Number.isFinite(+score);
-  const c = color || (ok ? (score >= 7 ? "#22c55e" : score >= 5 ? "#f59e0b" : "#94a3b8") : "#64748b");
-  const f = ok ? Math.max(0.02, Math.min(1, score / 10)) : 0;
-  const big = Math.round(size * 0.31), small = Math.max(11, Math.round(size * 0.15));
-  return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} role="img" aria-label={ok ? `Note ${String(score.toFixed(1)).replace(".", ",")} sur 10` : "Pas de note"} style={{flexShrink:0,display:"block"}}>
-      <circle cx={cx} cy={cx} r={r} fill="none" stroke={track} strokeWidth={sw}/>
-      {ok && <circle cx={cx} cy={cx} r={r} fill="none" stroke={c} strokeWidth={sw} strokeLinecap="round"
-        strokeDasharray={`${f * circ} ${circ}`} transform={`rotate(-90 ${cx} ${cx})`} style={{filter:`drop-shadow(0 0 ${Math.round(sw / 1.5)}px ${c}55)`}}/>}
-      <text x={cx} y={cx + (label ? big * 0.12 : big * 0.35)} textAnchor="middle" fontSize={big} fontWeight="800" fill="#f8fafc" fontFamily="system-ui,-apple-system,sans-serif" style={{fontVariantNumeric:"tabular-nums"}}>
-        {ok ? score.toFixed(1).replace(".", ",") : "–"}</text>
-      {label && <text x={cx} y={cx + big * 0.12 + small * 1.25} textAnchor="middle" fontSize={small} fontWeight="600" fill="#94a3b8" fontFamily="system-ui,-apple-system,sans-serif">{label}</text>}
-    </svg>
-  );
-}
-export function Pill({ color, children, title }) {
-  return <span title={title} style={{display:"inline-block",fontSize:13,fontWeight:700,letterSpacing:"0.02em",color,background:color+"18",border:`1px solid ${color}40`,borderRadius:999,padding:"2px 8px",whiteSpace:"nowrap",lineHeight:1.4}}>{children}</span>;
 }
 /** Heure murale de Paris « HH:MM » d'un instant. */
 export const parisHHMM = (ms) => { const p = parisParts(ms); return `${String(p.hh).padStart(2,"0")}:${String(p.mi).padStart(2,"0")}`; };
@@ -327,15 +304,6 @@ export function WindowRow({ w, lure }) {
           ))}
         </div>
       )}
-    </div>
-  );
-}
-export function Loader({ msg }) {
-  return (
-    <div style={{display:"flex",flexDirection:"column",alignItems:"center",padding:"28px 0",gap:12}}>
-      <div style={{width:32,height:32,border:`3px solid ${C.line}`,borderTop:`3px solid ${C.accent}`,borderRadius:"50%",animation:"spin .85s linear infinite"}}/>
-      <span style={{color:C.muted,fontSize:13.5,textAlign:"center"}}>{msg}</span>
-      <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
     </div>
   );
 }

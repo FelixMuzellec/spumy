@@ -1,6 +1,6 @@
 # Architecture de SPUMY
 
-État au 13 novembre 2026 : v9.2, lot 3.5 de la phase 3. La première partie décrit le code tel qu'il est ; la seconde, l'architecture cible décidée en phase 2, atteinte lot par lot. Ce document est mis à jour à chaque lot qui change l'organisation.
+État au 13 novembre 2026 : v9.2, lot 3.7 de la phase 3. La première partie décrit le code tel qu'il est ; la seconde, l'architecture cible décidée en phase 2, atteinte lot par lot. Ce document est mis à jour à chaque lot qui change l'organisation.
 
 ## Aujourd'hui (v9.2)
 
@@ -68,7 +68,9 @@ src/                  les sources (lot 3.4 : une couche par dossier, règles vé
     wx.js                 météo et mer des spots bateau (Open-Meteo)
     Offshore.jsx          l'onglet Offshore de l'accueil
   design/               le style commun, sans métier
-    kit.jsx               cartes, tuiles, puces, sources, couleurs
+    tokens.js             jetons (lot 3.7) : couleurs, typographie, rayons, cibles tactiles, durées, seuils de note
+    kit.jsx               carte, tuile, puce, bloc repliable, sous-onglets, ligne, source, bandeau (valeurs tirées des jetons)
+    components.jsx        jauge de note, pastille, chargement, style de bouton
     icons.jsx             pictogrammes
     theme.js              affichage « plein soleil » (Réglages), commun aux guides et à l'accueil
   engine.js             tout le moteur sans interface, pour les tests
@@ -87,9 +89,10 @@ tests/
   contract.mjs          contrat avec le vrai service Open-Meteo
   om_mock.mjs           simulateur d'Open-Meteo
   a11y.mjs              accessibilité (axe-core) sur toutes les pages et tous les onglets
-  layers.mjs            règles de couches : qui a le droit d'importer quoi
+  layers.mjs            règles de couches : qui a le droit d'importer quoi ; couleurs en dur hors de src/design/ (compte qui ne peut que baisser)
   data.mjs              fiches des sites : schéma, données pures, règles croisées, empreinte de chaque spot (ref/sites.json)
   upgrade.mjs           mise à jour d'un téléphone : données saisies avec la version publiée conservées, hors ligne ensuite
+  visual.mjs            captures de 22 vues, figées (date, météo simulée, carte), et comparaison pixel par pixel
   ref/                  tables de référence (marée de Pirou, octobre 2026 ; Aber Wrac'h, Brignogan, Lanildut,
                         Le Conquet, Audierne, Saint-Guénolé, Roscoff, château du Taureau, Primel, Locquirec, Concarneau,
                         Bénodet, Port-Manec'h, Le Pouldu, Morgat, Douarnenez, novembre 2026)

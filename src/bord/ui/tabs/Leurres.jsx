@@ -6,7 +6,7 @@ import { SITE } from "SITE_CONFIG";
 import { BOITE, CANNE, catalogWith, DEPTH_CLASS, FAMILLES, LURE_SOURCES, lureAdvice } from "../../engine/lures.js";
 import { origSize } from "../../engine/tackle.js";
 import { adviceForSpot, preyForMonth } from "../../engine/model.js";
-import { Pill } from "../components.jsx";
+import { Pill } from "../../../design/components.jsx";
 import { Alert, C, Card, Chip, Disclosure, Muted, Src, Stack, Why, fr, num } from "../../../design/kit.jsx";
 
 const S = LURE_SOURCES;

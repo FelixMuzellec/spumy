@@ -41,4 +41,29 @@ for (const f of files) {
   }
 }
 console.log(`${files.length} fichiers, ${edges} imports relatifs, ${bad} écart${bad > 1 ? "s" : ""} aux règles de couches`);
+
+// Lot 3.7 — Couleurs écrites en dur hors de src/design/ : comptées fichier par fichier, ce compte ne peut que
+// baisser (la refonte des phases 11 et 13 passera par les jetons, src/design/tokens.js). Référence :
+// tests/ref/couleurs-en-dur.json ; node tests/layers.mjs --update-ref la réécrit après une baisse.
+const REF = path.join(root, "tests/ref/couleurs-en-dur.json");
+const HEX = /#[0-9a-fA-F]{6}\b|#[0-9a-fA-F]{3}\b(?![0-9a-fA-F])/g;
+const counts = {};
+for (const f of files) {
+  const rel = path.relative(root, f);
+  if (rel.startsWith("src/design/")) continue;
+  const n = (fs.readFileSync(f, "utf8").match(HEX) || []).length;
+  if (n) counts[rel] = n;
+}
+const total = Object.values(counts).reduce((a, b) => a + b, 0);
+if (process.argv.includes("--update-ref")) {
+  fs.writeFileSync(REF, JSON.stringify(counts, null, 2) + "\n");
+  console.log(`référence réécrite : ${total} couleurs en dur dans ${Object.keys(counts).length} fichiers`);
+} else {
+  const ref = fs.existsSync(REF) ? JSON.parse(fs.readFileSync(REF, "utf8")) : {};
+  let up = 0;
+  for (const [rel, n] of Object.entries(counts)) if (n > (ref[rel] || 0)) { console.log(`✗ ${rel} : ${n} couleurs en dur (référence ${ref[rel] || 0}) : utiliser src/design/tokens.js`); up++; }
+  const refTotal = Object.values(ref).reduce((a, b) => a + b, 0);
+  console.log(`${total} couleurs en dur hors de src/design/ (référence ${refTotal})${total < refTotal ? " : en baisse, mettre la référence à jour (--update-ref)" : ""}`);
+  if (up) process.exitCode = 1;
+}
 if (bad) process.exitCode = 1;
