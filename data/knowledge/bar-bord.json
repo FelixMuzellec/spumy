@@ -1,0 +1,706 @@
+{
+ "titre": "Connaissances halieutiques du mode BORD — bar européen (Dicentrarchus labrax)",
+ "version": 1,
+ "relu_le": "2026-11-13",
+ "espece": "bar",
+ "mode": "BORD",
+ "echelle": {
+  "1": "Scientifique ou institutionnel : publication scientifique, Ifremer, SHOM, Météo-France, MNHN (INPN), Région (inventaire du patrimoine), textes réglementaires",
+  "2": "Observation documentée : article, guide, ouvrage ou page attribuable (auteur ou éditeur identifié)",
+  "3": "Retour local identifiable : pêcheur nommé ou pseudonyme suivi (forum, blog, liste de spots), office de tourisme citant un pêcheur, ton journal",
+  "4": "Hypothèse : déduction du guide, propre à un lieu ou à une situation, à vérifier",
+  "5": "Heuristique : règle générale de pêcheur ou de modèle, appliquée sans source propre"
+ },
+ "regles": [
+  "Le niveau est celui de la source qui porte l'énoncé tel qu'il est écrit. Une valeur chiffrée (seuil, poids) écrite dans aucune source est une hypothèse (4), même quand le principe est sourcé : elle est alors notée à part (« valeurs »).",
+  "Une étude faite en captivité ou dans une autre région garde son niveau 1, mais ses limites le disent.",
+  "Rien n'est déduit pour combler un trou : une connaissance sans source est classée 4 ou 5 et marquée « source à trouver »."
+ ],
+ "connaissances": [
+  {
+   "id": "migration-saisonniere",
+   "domaine": "biologie",
+   "enonce": "Le bar adulte est partiellement migrateur : la plupart des adultes frayent en hiver au large et passent la belle saison sur des zones d'alimentation côtières, auxquelles ils reviennent d'une année sur l'autre ; une partie reste résidente.",
+   "utilise_par": [
+    "src/bord/engine/model.js : SEASON (libellés), seasonPresence"
+   ],
+   "niveau": 1,
+   "sources": [
+    {
+     "ref": "de Pontual H. et al. (2023). Seasonal migration, site fidelity, and population structure of European seabass (Dicentrarchus labrax). ICES Journal of Marine Science 80 : 1606-1618 (programme Bargip, Ifremer)",
+     "url": "https://doi.org/10.1093/icesjms/fsad087",
+     "niveau": 1
+    },
+    {
+     "ref": "Ifremer — synthèse des marquages de bars adultes (programme Bargip), document de 4 pages",
+     "url": "https://bar.ifremer.fr/content/download/116111/file/4PagesMarquageAdultes_Final-3.pdf",
+     "niveau": 1
+    },
+    {
+     "ref": "Doyle T. et al. (2017). Localised residency and inter-annual fidelity to coastal foraging areas may place sea bass at risk to local depletion. Scientific Reports 7 : 45841 (Cork, Irlande)",
+     "url": "https://doi.org/10.1038/srep45841",
+     "niveau": 1
+    },
+    {
+     "ref": "Edwards J. E. et al. (2025). Multi-year tracking of European sea bass shows large-scale connectivity, summer site fidelity, and repeatability in migration timing. ICES Journal of Marine Science 82(10) : fsaf190",
+     "url": "https://doi.org/10.1093/icesjms/fsaf190",
+     "niveau": 1
+    }
+   ],
+   "limites": "Résidents plus rares que les migrants, surtout observés au centre du golfe de Gascogne (de Pontual 2023) ; à Cork, départ vers la mi-octobre et retour vers la mi-avril (Doyle 2017) ; aucune date publiée pour le Finistère.",
+   "verdict": "conserver",
+   "statut": "VÉRIFIÉ"
+  },
+  {
+   "id": "saison-coefficients",
+   "domaine": "biologie",
+   "enonce": "Coefficients mensuels de présence (0,5 en février à 1 de juin à octobre) qui réduisent la note hors saison.",
+   "utilise_par": [
+    "src/bord/engine/model.js : SEASON.roche, SEASON.plage, SEASON.abri"
+   ],
+   "niveau": 4,
+   "sources": [
+    {
+     "ref": "Ifremer — synthèse des marquages de bars adultes (programme Bargip), document de 4 pages",
+     "url": "https://bar.ifremer.fr/content/download/116111/file/4PagesMarquageAdultes_Final-3.pdf",
+     "niveau": 1
+    },
+    {
+     "ref": "Doyle T. et al. (2017). Localised residency and inter-annual fidelity to coastal foraging areas may place sea bass at risk to local depletion. Scientific Reports 7 : 45841 (Cork, Irlande)",
+     "url": "https://doi.org/10.1038/srep45841",
+     "niveau": 1
+    }
+   ],
+   "limites": "Le calendrier suit les sources (frai hivernal, présence côtière de mai à novembre) ; les valeurs chiffrées ne sont écrites dans aucune source.",
+   "verdict": "à éprouver en phase 6 (journal, marquages)",
+   "statut": "HYPOTHÈSE",
+   "valeurs": {
+    "texte": "roche et plage : 0,6 0,5 0,55 0,75 0,95 1 1 1 1 1 0,95 0,75 ; abri : écart réduit de moitié",
+    "niveau": 4
+   }
+  },
+  {
+   "id": "abri-hiver",
+   "domaine": "biologie",
+   "enonce": "En hiver, des bars restent plus volontiers en rade, ria ou havre qu'en côte ouverte : l'écart de saison y est réduit de moitié.",
+   "utilise_par": [
+    "src/bord/engine/model.js : SEASON.abri, regimeOf"
+   ],
+   "niveau": 4,
+   "sources": [
+    {
+     "ref": "Edwards J. E. et al. (2025). Multi-year tracking of European sea bass shows large-scale connectivity, summer site fidelity, and repeatability in migration timing. ICES Journal of Marine Science 82(10) : fsaf190",
+     "url": "https://doi.org/10.1093/icesjms/fsaf190",
+     "niveau": 1
+    },
+    {
+     "ref": "de Pontual H. et al. (2023). Seasonal migration, site fidelity, and population structure of European seabass (Dicentrarchus labrax). ICES Journal of Marine Science 80 : 1606-1618 (programme Bargip, Ifremer)",
+     "url": "https://doi.org/10.1093/icesjms/fsad087",
+     "niveau": 1
+    }
+   ],
+   "limites": "Indice seulement : des bars marqués ont hiverné dans un port belge à 6,9 °C de température médiane (Goossens et al. 2023, cité par Edwards 2025) ; aucune observation en rade de Brest ni dans les abers.",
+   "verdict": "à éprouver en phase 6",
+   "statut": "HYPOTHÈSE"
+  },
+  {
+   "id": "frai-temperature",
+   "domaine": "biologie",
+   "enonce": "Le frai du stock nord a lieu de février à juin, dans des eaux d'au moins 9 °C environ.",
+   "utilise_par": [
+    "référence pour src/bord/engine/model.js : thermalPresence (non utilisé directement)"
+   ],
+   "niveau": 1,
+   "sources": [
+    {
+     "ref": "Graham J. A. et al. (2023). Pelagic connectivity of European sea bass between spawning and nursery grounds. Frontiers in Marine Science 9 : 1046585",
+     "url": "https://doi.org/10.3389/fmars.2022.1046585",
+     "niveau": 1
+    }
+   ],
+   "limites": "Seuil de 9 °C utilisé comme limite d'étendue du frai dans un modèle de dérive larvaire ; ne dit rien de la présence des adultes à la côte.",
+   "verdict": "conserver comme repère",
+   "statut": "VÉRIFIÉ"
+  },
+  {
+   "id": "seuils-thermiques",
+   "domaine": "biologie",
+   "enonce": "Présence côtière selon la température de l'eau : au plus bas sous 7,5 °C, résiduelle sous 9,5 °C, en retour sous 11,5 °C, pleine de 13,5 à 19 °C, réduite au-delà.",
+   "utilise_par": [
+    "src/bord/engine/model.js : thermalPresence, effectivePresence"
+   ],
+   "niveau": 4,
+   "sources": [
+    {
+     "ref": "de Pontual H. et al. (2023). Seasonal migration, site fidelity, and population structure of European seabass (Dicentrarchus labrax). ICES Journal of Marine Science 80 : 1606-1618 (programme Bargip, Ifremer)",
+     "url": "https://doi.org/10.1093/icesjms/fsad087",
+     "niveau": 1
+    },
+    {
+     "ref": "Edwards J. E. et al. (2025). Multi-year tracking of European sea bass shows large-scale connectivity, summer site fidelity, and repeatability in migration timing. ICES Journal of Marine Science 82(10) : fsaf190",
+     "url": "https://doi.org/10.1093/icesjms/fsaf190",
+     "niveau": 1
+    }
+   ],
+   "limites": "Aucune source ne donne ces paliers. Des bars ont été suivis jusqu'à 6,5 °C (de Pontual 2023) et ont hiverné à 6,9 °C dans un port (Edwards 2025) : « l'essentiel des adultes a rejoint le large sous 7,5 °C » n'est pas démontré.",
+   "verdict": "à revoir en phase 6",
+   "statut": "HYPOTHÈSE",
+   "valeurs": {
+    "texte": "7,5 / 9,5 / 11,5 / 13,5 / 19 / 21,5 °C ; facteurs 0,30 / 0,50 / 0,75 / 0,92 / 1 / 0,90 / 0,72",
+    "niveau": 4
+   }
+  },
+  {
+   "id": "eau-chaude",
+   "domaine": "biologie",
+   "enonce": "Au-delà de 19 °C, le bar décale son activité vers la nuit et les crépuscules.",
+   "utilise_par": [
+    "src/bord/engine/model.js : thermalPresence (niveaux chaud et très chaud)"
+   ],
+   "niveau": 5,
+   "sources": [],
+   "limites": "Aucune source citée ; règle de pêcheur.",
+   "verdict": "source à trouver",
+   "statut": "INFÉRÉ"
+  },
+  {
+   "id": "lumiere-basse",
+   "domaine": "comportement",
+   "enonce": "Le bar mord davantage en lumière basse (aube, crépuscule) qu'en plein jour.",
+   "utilise_par": [
+    "src/bord/engine/model.js : lightTerm (+1,2 en basse lumière, −0,9 en plein jour)",
+    "src/bord/engine/lures.js : coloris selon la lumière"
+   ],
+   "niveau": 2,
+   "sources": [
+    {
+     "ref": "peche.com — Quelle couleur choisir selon l'eau et la météo ? (L. Duclos, 03/06/2026)",
+     "url": "https://www.peche.com/article/52017/peche-aux-leurres-quelle-couleur-choisir-selon-l-eau-et-la-meteo",
+     "niveau": 2
+    },
+    {
+     "ref": "Millot S., Bégout M.-L. (2009). Individual fish rhythm directs group feeding: a case study with sea bass juveniles (Dicentrarchus labrax) under self-demand feeding conditions. Aquatic Living Resources (en ligne le 23/10/2009) — juvéniles en bassin",
+     "url": "https://www.cambridge.org/core/journals/aquatic-living-resources/article/individual-fish-rhythm-directs-group-feeding-a-case-studywith-sea-bass-juveniles-dicentrarchus-labrax-under-selfdemand-feeding-conditions/E0BE5D25E180587973B3100430A477BA",
+     "niveau": 1
+    },
+    {
+     "ref": "Chen I.-H. et al. (2023). Food anticipatory behaviour on European seabass in sea cages. Frontiers in Marine Science 10 : 1168953 — poissons en cage",
+     "url": "https://doi.org/10.3389/fmars.2023.1168953",
+     "niveau": 1
+    }
+   ],
+   "limites": "En bassin et en cage, l'alimentation culmine à l'aube ou au crépuscule selon les individus (Millot et Bégout 2009 ; Chen 2023), mais aucune étude en milieu naturel n'a été trouvée sur l'activité de jour et de nuit du bar adulte. Les poids +1,2 et −0,9 sont des choix de modèle.",
+   "verdict": "conserver ; poids à éprouver en phase 6",
+   "statut": "INFÉRÉ",
+   "valeurs": {
+    "texte": "+1,2 basse lumière, +0,5 nuit, −0,9 plein jour (compensé par ciel couvert et houle)",
+    "niveau": 4
+   }
+  },
+  {
+   "id": "nuit-spot-engage",
+   "domaine": "sécurité",
+   "enonce": "De nuit, un spot engagé (niveau 3) perd son bonus et passe en négatif.",
+   "utilise_par": [
+    "src/bord/engine/model.js : lightTerm",
+    "src/bord/engine/safety.js : safetyOf (nuit, niveau ≥ 2)"
+   ],
+   "niveau": 5,
+   "sources": [],
+   "limites": "Prudence du guide, pas une connaissance halieutique.",
+   "verdict": "conserver (sécurité)",
+   "statut": "INFÉRÉ"
+  },
+  {
+   "id": "ciel-couvert",
+   "domaine": "comportement",
+   "enonce": "Par ciel couvert, le bar se montre moins méfiant de jour ; par ciel clair, l'inverse.",
+   "utilise_par": [
+    "src/bord/engine/model.js : scoreWindow (ciel +0,4 / −0,3), lightTerm (compensation)"
+   ],
+   "niveau": 5,
+   "sources": [
+    {
+     "ref": "peche.com — Quelle couleur choisir selon l'eau et la météo ? (L. Duclos, 03/06/2026)",
+     "url": "https://www.peche.com/article/52017/peche-aux-leurres-quelle-couleur-choisir-selon-l-eau-et-la-meteo",
+     "niveau": 2
+    }
+   ],
+   "limites": "La source parle du choix des couleurs par ciel couvert, pas d'un effet sur l'activité du poisson.",
+   "verdict": "à éprouver en phase 6",
+   "statut": "INFÉRÉ"
+  },
+  {
+   "id": "maree-flot",
+   "domaine": "comportement",
+   "enonce": "Le bar suit le flot sur les estrans et les bordures et se poste aux sorties d'eau au jusant ; les fenêtres de marée de chaque spot en dépendent.",
+   "utilise_par": [
+    "data/sites/*.config.js : tidalRules.windows",
+    "src/bord/engine/model.js : computeWindows"
+   ],
+   "niveau": 2,
+   "sources": [
+    {
+     "ref": "Edwards J. E. et al. (2025). Multi-year tracking of European sea bass shows large-scale connectivity, summer site fidelity, and repeatability in migration timing. ICES Journal of Marine Science 82(10) : fsaf190",
+     "url": "https://doi.org/10.1093/icesjms/fsaf190",
+     "niveau": 1
+    },
+    {
+     "ref": "de Pontual H. et al. (2023). Seasonal migration, site fidelity, and population structure of European seabass (Dicentrarchus labrax). ICES Journal of Marine Science 80 : 1606-1618 (programme Bargip, Ifremer)",
+     "url": "https://doi.org/10.1093/icesjms/fsad087",
+     "niveau": 1
+    },
+    {
+     "ref": "peche.com — La pêche du bar dans les vagues (11/06/2021)",
+     "url": "https://www.peche.com/article/37249/la-peche-du-bar-dans-les-vagues-des-conditions-difficiles-souvent-payantes",
+     "niveau": 2
+    }
+   ],
+   "limites": "En milieu naturel : grands bars vus traversant des vasières submergées à pleine mer (Edwards 2025), signal de marée sur environ 35 % des marques (de Pontual 2023) ; le détail des fenêtres de chaque spot vient de sources de pêche ou de déductions (voir preuves-spots.json).",
+   "verdict": "conserver",
+   "statut": "VÉRIFIÉ"
+  },
+  {
+   "id": "coefficient-plage-utile",
+   "domaine": "comportement",
+   "enonce": "Chaque spot a une plage utile de coefficient : trop faible, l'eau ne travaille pas ; trop fort, le courant devient impraticable du bord.",
+   "utilise_par": [
+    "data/sites/*.config.js : coefBand, coefHardMax",
+    "src/bord/engine/model.js : scoreWindow (terme de coefficient)"
+   ],
+   "niveau": 4,
+   "sources": [],
+   "limites": "Quelques bornes sont sourcées (Térénez : passage coupé au-delà de 85, peche-poissons.com 2022 ; Cotentin : 70 à 90 préférés, despoissonssigrands.com) ; les autres sont déduites, spot par spot.",
+   "verdict": "à éprouver en phase 6",
+   "statut": "HYPOTHÈSE"
+  },
+  {
+   "id": "courant-coefficient",
+   "domaine": "milieu",
+   "enonce": "La vitesse du courant de marée croît avec le coefficient (atlas du SHOM).",
+   "utilise_par": [
+    "src/bord/engine/lures.js : FLOW_LABEL (conseil de poids et de couche par courant)"
+   ],
+   "niveau": 2,
+   "sources": [
+    {
+     "ref": "bateaux.com — Savoir lire un atlas des courants de marée du SHOM (O. Tourchon, 08/10/2020) : vitesse croissante avec le coefficient",
+     "url": "https://www.bateaux.com/article/34870/decouvrir-la-carte-des-courants-de-maree",
+     "niveau": 2
+    }
+   ],
+   "limites": "Principe des atlas du SHOM, lu ici à travers un article de vulgarisation (niveau 2 tant que l'atlas lui-même n'est pas cité) ; les vitesses locales (Raz de Sein, Raz Blanchard, Libenter) viennent de sources de navigation.",
+   "verdict": "conserver",
+   "statut": "VÉRIFIÉ"
+  },
+  {
+   "id": "regle-douziemes",
+   "domaine": "milieu",
+   "enonce": "La mer monte et descend le plus vite aux 3e et 4e heures de la marée (règle des douzièmes).",
+   "utilise_par": [
+    "src/bord/engine/lures.js : FLOW_LABEL (courant au fil du créneau)"
+   ],
+   "niveau": 2,
+   "sources": [
+    {
+     "ref": "peche.com — Comprendre et calculer les niveaux des marées avec la règle des douzièmes",
+     "url": "https://peche.com/article/43574/comprendre-et-calculer-les-niveaux-des-marees-avec-la-regle-des-douziemes",
+     "niveau": 2
+    }
+   ],
+   "limites": "Approximation de navigation : fausse là où la marée est déformée (Manche, Raz Blanchard, où l'application suit une autre règle).",
+   "verdict": "conserver",
+   "statut": "VÉRIFIÉ"
+  },
+  {
+   "id": "vent-exposition",
+   "domaine": "comportement",
+   "enonce": "Un vent de mer modéré qui lève du clapot sur un spot exposé est favorable ; un vent de terre aplatit et clarifie l'eau, ce qui rend le poisson plus méfiant.",
+   "utilise_par": [
+    "src/core/core.js : windMod",
+    "src/bord/engine/model.js : scoreWindow"
+   ],
+   "niveau": 2,
+   "sources": [
+    {
+     "ref": "peche.com — La pêche du bar dans les vagues (11/06/2021)",
+     "url": "https://www.peche.com/article/37249/la-peche-du-bar-dans-les-vagues-des-conditions-difficiles-souvent-payantes",
+     "niveau": 2
+    }
+   ],
+   "limites": "Principe de pêcheurs ; les valeurs de windMod (jusqu'à force 4 favorable, pénalités au-delà) ne sont écrites dans aucune source.",
+   "verdict": "conserver ; valeurs à éprouver en phase 6",
+   "statut": "INFÉRÉ",
+   "valeurs": {
+    "texte": "bonus et pénalités de windMod selon force, direction et exposition du spot",
+    "niveau": 4
+   }
+  },
+  {
+   "id": "rafales-penalite",
+   "domaine": "comportement",
+   "enonce": "Au-delà de 50 km/h de rafales, lancer, tenue de ligne et sécurité se dégradent : la note baisse (jusqu'à −2).",
+   "utilise_par": [
+    "src/bord/engine/model.js : scoreWindow (rafales)"
+   ],
+   "niveau": 5,
+   "sources": [],
+   "limites": "Règle du guide ; distincte du filtre de sécurité (rafales de 75 et 90 km/h, Météo-France).",
+   "verdict": "à éprouver en phase 6",
+   "statut": "INFÉRÉ"
+  },
+  {
+   "id": "pression",
+   "domaine": "comportement",
+   "enonce": "Une pression haute et stable, ou une baisse lente, serait favorable ; une chute rapide ou une très haute pression le serait moins.",
+   "utilise_par": [
+    "src/bord/engine/model.js : PRESSURE_MODEL, pressureStrategy (poids plafonné à ±0,3)"
+   ],
+   "niveau": 5,
+   "sources": [
+    {
+     "ref": "lesbredouilleurs.com, peche.com, pecheurdumorin.fr, ici.fr, dailypresse.com, ultimate-fishing.net (cités dans model.js)",
+     "url": null,
+     "niveau": 5
+    }
+   ],
+   "limites": "Blogs de pêche, aucune étude sur le bar ; le poids est déjà réduit pour ne jamais départager seul deux spots.",
+   "verdict": "conserver au poids faible, ou retirer en phase 6",
+   "statut": "INFÉRÉ"
+  },
+  {
+   "id": "pluie-turbidite",
+   "domaine": "milieu",
+   "enonce": "Après plus de 5 mm de pluie en 36 h, l'eau est probablement teintée près des rivières ; au-delà de 15 mm, nettement.",
+   "utilise_par": [
+    "src/bord/engine/lures.js : clarté de l'eau",
+    "src/bord/ui/components.jsx : rain36 (ligne de pluie)"
+   ],
+   "niveau": 4,
+   "sources": [],
+   "limites": "Seuils du guide, aucune source.",
+   "verdict": "source à trouver",
+   "statut": "HYPOTHÈSE"
+  },
+  {
+   "id": "houle-turbidite",
+   "domaine": "milieu",
+   "enonce": "Une houle d'au moins 1,5 m charge l'eau sur la côte ouverte.",
+   "utilise_par": [
+    "src/bord/engine/lures.js : clarté de l'eau"
+   ],
+   "niveau": 4,
+   "sources": [],
+   "limites": "Seuil du guide, aucune source.",
+   "verdict": "source à trouver",
+   "statut": "HYPOTHÈSE"
+  },
+  {
+   "id": "gros-coefficient-turbidite",
+   "domaine": "milieu",
+   "enonce": "Les gros coefficients (95 et plus) peuvent troubler l'eau.",
+   "utilise_par": [
+    "src/bord/engine/lures.js : clarté de l'eau"
+   ],
+   "niveau": 4,
+   "sources": [],
+   "limites": "Le code le dit lui-même : seuil et effet supposés, aucune source relue ne le chiffre.",
+   "verdict": "source à trouver",
+   "statut": "HYPOTHÈSE"
+  },
+  {
+   "id": "proies-calendrier",
+   "domaine": "alimentation",
+   "enonce": "Proies du mois par guide (crevettes, lançon, alevins de mulet, gobies, crabe en mue, sprat, civelle) : elles commandent la taille et le profil du leurre.",
+   "utilise_par": [
+    "data/sites/*.config.js : preyCalendar",
+    "src/bord/engine/model.js : preyForMonth, adviceForSpot"
+   ],
+   "niveau": 5,
+   "sources": [
+    {
+     "ref": "Spitz J. et al. (2013). Prey preferences of adult sea bass Dicentrarchus labrax in the northeastern Atlantic. ICES Journal of Marine Science 70(2) : 452-461 (plateau du golfe de Gascogne, automne et hiver)",
+     "url": "https://doi.org/10.1093/icesjms/fss200",
+     "niveau": 1
+    },
+    {
+     "ref": "peche.com — La pêche du bar en fonction des saisons (T. Cendrier, 08/10/2024)",
+     "url": "https://www.peche.com/article/32987/la-peche-du-bar-en-fonction-des-saisons",
+     "niveau": 2
+    }
+   ],
+   "limites": "Le seul régime alimentaire mesuré trouvé porte sur des bars du large en automne et en hiver (poissons pélagiques : maquereau, chinchard, anchois, sardine ; crustacés 3 % de la biomasse ; Spitz 2013) ; aucun calendrier côtier publié pour ces guides : mois et poids sont ceux du guide.",
+   "verdict": "à sourcer en phase 6",
+   "statut": "INFÉRÉ"
+  },
+  {
+   "id": "leurres-regles",
+   "domaine": "leurres",
+   "enonce": "Couleurs, tailles, animations et poids des têtes selon la lumière, la clarté, la mer, la saison et la profondeur (82 règles du moteur de conseil).",
+   "utilise_par": [
+    "src/bord/engine/lures.js : r(texte, source)"
+   ],
+   "niveau": 2,
+   "sources": [
+    {
+     "ref": "peche.com — Quelle couleur choisir selon l'eau et la météo ? (L. Duclos, 03/06/2026)",
+     "url": "https://www.peche.com/article/52017/peche-aux-leurres-quelle-couleur-choisir-selon-l-eau-et-la-meteo",
+     "niveau": 2
+    },
+    {
+     "ref": "peche.com — La pêche du bar dans les vagues (11/06/2021)",
+     "url": "https://www.peche.com/article/37249/la-peche-du-bar-dans-les-vagues-des-conditions-difficiles-souvent-payantes",
+     "niveau": 2
+    },
+    {
+     "ref": "peche.com — La pêche du bar en fonction des saisons (T. Cendrier, 08/10/2024)",
+     "url": "https://www.peche.com/article/32987/la-peche-du-bar-en-fonction-des-saisons",
+     "niveau": 2
+    }
+   ],
+   "limites": "Classement règle par règle dans « regles_leurres » : articles de pêcheurs nommés (niveau 2), tes notes et ton journal (3), déductions du guide (4), arguments de fabricants (5).",
+   "verdict": "conserver",
+   "statut": "VÉRIFIÉ"
+  },
+  {
+   "id": "reglementation-bar-2026",
+   "domaine": "réglementation",
+   "enonce": "Bar, pêche de loisir 2026 : au nord du 48e parallèle, 3 bars par jour en janvier et du 1er avril au 31 décembre, relâcher obligatoire du 1er février au 31 mars ; au sud, 2 bars par jour toute l'année ; taille minimale 42 cm ; marquage de la caudale ; enregistrement RecFishing et déclaration dans les 24 h.",
+   "utilise_par": [
+    "src/core/rules.js : REGLEMENTATION, regulationFor"
+   ],
+   "niveau": 1,
+   "sources": [
+    {
+     "ref": "Arrêté du 1er avril 2026 réglementant la pêche de loisir du bar européen (NOR TECM2608397A, JO du 9/04/2026)",
+     "url": "https://www.locquirec.bzh/wp-content/uploads/2026/04/Arrete-du-1er-avril-2026-Bar-loisir.pdf",
+     "niveau": 1
+    },
+    {
+     "ref": "Arrêté du 1er avril 2026 modifiant l'arrêté du 7 novembre 2025 (NOR TECM2608396A, JO du 11/04/2026) : enregistrement RecFishing dès le 12/02/2026, déclaration dans les 24 h",
+     "url": "https://www.dirm.memn.developpement-durable.gouv.fr/IMG/pdf/joe_20260411_0086_0009.pdf",
+     "niveau": 1
+    },
+    {
+     "ref": "DDTM du Finistère — synthèse de la réglementation de la pêche maritime de loisir (avril 2026)",
+     "url": "https://www.locquirec.bzh/wp-content/uploads/2026/04/2026-SYNTHESE-peche-loisir-en-mer.pdf",
+     "niveau": 1
+    },
+    {
+     "ref": "peche.com — « RecFishing : le ministère retire l'obligation de déclaration » (L. Duclos, 01/04/2026) : l'article se termine par « ceci est un poisson d'avril »",
+     "url": "https://www.peche.com/article/51605/recfishing-le-ministere-retire-l-obligation-de-declaration-des-prises-de-lois",
+     "niveau": 2
+    }
+   ],
+   "limites": "Vérifiée le 29/10/2026 dans l'application et revue le 13/11/2026 : l'arrêté du 1er avril 2026 (JO du 11/04/2026) confirme l'enregistrement RecFishing et le délai de 24 h. L'article annonçant le retrait de l'obligation (peche.com, 01/04/2026) était un poisson d'avril. À revérifier chaque année (règlement UE de janvier).",
+   "verdict": "conserver ; revérifier en janvier 2027",
+   "statut": "VÉRIFIÉ"
+  },
+  {
+   "id": "remise-a-l-eau",
+   "domaine": "réglementation",
+   "enonce": "Gestes de remise à l'eau : hameçons sans ardillon, combat court, poisson tenu dans l'eau, mains mouillées.",
+   "utilise_par": [
+    "src/core/rules.js : REMISE_A_L_EAU"
+   ],
+   "niveau": 2,
+   "sources": [
+    {
+     "ref": "peche.com — Comment relâcher un poisson ? Pratiquez le no-kill correctement (J. Del Arco Aguirre, 24/06/2022)",
+     "url": "https://www.peche.com/article/32998/comment-relacher-un-poisson-pratiquez-le-no-kill-correctement",
+     "niveau": 2
+    }
+   ],
+   "limites": "Article de vulgarisation ; aucune étude de survie du bar relâché citée.",
+   "verdict": "source scientifique à ajouter",
+   "statut": "INFÉRÉ"
+  },
+  {
+   "id": "filtre-vent",
+   "domaine": "sécurité",
+   "enonce": "Vent moyen de force 8 ou rafales de 90 km/h : spot non recommandé ; force 7 : à vérifier.",
+   "utilise_par": [
+    "src/bord/engine/safety.js : WIND_LIMITS, windSafety"
+   ],
+   "niveau": 1,
+   "sources": [
+    {
+     "ref": "Météo-France — Guide marine (octobre 2022) : BMS côte dès la force 7 ; échelle de Beaufort en vent moyen",
+     "url": null,
+     "niveau": 1
+    },
+    {
+     "ref": "Météo-France — vigilance vent (vigilance.meteofrance.fr) : avis de coup de vent dès 62 km/h, tempête au-delà de 90 km/h de rafales",
+     "url": "https://vigilance.meteofrance.fr",
+     "niveau": 1
+    }
+   ],
+   "limites": "Seuils de Météo-France pour la mer et la terre, appliqués à la pêche du bord : leur adéquation au bord est un choix du guide (décision 1 de la phase 4).",
+   "verdict": "conserver ; valider en phase 6",
+   "statut": "VÉRIFIÉ"
+  },
+  {
+   "id": "filtre-rafales-75",
+   "domaine": "sécurité",
+   "enonce": "Rafales de 75 km/h : à vérifier.",
+   "utilise_par": [
+    "src/bord/engine/safety.js : WIND_LIMITS.doubtGust"
+   ],
+   "niveau": 4,
+   "sources": [
+    {
+     "ref": "Météo-France — Guide marine (octobre 2022) : BMS côte dès la force 7 ; échelle de Beaufort en vent moyen",
+     "url": null,
+     "niveau": 1
+    }
+   ],
+   "limites": "Vitesse d'un vent de force 9 (Beaufort) appliquée aux rafales : déduction, aucune source ne fixe ce seuil pour la pêche.",
+   "verdict": "à valider par Félix",
+   "statut": "HYPOTHÈSE"
+  },
+  {
+   "id": "filtre-inconnu",
+   "domaine": "sécurité",
+   "enonce": "Une donnée de sécurité inconnue (vent, rafales, direction, houle en côte ouverte) met le créneau « à vérifier », jamais au vert.",
+   "utilise_par": [
+    "src/bord/engine/safety.js : windSafety"
+   ],
+   "niveau": 5,
+   "sources": [],
+   "limites": "Règle du cahier des charges de SPUMY (inconnu → à vérifier), pas une connaissance halieutique.",
+   "verdict": "conserver",
+   "statut": "VÉRIFIÉ"
+  },
+  {
+   "id": "houle-max-spot",
+   "domaine": "sécurité",
+   "enonce": "Chaque spot a une houle maximale au-delà de laquelle il n'est plus proposé (marge de 0,5 m sauf spot engagé).",
+   "utilise_par": [
+    "data/sites/*.config.js : houleMax",
+    "src/bord/engine/model.js : scoreWindow"
+   ],
+   "niveau": 4,
+   "sources": [],
+   "limites": "Valeurs estimées par le guide spot par spot ; aucune n'est mesurée.",
+   "verdict": "à éprouver en phase 6",
+   "statut": "HYPOTHÈSE"
+  }
+ ],
+ "regles_leurres": {
+  "automne": {
+   "niveau": 2,
+   "source": "peche.com, B. Le Provost (2026)",
+   "regles": 4
+  },
+  "coloris": {
+   "niveau": 2,
+   "source": "peche.com, B. Le Provost (2024)",
+   "regles": 7
+  },
+  "couleurDebut": {
+   "niveau": 2,
+   "source": "peche.com, F. Tynilla (2025)",
+   "regles": 4
+  },
+  "couleurMeteo": {
+   "niveau": 2,
+   "source": "peche.com, L. Duclos (2026)",
+   "regles": 6
+  },
+  "douziemes": {
+   "niveau": 2,
+   "source": "peche.com (règle des douzièmes)",
+   "regles": 1
+  },
+  "grammage": {
+   "niveau": 2,
+   "source": "peche.com, T. Cendrier (2024)",
+   "regles": 4
+  },
+  "grammageMer": {
+   "niveau": 2,
+   "source": "Les Bredouilleurs (non daté)",
+   "regles": 3
+  },
+  "merConseils": {
+   "niveau": 2,
+   "source": "peche.com, L. Duclos (2026)",
+   "regles": 4
+  },
+  "nuit": {
+   "niveau": 2,
+   "source": "peche.com, Y. Nabusset (2026)",
+   "regles": 6
+  },
+  "ouverture": {
+   "niveau": 2,
+   "source": "Le Figaro Nautisme (2026)",
+   "regles": 6
+  },
+  "razBlanchard": {
+   "niveau": 2,
+   "source": "Wikipédia — Raz Blanchard",
+   "regles": 1
+  },
+  "shomCoef": {
+   "niveau": 2,
+   "source": "atlas du SHOM, lu via bateaux.com",
+   "regles": 1
+  },
+  "stickbait": {
+   "niveau": 2,
+   "source": "peche.com, G. Fourrier (2026)",
+   "regles": 2
+  },
+  "vagues": {
+   "niveau": 2,
+   "source": "peche.com (2021)",
+   "regles": 6
+  },
+  "felix": {
+   "niveau": 3,
+   "source": "tes notes",
+   "regles": 2
+  },
+  "rade": {
+   "niveau": 3,
+   "source": "brestfishing et Relec29 (Desperadiens)",
+   "regles": 2
+  },
+  "toi": {
+   "niveau": 3,
+   "source": "ce que tu as observé sur place",
+   "regles": 1
+  },
+  "deduit": {
+   "niveau": 4,
+   "source": "déduction du guide",
+   "regles": 14
+  },
+  "fiche": {
+   "niveau": 4,
+   "source": "fiche du spot : niveau de la rubrique, voir preuves-spots.json",
+   "regles": 4
+  },
+  "fiiishBM": {
+   "niveau": 5,
+   "source": "argument du fabricant",
+   "regles": 1
+  },
+  "fiiishMS": {
+   "niveau": 5,
+   "source": "argument du fabricant",
+   "regles": 1
+  },
+  "mrjoe": {
+   "niveau": 5,
+   "source": "argument du fabricant",
+   "regles": 1
+  },
+  "zclaw": {
+   "niveau": 5,
+   "source": "argument du fabricant",
+   "regles": 1
+  }
+ }
+}

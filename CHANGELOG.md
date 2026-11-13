@@ -1,6 +1,16 @@
 # Journal des versions
 
-## Non publié — revue finale des phases 3 et 4, avant fusion (13 novembre)
+## Non publié — phase 5, connaissances halieutiques (BORD, bar)
+
+Branche `claude/phase-5-halieutique`. L'application ne change pas : la phase classe et source ce que le moteur sait du bar.
+
+- **Échelle de preuve à cinq niveaux** (scientifique ou institutionnel, observation documentée, retour local identifiable, hypothèse, heuristique) : `data/knowledge/bar-bord.json` et son schéma.
+- **27 connaissances du moteur BORD** classées, avec sources, limites et code qui les utilise : 4 de niveau 1 (migration saisonnière, frai, réglementation, seuils de vent de Météo-France), 7 de niveau 2, 9 hypothèses, 7 heuristiques ; les 82 règles du moteur de leurres classées par source.
+- **396 rubriques des 66 spots reclassées** (`data/knowledge/preuves-spots.json`) : les 192 « vérifiées » relues une à une (8 de niveau 1, 145 de niveau 2, 31 de niveau 3, 3 hypothèses, 5 heuristiques).
+- **Réglementation** revue le 13 novembre : inchangée ; l'article annonçant la fin de la déclaration RecFishing (1er avril 2026) était un poisson d'avril.
+- **Tests** `npm run test:knowledge` : schéma, aucune connaissance plus sûre que sa source, code utilisé présent, nombre de règles de leurres égal au code, chaque rubrique de spot classée une fois avec son étiquette actuelle, et 9 erreurs de saisie refusées.
+
+## Non publié — revue finale des phases 3 et 4, fusionnée dans `main` le 13 novembre (e743b10), pas en ligne
 
 Faite à la demande de Félix (« tu peux fusionner si, après la revue finale, la version remplit parfaitement le cahier des charges »).
 
