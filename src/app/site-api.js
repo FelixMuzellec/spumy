@@ -1,6 +1,6 @@
 // v8.14 — Moteur d'un guide, sans interface, pour l'accueil : la note du jour de chaque spot (exactement
 // comme le guide la calcule : même météo en cache, mêmes réglages de l'appareil, même journal) et l'ajout
-// d'un de tes spots. Construit une fois par guide (configuration différente), réuni dans home.js.
+// d'un de tes spots. Lot 3.5 : compilé une seule fois, la fiche en paramètre (makeSiteApi, scripts/build.mjs) ; l'accueil en crée une instance par guide.
 /* global __SITE_KEY__ */
 import { SITE } from "SITE_CONFIG";
 import { calibrate, loadJournal } from "../bord/engine/journal.js";

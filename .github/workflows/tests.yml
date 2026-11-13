@@ -29,9 +29,11 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: npm run -s build
       - name: Les fichiers publiés correspondent-ils aux sources ?
+        # Fichiers modifiés, ajoutés ou supprimés par la construction : la PR doit contenir le site reconstruit.
         run: |
-          git status --porcelain
-          git diff --stat --exit-code -- '*.html' home.js sw.js manifest.json '*.png'
+          changes="$(git status --porcelain --untracked-files=all -- '*.html' '*.js' '*.json' '*.png' ':!tests/**' ':!node_modules/**')"
+          echo "$changes"
+          test -z "$changes"
       - name: Contrôle du code
         run: npm run -s lint
       - name: Règles de couches (bord, bateau, commun, design)
@@ -44,6 +46,10 @@ jobs:
         run: npm run -s test:e2e
       - name: Contrat Open-Meteo (simulé)
         run: CONTRACT_MOCK=1 npm run -s test:contract
+      - name: Mise à jour d'un téléphone (version publiée → cette version)
+        run: |
+          git fetch --no-tags --depth=1 origin +refs/heads/main:refs/remotes/origin/main
+          npm run -s test:upgrade
       - name: Studio photo
         run: npm run -s test:studio
       - name: Accessibilité (axe-core)

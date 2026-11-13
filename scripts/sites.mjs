@@ -8,5 +8,6 @@ export const SITES = [
   { key: "concarneau", config: "data/sites/concarneau.config.js", id: "concarneau", title: "SPUMY · Concarneau", short: "Concarneau", blurb: "Cornouaille · de l'Odet à la Laïta" },
   { key: "crozon", config: "data/sites/crozon.config.js", id: "crozon", title: "SPUMY · Crozon", short: "Crozon", blurb: "Presqu'île de Crozon et baie de Douarnenez · de Dinan à Trénaouret" },
 ];
-export const SITE_FILES = ["index.html", "home.js", ...SITES.map((s) => `${s.key}.html`), "manifest.json", "icon-192.png", "icon-512.png", "icon-maskable.png", "apple-touch-icon.png",
+// Lot 3.5 : app.js (l'application, unique) remplace home.js et le code intégré à chaque guide ; <guide>.json = la fiche.
+export const SITE_FILES = ["index.html", "app.js", ...SITES.map((s) => `${s.key}.html`), ...SITES.map((s) => `${s.key}.json`), "manifest.json", "icon-192.png", "icon-512.png", "icon-maskable.png", "apple-touch-icon.png",
   ...SITES.map((s) => `${s.key}.png`), "sw.js"];

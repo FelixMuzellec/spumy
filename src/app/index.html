@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-page="home">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -49,7 +49,7 @@
   #results .s { display: block; color: #cbd5e1; font-size: 13px; }
   #results .g { display: block; color: #94a3b8; font-size: 12.5px; }
   #results .d { display: block; color: #7dd3fc; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
-  /* v8.15 — Note du jour et tendance vers demain, à droite de chaque résultat (remplies par home.js) */
+  /* v8.15 — Note du jour et tendance vers demain, à droite de chaque résultat (remplies par app.js) */
   #results .t { flex: 1; }
   #results .sc { flex-shrink: 0; min-width: 48px; text-align: right; font-variant-numeric: tabular-nums; }
   #results .sc:empty { display: none; }
@@ -97,7 +97,7 @@
   html.sun body { background: #f5f7fa; }
   html.sun main { background: #020617; filter: invert(1) hue-rotate(180deg); }
   html.sun main img, html.sun main .leaflet-tile-pane { filter: invert(1) hue-rotate(180deg); }
-  /* v8.14 — Carte de tous les spots et ajout d'un spot (home.js) */
+  /* v8.14 — Carte de tous les spots et ajout d'un spot (app.js) */
   section#carte { margin: 0 0 22px; }
   section#carte > h2 { font-size: 17px; margin: 0 0 4px; }
   section#carte > p.lead { margin: 0 0 10px; font-size: 13px; color: #94a3b8; }
@@ -201,7 +201,7 @@
              sub: compact(r[3]), all: compact([r[2], r[3], r[4], r[5], r[6]].join(" ")) };
   }
   var IDX = SPOTS.map(entry);
-  // v8.14 — Un spot ajouté depuis la carte (home.js) entre aussitôt dans la recherche.
+  // v8.14 — Un spot ajouté depuis la carte (app.js) entre aussitôt dans la recherche.
   window.barReindex = function () { addMine(); IDX = SPOTS.map(entry); if (q.value) show(); };
   var q = document.getElementById("q"), list = document.getElementById("results"), count = document.getElementById("count");
   // Rang : nom qui commence par la saisie, puis un mot du nom, puis le nom, puis le reste de la fiche.
@@ -231,7 +231,7 @@
     paintScores();
   }
   // v8.15 — Note du jour et flèche vers demain (↗ en hausse, ↘ en baisse, → stable à 0,2 point près), calculées
-  // par home.js avec le moteur de chaque guide ; arrivent après l'affichage, et se mettent à jour en place.
+  // par app.js avec le moteur de chaque guide ; arrivent après l'affichage, et se mettent à jour en place.
   function paintScores() {
     var S = window.BAR_SCORES || {};
     Array.prototype.forEach.call(list.querySelectorAll("a[data-k]"), function (a) {
@@ -376,6 +376,6 @@
   });
 })();
 </script>
-<script src="home.js" defer></script>
+<script src="app.js" defer></script>
 </body>
 </html>

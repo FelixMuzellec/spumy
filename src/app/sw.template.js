@@ -12,12 +12,18 @@ self.addEventListener("install", (e) => {
   // cache: "reload" : la copie hors ligne vient du serveur, jamais d'une version périmée du cache HTTP.
   e.waitUntil(caches.open(CACHE).then((c) => Promise.all(SHELL.map((u) => c.add(new Request(u, { cache: "reload" })).catch(() => {})))).then(() => self.skipWaiting()));
 });
+// Caches des versions précédentes de SPUMY : supprimés à l'activation, puis à chaque ouverture de page. Une page
+// encore servie par l'ancien service worker pendant la mise à jour peut en effet recréer l'ancien cache juste
+// après sa suppression. Seuls les caches de SPUMY (« guide-bar-… ») sont touchés : l'origine
+// felixmuzellec.github.io est commune à tous les sites GitHub Pages du compte, leurs caches ne nous regardent pas.
+const prune = () => caches.keys().then((ks) => Promise.all(ks.filter((k) => k.startsWith("guide-bar-") && k !== CACHE).map((k) => caches.delete(k))));
 self.addEventListener("activate", (e) => {
-  e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== CACHE).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
+  e.waitUntil(prune().then(() => self.clients.claim()));
 });
 self.addEventListener("fetch", (e) => {
   const u = new URL(e.request.url);
   if (e.request.method !== "GET" || u.origin !== self.location.origin) return;
+  if (e.request.mode === "navigate") e.waitUntil(prune().catch(() => {}));
   e.respondWith((async () => {
     const cache = await caches.open(CACHE);
     try {

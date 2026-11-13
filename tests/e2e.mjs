@@ -414,7 +414,8 @@ const btn = (page, name) => page.getByRole("button", { name }).first();
     && /Les spots les plus proches de toi \(position à ±15 m\)/.test(a.r.count),
     "accueil GPS : depuis Trévignon, la pointe de Trévignon d'abord, 8 spots du plus près au plus loin" + ` — ${JSON.stringify(a.r).slice(0, 300)}`);
   // v8.15 — Chaque spot proche porte sa note du jour et sa tendance vers demain (↗ ↘ →, stable à 0,2 point près).
-  await a.p.waitForFunction(() => document.querySelectorAll("#results a .sc b").length === 8, null, { timeout: 40000 }).catch(() => {});
+  // La note de demain arrive après celles du jour (les sept guides d'abord pour aujourd'hui) : on attend les deux.
+  await a.p.waitForFunction(() => document.querySelectorAll("#results a .sc b").length === 8 && document.querySelectorAll("#results a .sc small").length === 8, null, { timeout: 40000 }).catch(() => {});
   const sc = await a.p.evaluate(() => [...document.querySelectorAll("#results a")].map((x) => ({ k: x.getAttribute("data-k"), b: x.querySelector(".sc b")?.textContent || "", m: x.querySelector(".sc small")?.textContent || "", sr: x.querySelector(".sc .sr")?.textContent || "", col: x.querySelector(".sc b")?.style.color || "" })));
   ok(sc.length === 8 && sc.every((x) => /^(\d,\d [↗↘→]|\d,\d|–)$/.test(x.b) && /^dem\. (\d,\d|–)$/.test(x.m) && /^(Note du jour \d,\d|Plus de créneau praticable aujourd'hui)/.test(x.sr) && x.col),
     "accueil GPS : chaque spot proche avec sa note du jour, sa flèche et la note de demain" + ` — ${JSON.stringify(sc.slice(0, 3))}`);
@@ -1030,7 +1031,11 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
   const { ctx, page } = await openApp("logonna", { context: await _newContext({ ...devices["iPhone 13"], locale: "fr-FR", timezoneId: "Europe/Paris", serviceWorkers: "block" }) });
   await waitText(page, WX);
   const csp = await page.evaluate(() => document.querySelector('meta[http-equiv="Content-Security-Policy"]')?.content || "");
-  ok(/script-src 'sha256-[A-Za-z0-9+/=]+'/.test(csp) && !/unsafe-inline'[^;]*;?\s*$/.test(csp.split(";").find((x) => /script-src/.test(x)) || "") && /connect-src 'self' https:\/\/api\.open-meteo\.com/.test(csp), "[sécurité] CSP : seul le script de la page, connexions limitées");
+  // Lot 3.5 : la page d'un guide n'a plus aucun script en ligne ; seul app.js, servi par le site lui-même, s'exécute.
+  const scriptSrc = (csp.split(";").find((x) => /script-src/.test(x)) || "").trim();
+  ok(scriptSrc === "script-src 'self'" && /connect-src 'self' https:\/\/api\.open-meteo\.com/.test(csp)
+    && await page.evaluate(() => document.querySelectorAll("script:not([src])").length === 0 && [...document.scripts].map((s) => s.getAttribute("src")).join() === "app.js"),
+  "[sécurité] CSP : aucun script en ligne, seul app.js du site ; connexions limitées" + ` — ${scriptSrc}`);
   const r = await page.evaluate(async () => {
     const seen = [];
     document.addEventListener("securitypolicyviolation", (e) => seen.push(e.violatedDirective));

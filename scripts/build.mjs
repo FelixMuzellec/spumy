@@ -4,9 +4,10 @@
 // le téléphone (« Add file → Upload files » ne crée pas de dossier).
 //
 //   index.html                       accueil (point d'entrée de l'application installée)
-//   home.js                          accueil : carte de tous les spots et ajout d'un spot (moteur des sept guides)
+//   app.js                           l'application, unique : accueil, sept guides, pêche en bateau (lot 3.5)
 //   logonna.html, pirou.html,
-//   plouguerneau.html, audierne.html, carantec.html, concarneau.html, crozon.html : les sept guides (JavaScript intégré)
+//   plouguerneau.html, audierne.html, carantec.html, concarneau.html, crozon.html : les sept guides (pages sans script, app.js)
+//   logonna.json, pirou.json, …      la fiche de chaque guide (data/sites/), lue à l'ouverture du guide
 //   manifest.json                    UNE application installable : accueil + sept guides
 //   icon-192.png, icon-512.png, icon-maskable.png, apple-touch-icon.png   icônes SPUMY (scripts/icons.mjs)
 //   logonna.png, pirou.png, plouguerneau.png, audierne.png, carantec.png, concarneau.png, crozon.png   icônes des guides
@@ -35,9 +36,11 @@ const MAP_CSS = ".leaflet-container{font:12px system-ui,sans-serif}.leaflet-tool
 export const CONNECT = ["https://api.open-meteo.com", "https://marine-api.open-meteo.com", "https://historical-forecast-api.open-meteo.com",
   "https://api.github.com", "https://api.anthropic.com"];
 const sha = (txt) => `'sha256-${crypto.createHash("sha256").update(txt, "utf8").digest("base64")}'`;
+// script : le script en ligne de la page (son empreinte est autorisée) ; null = aucun script en ligne, seulement app.js.
 export function cspFor(script, { connect = [], img = [], selfScript = false } = {}) {
+  const scripts = script == null ? "'self'" : `${sha(script)}${selfScript ? " 'self'" : ""}`;
   return [
-    "default-src 'none'", `script-src ${sha(script)}${selfScript ? " 'self'" : ""}`, "style-src 'self' 'unsafe-inline'",
+    "default-src 'none'", `script-src ${scripts}`, "style-src 'self' 'unsafe-inline'",
     `img-src 'self' data: blob: ${img.join(" ")}`.trim(), `connect-src 'self' ${connect.join(" ")}`.trim(),
     "manifest-src 'self'", "worker-src 'self'", "base-uri 'none'", "form-action 'none'", "object-src 'none'",
   ].join("; ");
@@ -46,7 +49,7 @@ const scriptOf = (html) => { const m = html.match(/<script>([\s\S]*?)<\/script>/
 const withCsp = (html, policy) => html.replace('<meta charset="utf-8">', `<meta charset="utf-8">\n<meta http-equiv="Content-Security-Policy" content="${policy}">`);
 
 import { SITES, SITE_FILES } from "./sites.mjs";
-import { siteProblems } from "./site-data.mjs";
+import { siteProblems, siteJson } from "./site-data.mjs";
 export { SITE_FILES };
 const VERSION = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8")).version.replace(/\.0$/, "");
 // Nom de l'application installée (écran d'accueil du téléphone).
@@ -93,32 +96,64 @@ for (const r of spotIndex) if (!/^[\w-]+$/.test(r[1])) throw new Error(`identifi
 const spotJson = JSON.stringify(spotIndex).replace(/</g, "\\u003c");
 const guideIds = JSON.stringify(byDept.flatMap((d) => d.list.map((g) => [g.s.key, g.s.id, g.m.SITE.name, d.name]))).replace(/</g, "\\u003c");
 // v8.14 — Index de toutes les fiches d'origine : un spot posé depuis l'accueil (ou déplacé depuis une fiche) va dans
-// le guide de la fiche la plus proche. Écrit dans chaque guide et dans home.js.
+// le guide de la fiche la plus proche. Écrit dans app.js.
 const owners = spotIndex.map((r) => [r[0], r[1], r[7], r[8], r[2]]);
 const guideMeta = Object.fromEntries(guides.map((g) => [g.s.key, { id: g.s.id, name: g.m.SITE.name, lat: g.m.SITE.lat, lon: g.m.SITE.lon }]));
 const homeGuides = byDept.flatMap((d) => d.list.map((g) => ({ key: g.s.key, id: g.s.id, name: g.m.SITE.name })));
 const stamp = crypto.createHash("sha256");
-for (const s of SITES) {
-  // Un seul moteur (src/core/, src/bord/) ; seule la configuration du site (data/sites/) change.
-  const engine = path.join(root, "src/bord/ui/App.jsx"), config = path.join(root, s.config);
-  const r = await build({
-    entryPoints: [path.join(root, "src/app/main.jsx")],
-    // esbuild ≥ 0.25 (correctif de sécurité GHSA-67mh-4wv8-2f99) refuse de cibler Safari 13 et 14 :
-    // il juge leur déstructuration défaillante. Cible minimale : Safari 15 (iOS 15, 2021).
-    bundle: true, minify: true, format: "iife", target: ["es2019", "safari15"], write: false,
-    jsx: "automatic", loader: { ".js": "jsx" },
-    define: { __SITE_ID__: JSON.stringify(s.id), __SITE_KEY__: JSON.stringify(s.key), "process.env.NODE_ENV": '"production"', __SPOT_OWNERS__: JSON.stringify(owners), __GUIDE_META__: JSON.stringify(guideMeta) },
-    plugins: [{ name: "site", setup(b) {
-      b.onResolve({ filter: /^APP$/ }, () => ({ path: engine }));
-      b.onResolve({ filter: /^SITE_CONFIG$/ }, () => ({ path: config }));
-    } }],
-    legalComments: "none", logLevel: "warning",
-  });
-  // Script intégré dans la page : neutralise les séquences qui fermeraient la balise.
-  const js = r.outputFiles[0].text.replace(/<\/(script)/gi, "<\\/$1").replace(/<!--/g, "<\\!--");
-  stamp.update(js);
+// ── Lot 3.5 : une seule application (app.js) pour l'accueil et les sept guides ──────────────
+// Fiches : <guide>.json, lues par l'application à l'ouverture du guide (et par l'accueil pour ses notes).
+// Leur empreinte part dans app.js : une fiche modifiée est relue (adresse ?v=<empreinte>), jamais une copie périmée.
+const siteData = {};
+for (const g of guides) {
+  const json = siteJson(g.m);
+  fs.writeFileSync(path.join(OUT, `${g.s.key}.json`), json);
+  siteData[g.s.key] = crypto.createHash("sha256").update(json).digest("hex").slice(0, 12);
+}
+// Moteur d'un guide sans interface (site-api.js), compilé UNE fois, la fiche en paramètre : l'accueil en crée
+// une instance par guide. Jusqu'en v9.2, home.js en contenait sept copies, chacune avec sa fiche intégrée.
+const factory = await build({
+  entryPoints: [path.join(root, "src/app/site-api.js")],
+  bundle: true, minify: true, format: "iife", target: ["es2019", "safari15"], write: false, loader: { ".js": "jsx" }, jsx: "automatic",
+  define: { "process.env.NODE_ENV": '"production"' },
+  plugins: [{ name: "site-param", setup(b) {
+    b.onResolve({ filter: /^SITE_CONFIG$/ }, () => ({ path: "site-param", namespace: "spumy" }));
+    b.onLoad({ filter: /^site-param$/, namespace: "spumy" }, () => ({ loader: "js", contents:
+      "/* global __SPUMY_CFG__ */ export const SITE = __SPUMY_CFG__.SITE, GENERAL_PRINCIPLES = __SPUMY_CFG__.GENERAL_PRINCIPLES, SPOTS = __SPUMY_CFG__.SPOTS;" }));
+  } }],
+  legalComments: "none", logLevel: "warning",
+});
+const factoryJs = `export function makeSiteApi(__SPUMY_CFG__, __SITE_KEY__) {\n${factory.outputFiles[0].text}\n}\n`;
+{
+  // Garde-fou : le moteur de l'accueil ne lit sa fiche et sa clé que par ces deux paramètres.
+  const free = factory.outputFiles[0].text;
+  if (!free.includes("__SPUMY_CFG__") || !free.includes("__SITE_KEY__")) throw new Error("site-api.js : fiche ou clé du guide introuvable dans le moteur compilé");
+}
+const app = await build({
+  entryPoints: [path.join(root, "src/app/entry.jsx")],
+  // esbuild ≥ 0.25 (correctif de sécurité GHSA-67mh-4wv8-2f99) refuse de cibler Safari 13 et 14 :
+  // il juge leur déstructuration défaillante. Cible minimale : Safari 15 (iOS 15, 2021).
+  bundle: true, minify: true, format: "iife", target: ["es2019", "safari15"], write: false,
+  jsx: "automatic", loader: { ".js": "jsx" },
+  define: {
+    "process.env.NODE_ENV": '"production"', __SITE_ID__: "__SPUMY_PAGE__.id", __SITE_KEY__: "__SPUMY_PAGE__.key",
+    __SPOT_OWNERS__: JSON.stringify(owners), __GUIDE_META__: JSON.stringify(guideMeta),
+    __HOME_INDEX__: JSON.stringify(owners), __HOME_GUIDES__: JSON.stringify(homeGuides), __SITE_DATA__: JSON.stringify(siteData),
+  },
+  plugins: [{ name: "spumy", setup(b) {
+    b.onResolve({ filter: /^APP$/ }, () => ({ path: path.join(root, "src/bord/ui/App.jsx") }));
+    b.onResolve({ filter: /^SITE_CONFIG$/ }, () => ({ path: path.join(root, "src/app/site-config.js") }));
+    b.onResolve({ filter: /^SITE_API_FACTORY$/ }, () => ({ path: "site-api-factory", namespace: "spumy" }));
+    b.onLoad({ filter: /^site-api-factory$/, namespace: "spumy" }, () => ({ loader: "js", contents: factoryJs }));
+  } }],
+  legalComments: "none", logLevel: "warning",
+});
+fs.writeFileSync(path.join(OUT, "app.js"), app.outputFiles[0].text);
+console.log(`app.js : ${(fs.statSync(path.join(OUT, "app.js")).size / 1024).toFixed(0)} Ko`);
+// Les sept guides : même page, même application ; seule la fiche change. Aucun script dans la page.
+for (const { s, m } of guides) {
   const page = `<!doctype html>
-<html lang="fr">
+<html lang="fr" data-page="guide" data-site="${s.key}" data-site-id="${escH(m.SITE.id)}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -141,19 +176,18 @@ blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre{margin:0}ol,ul{list-style:non
 html,body{margin:0;background:#020617;color:#e2e8f0}#boot{font:13px system-ui,sans-serif;color:#64748b;padding:40px 16px;text-align:center}@media (pointer:coarse){input,select,textarea{font-size:16px!important}}
 :focus-visible{outline:2px solid #38bdf8;outline-offset:2px}@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important}}
 ${LEAFLET_CSS}${MAP_CSS}</style>
+<script src="app.js" defer></script>
 </head>
 <body>
 <div id="root"><div id="boot">SPUMY · chargement du guide…</div></div>
 <noscript><p style="padding:16px">Cette application nécessite JavaScript.</p></noscript>
-<script>
-${js}
-</script>
 </body>
 </html>
 `;
-  fs.writeFileSync(path.join(OUT, `${s.key}.html`), withCsp(page, cspFor(scriptOf(page), { connect: CONNECT, img: ["https://tile.openstreetmap.org"] })));
+  if (/<script>/.test(page)) throw new Error(`${s.key}.html : aucun script en ligne attendu`);
+  fs.writeFileSync(path.join(OUT, `${s.key}.html`), withCsp(page, cspFor(null, { connect: CONNECT, img: ["https://tile.openstreetmap.org"] })));
   fs.copyFileSync(path.join(root, `assets/${s.key}-192.png`), path.join(OUT, `${s.key}.png`));
-  console.log(`${s.key}.html : ${(fs.statSync(path.join(OUT, `${s.key}.html`)).size / 1024).toFixed(0)} Ko`);
+  console.log(`${s.key}.html : ${(fs.statSync(path.join(OUT, `${s.key}.html`)).size / 1024).toFixed(0)} Ko, ${s.key}.json : ${(fs.statSync(path.join(OUT, `${s.key}.json`)).size / 1024).toFixed(0)} Ko`);
 }
 // Une seule application installable pour l'accueil et les sept guides : toutes les pages
 // pointent vers ce manifeste. L'installer depuis n'importe laquelle donne la même
@@ -178,32 +212,8 @@ fs.writeFileSync(path.join(OUT, "manifest.json"), manifest);
 for (const f of ["icon-192.png", "icon-512.png", "icon-maskable.png", "apple-touch-icon.png"]) { stamp.update(fs.readFileSync(path.join(root, "assets", f))); fs.copyFileSync(path.join(root, "assets", f), path.join(OUT, f)); }
 // v8.0–v8.3 avaient un manifeste par guide (deux applications séparées) : remplacés.
 for (const f of ["logonna-manifest.json", "pirou-manifest.json"]) fs.rmSync(path.join(OUT, f), { force: true });
-// v8.14 — home.js : le moteur de chaque guide (sans interface) puis la carte et l'ajout de spot de l'accueil.
-// Chargé après l'affichage de l'accueil (defer) et gardé hors ligne par le service worker.
-const homeParts = [];
-for (const g of homeGuides) {
-  const s0 = SITES.find((x) => x.key === g.key);
-  const r = await build({
-    entryPoints: [path.join(root, "src/app/site-api.js")],
-    bundle: true, minify: true, format: "iife", target: ["es2019", "safari15"], write: false, loader: { ".js": "jsx" }, jsx: "automatic",
-    define: { __SITE_KEY__: JSON.stringify(g.key), __SITE_ID__: JSON.stringify(g.id), "process.env.NODE_ENV": '"production"' },
-    plugins: [{ name: "site", setup(b) { b.onResolve({ filter: /^SITE_CONFIG$/ }, () => ({ path: path.join(root, s0.config) })); } }],
-    legalComments: "none", logLevel: "warning",
-  });
-  homeParts.push(r.outputFiles[0].text);
-}
-{
-  const r = await build({
-    entryPoints: [path.join(root, "src/app/home.jsx")],
-    bundle: true, minify: true, format: "iife", target: ["es2019", "safari15"], write: false, loader: { ".js": "jsx" }, jsx: "automatic",
-    define: { "process.env.NODE_ENV": '"production"', __HOME_INDEX__: JSON.stringify(owners), __HOME_GUIDES__: JSON.stringify(homeGuides) },
-    plugins: [{ name: "no-site", setup(b) { b.onResolve({ filter: /^SITE_CONFIG$/ }, (a) => { throw new Error(`home.js ne doit dépendre d'aucun guide (${a.importer})`); }); } }],
-    legalComments: "none", logLevel: "warning",
-  });
-  homeParts.push(r.outputFiles[0].text);
-}
-fs.writeFileSync(path.join(OUT, "home.js"), homeParts.join("\n"));
-console.log(`home.js : ${(fs.statSync(path.join(OUT, "home.js")).size / 1024).toFixed(0)} Ko`);
+// v9.2 et avant : home.js (moteurs de l'accueil), remplacé par app.js (lot 3.5).
+fs.rmSync(path.join(OUT, "home.js"), { force: true });
 const home = fs.readFileSync(path.join(root, "src/app/index.html"), "utf8");
 stamp.update(home);
 // v8.9 : l'identifiant couvre aussi les octets réellement écrits (pages avec leur CSP, icônes des
@@ -220,7 +230,7 @@ fs.writeFileSync(path.join(OUT, "sw.js"), sw);
 const homeOut = home.replace("/*__LEAFLET_CSS__*/", LEAFLET_CSS + MAP_CSS).replace("__VERSION__", `${VERSION} · ${buildId}`).replace("<!--__GUIDES__-->", guidesHtml).replace("/*__SPOTS__*/[]", spotJson).replace("/*__GUIDE_IDS__*/[]", guideIds);
 if (homeOut.includes("__VERSION__") || homeOut.includes("__GUIDES__") || homeOut.includes("__SPOTS__") || homeOut.includes("__GUIDE_IDS__") || homeOut === home) throw new Error("index.html : version, guides ou index des spots non remplacé");
 if (homeOut.includes("__LEAFLET_CSS__")) throw new Error("index.html : feuille de style de la carte non insérée");
-// Accueil : son script en ligne (empreinte) et home.js (même origine) ; météo Open-Meteo, fond de carte OpenStreetMap,
+// Accueil : son script en ligne (empreinte) et app.js (même origine) ; météo Open-Meteo, fond de carte OpenStreetMap,
 // et (v8.15) GitHub pour la sauvegarde des sorties en bateau (offshore.json, dépôt du journal).
 fs.writeFileSync(path.join(OUT, "index.html"), withCsp(homeOut, cspFor(scriptOf(homeOut), { selfScript: true, connect: CONNECT.filter((u) => /open-meteo|api\.github\.com/.test(u)), img: ["https://tile.openstreetmap.org"] })));
 // GitHub Pages sert les fichiers tels quels (pas de traitement Jekyll).

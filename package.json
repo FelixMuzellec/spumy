@@ -19,7 +19,8 @@
     "test:contract": "node tests/contract.mjs",
     "test:a11y": "node tests/a11y.mjs",
     "test:studio": "node scripts/build-studio.mjs && node tests/studio.mjs",
-    "test": "npm run lint && npm run test:layers && npm run test:data && npm run test:unit && npm run test:e2e && CONTRACT_MOCK=1 npm run test:contract"
+    "test": "npm run lint && npm run test:layers && npm run test:data && npm run test:unit && npm run test:e2e && CONTRACT_MOCK=1 npm run test:contract",
+    "test:upgrade": "node tests/upgrade.mjs"
   },
   "dependencies": {
     "leaflet": "^1.9.4",

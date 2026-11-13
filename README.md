@@ -44,6 +44,7 @@ npm run build             # construit le site à la racine depuis src/ et data/
 npm test                  # contrôle du code, règles de couches, fiches des sites, tests unitaires, parcours Chromium, contrat Open-Meteo simulé
 npm run test:a11y         # accessibilité (axe-core) sur toutes les pages
 npm run test:studio       # page d'analyse photo par l'abonnement Claude, avec un Claude simulé
+npm run test:upgrade      # mise à jour d'un téléphone : version publiée (main) → cette version, données et hors ligne
 npm run test:contract     # contrat avec le vrai Open-Meteo (réseau)
 ```
 
@@ -60,7 +61,7 @@ tests/     tests unitaires, parcours, contrat Open-Meteo, accessibilité, studio
 assets/    images sources (logos, icônes)
 audit/     audit de la v9.1, note UX de la v9.2
 docs/      architecture, fonctionnalités détaillées
-racine     site compilé (*.html, home.js, sw.js, manifest.json, icônes), publié tel quel par GitHub Pages
+racine     site compilé (*.html, app.js, fiches *.json, sw.js, manifest.json, icônes), publié tel quel par GitHub Pages
 ```
 
 Le détail est dans [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
@@ -69,15 +70,15 @@ Le détail est dans [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 Settings → Pages → *Deploy from a branch* → Branch `main`, dossier `/ (root)` → Save.
 
-Mettre le site à jour depuis le téléphone : *Add file → Upload files* à la racine du dépôt, avec les 22 fichiers du site
-(`index.html`, `home.js`, `logonna.html`, `pirou.html`, `plouguerneau.html`, `audierne.html`, `carantec.html`, `concarneau.html`, `crozon.html`, `manifest.json`, `icon-192.png`, `icon-512.png`, `icon-maskable.png`, `apple-touch-icon.png`, `logonna.png`, `pirou.png`, `plouguerneau.png`, `audierne.png`, `carantec.png`, `concarneau.png`, `crozon.png`, `sw.js`).
+Mettre le site à jour depuis le téléphone : *Add file → Upload files* à la racine du dépôt, avec les 29 fichiers du site
+(`index.html`, `app.js`, `logonna.html`, `pirou.html`, `plouguerneau.html`, `audierne.html`, `carantec.html`, `concarneau.html`, `crozon.html`, `logonna.json`, `pirou.json`, `plouguerneau.json`, `audierne.json`, `carantec.json`, `concarneau.json`, `crozon.json`, `manifest.json`, `icon-192.png`, `icon-512.png`, `icon-maskable.png`, `apple-touch-icon.png`, `logonna.png`, `pirou.png`, `plouguerneau.png`, `audierne.png`, `carantec.png`, `concarneau.png`, `crozon.png`, `sw.js`).
 L'identifiant de construction est l'empreinte de tous les fichiers servis : le moindre changement change le cache hors ligne, et la copie hors ligne est toujours relue sur le serveur (jamais dans le cache HTTP du navigateur).
 Ne jamais déposer un fichier de `src/` à la racine. Après un dépôt, vérifier qu'aucun doublon « (1) », « (2) » n'a été créé, puis que le bas de l'accueil affiche la nouvelle version.
-Depuis la v8.4, `logonna-manifest.json` et `pirou-manifest.json` ne servent plus : ils peuvent être supprimés du dépôt (les laisser ne gêne rien).
+Depuis la v8.4, `logonna-manifest.json` et `pirou-manifest.json` ne servent plus ; depuis le lot 3.5, `home.js` non plus (remplacé par `app.js`) : ils peuvent être supprimés du dépôt (les laisser ne gêne rien).
 
 ## Sécurité et confidentialité
 
-- **Politique de sécurité du contenu (CSP)** dans chaque page : le seul script autorisé est celui de la page, identifié par son empreinte SHA-256 (calculée à la construction) ; un script injecté ne s'exécute pas. L'accueil autorise en plus `home.js`, fichier du site lui-même (`'self'`) ; il ne se connecte qu'à Open-Meteo et (v8.15, sauvegarde des sorties en bateau) à l'API GitHub. Les connexions sont limitées à Open-Meteo, à l'API GitHub (journal) et à l'API d'Anthropic (photos) ; les images aux tuiles OpenStreetMap. Un test de bout en bout vérifie qu'une injection est bloquée, qu'un envoi vers un domaine inconnu l'est aussi, et qu'aucun parcours normal ne déclenche de violation.
+- **Politique de sécurité du contenu (CSP)** dans chaque page : seul `app.js`, fichier du site lui-même (`'self'`), s'exécute ; les pages des guides n'ont aucun script en ligne, l'accueil n'en a qu'un, autorisé par son empreinte SHA-256 (calculée à la construction). Un script injecté ne s'exécute pas. L'accueil ne se connecte qu'à Open-Meteo et (v8.15, sauvegarde des sorties en bateau) à l'API GitHub. Les connexions sont limitées à Open-Meteo, à l'API GitHub (journal) et à l'API d'Anthropic (photos) ; les images aux tuiles OpenStreetMap. Un test de bout en bout vérifie qu'une injection est bloquée, qu'un envoi vers un domaine inconnu l'est aussi, et qu'aucun parcours normal ne déclenche de violation.
 - La clé API Anthropic et le jeton GitHub restent sur l'appareil (stockage du navigateur) et ne partent que vers leur service. Le jeton GitHub conseillé est limité au seul dépôt du journal ; ne mets qu'un petit crédit sur la clé API.
 - **Origine partagée** : le stockage du navigateur appartient à l'origine `felixmuzellec.github.io`, commune à **tous** les sites GitHub Pages du compte. Une autre page publiée sur ce compte pourrait lire la clé et le jeton. Ne publie sur ce compte que des pages de confiance (ou garde le jeton à portée minimale, comme indiqué plus bas).
 - Une entrée de journal reçue de GitHub ou importée est nettoyée champ par champ avant usage (types, identifiants, heure) ; si l'affichage plante malgré tout, un écran de secours permet d'exporter le journal brut, de couper la sauvegarde GitHub et de recharger.

@@ -1,11 +1,12 @@
 # Architecture de SPUMY
 
-État au 13 novembre 2026 : v9.2, lot 3.6 de la phase 3. La première partie décrit le code tel qu'il est ; la seconde, l'architecture cible décidée en phase 2, atteinte lot par lot. Ce document est mis à jour à chaque lot qui change l'organisation.
+État au 13 novembre 2026 : v9.2, lot 3.5 de la phase 3. La première partie décrit le code tel qu'il est ; la seconde, l'architecture cible décidée en phase 2, atteinte lot par lot. Ce document est mis à jour à chaque lot qui change l'organisation.
 
 ## Aujourd'hui (v9.2)
 
-- **Un moteur, sept guides.** Le socle (`src/core/`), le moteur et l'interface du bord (`src/bord/`) sont communs aux guides. Chaque guide n'a que sa fiche de site (`data/sites/<site>.config.js`). `scripts/build.mjs` compile avec esbuild un paquet par guide (l'alias `SITE_CONFIG` pointe vers la fiche du site) et l'intègre dans `<site>.html`, avec une politique CSP par empreinte.
-- **Accueil.** `index.html` charge `home.js`, qui embarque les sept moteurs pour la carte de tous les spots, la recherche, l'ajout de spot et l'onglet Offshore (pêche en bateau, `src/bateau/`).
+- **Une application, sept guides (lot 3.5).** `scripts/build.mjs` compile avec esbuild **un seul** `app.js`, chargé par l'accueil et par chaque guide. Chaque guide n'a que sa fiche (`data/sites/<site>.config.js`), publiée en `<site>.json`. La page d'un guide (`<site>.html`, 14 Ko, aucun script en ligne) dit quel guide elle est (`<html data-page="guide" data-site="logonna">`) ; `src/app/entry.jsx` télécharge sa fiche, puis démarre le moteur et l'interface du bord, qui lisent la fiche par l'alias `SITE_CONFIG` (`src/app/site-config.js`). Le code du bord n'est évalué que sur la page d'un guide (import dynamique).
+- **Accueil.** `index.html` charge le même `app.js` : il télécharge les sept fiches et crée une instance du moteur de chaque guide (`src/app/site-api.js`, compilé une fois, la fiche en paramètre) pour la carte de tous les spots, les notes de la recherche, l'ajout de spot et l'onglet Offshore (pêche en bateau, `src/bateau/`).
+- **Poids publié** : 7,0 Mo en v9.2 (sept paquets de 790 Ko et `home.js` de 1,2 Mo, avec sept copies du moteur), 1,7 Mo après le lot 3.5 (icônes comprises). Contrepartie : le tout premier guide ouvert télécharge 928 Ko au lieu de 788 Ko ; chaque guide suivant, 75 Ko au lieu de 780 Ko.
 - **Pas de serveur.** Météo : Open-Meteo, appelé depuis le téléphone ; marée calculée sur place ; stockage dans le navigateur (`localStorage`, clés `bar:*` séparées par site ; IndexedDB pour les photos) ; hors ligne par service worker (`sw.js`).
 - **Services optionnels.** Sauvegarde du journal sur un dépôt GitHub de l'utilisateur (`src/core/ghsync.js`), analyse photo par l'API Anthropic avec la clé de l'utilisateur ou par la page studio.
 
@@ -13,9 +14,10 @@
 
 ```
 index.html            accueil (point d'entrée de l'application) ┐
-home.js               accueil : carte de tous les spots, ajout  │
+app.js                l'application (accueil, guides, bateau)   │
 logonna.html, pirou.html, plouguerneau.html, audierne.html,     │ le site publié par GitHub Pages :
 carantec.html, concarneau.html, crozon.html                     │
+logonna.json … crozon.json  la fiche de chaque guide            │
 manifest.json         une seule application installable         │ fichiers construits, à la racine,
 icon-192.png, icon-512.png, icon-maskable.png                   │ à ne pas modifier à la main
 logonna.png, pirou.png, plouguerneau.png, audierne.png,         │
@@ -26,7 +28,9 @@ src/                  les sources (lot 3.4 : une couche par dossier, règles vé
   app/                  la coquille : points d'entrée et ce qui assemble les couches
     main.jsx              démarrage d'un guide, et écran de secours si l'affichage plante (export du journal brut)
     home.jsx              accueil : carte de tous les spots, recherche, ajout de spot, onglet Offshore
-    site-api.js           moteur de chaque guide sans interface, embarqué dans home.js
+    entry.jsx             point d'entrée unique (app.js) : guide ou accueil, selon la page ; télécharge les fiches
+    site-config.js        la fiche du guide ouvert, lue par le moteur (alias SITE_CONFIG)
+    site-api.js           moteur d'un guide sans interface, compilé une fois ; l'accueil en crée une instance par guide
     sync.jsx              sauvegarde du journal et de tes spots sur GitHub (bandeau et fusion)
     index.html            modèle de l'accueil : la construction y écrit les guides par département et l'index des spots
     sw.template.js        modèle du sw.js (nommé ainsi pour ne jamais écraser le sw.js construit)
@@ -85,6 +89,7 @@ tests/
   a11y.mjs              accessibilité (axe-core) sur toutes les pages et tous les onglets
   layers.mjs            règles de couches : qui a le droit d'importer quoi
   data.mjs              fiches des sites : schéma, données pures, règles croisées, empreinte de chaque spot (ref/sites.json)
+  upgrade.mjs           mise à jour d'un téléphone : données saisies avec la version publiée conservées, hors ligne ensuite
   ref/                  tables de référence (marée de Pirou, octobre 2026 ; Aber Wrac'h, Brignogan, Lanildut,
                         Le Conquet, Audierne, Saint-Guénolé, Roscoff, château du Taureau, Primel, Locquirec, Concarneau,
                         Bénodet, Port-Manec'h, Le Pouldu, Morgat, Douarnenez, novembre 2026)
@@ -119,6 +124,6 @@ Pour corriger la description d'un spot, le seul fichier à modifier est `data/si
 | 3.3 | Intégration continue sur GitHub |
 | 3.4 | Réorganisation `core` / `bord` / `bateau` / `design` / `data`, sans changement de comportement |
 | 3.6 | Fiches de sites en données, validées par un schéma |
-| 3.5 | Application unique, anciennes adresses redirigées |
+| 3.5 | Application unique ; les anciennes adresses (`logonna.html`…) restent les portes d'entrée des guides, sans redirection |
 | 3.7 | Jetons de design et composants neutres |
 | 3.8 | Sécurité rapide : dépôt de sauvegarde vérifié privé, clé Claude gardée le temps de la session, adresse dédiée selon décision |
