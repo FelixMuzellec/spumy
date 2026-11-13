@@ -11,13 +11,14 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "icons": "node scripts/icons.mjs",
-    "lint": "eslint -c .eslintrc.json --ext .js,.jsx,.mjs src scripts tests",
+    "lint": "eslint -c .eslintrc.json --ext .js,.jsx,.mjs src data scripts tests",
+    "test:layers": "node tests/layers.mjs",
     "test:unit": "node tests/unit.mjs logonna && node tests/unit.mjs pirou && node tests/unit.mjs plouguerneau && node tests/unit.mjs audierne && node tests/unit.mjs carantec && node tests/unit.mjs concarneau && node tests/unit.mjs crozon && TZ=Pacific/Auckland node tests/unit.mjs logonna",
     "test:e2e": "node tests/e2e.mjs",
     "test:contract": "node tests/contract.mjs",
     "test:a11y": "node tests/a11y.mjs",
     "test:studio": "node scripts/build-studio.mjs && node tests/studio.mjs",
-    "test": "npm run lint && npm run test:unit && npm run test:e2e && CONTRACT_MOCK=1 npm run test:contract"
+    "test": "npm run lint && npm run test:layers && npm run test:unit && npm run test:e2e && CONTRACT_MOCK=1 npm run test:contract"
   },
   "dependencies": {
     "leaflet": "^1.9.4",

@@ -21,7 +21,9 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | --- | --- | --- |
 | 3.1 Code source dans le dépôt | TESTED | `npm ci && npm run build` = fichiers publiés (build b930d9512616) ; unitaires 3 182/3 182 ; contrat simulé 24/24 |
 | 3.2 Outils et documentation | TESTED | `npm run lint` 0 erreur ; `npm run test:a11y` 0 violation (guide de Logonna et accueil) ; build inchangé ; test unitaire du README vert |
-| 3.3 à 3.8 | NOT STARTED | — |
+| 3.3 Intégration continue | TESTED | Premier passage entièrement vert sur GitHub le 6 nov. (commit 3c72fde) : « Tests » https://github.com/FelixMuzellec/spumy/actions/runs/42302505872 et « Contrat Open-Meteo » réel https://github.com/FelixMuzellec/spumy/actions/runs/42302505663. Le contrat quotidien ne tournera qu'une fois le workflow sur `main` (règle de GitHub pour les tâches planifiées) |
+| 3.4 Réorganisation par couche | TESTED | 62 fichiers déplacés (`git mv`), imports réécrits ; fichiers publiés identiques octet pour octet (build b930d9512616) ; `test:layers` 0 écart (et 1 écart bien détecté sur un import interdit d'essai) ; lint 0 erreur |
+| 3.5 à 3.8 | NOT STARTED | — |
 
 ## Décisions prises
 
@@ -46,6 +48,10 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 3. Houle inconnue comptée 0 m dans la note — phase 7.
 4. Interface non conforme à la référence visuelle — phases 11 et 13.
 
+## Incident
+
+- 13 nov. 2026 : l'espace de travail de Claude a été réinitialisé après une pause d'une semaine. Les lots 3.4 et 3.6, terminés le 6 nov. mais pas encore poussés, ont été perdus puis refaits. Règle depuis : chaque lot est poussé dès qu'il est terminé ; rien d'important ne reste seulement sur la machine de Claude.
+
 ## Prochaine action
 
-Lot 3.3 (intégration continue), 3.4, 3.6, 3.5, 3.7, 3.8 ; rapport de fin de phase 3 ; attendre la validation.
+Lots 3.6 (fiches en données + schéma), 3.5 (application unique), 3.7, 3.8 ; rapport de fin de phase 3 ; attendre `APPROVED — PROCEED TO PHASE 4`.

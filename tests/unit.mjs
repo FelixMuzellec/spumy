@@ -10,10 +10,10 @@ const here = path.dirname(new URL(import.meta.url).pathname), root = path.resolv
 fs.mkdirSync(path.join(here, ".build"), { recursive: true });
 const out = path.join(here, ".build", `unit_${label}.mjs`);
 await build({
-  entryPoints: [path.join(root, "src/engine/index.js")], bundle: true, format: "esm", platform: "node", outfile: out,
+  entryPoints: [path.join(root, "src/engine.js")], bundle: true, format: "esm", platform: "node", outfile: out,
   jsx: "automatic", external: ["react", "react/jsx-runtime", "react-dom"], logLevel: "warning",
   plugins: [{ name: "site", setup(b) {
-    b.onResolve({ filter: /^SITE_CONFIG$/ }, () => ({ path: path.join(root, `src/sites/${label}.config.js`) }));
+    b.onResolve({ filter: /^SITE_CONFIG$/ }, () => ({ path: path.join(root, `data/sites/${label}.config.js`) }));
   } }],
 });
 const E = await import(out);
@@ -1080,7 +1080,7 @@ if (E.SITE.id === "pirou-plage") {
     setItem: (k, v) => { const used = [...store.entries()].reduce((a, [kk, vv]) => a + (kk === k ? 0 : kk.length + vv.length), 0); if (used + k.length + String(v).length > cap) { const e = new Error("QuotaExceededError"); e.name = "QuotaExceededError"; throw e; } store.set(k, String(v)); } };
   const prevW = globalThis.window;
   globalThis.window = { localStorage: fake };
-  const { installStorage } = await import("../src/storage.js?u=" + Date.now());
+  const { installStorage } = await import("../src/core/storage.js?u=" + Date.now());
   installStorage();
   cap = 180;
   store.set("bar:data:pirou-plage", "x".repeat(150));

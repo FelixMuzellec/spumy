@@ -23,9 +23,9 @@ const pause = (ms) => new Promise((r) => setTimeout(r, MOCK ? 0 : ms));
 for (const label of ["logonna", "pirou"]) {
   const out = path.join(here, ".build", `contract_${label}.mjs`);
   await build({
-    entryPoints: [path.join(root, "src/engine/index.js")], bundle: true, format: "esm", platform: "node", outfile: out,
+    entryPoints: [path.join(root, "src/engine.js")], bundle: true, format: "esm", platform: "node", outfile: out,
     jsx: "automatic", external: ["react", "react/jsx-runtime", "react-dom"], logLevel: "warning",
-    plugins: [{ name: "site", setup(b) { b.onResolve({ filter: /^SITE_CONFIG$/ }, () => ({ path: path.join(root, `src/sites/${label}.config.js`) })); } }],
+    plugins: [{ name: "site", setup(b) { b.onResolve({ filter: /^SITE_CONFIG$/ }, () => ({ path: path.join(root, `data/sites/${label}.config.js`) })); } }],
   });
   const E = await import(out);
   const today = E.localTodayISO();

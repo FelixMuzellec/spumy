@@ -2,7 +2,8 @@
 
 ## Principes
 
-- On ne modifie jamais à la main les fichiers compilés de la racine (`*.html`, `home.js`, `sw.js`, `manifest.json`, icônes) : on change `src/`, puis `npm run build`.
+- On ne modifie jamais à la main les fichiers compilés de la racine (`*.html`, `home.js`, `sw.js`, `manifest.json`, icônes) : on change `src/` ou `data/`, puis `npm run build`.
+- Chaque fichier va dans sa couche : `src/core/` (commun au bord et au bateau), `src/bord/`, `src/bateau/`, `src/design/` (style sans métier), `src/app/` (coquille), `data/` (fiches des sites). Le bord et le bateau ne s'importent jamais l'un l'autre ; `npm run test:layers` le vérifie.
 - Aucun secret dans le dépôt : ni jeton GitHub, ni clé d'API, ni coordonnées d'un spot personnel.
 - Toute information halieutique ajoutée porte sa source, sa date et son niveau de preuve (scientifique ou institutionnel, observation documentée, retour local identifiable, hypothèse, heuristique).
 - Une valeur inconnue reste inconnue : jamais remplacée en silence par une valeur neutre.

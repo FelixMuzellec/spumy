@@ -4,8 +4,8 @@
 // « sample »), sans clé ni crédit API. Le résultat part dans un fichier que le guide importe
 // (onglet Photos) ; le guide refait lui-même les contrôles et le calcul des faits.
 import { CONFIGS, SPOTS, selectSite } from "SITE_CONFIG";
-import { PASSES, PHOTO, buildExport, nearestSpot, parisInputMs, photoDateLabel, runAnalysis, sampleInputOf, timeFacts } from "../engine/photo.js";
-import { preparePhoto } from "../ui/photoPrep.js";
+import { PASSES, PHOTO, buildExport, nearestSpot, parisInputMs, photoDateLabel, runAnalysis, sampleInputOf, timeFacts } from "../bord/engine/photo.js";
+import { preparePhoto } from "../bord/ui/photoPrep.js";
 
 // La page est servie dans un squelette sans langue déclarée : la lecture d'écran doit savoir qu'elle est en français.
 document.documentElement.lang = "fr";

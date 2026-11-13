@@ -6,6 +6,8 @@ Branche `claude/phase-3-socle`. Le site publié ne change pas tant que la branch
 
 - **3.1** Le code source (src/, scripts/, tests/, assets/, audit/) revient dans le dépôt ; `npm ci && npm run build` redonne exactement les fichiers publiés.
 - **3.2** ESLint et axe-core dans le projet (`npm run lint`, `npm run test:a11y`), version de Node fixée (`.nvmrc`), README raccourci, ce journal des versions, CONTRIBUTING, `docs/ARCHITECTURE.md`, `docs/FONCTIONNALITES.md`, document de continuité. La construction ne supprime plus le dossier `docs/`.
+- **3.3** Intégration continue sur GitHub : à chaque proposition de modification, construction, vérification que les fichiers publiés correspondent aux sources, contrôle du code, tests unitaires, parcours Chromium, contrat Open-Meteo simulé et réel, studio, accessibilité. Machines Ubuntu 24.04 (Playwright 1.56 ne prend pas en charge Ubuntu 26.04). Le contrat Open-Meteo vérifie ce qu'ECMWF fournit vraiment (le vent de comparaison). Premier passage entièrement vert le 6 novembre (commit 3c72fde).
+- **3.4** Code rangé par couche : `src/app/` (coquille), `src/core/` (commun au bord et au bateau), `src/bord/`, `src/bateau/`, `src/design/`, et les fiches des sites dans `data/sites/`. Nouveau test `npm run test:layers` : le bord et le bateau ne s'importent jamais l'un l'autre. Composant inutilisé `ScoreArc` retiré. Fichiers publiés identiques octet pour octet (construction `b930d9512616`). Les chemins cités dans les versions ci-dessous sont les anciens.
 
 ## 9.2 — 6 novembre 2026 (refonte UX)
 

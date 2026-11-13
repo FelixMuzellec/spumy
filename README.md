@@ -40,8 +40,8 @@ Ces limites sont traitées dans les phases suivantes (voir la feuille de route).
 
 ```bash
 npm ci                    # Node 20 ou plus (.nvmrc : 22)
-npm run build             # construit le site à la racine depuis src/
-npm test                  # contrôle du code, tests unitaires, parcours Chromium, contrat Open-Meteo simulé
+npm run build             # construit le site à la racine depuis src/ et data/
+npm test                  # contrôle du code, règles de couches, tests unitaires, parcours Chromium, contrat Open-Meteo simulé
 npm run test:a11y         # accessibilité (axe-core) sur toutes les pages
 npm run test:studio       # page d'analyse photo par l'abonnement Claude, avec un Claude simulé
 npm run test:contract     # contrat avec le vrai Open-Meteo (réseau)
@@ -52,7 +52,9 @@ Sur une machine neuve, installer Chromium pour Playwright une fois : `npx playwr
 ## Arborescence
 
 ```
-src/       code source : moteur (engine/), interface (ui/), fiches des 7 sites (sites/), accueil et BATEAU (home/), studio photo (studio/)
+src/       code source : coquille (app/), socle commun (core/), pêche du bord (bord/), pêche en bateau (bateau/),
+           style commun (design/), studio photo (studio/)
+data/      fiches des 7 sites (sites/)
 scripts/   construction du site, icônes, studio
 tests/     tests unitaires, parcours, contrat Open-Meteo, accessibilité, studio
 assets/    images sources (logos, icônes)

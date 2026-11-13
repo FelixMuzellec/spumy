@@ -95,10 +95,10 @@ const guideMeta = Object.fromEntries(guides.map((g) => [g.s.key, { id: g.s.id, n
 const homeGuides = byDept.flatMap((d) => d.list.map((g) => ({ key: g.s.key, id: g.s.id, name: g.m.SITE.name })));
 const stamp = crypto.createHash("sha256");
 for (const s of SITES) {
-  // Un seul moteur (src/engine/, src/ui/) ; seule la configuration du site change.
-  const engine = path.join(root, "src/ui/App.jsx"), config = path.join(root, s.config);
+  // Un seul moteur (src/core/, src/bord/) ; seule la configuration du site (data/sites/) change.
+  const engine = path.join(root, "src/bord/ui/App.jsx"), config = path.join(root, s.config);
   const r = await build({
-    entryPoints: [path.join(root, "src/main.jsx")],
+    entryPoints: [path.join(root, "src/app/main.jsx")],
     // esbuild ≥ 0.25 (correctif de sécurité GHSA-67mh-4wv8-2f99) refuse de cibler Safari 13 et 14 :
     // il juge leur déstructuration défaillante. Cible minimale : Safari 15 (iOS 15, 2021).
     bundle: true, minify: true, format: "iife", target: ["es2019", "safari15"], write: false,
@@ -180,7 +180,7 @@ const homeParts = [];
 for (const g of homeGuides) {
   const s0 = SITES.find((x) => x.key === g.key);
   const r = await build({
-    entryPoints: [path.join(root, "src/home/site-api.js")],
+    entryPoints: [path.join(root, "src/app/site-api.js")],
     bundle: true, minify: true, format: "iife", target: ["es2019", "safari15"], write: false, loader: { ".js": "jsx" }, jsx: "automatic",
     define: { __SITE_KEY__: JSON.stringify(g.key), __SITE_ID__: JSON.stringify(g.id), "process.env.NODE_ENV": '"production"' },
     plugins: [{ name: "site", setup(b) { b.onResolve({ filter: /^SITE_CONFIG$/ }, () => ({ path: path.join(root, s0.config) })); } }],
@@ -190,7 +190,7 @@ for (const g of homeGuides) {
 }
 {
   const r = await build({
-    entryPoints: [path.join(root, "src/home/main.jsx")],
+    entryPoints: [path.join(root, "src/app/home.jsx")],
     bundle: true, minify: true, format: "iife", target: ["es2019", "safari15"], write: false, loader: { ".js": "jsx" }, jsx: "automatic",
     define: { "process.env.NODE_ENV": '"production"', __HOME_INDEX__: JSON.stringify(owners), __HOME_GUIDES__: JSON.stringify(homeGuides) },
     plugins: [{ name: "no-site", setup(b) { b.onResolve({ filter: /^SITE_CONFIG$/ }, (a) => { throw new Error(`home.js ne doit dépendre d'aucun guide (${a.importer})`); }); } }],
@@ -200,17 +200,17 @@ for (const g of homeGuides) {
 }
 fs.writeFileSync(path.join(OUT, "home.js"), homeParts.join("\n"));
 console.log(`home.js : ${(fs.statSync(path.join(OUT, "home.js")).size / 1024).toFixed(0)} Ko`);
-const home = fs.readFileSync(path.join(root, "src/index.html"), "utf8");
+const home = fs.readFileSync(path.join(root, "src/app/index.html"), "utf8");
 stamp.update(home);
 // v8.9 : l'identifiant couvre aussi les octets réellement écrits (pages avec leur CSP, icônes des
 // guides) et le modèle du service worker : tout changement d'un fichier servi change le cache.
 for (const f of SITE_FILES.filter((f) => f !== "sw.js" && f !== "index.html")) stamp.update(fs.readFileSync(path.join(OUT, f)));
-stamp.update(fs.readFileSync(path.join(root, "src/sw.template.js")));
+stamp.update(fs.readFileSync(path.join(root, "src/app/sw.template.js")));
 const buildId = stamp.digest("hex").slice(0, 12);
 // Le modèle s'appelle sw.template.js : déposé par erreur à la racine, il ne peut
 // plus écraser le sw.js construit (c'est arrivé le 11/10/2026).
 const shell = ["./", ...SITE_FILES.filter((f) => f !== "sw.js").map((f) => `./${f}`)];
-const sw = fs.readFileSync(path.join(root, "src/sw.template.js"), "utf8").replace("__BUILD__", buildId).replace('"__SHELL__"', JSON.stringify(shell).slice(1, -1));
+const sw = fs.readFileSync(path.join(root, "src/app/sw.template.js"), "utf8").replace("__BUILD__", buildId).replace('"__SHELL__"', JSON.stringify(shell).slice(1, -1));
 if (sw.includes("__BUILD__") || sw.includes("__SHELL__")) throw new Error("sw.js : identifiant de version ou liste de fichiers non remplacé");
 fs.writeFileSync(path.join(OUT, "sw.js"), sw);
 const homeOut = home.replace("/*__LEAFLET_CSS__*/", LEAFLET_CSS + MAP_CSS).replace("__VERSION__", `${VERSION} · ${buildId}`).replace("<!--__GUIDES__-->", guidesHtml).replace("/*__SPOTS__*/[]", spotJson).replace("/*__GUIDE_IDS__*/[]", guideIds);
