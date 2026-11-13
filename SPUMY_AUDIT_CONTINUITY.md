@@ -12,8 +12,9 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | --- | --- | --- |
 | 1. Audit initial | VALIDATED (6 nov. 2026) | Rapport « SPUMY — Phase 1 : audit initial » (document Claude de Félix) |
 | 2. Architecture cible | VALIDATED (6 nov. 2026, 22 h 59) | Document « SPUMY — Phase 2 : architecture cible » ; résumé dans `docs/ARCHITECTURE.md` |
-| 3. Socle technique | TESTED, en attente de validation | Branche `claude/phase-3-socle`, demande de fusion n° 1 ; rapport « SPUMY — Phase 3 : socle technique » https://claude.ai/artifact/NYumZHjRgLUa9jMQcBGXK9 |
-| 4 à 17 | NOT STARTED | — |
+| 3. Socle technique | VALIDATED (13 nov. 2026, 3 h 57, « APPROVED — PROCEED TO PHASE 4 ») ; non fusionnée dans `main` (pas d'accord de publication) | Branche `claude/phase-3-socle`, demande de fusion n° 1 ; rapport « SPUMY — Phase 3 : socle technique » https://claude.ai/artifact/NYumZHjRgLUa9jMQcBGXK9 |
+| 4. Audit BORD approfondi + corrections météo et sécurité demandées par Félix | IN PROGRESS | Branche `claude/phase-4-bord` (partie de `claude/phase-3-socle`) |
+| 5 à 17 | NOT STARTED | — |
 
 ### Phase 3, lots
 
@@ -61,6 +62,12 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 
 - 13 nov. 2026 : l'espace de travail de Claude a été réinitialisé après une pause d'une semaine. Les lots 3.4 et 3.6, terminés le 6 nov. mais pas encore poussés, ont été perdus puis refaits. Règle depuis : chaque lot est poussé dès qu'il est terminé ; rien d'important ne reste seulement sur la machine de Claude.
 
+## Consignes de Félix (13 nov. 2026, 3 h 57)
+
+- Phase 4 approuvée, avec une demande : « résoudre absolument les points bloquants de la section 6, surtout concernant la météo ». Lu comme : corriger maintenant les défauts météo et sécurité (houle inconnue comptée 0 m ; vent et rafales qui ne retirent jamais un spot ; source météo affichée incomplète ; comportement quand Open-Meteo est injoignable), en plus de l'audit en lecture seule prévu. La conformité de l'interface reste aux phases 11 et 13.
+- « Si tu es interrompu dans ta session, reprends quand tu le peux » : rappel programmé pour cette session (13 nov. 7 h UTC) ; reprendre d'après ce document.
+- Publication (fusion dans `main`) : toujours pas d'accord explicite.
+
 ## Prochaine action
 
-Attendre `APPROVED — PROCEED TO PHASE 4`. Ne rien fusionner dans `main` sans l'accord écrit de Félix. Décisions attendues : publier la phase 3 (fusion), adresse dédiée (décision 1), trois écarts au plan (pas de redirection, fiches en JavaScript commenté, une seule branche), clé Claude déjà enregistrée, réglage Pages à vérifier.
+Phase 4 : corrections météo et sécurité (avec grille de scénarios avant/après), puis audit BORD (parcours, états, moteur, 66 spots), rapport en 9 parties, arrêt. Attendre `APPROVED — PROCEED TO PHASE 5`.
