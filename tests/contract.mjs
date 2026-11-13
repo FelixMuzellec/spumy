@@ -38,14 +38,15 @@ async function tryTwice(fn, ok) {
   netErrors.length = 0;
   let v = null, err = null;
   try { v = await fn(); } catch (e) { err = e; }
-  if (MOCK || (ok(v) && !err) || !netErrors.length) return { v, err, note: "" };
+  // Un essai touché par le réseau est refait, même s'il a « réussi » grâce aux relais (modèle de secours).
+  if (MOCK || !netErrors.length) return { v, err, note: "" };
   const first = [...new Set(netErrors)].join(" ; ");
   console.log(`  … service injoignable (${first}) : nouvel essai dans une minute`);
   await pause(60000);
   netErrors.length = 0; v = null; err = null;
   try { v = await fn(); } catch (e) { err = e; }
   const again = [...new Set(netErrors)].join(" ; ");
-  return { v, err, note: ok(v) && !err ? "au 2e essai" : `2e essai aussi en échec${again ? ` (${again})` : ""}` };
+  return { v, err, note: ok(v) && !err && !again ? "au 2e essai" : `2e essai${again ? ` encore touché par le réseau (${again})` : ok(v) && !err ? "" : " aussi en échec"}` };
 }
 
 for (const label of ["logonna", "pirou"]) {
