@@ -15,7 +15,7 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 3. Socle technique | VALIDATED (13 nov. 2026, 3 h 57, « APPROVED — PROCEED TO PHASE 4 ») ; fusionnée dans `main` le 13 nov. (e743b10), pas en ligne | Branche `claude/phase-3-socle`, demande de fusion n° 1 ; rapport « SPUMY — Phase 3 : socle technique » https://claude.ai/artifact/NYumZHjRgLUa9jMQcBGXK9 |
 | 4. Audit BORD approfondi + corrections météo et sécurité demandées par Félix | VALIDATED (13 nov. 2026, 12 h 37, « APPROVED — PROCEED TO PHASE 5 ») ; revue finale puis fusion dans `main` le 13 nov. (e743b10, propositions n° 1 et n° 2), pas en ligne | Branche `claude/phase-4-bord` (partie de `claude/phase-3-socle`), demande de fusion n° 2 (brouillon) ; rapport « SPUMY — Phase 4 : audit BORD et corrections météo » https://claude.ai/artifact/LryzgD9Q9KbMNec91sMYNx |
 | 5. Connaissances halieutiques | VALIDATED (13 nov. 2026, 13 h 58, « APPROVED — PROCEED TO PHASE 6 ») ; non fusionnée (accord de fusion non donné) | Branche `claude/phase-5-halieutique`, demande de fusion n° 3 ; rapport « SPUMY — Phase 5 : connaissances halieutiques » https://claude.ai/artifact/BmTd9B29oPziqDZqh9n1cC |
-| 6. Conception du moteur BORD (spécification, sans code) | IN PROGRESS (13 nov. 2026) | Branche `claude/phase-6-conception` ; `docs/SPEC-MOTEUR-BORD-V2.md` |
+| 6. Conception du moteur BORD (spécification, sans code) | IMPLEMENTED, en attente de validation | Branche `claude/phase-6-conception`, demande de fusion n° 4 ; `docs/SPEC-MOTEUR-BORD-V2.md` ; rapport `docs/rapports/PHASE-6.md` (service de documents Claude indisponible le 13 nov.) |
 | 7 à 17 | NOT STARTED | — |
 
 ### Phase 4, lots
