@@ -73,7 +73,7 @@ L'essentiel de la spécification :
 3. **La vigilance Météo-France n'a pas de source dans l'application.** Une alerte orange ou rouge ne retire donc pas encore un spot.
 4. **Le conseil de leurres n'est encore fait que sur la boîte connue.** La pertinence et ce conseil dépendent de ton inventaire complet, que tu m'enverras.
 5. **Le journal ne peut rien conclure aujourd'hui** : 3 sessions, toutes à Moulin Mer. L'apprentissage personnel ne jouera qu'à partir de 5 sessions par spot, dont 2 avec prise.
-6. **Le service de documents Claude était indisponible le 13 nov.** Ce rapport est donc dans le dépôt, et non dans un document Claude comme les précédents.
+6. **Version de référence de ce rapport** : le document Claude « SPUMY — Phase 6 : conception du moteur BORD » (https://claude.ai/artifact/Fa93x9zkURzEdVRxRZy8Fj), créé une fois le service de documents revenu ; il contient aussi la marche à suivre pour passer à `spumy.github.io`, fusionnée dans `main` le 13 nov. (proposition n° 5).
 
 ## 7. Critères d'acceptation
 
