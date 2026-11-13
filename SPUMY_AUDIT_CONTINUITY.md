@@ -112,6 +112,10 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 - « APPROVED — PROCEED TO PHASE 5. Tu peux fusionner, si après la revue finale tu penses que la version remplit parfaitement le cahier des charges. » Lu comme : fusion des phases 3 et 4 après une revue finale stricte (voir « Revue finale »). La fusion de la phase 5 sera proposée dans son rapport.
 - Espèces (décision 6) non tranchées : la phase 5 part de la recommandation de la phase 2, le bar d'abord.
 
+## Consignes de Félix (13 nov. 2026, 13 h 28)
+
+- Mise en ligne choisie : GitHub Pages sur `FelixMuzellec/spumy`, branche `main`, dossier racine (adresse https://felixmuzellec.github.io/spumy/). L'API Pages est bloquée pour Claude (proxy) : l'activation se fait par Félix dans *Settings → Pages* ; Claude vérifie ensuite le déploiement (dépôt `has_pages`, passage « pages-build-deployment »).
+
 ## Prochaine action
 
 Phase 5 terminée côté données et tests ; rapport « SPUMY — Phase 5 : connaissances halieutiques ». Attendre `APPROVED — PROCEED TO PHASE 6`. La fusion de la phase 5 dans `main` sera faite seulement avec l'accord de Félix ; rien n'est mis en ligne sans la décision 1.
