@@ -13,8 +13,20 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 1. Audit initial | VALIDATED (6 nov. 2026) | Rapport « SPUMY — Phase 1 : audit initial » (document Claude de Félix) |
 | 2. Architecture cible | VALIDATED (6 nov. 2026, 22 h 59) | Document « SPUMY — Phase 2 : architecture cible » ; résumé dans `docs/ARCHITECTURE.md` |
 | 3. Socle technique | VALIDATED (13 nov. 2026, 3 h 57, « APPROVED — PROCEED TO PHASE 4 ») ; non fusionnée dans `main` (pas d'accord de publication) | Branche `claude/phase-3-socle`, demande de fusion n° 1 ; rapport « SPUMY — Phase 3 : socle technique » https://claude.ai/artifact/NYumZHjRgLUa9jMQcBGXK9 |
-| 4. Audit BORD approfondi + corrections météo et sécurité demandées par Félix | IN PROGRESS | Branche `claude/phase-4-bord` (partie de `claude/phase-3-socle`) |
+| 4. Audit BORD approfondi + corrections météo et sécurité demandées par Félix | TESTED, en attente de validation | Branche `claude/phase-4-bord` (partie de `claude/phase-3-socle`) |
 | 5 à 17 | NOT STARTED | — |
+
+### Phase 4, lots
+
+| Lot | Statut | Preuve |
+| --- | --- | --- |
+| 4.0 Grille de scénarios | TESTED | `tests/scenarios.mjs` : 66 spots × 896 météos = 59 136 cas, avant/après comparés |
+| 4.1 Houle inconnue | TESTED | Côte ouverte : « à vérifier », jamais au vert (624 cas au vert avant, 0 après) ; rade inchangée |
+| 4.2 Vent et rafales | TESTED | Danger annoncé (force ≥ 8 ou rafales ≥ 90 km/h) : 69,3 % proposés avant, 0 après ; doute (force 7, rafales ≥ 75, houle inconnue) : 27,2 % au vert avant, 0 après ; sans doute : 13 376 cas identiques ; Moulin Mer NE force 9 non recommandé |
+| 4.3 Source météo, fiche injoignable | TESTED | « AROME · vent comparé à ECMWF » (unitaire et contrat) ; écran « Le guide n'a pas pu se charger » (e2e) |
+| 4.4 Audit BORD | TESTED | `tests/audit-spots.mjs` : 396 rubriques de preuve (192 vérifiées, 191 déduites, 13 connaissance locale) ; 3 spots sans rubrique vérifiée ; 9 spots sans consigne de sécurité ; 7 positions en degrés-minutes seulement |
+
+Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90 km/h → non recommandé (Météo-France) ; force 7 → à vérifier (BMS côte, Météo-France) ; rafales 75 km/h → à vérifier (DÉDUIT de l'échelle de Beaufort).
 
 ### Phase 3, lots
 
@@ -70,4 +82,4 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 
 ## Prochaine action
 
-Phase 4 : corrections météo et sécurité (avec grille de scénarios avant/après), puis audit BORD (parcours, états, moteur, 66 spots), rapport en 9 parties, arrêt. Attendre `APPROVED — PROCEED TO PHASE 5`.
+Phase 4 terminée côté code et tests ; rapport « SPUMY — Phase 4 : audit BORD et corrections météo » https://claude.ai/artifact/LryzgD9Q9KbMNec91sMYNx. Attendre `APPROVED — PROCEED TO PHASE 5`. Ne rien fusionner dans `main` sans accord écrit.

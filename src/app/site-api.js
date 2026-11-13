@@ -63,7 +63,7 @@ async function day(offset = 0, { nowMs = Date.now(), force = false } = {}) {
     key: __SITE_KEY__, siteId: SITE.id, dateISO, wxAt: d?._wxAt || null, stale, wxError, hasWx: !!d,
     spots: scored.map((s) => {
       const c = spotLatLon(s), w = (s.windows || []).find((x) => x.id === s.bestWindowId);
-      return { id: s.id, name: s.name, mine: !!s.custom, lat: c?.lat ?? null, lon: c?.lon ?? null, eligible: !!s.eligible, score: s.score,
+      return { id: s.id, name: s.name, mine: !!s.custom, lat: c?.lat ?? null, lon: c?.lon ?? null, eligible: !!s.eligible, score: s.score, verify: (s.verify || []).map((v) => v.t),
                best: w ? `${w.startFmt} → ${w.endFmt}` : null, reason: s.eligible ? (s.wxReason || "") : (s.reason || ""), danger: s.dangerLevel };
     }),
   };

@@ -79,7 +79,7 @@ function GlobalMap({ spots, selected, onPick }) {
       }
       const on = s.uid === selected, known = s.score != null;
       mk.setStyle({ color: on ? "#f8fafc" : s.mine ? MYSPOT_COLOR : "#020617", weight: on || s.mine ? 3 : 2,
-                    fillColor: known ? scoreColor(s.score, s.eligible) : UNKNOWN, fillOpacity: known ? (s.eligible ? 0.95 : 0.5) : 0.55 });
+                    fillColor: known ? scoreColor(s.score, s.eligible, s.verify?.length) : UNKNOWN, fillOpacity: known ? (s.eligible ? 0.95 : 0.5) : 0.55 });
       const el = mk.getElement?.();
       if (el) { el.setAttribute("data-score", known ? (s.eligible ? fr(s.score) : "–") : "?"); el.setAttribute("data-name", s.name); }
       mk.unbindTooltip();
@@ -104,11 +104,11 @@ function scoreBadge(t, m) {
   const today = t.eligible ? fr(t.score) : "–", tomorrow = m ? (m.eligible ? fr(m.score) : "–") : null;
   const label = [t.eligible ? `Note du jour ${today}` : "Plus de créneau praticable aujourd'hui",
     tr ? `${tr.word} : demain ${tomorrow}${tr.why ? ` (${tr.why})` : ""}` : tomorrow != null ? `demain ${tomorrow}` : ""].filter(Boolean).join(", ");
-  return { txt: today, color: scoreColor(t.score, t.eligible), arrow: tr?.arrow || "", tomorrow, label };
+  return { txt: today, color: scoreColor(t.score, t.eligible, t.verify?.length), arrow: tr?.arrow || "", tomorrow, label };
 }
 
 function SpotLink({ s, rank }) {
-  const col = s.score != null ? scoreColor(s.score, s.eligible) : UNKNOWN;
+  const col = s.score != null ? scoreColor(s.score, s.eligible, s.verify?.length) : UNKNOWN;
   return (
     <a href={`${s.key}.html#spot=${s.id}`} style={{ display: "flex", alignItems: "center", gap: 10, minHeight: 52, padding: "8px 12px", color: "inherit", textDecoration: "none", borderTop: rank ? "1px solid #1e293b" : "none", background: "rgba(10,20,38,0.85)" }}>
       <span aria-hidden="true" style={{ width: 14, height: 14, borderRadius: "50%", background: col, border: s.mine ? `2px solid ${MYSPOT_COLOR}` : "none", flexShrink: 0 }} />
@@ -228,7 +228,8 @@ function Home() {
   const states = GUIDES.map((g) => ({ g, b: boards[`${offset}:${g.key}`] }));
   const nOk = states.filter((x) => x.b?.status === "ok").length;
   const busy = states.some((x) => x.b?.status === "busy");
-  const top = spots.filter((s) => s.score != null && s.eligible).sort((a, b) => b.score - a.score).slice(0, 5);
+  // Phase 4 — Les spots « à vérifier » (vent, rafales, houle inconnue) passent après ceux sans doute.
+  const top = spots.filter((s) => s.score != null && s.eligible).sort((a, b) => (a.verify?.length ? 1 : 0) - (b.verify?.length ? 1 : 0) || b.score - a.score).slice(0, 5);
   const sel = spots.find((s) => s.uid === selected) || null;
   const notes = states.flatMap(({ g, b }) => {
     if (b?.status === "error") return [`${g.name} : calcul impossible (${b.error}).`];
@@ -262,7 +263,7 @@ function Home() {
           <div style={{ fontSize: 13.5, color: "#94a3b8" }}>Guide {GBY[sel.key]?.name}{sel.mine ? " · ton spot" : ""}</div>
           <div style={{ fontSize: 14.5, marginTop: 4 }}>
             {sel.score == null ? "Note en cours de calcul…"
-              : sel.eligible ? <>Note <b style={{ color: scoreColor(sel.score, true) }}>{fr(sel.score)}</b>{sel.best ? ` · meilleur créneau ${sel.best}` : ""}{sel.reason ? <span style={{ display: "block", fontSize: 13, color: "#cbd5e1" }}>{sel.reason}</span> : null}</>
+              : sel.eligible ? <>Note <b style={{ color: scoreColor(sel.score, true, sel.verify?.length) }}>{fr(sel.score)}</b>{sel.best ? ` · meilleur créneau ${sel.best}` : ""}{sel.reason ? <span style={{ display: "block", fontSize: 13, color: "#cbd5e1" }}>{sel.reason}</span> : null}</>
               : <>Non proposé {dayLbl} : {sel.reason || "aucun créneau praticable"}</>}
           </div>
           <a href={`${sel.key}.html#spot=${sel.id}`} style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: 10, minHeight: 48, borderRadius: 10, border: "1px solid #0ea5e9", background: "rgba(14,165,233,0.12)", color: "#e0f2fe", fontWeight: 700, textDecoration: "none" }}>Ouvrir la fiche dans le guide {GBY[sel.key]?.name} →</a>

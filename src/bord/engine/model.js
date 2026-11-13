@@ -6,6 +6,7 @@ import { DIR16, fmtH, overlapH, solarTimes, windMod, windowLight } from "../../c
 import { localDecimal, parisParts, tideDay } from "../../core/tide.js";
 const parisISO = (ms) => { const p = parisParts(ms); return `${p.y}-${String(p.m).padStart(2, "0")}-${String(p.d).padStart(2, "0")}`; };
 import { spotWeather, spotWxBetween, spotZone } from "./weather.js";
+import { windSafety } from "./safety.js";
 
 
 // v5 — Les fenêtres sont construites sur TOUTES les marées du jour.
@@ -110,8 +111,15 @@ export function scoreWindow(spot, win, ctx) {
 
   // v8.9 — Spot engagé (niveau 3) : plus proposé dès que la houle dépasse son maximum. Ailleurs, une marge
   // de 0,5 m où le spot est seulement pénalisé (windMod), puis plus proposé.
+  // Phase 4 — Vent et rafales : un coup de vent ou des rafales de tempête retirent le spot (safety.js, seuils
+  // Météo-France) ; un grand frais, de fortes rafales ou une houle inconnue en côte ouverte le laissent proposé,
+  // mais « à vérifier » : jamais au vert, et classé après les spots sans doute.
+  const ws = windSafety(spot, zw);
+  if (ws.block) return { eligible: false, blocked: true, score: 0, rawScore: null, reason: ws.block };
+  const verify = ws.verify;
+
   const houleTol = spot.dangerLevel >= 3 ? 0 : 0.5;
-  if (houle > spot.houleMax + houleTol) return { eligible: false, score: 0, rawScore: null, reason: `Houle trop forte (${houle} m ; max ${spot.houleMax} m${houleTol ? "" : ", spot engagé"})` };
+  if (zw.houleKnown !== false && houle > spot.houleMax + houleTol) return { eligible: false, score: 0, rawScore: null, reason: `Houle trop forte (${houle} m ; max ${spot.houleMax} m${houleTol ? "" : ", spot engagé"})` };
 
   // v5 — BANDE D'UTILITÉ DU COEFFICIENT, SANS PORTE BASSE.
   //
@@ -224,8 +232,9 @@ export function scoreWindow(spot, win, ctx) {
     eligible: true,
     rawScore,
     score: parseFloat(Math.max(0.1, Math.min(9.99, shown)).toFixed(1)),
-    parts, presence: { ...pres, effective: presence, season }, lightTerm: lt, windMod: wm, pressureMod, gustMod,
-    reason: [wm <= -1.5 ? `⚠ Vent ${zw.wind_dir} F${zw.wind_force}` : wm >= 0.4 ? `✅ Vent ${zw.wind_dir} F${zw.wind_force}` : "",
+    parts, presence: { ...pres, effective: presence, season }, lightTerm: lt, windMod: wm, pressureMod, gustMod, verify,
+    reason: [verify.length ? `⚠ À vérifier : ${verify.map((v) => v.t).join(", ")}` : "",
+             wm <= -1.5 ? `⚠ Vent ${zw.wind_dir} F${zw.wind_force}` : wm >= 0.4 ? `✅ Vent ${zw.wind_dir} F${zw.wind_force}` : "",
              gustMod <= -0.5 ? `⚠ Rafales ${gust} km/h` : "",
              lt.t >= 0.5 ? `${win.light?.band === "nuit" ? "🌙" : "🌅"} ${lt.why}` : lt.t <= -0.5 ? `☀ ${lt.why}` : "",
              season.factor < 0.85 && season.factor <= pres.effective ? `🗓 ${season.label}` : pres.effective < 0.85 ? `🌡 ${pres.label}` : ""].filter(Boolean).join(" · "),
@@ -273,9 +282,11 @@ export function scoreSpot(spot, ctx) {
     return { score: 0, rawScore: null, eligible: false, windows: wins, bestWindowId: null,
              reason: onlyOutside ? "Aucun bon créneau dans tes heures de pêche" : onlyPast ? "Les bons créneaux du jour sont passés, ou finissent avant ton arrivée" : (first.reason || "Non éligible") };
   }
-  const best = ok.reduce((a, b) => (b.rawScore > a.rawScore ? b : a));
+  // Phase 4 — Un créneau sans doute passe avant un créneau « à vérifier » (vent, rafales, houle inconnue).
+  const sure = ok.filter((w) => !w.verify?.length);
+  const best = (sure.length ? sure : ok).reduce((a, b) => (b.rawScore > a.rawScore ? b : a));
   return {
-    score: best.score, rawScore: best.rawScore, eligible: true, reason: best.reason,
+    score: best.score, rawScore: best.rawScore, eligible: true, reason: best.reason, verify: best.verify || [],
     windows: wins, bestWindowId: best.id, presence: best.presence,
     bestParts: best.parts, bestLabel: best.label, bestFmt: `${best.startFmt} → ${best.endFmt}`,
   };
@@ -357,7 +368,7 @@ export function keyFactors(parts, { maxPlus = 3, maxMinus = 2 } = {}) {
 }
 /** Nombre de spots « au vert » (note ≥ GOOD_SCORE, praticables) dans une journée notée. */
 export { GOOD_SCORE } from "../../core/scale.js";
-export function countGood(scored) { return (scored || []).filter((s) => s.eligible && s.score >= GOOD_SCORE).length; }
+export function countGood(scored) { return (scored || []).filter((s) => s.eligible && s.score >= GOOD_SCORE && !s.verify?.length).length; }
 /** Marée par port pour une date (mémorisée). */
 export function makeTideFor(dateISO, override) {
   const cache = new Map();
@@ -480,6 +491,9 @@ export function bestDaytime(scored) {
 export function rankCompare(a, b) {
   if (a.eligible !== b.eligible) return a.eligible ? -1 : 1;
   if (a.eligible && b.eligible) {
+    // Phase 4 — Les spots « à vérifier » (vent, rafales, houle inconnue) passent après ceux sans doute.
+    const dv = (a.verify?.length ? 1 : 0) - (b.verify?.length ? 1 : 0);
+    if (dv) return dv;
     // Classement sur le score d'ensemble quand il existe : c'est lui qui résiste
     // au bruit du relevé météo.
     const d = (b.robust ?? b.rawScore) - (a.robust ?? a.rawScore);

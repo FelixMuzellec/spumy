@@ -71,6 +71,7 @@ for (const label of ["logonna", "pirou"]) {
     const cmp = E.SPOTS.filter((s) => { const ser = L.series[s.id]; if (!ser?.wind2) return false;
       return Array.from({ length: 17 }, (_, i) => E.idxAt(ser, E.msAtLocal(today, 6 + i))).some((i) => i >= 0 && ser.wind2[i] != null); });
     t("ECMWF fournit le vent de comparaison (écart entre modèles)", cmp.length === E.SPOTS.length, `${cmp.length}/${E.SPOTS.length} spots`);
+    t("la source affichée nomme les deux modèles", /AROME/.test(L.source_meteo) && /ECMWF/.test(L.source_meteo), L.source_meteo);
     t("aucun modèle remplacé par un relais", !L.warnings.some((w) => /Modèle indisponible/.test(w)), L.warnings.join(" | "));
     t("houle et température d'eau disponibles", !L.warnings.some((w) => /Houle et température d'eau indisponibles/.test(w)), L.warnings.join(" | "));
     const weak = E.SPOTS.filter((s) => {

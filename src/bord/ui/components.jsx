@@ -267,7 +267,7 @@ export function WindowRow({ w, lure }) {
       <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",gap:10}}>
         <span style={{fontSize:17,fontWeight:800,color:w.past ? C.muted : C.strong,...num,textDecoration:w.past ? "line-through" : "none"}}>{w.startFmt} → {w.endFmt}</span>
         {w.eligible && w.score!=null
-          ? <span title="Note de ce créneau : marée, lumière, vent et pression ensemble" style={{fontSize:18,fontWeight:800,color:scoreColor(w.score),...num}}>{w.score.toFixed(1).replace(".", ",")}</span>
+          ? <span title="Note de ce créneau : marée, lumière, vent et pression ensemble" style={{fontSize:18,fontWeight:800,color:scoreColor(w.score, true, w.verify?.length),...num}}>{w.score.toFixed(1).replace(".", ",")}</span>
           : <span style={{fontSize:13,color:C.faint}}>non praticable</span>}
       </div>
       <div style={{fontSize:14,color:C.text,marginTop:3}}>{w.label}{w.clipped ? <span style={{color:C.muted}}> · dans tes heures (créneau de marée {w.tideStartFmt} → {w.tideEndFmt})</span> : null}</div>

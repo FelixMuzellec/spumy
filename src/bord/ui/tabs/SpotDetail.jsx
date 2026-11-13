@@ -202,8 +202,8 @@ export function SpotDetail({ g, spot, detailRef }) {
       <div style={{padding:"15px 15px 12px",background:`linear-gradient(160deg,${spot.color}18 0%,transparent 60%)`}}>
         <div style={{display:"flex",alignItems:"flex-start",gap:12}}>
           <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:4,flexShrink:0}}>
-            <ScoreRing score={spot.eligible ? spot.score : null} size={84}/>
-            {spot.eligible && <span style={{fontSize:11.5,fontWeight:700,color:C.muted,maxWidth:96,textAlign:"center",lineHeight:1.2}}>{conditionLabel(spot.score)}</span>}
+            <ScoreRing score={spot.eligible ? spot.score : null} size={84} verify={!!spot.verify?.length}/>
+            {spot.eligible && <span style={{fontSize:11.5,fontWeight:700,color:C.muted,maxWidth:96,textAlign:"center",lineHeight:1.2}}>{conditionLabel(spot.score, spot.verify)}</span>}
           </div>
           <div style={{flex:1,minWidth:0}}>
             <h2 style={{margin:0,fontSize:21,fontWeight:800,color:C.strong,lineHeight:1.15}}>{spot.name}</h2>

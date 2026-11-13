@@ -1,5 +1,14 @@
 # Journal des versions
 
+## Non publié — phase 4, audit BORD et corrections météo et sécurité
+
+Branche `claude/phase-4-bord` (à partir de la phase 3). Demandé par Félix le 13 novembre : résoudre les défauts bloquants liés à la météo.
+
+- **4.2** Le vent et les rafales peuvent retirer un spot : coup de vent (force 8, 62 km/h et plus) ou rafales de 90 km/h et plus → « non recommandé ». Grand frais (force 7) ou rafales de 75 km/h et plus → « à vérifier » : proposé, jamais au vert, classé après les spots sans doute ; le bandeau dit « Conditions à vérifier ». L'indicateur de sécurité signale aussi les rafales. Cas relevé en phase 1 (Moulin Mer, NE force 9, rafales 85 km/h, encore proposé avec 5,0) : non recommandé.
+- **4.1** Houle inconnue sur la côte ouverte : « à vérifier », plus jamais au vert (624 cas au vert sur la grille avant la correction, 0 après). En rade, la mer du vent calculée sur place reste utilisée.
+- **4.3** Source météo affichée : « AROME · vent comparé à ECMWF » quand ECMWF ne sert qu'au vent de comparaison (avant : « AROME » seul). Écran clair si la fiche d'un guide ne peut pas être lue au premier lancement sans réseau.
+- **Tests** Grille de scénarios du moteur (`tests/scenarios.mjs`, 59 136 cas : 66 spots × 896 météos) et audit des données des spots (`tests/audit-spots.mjs`). Unitaires : 15 contrôles de sécurité ajoutés par guide.
+
 ## Non publié — phase 3, socle technique
 
 Branche `claude/phase-3-socle`. Le site publié ne change pas tant que la branche n'est pas fusionnée.

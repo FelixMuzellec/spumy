@@ -63,7 +63,7 @@ export function MapView({ spots, activeId, onPick }) {
       const c = spotLatLon(s);
       if (!c) return;
       pts.push([c.lat, c.lon]);
-      const col = scoreColor(s.score, s.eligible), on = s.id === activeId;
+      const col = scoreColor(s.score, s.eligible, s.verify?.length), on = s.id === activeId;
       const label = `${s.name} · ${s.eligible ? s.score.toFixed(1).replace(".", ",") : "–"}`;
       let mk = marks.current.get(s.id);
       if (!mk) {

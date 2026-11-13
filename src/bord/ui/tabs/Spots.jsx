@@ -110,7 +110,7 @@ export function Spots({ g }) {
                 <span style={{display:"block",fontSize:13,color:C.muted,marginTop:2}}>{s.distance} · {s.type.toLowerCase()}</span>
                 {s.wxReason && <span style={{display:"block",fontSize:13,color:s.eligible ? C.text : "#fca5a5",marginTop:2}}>{s.wxReason}</span>}
               </span>
-              <span style={{fontSize:20,fontWeight:800,color:scoreColor(s.score, s.eligible),...num}}>{s.eligible ? fr(s.score) : "–"}</span>
+              <span style={{fontSize:20,fontWeight:800,color:scoreColor(s.score, s.eligible, s.verify?.length),...num}}>{s.eligible ? fr(s.score) : "–"}</span>
             </button>
           );
         })}

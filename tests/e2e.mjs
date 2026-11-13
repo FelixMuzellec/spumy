@@ -777,6 +777,20 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
     await waitText(page, /🌬 [A-Z]{1,3} \d+ km\/h/);
     await tab(page, "Météo");
     ok(/Houle et température d'eau indisponibles/.test(await T(page)), L("marine en panne : alerte visible, météo affichée"));
+    // Phase 4 — Houle inconnue : un spot de côte ouverte est « à vérifier », jamais au vert. Vérifié sur les guides
+    // sans spot de rade (en rade, la mer du vent est calculée sur place : la houle y reste connue).
+    if (["pirou", "audierne", "concarneau", "crozon"].includes(site)) {
+      await tab(page, "Spots");
+      await page.waitForTimeout(300);
+      const cols = await page.evaluate(() => [...document.querySelectorAll("span")].filter((e) => /^\d,\d$/.test(e.textContent.trim()) && e.children.length === 0)
+        .map((e) => getComputedStyle(e).color));
+      ok(cols.length > 0 && !cols.includes("rgb(34, 197, 94)"), L(`marine en panne : aucune note au vert, toutes « à vérifier » (${cols.length} notes)`));
+      await tab(page, "Synthèse");
+      const hero = await page.evaluate(() => document.getElementById("hero-h")?.textContent || "");
+      ok(!hero || /Conditions à vérifier/.test(hero), L(`marine en panne : le bandeau dit « à vérifier » — « ${hero.trim().slice(0, 40)} »`));
+      const rings = await page.evaluate(() => [...document.querySelectorAll('svg[role="img"][aria-label^="Note "]')].map((s) => [s.getAttribute("aria-label"), [...s.querySelectorAll("circle")].map((c) => c.getAttribute("stroke")).join()]));
+      ok(rings.length > 0 && rings.every(([l, st]) => /à vérifier/.test(l) && !/#22c55e/i.test(st)), L(`marine en panne : jauges orange, annoncées « à vérifier » (${rings.length})`));
+    }
     ok(errors.length === 0, L("marine en panne : aucune erreur JavaScript"));
     await ctx.close();
   }
@@ -1035,6 +1049,19 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
   ok(/coef \d+/.test(await T(page)), "hors ligne : accueil → Pirou (jamais ouvert) : marée calculée");
   await page.goto(`${BASE}/audierne.html`); await waitText(page, READY, 15000);
   ok(/coef \d+/.test(await T(page)), "hors ligne : Audierne (jamais ouvert) : marée calculée");
+  await ctx.close();
+}
+
+// ── 5 quinquies. Phase 4 — Fiche du guide illisible (premier lancement sans réseau) : message clair, rien de cassé ──
+{
+  const ctx = await browser.newContext({ ...devices["iPhone 13"], locale: "fr-FR", timezoneId: "Europe/Paris", serviceWorkers: "block" });
+  await ctx.route(/\/logonna\.json/, (r) => r.abort("internetdisconnected"));
+  const page = await ctx.newPage(); const errs = []; page.on("pageerror", (e) => errs.push(e.message));
+  await page.goto(`${BASE}/logonna.html`);
+  await waitText(page, /Le guide n'a pas pu se charger/, 10000).catch(() => {});
+  const txt = await T(page);
+  ok(/Le guide n'a pas pu se charger/.test(txt) && /Ton journal n'est pas touché/.test(txt) && await page.getByRole("button", { name: "Recharger" }).count() === 1 && !errs.length,
+    "fiche du guide injoignable : message clair, bouton Recharger, aucune erreur JavaScript" + (errs.length ? ` — ${errs[0]}` : ""));
   await ctx.close();
 }
 

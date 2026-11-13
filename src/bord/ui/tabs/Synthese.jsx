@@ -33,7 +33,7 @@ function VerdictCard({ g, degraded }) {
   // Égalité : tous les spots à 0,2 point ou moins du premier, et le plus proche d'entre eux.
   const tied = tieGroup(g.allScored);
   const nearest = tied.length ? [...tied].sort((a, b) => (a.distMin ?? 999) - (b.distMin ?? 999))[0] : null;
-  const col = scoreColor(s.score);
+  const col = scoreColor(s.score, true, s.verify?.length);
   const timing = windowTiming(w, g.nowMs, g.selectedDate);
   const side = w?.zw ? windSide(s, w.zw).side : null;
   return (
@@ -41,7 +41,7 @@ function VerdictCard({ g, degraded }) {
       {s.dangerLevel >= 2 && <Pill color={s.dangerLevel === 3 ? C.bad : C.warn} title="Difficulté du spot">{DANGER_LABEL[s.dangerLevel]}</Pill>}</span>}>
       {degraded && <div style={{marginBottom:10}}><Alert tone={C.warn} role="alert"><b>Sans météo</b> : conseil sur la marée et la lumière seules. Vent et houle inconnus ; les spots engagés ne sont pas proposés.</Alert></div>}
       <div style={{display:"flex",alignItems:"center",gap:14}}>
-        <ScoreRing score={s.score} size={88}/>
+        <ScoreRing score={s.score} size={88} verify={!!s.verify?.length}/>
         <div style={{flex:1,minWidth:0}}>
           <h2 style={{margin:0,fontSize:23,fontWeight:800,color:C.strong,lineHeight:1.15}}>{s.name}</h2>
           {w && <div style={{display:"flex",alignItems:"center",gap:6,fontSize:20,fontWeight:800,color:C.strong,marginTop:5,...num}}><Icon name="horloge" size={18} color="#7dd3fc"/>{w.startFmt} → {w.endFmt}</div>}
@@ -75,7 +75,7 @@ function VerdictCard({ g, degraded }) {
 // Uniquement des valeurs du moteur ; ce qui manque s'affiche « — », jamais une valeur par défaut.
 function FieldCard({ g }) {
   const { s, w } = g.verdict;
-  const col = scoreColor(s.score);
+  const col = scoreColor(s.score, true, s.verify?.length);
   const timing = windowTiming(w, g.nowMs, g.selectedDate);
   const today = g.selectedDate === g.todayISO;
   const t = today ? tideNow(g.tideFor(s.tidePort)?.events, g.nowMs) : null;
@@ -94,8 +94,8 @@ function FieldCard({ g }) {
   return (
     <Card tone={col} kicker="Mode terrain · meilleur choix" id="mode-terrain" right={<FieldToggle g={g}/>}>
       <div style={{display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",gap:4}}>
-        <ScoreRing score={s.score} size={148}/>
-        <div style={{fontSize:20,fontWeight:800,color:col,marginTop:6}}>{conditionLabel(s.score)}</div>
+        <ScoreRing score={s.score} size={148} verify={!!s.verify?.length}/>
+        <div style={{fontSize:20,fontWeight:800,color:col,marginTop:6}}>{conditionLabel(s.score, s.verify)}</div>
         <h2 style={{margin:0,fontSize:30,fontWeight:800,color:C.strong,lineHeight:1.1}}>{s.name}</h2>
         {w && <div style={{...big,marginTop:2}}>{w.startFmt} → {w.endFmt}</div>}
         {timing && <div style={{fontSize:18,fontWeight:800,color:timing.col}}>{timing.t}</div>}
@@ -164,7 +164,7 @@ function DaytimeCard({ g }) {
   const { s, w, lure } = g.daytime;
   return (
     <Card kicker="Si tu pêches en plein jour" title={`${s.name} · ${w.startFmt} → ${w.endFmt}`}
-      right={<span style={{fontSize:20,fontWeight:800,color:scoreColor(w.score),...num}} title="Note de ce créneau">{fr(w.score)}</span>}>
+      right={<span style={{fontSize:20,fontWeight:800,color:scoreColor(w.score, true, w.verify?.length),...num}} title="Note de ce créneau">{fr(w.score)}</span>}>
       <div style={{display:"grid",gap:5,fontSize:14.5}}>
         <div>{w.label}</div>
         <div><span style={{color:C.muted}}>Leurre · </span>{lure.pick ? `${lure.pick.name}${lure.pick.color.named ? ` ${lure.pick.color.name}` : ""}` : lure.best.court}</div>
@@ -227,7 +227,7 @@ export function WeekTrend({ g }) {
           const d = new Date(r.date + "T12:00");
           const sel = r.date === g.selectedDate;
           const v = r.s ? r.s.score : null;
-          const col = v != null ? scoreColor(v) : C.faint;
+          const col = v != null ? scoreColor(v, true, r.s?.verify?.length) : C.faint;
           const star = starred.has(r.date);
           const label = `${long(r.date)} : ${r.s ? `${r.s.name}, note ${fr(v)}${r.w ? `, ${r.w.startFmt} à ${r.w.endFmt}` : ""}${Number.isFinite(r.nGood) ? `, ${r.nGood} spot${r.nGood > 1 ? "s" : ""} au vert sur ${r.nSpots}` : ""}${star ? ", meilleur jour" : ""}` : (r.err || "aucun créneau praticable")}`;
           return (
@@ -263,7 +263,7 @@ export function WeekTrend({ g }) {
                   <>
                     <span style={{flex:1,minWidth:0,fontSize:14,lineHeight:1.35}}>{starred.has(r.date) && <span style={{color:C.warn}}>★ </span>}<b style={{color:C.strong}}>{r.s.name}</b>{r.w ? <span style={{color:C.muted}}> · {r.w.startFmt} → {r.w.endFmt}{r.w.light && LIGHT_ICON[r.w.light.band] ? ` ${LIGHT_ICON[r.w.light.band]}` : ""}</span> : ""}{r.s.dangerLevel === 3 ? <span style={{color:C.bad}}> · ⚠ engagé</span> : ""}{r.noKill ? <span style={{color:C.warn}}> · no-kill</span> : ""}
                       {Number.isFinite(r.nGood) && <span style={{display:"block",fontSize:12.5,color:C.muted,...num}}>{r.nGood} spot{r.nGood > 1 ? "s" : ""} au vert sur {r.nSpots}{r.factors?.plus.length ? ` · ${r.factors.plus.map((p) => p.label).join(", ")}` : ""}</span>}</span>
-                    <span style={{fontSize:17,fontWeight:800,color:scoreColor(r.s.score),...num}}>{fr(r.s.score)}</span>
+                    <span style={{fontSize:17,fontWeight:800,color:scoreColor(r.s.score, true, r.s.verify?.length),...num}}>{fr(r.s.score)}</span>
                   </>
                 ) : <span style={{flex:1,fontSize:14,color:C.muted}}>{r.err || "Aucun créneau praticable"}</span>}
               </button>
@@ -329,7 +329,7 @@ export function Synthese({ g }) {
           {verdict.next.map((n, i) => (
             <button key={n.s.id} onClick={() => g.goToSpot(n.s.id)} style={{display:"flex",width:"100%",justifyContent:"space-between",alignItems:"center",gap:10,padding:"10px 0",border:"none",borderTop:i ? `1px solid ${C.line2}` : "none",background:"none",color:C.text,cursor:"pointer",textAlign:"left"}}>
               <span style={{minWidth:0}}><b style={{color:C.strong,fontSize:15}}>#{i + 2} {n.s.name}</b><br/><span style={{fontSize:13.5,color:C.muted}}>{n.w ? `${n.w.startFmt} → ${n.w.endFmt} · ` : ""}{n.s.distance}</span></span>
-              <span style={{fontSize:20,fontWeight:800,color:scoreColor(n.s.score),...num}}>{fr(n.s.score)}</span>
+              <span style={{fontSize:20,fontWeight:800,color:scoreColor(n.s.score, true, n.s.verify?.length),...num}}>{fr(n.s.score)}</span>
             </button>
           ))}
           <GoLink onClick={() => g.goTab("spots")}>Classement complet et carte</GoLink>

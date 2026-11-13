@@ -172,7 +172,8 @@ export const FC_MAP = { wind_speed_10m: "wind", wind_direction_10m: "dir", wind_
 export const MA_MAP = { wave_height: "wave", wave_direction: "wdir", wave_period: "wper", swell_wave_height: "swell",
                  sea_surface_temperature: "sst" };
 /** Recopie dans `ser` les valeurs absentes, heure par heure (alignement par horodatage). */
-export function fillFrom(ser, loc, map, srcLabel) {
+// stats (facultatif) : { compared } compte les valeurs gardées comme second avis (vent de comparaison).
+export function fillFrom(ser, loc, map, srcLabel, stats = null) {
   const h = loc?.hourly; if (!h?.time) return 0;
   const idx = new Map(ser.t.map((t, i) => [t, i]));
   let filled = 0;
@@ -183,7 +184,7 @@ export function fillFrom(ser, loc, map, srcLabel) {
       const v = h[k]?.[j];
       if (v == null || !Number.isFinite(v)) continue;
       if (ser[dst][i] == null) { ser[dst][i] = dst === "dir" || dst === "wdir" || dst === "cloud" ? Math.round(v) : r1(v); any = true; }
-      else if ((dst === "wind" || dst === "dir") && ser[dst + "2"] && ser[dst + "2"][i] == null && srcLabel) ser[dst + "2"][i] = dst === "dir" ? Math.round(v) : r1(v);
+      else if ((dst === "wind" || dst === "dir") && ser[dst + "2"] && ser[dst + "2"][i] == null && srcLabel) { ser[dst + "2"][i] = dst === "dir" ? Math.round(v) : r1(v); if (stats) stats.compared++; }
     }
     if (any) { filled++; if (srcLabel && ser.src[i] == null) ser.src[i] = srcLabel; }
   });
@@ -330,11 +331,17 @@ export async function fetchRaw(startISO, endISO, refISO) {
 
   // 3. Fusion par point, alignée sur les horodatages du premier modèle valide.
   const series = {};
-  const modelsUsed = new Set();
+  const modelsUsed = new Set(), modelsCompared = new Set();
   pts.forEach((pt, i) => {
     const times = ok[0].locs[i]?.hourly?.time || [];
     const ser = emptySeries(times);
-    for (const run of ok) { if (fillFrom(ser, run.locs[i], FC_MAP, run.m.label)) modelsUsed.add(run.m.label); }
+    // Phase 4 — Un modèle qui ne fournit que le vent de comparaison (ECMWF quand AROME couvre tout) est nommé
+    // aussi : la source affichée dit ce qui a vraiment servi.
+    for (const run of ok) {
+      const st = { compared: 0 };
+      if (fillFrom(ser, run.locs[i], FC_MAP, run.m.label, st)) modelsUsed.add(run.m.label);
+      else if (st.compared) modelsCompared.add(run.m.label);
+    }
     const g = ok[0].locs[i];
     ser.cellKm = g?.latitude != null ? r1(kmBetween(pt, { lat: g.latitude, lon: g.longitude })) : null;
     const mloc = marine?.[i];
@@ -345,7 +352,8 @@ export async function fetchRaw(startISO, endISO, refISO) {
     series[pt.key] = ser;
   });
 
-  return { series, modelsUsed: [...modelsUsed], failures, marineOk: !!marine, marineFail, ageDays };
+  const used = [...modelsUsed];
+  return { series, modelsUsed: used, modelsCompared: [...modelsCompared].filter((m) => !used.includes(m)), failures, marineOk: !!marine, marineFail, ageDays };
 }
 /** Copie d'une série restreinte à [t0, t1] (ms) — pour mettre un jour en cache sans toute la semaine. */
 export function sliceSeries(series, t0, t1) {
@@ -404,9 +412,9 @@ export function deriveDay(raw, dateISO, { sliced = false } = {}) {
     pressure: p12 != null ? Math.round(p12) : (day.p != null ? Math.round(day.p) : null),
     pressure_trend: pressureTrendOf(delta), pressure_delta_24h: delta,
     sst, sst_confidence: sst != null ? "modele" : "inconnue",
-    source_meteo: `Open-Meteo · ${raw.modelsUsed.join(" + ") || "modèle"}`,
+    source_meteo: `Open-Meteo · ${raw.modelsUsed.join(" + ") || "modèle"}${raw.modelsCompared?.length ? ` · vent comparé à ${raw.modelsCompared.join(" + ")}` : ""}`,
     source_sst: sst != null ? "Open-Meteo Marine" : "",
-    models: raw.modelsUsed,
+    models: raw.modelsUsed, modelsCompared: raw.modelsCompared || [],
     warnings: [
       ...(failures.length ? [`Modèle indisponible, relais utilisé : ${failures.join(" ; ")}`] : []),
       ...(!marine && ageDays <= 80 ? [`Houle et température d'eau indisponibles (${marineFail.join(" ; ") || "pas de réponse"}).`] : []),

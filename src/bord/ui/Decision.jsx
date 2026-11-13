@@ -11,7 +11,8 @@ const SKY = {
   jour: ["#0c4a6e", "#0369a1", "#7dd3fc"], nuit: ["#020617", "#0b1530", "#1e3a5f"], inconnu: ["#0c4a6e", "#075985", "#38bdf8"],
 };
 /** Libellé de la note (mêmes seuils que les couleurs : 7 et 5). */
-export const conditionLabel = (score) => (score >= 8 ? "Très bonnes conditions" : score >= 7 ? "Bonnes conditions" : score >= 5 ? "Conditions moyennes" : "Conditions difficiles");
+// Phase 4 — Un spot « à vérifier » ne s'annonce jamais en « bonnes conditions ».
+export const conditionLabel = (score, verify) => (verify?.length ? "Conditions à vérifier" : score >= 8 ? "Très bonnes conditions" : score >= 7 ? "Bonnes conditions" : score >= 5 ? "Conditions moyennes" : "Conditions difficiles");
 /** « ce soir », « demain matin », « jeudi après-midi »… d'après le début du créneau. */
 export function whenLabel(startDecimal, dateISO, todayISO) {
   const h = Number.isFinite(startDecimal) ? ((startDecimal % 24) + 24) % 24 : 12;
@@ -62,7 +63,7 @@ export function DecisionHero({ g, timing, toggle }) {
       <div style={{position:"relative",padding:"16px 16px 15px",display:"flex",flexDirection:"column",justifyContent:"flex-end",minHeight:196,boxSizing:"border-box"}}>
         <div style={{fontSize:12.5,fontWeight:700,letterSpacing:"0.08em",textTransform:"uppercase",color:"#bae6fd",textShadow:"0 1px 2px #0008"}}>{w?.light?.label || "Meilleur créneau"}</div>
         <h2 id="hero-h" style={{margin:"3px 0 0",fontSize:"clamp(23px, 6.6vw, 28px)",lineHeight:1.12,fontWeight:850,color:"#fff",textWrap:"balance",textShadow:"0 2px 10px #000a"}}>
-          {conditionLabel(s.score)} {whenLabel(w?.startDecimal, g.selectedDate, g.todayISO)}
+          {conditionLabel(s.score, s.verify)} {whenLabel(w?.startDecimal, g.selectedDate, g.todayISO)}
         </h2>
         {w && <div style={{marginTop:6,fontSize:15.5,color:"#e2e8f0",textShadow:"0 1px 4px #000c",...num}}>
           Meilleure fenêtre <b style={{color:"#fff"}}>{w.startFmt} → {w.endFmt}</b> à <b style={{color:"#fff"}}>{s.name}</b></div>}
@@ -135,7 +136,7 @@ export function CompareCard({ g }) {
         <span/>
         {rows.map((r, i) => (
           <button key={r.s.id} onClick={() => g.goToSpot(r.s.id)} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:4,minWidth:0,border:"none",background:"none",color:C.text,cursor:"pointer",padding:0}}>
-            <ScoreRing score={r.s.score} size={54} label=""/>
+            <ScoreRing score={r.s.score} size={54} label="" verify={!!r.s.verify?.length}/>
             <span style={{fontSize:13.5,fontWeight:750,color:C.strong,textAlign:"center",lineHeight:1.2,overflow:"hidden",display:"-webkit-box",WebkitLineClamp:2,WebkitBoxOrient:"vertical",maxWidth:"100%"}}>
               {i === 0 ? "★ " : ""}{r.s.name}</span>
             <span style={{fontSize:12,color:C.muted,...num}}>{r.w ? `${r.w.startFmt}–${r.w.endFmt}` : ""}</span>

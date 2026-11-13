@@ -127,6 +127,9 @@ globalThis.fetch = mockFetch("aromefull");
 const D = await E.fetchLive("2026-10-25");
 const iD12 = E.idxAt(D.series._base, E.msAtLocal("2026-10-25", 12));
 t("25/10 : midi local = 11 h UTC (heure d'hiver)", D.series._base.t[iD12] === Date.parse("2026-10-25T11:00:00Z") / 1000);
+// Phase 4 — AROME couvre toutes les heures : ECMWF ne sert qu'au vent de comparaison, et la source le dit.
+t("source affichée : AROME, vent comparé à ECMWF (le second modèle n'est plus passé sous silence)",
+  D.models.join() === "AROME" && D.modelsCompared.join() === "ECMWF" && D.source_meteo === "Open-Meteo · AROME · vent comparé à ECMWF", `${D.source_meteo}`);
 const iD2 = E.idxAt(D.series._base, E.msAtLocal("2026-10-25", 1)), iD4 = E.idxAt(D.series._base, E.msAtLocal("2026-10-25", 4));
 t("25/10 : 1 h → 4 h locales = 4 h de temps réel (heure répétée)", (D.series._base.t[iD4] - D.series._base.t[iD2]) === 4 * 3600);
 
@@ -992,6 +995,50 @@ if (E.SITE.id === "pirou-plage") {
   bad("sécurité : conditions « when » reconnues", (s) => (s.securite || []).every((r) => !r.when || Object.keys(r.when).every((k) => ["coefAbove", "phase"].includes(k))));
 }
 
+// ── Phase 4 — Sécurité : le vent, les rafales et la houle inconnue (demande de Félix, 13 nov. 2026) ──
+{
+  const sp = E.SPOTS.find((s) => s.dangerLevel < 3 && E.SITE.zones[s.zone]?.sea !== "rade") || E.SPOTS[0];
+  const rade = E.SPOTS.find((s) => E.SITE.zones[s.zone]?.sea === "rade");
+  const win = { ...sp.tidalRules.windows[0], coeff: 70, light: { band: "aube", label: "Aube" } };
+  const zw0 = { wind_dir: "E", wind_force: 2, wind_kmh: 9, gust_kmh: null, houle: 0.5, houleKnown: true, sky: "partly", cloud: 50 };
+  const ctx = (zw) => ({ zw: { ...zw0, ...zw }, coeff: 70, pressure: 1015, pressureTrend: "stable", sst: 15, sstConf: "modele", calib: {}, month: 9 });
+  const sw = (s, zw) => E.scoreWindow(s, { ...s.tidalRules.windows[0], coeff: 70, light: { band: "aube", label: "Aube" } }, ctx(zw));
+  const calm = E.scoreWindow(sp, win, ctx({}));
+  t("sécurité : par temps calme, rien à vérifier", calm.eligible && calm.verify.length === 0);
+  const f8 = sw(sp, { wind_force: 8, wind_kmh: 68 });
+  t("sécurité : coup de vent (force 8) → spot non recommandé", f8.eligible === false && f8.blocked === true && /Coup de vent : force 8/.test(f8.reason), f8.reason);
+  const g90 = sw(sp, { gust_kmh: 90 });
+  t("sécurité : rafales à 90 km/h → spot non recommandé, même par vent moyen faible", g90.eligible === false && /Rafales à 90 km\/h/.test(g90.reason), g90.reason);
+  const f7 = sw(sp, { wind_force: 7, wind_kmh: 55 });
+  t("sécurité : grand frais (force 7) → proposé mais à vérifier", f7.eligible && f7.verify.some((v) => v.k === "vent") && /À vérifier/.test(f7.reason), f7.reason);
+  const g75 = sw(sp, { gust_kmh: 75 });
+  t("sécurité : rafales à 75 km/h → à vérifier", g75.eligible && g75.verify.some((v) => v.k === "rafales"));
+  const g74 = sw(sp, { gust_kmh: 74 });
+  t("sécurité : rafales à 74 km/h → pas de doute de sécurité (seuil 75)", g74.eligible && !g74.verify.some((v) => v.k === "rafales"));
+  const hu = sw(sp, { houle: 0, houleKnown: false });
+  t("houle inconnue en côte ouverte : à vérifier, jamais 0 m silencieux", hu.eligible && hu.verify.some((v) => v.k === "houle") && /houle inconnue/.test(hu.reason), hu.reason);
+  if (rade) { const hr = sw(rade, { houle: 0, houleKnown: false }); t("houle inconnue en rade : pas de doute (mer du vent calculée sur place)", hr.eligible === false || !hr.verify.some((v) => v.k === "houle")); }
+  // Les notes ne changent pas : le doute n'est pas une pénalité cachée, c'est un état affiché.
+  t("à vérifier : la note reste celle des conditions (rien de caché dans la note)", f7.rawScore === E.scoreWindow(sp, win, ctx({ wind_force: 7, wind_kmh: 55 })).rawScore && hu.rawScore === E.scoreWindow(sp, win, ctx({ houle: 0, houleKnown: true })).rawScore);
+  // Classement : un spot à vérifier passe après un spot sans doute, même mieux noté.
+  const a = { id: "a", eligible: true, robust: 8.5, verify: [{ k: "houle", t: "houle inconnue" }] }, b = { id: "b", eligible: true, robust: 6.0, verify: [] };
+  t("classement : un spot à vérifier passe après un spot sans doute", [a, b].sort(E.rankCompare)[0].id === "b");
+  t("« au vert » : un spot à vérifier n'est jamais compté", E.countGood([{ eligible: true, score: 8.5, verify: [{ k: "vent" }] }, { eligible: true, score: 7.2, verify: [] }]) === 1);
+  // Dans une journée : le créneau sans doute est retenu avant un créneau à vérifier mieux noté.
+  const wA = { ...win, id: "wA" }, wB = { ...win, id: "wB", priority: "bon" };
+  const day = E.scoreSpot(sp, { wins: [{ ...wA, zw: { ...zw0, wind_force: 7, wind_kmh: 55 } }, { ...wB, zw: { ...zw0 } }], ...ctx({}) });
+  t("journée : le créneau sans doute passe avant le créneau à vérifier", day.eligible && day.bestWindowId === "wB" && day.verify.length === 0, `${day.bestWindowId}`);
+  // Indicateur de sécurité : les rafales y figurent.
+  const s90 = E.safetyOf(sp, { zw: { ...zw0, gust_kmh: 92 }, light: win.light }), s75 = E.safetyOf(sp, { zw: { ...zw0, gust_kmh: 78 }, light: win.light });
+  t("indicateur de sécurité : rafales de tempête → alerte ; fortes rafales → prudence", s90.level === "alerte" && s75.level === "prudence" && s75.items.some((i) => /Rafales à 78 km\/h/.test(i.t)));
+  t("seuils de vent écrits une seule fois, avec leur source", E.WIND_LIMITS.blockForce === 8 && E.WIND_LIMITS.blockGust === 90 && E.WIND_LIMITS.doubtForce === 7 && E.WIND_LIMITS.doubtGust === 75 && /Météo-France/.test(E.SRC_WIND));
+  if (label === "logonna") {
+    const mm = E.SPOTS.find((s) => s.id === "moulinmer");
+    const r = sw(mm, { wind_dir: "NE", wind_force: 9, wind_kmh: 81, gust_kmh: 85 });
+    t("cas de la phase 1 : Moulin Mer, NE force 9, rafales 85 km/h → non recommandé", r.eligible === false && /Coup de vent/.test(r.reason), r.reason);
+  }
+}
+
 // ── 16 octies. v8.9 : le README liste exactement les fichiers à déposer ──
 {
   const { SITE_FILES } = await import(path.join(root, "scripts/sites.mjs"));
@@ -1035,8 +1082,9 @@ if (E.SITE.id === "pirou-plage") {
   const winOf = (sp) => ({ ...E.computeWindows(sp, E.tideDay(D, sp.tidePort || E.SITE.tide.defaultPort).events)[0], light: { band: "jour", label: "Jour" } });
   if (eng) t(`houle : ${eng.name} (engagé) plus proposé dès ${eng.houleMax} m + 0,2`, E.scoreWindow(eng, winOf(eng), ctxH(eng, eng.houleMax + 0.2)).eligible === false);
   if (mod) t(`houle : ${mod.name} (non engagé) encore noté à sa houle max + 0,2, plus au-delà de + 0,5`, E.scoreWindow(mod, winOf(mod), ctxH(mod, mod.houleMax + 0.2)).eligible !== false && E.scoreWindow(mod, winOf(mod), ctxH(mod, mod.houleMax + 0.6)).eligible === false);
-  // Note négative : la saison et le journal ne la remontent plus.
-  const gale = (m, calib = {}) => E.scoreWindow(sp0, { ...wins0[0], light: { band: "jour", label: "Jour" } }, { zw: { wind_dir: E.DIR16[Math.round((sp0.exposedAngles[0] || 0) / 22.5) % 16], wind_force: 9, wind_kmh: 80, gust_kmh: 110, houle: 0.1, houleKnown: true, sky: "clear", cloud: 0 },
+  // Note négative : la saison et le journal ne la remontent plus. Phase 4 : avec un grand frais (force 7), le coup de
+  // vent (force 9) retirant désormais le spot.
+  const gale = (m, calib = {}) => E.scoreWindow(sp0, { ...wins0[0], light: { band: "jour", label: "Jour" } }, { zw: { wind_dir: E.DIR16[Math.round((sp0.exposedAngles[0] || 0) / 22.5) % 16], wind_force: 7, wind_kmh: 55, gust_kmh: 74, houle: 0.1, houleKnown: true, sky: "clear", cloud: 0 },
     pressure: 990, pressureTrend: "falling_fast", sst: 15, sstConf: "ok", calib, coeff: 120, month: m });
   const g1 = gale(1), g7 = gale(7);
   if (g1.eligible && g7.eligible && g7.rawScore < 0) t("note négative : l'hiver ne la remonte pas (janvier ≤ juillet)", g1.rawScore <= g7.rawScore, `${g1.rawScore} / ${g7.rawScore}`);

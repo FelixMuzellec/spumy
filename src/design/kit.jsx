@@ -11,7 +11,8 @@ export const C = {
 };
 export const FONT = font.family;
 export const num = font.numbers;
-export const scoreColor = (v, eligible = true) => (!eligible ? C.faint : v >= scoreBands.good ? C.good : v >= scoreBands.fair ? C.warn : C.muted);
+// Phase 4 — verify : spot ou créneau « à vérifier » (vent, rafales, houle inconnue) : jamais vert, quelle que soit la note.
+export const scoreColor = (v, eligible = true, verify = false) => (!eligible ? C.faint : verify ? C.warn : v >= scoreBands.good ? C.good : v >= scoreBands.fair ? C.warn : C.muted);
 export const fr = (x, d = 1) => (x == null || !Number.isFinite(+x) ? "–" : (+x).toFixed(d).replace(".", ","));
 
 /** Carte : un titre court, un contenu. */
