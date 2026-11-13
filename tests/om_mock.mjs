@@ -46,7 +46,11 @@ export function omRespond(urlStr, scenario = "nominal") {
           case "wind_direction_10m": return Math.round((200 + 5 * hr + i * 7) % 360);
           case "cloud_cover": return Math.round(55 + 40 * Math.sin(2 * Math.PI * hr / 24));
           case "precipitation": return hr >= 14 && hr <= 16 ? 0.6 : 0;
-          case "pressure_msl": return +(1018 - 0.1 * ((t - T0) / 3600)).toFixed(1);   // fonction du temps absolu
+          // Fonction du temps absolu : −0,1 hPa par heure (−2,4 hPa en 24 h → « en baisse »), en dents de scie sur
+          // 25 jours pour rester plausible (970 à 1030 hPa) quel que soit le jour du test. Avant cela, la pression
+          // baissait sans fin depuis le 9 octobre et sortait de la plage réaliste à partir du 7 novembre 2026.
+          // Valeurs inchangées du 4 au 29 octobre (date des tests unitaires : 10 octobre).
+          case "pressure_msl": { const h = (t - T0) / 3600; return +(1018 - 0.1 * ((((h + 120) % 600) + 600) % 600 - 120)).toFixed(1); }
           case "temperature_2m": return +(13 + 4 * day).toFixed(1);
           case "wave_height": return +(1.1 + 0.3 * day + (inRade ? 1.5 : 0)).toFixed(2);
           case "wave_direction": return 260;
