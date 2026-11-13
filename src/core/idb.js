@@ -26,4 +26,5 @@ const tx = async (mode, fn) => {
 };
 export async function idbGet(k) { try { return await tx("readonly", (s) => s.get(k)); } catch { return mem.has(k) ? mem.get(k) : null; } }
 export async function idbSet(k, v) { try { await tx("readwrite", (s) => s.put(v, k)); return true; } catch { mem.set(k, v); return false; } }
+export async function idbKeys() { try { return (await tx("readonly", (s) => s.getAllKeys())) || []; } catch { return [...mem.keys()]; } }
 export async function idbDel(k) { try { await tx("readwrite", (s) => s.delete(k)); } catch { /* repli */ } mem.delete(k); }

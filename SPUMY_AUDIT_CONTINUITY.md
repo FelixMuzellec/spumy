@@ -102,6 +102,20 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 - « APPROVED — PROCEED TO PHASE 5. Tu peux fusionner, si après la revue finale tu penses que la version remplit parfaitement le cahier des charges. » Lu comme : fusion des phases 3 et 4 après une revue finale stricte (voir « Revue finale »). La fusion de la phase 5 sera proposée dans son rapport.
 - Espèces (décision 6) non tranchées : la phase 5 part de la recommandation de la phase 2, le bar d'abord.
 
+## Adresse propre (13 nov. 2026, 16 h 33 et 19 h 10)
+
+Consigne de Félix : « une organisation GitHub gratuite « spumy », qui donne `spumy.github.io` […] mais ne pas perdre les informations du journal enregistrées dans le guide du bar. Une fois celles-ci intégrées, il n'y aura aucun lien entre guide de pêche du bar et Spumy. » Puis « Continue ton travail ». Décision 1 (adresse dédiée) : **organisation `spumy`**, dépôt renommé `spumy.github.io`.
+
+- Fait par Claude (branche `claude/transfert-spumy`) : transfert de toutes les données par fichier (*Réglages → Toutes mes données*) ; dépôt de sauvegarde par défaut `spumy/journal` ; tests servis à la racine ; passage v8.15 retiré de l'intégration continue ; marche à suivre dans le `README`.
+- À faire par Félix, l'API GitHub refusant ces actions à Claude :
+    1. Pages temporaire sur `FelixMuzellec/spumy`, pour enregistrer le fichier à l'ancienne origine.
+    2. Créer l'organisation.
+    3. Transférer et renommer le dépôt.
+    4. Activer Pages.
+    5. Importer le fichier sur le téléphone.
+    6. Créer le dépôt `journal` et son jeton.
+- Après le transfert, l'accès de Claude au dépôt passe par son nouveau nom (`spumy/spumy.github.io`) : il faudra le rattacher à la session.
+
 ## Prochaine action
 
 Fusionner `claude/phase-4-bord` (phases 3 et 4, revue finale comprise) dans `main` une fois GitHub vert sur le commit exact, puis phase 5 sur `claude/phase-5-halieutique`. Rien n'est mis en ligne sans la décision 1.

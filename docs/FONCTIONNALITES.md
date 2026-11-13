@@ -98,10 +98,19 @@ La date de prise de vue est lue dans la photo (EXIF) ; la marée (phase, hauteur
 
 Le journal est enregistré dans le navigateur. Pour qu'il ne se perde jamais et qu'il soit partagé entre appareils, il peut aussi être écrit dans un dépôt GitHub **privé** :
 
-1. Crée un dépôt privé `guide-peche-bar-journal`.
+1. Crée un dépôt privé `journal` dans l'organisation `spumy` (réglage par défaut ; un dépôt de ton compte convient aussi : change alors « Compte »).
 2. GitHub → Settings → Developer settings → Fine-grained tokens → Generate. Donne-lui l'accès au seul dépôt du journal, avec la permission *Contents : Read and write*.
 3. Dans l'application, ouvre **Réglages** (bandeau du bas) et colle le jeton. Il reste sur l'appareil.
 
 Depuis le lot 3.8, l'application vérifie que le dépôt est bien privé avant d'y écrire : s'il est public, rien n'est envoyé, un message le dit, et le journal reste sur le téléphone.
 
 Tes spots ajoutés sur le téléphone sont sauvegardés à côté, un fichier par guide (`spots-logonna-daoulas.json`…). Chaque guide écrit son propre fichier de journal (`journal-logonna-daoulas.json`, `journal-pirou-plage.json`, `journal-plouguerneau.json`, `journal-audierne.json`, `journal-carantec.json`, `journal-concarneau.json`, `journal-crozon.json`). La fusion se fait sans perte : une session n'est jamais supprimée.
+
+## Toutes mes données (changer d'adresse ou de téléphone)
+
+Le navigateur range les données par adresse et par téléphone. *Réglages → Toutes mes données* :
+
+- **Enregistrer toutes mes données** télécharge un fichier `spumy-donnees-AAAA-MM-JJ.json`. Il contient le journal de chaque guide, tes spots, ta boîte, tes réglages, tes sorties en bateau et tes analyses photo. Il ne contient jamais le jeton GitHub, la clé Claude, l'état de la sauvegarde ni la météo en cache.
+- **Importer un fichier de données** ajoute son contenu à l'appareil, sans rien écraser. Sessions, spots, sorties et analyses s'additionnent (union par identifiant) ; un réglage déjà présent est gardé. Importer deux fois le même fichier n'ajoute rien.
+
+Un fichier de journal d'un seul guide (onglet *Journal → Exporter*) s'importe dans l'onglet *Journal* de ce guide : le transfert le reconnaît et le dit.
