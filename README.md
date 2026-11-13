@@ -21,7 +21,21 @@ Elle s'ouvre dans le navigateur du téléphone et s'installe sur l'écran d'accu
 
 Une fois ouverte, elle fonctionne hors ligne : l'accueil et les sept guides sont mis en cache dès la première visite (recherche comprise), la marée est calculée sur l'appareil, et la dernière météo téléchargée reste affichée.
 
-Adresse de publication prévue : GitHub Pages de ce dépôt (*Settings → Pages*). Au 13 novembre 2026, Pages n'y est pas activé (API GitHub) : fusionner dans `main` ne met donc rien en ligne tant qu'il ne l'est pas. L'ancienne adresse du projet était <https://felixmuzellec.github.io/guide-peche-bar/>.
+Adresse : **<https://spumy.github.io/>**, celle de l'organisation GitHub gratuite « spumy » (choix de Félix, 13 novembre 2026). Le dépôt y porte le nom `spumy.github.io` et GitHub Pages publie la branche `main`, à la racine. SPUMY n'a aucun lien avec l'ancien guide : ni adresse, ni stockage, ni dépôt de sauvegarde communs.
+
+### Passer à la nouvelle adresse (une fois)
+
+Le navigateur range les données par adresse : le journal enregistré à l'ancienne adresse n'apparaît pas tout seul à la nouvelle. Le transfert se fait par un fichier, une fois.
+
+1. **Ouvrir temporairement ce dépôt à l'ancienne adresse** : *Settings → Pages → Deploy from a branch → `main` / (root)*. Le site s'ouvre à `https://felixmuzellec.github.io/spumy/`, à la même origine que l'ancien guide : il voit donc tout ce que l'ancien guide a enregistré sur le téléphone.
+2. **Sur le téléphone**, ouvrir cette adresse, puis un guide → *Réglages* → **« Enregistrer toutes mes données »**. Le fichier `spumy-donnees-AAAA-MM-JJ.json` est enregistré dans les téléchargements. Il contient le journal de chaque guide, tes spots, ta boîte, tes réglages et tes analyses photo, mais ni le jeton GitHub ni la clé Claude.
+3. **Créer l'organisation** « spumy » : <https://github.com/account/organizations/new>, offre gratuite (*Free*).
+4. **Transférer ce dépôt** dans l'organisation : *Settings → General → Danger Zone → Transfer ownership → spumy*. Le renommer ensuite `spumy.github.io` (*Settings → General → Repository name*).
+5. **Activer Pages** sur le dépôt transféré : *Settings → Pages → Deploy from a branch → `main` / (root)*. Le site s'ouvre à `https://spumy.github.io/` après une à deux minutes.
+6. **Sur le téléphone**, ouvrir `https://spumy.github.io/`, puis un guide → *Réglages* → **« Importer un fichier de données »** → choisir le fichier de l'étape 2. Rien n'est écrasé ; recharger. Installer l'application depuis l'accueil.
+7. **Sauvegarde du journal** : créer un dépôt **privé** `journal` dans l'organisation, un jeton limité à ce seul dépôt (*Contents : Read and write*), puis le renseigner dans *Réglages*. L'ancien dépôt de sauvegarde n'est plus utilisé.
+
+L'ancienne application peut ensuite être désinstallée : plus rien ne la relie à SPUMY. Seul le journal d'un guide (onglet *Journal → Exporter / Importer*) peut aussi passer d'une adresse à l'autre, guide par guide ; le fichier « toutes mes données » est plus simple et plus complet.
 
 ## État des fonctionnalités
 
@@ -80,7 +94,7 @@ Depuis la v8.4, `logonna-manifest.json` et `pirou-manifest.json` ne servent plus
 
 - **Politique de sécurité du contenu (CSP)** dans chaque page : seul `app.js`, fichier du site lui-même (`'self'`), s'exécute ; les pages des guides n'ont aucun script en ligne, l'accueil n'en a qu'un, autorisé par son empreinte SHA-256 (calculée à la construction). Un script injecté ne s'exécute pas. L'accueil ne se connecte qu'à Open-Meteo et (v8.15, sauvegarde des sorties en bateau) à l'API GitHub. Les connexions sont limitées à Open-Meteo, à l'API GitHub (journal) et à l'API d'Anthropic (photos) ; les images aux tuiles OpenStreetMap. Un test de bout en bout vérifie qu'une injection est bloquée, qu'un envoi vers un domaine inconnu l'est aussi, et qu'aucun parcours normal ne déclenche de violation.
 - La clé API Anthropic et le jeton GitHub restent sur l'appareil et ne partent que vers leur service. Depuis le lot 3.8, la clé API n'est gardée que le temps de la session (oubliée à la fermeture de l'application), sauf si tu coches « Garder la clé sur ce téléphone ». La sauvegarde GitHub refuse d'écrire dans un dépôt public. Le jeton GitHub conseillé est limité au seul dépôt du journal ; ne mets qu'un petit crédit sur la clé API.
-- **Origine partagée** : le stockage du navigateur appartient à l'origine `felixmuzellec.github.io`, commune à **tous** les sites GitHub Pages du compte. Une autre page publiée sur ce compte pourrait lire la clé et le jeton. Ne publie sur ce compte que des pages de confiance (ou garde le jeton à portée minimale, comme indiqué plus bas).
+- **Origine propre** : à `spumy.github.io`, le stockage du navigateur n'appartient qu'à SPUMY (et à un éventuel autre site de l'organisation, servi sous `spumy.github.io/<dépôt>/` : n'en publie pas d'autre). Le fichier « toutes mes données » ne contient ni la clé ni le jeton, mais il contient ton journal : garde-le pour toi.
 - Une entrée de journal reçue de GitHub ou importée est nettoyée champ par champ avant usage (types, identifiants, heure) ; si l'affichage plante malgré tout, un écran de secours permet d'exporter le journal brut, de couper la sauvegarde GitHub et de recharger.
 - Les fiches des spots et le catalogue des leurres ne sont jamais modifiés en place : les corrections faites sur le terrain produisent de nouvelles données (les tests gèlent les originaux pour le garantir).
 - Construction : esbuild 0.28 (correctif GHSA-67mh-4wv8-2f99) ; cible minimale Safari 15 (iOS 15), esbuild ne produisant plus de code sûr pour Safari 13 et 14.

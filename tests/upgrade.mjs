@@ -31,9 +31,8 @@ const newBuild = (fs.readFileSync(path.join(root, "sw.js"), "utf8").match(/guide
 
 let ROOT = OLD, FILES = new Set(oldFiles);
 const TYPES = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".json": "application/json", ".png": "image/png" };
-// Servi sous /spumy/, comme sur GitHub Pages (felixmuzellec.github.io/spumy/) : la portée du service worker est ce
-// dossier, et une autre adresse du même compte (/guide-peche-bar/) partage l'origine, donc le stockage et les caches.
-const PREFIX = "/spumy/";
+// Servi à la racine, comme sur GitHub Pages à l'adresse de l'organisation (spumy.github.io).
+const PREFIX = "/";
 const server = http.createServer((req, res) => {
   const full = decodeURIComponent(new URL(req.url, "http://x").pathname);
   if (!full.startsWith(PREFIX)) { res.writeHead(404); return res.end("404"); }
@@ -43,7 +42,7 @@ const server = http.createServer((req, res) => {
   fs.createReadStream(path.join(ROOT, p)).pipe(res);
 });
 await new Promise((r) => server.listen(8767, r));
-const BASE = "http://localhost:8767/spumy";
+const BASE = "http://localhost:8767";
 
 const results = [];
 const ok = (c, label) => { results.push([!!c, label]); console.log(`${c ? "✓" : "✗"} ${label}`); };
@@ -88,9 +87,6 @@ try {
   const jBefore = JSON.parse(before[jKey] || "[]");
   ok(jBefore.some((e) => e.lure === "Essai mise à jour"), `version publiée : session enregistrée (${jBefore.length} au journal, ${Object.keys(before).length} clés bar:*)`);
   const cachesBefore = await swCaches();
-  // Copie hors ligne d'une autre adresse du compte (même origine, même préfixe de cache) : elle doit survivre.
-  const FOREIGN = "guide-bar-0a0c1e2a0d4e";
-  await page.evaluate(async (k) => { const c = await caches.open(k); await c.put(new Request(`${location.origin}/guide-peche-bar/logonna.html`), new Response("ancienne adresse")); }, FOREIGN);
 
   // ── 2. Même adresse, nouvelle version ──
   ROOT = root; FILES = new Set(SITE_FILES);
@@ -122,9 +118,6 @@ try {
   const cachesAfter = await swCaches();
   ok(cachesAfter.includes(`guide-bar-${newBuild}`) && !cachesAfter.some((k) => cachesBefore.includes(k) && k !== `guide-bar-${newBuild}`),
     `cache hors ligne passé à la nouvelle version (${cachesBefore.join(", ")} → ${cachesAfter.join(", ")}, ${opens} ouverture${opens > 1 ? "s" : ""} de page après la mise à jour)`);
-
-  const foreign = await page.evaluate(async (k) => (await caches.has(k)) && !!(await (await caches.open(k)).match(`${location.origin}/guide-peche-bar/logonna.html`)), FOREIGN);
-  ok(foreign, "le cache hors ligne d'une autre adresse du compte (/guide-peche-bar/) n'est pas touché par la mise à jour");
 
   // ── 3. Hors ligne : un guide jamais ouvert depuis la mise à jour s'ouvre depuis le cache ──
   await ctx.setOffline(true);

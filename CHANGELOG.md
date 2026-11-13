@@ -1,5 +1,25 @@
 # Journal des versions
 
+## Non publié — adresse propre spumy.github.io et transfert de toutes les données (13 novembre)
+
+Demande de Félix : une organisation GitHub gratuite « spumy » (adresse `spumy.github.io`), sans perdre le journal enregistré dans l'ancien guide, puis plus aucun lien entre les deux.
+
+- **Toutes mes données** (*Réglages*) : « Enregistrer toutes mes données » télécharge un fichier qui contient :
+    - le journal de chaque guide, tes spots, ta boîte, tes réglages ;
+    - tes sorties en bateau et tes analyses photo.
+
+  « Importer un fichier de données » l'ajoute à l'appareil sans rien écraser : union par identifiant, réglages déjà présents gardés. Le jeton GitHub, la clé Claude et la météo en cache ne voyagent jamais. Un journal d'un seul guide est reconnu et renvoyé vers l'onglet *Journal*.
+- **Plus de lien avec l'ancien guide.**
+    - Sauvegarde par défaut : dépôt privé `journal` de l'organisation `spumy`, au lieu de `guide-peche-bar-journal`.
+    - Les tests servent le site à la racine, comme à `spumy.github.io`.
+    - Le passage depuis la v8.15 de l'ancien dépôt est retiré de l'intégration continue.
+    - Les commentaires et la documentation ne citent plus l'ancienne adresse. La marche à suivre (une fois) est dans le `README`.
+- **Noms internes gardés** : clés `bar:…` (le poisson), cache « guide-bar-… », base « guide-bar ». Ils ne relient SPUMY à rien. Les garder permet au transfert de lire les données de l'ancien guide à l'étape 2 de la marche à suivre.
+- **Tests**
+    - Parcours : 11 contrôles du transfert, entre deux téléphones simulés.
+    - Accessibilité : réglages ouverts, 0 violation.
+    - Mise à jour d'un téléphone, servie à la racine : 11/11.
+
 ## Non publié — revue finale des phases 3 et 4, avant fusion (13 novembre)
 
 Faite à la demande de Félix (« tu peux fusionner si, après la revue finale, la version remplit parfaitement le cahier des charges »).
