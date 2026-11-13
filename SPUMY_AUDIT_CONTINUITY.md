@@ -14,8 +14,9 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 2. Architecture cible | VALIDATED (6 nov. 2026, 22 h 59) | Document « SPUMY — Phase 2 : architecture cible » ; résumé dans `docs/ARCHITECTURE.md` |
 | 3. Socle technique | VALIDATED (13 nov. 2026, 3 h 57, « APPROVED — PROCEED TO PHASE 4 ») ; fusionnée dans `main` le 13 nov. (e743b10), pas en ligne | Branche `claude/phase-3-socle`, demande de fusion n° 1 ; rapport « SPUMY — Phase 3 : socle technique » https://claude.ai/artifact/NYumZHjRgLUa9jMQcBGXK9 |
 | 4. Audit BORD approfondi + corrections météo et sécurité demandées par Félix | VALIDATED (13 nov. 2026, 12 h 37, « APPROVED — PROCEED TO PHASE 5 ») ; revue finale puis fusion dans `main` le 13 nov. (e743b10, propositions n° 1 et n° 2), pas en ligne | Branche `claude/phase-4-bord` (partie de `claude/phase-3-socle`), demande de fusion n° 2 (brouillon) ; rapport « SPUMY — Phase 4 : audit BORD et corrections météo » https://claude.ai/artifact/LryzgD9Q9KbMNec91sMYNx |
-| 5. Connaissances halieutiques | TESTED, en attente de validation | Branche `claude/phase-5-halieutique` (à partir de `main` e743b10) ; rapport « SPUMY — Phase 5 : connaissances halieutiques » |
-| 6 à 17 | NOT STARTED | — |
+| 5. Connaissances halieutiques | VALIDATED (13 nov. 2026, 13 h 58, « APPROVED — PROCEED TO PHASE 6 ») ; non fusionnée (accord de fusion non donné) | Branche `claude/phase-5-halieutique`, demande de fusion n° 3 ; rapport « SPUMY — Phase 5 : connaissances halieutiques » https://claude.ai/artifact/BmTd9B29oPziqDZqh9n1cC |
+| 6. Conception du moteur BORD (spécification, sans code) | IMPLEMENTED, en attente de validation | Branche `claude/phase-6-conception`, demande de fusion n° 4 ; `docs/SPEC-MOTEUR-BORD-V2.md` ; rapport « SPUMY — Phase 6 : conception du moteur BORD » https://claude.ai/artifact/Fa93x9zkURzEdVRxRZy8Fj (copie : `docs/rapports/PHASE-6.md`) ; adresse propre `spumy.github.io` : transfert des données fusionné dans `main` (1f5c740, proposition n° 5), six étapes à faire par Félix |
+| 7 à 17 | NOT STARTED | — |
 
 ### Phase 4, lots
 
@@ -80,7 +81,7 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 
 ## Décisions ouvertes
 
-1. Adresse dédiée (organisation GitHub, nom de domaine ou statu quo) — ouverte depuis le lot 3.8.
+1. Adresse dédiée — **décidée le 13 nov. (14 h 25)** : organisation GitHub gratuite « spumy » (`spumy.github.io`), sans perdre le journal. Procédure : `docs/CHANGEMENT-ADRESSE.md` ; passage du journal testé (`npm run test:migration`). Création de l'organisation, transfert et activation de Pages : à faire par Félix.
 2. Profil pour le score de pertinence — avant la phase 6.
 3. Historique de sorties réelles comme référence — avant la phase 6.
 4. Gratuit et sans publicité ? — avant la phase 15.
@@ -116,6 +117,11 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 
 - Mise en ligne choisie : GitHub Pages sur `FelixMuzellec/spumy`, branche `main`, dossier racine (adresse https://felixmuzellec.github.io/spumy/). L'API Pages est bloquée pour Claude (proxy) : l'activation se fait par Félix dans *Settings → Pages* ; Claude vérifie ensuite le déploiement (dépôt `has_pages`, passage « pages-build-deployment »).
 
+## Consignes de Félix (13 nov. 2026, 13 h 58)
+
+- « APPROVED — PROCEED TO PHASE 6 ». Réponses aux décisions : seuils de vent **plus prudents** (à vérifier dès la force 6 ou des rafales de 60 km/h ; non recommandé dès la force 8 ou 90 km/h) ; **bar seul** ; profil = **inventaire complet de sa boîte**, que Félix fournira, pour que SPUMY conseille les meilleurs leurres et montages ; pastilles : **attendre la phase 7**.
+- Questions posées : pourquoi la même adresse que guide-peche-bar (réponse : même compte GitHub, donc même domaine felixmuzellec.github.io ; seule une organisation ou un domaine donne une adresse à part, décision 1) ; pourquoi seulement orange ou vert sur les pastilles (réponse : échelle sur 10 tassée, et orange = « moyen » ou « à vérifier » depuis la phase 4 ; corrigé par la spécification de la phase 6, appliqué en phase 7).
+
 ## Prochaine action
 
-Phase 5 terminée côté données et tests ; rapport « SPUMY — Phase 5 : connaissances halieutiques ». Attendre `APPROVED — PROCEED TO PHASE 6`. La fusion de la phase 5 dans `main` sera faite seulement avec l'accord de Félix ; rien n'est mis en ligne sans la décision 1.
+Phase 6 : spécification `docs/SPEC-MOTEUR-BORD-V2.md` rédigée, rapport de phase 6, arrêt. Attendre `APPROVED — PROCEED TO PHASE 7`. Fusion de la phase 5 : attendre l'accord de Félix.

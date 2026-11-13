@@ -1,5 +1,12 @@
 # Journal des versions
 
+## Non publié — phase 6, conception du moteur BORD v2 (spécification, sans code)
+
+Branche `claude/phase-6-conception`. L'application ne change pas.
+
+- **`docs/SPEC-MOTEUR-BORD-V2.md`** : circuit, données qualifiées, filtre de sécurité (seuils plus prudents choisis par Félix : à vérifier dès la force 6 ou des rafales de 60 km/h), favorabilité sur 100 (conditions × présence, fiche par critère), pertinence sur 100 tirée de l'inventaire de la boîte, confiance sur 100, données manquantes, pastilles (la sécurité ne passe plus par la couleur de la note), 16 scénarios de référence, plan Monte Carlo de la phase 8.
+- **Mesures de départ** : la note sur 10 est tassée (médiane 5,6 et maximum 8,8 sur 1 746 meilleurs créneaux du jour ; 9 et 10 jamais atteints) ; les seuils plus prudents mettent « à vérifier » 11 712 des 73 986 cas de la grille.
+
 ## Non publié — phase 5, connaissances halieutiques (BORD, bar)
 
 Branche `claude/phase-5-halieutique`. L'application ne change pas : la phase classe et source ce que le moteur sait du bar.
