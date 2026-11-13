@@ -1,0 +1,68 @@
+# À chaque proposition de modification (et à chaque fusion dans main) : reconstruit le site
+# depuis src/, vérifie qu'il est identique aux fichiers publiés, puis rejoue tous les tests.
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    runs-on: ubuntu-24.04   # Playwright 1.56 ne prend pas en charge Ubuntu 26.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run -s build
+      - name: Les fichiers publiés correspondent-ils aux sources ?
+        # Fichiers modifiés, ajoutés ou supprimés par la construction : la PR doit contenir le site reconstruit.
+        run: |
+          changes="$(git status --porcelain --untracked-files=all -- '*.html' '*.js' '*.json' '*.png' ':!tests/**' ':!node_modules/**')"
+          echo "$changes"
+          test -z "$changes"
+      - name: Contrôle du code
+        run: npm run -s lint
+      - name: Règles de couches (bord, bateau, commun, design)
+        run: npm run -s test:layers
+      - name: Fiches des sites (schéma, données pures, empreinte de chaque spot)
+        run: npm run -s test:data
+      - name: Tests unitaires (7 guides + fuseau Auckland)
+        run: npm run -s test:unit
+      - name: Parcours complets (Chromium)
+        run: npm run -s test:e2e
+      - name: Contrat Open-Meteo (simulé)
+        run: CONTRACT_MOCK=1 npm run -s test:contract
+      - name: Mise à jour d'un téléphone (version publiée → cette version)
+        run: |
+          git fetch --no-tags --depth=1 origin +refs/heads/main:refs/remotes/origin/main
+          npm run -s test:upgrade
+      # Revue finale des phases 3 et 4 : les téléphones peuvent encore avoir la v8.15 de l'ancienne adresse
+      # (dépôt guide-peche-bar, même origine felixmuzellec.github.io, donc même stockage). Version figée par son commit.
+      - name: Mise à jour depuis la v8.15 (ancienne adresse /guide-peche-bar/)
+        run: |
+          git fetch --no-tags --depth=1 https://github.com/FelixMuzellec/guide-peche-bar ecfe367dddba69d78637890961c2c0af9c90bb52:refs/remotes/gpb/v8.15
+          UPGRADE_FROM=gpb/v8.15 npm run -s test:upgrade
+      - name: Studio photo
+        run: npm run -s test:studio
+      - name: Accessibilité (axe-core)
+        run: npm run -s test:a11y
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: captures-e2e
+          path: tests/shots/
+          if-no-files-found: ignore

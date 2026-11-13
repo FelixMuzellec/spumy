@@ -1,0 +1,135 @@
+<title>SPUMY · analyse photo d'un spot</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Barlow+Semi+Condensed:wght@600;700&display=swap">
+<style>
+/* Une colonne d'outil, lue au bord de l'eau : les quatre étapes dans l'ordre où on les fait.
+   Même nuit marine que les guides (choix d'un seul thème, sombre, comme les applications). */
+:root {
+  --bg: #061220;        /* nuit marine des guides */
+  --panel: #0b1b2d;
+  --line: #1c3349;
+  --fg: #e4edf4;
+  --muted: #95abbe;
+  --accent: #4cb5e6;    /* eau claire */
+  --buoy: #eab35c;      /* bouée : l'action principale */
+  --good: #55c48d;
+  --bad: #f07a72;
+  --display: "Barlow Semi Condensed", "Arial Narrow", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body { background: var(--bg); color: var(--fg); font: 16px/1.55 var(--body); margin: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 20px 40px; }
+main { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+header h1 { font: 700 30px/1.1 var(--display); letter-spacing: 0.01em; margin: 0; text-wrap: balance; }
+header p { margin: 6px 0 0; color: var(--muted); font-size: 15px; max-width: 60ch; }
+section { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 14px 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+h2 { font: 700 13px/1 var(--display); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin: 0; display: flex; gap: 8px; align-items: baseline; }
+h2 .n { color: var(--muted); font-variant-numeric: tabular-nums; }
+.guides { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.guide { min-height: 56px; text-align: left; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line); background: transparent; color: var(--fg); font: inherit; cursor: pointer; display: flex; flex-direction: column; }
+.guide b { font: 700 17px/1.2 var(--display); }
+.guide span { font-size: 13px; color: var(--muted); }
+.guide.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
+label { display: flex; flex-direction: column; gap: 4px; font-size: 14px; color: var(--muted); }
+select, input[type="datetime-local"], textarea { font: inherit; font-size: 16px; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px 10px; min-height: 44px; width: 100%; }
+textarea { min-height: 76px; resize: vertical; }
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.btn { min-height: 46px; padding: 0 16px; border-radius: 10px; border: 1px solid var(--accent); background: transparent; color: var(--accent); font: 700 15px var(--body); cursor: pointer; }
+.btn.main { background: var(--buoy); border-color: var(--buoy); color: #1b1305; }
+.btn.quiet { border-color: var(--line); color: var(--muted); }
+.btn:disabled { opacity: 0.45; cursor: default; }
+.link { background: none; border: none; color: var(--accent); font: 700 14px var(--body); cursor: pointer; padding: 4px 2px; text-decoration: underline; }
+.count { color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; }
+.thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+.thumbs figure { margin: 0; position: relative; font-size: 13px; color: var(--muted); line-height: 1.4; min-width: 0; }
+.thumbs img { width: 100%; max-width: 100%; border-radius: 8px; display: block; }
+.thumbs figcaption b { color: var(--fg); }
+.x { position: absolute; top: 4px; right: 4px; width: 36px; height: 36px; border-radius: 999px; border: none; background: rgba(2, 10, 20, 0.8); color: #fff; font-size: 15px; cursor: pointer; }
+.tide { margin: 0; padding-left: 18px; font-size: 14px; color: var(--fg); display: flex; flex-direction: column; gap: 4px; }
+.note { font-size: 14.5px; line-height: 1.5; padding: 9px 11px; border-radius: 9px; border: 1px solid var(--line); color: var(--fg); }
+.note.ok { border-color: color-mix(in srgb, var(--good) 60%, transparent); }
+.note.bad { border-color: color-mix(in srgb, var(--bad) 70%, transparent); color: #ffd9d5; }
+.passes { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 15px; font-variant-numeric: tabular-nums; }
+.passes li { display: flex; gap: 9px; align-items: center; color: var(--muted); }
+.passes .dot { width: 11px; height: 11px; border-radius: 999px; border: 2px solid var(--line); flex-shrink: 0; }
+.passes li.cur { color: var(--fg); } .passes li.cur .dot { border-color: var(--buoy); background: var(--buoy); animation: pulse 1.2s ease-in-out infinite; }
+.passes li.done { color: var(--fg); } .passes li.done .dot { border-color: var(--good); background: var(--good); }
+@keyframes pulse { 50% { opacity: 0.35; } }
+@media (prefers-reduced-motion: reduce) { .passes li.cur .dot { animation: none; } }
+.res-head { font-size: 15px; }
+.res-syn { margin: 0; font-size: 15.5px; max-width: 65ch; }
+.res-list { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 5px; font-size: 15px; }
+.refs { color: var(--muted); font-size: 12.5px; }
+h3 { font: 700 16px/1.2 var(--display); margin: 4px 0 0; }
+.small { font-size: 13.5px; color: var(--muted); margin: 0; max-width: 65ch; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+
+<main>
+  <header>
+    <h1>SPUMY · analyse photo d'un spot</h1>
+    <p>La même analyse en trois passes que dans tes guides, faite par ton abonnement Claude : ni clé, ni crédit API. Le résultat part dans un fichier que le guide importe.</p>
+  </header>
+
+  <section aria-labelledby="h-guide">
+    <h2 id="h-guide"><span class="n">1</span> Guide et spot</h2>
+    <div class="guides" id="guides" role="group" aria-label="Guide"></div>
+    <label for="spot">Spot photographié<select id="spot"></select></label>
+    <p class="small" id="gps" hidden></p>
+  </section>
+
+  <section aria-labelledby="h-photos">
+    <h2 id="h-photos"><span class="n">2</span> Photos</h2>
+    <div class="row">
+      <input type="file" id="file" accept="image/*" multiple hidden aria-label="Photos du spot">
+      <button type="button" class="btn" id="add">Choisir des photos</button>
+      <span class="count" id="count">0/6</span>
+    </div>
+    <p class="small">Une vue d'ensemble prise de haut, puis des vues serrées des zones qui t'intéressent. Les photos sont réduites et partent sans leurs métadonnées.</p>
+    <p class="note bad" id="prep-err" hidden></p>
+    <div class="thumbs" id="thumbs"></div>
+    <label id="manual-wrap" for="manual" hidden>Heure de prise de vue des photos sans date d'appareil photo (pour la marée)<input type="datetime-local" id="manual"></label>
+    <div id="tide-wrap" hidden>
+      <h3>Marée et lumière au moment des photos</h3>
+      <ul class="tide" id="tide"></ul>
+    </div>
+    <label for="notes">Ce que tu sais du spot (facultatif : profondeur, fond, courant, prises…)<textarea id="notes"></textarea></label>
+    <p class="small" id="notes-stale" hidden>Tes notes ont changé depuis l'analyse : elle garde celles qu'elle a reçues. « Nouvelle analyse » pour en tenir compte.</p>
+  </section>
+
+  <section aria-labelledby="h-run">
+    <h2 id="h-run"><span class="n">3</span> Analyse par Claude</h2>
+    <p class="note" id="avail" role="status">Connexion à Claude…</p>
+    <ol class="passes" id="passes" hidden></ol>
+    <div class="row">
+      <button type="button" class="btn main" id="go" disabled>Analyser avec Claude</button>
+      <button type="button" class="btn quiet" id="stop" hidden>Arrêter</button>
+      <button type="button" class="btn quiet" id="restart" hidden>Nouvelle analyse</button>
+    </div>
+    <p class="note bad" id="err" role="alert" hidden></p>
+    <p class="small">Chaque passe prend souvent une à deux minutes. Garde la page ouverte : en cas de coupure, « Reprendre » ne refait que les passes manquantes.</p>
+  </section>
+
+  <section aria-labelledby="h-res" id="result" hidden>
+    <h2 id="h-res"><span class="n">4</span> Résultat, à envoyer au guide</h2>
+    <div class="res-head" id="res-head"></div>
+    <p class="res-syn" id="res-syn"></p>
+    <h3>Postes</h3>
+    <ul class="res-list" id="res-postes"></ul>
+    <div id="res-secu-wrap" hidden><h3>Sécurité</h3><ul class="res-list" id="res-secu"></ul></div>
+    <div class="row">
+      <button type="button" class="btn main" id="save">Enregistrer le fichier pour le guide</button>
+      <button type="button" class="btn" id="copy">Copier pour le guide</button>
+    </div>
+    <p class="note" id="exported" role="status" hidden></p>
+    <p class="small">Le compte rendu complet (photos repérées, faits cités, propositions pour la fiche) s'affiche dans le guide après l'import : onglet Photos, « Importer une analyse ». Le guide recalcule la marée et repasse les mêmes contrôles qu'avec une clé API.</p>
+  </section>
+</main>
+<script>
+__STUDIO_SCRIPT__
+</script>

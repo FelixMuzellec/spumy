@@ -1,0 +1,110 @@
+{
+  "logonna": {
+    "SITE": "eb4a02846a73cdf0",
+    "GENERAL_PRINCIPLES": "d004c715e155633e",
+    "spots": {
+      "moulinmer": "3ecea13c3e47975a",
+      "bendy": "fbb735802e00455f",
+      "rostiviec": "a7ef4c4e331620c2",
+      "camfrout": "f240c50ecd2ec449",
+      "lauberlach": "a1d1d2b22487ad1b",
+      "armorique": "2a0029a7c3818e54",
+      "landevennec": "d5c82b3ef33e1f47",
+      "terenez": "5c6819326759b9aa",
+      "espagnols": "32e6b56d2144a924",
+      "minou": "ff0e4aec822135b8",
+      "penhir": "9e27f7159c4a9530"
+    }
+  },
+  "pirou": {
+    "SITE": "08f05ccb89db2574",
+    "GENERAL_PRINCIPLES": "49b355ae99d47822",
+    "spots": {
+      "pirou": "b6e7f1b2b74abdb0",
+      "regneville": "cd8ce887bf736b9b",
+      "gouville": "25fd8fc740759e66",
+      "agon": "d5232572814a12f1",
+      "portbail": "558254aa4e4a8a38",
+      "carteret": "041bcde96912137a",
+      "granville": "9b5b7a430ad7ae01",
+      "sciotot": "0f804d7c86f32872",
+      "surtainville": "c839adee29068873",
+      "goury": "f28c6f35ed7b0d68"
+    }
+  },
+  "plouguerneau": {
+    "SITE": "3342d0f2aefce7c0",
+    "GENERAL_PRINCIPLES": "adefde7658c2ddf4",
+    "spots": {
+      "pennenez": "4d3f1bea20346623",
+      "pelguent": "9d2fadb2db302711",
+      "paluden": "9c6bd24aaff441a8",
+      "saintemarguerite": "e21f91e20a4f9850",
+      "aberbenoit": "f5dca5ac24269bd7",
+      "kerlouan": "67323adb5bca5172",
+      "aberildut": "fc387286239ef029",
+      "corsen": "3a88fef487468b98",
+      "blancssablons": "47b1566fa2a6417e",
+      "kermorvan": "fd893bd8a1a057f7"
+    }
+  },
+  "audierne": {
+    "SITE": "ef929f8e93b59b38",
+    "GENERAL_PRINCIPLES": "e7f1180af450884a",
+    "spots": {
+      "goyen": "6cebb79f3e33bca5",
+      "sainttugen": "db0865c9e7902aee",
+      "feunteunaod": "aeba332f152d02c2",
+      "raz": "5a63b8abc6740f8c",
+      "trepasses": "7846ffd57f1ec3f0",
+      "van": "2ab7df157a361f81",
+      "brezellec": "6a481015ba8565f0",
+      "penhors": "c8513c427bf1795a",
+      "torche": "c1d854d6bfeab71f",
+      "saintguenole": "059e84d8c220a793",
+      "penmarch": "52d623633c528d21"
+    }
+  },
+  "carantec": {
+    "SITE": "d43d0edfacece07e",
+    "GENERAL_PRINCIPLES": "d03fb9abbb7ba71a",
+    "spots": {
+      "carantec": "45aeea01aa7b3949",
+      "penze": "b4e9becd6343c3e1",
+      "barnenez": "dc72b7b10e2fa0aa",
+      "primel": "6b5bd51d35516953",
+      "saintjean": "8e086f4d446729be",
+      "locquirec": "a41aa69e6be1bfda",
+      "kernic": "6c7ebb314a981539"
+    }
+  },
+  "concarneau": {
+    "SITE": "1fb0bf4e2a1f71d3",
+    "GENERAL_PRINCIPLES": "2bc0c12e0ea042db",
+    "spots": {
+      "sablesblancs": "5bd7e07c4d9a7fb3",
+      "capcoz": "d630a880c1e64912",
+      "begmeil": "290ceddd7738bf25",
+      "mousterlin": "5ba4b7ba8172ff3b",
+      "odet": "fbfed41f0789e981",
+      "trevignon": "bae06134b979699a",
+      "kerjean": "9c593f20ce16a420",
+      "rospico": "924ef44bbf4225a1",
+      "portmanech": "0c58f9fcd62b7b81",
+      "laita": "893590efabc57b77"
+    }
+  },
+  "crozon": {
+    "SITE": "0ad0288ba6d15de0",
+    "GENERAL_PRINCIPLES": "ca9cfb6e48243d0e",
+    "spots": {
+      "dinan": "37a261d74da0cf7f",
+      "lostmarch": "1b05664ddac2c88f",
+      "morgat": "b7d74d659c2e5e65",
+      "trezbellec": "cd5721f4a05ee35d",
+      "pentrez": "1001a98ab49a02c1",
+      "leyde": "57f2a035faa590e0",
+      "trenaouret": "a8ad3cda5d5c8de6"
+    }
+  }
+}
