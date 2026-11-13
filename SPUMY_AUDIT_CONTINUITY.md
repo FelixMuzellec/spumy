@@ -23,7 +23,8 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 3.2 Outils et documentation | TESTED | `npm run lint` 0 erreur ; `npm run test:a11y` 0 violation (guide de Logonna et accueil) ; build inchangé ; test unitaire du README vert |
 | 3.3 Intégration continue | TESTED | Premier passage entièrement vert sur GitHub le 6 nov. (commit 3c72fde) : « Tests » https://github.com/FelixMuzellec/spumy/actions/runs/42302505872 et « Contrat Open-Meteo » réel https://github.com/FelixMuzellec/spumy/actions/runs/42302505663. Le contrat quotidien ne tournera qu'une fois le workflow sur `main` (règle de GitHub pour les tâches planifiées) |
 | 3.4 Réorganisation par couche | TESTED | 62 fichiers déplacés (`git mv`), imports réécrits ; fichiers publiés identiques octet pour octet (build b930d9512616) ; `test:layers` 0 écart (et 1 écart bien détecté sur un import interdit d'essai) ; lint 0 erreur |
-| 3.5 à 3.8 | NOT STARTED | — |
+| 3.6 Fiches en données + schéma | TESTED | `data/schema/site.schema.json` ; `test:data` 69/69 : 7 fiches valides, export JSON sans perte, 16 erreurs de saisie refusées, 66 spots identiques à l'empreinte v9.2 (tirée du commit a03e074) ; un spot modifié d'essai est bien signalé ; la construction refuse une fiche invalide (essai fait) ; build inchangé b930d9512616 |
+| 3.5, 3.7, 3.8 | NOT STARTED | — |
 
 ## Décisions prises
 
@@ -54,4 +55,4 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 
 ## Prochaine action
 
-Lots 3.6 (fiches en données + schéma), 3.5 (application unique), 3.7, 3.8 ; rapport de fin de phase 3 ; attendre `APPROVED — PROCEED TO PHASE 4`.
+Lots 3.5 (application unique), 3.7, 3.8 ; rapport de fin de phase 3 ; attendre `APPROVED — PROCEED TO PHASE 4`.

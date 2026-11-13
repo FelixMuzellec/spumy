@@ -8,11 +8,15 @@
 - Toute information halieutique ajoutée porte sa source, sa date et son niveau de preuve (scientifique ou institutionnel, observation documentée, retour local identifiable, hypothèse, heuristique).
 - Une valeur inconnue reste inconnue : jamais remplacée en silence par une valeur neutre.
 
+## Modifier une fiche de site
+
+Le seul fichier à changer est `data/sites/<site>.config.js` (donnée pure : ni fonction, ni calcul). Le schéma `data/schema/site.schema.json` décrit chaque champ ; la construction refuse une fiche qui ne le respecte pas. `npm run test:data` signale chaque spot modifié par son empreinte : si la modification est voulue, lancer `node tests/data.mjs --update-ref` et joindre `tests/ref/sites.json` au même commit, avec la source de l'information dans le message.
+
 ## Proposer une modification
 
 1. Créer une branche depuis `main` (`claude/<sujet>` pour les travaux de Claude).
 2. Faire des commits petits et explicites, en français, qui disent ce qui change et pourquoi.
-3. Lancer `npm test` (contrôle du code, unitaires, parcours, contrat simulé) ; selon le changement, `npm run test:a11y` et `npm run test:studio`.
+3. Lancer `npm test` (contrôle du code, règles de couches, fiches des sites, unitaires, parcours, contrat simulé) ; selon le changement, `npm run test:a11y` et `npm run test:studio`.
 4. Ouvrir une demande de fusion vers `main` avec : objectif, fichiers concernés, tests lancés et résultats, risques, retour arrière.
 5. Rien n'est fusionné dans `main`, donc publié, sans tests verts et sans l'accord de Félix.
 

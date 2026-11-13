@@ -1,0 +1,299 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spumy.local/data/schema/site.schema.json",
+  "title": "Fiche de site SPUMY (pêche du bord)",
+  "description": "Ce que contient data/sites/<site>.config.js : le site (SITE), ses principes de pêche (GENERAL_PRINCIPLES) et ses spots (SPOTS). Toute donnée inconnue est absente, jamais remplacée par une valeur neutre. Vérifié à chaque construction et par tests/data.mjs ; les règles qui croisent plusieurs champs (zone connue, port de marée connu…) sont dans scripts/site-data.mjs et tests/unit.mjs.",
+  "type": "object",
+  "required": ["SITE", "GENERAL_PRINCIPLES", "SPOTS"],
+  "additionalProperties": false,
+  "properties": {
+    "SITE": { "$ref": "#/$defs/site" },
+    "GENERAL_PRINCIPLES": { "$ref": "#/$defs/principes" },
+    "SPOTS": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/spot" } }
+  },
+  "$defs": {
+    "texte": { "type": "string", "minLength": 1 },
+    "textes": { "type": "array", "items": { "$ref": "#/$defs/texte" } },
+    "latitude": { "type": "number", "minimum": -90, "maximum": 90, "description": "Degrés décimaux (WGS 84)." },
+    "longitude": { "type": "number", "minimum": -180, "maximum": 180, "description": "Degrés décimaux (WGS 84), négatif à l'ouest de Greenwich." },
+    "identifiant": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$", "description": "Lettres sans accent, chiffres, tiret ou souligné : sert dans les adresses (#spot/<id>) et les clés de stockage." },
+    "confiance": {
+      "enum": ["verified", "inference", "local_knowledge"],
+      "description": "Niveau de preuve de l'information : verified = tiré d'une source citée ; inference = déduit (carte, description, raisonnement) ; local_knowledge = connaissance locale de Félix ou d'un pêcheur identifié."
+    },
+    "couche": { "enum": ["surface", "sous-surface", "mi-eau", "fond"], "description": "Couche d'eau pêchée." },
+    "phaseMaree": { "enum": ["montant", "descendant", "renversement", "variable"] },
+    "secteur": {
+      "type": "number", "minimum": 0, "exclusiveMaximum": 360, "multipleOf": 22.5,
+      "description": "Direction d'où vient le vent, en degrés (0 = nord), sur la rose à 16 secteurs."
+    },
+    "faitSource": {
+      "type": "object", "required": ["t", "s"], "additionalProperties": false,
+      "properties": { "t": { "$ref": "#/$defs/texte", "description": "Le fait." }, "s": { "$ref": "#/$defs/texte", "description": "Sa source." } }
+    },
+    "site": {
+      "type": "object",
+      "required": ["id", "name", "dept", "headerLabel", "region", "lat", "lon", "marnage", "preyCalendar", "sstTypical", "tide", "tidePort", "tideSources", "weatherSources", "zones"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/identifiant", "description": "Identifiant du guide ; préfixe des clés de stockage (bar:journal:<id>…). Ne jamais le changer : le journal de l'utilisateur y est rangé." },
+        "name": { "$ref": "#/$defs/texte" },
+        "dept": { "type": "string", "pattern": "^[0-9]{5}$", "description": "Code postal de référence ; ses deux premiers chiffres donnent le département (accueil)." },
+        "headerLabel": { "$ref": "#/$defs/texte", "description": "Libellé court en capitales, en tête du guide." },
+        "region": { "$ref": "#/$defs/texte" },
+        "lat": { "$ref": "#/$defs/latitude" },
+        "lon": { "$ref": "#/$defs/longitude" },
+        "marnage": {
+          "type": "object", "required": ["neap", "spring"], "additionalProperties": false,
+          "description": "Marnage du port de référence, en mètres.",
+          "properties": { "neap": { "type": "number", "exclusiveMinimum": 0, "description": "Morte-eau." }, "spring": { "type": "number", "exclusiveMinimum": 0, "description": "Vive-eau." } }
+        },
+        "preyCalendar": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/proie" } },
+        "sstTypical": {
+          "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "number", "minimum": -2, "maximum": 35 },
+          "description": "Température de surface de la mer typique sur l'année, [minimum, maximum] en °C."
+        },
+        "tide": {
+          "type": "object", "required": ["defaultPort", "ports"], "additionalProperties": false,
+          "properties": {
+            "defaultPort": { "$ref": "#/$defs/identifiant", "description": "Port de marée des spots qui n'en précisent pas." },
+            "ports": { "type": "object", "minProperties": 1, "propertyNames": { "$ref": "#/$defs/identifiant" }, "additionalProperties": { "$ref": "#/$defs/port" } }
+          }
+        },
+        "tidePort": { "$ref": "#/$defs/texte", "description": "Nom du port de référence affiché." },
+        "tideSources": { "$ref": "#/$defs/texte" },
+        "weatherSources": { "$ref": "#/$defs/texte" },
+        "zones": {
+          "type": "object", "minProperties": 1, "propertyNames": { "$ref": "#/$defs/identifiant" },
+          "additionalProperties": {
+            "type": "object", "required": ["label", "anchor", "sea"], "additionalProperties": false,
+            "properties": {
+              "label": { "$ref": "#/$defs/texte" },
+              "anchor": { "$ref": "#/$defs/texte", "description": "Commune ou repère qui situe la zone." },
+              "sea": { "enum": ["rade", "open"], "description": "rade = plan d'eau abrité (la houle du large n'y entre pas) ; open = côte ouverte." },
+              "fetchKm": { "type": "number", "exclusiveMinimum": 0, "description": "Longueur de plan d'eau sur laquelle le vent lève un clapot, en km (rade)." }
+            }
+          }
+        },
+        "seedJournal": {
+          "type": "array", "items": { "$ref": "#/$defs/sessionInitiale" },
+          "description": "Sessions réelles déjà connues, versées au journal du guide au premier lancement."
+        }
+      }
+    },
+    "proie": {
+      "type": "object", "required": ["name", "size", "months", "weight", "couche", "guidance"], "additionalProperties": false,
+      "properties": {
+        "name": { "$ref": "#/$defs/texte" },
+        "size": { "$ref": "#/$defs/texte", "description": "Taille typique, en texte (« 8-15 cm »)." },
+        "months": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "integer", "minimum": 1, "maximum": 12 } },
+        "weight": { "type": "integer", "minimum": 1, "maximum": 5, "description": "Importance de la proie dans le régime du bar ce mois-là (classement)." },
+        "couche": { "$ref": "#/$defs/couche" },
+        "guidance": { "$ref": "#/$defs/texte", "description": "Conseil de leurre qui l'imite." }
+      }
+    },
+    "sessionInitiale": {
+      "type": "object", "required": ["id", "date", "spotId", "result", "fish", "lure", "note"], "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/identifiant" },
+        "date": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+        "spotId": { "$ref": "#/$defs/identifiant" },
+        "result": { "type": "number", "minimum": 0, "maximum": 10, "description": "Note de la session sur 10, donnée par le pêcheur." },
+        "fish": { "type": "integer", "minimum": 0, "description": "Nombre de bars pris (0 = bredouille déclaré, pas une donnée manquante)." },
+        "lure": { "$ref": "#/$defs/texte" },
+        "note": { "$ref": "#/$defs/texte" },
+        "moment": { "$ref": "#/$defs/texte" }
+      }
+    },
+    "port": {
+      "type": "object", "required": ["kind"],
+      "oneOf": [
+        {
+          "description": "Port calculé par ses constantes harmoniques (station de src/core/tide.js).",
+          "required": ["kind", "label", "accuracy", "lagH", "station", "z0"], "additionalProperties": false,
+          "properties": {
+            "kind": { "const": "harmonic" }, "label": { "$ref": "#/$defs/texte" }, "accuracy": { "$ref": "#/$defs/texte" },
+            "lagH": { "type": "number", "description": "Décalage horaire appliqué, en heures." },
+            "station": { "$ref": "#/$defs/identifiant" },
+            "z0": { "type": "number", "description": "Niveau moyen au-dessus du zéro des cartes, en mètres." }
+          }
+        },
+        {
+          "description": "Port secondaire : corrections de la pleine et de la basse mer par rapport à un port de référence.",
+          "required": ["kind", "label", "accuracy", "lagH", "ref", "hw", "lw"], "additionalProperties": false,
+          "properties": {
+            "kind": { "const": "secondary" }, "label": { "$ref": "#/$defs/texte" }, "accuracy": { "$ref": "#/$defs/texte" },
+            "lagH": { "type": "number" }, "ref": { "$ref": "#/$defs/identifiant", "description": "Station de référence (src/core/tide.js)." },
+            "hw": { "$ref": "#/$defs/correction" }, "lw": { "$ref": "#/$defs/correction" }
+          }
+        },
+        {
+          "description": "Port interpolé entre deux ports de la fiche (non contrôlé contre une table, sauf mention).",
+          "required": ["kind", "label", "accuracy", "a", "b", "w"], "additionalProperties": false,
+          "properties": {
+            "kind": { "const": "interp" }, "label": { "$ref": "#/$defs/texte" }, "accuracy": { "$ref": "#/$defs/texte" },
+            "a": { "$ref": "#/$defs/identifiant" }, "b": { "$ref": "#/$defs/identifiant" },
+            "w": { "type": "number", "minimum": 0, "maximum": 1, "description": "Poids du port b (0 = port a, 1 = port b)." }
+          }
+        }
+      ]
+    },
+    "correction": {
+      "type": "object", "required": ["h", "t"], "additionalProperties": false,
+      "description": "Correction linéaire ajustée sur les tables : h = [décalage, facteur] de la hauteur, t = [décalage en minutes, pente] de l'heure.",
+      "properties": {
+        "h": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "number" } },
+        "t": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "number" } }
+      }
+    },
+    "principes": {
+      "type": "object", "required": ["title", "items"], "additionalProperties": false,
+      "properties": {
+        "title": { "$ref": "#/$defs/texte" },
+        "items": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object", "required": ["rule", "explain", "source"], "additionalProperties": false,
+            "properties": { "rule": { "$ref": "#/$defs/texte" }, "explain": { "$ref": "#/$defs/texte" }, "source": { "$ref": "#/$defs/texte" } }
+          }
+        }
+      }
+    },
+    "spot": {
+      "type": "object",
+      "required": ["id", "zone", "isLocal", "dangerLevel", "name", "subtitle", "distance", "distMin", "coords", "type", "color", "terrain", "coefBand", "houleMax", "exposedAngles", "shelteredAngles", "weatherNote", "sources", "topology", "tidalRules", "lures", "access", "securite"],
+      "additionalProperties": false,
+      "dependentRequired": { "lat": ["lon"], "lon": ["lat"], "coefHardMaxWhy": ["coefHardMax"] },
+      "properties": {
+        "id": { "$ref": "#/$defs/identifiant", "description": "Identifiant du spot, unique dans le guide ; clé du journal et des adresses. Ne jamais le changer." },
+        "zone": { "$ref": "#/$defs/identifiant", "description": "Clé d'une zone de SITE.zones." },
+        "isLocal": { "type": "boolean", "description": "Spot de la zone proche du point de départ." },
+        "dangerLevel": { "enum": [1, 2, 3], "description": "Difficulté et engagement du spot : 1 facile, 2 moyen, 3 engagé." },
+        "name": { "$ref": "#/$defs/texte" },
+        "subtitle": { "$ref": "#/$defs/texte" },
+        "riviere": { "type": "string", "minLength": 3, "description": "Rivière dont le spot subit le débit." },
+        "distance": { "$ref": "#/$defs/texte", "description": "Temps de trajet affiché (« 10 min »)." },
+        "distMin": { "type": "number", "minimum": 0, "description": "Temps de trajet estimé depuis le point de départ, en minutes." },
+        "coords": {
+          "type": "string", "pattern": "^\\s*\\d+°\\d+(?:[.,]\\d+)?'?\\s*[NS]\\s+\\d+°\\d+(?:[.,]\\d+)?'?\\s*[EWO]",
+          "description": "Coordonnées affichées en degrés et minutes (« 48°18,9'N 4°20,2'W »)."
+        },
+        "lat": { "$ref": "#/$defs/latitude", "description": "Position précise ; sans elle, la position est lue dans coords." },
+        "lon": { "$ref": "#/$defs/longitude" },
+        "type": { "$ref": "#/$defs/texte", "description": "Type de poste, en capitales (« POINTE ROCHEUSE »)." },
+        "color": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+        "tidePort": { "$ref": "#/$defs/identifiant", "description": "Port de marée du spot (clé de SITE.tide.ports) ; sinon SITE.tide.defaultPort." },
+        "terrain": { "$ref": "#/$defs/terrain" },
+        "coefBand": {
+          "type": "array", "minItems": 4, "maxItems": 4, "items": { "type": "number", "minimum": 20, "maximum": 120 },
+          "description": "Coefficients de marée [seuil bas, début du plateau, fin du plateau, limite haute] de la note."
+        },
+        "coefHardMax": { "type": "number", "minimum": 20, "maximum": 120, "description": "Au-delà, spot retiré : courant documenté comme dangereux ou impraticable du bord." },
+        "coefHardMaxWhy": { "$ref": "#/$defs/texte" },
+        "houleMax": { "type": "number", "exclusiveMinimum": 0, "maximum": 4, "description": "Houle au-delà de laquelle le spot n'est plus pêchable, en mètres." },
+        "exposedAngles": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/secteur" }, "description": "Vents qui frappent le poste de face." },
+        "shelteredAngles": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/secteur" }, "description": "Vents dont le poste est abrité." },
+        "weatherNote": { "$ref": "#/$defs/texte" },
+        "sources": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/texte" } },
+        "topology": {
+          "type": "object", "required": ["fond", "structure", "exposition", "courant", "bars"], "additionalProperties": false,
+          "properties": {
+            "fond": { "$ref": "#/$defs/topo" }, "structure": { "$ref": "#/$defs/topo" }, "exposition": { "$ref": "#/$defs/topo" },
+            "courant": { "$ref": "#/$defs/topo" }, "bars": { "$ref": "#/$defs/topo" }
+          }
+        },
+        "tidalRules": {
+          "type": "object", "required": ["typeHeure", "montantOuDescendant", "description", "windows", "lifeHack"], "additionalProperties": false,
+          "properties": {
+            "typeHeure": { "$ref": "#/$defs/texte" }, "montantOuDescendant": { "$ref": "#/$defs/texte" }, "description": { "$ref": "#/$defs/texte" },
+            "windows": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/fenetre" } },
+            "lifeHack": { "$ref": "#/$defs/texte" }
+          }
+        },
+        "lures": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object", "required": ["name", "color", "weight", "technique"], "additionalProperties": false,
+            "properties": { "name": { "$ref": "#/$defs/texte" }, "color": { "$ref": "#/$defs/texte" }, "weight": { "$ref": "#/$defs/texte" }, "technique": { "$ref": "#/$defs/texte" } }
+          }
+        },
+        "access": { "$ref": "#/$defs/texte" },
+        "securite": {
+          "type": "array",
+          "items": {
+            "type": "object", "required": ["t", "s"], "additionalProperties": false,
+            "properties": {
+              "t": { "$ref": "#/$defs/texte", "description": "La consigne." },
+              "s": { "$ref": "#/$defs/texte", "description": "Sa source." },
+              "when": {
+                "type": "object", "minProperties": 1, "additionalProperties": false,
+                "description": "Consigne active seulement dans ces conditions ; sans when, toujours affichée.",
+                "properties": { "coefAbove": { "type": "number", "minimum": 20, "maximum": 120 }, "phase": { "$ref": "#/$defs/phaseMaree" } }
+              }
+            }
+          }
+        },
+        "courantFort": {
+          "type": "object", "required": ["above", "t"], "additionalProperties": false,
+          "properties": { "above": { "type": "number", "minimum": 20, "maximum": 120, "description": "Coefficient au-delà duquel le courant est fort ici." }, "t": { "type": "string", "minLength": 20 } }
+        },
+        "courantSurface": {
+          "type": "object", "required": ["v", "t"], "additionalProperties": false,
+          "description": "Ce que la fiche dit des leurres de surface dans le courant : v > 0 les favorise, v < 0 les déconseille.",
+          "properties": { "v": { "type": "number", "minimum": -2, "maximum": 2 }, "t": { "$ref": "#/$defs/texte" } }
+        },
+        "raz": {
+          "type": "object", "required": ["slackH", "labels", "why", "src", "deduit"], "additionalProperties": false,
+          "description": "Raz propre au spot : heure de la renverse par rapport aux extrêmes du port.",
+          "properties": {
+            "slackH": { "type": "number", "minimum": -6.5, "maximum": 6.5, "description": "Renverse, en heures par rapport à la pleine et à la basse mer." },
+            "labels": {
+              "type": "object", "required": ["0", "1", "2"], "additionalProperties": false,
+              "properties": { "0": { "$ref": "#/$defs/texte" }, "1": { "$ref": "#/$defs/texte" }, "2": { "$ref": "#/$defs/texte" } }
+            },
+            "why": { "$ref": "#/$defs/texte" },
+            "src": { "$ref": "#/$defs/identifiant", "description": "Clé d'une source du moteur des leurres (src/bord/engine/lures.js)." },
+            "deduit": { "$ref": "#/$defs/texte", "description": "Ce qui est déduit, et les désaccords entre sources." }
+          }
+        }
+      }
+    },
+    "terrain": {
+      "type": "object", "required": ["fond", "encombrement", "gratter", "prof", "couches", "montage", "conseils", "confidence", "source"], "additionalProperties": false,
+      "properties": {
+        "fond": { "$ref": "#/$defs/texte" },
+        "encombrement": { "enum": [1, 2, 3], "description": "1 dégagé, 2 mixte (accroches par endroits), 3 très encroché." },
+        "gratter": { "enum": ["oui", "texan", "non"], "description": "Pêche à gratter le fond : possible, seulement monté texan ou weedless, ou non." },
+        "prof": {
+          "type": "object", "required": ["cls", "why"], "additionalProperties": false,
+          "description": "Profondeur jamais mesurée : classe estimée d'après la description.",
+          "properties": { "cls": { "enum": ["estran", "peu", "tombant"] }, "why": { "$ref": "#/$defs/texte" } }
+        },
+        "couches": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/couche" } },
+        "montage": { "$ref": "#/$defs/texte" },
+        "conseils": { "$ref": "#/$defs/textes" },
+        "confidence": { "$ref": "#/$defs/confiance" },
+        "source": { "$ref": "#/$defs/texte" },
+        "faits": { "type": "array", "items": { "$ref": "#/$defs/faitSource" } }
+      }
+    },
+    "topo": {
+      "type": "object", "required": ["text", "confidence"], "additionalProperties": false,
+      "properties": { "text": { "$ref": "#/$defs/texte" }, "confidence": { "$ref": "#/$defs/confiance" } }
+    },
+    "fenetre": {
+      "type": "object", "required": ["id", "label", "phase", "offsetBefore", "offsetAfter", "tidePhaseType", "priority", "note"], "additionalProperties": false,
+      "description": "Créneau de pêche autour d'une pleine (pm) ou d'une basse mer (bm).",
+      "properties": {
+        "id": { "$ref": "#/$defs/identifiant" },
+        "label": { "$ref": "#/$defs/texte" },
+        "phase": { "enum": ["pm", "bm"] },
+        "offsetBefore": { "type": "number", "minimum": -7, "maximum": 7, "description": "Début du créneau, en heures par rapport à l'extrême." },
+        "offsetAfter": { "type": "number", "minimum": -7, "maximum": 7, "description": "Fin du créneau, en heures par rapport à l'extrême." },
+        "tidePhaseType": { "$ref": "#/$defs/phaseMaree" },
+        "priority": { "enum": ["prime", "bon"] },
+        "note": { "$ref": "#/$defs/texte" }
+      }
+    }
+  }
+}

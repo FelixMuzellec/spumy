@@ -46,6 +46,7 @@ const scriptOf = (html) => { const m = html.match(/<script>([\s\S]*?)<\/script>/
 const withCsp = (html, policy) => html.replace('<meta charset="utf-8">', `<meta charset="utf-8">\n<meta http-equiv="Content-Security-Policy" content="${policy}">`);
 
 import { SITES, SITE_FILES } from "./sites.mjs";
+import { siteProblems } from "./site-data.mjs";
 export { SITE_FILES };
 const VERSION = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8")).version.replace(/\.0$/, "");
 // Nom de l'application installée (écran d'accueil du téléphone).
@@ -59,6 +60,9 @@ const escH = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").repla
 const guides = [];
 for (const s of SITES) {
   const m = await import(pathToFileURL(path.join(root, s.config)).href);
+  // Lot 3.6 — Une fiche invalide (schéma data/schema/site.schema.json, données pures, règles croisées) arrête la construction.
+  const bad = siteProblems({ ...m });
+  if (bad.length) throw new Error(`${s.config} : fiche invalide\n  ${bad.slice(0, 20).join("\n  ")}`);
   const code = String(m.SITE.dept || "").slice(0, 2);
   if (!DEPTS[code]) throw new Error(`${s.key} : département inconnu (${m.SITE.dept})`);
   guides.push({ s, m, code, dept: DEPTS[code] });

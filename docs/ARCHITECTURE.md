@@ -1,6 +1,6 @@
 # Architecture de SPUMY
 
-État au 13 novembre 2026 : v9.2, lot 3.4 de la phase 3. La première partie décrit le code tel qu'il est ; la seconde, l'architecture cible décidée en phase 2, atteinte lot par lot. Ce document est mis à jour à chaque lot qui change l'organisation.
+État au 13 novembre 2026 : v9.2, lot 3.6 de la phase 3. La première partie décrit le code tel qu'il est ; la seconde, l'architecture cible décidée en phase 2, atteinte lot par lot. Ce document est mis à jour à chaque lot qui change l'organisation.
 
 ## Aujourd'hui (v9.2)
 
@@ -73,6 +73,9 @@ data/
   sites/                ce qui est propre à chaque lieu (spots, fiches terrain, sécurité, zones, ports de marée, proies)
     logonna.config.js, pirou.config.js, plouguerneau.config.js, audierne.config.js, carantec.config.js,
     concarneau.config.js, crozon.config.js
+                        données pures écrites en JavaScript commenté : les commentaires portent la provenance
+                        (source, date, à confirmer sur place) et JSON n'en admet pas ; exportables en JSON sans perte
+  schema/site.schema.json  le schéma d'une fiche (JSON Schema 2020-12) : chaque champ, son type, son unité, ses valeurs
 tests/
   unit.mjs              moteur + schéma des fiches + contrôle de la marée (Pirou, ports du Finistère)
   e2e.mjs               parcours complet dans Chromium (téléphone simulé)
@@ -81,11 +84,13 @@ tests/
   om_mock.mjs           simulateur d'Open-Meteo
   a11y.mjs              accessibilité (axe-core) sur toutes les pages et tous les onglets
   layers.mjs            règles de couches : qui a le droit d'importer quoi
+  data.mjs              fiches des sites : schéma, données pures, règles croisées, empreinte de chaque spot (ref/sites.json)
   ref/                  tables de référence (marée de Pirou, octobre 2026 ; Aber Wrac'h, Brignogan, Lanildut,
                         Le Conquet, Audierne, Saint-Guénolé, Roscoff, château du Taureau, Primel, Locquirec, Concarneau,
                         Bénodet, Port-Manec'h, Le Pouldu, Morgat, Douarnenez, novembre 2026)
 scripts/sites.mjs     la liste des guides (avec leur description d'accueil) et des 22 fichiers du site (construction et tests)
-scripts/build.mjs     construit les 22 fichiers du site, à la racine, depuis src/ et data/
+scripts/build.mjs     construit les 22 fichiers du site, à la racine, depuis src/ et data/ (refuse une fiche invalide)
+scripts/site-data.mjs contrôle d'une fiche (schéma, données pures, règles croisées), export JSON, empreintes
 scripts/build-studio.mjs  construit la page d'analyse (studio-build/analyse-photo.html, non publiée par GitHub Pages)
 scripts/brand.mjs     la marque SPUMY (dessin vectoriel du bar et de l'écume, couleurs des guides)
 scripts/icons.mjs     dessine toutes les icônes depuis brand.mjs (assets/brand/*.svg → assets/*.png)
@@ -95,7 +100,7 @@ audit/                AUDIT-SPUMY-v9.1.md : audit de la V2 et liste complète de
 .github/workflows/    tests à chaque dépôt, contrat Open-Meteo chaque matin
 ```
 
-Pour corriger la description d'un spot, le seul fichier à modifier est `data/sites/<site>.config.js` ; les tests vérifient ensuite la cohérence de la fiche (coordonnées, secteurs de vent, bande de coefficient, port de marée, terrain, sécurité).
+Pour corriger la description d'un spot, le seul fichier à modifier est `data/sites/<site>.config.js` ; la construction et `npm run test:data` la vérifient contre le schéma `data/schema/site.schema.json` et les règles croisées (zone et port de marée connus, créneaux, sessions initiales), puis les tests unitaires sa cohérence (coordonnées, secteurs de vent, bande de coefficient, terrain, sécurité). Toute modification d'un spot change son empreinte : `npm run test:data` la signale et nomme le spot ; si elle est voulue, `node tests/data.mjs --update-ref` met à jour `tests/ref/sites.json` dans le même commit.
 
 ## Cible (décidée en phase 2)
 
