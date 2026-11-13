@@ -20,6 +20,34 @@ let pass = 0, fail = 0;
 const t = (n, c, info = "") => { if (c) { pass++; console.log(`  ✓ ${n}${info ? " — " + info : ""}`); } else { fail++; console.log(`  ✗ ${n}${info ? " — " + info : ""}`); } };
 const pause = (ms) => new Promise((r) => setTimeout(r, MOCK ? 0 : ms));
 
+// Réseau réel : un service injoignable (« fetch failed ») n'est pas un contrat rompu. On garde la cause exacte
+// (code d'erreur réseau, nom du serveur) et on refait l'essai UNE fois après une minute ; le second essai est
+// signalé dans le compte rendu. Si le service reste injoignable, le test échoue avec la cause.
+const netErrors = [];
+if (!MOCK) {
+  const f0 = globalThis.fetch;
+  globalThis.fetch = async (u, o) => {
+    try { return await f0(u, o); } catch (e) {
+      let host = "?"; try { host = new URL(String(u?.url || u)).hostname; } catch { /* adresse illisible */ }
+      netErrors.push(`${host} : ${e?.cause?.code || e?.cause?.message || e?.message}`);
+      throw e;
+    }
+  };
+}
+async function tryTwice(fn, ok) {
+  netErrors.length = 0;
+  let v = null, err = null;
+  try { v = await fn(); } catch (e) { err = e; }
+  if (MOCK || (ok(v) && !err) || !netErrors.length) return { v, err, note: "" };
+  const first = [...new Set(netErrors)].join(" ; ");
+  console.log(`  … service injoignable (${first}) : nouvel essai dans une minute`);
+  await pause(60000);
+  netErrors.length = 0; v = null; err = null;
+  try { v = await fn(); } catch (e) { err = e; }
+  const again = [...new Set(netErrors)].join(" ; ");
+  return { v, err, note: ok(v) && !err ? "au 2e essai" : `2e essai aussi en échec${again ? ` (${again})` : ""}` };
+}
+
 for (const label of ["logonna", "pirou"]) {
   const out = path.join(here, ".build", `contract_${label}.mjs`);
   await build({
@@ -32,9 +60,8 @@ for (const label of ["logonna", "pirou"]) {
   console.log(`\n[${label}] ${today}${MOCK ? " (simulateur)" : " (Open-Meteo réel)"}`);
 
   // 1. Le jour même : prévision AROME + ECMWF, houle et eau.
-  let L = null, err = null;
-  try { L = await E.fetchLive(today); } catch (e) { err = e; }
-  t("prévision du jour téléchargée", !!L, err ? err.message : "");
+  let { v: L, err, note } = await tryTwice(() => E.fetchLive(today), (x) => !!x);
+  t("prévision du jour téléchargée", !!L, [err ? err.message : "", note].filter(Boolean).join(" — "));
   if (L) {
     // v9.3 : AROME (meteofrance_seamless) couvre désormais toutes les heures ; ECMWF ne remplit plus de trou et
     // ne sert qu'au vent de comparaison (wind2, écart entre modèles). On vérifie donc qu'il le fournit vraiment,
@@ -67,16 +94,15 @@ for (const label of ["logonna", "pirou"]) {
   await pause(1500);
 
   // 2. La semaine : même chaîne, 3 requêtes.
-  let W = null; err = null;
-  try { W = await E.fetchWeek(today, 7); } catch (e) { err = e; }
-  t("semaine téléchargée (7 jours)", W && W.length === 7 && W.every((d) => d.live), err ? err.message : W ? W.filter((d) => !d.live).map((d) => d.date + " : " + d.error).join(" | ") : "");
+  const okWeek = (w) => w && w.length === 7 && w.every((d) => d.live);
+  let W; ({ v: W, err, note } = await tryTwice(() => E.fetchWeek(today, 7), okWeek));
+  t("semaine téléchargée (7 jours)", okWeek(W), [err ? err.message : W && !okWeek(W) ? W.filter((d) => !d.live).map((d) => d.date + " : " + d.error).join(" | ") : "", note].filter(Boolean).join(" — "));
   await pause(1500);
 
   // 3. Une date ancienne (> 80 jours) : service d'archives des prévisions.
   const old = E.isoAddDays(today, -100);
-  let O = null; err = null;
-  try { O = await E.fetchLive(old); } catch (e) { err = e; }
-  t(`archives des prévisions (${old})`, !!O && O.models.length > 0, err ? err.message : O ? O.models.join(" + ") : "");
+  let O; ({ v: O, err, note } = await tryTwice(() => E.fetchLive(old), (x) => !!x && x.models.length > 0));
+  t(`archives des prévisions (${old})`, !!O && O.models.length > 0, [err ? err.message : O ? O.models.join(" + ") : "", note].filter(Boolean).join(" — "));
   await pause(1500);
 }
 
