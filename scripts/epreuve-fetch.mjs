@@ -16,7 +16,8 @@ import { SITES } from "./sites.mjs";
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const [outDir = path.join(root, "out/epreuve"), ...only] = process.argv.slice(2);
-const DATES = JSON.parse(fs.readFileSync(path.join(root, "data/epreuve/journees.json"), "utf8")).dates;
+const REF = JSON.parse(fs.readFileSync(path.join(root, "data/epreuve/journees.json"), "utf8"));
+const DATES = REF.dates;
 fs.mkdirSync(outDir, { recursive: true });
 fs.mkdirSync(path.join(root, "tests/.build"), { recursive: true });
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -30,7 +31,9 @@ for (const s of SITES.filter((x) => !only.length || only.includes(x.key))) {
   const E = await import(file + `?t=${Date.now()}`);
   const days = {};
   let ok = 0, fail = 0, noMarine = 0;
-  for (const date of DATES) {
+  // Dates du journal (S16) en plus, pour le guide concerné : gardées à part dans le fichier (journal: true).
+  const journalDates = (REF.journal?.[s.key] || []).filter((d) => !DATES.includes(d));
+  for (const date of [...DATES, ...journalDates]) {
     let live = null, lastErr = null;
     for (const pause of [0, 15000, 45000, 90000]) {
       if (pause) await wait(pause);
@@ -40,6 +43,7 @@ for (const s of SITES.filter((x) => !only.length || only.includes(x.key))) {
     if (live) {
       ok++;
       if (live.sst == null || !Object.values(live.series).some((x) => x.wave?.some((v) => v != null))) noMarine++;
+      if (journalDates.includes(date)) live.journal = true;
       days[date] = live;
     } else { fail++; days[date] = { error: String(lastErr?.message || lastErr).slice(0, 300) }; }
     await wait(700);   // Open-Meteo gratuit : au plus quelques centaines d'appels par minute

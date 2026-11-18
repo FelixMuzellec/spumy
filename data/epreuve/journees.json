@@ -37,5 +37,13 @@
   "2026-10-26",
   "2026-11-06",
   "2026-11-16"
- ]
+ ],
+ "journal": {
+  "logonna": [
+   "2025-12-27",
+   "2026-08-07",
+   "2026-08-08"
+  ]
+ },
+ "description_journal": "Dates de tes sessions notées (journal de Logonna, Moulin Mer) : contrôle de vraisemblance seulement (scénario S16), jamais mêlées aux journées de référence."
 }
