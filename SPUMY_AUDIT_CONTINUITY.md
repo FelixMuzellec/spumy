@@ -16,8 +16,9 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 4. Audit BORD approfondi + corrections météo et sécurité demandées par Félix | VALIDATED (13 nov. 2026, 12 h 37, « APPROVED — PROCEED TO PHASE 5 ») ; revue finale puis fusion dans `main` le 13 nov. (e743b10, propositions n° 1 et n° 2), pas en ligne | Branche `claude/phase-4-bord` (partie de `claude/phase-3-socle`), demande de fusion n° 2 (brouillon) ; rapport « SPUMY — Phase 4 : audit BORD et corrections météo » https://claude.ai/artifact/LryzgD9Q9KbMNec91sMYNx |
 | 5. Connaissances halieutiques | VALIDATED (13 nov. 2026, 13 h 58, « APPROVED — PROCEED TO PHASE 6 ») ; non fusionnée (accord de fusion non donné) | Branche `claude/phase-5-halieutique`, demande de fusion n° 3 ; rapport « SPUMY — Phase 5 : connaissances halieutiques » https://claude.ai/artifact/BmTd9B29oPziqDZqh9n1cC |
 | 6. Conception du moteur BORD (spécification, sans code) | VALIDATED (18 nov. 2026, 14 h 47, « APPROVED — PROCEED TO PHASE 7 ») ; non fusionnée (accord de fusion non donné) | Branche `claude/phase-6-conception`, demande de fusion n° 4 ; `docs/SPEC-MOTEUR-BORD-V2.md` ; rapport « SPUMY — Phase 6 : conception du moteur BORD » https://claude.ai/artifact/Fa93x9zkURzEdVRxRZy8Fj (copie : `docs/rapports/PHASE-6.md`) |
-| 7. Moteur BORD v2 | TESTED, en attente de validation | Branche `claude/phase-7-moteur-v2` (phase 6 + `main`), proposition de fusion n° 6 (brouillon, contient les phases 5 et 6) ; rapport « SPUMY — Phase 7 : moteur BORD v2 » https://claude.ai/artifact/5VVWp9Z3HfSvn72Uy3Ztwo (copie : `docs/rapports/PHASE-7.md`) |
-| 8 à 17 | NOT STARTED | — |
+| 7. Moteur BORD v2 | VALIDATED (18 nov. 2026, « APPROVED — PROCEED TO PHASE 8 ») ; non fusionnée (accord de fusion non donné) | Branche `claude/phase-7-moteur-v2`, proposition de fusion n° 6 (brouillon, contient les phases 5 et 6) ; rapport « SPUMY — Phase 7 : moteur BORD v2 » https://claude.ai/artifact/5VVWp9Z3HfSvn72Uy3Ztwo (copie : `docs/rapports/PHASE-7.md`) |
+| 8. Épreuve du moteur (Monte Carlo, journées archivées) | IN PROGRESS (depuis le 18 nov. 2026) | Branche `claude/phase-8-epreuve` (partie de la phase 7) |
+| 9 à 17 | NOT STARTED | — |
 
 ### Phase 4, lots
 
@@ -38,7 +39,7 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 7.1 Trois scores, réglage v1/v2 | TESTED | `src/bord/engine/v2.js`, `v2-params.js`, `rankDay` ; Réglages → Moteur de notes ; `tests/v2.mjs` 51/51 ; comparaison v1/v2 sur 2 016 journées d'essai : même premier spot 52,9 %, écarts expliqués (vent et mer 49 %, ensemble v1 26 %, créneau 13 %, marée 11 %) |
 | 7.3 Pastilles, preuves, conseil de la boîte | TESTED | `note.jsx`, `Scores.jsx`, `Pastille` ; parcours e2e ; captures v1 et v2 relues |
 | 7.4 Tests | TESTED | e2e 843/843 ; unitaires 7 guides verts ; axe 0 violation ; mise à jour 11/11 ; GitHub : « Tests » et contrat réel verts (commit 9337732, proposition n° 6) |
-| 7.5 Rapport, questions | IMPLEMENTED | `docs/rapports/PHASE-7.md` ; questions une par une à Félix |
+| 7.5 Rapport, questions | VALIDATED | `docs/rapports/PHASE-7.md` ; questions 1 à 3 sans préférence, la 4e a reçu l'approbation de la phase 8 |
 
 ### Phase 5, lots
 
@@ -153,6 +154,24 @@ Consigne de Félix : « une organisation GitHub gratuite « spumy », qui donne 
 - « APPROVED — PROCEED TO PHASE 7 / And transfer / Tu me poseras toutes les questions une par une, à la fin du processus, pour corriger si besoin. » Lu comme : la spécification de la phase 6 est validée telle quelle ; Claude fait la phase 7 sans s'arrêter pour poser des questions, en prenant les recommandations de la spécification là où une décision manque, et pose toutes ses questions une par une à la fin, pour corriger ensuite. « And transfer » : le passage à `spumy.github.io` ; Claude ne peut ni créer l'organisation, ni transférer le dépôt, ni activer Pages (API refusée) : état vérifié, question posée à la fin.
 - Fusion des phases 5, 6 et 7 dans `main` : pas d'accord explicite ; question posée à la fin.
 
+## Consignes de Félix (18 nov. 2026, vers 15 h 55)
+
+- Questions de fin de phase 7, posées une par une : transfert (1), fusion (2), boîte (3) → « sans préférence » ; on garde l'état actuel (transfert non fait, rien fusionné, boîte provisoire, trajet 45 min).
+- En réponse à la question 4 : « APPROVED — PROCEED TO PHASE 8. Tu continueras automatiquement si tu arrives à ta limite. Retiens toutes tes questions que l'on traitera ensemble après que toutes les étapes sont accomplies. » Lu comme : phase 7 VALIDATED ; faire la phase 8 sans poser de question ; garder toutes les questions (celles de la phase 7 encore ouvertes et les nouvelles) pour les traiter ensemble plus tard ; reprise automatique programmée (rappel « Reprendre la phase 8 de SPUMY », 18 nov. 20 h 58, heure de Paris). L'arrêt de fin de phase reste dû (prompt maître) : rapport, puis attente de « APPROVED — PROCEED TO PHASE 9 ».
+
+## Questions retenues pour Félix (à traiter ensemble)
+
+1. Passage à `spumy.github.io` (organisation, transfert, Pages, import des données) — sans préférence le 18 nov.
+2. Fusion des phases 5, 6, 7 (et 8) dans `main` — sans préférence le 18 nov.
+3. Inventaire complet de la boîte — sans préférence le 18 nov.
+4. Temps de trajet maximal (45 min par défaut).
+5. Vigilance Météo-France : compte portail-api et tâche GitHub, ou rester INCONNU.
+6. Isolement par la marée : Mousterlin (coef. > 75), Agon et Sciotot (marée montante) → non recommandé ?
+7. Écart à la spécification pour S12 (présence en abri 0,6 entre 7,5 et 9,5 °C).
+8. Sécurité commune aux deux moteurs (lecture de Claude).
+9. Historique de sorties réelles (vérité terrain).
+10. Restes de la phase 5 : 9 rubriques « connaissance locale », positions GPS des 7 spots de Pirou, 3 spots sans source.
+
 ## Prochaine action
 
-Phase 7 livrée (rapport `docs/rapports/PHASE-7.md`). Poser à Félix ses questions une par une (liste en section 8 du rapport), corriger selon ses réponses, puis attendre `APPROVED — PROCEED TO PHASE 8`. Aucune fusion dans `main` sans son accord.
+Phase 8 : journées archivées (intégration continue), Monte Carlo, coût de la prudence, paliers, rapport, arrêt. Ne poser aucune question (les ajouter à la liste ci-dessus).
