@@ -1086,6 +1086,7 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
   await tab(page, "Spots"); await page.waitForTimeout(400);
   await page.getByRole("button", { name: "Terrain", exact: true }).first().click(); await page.waitForTimeout(300);
   ok(/Preuve [1-5] · (scientifique ou institutionnel|observation documentée|retour local identifiable|hypothèse|heuristique)/.test(await T(page)), L("fiche du spot : niveau de preuve de chaque rubrique"));
+  await tab(page, "Synthèse");   // le rechargement rouvre l'onglet affiché
   await page.evaluate(() => window.dispatchEvent(new Event("bar:reglages"))); await page.waitForTimeout(400);
   ok(await page.getByRole("button", { name: /^v2 · trois scores sur 100/ }).getAttribute("aria-pressed") === "true", L("réglages : v2 choisi"));
   await Promise.all([page.waitForNavigation({ timeout: 15000 }).catch(() => {}), page.getByRole("button", { name: /^v1 · note sur 10/ }).click()]);
