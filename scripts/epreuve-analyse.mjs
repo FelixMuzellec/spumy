@@ -18,6 +18,9 @@ const pct = (a, b) => (b ? `${((100 * a) / b).toFixed(1)} %` : "–");
 const inSeason = (date) => { const m = +date.slice(5, 7); return m >= 5 && m <= 10; };
 const out = { guides: {}, totals: {} };
 const T = { spotDays: 0, eligible: 0, av: 0, avNew: 0, nr: 0, guideDays: 0, topAV: 0, noSure: 0, noneEligible: 0,
+            // Journées dont l'archive marine est complète (houle et eau) : ce que l'application vit au quotidien, où la
+            // prévision de vagues du jour est presque toujours là. Les trous de l'archive font des « houle inconnue ».
+            mk: { guideDays: 0, eligible: 0, av: 0, nr: 0, spotDays: 0, topAV: 0 },
             reasons: {}, nrReasons: {}, byMonth: {}, bands: { saison: [0, 0, 0, 0, 0, 0], hors: [0, 0, 0, 0, 0, 0] }, topBands: { saison: [0, 0, 0, 0, 0, 0], hors: [0, 0, 0, 0, 0, 0] },
             v1v2: { n: 0, same1: 0, over3: 0 }, quality: { days: 0, arome: 0, ecmwfOnly: 0, marine: 0, sst: 0 }, favs: { saison: [], hors: [] } };
 const reasonOf = (v) => (v.k === "vent" ? (/inconnu/.test(v.t) ? "vent inconnu" : /direction/.test(v.t) ? "direction inconnue" : /force 6\b/.test(v.t) ? "vent force 6" : "vent force 7")
@@ -56,11 +59,14 @@ for (const s of SITES) {
     if (Object.values(live.series || {}).some((x) => x.wave?.some((v) => v != null))) T.quality.marine++;
     if (live.sst != null) T.quality.sst++;
     const m = date.slice(5, 7), BM = (T.byMonth[m] ||= { spotDays: 0, av: 0, avNew: 0, eligible: 0 });
+    const marineOk = live.sst != null && Object.values(live.series || {}).some((x) => x.wave?.some((v) => v != null));
+    if (marineOk) T.mk.guideDays++;
     G.days++; T.guideDays++;
     const el = day.filter((x) => x.eligible);
     if (!el.length) T.noneEligible++;
     for (const x of day) {
       T.spotDays++; BM.spotDays++;
+      if (marineOk) { T.mk.spotDays++; if (!x.eligible) T.mk.nr++; else { T.mk.eligible++; if (x.verify?.length) T.mk.av++; } }
       if (!x.eligible) { T.nr++; const k = nrOf(x.reason || x.wxReason || ""); T.nrReasons[k] = (T.nrReasons[k] || 0) + 1; continue; }
       T.eligible++; G.eligible++; BM.eligible++;
       if (x.verify?.length) {
@@ -76,7 +82,7 @@ for (const s of SITES) {
       if (x.score != null) T.favs[S].push(x.score);
     }
     if (el.length) {
-      if (el[0].verify?.length) { T.topAV++; G.topAV++; }
+      if (el[0].verify?.length) { T.topAV++; G.topAV++; if (marineOk) T.mk.topAV++; }
       if (!el.some((x) => !x.verify?.length)) { T.noSure++; G.noSure++; }
       const b = E.bandOf(el[0].score); T.topBands[inSeason(date) ? "saison" : "hors"][b || 0]++;
       // 3. v1 et v2 sur la même journée réelle.
@@ -92,6 +98,7 @@ console.log(`[données] ${q.days} journées-guides · AROME présent ${pct(q.aro
 console.log(`\n[1. coût de la prudence] ${T.spotDays} spots-journées · praticables ${pct(T.eligible, T.spotDays)} · non recommandés ${pct(T.nr, T.spotDays)}`);
 console.log(`  à vérifier : ${pct(T.av, T.eligible)} des spots praticables ; dont à cause de tes seuils seulement (force 6, rafales 60 à 74 km/h) : ${pct(T.avNew, T.eligible)}`);
 console.log(`  journées où le premier spot est à vérifier : ${pct(T.topAV, T.guideDays)} ; journées sans aucun spot sans doute : ${pct(T.noSure, T.guideDays)} ; sans aucun spot praticable : ${pct(T.noneEligible, T.guideDays)}`);
+console.log(`  journées à archive marine complète (${T.mk.guideDays}) : non recommandés ${pct(T.mk.nr, T.mk.spotDays)} · à vérifier ${pct(T.mk.av, T.mk.eligible)} · premier à vérifier ${pct(T.mk.topAV, T.mk.guideDays)}`);
 console.log("  raisons des « à vérifier » (un spot peut en avoir plusieurs) :");
 for (const [k, v] of Object.entries(T.reasons).sort((a, b) => b[1] - a[1])) console.log(`    ${String(v).padStart(5)}  ${k}`);
 console.log("  raisons des « non recommandé » :");
