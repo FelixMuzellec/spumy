@@ -161,6 +161,16 @@ const rock = L.SPOTS.find((s) => L.regimeOf(s) === "roche" && s.exposedAngles?.l
   t("pertinence : boîte complète → les spots sous le seuil passent après les autres", e2.every((s, i) => i === 0 || !(e2[i - 1].v2.pert?.under && !s.v2.pert?.under)));
 }
 
+{ // Vigilance Météo-France : non lue, dite à part, jamais supposée verte ; elle ne change pas le niveau de sécurité.
+  const sf = L.safetyOf(sp, { zw: { ...zw0, gust_kmh: 20 }, light: { band: "aube" } });
+  t("vigilance Météo-France : INCONNU, dite à l'écran (lien vigilance.meteofrance.fr)", L.VIGILANCE.known === false && sf.vigilance && /vigilance\.meteofrance\.fr/.test(sf.vigilance.url) && !sf.items.some((i) => /Vigilance/.test(i.t)));
+  const nt = L.safetyOf(L.SPOTS.find((s) => s.dangerLevel >= 3), { zw: zw0, light: { band: "nuit" } });
+  t("indicateur de sécurité : nuit sur spot engagé → alerte", nt.level === "alerte" && nt.items.some((i) => /spot engagé : non recommandé/.test(i.t)));
+  const f = L.favorability(rock, { priority: "prime", coeff: 60, light: { band: "jour" } }, { ...zw0, sky: "clear", wind_dir: dirOf(L, rock.exposedAngles), wind_force: 3 }, { month: 2, sst: 9, sstConf: "modele" });
+  const kf = L.keyFactors(f), fg = L.factorGroups(f);
+  t("v2 : atouts et freins tirés des critères (vent de mer en atout, plein jour et saison en freins)", kf.plus.some((p) => /vent de mer/i.test(p.label)) && kf.minus.some((m) => /plein jour/i.test(m.label)) && kf.minus.some((m) => /saison|eau/i.test(m.label)));
+  t("v2 : familles de la comparaison en points sur 100 (saison et eau : ce que la présence retire)", fg.find((x) => x.key === "saison").v < 0 && fg.find((x) => x.key === "vent").v === 30); }
+
 // Journée d'essai : météo régulière sur toute la journée (série horaire) autour des spots du guide.
 function mkLive(E, force) {
   const day = "2026-09-14";

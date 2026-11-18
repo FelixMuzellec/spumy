@@ -29,6 +29,16 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 4.3 Source météo, fiche injoignable | TESTED | « AROME · vent comparé à ECMWF » (unitaire et contrat) ; écran « Le guide n'a pas pu se charger » (e2e) |
 | 4.4 Audit BORD | TESTED | `tests/audit-spots.mjs` : 396 rubriques de preuve (192 vérifiées, 191 déduites, 13 connaissance locale) ; 3 spots sans rubrique vérifiée ; 9 spots sans consigne de sécurité ; 7 positions en degrés-minutes seulement |
 
+### Phase 7, lots
+
+| Lot | Statut | Preuve |
+| --- | --- | --- |
+| 7.0 Départ | TESTED | Branche `claude/phase-7-moteur-v2` = phase 6 + `main` ; construction identique à `main` (bc6ce2bfa664) avant tout changement |
+| 7.2 Sécurité de la spécification | TESTED | `windowSafety` (safety.js), commun aux deux moteurs ; `tests/v2.mjs` S1 à S9 ; unitaires des 7 guides ; grille 73 986 cas comparée (seuils de Félix, houle au-dessus du maximum) |
+| 7.1 Trois scores, réglage v1/v2 | IMPLEMENTED | `src/bord/engine/v2.js`, `v2-params.js` ; `rankDay` ; Réglages → Moteur de notes ; `tests/v2.mjs` S10 à S16 et règles ; comparaison v1/v2 `tests/compare-v1v2.mjs` |
+| 7.3 Pastilles, preuves, conseil de la boîte | IMPLEMENTED | `note.jsx`, `Scores.jsx`, `Pastille` (design) ; captures v1 et v2 revues |
+| 7.4 Tests | IN PROGRESS | — |
+
 ### Phase 5, lots
 
 | Lot | Statut | Preuve |

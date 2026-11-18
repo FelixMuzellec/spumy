@@ -1,5 +1,16 @@
 # Journal des versions
 
+## Non publié — phase 7, moteur BORD v2 (trois scores sur 100, sécurité de la spécification)
+
+Branche `claude/phase-7-moteur-v2` (phases 5 et 6, et `main`). Spécification validée par Félix le 18 novembre.
+
+- **Sécurité** (commune aux deux moteurs) : à vérifier dès la force 6 ou 60 km/h de rafales (choix de Félix) ; non recommandé : nuit sur un spot engagé, retour coupé par la marée (Térénez au-delà de 85), houle de plus de 0,5 m au-dessus du maximum (spot engagé : dès le maximum) ; houle légèrement au-dessus du maximum : à vérifier au lieu d'une pénalité cachée. La vigilance Météo-France n'est pas lue : l'écran le dit.
+- **Moteur v2, par défaut** : favorabilité (conditions × présence), pertinence (ta boîte, la distance), confiance, sur 100, jamais fusionnés ; chaque score se décompose ; un critère sans donnée sort du calcul. Les trois meilleurs leurres de ta boîte pour le créneau et ce qui y manque.
+- **Pastilles** : cinq bleus pour la favorabilité ; « à vérifier » en pointillé avec « ? » ; non recommandé gris barré ; pas de note vide (cartes, listes, anneaux, accueil).
+- **Niveaux de preuve** (phase 5) affichés dans la fiche du spot.
+- **Réglages → Moteur de notes** : revenir à la note sur 10 (v1), boîte complète ou non, temps de trajet maximal.
+- **Tests** : `npm run test:v2` (16 scénarios de la spécification, règles des trois scores) ; comparaison des deux moteurs sur 2 016 journées d'essai (`tests/compare-v1v2.mjs`).
+
 ## Non publié — adresse propre spumy.github.io et transfert de toutes les données, fusionnés dans `main` le 13 novembre (1f5c740), pas en ligne
 
 Demande de Félix : une organisation GitHub gratuite « spumy » (adresse `spumy.github.io`), sans perdre le journal enregistré dans l'ancien guide, puis plus aucun lien entre les deux.
