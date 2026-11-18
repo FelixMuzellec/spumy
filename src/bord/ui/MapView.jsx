@@ -114,7 +114,7 @@ export function MapView({ spots, activeId, onPick }) {
       {/* isolation : les calques de Leaflet (z-index jusqu'à 1000) restent sous la barre d'onglets collante. */}
       <div ref={box} role="region" aria-label="Carte des spots" style={{position:"relative",zIndex:0,isolation:"isolate",height:340,borderRadius:10,border:"1px solid #1e293b",overflow:"hidden",background:"#0b1626"}}/>
       <div style={{fontSize:13,color:"#94a3b8",marginTop:8,lineHeight:1.5}}>
-        {spots.some(isV2) ? "Bleu : favorabilité (du plus clair, 80 et plus, au plus sombre, moins de 35) · contour pointillé et « ? » : à vérifier · gris barré : non recommandé · disque vide : pas de note."
+        {spots.some(isV2) ? "Bleu : favorabilité (du plus clair, 75 et plus, au plus sombre, moins de 45) · contour pointillé et « ? » : à vérifier · gris barré : non recommandé · disque vide : pas de note."
           : "Disque vert ≥ 7, orange ≥ 5, gris en dessous ou impraticable."} Touche un spot pour ouvrir sa fiche.
         {tilesFailed && <span style={{color:"#fbbf24"}}> Fond de carte indisponible (hors ligne ?) : les spots restent placés.</span>}
       </div>

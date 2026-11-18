@@ -135,11 +135,14 @@ export function windowLight(win, sun) {
     nuit:       { label: "Nuit",           color: "#818cf8" },
     jour:       { label: "Plein jour",     color: "#94a3b8" },
   }[best[0]] || { label: "–", color: "#8a9ab0" };
+  // Phase 8 : part de chaque lumière dans le créneau (aube, crépuscule, nuit, jour), pour une lumière comptée au prorata.
+  const tot = Object.values(agg).reduce((a, b) => a + b, 0) || 1;
   return {
     band: best[0],
     label: cfg.label,
     color: cfg.color,
     overlap: lowLight,
+    frac: { aube: (agg.aube || 0) / tot, crepuscule: (agg.crepuscule || 0) / tot, nuit: (agg.nuit || 0) / tot, jour: (agg.jour || 0) / tot },
     // Le libellé promet de la basse lumière alors que la fenêtre n'en a
     // pratiquement pas : c'est exactement le cas signalé sur le terrain.
     mismatch: claimsTwilight && lowLight < 0.25,

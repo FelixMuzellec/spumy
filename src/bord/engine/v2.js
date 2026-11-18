@@ -132,7 +132,23 @@ export function favorability(spot, win, zw, ctx = {}) {
   // C3 — lumière
   const band = win?.light?.band;
   const L = V2.lumiere;
+  const fr = win?.light?.frac;
   if (!band || band === "inconnu") out("lumiere", "Lumière", "heure de lever ou de coucher inconnue");
+  else if (V2.lumiereProrata && band === "jour" && fr && fr.jour < 0.95) {
+    // Phase 8 : créneau de plein jour qui mord sur l'aube, le crépuscule ou la nuit. Au lieu de sauter d'un coup de
+    // 5 à 25 points quand la basse lumière passe la moitié du créneau, la note monte en rampe : de la note de jour
+    // (0 % de basse lumière) à celle de la basse lumière dominante (50 % et plus). Les créneaux majoritairement à
+    // l'aube, au crépuscule ou de nuit gardent leur note entière, comme dans la spécification.
+    const couvert = zw?.sky === "overcast" ? L.couvert : 0;
+    const h = zw && zw.houleKnown !== false && Number.isFinite(zw.houle) ? zw.houle : 0;
+    const jour = L.jour + couvert + Math.round(L.merFormee * Math.min(1, Math.max(0, h)));
+    const low = fr.aube + fr.crepuscule + fr.nuit;
+    const dom = [["aube", fr.aube], ["crepuscule", fr.crepuscule], ["nuit", fr.nuit]].sort((x, y) => y[1] - x[1])[0][0];
+    const lowVal = Math.max(jour, L[dom]);
+    const pts = Math.round((jour + (lowVal - jour) * Math.min(1, low / 0.5)) * 10) / 10;
+    const nom = { aube: "aube", crepuscule: "crépuscule", nuit: "nuit" }[dom];
+    add("lumiere", "Lumière", pts, L.aube, `plein jour, ${Math.round(low * 100)} % du créneau en ${nom} ou basse lumière`);
+  }
   else if (band === "aube" || band === "crepuscule") add("lumiere", "Lumière", L[band], L.aube, band === "aube" ? "aube" : "crépuscule");
   else if (band === "nuit") add("lumiere", "Lumière", L.nuit, L.aube, "nuit");
   else {

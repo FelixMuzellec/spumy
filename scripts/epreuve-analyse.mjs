@@ -17,6 +17,7 @@ fs.mkdirSync(path.join(root, "tests/.build"), { recursive: true });
 const pct = (a, b) => (b ? `${((100 * a) / b).toFixed(1)} %` : "–");
 const inSeason = (date) => { const m = +date.slice(5, 7); return m >= 5 && m <= 10; };
 const out = { guides: {}, totals: {} };
+let V2B = [80, 65, 50, 35];                 // paliers du moteur lu (remplacés à la lecture du premier guide)
 const T = { spotDays: 0, eligible: 0, av: 0, avNew: 0, nr: 0, guideDays: 0, topAV: 0, noSure: 0, noneEligible: 0,
             // Journées dont l'archive marine est complète (houle et eau) : ce que l'application vit au quotidien, où la
             // prévision de vagues du jour est presque toujours là. Les trous de l'archive font des « houle inconnue ».
@@ -39,6 +40,7 @@ for (const s of SITES) {
     external: ["react", "react/jsx-runtime", "react-dom"], logLevel: "warning",
     plugins: [{ name: "site", setup(b) { b.onResolve({ filter: /^SITE_CONFIG$/ }, () => ({ path: path.join(root, s.config) })); } }] });
   const E = await import(file + `?t=${Date.now()}`);
+  V2B = E.V2.bands;
   const G = (out.guides[s.key] = { days: 0, av: 0, eligible: 0, topAV: 0, noSure: 0, journal: [] });
   for (const [date, live] of Object.entries(data.days)) {
     if (!live || live.error) continue;
@@ -105,7 +107,7 @@ console.log("  raisons des « non recommandé » :");
 for (const [k, v] of Object.entries(T.nrReasons).sort((a, b) => b[1] - a[1])) console.log(`    ${String(v).padStart(5)}  ${k}`);
 console.log("  par mois (à vérifier / praticables ; dont tes seuils seuls) :");
 for (const [mo, v] of Object.entries(T.byMonth).sort()) console.log(`    ${mo} : ${pct(v.av, v.eligible)} ; ${pct(v.avNew, v.eligible)}`);
-const bl = ["pas de note", "moins de 35", "35 à 49", "50 à 64", "65 à 79", "80 et plus"];
+const bl = ["pas de note", ...(() => { const [a, b, c, d] = [...V2B].reverse(); return [`moins de ${a}`, `${a} à ${b - 1}`, `${b} à ${c - 1}`, `${c} à ${d - 1}`, `${d} et plus`]; })()];
 console.log(`\n[2. paliers] (tous spots praticables · premier du jour)`);
 for (const S of ["saison", "hors"]) {
   const a = T.bands[S], b = T.topBands[S], na = a.reduce((x, y) => x + y, 0), nb = b.reduce((x, y) => x + y, 0);

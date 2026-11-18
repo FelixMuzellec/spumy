@@ -138,7 +138,7 @@ const rock = L.SPOTS.find((s) => L.regimeOf(s) === "roche" && s.exposedAngles?.l
   t("présence : une température « moyenne de saison » n'est pas comptée (saison seule)", !sea.pres.sstKnown && sea.pres.by === "saison");
   const cold = L.favorability(s, w, zw0, { month: 9, sst: 6, sstConf: "modele" });
   t("présence : eau à 6 °C en côte ouverte → 0,3 (la plus restrictive)", cold.pres.factor === 0.3, String(cold.pres.factor));
-  t("paliers : 80 / 65 / 50 / 35", [100, 80, 79, 65, 64, 50, 49, 35, 34, 0].map(L.bandOf).join() === "5,5,4,4,3,3,2,2,1,1" && L.bandOf(null) === null); }
+  t("paliers (recalés en phase 8) : 75 / 65 / 55 / 45", [100, 75, 74, 65, 64, 55, 54, 45, 44, 0].map(L.bandOf).join() === "5,5,4,4,3,3,2,2,1,1" && L.bandOf(null) === null); }
 { // Niveaux de preuve des critères = ceux de bar-bord.json
   const lv = (id) => K.connaissances.find((k) => k.id === id)?.niveau;
   t("niveaux de preuve des critères égaux à bar-bord.json", L.CRIT_NIVEAU.fenetre === lv("maree-flot") && L.CRIT_NIVEAU.coef === lv("coefficient-plage-utile") && L.CRIT_NIVEAU.lumiere === lv("lumiere-basse") && L.CRIT_NIVEAU.vent === lv("vent-exposition") && L.CRIT_NIVEAU.presence === lv("seuils-thermiques"));

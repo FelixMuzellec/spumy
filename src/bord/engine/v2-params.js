@@ -8,7 +8,7 @@ export const V2 = {
   lumiere: { aube: 25, crepuscule: 25, nuit: 15, jour: 5, couvert: 3, merFormee: 3 },   // C3 : 25 ; plein jour 5 à 11
   vent: 30,                                                // C4 : tableau VENT_MER
   minCouverture: 0.5,                                      // sous la moitié des critères : pas de note (pastille vide)
-  bands: [80, 65, 50, 35],                                 // paliers de favorabilité (cinq), à recaler en phase 8
+  bands: [75, 65, 55, 45],                                 // paliers de favorabilité (cinq), recalés en phase 8 sur les journées réelles
   bon: 65,                                                 // « favorable » : les deux paliers du haut
   egalite: 3,                                              // écart sous lequel deux spots sont annoncés à égalité
   pert: { seuil: 50, couverture: 50, remplacant: 30, aucun: 10, poids: 25, poidsProche: 12, distance: 25 },
@@ -19,9 +19,12 @@ export const V2 = {
   //   coefShift : déplace la plage utile du coefficient (±10 points) ; ventAmp : amplitude du tableau VENT_MER autour
   //   du calme (1 = tableau tel quel) ; kSeason, kThermal : multiplient ce que la saison et l'eau retirent à la présence.
   mc: { coefShift: 0, ventAmp: 1, kSeason: 1, kThermal: 1 },
+  // Phase 8 — créneau de plein jour qui mord sur la basse lumière : rampe de la note de jour à celle de la basse
+  // lumière dominante (atteinte à 50 % du créneau), au lieu d'un saut de 5 à 25 points au passage de la moitié.
+  lumiereProrata: true,
 };
 
-/** Palier de favorabilité : 5 (80 et plus) à 1 (moins de 35) ; null sans note. */
+/** Palier de favorabilité : 5 (75 et plus) à 1 (moins de 45) ; null sans note. */
 export function bandOf(v) {
   if (v == null || !Number.isFinite(v)) return null;
   const [a, b, c, d] = V2.bands;

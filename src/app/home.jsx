@@ -107,7 +107,7 @@ function GlobalMap({ spots, selected, onPick }) {
     <div>
       <div ref={box} role="region" aria-label="Carte interactive : touche un spot pour sa note" style={{ position: "relative", zIndex: 0, isolation: "isolate", height: 360, borderRadius: 12, border: "1px solid #1e293b", overflow: "hidden", background: "#0b1626" }} />
       <p style={{ fontSize: 13, color: "#94a3b8", margin: "8px 2px 0", lineHeight: 1.5 }}>
-        {spots.some(isV2) ? "Bleu : favorabilité sur 100 (le plus clair : 80 et plus ; le plus sombre : moins de 35) · contour pointillé et « ? » : à vérifier · gris barré : non recommandé · disque vide : pas de note · gris clair : en cours de calcul."
+        {spots.some(isV2) ? "Bleu : favorabilité sur 100 (le plus clair : 75 et plus ; le plus sombre : moins de 45) · contour pointillé et « ? » : à vérifier · gris barré : non recommandé · disque vide : pas de note · gris clair : en cours de calcul."
           : "Disque vert : note ≥ 7 · orange ≥ 5 · gris foncé en dessous ou non proposé · gris clair : note en cours de calcul."} Contour rose : tes spots. Touche un spot pour sa note et sa fiche.
         {tilesFailed && <span style={{ color: "#fbbf24" }}> Fond de carte indisponible (hors ligne ?) : les spots restent placés.</span>}
       </p>
