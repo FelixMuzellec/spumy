@@ -137,7 +137,7 @@ Sur 2 016 journées d'essai, le premier spot change dans 47 % des cas :
 | Niveaux de preuve affichés | fiche du spot, onglet Terrain | TESTED |
 | Conseil tiré de ta boîte, trois meilleurs et ce qui manque | S13 ; détail des trois scores | TESTED (boîte enregistrée, inventaire complet attendu) |
 | Vigilance Météo-France | non lue, dite à l'écran | INCONNU |
-| Suite complète verte sur GitHub | à constater sur la branche | IMPLEMENTED |
+| Suite complète verte sur GitHub | « Tests » et contrat Open-Meteo réel verts (commit 9337732, proposition n° 6) | TESTED |
 
 Statut de la phase : **TESTED, en attente de ta validation.**
 

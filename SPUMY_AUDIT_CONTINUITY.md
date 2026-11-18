@@ -37,7 +37,7 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 7.2 Sécurité de la spécification | TESTED | `windowSafety` (safety.js), commun aux deux moteurs ; `tests/v2.mjs` S1 à S9 ; grille 73 986 cas : 0 danger proposé, 12 672 cas « à vérifier » de plus, 0 au vert sans météo |
 | 7.1 Trois scores, réglage v1/v2 | TESTED | `src/bord/engine/v2.js`, `v2-params.js`, `rankDay` ; Réglages → Moteur de notes ; `tests/v2.mjs` 51/51 ; comparaison v1/v2 sur 2 016 journées d'essai : même premier spot 52,9 %, écarts expliqués (vent et mer 49 %, ensemble v1 26 %, créneau 13 %, marée 11 %) |
 | 7.3 Pastilles, preuves, conseil de la boîte | TESTED | `note.jsx`, `Scores.jsx`, `Pastille` ; parcours e2e ; captures v1 et v2 relues |
-| 7.4 Tests | TESTED | e2e 843/843 ; unitaires 7 guides verts ; `test:v2` en intégration continue |
+| 7.4 Tests | TESTED | e2e 843/843 ; unitaires 7 guides verts ; axe 0 violation ; mise à jour 11/11 ; GitHub : « Tests » et contrat réel verts (commit 9337732, proposition n° 6) |
 | 7.5 Rapport, questions | IMPLEMENTED | `docs/rapports/PHASE-7.md` ; questions une par une à Félix |
 
 ### Phase 5, lots
