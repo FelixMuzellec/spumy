@@ -193,9 +193,8 @@ ${LEAFLET_CSS}${MAP_CSS}</style>
 // pointent vers ce manifeste. L'installer depuis n'importe laquelle donne la même
 // application, qui s'ouvre sur l'accueil ; appui long sur l'icône (Android) : accès
 // direct à un guide.
-// Pas de champ « id » : il se résout contre l'ORIGINE (felixmuzellec.github.io, partagée par
-// tous les sites GitHub Pages du compte), alors que start_url se résout contre le dossier du
-// site. Sans « id », l'identifiant de l'application est start_url : …/guide-peche-bar/.
+// Pas de champ « id » : sans lui, l'identifiant de l'application est start_url, résolu contre le
+// dossier du site (spumy.github.io/ à l'adresse de l'organisation).
 const manifest = JSON.stringify({
   name: APP.name, short_name: APP.short, lang: "fr", dir: "ltr",
   description: "SPUMY : où et quand pêcher le bar aux leurres du bord. Sept guides, en Finistère (rade de Brest, presqu'île de Crozon et baie de Douarnenez, Pays des Abers, Cap Sizun, baie de Morlaix et Haut-Léon, Cornouaille) et dans la Manche (Cotentin ouest).",

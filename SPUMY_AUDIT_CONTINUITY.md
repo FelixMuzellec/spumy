@@ -15,8 +15,9 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 3. Socle technique | VALIDATED (13 nov. 2026, 3 h 57, « APPROVED — PROCEED TO PHASE 4 ») ; fusionnée dans `main` le 13 nov. (e743b10), pas en ligne | Branche `claude/phase-3-socle`, demande de fusion n° 1 ; rapport « SPUMY — Phase 3 : socle technique » https://claude.ai/artifact/NYumZHjRgLUa9jMQcBGXK9 |
 | 4. Audit BORD approfondi + corrections météo et sécurité demandées par Félix | VALIDATED (13 nov. 2026, 12 h 37, « APPROVED — PROCEED TO PHASE 5 ») ; revue finale puis fusion dans `main` le 13 nov. (e743b10, propositions n° 1 et n° 2), pas en ligne | Branche `claude/phase-4-bord` (partie de `claude/phase-3-socle`), demande de fusion n° 2 (brouillon) ; rapport « SPUMY — Phase 4 : audit BORD et corrections météo » https://claude.ai/artifact/LryzgD9Q9KbMNec91sMYNx |
 | 5. Connaissances halieutiques | VALIDATED (13 nov. 2026, 13 h 58, « APPROVED — PROCEED TO PHASE 6 ») ; non fusionnée (accord de fusion non donné) | Branche `claude/phase-5-halieutique`, demande de fusion n° 3 ; rapport « SPUMY — Phase 5 : connaissances halieutiques » https://claude.ai/artifact/BmTd9B29oPziqDZqh9n1cC |
-| 6. Conception du moteur BORD (spécification, sans code) | IMPLEMENTED, en attente de validation | Branche `claude/phase-6-conception`, demande de fusion n° 4 ; `docs/SPEC-MOTEUR-BORD-V2.md` ; rapport « SPUMY — Phase 6 : conception du moteur BORD » https://claude.ai/artifact/Fa93x9zkURzEdVRxRZy8Fj (copie : `docs/rapports/PHASE-6.md`) ; adresse propre `spumy.github.io` : transfert des données fusionné dans `main` (1f5c740, proposition n° 5), six étapes à faire par Félix |
-| 7 à 17 | NOT STARTED | — |
+| 6. Conception du moteur BORD (spécification, sans code) | VALIDATED (18 nov. 2026, 14 h 47, « APPROVED — PROCEED TO PHASE 7 ») ; non fusionnée (accord de fusion non donné) | Branche `claude/phase-6-conception`, demande de fusion n° 4 ; `docs/SPEC-MOTEUR-BORD-V2.md` ; rapport « SPUMY — Phase 6 : conception du moteur BORD » https://claude.ai/artifact/Fa93x9zkURzEdVRxRZy8Fj (copie : `docs/rapports/PHASE-6.md`) |
+| 7. Moteur BORD v2 | IN PROGRESS (depuis le 18 nov. 2026) | Branche `claude/phase-7-moteur-v2` (phase 6 + `main`) |
+| 8 à 17 | NOT STARTED | — |
 
 ### Phase 4, lots
 
@@ -81,13 +82,13 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 
 ## Décisions ouvertes
 
-1. Adresse dédiée — **décidée le 13 nov. (14 h 25)** : organisation GitHub gratuite « spumy » (`spumy.github.io`), sans perdre le journal. Procédure : `docs/CHANGEMENT-ADRESSE.md` ; passage du journal testé (`npm run test:migration`). Création de l'organisation, transfert et activation de Pages : à faire par Félix.
-2. Profil pour le score de pertinence — avant la phase 6.
+1. Adresse dédiée — **décidée le 13 nov.** : organisation GitHub gratuite « spumy » (`spumy.github.io`), sans perdre le journal. Code fusionné dans `main` (1f5c740) ; marche à suivre dans le `README` (la première procédure, `docs/CHANGEMENT-ADRESSE.md` et `test:migration`, est remplacée par le transfert de toutes les données et retirée en phase 7). Création de l'organisation, transfert et activation de Pages : à faire par Félix. Constaté le 18 nov. : dépôt toujours `FelixMuzellec/spumy`, Pages non activé, organisation `spumy` invisible pour Claude.
+2. Profil pour le score de pertinence — décidé le 13 nov. : inventaire complet de la boîte, à fournir par Félix (pas encore reçu au 18 nov. : la phase 7 part de la boîte déjà enregistrée dans l'application).
 3. Historique de sorties réelles comme référence — avant la phase 6.
 4. Gratuit et sans publicité ? — avant la phase 15.
 5. Direction artistique appliquée à BORD en phase 13 élargie — avant la phase 11.
-6. Espèces du mode BORD — avant la phase 5.
-7. Seuils de vent (force 8 / rafales 90 → non recommandé ; force 7 / rafales 75 → à vérifier ; 75 km/h déduit) — avant la phase 6.
+6. Espèces du mode BORD — décidé le 13 nov. : bar seul.
+7. Seuils de vent — décidé le 13 nov. : plus prudents (à vérifier dès la force 6 ou 60 km/h de rafales ; non recommandé dès la force 8 ou 90 km/h). Appliqués en phase 7.
 8. Seuils en rade : les mêmes qu'en côte ouverte, ou par exposition — phase 6.
 9. Publication : fusion des phases 3 et 4 autorisée par Félix le 13 nov. (12 h 37) sous condition de la revue finale ; la mise en ligne elle-même attend la décision 1 (GitHub Pages n'est pas activé sur ce dépôt).
 
@@ -122,6 +123,25 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 - « APPROVED — PROCEED TO PHASE 6 ». Réponses aux décisions : seuils de vent **plus prudents** (à vérifier dès la force 6 ou des rafales de 60 km/h ; non recommandé dès la force 8 ou 90 km/h) ; **bar seul** ; profil = **inventaire complet de sa boîte**, que Félix fournira, pour que SPUMY conseille les meilleurs leurres et montages ; pastilles : **attendre la phase 7**.
 - Questions posées : pourquoi la même adresse que guide-peche-bar (réponse : même compte GitHub, donc même domaine felixmuzellec.github.io ; seule une organisation ou un domaine donne une adresse à part, décision 1) ; pourquoi seulement orange ou vert sur les pastilles (réponse : échelle sur 10 tassée, et orange = « moyen » ou « à vérifier » depuis la phase 4 ; corrigé par la spécification de la phase 6, appliqué en phase 7).
 
+## Adresse propre (13 nov. 2026, 16 h 33 et 19 h 10)
+
+Consigne de Félix : « une organisation GitHub gratuite « spumy », qui donne `spumy.github.io` […] mais ne pas perdre les informations du journal enregistrées dans le guide du bar. Une fois celles-ci intégrées, il n'y aura aucun lien entre guide de pêche du bar et Spumy. » Puis « Continue ton travail ». Décision 1 (adresse dédiée) : **organisation `spumy`**, dépôt renommé `spumy.github.io`.
+
+- Fait par Claude (branche `claude/transfert-spumy`) : transfert de toutes les données par fichier (*Réglages → Toutes mes données*) ; dépôt de sauvegarde par défaut `spumy/journal` ; tests servis à la racine ; passage v8.15 retiré de l'intégration continue ; marche à suivre dans le `README`.
+- À faire par Félix, l'API GitHub refusant ces actions à Claude :
+    1. Pages temporaire sur `FelixMuzellec/spumy`, pour enregistrer le fichier à l'ancienne origine.
+    2. Créer l'organisation.
+    3. Transférer et renommer le dépôt.
+    4. Activer Pages.
+    5. Importer le fichier sur le téléphone.
+    6. Créer le dépôt `journal` et son jeton.
+- Après le transfert, l'accès de Claude au dépôt passe par son nouveau nom (`spumy/spumy.github.io`) : il faudra le rattacher à la session.
+
+## Consignes de Félix (18 nov. 2026, 14 h 47)
+
+- « APPROVED — PROCEED TO PHASE 7 / And transfer / Tu me poseras toutes les questions une par une, à la fin du processus, pour corriger si besoin. » Lu comme : la spécification de la phase 6 est validée telle quelle ; Claude fait la phase 7 sans s'arrêter pour poser des questions, en prenant les recommandations de la spécification là où une décision manque, et pose toutes ses questions une par une à la fin, pour corriger ensuite. « And transfer » : le passage à `spumy.github.io` ; Claude ne peut ni créer l'organisation, ni transférer le dépôt, ni activer Pages (API refusée) : état vérifié, question posée à la fin.
+- Fusion des phases 5, 6 et 7 dans `main` : pas d'accord explicite ; question posée à la fin.
+
 ## Prochaine action
 
-Phase 6 : spécification `docs/SPEC-MOTEUR-BORD-V2.md` rédigée, rapport de phase 6, arrêt. Attendre `APPROVED — PROCEED TO PHASE 7`. Fusion de la phase 5 : attendre l'accord de Félix.
+Phase 7 : lots 7.2 (sécurité), 7.1 (trois scores, réglage v1/v2), 7.3 (pastilles, niveaux de preuve, conseil de la boîte), 7.4 (16 scénarios en tests), puis rapport, questions une par une à Félix, arrêt. Attendre `APPROVED — PROCEED TO PHASE 8`.

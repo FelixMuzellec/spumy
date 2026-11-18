@@ -2,7 +2,7 @@
 // cache en secours (l'application s'ouvre sans réseau, marée comprise).
 // Les appels météo et GitHub ne sont jamais mis en cache ici : l'application
 // gère elle-même sa mémoire de la dernière météo téléchargée.
-const CACHE = "guide-bar-3b1540fd6170";
+const CACHE = "guide-bar-bc6ce2bfa664";
 // Une seule application : l'accueil, les guides, le manifeste commun et les icônes.
 // Liste écrite par scripts/build.mjs à partir des fichiers du site.
 const SHELL = ["./","./index.html","./app.js","./logonna.html","./pirou.html","./plouguerneau.html","./audierne.html","./carantec.html","./concarneau.html","./crozon.html","./logonna.json","./pirou.json","./plouguerneau.json","./audierne.json","./carantec.json","./concarneau.json","./crozon.json","./manifest.json","./icon-192.png","./icon-512.png","./icon-maskable.png","./apple-touch-icon.png","./logonna.png","./pirou.png","./plouguerneau.png","./audierne.png","./carantec.png","./concarneau.png","./crozon.png"];
@@ -14,11 +14,9 @@ self.addEventListener("install", (e) => {
 });
 // Caches des versions précédentes de SPUMY : supprimés à l'activation, puis à chaque ouverture de page. Une page
 // encore servie par l'ancien service worker pendant la mise à jour peut en effet recréer l'ancien cache juste
-// après sa suppression. Seuls les caches de SPUMY (« guide-bar-… ») sont touchés : l'origine
-// felixmuzellec.github.io est commune à tous les sites GitHub Pages du compte, leurs caches ne nous regardent pas.
-// Revue finale des phases 3 et 4 : l'ancienne adresse (/guide-peche-bar/) nomme ses caches de la même façon et
-// partage la même origine. On ne supprime donc que les entrées situées sous la portée de CE service worker
-// (et le cache entier s'il ne contient qu'elles) : la copie hors ligne d'une autre adresse du compte reste intacte.
+// après sa suppression. Seuls les caches de SPUMY (« guide-bar-… », nom interne) sont touchés, et seulement pour les
+// entrées situées sous la portée de CE service worker (le cache entier s'il ne contient qu'elles) : si un autre site
+// partage un jour l'origine (un autre dépôt de l'organisation, servi sous /<dépôt>/), sa copie hors ligne reste intacte.
 const SCOPE = self.registration.scope;
 const prune = () => caches.keys().then((ks) => Promise.all(ks.filter((k) => k.startsWith("guide-bar-") && k !== CACHE).map(async (k) => {
   const c = await caches.open(k), reqs = await c.keys();

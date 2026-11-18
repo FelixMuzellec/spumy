@@ -14,11 +14,9 @@ self.addEventListener("install", (e) => {
 });
 // Caches des versions précédentes de SPUMY : supprimés à l'activation, puis à chaque ouverture de page. Une page
 // encore servie par l'ancien service worker pendant la mise à jour peut en effet recréer l'ancien cache juste
-// après sa suppression. Seuls les caches de SPUMY (« guide-bar-… ») sont touchés : l'origine
-// felixmuzellec.github.io est commune à tous les sites GitHub Pages du compte, leurs caches ne nous regardent pas.
-// Revue finale des phases 3 et 4 : l'ancienne adresse (/guide-peche-bar/) nomme ses caches de la même façon et
-// partage la même origine. On ne supprime donc que les entrées situées sous la portée de CE service worker
-// (et le cache entier s'il ne contient qu'elles) : la copie hors ligne d'une autre adresse du compte reste intacte.
+// après sa suppression. Seuls les caches de SPUMY (« guide-bar-… », nom interne) sont touchés, et seulement pour les
+// entrées situées sous la portée de CE service worker (le cache entier s'il ne contient qu'elles) : si un autre site
+// partage un jour l'origine (un autre dépôt de l'organisation, servi sous /<dépôt>/), sa copie hors ligne reste intacte.
 const SCOPE = self.registration.scope;
 const prune = () => caches.keys().then((ks) => Promise.all(ks.filter((k) => k.startsWith("guide-bar-") && k !== CACHE).map(async (k) => {
   const c = await caches.open(k), reqs = await c.keys();

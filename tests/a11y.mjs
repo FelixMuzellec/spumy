@@ -68,6 +68,8 @@ for (const site of SITES) {
   await pg.goto(`${BASE}/${site}.html`); await pg.waitForFunction(() => /Conditions du jour/.test(document.body.innerText), null, { timeout: 15000 }).catch(() => {});
   await pg.waitForTimeout(1500);
   for (const t of TABS) { await pg.evaluate((k) => { location.hash = k; }, t); await pg.waitForTimeout(900); await run(pg, `${site}#${t}`); }
+  // Réglages ouverts (affichage, toutes mes données, sauvegarde GitHub), une fois.
+  if (site === SITES[0]) { await pg.evaluate(() => window.dispatchEvent(new Event("bar:reglages"))); await pg.waitForTimeout(500); await run(pg, `${site} · réglages ouverts`); await pg.getByRole("button", { name: "Fermer", exact: true }).click(); await pg.waitForTimeout(300); }
   // v8.11 : formulaire « Ajouter un spot » ouvert, puis la fiche d'un de tes spots.
   await pg.evaluate(() => { location.hash = "spots"; }); await pg.waitForTimeout(600);
   const add = pg.getByRole("button", { name: "＋ Ajouter un spot" });

@@ -11,19 +11,15 @@ import { mergeMyRecords } from "../bord/engine/myspots.js";
 import { getTheme, setTheme } from "../design/theme.js";
 
 import { b64dec, b64enc, DEFAULT_CFG, explain, getCfg, gh, setCfg } from "../core/ghsync.js";
+import { mergeEntries } from "./merge.js";
+import { TransferPanel } from "./TransferPanel.jsx";
 export { getCfg };
 
 const fileFor = (siteId) => `journal-${siteId}.json`;
 const localKey = (siteId) => `bar:journal:${siteId}`;
 function readLocal(siteId) { try { const v = JSON.parse(localStorage.getItem(localKey(siteId)) || "[]"); return Array.isArray(v) ? v : []; } catch { return []; } }
 
-/** Union par identifiant ; à identifiant égal, les champs locaux complètent le distant. */
-export function mergeEntries(remote, local) {
-  const by = new Map();
-  for (const e of remote || []) if (e && e.id != null) by.set(String(e.id), e);
-  for (const e of local || []) if (e && e.id != null) by.set(String(e.id), { ...(by.get(String(e.id)) || {}), ...e });
-  return [...by.values()].sort((a, b) => String(a.date).localeCompare(String(b.date)) || String(a.id).localeCompare(String(b.id)));
-}
+export { mergeEntries };
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
 async function readRemote(cfg, siteId) {
@@ -158,13 +154,14 @@ export function SyncBar({ siteId, initial }) {
               <button key={k} onClick={() => pickTheme(k)} aria-pressed={theme === k} style={{ flex: 1, minHeight: 44, borderRadius: 8, border: `1px solid ${theme === k ? C.acc : C.line}`, background: theme === k ? "rgba(14,165,233,0.15)" : "none", color: theme === k ? "#e2e8f0" : C.txt, fontSize: 13.5, fontWeight: 700, cursor: "pointer" }}>{l}</button>
             ))}
           </div>
+          <TransferPanel />
           <div style={{ color: "#e2e8f0", fontWeight: 700, marginBottom: 6 }}>Sauvegarde du journal sur GitHub</div>
           <p style={{ margin: "0 0 8px" }}>
             Le journal est gardé sur cet appareil. Pour ne plus jamais le perdre et le retrouver sur tous tes appareils,
             il est aussi écrit dans un dépôt GitHub <strong>privé</strong> (un fichier par application, un historique par enregistrement).
           </p>
           <ol style={{ margin: "0 0 8px", paddingLeft: 18 }}>
-            <li>Crée un dépôt <strong>privé</strong> nommé <code>guide-peche-bar-journal</code>.</li>
+            <li>Crée un dépôt <strong>privé</strong> nommé <code>journal</code> dans l'organisation <code>spumy</code> (ou dans ton compte : change alors « Compte »).</li>
             <li>GitHub → Settings → Developer settings → Fine-grained tokens → Generate : accès au seul dépôt
               du journal, permission <em>Contents : Read and write</em>.</li>
             <li>Colle le jeton ci-dessous. Il reste sur cet appareil et n'est envoyé qu'à GitHub.</li>

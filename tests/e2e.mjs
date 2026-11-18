@@ -1,5 +1,5 @@
 // Tests de bout en bout dans Chromium (Playwright), sur les pages construites
-// (racine du dépôt), servies comme sur GitHub Pages (/guide-peche-bar/...). Open-Meteo,
+// (racine du dépôt), servies à la racine comme sur GitHub Pages (spumy.github.io/...). Open-Meteo,
 // l'API GitHub et les tuiles OpenStreetMap sont simulés au niveau du réseau ;
 // tout le reste est réel.
 import { chromium, devices } from "playwright";
@@ -12,7 +12,7 @@ import { omRespond } from "./om_mock.mjs";
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const SHOTS = process.env.SHOTS || path.join(ROOT, "tests/shots");
 fs.mkdirSync(SHOTS, { recursive: true });
-const PREFIX = "/guide-peche-bar";
+const PREFIX = "";   // spumy.github.io : le site est à la racine de son adresse
 const DOCS = ROOT;   // le site est construit à la racine du dépôt
 // Tuile de carte factice (PNG 1×1) : aucun appel réel à OpenStreetMap pendant les tests.
 const PNG1 = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==", "base64");
@@ -284,7 +284,7 @@ const btn = (page, name) => page.getByRole("button", { name }).first();
 }
 // ── 0 ter. v8.15 : onglets Inshore / Offshore ; pêche en bateau (spots, conditions, sorties, modèle empirique) ──
 {
-  const SYNC = { owner: "FelixMuzellec", repo: "guide-peche-bar-journal", token: "github_pat_TEST" };
+  const SYNC = { owner: "spumy", repo: "journal", token: "github_pat_TEST" };
   const gh = fakeGitHub();
   const ctx = await browser.newContext({ ...devices["iPhone 13"], locale: "fr-FR", timezoneId: "Europe/Paris", serviceWorkers: "block" });
   await ctx.clock.install({ time: FIXED_NOW });
@@ -807,7 +807,7 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
 
 // ── 4. Sauvegarde GitHub du journal ──
 {
-  const SYNC = { owner: "FelixMuzellec", repo: "guide-peche-bar-journal", token: "github_pat_TEST" };
+  const SYNC = { owner: "spumy", repo: "journal", token: "github_pat_TEST" };
   // a) dépôt vide → premier enregistrement crée le fichier (seeds compris)
   const gh = fakeGitHub();
   const { ctx, page, errors } = await openApp("logonna", { sync: SYNC, gh });
@@ -853,9 +853,9 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
   await tab(o3b.page, "Journal");
   await o3b.page.fill('input[placeholder^="Asturie"]', "Essai sauvegarde refusée");
   await btn(o3b.page, /^Enregistrer$/).click();
-  await waitText(o3b.page, /dépôt FelixMuzellec\/guide-peche-bar-journal public/, 10000).catch(() => {});
+  await waitText(o3b.page, /dépôt spumy\/journal public/, 10000).catch(() => {});
   const local3b = await o3b.page.evaluate(() => localStorage.getItem("bar:journal:logonna-daoulas") || "");
-  ok(!gh3b.log.some((l) => l.startsWith("PUT")) && /dépôt FelixMuzellec\/guide-peche-bar-journal public/.test(await T(o3b.page)) && /Essai sauvegarde refusée/.test(local3b),
+  ok(!gh3b.log.some((l) => l.startsWith("PUT")) && /dépôt spumy\/journal public/.test(await T(o3b.page)) && /Essai sauvegarde refusée/.test(local3b),
     "[sécurité] dépôt de sauvegarde public : rien n'est envoyé, message clair, la session reste sur le téléphone" + ` — ${gh3b.log.join(", ")}`);
   await o3b.ctx.close();
 
@@ -886,7 +886,7 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
 
 // ── 4 bis. v8.11 : tes spots, ajoutés sur le téléphone. v8.14 : depuis l'accueil, rangés dans le bon guide ──
 {
-  const SYNC = { owner: "FelixMuzellec", repo: "guide-peche-bar-journal", token: "github_pat_TEST" };
+  const SYNC = { owner: "spumy", repo: "journal", token: "github_pat_TEST" };
   const gh = fakeGitHub();
   const ctxG = await browser.newContext({ ...devices["iPhone 13"], locale: "fr-FR", timezoneId: "Europe/Paris", serviceWorkers: "block",
     geolocation: { latitude: 48.3305, longitude: -4.295, accuracy: 12 }, permissions: ["geolocation"] });
@@ -1099,6 +1099,71 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
   ok(before.every((e) => after.some((x) => JSON.stringify(x) === JSON.stringify(e))) && /Essai export/.test(await T(b.page)),
     `journal : import sur un téléphone neuf, chaque session retrouvée à l'identique (${before.length} → ${after.length})`);
   ok(!a.errors.length && !b.errors.length, "journal : export et import sans erreur JavaScript");
+  await b.ctx.close();
+}
+
+// ── 5 quater bis. Toutes mes données : d'une adresse à l'autre (passage à spumy.github.io, 13 nov. 2026) ──
+// Le navigateur range le stockage par adresse : deux contextes séparés jouent l'ancienne et la nouvelle adresse.
+{
+  const L = (s) => `[transfert] ${s}`;
+  const a = await openApp("logonna");
+  await waitText(a.page, READY);
+  await a.page.evaluate(async () => {
+    const J = (k, v) => localStorage.setItem(k, JSON.stringify(v));
+    J("bar:journal:logonna-daoulas", [{ id: "t1", spotId: "moulinmer", date: "2025-12-27", fish: 2, lure: "Asturie 130 blanc" }, { id: "t2", spotId: "moulinmer", date: "2026-08-08", fish: 1, lure: "Z-Claw blanc nacré" }]);
+    J("bar:journal:pirou-plage", [{ id: "p1", spotId: "agon", date: "2026-07-01", fish: 0, lure: "Patchinko 140" }]);
+    J("bar:myspots:logonna-daoulas", [{ id: "moi-abcd1234", name: "Mon poste", lat: 48.33, lon: -4.3, water: 90, createdAt: 1, updatedAt: 1 }]);
+    localStorage.setItem("bar:theme", "sun");
+    localStorage.setItem("bar:boite", JSON.stringify({ essai: true }));
+    J("bar:sync", { owner: "spumy", repo: "journal", token: "github_pat_SECRET" });
+    localStorage.setItem("bar:claude", "sk-ant-SECRET");
+    localStorage.setItem("bar:data:essai", "{}");
+    await new Promise((ok, ko) => { const r = indexedDB.open("guide-bar", 1); r.onupgradeneeded = () => r.result.createObjectStore("kv");
+      r.onsuccess = () => { const tx = r.result.transaction("kv", "readwrite"); tx.objectStore("kv").put([{ id: "ph1", spotId: "moulinmer", photos: [{ thumb: "data:image/jpeg;base64,/9j/", when: null }] }], "photos:logonna-daoulas"); tx.oncomplete = ok; tx.onerror = ko; }; r.onerror = ko; });
+  });
+  await a.page.evaluate(() => window.dispatchEvent(new Event("bar:reglages")));
+  const [dl] = await Promise.all([a.page.waitForEvent("download"), btn(a.page, /^Enregistrer toutes mes données$/).click()]);
+  const file = path.join(SHOTS, "toutes-mes-donnees.json");
+  await dl.saveAs(file);
+  const d = JSON.parse(fs.readFileSync(file, "utf8"));
+  const ls = d.localStorage || {};
+  ok(d.format === "spumy/donnees" && d.version === 1 && /^spumy-donnees-\d{4}-\d{2}-\d{2}\.json$/.test(dl.suggestedFilename()), L(`fichier « ${dl.suggestedFilename()} », format spumy/donnees`));
+  ok(JSON.parse(ls["bar:journal:logonna-daoulas"] || "[]").length === 2 && JSON.parse(ls["bar:journal:pirou-plage"] || "[]").length === 1 && ls["bar:myspots:logonna-daoulas"] && ls["bar:boite"] && ls["bar:theme"] === "sun"
+    && (d.indexedDB?.["photos:logonna-daoulas"] || []).length === 1, L("le fichier contient le journal des deux guides, tes spots, ta boîte, tes réglages et l'analyse photo"));
+  ok(!Object.keys(ls).some((k) => /^bar:(sync|claude|data:)/.test(k)) && !/SECRET/.test(fs.readFileSync(file, "utf8")), L("ni le jeton GitHub, ni la clé Claude, ni la météo en cache ne voyagent"));
+  ok(/3 sessions au journal/.test(await T(a.page)), L("le guide dit ce qu'il a enregistré"));
+  await a.ctx.close();
+
+  const b = await openApp("logonna");   // nouvelle adresse : stockage vide, sauf une session et un réglage déjà là
+  await waitText(b.page, READY);
+  await b.page.evaluate(() => { localStorage.setItem("bar:journal:logonna-daoulas", JSON.stringify([{ id: "b1", spotId: "moulinmer", date: "2026-11-01", fish: 0 }])); localStorage.setItem("bar:theme", "nuit"); });
+  await b.page.evaluate(() => window.dispatchEvent(new Event("bar:reglages")));
+  await b.page.setInputFiles('input[aria-label="Fichier de données à importer"]', file);
+  await waitText(b.page, /Importé :/, 8000).catch(() => {});
+  const got = await b.page.evaluate(async () => ({
+    j: JSON.parse(localStorage.getItem("bar:journal:logonna-daoulas") || "[]").map((e) => e.id).sort().join(),
+    p: JSON.parse(localStorage.getItem("bar:journal:pirou-plage") || "[]").length,
+    s: JSON.parse(localStorage.getItem("bar:myspots:logonna-daoulas") || "[]").length,
+    theme: localStorage.getItem("bar:theme"), boite: localStorage.getItem("bar:boite"),
+    secret: !!localStorage.getItem("bar:sync") || !!localStorage.getItem("bar:claude"),
+    photos: await new Promise((ok) => { const r = indexedDB.open("guide-bar"); r.onsuccess = () => { try { const q = r.result.transaction("kv").objectStore("kv").get("photos:logonna-daoulas"); q.onsuccess = () => ok((q.result || []).length); q.onerror = () => ok(-1); } catch { ok(-2); } }; r.onerror = () => ok(-3); }),
+  }));
+  ok(got.j === "b1,t1,t2" && got.p === 1 && got.s === 1 && got.boite && got.photos === 1, L(`import : journal fusionné (${got.j}), Pirou ${got.p}, spots ${got.s}, analyse photo ${got.photos}`));
+  ok(got.theme === "nuit" && !got.secret, L("import : le réglage déjà présent est gardé, aucun secret importé"));
+  ok(/Importé : 3 sessions ajoutées au journal/.test(await T(b.page)), L("import : le guide dit ce qu'il a ajouté (2 à Logonna, 1 à Pirou)"));
+  await b.page.setInputFiles('input[aria-label="Fichier de données à importer"]', file);
+  await waitText(b.page, /Importé : 0 session/, 8000).catch(() => {});
+  ok(/Importé : 0 session ajoutée/.test(await T(b.page)) && (await b.page.evaluate(() => JSON.parse(localStorage.getItem("bar:journal:logonna-daoulas") || "[]").length)) === 3, L("importer deux fois le même fichier n'ajoute rien"));
+  const one = path.join(SHOTS, "journal-un-guide.json"); fs.writeFileSync(one, JSON.stringify([{ id: "x", spotId: "moulinmer", date: "2026-01-01" }]));
+  await b.page.setInputFiles('input[aria-label="Fichier de données à importer"]', one);
+  await waitText(b.page, /journal d'un seul guide/, 8000).catch(() => {});
+  ok(/journal d'un seul guide/.test(await T(b.page)), L("un journal d'un seul guide est reconnu et renvoyé vers l'onglet Journal"));
+  await btn(b.page, /^Recharger pour voir tes données$/).click();
+  await waitText(b.page, READY);
+  await tab(b.page, "Journal");
+  await waitText(b.page, /Z-Claw blanc nacré/, 8000).catch(() => {});
+  ok(/Z-Claw blanc nacré/.test(await T(b.page)), L("après rechargement, les sessions importées sont dans le journal"));
+  ok(!a.errors.length && !b.errors.length, L("aucune erreur JavaScript"));
   await b.ctx.close();
 }
 
@@ -1368,7 +1433,8 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
   const histTxt = (await T(page)).split("Analyses enregistrées")[1] || "";
   ok((await opens.count()) === 3 && /2 photos/.test(histTxt), L(`analyses conservées après rechargement (${await opens.count()}) — ${histTxt.replace(/\n+/g, " | ").slice(0, 400)}`));
   await opens.last().click();
-  await waitText(page, /Bordure du platier/, 5000);
+  // 12 s : sur une machine lente, rouvrir une analyse (vignettes comprises) a dépassé 5 s, 2 fois sur 5 passages locaux.
+  await waitText(page, /Bordure du platier/, 12000);
   ok(true, L("analyse enregistrée rouverte"));
   // Lot 3.8 : « Garder la clé sur ce téléphone » la met dans le stockage durable ; décochée, elle en ressort.
   await page.getByText("Clé API et modèle").first().click(); await page.waitForTimeout(200);
