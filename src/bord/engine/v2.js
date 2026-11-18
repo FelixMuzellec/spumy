@@ -85,7 +85,8 @@ export function exposureOf(spot, dir) {
 /** Présence du bar (0,3 à 1) : la plus restrictive de la saison et de la température de l'eau. */
 export function presenceV2(spot, { month, sst, sstConf }) {
   const regime = regimeOf(spot);
-  const season = seasonPresence(month, regime);
+  const s0 = seasonPresence(month, regime);
+  const season = V2.mc.kSeason === 1 ? s0 : { ...s0, factor: Math.max(0.3, Math.min(1, 1 - (1 - s0.factor) * V2.mc.kSeason)) };
   // Température : seulement une valeur mesurée ou prévue par un modèle. Une moyenne de saison n'ajoute rien à la
   // saison elle-même : elle n'est pas comptée deux fois, et la confiance baisse.
   const known = sst != null && Number.isFinite(+sst) && (sstConf === "mesure" || sstConf === "modele");
@@ -97,6 +98,7 @@ export function presenceV2(spot, { month, sst, sstConf }) {
     // hivernage à 6,9 °C). Plancher porté à 0,5 sous 7,5 °C, et 0,6 de 7,5 à 9,5 °C, pour que l'abri garde une
     // présence plus haute que la côte ouverte au cœur de l'hiver (scénario S12). Hypothèse à éprouver.
     if (regime === "abri" && +sst < 9.5) { f = Math.max(f, +sst < 7.5 ? 0.5 : 0.6); why = `${t.label} (abri : des bars y restent l'hiver)`; }
+    if (V2.mc.kThermal !== 1) f = Math.max(0.3, Math.min(1, 1 - (1 - f) * V2.mc.kThermal));
     thermal = { factor: f, label: why, sst: +sst };
   }
   const factor = thermal ? Math.min(season.factor, thermal.factor) : season.factor;
@@ -121,7 +123,8 @@ export function favorability(spot, win, zw, ctx = {}) {
   const c = win?.coeff ?? ctx.coeff;
   if (!Number.isFinite(c)) out("coef", "Marée : coefficient", "coefficient inconnu");
   else {
-    const [lo, o1, o2, hi] = spot.coefBand || [30, spot.coefMin ?? 45, spot.coefIdeal ?? 75, spot.coefMax ?? 105];
+    const sh = V2.mc.coefShift;
+    const [lo, o1, o2, hi] = (spot.coefBand || [30, spot.coefMin ?? 45, spot.coefIdeal ?? 75, spot.coefMax ?? 105]).map((x) => x + sh);
     const M = V2.maree.coef;
     const pts = c <= lo ? 0 : c < o1 ? M * (c - lo) / Math.max(o1 - lo, 1) : c <= o2 ? M : c < hi ? M * (hi - c) / Math.max(hi - o2, 1) : 0;
     add("coef", "Marée : coefficient", pts, M, c < o1 ? `coef ${c}, sous la plage utile (${o1} à ${o2})` : c <= o2 ? `coef ${c}, dans la plage utile (${o1} à ${o2})` : `coef ${c}, au-dessus de la plage utile (${o1} à ${o2})`);
@@ -149,7 +152,9 @@ export function favorability(spot, win, zw, ctx = {}) {
     if (!expo) out("vent", "Vent et mer", "direction du vent inconnue");
     else {
       const tab = (VENT_MER[regime] || VENT_MER.roche)[expo];
-      add("vent", "Vent et mer", tab[Math.min(f, tab.length - 1)], V2.vent, f === 0 ? "calme plat" : `${EXPO_LABEL[expo]} force ${f}`);
+      const t0 = tab[0], amp = V2.mc.ventAmp, k = V2.vent / 30;   // tableau écrit sur 30 points
+      const v = Math.max(0, Math.min(30, t0 + (tab[Math.min(f, tab.length - 1)] - t0) * amp)) * k;
+      add("vent", "Vent et mer", v, V2.vent, f === 0 ? "calme plat" : `${EXPO_LABEL[expo]} force ${f}`);
     }
   }
   const got = crit.reduce((a, x) => a + x.pts, 0), max = crit.reduce((a, x) => a + x.max, 0);

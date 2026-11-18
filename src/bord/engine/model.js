@@ -421,7 +421,9 @@ export function withEauObs(spots, eau) {
   return eau && Object.keys(eau).length ? spots.map((s) => (eau[s.id] ? { ...s, eauObs: eau[s.id] } : s)) : spots;
 }
 // `now` (ms) : pour aujourd'hui, les créneaux déjà finis ne sont plus proposés et le créneau en cours est signalé.
-export function scoreDay(dateISO, live, { calib, hours, tideFor, orient, spots = allSpots(), now = null } = {}) {
+// robust : false (phase 8, épreuve Monte Carlo) saute l'ensemble de météos plausibles de la v1 (dix fois plus rapide) ;
+// la sécurité et les créneaux sont les mêmes, seule la note sur 10 n'est plus moyennée.
+export function scoreDay(dateISO, live, { calib, hours, tideFor, orient, spots = allSpots(), now = null, robust = true } = {}) {
   const tf = tideFor || makeTideFor(dateISO);
   const coeff = tf(SITE.tide.defaultPort).maxCoef || 0;
   const pressure = parseInt(live?.pressure) || 0;
@@ -450,7 +452,8 @@ export function scoreDay(dateISO, live, { calib, hours, tideFor, orient, spots =
       }
       return x;
     });
-    const r = scoreSpotRobust(s, { coeff, zw, wins, pressure, pressureTrend, sst, sstConf, calib, month });
+    const sctx = { coeff, zw, wins, pressure, pressureTrend, sst, sstConf, calib, month };
+    const r = robust ? scoreSpotRobust(s, sctx) : scoreSpot(s, sctx);
     return { ...s, ...r, wxReason: r.reason, zw, zoneId: spotZone(s), tideLabel: st.label, tideAccuracy: st.accuracy };
   }).sort(rankCompare);
   return sorted;

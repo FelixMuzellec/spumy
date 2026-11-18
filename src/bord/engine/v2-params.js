@@ -15,6 +15,10 @@ export const V2 = {
   trajetMax: 45,                                           // minutes : réglage (question 3 de la phase 6, sans réponse)
   conf: { age: 15, echeance: 10, couverture: 15, modeles: 20, preuves: 25, journal: 15, haute: 70, moyenne: 40 },
   journal: { sessions: 5, prises: 2, max: 10 },            // apprentissage personnel : ±10, à partir de 5 sessions dont 2 prises
+  // Phase 8 — réglages de l'épreuve Monte Carlo (scripts/epreuve-mc.mjs), neutres dans l'application :
+  //   coefShift : déplace la plage utile du coefficient (±10 points) ; ventAmp : amplitude du tableau VENT_MER autour
+  //   du calme (1 = tableau tel quel) ; kSeason, kThermal : multiplient ce que la saison et l'eau retirent à la présence.
+  mc: { coefShift: 0, ventAmp: 1, kSeason: 1, kThermal: 1 },
 };
 
 /** Palier de favorabilité : 5 (80 et plus) à 1 (moins de 35) ; null sans note. */
