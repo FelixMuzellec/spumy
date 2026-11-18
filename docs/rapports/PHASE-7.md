@@ -47,10 +47,12 @@ Implémenter `docs/SPEC-MOTEUR-BORD-V2.md` :
 | Parcours complets dans Chromium | 843/843, dont le nouveau parcours « Moteur de notes » : v2 → v1 → v2, boîte complète, niveaux de preuve |
 | Grille de sécurité : 66 spots × 1 120 météos, plus « sans météo », soit 73 986 cas, avant et après le lot 7.2 | danger annoncé : 0 cas proposé ; 12 672 cas passent « à vérifier » (seuils de Félix, houle juste au-dessus du maximum) ; 0 cas au vert sans météo |
 | Comparaison v1 / v2 : 2 016 journées d'essai (7 guides × 12 mois × 24 météos) | même premier spot 52,9 % ; trois premiers en commun 71,2 % ; corrélation de rang 0,67 |
-| Accessibilité, données, connaissances, couches, contrat simulé, studio, mise à jour d'un téléphone | voir l'encadré ci-dessous |
+| Accessibilité (axe-core, guides, accueil, réglages ouverts, plein soleil) | 0 violation |
+| Mise à jour d'un téléphone depuis `main` | 11/11 |
+| Données, connaissances, contrat Open-Meteo simulé, studio photo | 69/69 · 16/16 · 28/28 · 34/34 |
 | Captures relues, v1 et v2 | décision, carte du guide, fiche (terrain), accueil, réglages |
 
-> Résultats du passage complet : lint 0 erreur ; couches 0 écart, couleurs en dur 291 (pas de hausse) ; données 69/69 ; connaissances 16/16 ; contrat simulé, studio, accessibilité et mise à jour : voir la section 7.
+> Lint : 0 erreur. Couches : 0 écart ; couleurs écrites en dur hors du design : 291, comme avant (le compte ne peut que baisser).
 
 ## 5. Résultats
 
