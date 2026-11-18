@@ -7,6 +7,8 @@ import { BOITE, CANNE, catalogWith, DEPTH_CLASS, FAMILLES, LURE_SOURCES, lureAdv
 import { origSize } from "../../engine/tackle.js";
 import { adviceForSpot, preyForMonth } from "../../engine/model.js";
 import { Pill } from "../../../design/components.jsx";
+import { fmtScore } from "../../../core/scale.js";
+import { fmtNote } from "../note.jsx";
 import { Alert, C, Card, Chip, Disclosure, Muted, Src, Stack, Why, fr, num } from "../../../design/kit.jsx";
 
 const S = LURE_SOURCES;
@@ -132,7 +134,7 @@ export function Leurres({ g }) {
     <Stack>
       <Card title="Pour quel spot, quel créneau ?">
         <select aria-label="Spot" value={spot.id} onChange={(e) => { g.setSpotId(e.target.value); setWinId(null); }} style={sel}>
-          {g.allScored.map((s) => <option key={s.id} value={s.id}>{s.name}{s.eligible ? ` · ${fr(s.score)}` : ""}</option>)}
+          {g.allScored.map((s) => <option key={s.id} value={s.id}>{s.name}{s.eligible && s.score != null ? ` · ${fmtNote(s)}` : ""}</option>)}
         </select>
         <div style={{display:"flex",gap:6,flexWrap:"wrap",marginTop:10}}>
           {wins.map((x) => (
@@ -293,7 +295,7 @@ export function Leurres({ g }) {
             <button key={x.id} onClick={() => { setWinId(x.id); try { window.scrollTo({ top: 0, behavior: "smooth" }); } catch { /* sans effet */ } }}
               style={{display:"flex",width:"100%",justifyContent:"space-between",gap:10,padding:"10px 0",border:"none",borderTop:i ? `1px solid ${C.line2}` : "none",background:"none",color:C.text,cursor:"pointer",textAlign:"left"}}>
               <span style={{...num,fontWeight:700,color:C.strong,flexShrink:0}}>{x.startFmt}–{x.endFmt}</span>
-              <span style={{fontSize:14,textAlign:"right"}}>{ax.summary}<br/><span style={{fontSize:12.5,color:C.muted}}>{x.light?.label?.toLowerCase()}{x.eligible ? ` · note ${fr(x.score)}` : " · non praticable"}</span></span>
+              <span style={{fontSize:14,textAlign:"right"}}>{ax.summary}<br/><span style={{fontSize:12.5,color:C.muted}}>{x.light?.label?.toLowerCase()}{x.eligible ? (x.score != null ? ` · ${spot.engine === "v2" ? "favorabilité" : "note"} ${fmtScore(x.score, spot.engine)}` : " · pas de note") : " · non praticable"}</span></span>
             </button>
           );
         })}

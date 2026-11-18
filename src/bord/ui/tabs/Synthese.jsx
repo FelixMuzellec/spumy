@@ -3,14 +3,17 @@
 import { SITE } from "SITE_CONFIG";
 import { fmtH } from "../../../core/core.js";
 import { windSide } from "../../engine/lures.js";
-import { GOOD_SCORE, keyFactors, TIE_DELTA, tieGroup } from "../../engine/model.js";
+import { keyFactors, TIE_DELTA, tieGroup } from "../../engine/model.js";
+import { fmtScore } from "../../../core/scale.js";
+import { fmtNote, isV2, NoteRing, noteFill, noteLabel, noteText, scaleFor } from "../note.jsx";
+import { ScoresPanel } from "../Scores.jsx";
 import { regulationForZone } from "../../../core/rules.js";
 import { localDecimal, tideNow } from "../../../core/tide.js";
 import { fmtLeft, ModelSpread, parisHHMM } from "../components.jsx";
-import { Loader, Pill, ScoreRing } from "../../../design/components.jsx";
-import { Alert, C, Card, Chip, GoLink, Grid, Muted, Stack, Tile, fr, num, scoreColor } from "../../../design/kit.jsx";
+import { Loader, Pill } from "../../../design/components.jsx";
+import { Alert, C, Card, Chip, GoLink, Grid, Muted, Stack, Tile, fr, num } from "../../../design/kit.jsx";
 import { ConfidencePanel, SafetyPanel } from "../Indicators.jsx";
-import { CompareCard, conditionLabel, DecisionHero, WhyWatch } from "../Decision.jsx";
+import { CompareCard, DecisionHero, WhyWatch } from "../Decision.jsx";
 import { Icon } from "../../../design/icons.jsx";
 
 export { TIE_DELTA };
@@ -31,9 +34,9 @@ export function windowTiming(w, nowMs, dateISO) {
 function VerdictCard({ g, degraded }) {
   const { s, w } = g.verdict;
   // Égalité : tous les spots à 0,2 point ou moins du premier, et le plus proche d'entre eux.
-  const tied = tieGroup(g.allScored);
+  const tied = tieGroup(g.allScored), sc = scaleFor(g.allScored);
   const nearest = tied.length ? [...tied].sort((a, b) => (a.distMin ?? 999) - (b.distMin ?? 999))[0] : null;
-  const col = scoreColor(s.score, true, s.verify?.length);
+  const col = s.verify?.length ? C.warn : noteFill(s);
   const timing = windowTiming(w, g.nowMs, g.selectedDate);
   const side = w?.zw ? windSide(s, w.zw).side : null;
   return (
@@ -41,7 +44,7 @@ function VerdictCard({ g, degraded }) {
       {s.dangerLevel >= 2 && <Pill color={s.dangerLevel === 3 ? C.bad : C.warn} title="Difficulté du spot">{DANGER_LABEL[s.dangerLevel]}</Pill>}</span>}>
       {degraded && <div style={{marginBottom:10}}><Alert tone={C.warn} role="alert"><b>Sans météo</b> : conseil sur la marée et la lumière seules. Vent et houle inconnus ; les spots engagés ne sont pas proposés.</Alert></div>}
       <div style={{display:"flex",alignItems:"center",gap:14}}>
-        <ScoreRing score={s.score} size={88} verify={!!s.verify?.length}/>
+        <NoteRing s={s} size={88}/>
         <div style={{flex:1,minWidth:0}}>
           <h2 style={{margin:0,fontSize:23,fontWeight:800,color:C.strong,lineHeight:1.15}}>{s.name}</h2>
           {w && <div style={{display:"flex",alignItems:"center",gap:6,fontSize:20,fontWeight:800,color:C.strong,marginTop:5,...num}}><Icon name="horloge" size={18} color="#7dd3fc"/>{w.startFmt} → {w.endFmt}</div>}
@@ -56,13 +59,14 @@ function VerdictCard({ g, degraded }) {
         </div>
       )}
       {w?.zw && <ModelSpread zw={w.zw}/>}
-      <WhyWatch factors={keyFactors(w?.parts || s.bestParts)}/>
+      <WhyWatch factors={keyFactors(isV2(s) ? (w?.f || s.v2?.f) : (w?.parts || s.bestParts))}/>
       {tied.length > 1 && (
-        <Muted><b style={{color:C.strong}}>≈ Égalité</b> (écart sous la précision du modèle, {fr(TIE_DELTA)} point) : {tied.map((x) => `${x.name} ${fr(x.score)}`).join(" · ")}.
+        <Muted><b style={{color:C.strong}}>≈ Égalité</b> (écart sous la précision du modèle, {fmtScore(sc.tie, sc.engine)} point{sc.tie > 1 ? "s" : ""}) : {tied.map((x) => `${x.name} ${fmtNote(x)}`).join(" · ")}.
           {nearest && nearest.id !== s.id ? <> Le plus proche, <b style={{color:C.strong}}>{nearest.name}</b> ({nearest.distance}), vaut autant avec moins de route.</> : <> C'est aussi le plus proche.</>}</Muted>
       )}
       <SafetyPanel safety={g.verdictSafety} id="securite-verdict"/>
-      <ConfidencePanel conf={g.verdictConf}/>
+      {isV2(s) && <ScoresPanel s={s}/>}
+      <ConfidencePanel conf={g.verdictConf} v2={isV2(s) ? s.v2?.conf : null}/>
       <div style={{display:"flex",gap:8,flexWrap:"wrap",marginTop:10}}>
         <button onClick={() => g.goToSpot(s.id)} style={{flex:"1 1 140px",minHeight:48,borderRadius:10,border:`1px solid ${C.accent}88`,background:`${C.accent}18`,color:C.strong,fontSize:15,fontWeight:700,cursor:"pointer"}}>Fiche du spot</button>
         {g.selectedDate === g.todayISO && !g.session && <button onClick={() => { g.startSession(s.id); }} style={{flex:"1 1 140px",minHeight:48,borderRadius:10,border:`1px solid ${C.violet}`,background:`${C.violet}26`,color:"#ede9fe",fontSize:15,fontWeight:700,cursor:"pointer"}}>🎣 Je pêche ici</button>}
@@ -75,7 +79,7 @@ function VerdictCard({ g, degraded }) {
 // Uniquement des valeurs du moteur ; ce qui manque s'affiche « — », jamais une valeur par défaut.
 function FieldCard({ g }) {
   const { s, w } = g.verdict;
-  const col = scoreColor(s.score, true, s.verify?.length);
+  const col = s.verify?.length ? C.warn : noteFill(s), txt = s.verify?.length ? C.warn : isV2(s) ? C.strong : col;
   const timing = windowTiming(w, g.nowMs, g.selectedDate);
   const today = g.selectedDate === g.todayISO;
   const t = today ? tideNow(g.tideFor(s.tidePort)?.events, g.nowMs) : null;
@@ -94,8 +98,8 @@ function FieldCard({ g }) {
   return (
     <Card tone={col} kicker="Mode terrain · meilleur choix" id="mode-terrain" right={<FieldToggle g={g}/>}>
       <div style={{display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",gap:4}}>
-        <ScoreRing score={s.score} size={148} verify={!!s.verify?.length}/>
-        <div style={{fontSize:20,fontWeight:800,color:col,marginTop:6}}>{conditionLabel(s.score, s.verify)}</div>
+        <NoteRing s={s} size={148}/>
+        <div style={{fontSize:20,fontWeight:800,color:txt,marginTop:6}}>{noteLabel(s)}</div>
         <h2 style={{margin:0,fontSize:30,fontWeight:800,color:C.strong,lineHeight:1.1}}>{s.name}</h2>
         {w && <div style={{...big,marginTop:2}}>{w.startFmt} → {w.endFmt}</div>}
         {timing && <div style={{fontSize:18,fontWeight:800,color:timing.col}}>{timing.t}</div>}
@@ -164,7 +168,7 @@ function DaytimeCard({ g }) {
   const { s, w, lure } = g.daytime;
   return (
     <Card kicker="Si tu pêches en plein jour" title={`${s.name} · ${w.startFmt} → ${w.endFmt}`}
-      right={<span style={{fontSize:20,fontWeight:800,color:scoreColor(w.score, true, w.verify?.length),...num}} title="Note de ce créneau">{fr(w.score)}</span>}>
+      right={<span style={{fontSize:20,fontWeight:800,color:noteText({ ...w, eligible: true, engine: s.engine }),...num}} title="Note de ce créneau">{fmtScore(w.score, s.engine)}</span>}>
       <div style={{display:"grid",gap:5,fontSize:14.5}}>
         <div>{w.label}</div>
         <div><span style={{color:C.muted}}>Leurre · </span>{lure.pick ? `${lure.pick.name}${lure.pick.color.named ? ` ${lure.pick.color.name}` : ""}` : lure.best.court}</div>
@@ -190,36 +194,40 @@ export function WeekTrend({ g }) {
       </Card>
     );
   }
-  const scored = weekRows.filter((r) => r.s);
+  const scored = weekRows.filter((r) => r.s && r.s.score != null);
+  const sc = scaleFor(scored.map((r) => r.s)), v2 = sc.engine === "v2";
   const best = scored.length ? scored.reduce((a, b) => (b.s.score > a.s.score ? b : a)) : null;
-  // v8.9 — Sous la précision du modèle (0,2 point), deux jours se valent : on le dit, on ne tranche pas.
-  const ties = best ? scored.filter((r) => best.s.score - r.s.score <= TIE_DELTA + 1e-9) : [];
+  // v8.9 — Sous la précision du modèle (0,2 point sur 10, 3 points sur 100), deux jours se valent : on le dit, on ne tranche pas.
+  const ties = best ? scored.filter((r) => best.s.score - r.s.score <= sc.tie + 1e-9) : [];
   const shortDay = (d) => new Date(d + "T12:00").toLocaleDateString("fr-FR", { weekday: "long", day: "numeric" });
-  const max = Math.max(10, ...scored.map((r) => r.s.score));
+  const max = Math.max(sc.max, ...scored.map((r) => r.s.score));
   const pick = (date) => { g.pickDate(date); try { window.scrollTo({ top: 0, behavior: "smooth" }); } catch { /* sans effet */ } };
   // v8.14 — Semaine « toute verte » : le vert dit « rien ne bloque », pas « ça mord ». On aide à départager.
   const starred = new Set((ties.length > 1 ? ties : best ? [best] : []).map((r) => r.date));
-  const allGreen = scored.length >= 3 && scored.length === weekRows.length && scored.every((r) => r.s.score >= GOOD_SCORE);
-  const fv = (v) => `${v > 0 ? "+" : "−"}${fr(Math.abs(v))}`;
+  const allGreen = scored.length >= 3 && scored.length === weekRows.length && scored.every((r) => r.s.score >= sc.good);
+  const fv = (v) => `${v > 0 ? "+" : "−"}${v2 ? Math.round(Math.abs(v)) : fr(Math.abs(v))}`;
+  const fp = (p) => `${p.label}${p.v ? ` (${fv(p.v)})` : ""}`;
   const long = (d) => new Date(d + "T12:00").toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" });
   return (
     <Card kicker="Tendance de la semaine" title={!best ? "Aucun créneau praticable cette semaine" : ties.length > 1 ? `Meilleurs jours, à égalité : ${ties.map((r) => shortDay(r.date)).join(" ou ")}` : `Meilleur jour : ${long(best.date)}`} right={refresh}>
       {best && (
         <div style={{fontSize:14.5,color:C.text,marginTop:-2,marginBottom:10}}>
-          <b style={{color:C.strong}}>{best.s.name}</b>{best.w ? <span style={{...num}}> · {best.w.startFmt} → {best.w.endFmt}{best.w.light && best.w.light.band !== "inconnu" ? ` · ${LIGHT_ICON[best.w.light.band] || ""} ${best.w.light.label.toLowerCase()}` : ""}</span> : ""} · note <b style={{color:scoreColor(best.s.score),...num}}>{fr(best.s.score)}</b>{best.s.dangerLevel === 3 ? <span style={{color:C.bad}}> · ⚠ spot engagé</span> : ""}{best.noKill ? <span style={{color:C.warn}}> · no-kill</span> : ""}
-          {Number.isFinite(best.nGood) && <span style={{...num}}> · {best.nGood} spot{best.nGood > 1 ? "s" : ""} au vert sur {best.nSpots}</span>}
+          <b style={{color:C.strong}}>{best.s.name}</b>{best.w ? <span style={{...num}}> · {best.w.startFmt} → {best.w.endFmt}{best.w.light && best.w.light.band !== "inconnu" ? ` · ${LIGHT_ICON[best.w.light.band] || ""} ${best.w.light.label.toLowerCase()}` : ""}</span> : ""} · {v2 ? "favorabilité" : "note"} <b style={{color:noteText(best.s),...num}}>{fmtNote(best.s)}</b>{best.s.dangerLevel === 3 ? <span style={{color:C.bad}}> · ⚠ spot engagé</span> : ""}{best.noKill ? <span style={{color:C.warn}}> · no-kill</span> : ""}
+          {Number.isFinite(best.nGood) && <span style={{...num}}> · {best.nGood} spot{best.nGood > 1 ? "s" : ""} {v2 ? `favorable${best.nGood > 1 ? "s" : ""}` : "au vert"} sur {best.nSpots}</span>}
           {best.factors && (best.factors.plus.length > 0 || best.factors.minus.length > 0) && (
             <div style={{fontSize:13.5,color:C.muted,marginTop:4,lineHeight:1.45,...num}}>
-              {best.factors.plus.length > 0 && <span>Ce qui porte la note : {best.factors.plus.map((p) => `${p.label} (${fv(p.v)})`).join(", ")}.</span>}
-              {best.factors.minus.length > 0 && <span> Freins : {best.factors.minus.map((p) => `${p.label} (${fv(p.v)})`).join(", ")}.</span>}
+              {best.factors.plus.length > 0 && <span>Ce qui porte la note : {best.factors.plus.map(fp).join(", ")}.</span>}
+              {best.factors.minus.length > 0 && <span> Freins : {best.factors.minus.map(fp).join(", ")}.</span>}
             </div>
           )}
         </div>
       )}
       {allGreen && (
         <Muted style={{marginTop:-4,marginBottom:10}}>
-          Toute la semaine est au vert : le vert veut dire « rien ne bloque » (marée dans la plage utile, vent et houle tenables), pas « ça mord à coup sûr ».
-          Pour choisir : la note (au-delà de 8, plusieurs atouts s'additionnent), le nombre de spots au vert ce jour-là, et la ★. Sous {fr(TIE_DELTA)} point d'écart, deux jours se valent.
+          {v2 ? <>Toute la semaine est favorable (65 et plus sur 100) : les conditions sont bonnes, ce qui ne veut pas dire « ça mord à coup sûr ».
+            Pour choisir : la favorabilité, le nombre de spots favorables ce jour-là, la confiance, et la ★. Sous {sc.tie} points d'écart, deux jours se valent.</>
+            : <>Toute la semaine est au vert : le vert veut dire « rien ne bloque » (marée dans la plage utile, vent et houle tenables), pas « ça mord à coup sûr ».
+            Pour choisir : la note (au-delà de 8, plusieurs atouts s'additionnent), le nombre de spots au vert ce jour-là, et la ★. Sous {fr(TIE_DELTA)} point d'écart, deux jours se valent.</>}
         </Muted>
       )}
       <div role="group" aria-label="Note du meilleur créneau, jour par jour" style={{display:"grid",gridTemplateColumns:`repeat(${weekRows.length},minmax(0,1fr))`,gap:4}}>
@@ -227,9 +235,9 @@ export function WeekTrend({ g }) {
           const d = new Date(r.date + "T12:00");
           const sel = r.date === g.selectedDate;
           const v = r.s ? r.s.score : null;
-          const col = v != null ? scoreColor(v, true, r.s?.verify?.length) : C.faint;
+          const col = v != null ? noteFill(r.s) : C.faint, tcol = v != null ? noteText(r.s) : C.faint;
           const star = starred.has(r.date);
-          const label = `${long(r.date)} : ${r.s ? `${r.s.name}, note ${fr(v)}${r.w ? `, ${r.w.startFmt} à ${r.w.endFmt}` : ""}${Number.isFinite(r.nGood) ? `, ${r.nGood} spot${r.nGood > 1 ? "s" : ""} au vert sur ${r.nSpots}` : ""}${star ? ", meilleur jour" : ""}` : (r.err || "aucun créneau praticable")}`;
+          const label = `${long(r.date)} : ${r.s ? `${r.s.name}, ${v2 ? "favorabilité" : "note"} ${fmtNote(r.s)}${r.s.verify?.length ? ", à vérifier" : ""}${r.w ? `, ${r.w.startFmt} à ${r.w.endFmt}` : ""}${Number.isFinite(r.nGood) ? `, ${r.nGood} spot${r.nGood > 1 ? "s" : ""} ${v2 ? "favorable" + (r.nGood > 1 ? "s" : "") : "au vert"} sur ${r.nSpots}` : ""}${star ? ", meilleur jour" : ""}` : (r.err || "aucun créneau praticable")}`;
           return (
             <button key={r.date} onClick={() => pick(r.date)} aria-pressed={sel} aria-label={label} title={label}
               style={{position:"relative",display:"flex",flexDirection:"column",alignItems:"center",gap:3,padding:"6px 0 7px",minHeight:44,borderRadius:9,
@@ -240,7 +248,7 @@ export function WeekTrend({ g }) {
               <span aria-hidden="true" style={{width:"62%",height:34,display:"flex",alignItems:"flex-end",borderRadius:4,background:C.line2}}>
                 <span style={{width:"100%",height:`${v != null ? Math.max(8, (v / max) * 100) : 0}%`,background:col,borderRadius:4}}/>
               </span>
-              <span style={{fontSize:14,fontWeight:800,color:col,...num}}>{v != null ? fr(v) : "–"}</span>
+              <span style={{fontSize:14,fontWeight:800,color:tcol,...num}}>{v != null ? `${fmtNote(r.s)}${v2 && r.s.verify?.length ? "?" : ""}` : "–"}</span>
               {r.s && Number.isFinite(r.nGood) && <span aria-hidden="true" style={{fontSize:11,color:C.muted,...num}}>{r.nGood}/{r.nSpots}</span>}
               {r.w?.light && LIGHT_ICON[r.w.light.band] && <span aria-hidden="true" style={{fontSize:12}}>{LIGHT_ICON[r.w.light.band]}{r.s?.dangerLevel === 3 ? "⚠" : ""}</span>}
               {r.noKill && <span style={{fontSize:11,color:C.warn}}>no-kill</span>}
@@ -248,7 +256,7 @@ export function WeekTrend({ g }) {
           );
         })}
       </div>
-      {scored.length > 0 && <Muted style={{marginTop:6}}>★ meilleur jour · sous la note : spots au vert (note ≥ {GOOD_SCORE}) sur le nombre de spots du guide, ce jour-là.</Muted>}
+      {scored.length > 0 && <Muted style={{marginTop:6}}>★ meilleur jour · sous la note : spots {v2 ? `favorables (${sc.good} et plus sur 100, sans doute de sécurité)` : `au vert (note ≥ ${sc.good})`} sur le nombre de spots du guide, ce jour-là.{v2 ? " « ? » : à vérifier." : ""}</Muted>}
       <details style={{marginTop:10}}>
         <summary style={{cursor:"pointer",color:C.accent,fontSize:14.5,fontWeight:600,minHeight:44,display:"flex",alignItems:"center"}}>Détail jour par jour</summary>
         <div style={{display:"flex",flexDirection:"column"}}>
@@ -262,8 +270,8 @@ export function WeekTrend({ g }) {
                 {r.s ? (
                   <>
                     <span style={{flex:1,minWidth:0,fontSize:14,lineHeight:1.35}}>{starred.has(r.date) && <span style={{color:C.warn}}>★ </span>}<b style={{color:C.strong}}>{r.s.name}</b>{r.w ? <span style={{color:C.muted}}> · {r.w.startFmt} → {r.w.endFmt}{r.w.light && LIGHT_ICON[r.w.light.band] ? ` ${LIGHT_ICON[r.w.light.band]}` : ""}</span> : ""}{r.s.dangerLevel === 3 ? <span style={{color:C.bad}}> · ⚠ engagé</span> : ""}{r.noKill ? <span style={{color:C.warn}}> · no-kill</span> : ""}
-                      {Number.isFinite(r.nGood) && <span style={{display:"block",fontSize:12.5,color:C.muted,...num}}>{r.nGood} spot{r.nGood > 1 ? "s" : ""} au vert sur {r.nSpots}{r.factors?.plus.length ? ` · ${r.factors.plus.map((p) => p.label).join(", ")}` : ""}</span>}</span>
-                    <span style={{fontSize:17,fontWeight:800,color:scoreColor(r.s.score, true, r.s.verify?.length),...num}}>{fr(r.s.score)}</span>
+                      {Number.isFinite(r.nGood) && <span style={{display:"block",fontSize:12.5,color:C.muted,...num}}>{r.nGood} spot{r.nGood > 1 ? "s" : ""} {v2 ? `favorable${r.nGood > 1 ? "s" : ""}` : "au vert"} sur {r.nSpots}{r.factors?.plus.length ? ` · ${r.factors.plus.map((p) => p.label).join(", ")}` : ""}</span>}</span>
+                    <span style={{fontSize:17,fontWeight:800,color:noteText(r.s),...num}}>{fmtNote(r.s)}{v2 && r.s.verify?.length ? "?" : ""}</span>
                   </>
                 ) : <span style={{flex:1,fontSize:14,color:C.muted}}>{r.err || "Aucun créneau praticable"}</span>}
               </button>
@@ -271,7 +279,7 @@ export function WeekTrend({ g }) {
           })}
         </div>
       </details>
-      <Muted>Même calcul que la vue du jour : touche un jour pour l'afficher. Écart de {fr(TIE_DELTA)} point ou moins : égalité. Au-delà de 2 à 3 jours, le vent prévu est une tendance.</Muted>
+      <Muted>Même calcul que la vue du jour : touche un jour pour l'afficher. Écart de {v2 ? `${sc.tie} points` : `${fr(TIE_DELTA)} point`} ou moins : égalité. Au-delà de 2 à 3 jours, le vent prévu est une tendance.</Muted>
     </Card>
   );
 }
@@ -329,7 +337,7 @@ export function Synthese({ g }) {
           {verdict.next.map((n, i) => (
             <button key={n.s.id} onClick={() => g.goToSpot(n.s.id)} style={{display:"flex",width:"100%",justifyContent:"space-between",alignItems:"center",gap:10,padding:"10px 0",border:"none",borderTop:i ? `1px solid ${C.line2}` : "none",background:"none",color:C.text,cursor:"pointer",textAlign:"left"}}>
               <span style={{minWidth:0}}><b style={{color:C.strong,fontSize:15}}>#{i + 2} {n.s.name}</b><br/><span style={{fontSize:13.5,color:C.muted}}>{n.w ? `${n.w.startFmt} → ${n.w.endFmt} · ` : ""}{n.s.distance}</span></span>
-              <span style={{fontSize:20,fontWeight:800,color:scoreColor(n.s.score, true, n.s.verify?.length),...num}}>{fr(n.s.score)}</span>
+              <span style={{fontSize:20,fontWeight:800,color:noteText(n.s),...num}}>{fmtNote(n.s)}{isV2(n.s) && n.s.verify?.length ? "?" : ""}</span>
             </button>
           ))}
           <GoLink onClick={() => g.goTab("spots")}>Classement complet et carte</GoLink>

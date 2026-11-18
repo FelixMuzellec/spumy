@@ -1,7 +1,7 @@
 {
  "titre": "Connaissances halieutiques du mode BORD — bar européen (Dicentrarchus labrax)",
  "version": 1,
- "relu_le": "2026-11-13",
+ "relu_le": "2026-11-18",
  "espece": "bar",
  "mode": "BORD",
  "echelle": {
@@ -200,15 +200,14 @@
   {
    "id": "nuit-spot-engage",
    "domaine": "sécurité",
-   "enonce": "De nuit, un spot engagé (niveau 3) perd son bonus et passe en négatif.",
+   "enonce": "De nuit, un spot engagé (niveau 3) est non recommandé.",
    "utilise_par": [
-    "src/bord/engine/model.js : lightTerm",
-    "src/bord/engine/safety.js : safetyOf (nuit, niveau ≥ 2)"
+    "src/bord/engine/safety.js : windowSafety, safetyOf (nuit, niveau ≥ 2)"
    ],
    "niveau": 5,
    "sources": [],
-   "limites": "Prudence du guide, pas une connaissance halieutique.",
-   "verdict": "conserver (sécurité)",
+   "limites": "Règle de sécurité du cahier des charges (spécification v2, §3), pas une connaissance halieutique. La v1 retirait seulement le bonus de nuit (lightTerm, −0,4).",
+   "verdict": "conserver (sécurité, phase 7)",
    "statut": "INFÉRÉ"
   },
   {
@@ -520,7 +519,7 @@
    "domaine": "sécurité",
    "enonce": "Vent moyen de force 8 ou rafales de 90 km/h : spot non recommandé ; force 7 : à vérifier.",
    "utilise_par": [
-    "src/bord/engine/safety.js : WIND_LIMITS, windSafety"
+    "src/bord/engine/safety.js : WIND_LIMITS, windSafety, windowSafety"
    ],
    "niveau": 1,
    "sources": [
@@ -536,34 +535,28 @@
     }
    ],
    "limites": "Seuils de Météo-France pour la mer et la terre, appliqués à la pêche du bord : leur adéquation au bord est un choix du guide (décision 1 de la phase 4).",
-   "verdict": "conserver ; valider en phase 6",
+   "verdict": "conserver (spécification v2 validée par Félix le 18 nov. 2026)",
    "statut": "VÉRIFIÉ"
   },
   {
-   "id": "filtre-rafales-75",
+   "id": "filtre-prudence-felix",
    "domaine": "sécurité",
-   "enonce": "Rafales de 75 km/h : à vérifier.",
+   "enonce": "Vent moyen de force 6, ou rafales de 60 à 89 km/h : à vérifier.",
    "utilise_par": [
-    "src/bord/engine/safety.js : WIND_LIMITS.doubtGust"
+    "src/bord/engine/safety.js : WIND_LIMITS.doubtForce, WIND_LIMITS.doubtGust"
    ],
-   "niveau": 4,
-   "sources": [
-    {
-     "ref": "Météo-France — Guide marine (octobre 2022) : BMS côte dès la force 7 ; échelle de Beaufort en vent moyen",
-     "url": null,
-     "niveau": 1
-    }
-   ],
-   "limites": "Vitesse d'un vent de force 9 (Beaufort) appliquée aux rafales : déduction, aucune source ne fixe ce seuil pour la pêche.",
-   "verdict": "à valider par Félix",
-   "statut": "HYPOTHÈSE"
+   "niveau": 5,
+   "sources": [],
+   "limites": "Choix de prudence de Félix (13 nov. 2026), appliqué en phase 7 : pas une connaissance. Il remplace le seuil de rafales de 75 km/h déduit de l'échelle de Beaufort (v1). Météo-France n'émet un BMS côte qu'à partir de la force 7. Coût mesuré sur la grille de 73 986 cas ; fréquence réelle sur des journées archivées en phase 8.",
+   "verdict": "conserver (décision de Félix) ; coût à mesurer en phase 8",
+   "statut": "VÉRIFIÉ"
   },
   {
    "id": "filtre-inconnu",
    "domaine": "sécurité",
    "enonce": "Une donnée de sécurité inconnue (vent, rafales, direction, houle en côte ouverte) met le créneau « à vérifier », jamais au vert.",
    "utilise_par": [
-    "src/bord/engine/safety.js : windSafety"
+    "src/bord/engine/safety.js : windSafety, windowSafety"
    ],
    "niveau": 5,
    "sources": [],
@@ -574,15 +567,15 @@
   {
    "id": "houle-max-spot",
    "domaine": "sécurité",
-   "enonce": "Chaque spot a une houle maximale au-delà de laquelle il n'est plus proposé (marge de 0,5 m sauf spot engagé).",
+   "enonce": "Chaque spot a une houle maximale : au-dessus, à vérifier jusqu'à +0,5 m puis non recommandé ; un spot engagé est non recommandé dès le maximum dépassé.",
    "utilise_par": [
     "data/sites/*.config.js : houleMax",
-    "src/bord/engine/model.js : scoreWindow"
+    "src/bord/engine/safety.js : windowSafety, HOULE_MARGE"
    ],
    "niveau": 4,
    "sources": [],
    "limites": "Valeurs estimées par le guide spot par spot ; aucune n'est mesurée.",
-   "verdict": "à éprouver en phase 6",
+   "verdict": "à éprouver en phase 8",
    "statut": "HYPOTHÈSE"
   }
  ],

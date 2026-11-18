@@ -44,6 +44,9 @@ export function zoneWeather(live, spot) {
     houle: parseFloat(live?.houle) || 0,
     // v8.9 : sans météo (ou sans modèle de vagues), la houle est inconnue — pas 0 m.
     houleKnown: live?.houle != null && Number.isFinite(parseFloat(live.houle)),
+    // Phase 7 : rafales et vent moyen en km/h quand la météo du jour les donne (sinon inconnues, donc « à vérifier »).
+    ...(Number.isFinite(parseFloat(live?.gust_kmh)) ? { gust_kmh: Math.round(parseFloat(live.gust_kmh)) } : {}),
+    ...(Number.isFinite(parseFloat(live?.wind_kmh)) ? { wind_kmh: Math.round(parseFloat(live.wind_kmh)) } : {}),
     fromZone: false,
   };
   const z = live?.zones?.[spotZone(spot)];

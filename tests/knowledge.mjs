@@ -89,6 +89,19 @@ function preuvesProblems(doc) {
   return p;
 }
 const pp = preuvesProblems(P);
+
+// Phase 7 — Niveaux de preuve lus par le moteur v2 (confiance) et affichés dans la fiche du spot : extrait compact
+// de preuves-spots.json, par « identifiant du guide/identifiant du spot ». Toujours égal à l'extrait recalculé ;
+// après une modification de preuves-spots.json : node tests/knowledge.mjs --update-niveaux.
+const siteIdOf = {};
+for (const s of SITES) siteIdOf[s.key] = (await loadSite(s.config)).SITE.id;
+const niveaux = {};
+for (const x of [...P.rubriques].sort((a, b) => `${a.guide}/${a.spot}/${a.rubrique}`.localeCompare(`${b.guide}/${b.spot}/${b.rubrique}`)))
+  (niveaux[`${siteIdOf[x.guide]}/${x.spot}`] ||= {})[x.rubrique] = x.niveau;
+const NIV_PATH = path.join(root, "data/knowledge/preuves-niveaux.json");
+if (process.argv.includes("--update-niveaux")) { fs.writeFileSync(NIV_PATH, JSON.stringify(niveaux) + "\n"); console.log("extrait réécrit : data/knowledge/preuves-niveaux.json"); }
+const nivFile = fs.existsSync(NIV_PATH) ? JSON.parse(fs.readFileSync(NIV_PATH, "utf8")) : null;
+t("preuves-niveaux.json : extrait des niveaux égal à preuves-spots.json (moteur v2, fiche du spot)", JSON.stringify(nivFile) === JSON.stringify(niveaux), "relancer avec --update-niveaux");
 t(`preuves-spots.json : chacune des ${current.size} rubriques classée une fois, étiquette actuelle, résumé juste`, !pp.length, pp.slice(0, 8).join(" | "));
 t("preuves-spots.json : les 192 rubriques « verified » relues (aucune laissée sans motif propre ou par défaut)", P.rubriques.filter((x) => x.ancien === "verified").length === [...current.values()].filter((v) => v === "verified").length);
 

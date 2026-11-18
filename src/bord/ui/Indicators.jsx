@@ -39,6 +39,7 @@ export function SafetyPanel({ safety, standing = true, id }) {
           </ul>
         </div>
       )}
+      {safety.vigilance && <div style={{marginTop:7,fontSize:13.5,color:C.text}}>• {safety.vigilance.t} <span style={{fontSize:12,color:C.faint}}>— {safety.vigilance.s}</span></div>}
       <div style={{marginTop:7,fontSize:13,color:"#cbd5e1"}}>{ON_SITE}</div>
     </section>
   );
@@ -51,23 +52,37 @@ const Dots = ({ n }) => (
   </span>
 );
 
-/** Confiance dans le conseil : trois mots et la liste de ce que le conseil avait, ou pas. */
-export function ConfidencePanel({ conf }) {
+/**
+ * Confiance dans le conseil : trois mots et la liste de ce que le conseil avait, ou pas.
+ * Phase 7 — v2 : la confiance sur 100 du moteur v2 (données, accord des modèles, preuves, journal) ; mêmes trois mots
+ * (haute, moyenne, faible), la liste des constats reste dessous.
+ */
+const V2_DOTS = { haute: 3, moyenne: 2, faible: 1 };
+export function ConfidencePanel({ conf, v2 = null }) {
   const [open, setOpen] = useState(false);
   if (!conf) return null;
   const reserves = conf.items.filter((i) => i.ok === "manque" || i.ok === "reserve");
+  const dots = v2 ? V2_DOTS[v2.level] : conf.dots;
+  const title = v2 ? `Confiance ${v2.score}/100 · ${v2.label.toLowerCase()}` : `Confiance ${conf.label.toLowerCase()}`;
   return (
     <div style={{marginTop:10,padding:"9px 12px",borderRadius:12,border:`1px solid ${C.line}`,background:C.card2,fontSize:14,lineHeight:1.5}}>
       <button type="button" onClick={() => setOpen((x) => !x)} aria-expanded={open}
         style={{display:"flex",alignItems:"center",gap:8,width:"100%",minHeight:40,padding:0,border:0,background:"none",color:C.strong,textAlign:"left",cursor:"pointer"}}>
-        <Dots n={conf.dots}/>
-        <span style={{flex:1,minWidth:0}}><b>Confiance {conf.label.toLowerCase()}</b>
-          <span style={{color:C.muted,fontSize:13}}> · {reserves.length ? `${reserves.length} réserve${reserves.length > 1 ? "s" : ""}` : "rien ne manque"}</span></span>
+        <Dots n={dots}/>
+        <span style={{flex:1,minWidth:0}}><b>{title}</b>
+          <span style={{color:C.muted,fontSize:13}}> · {v2 ? (() => { const w = [...v2.parts].sort((a, b) => a.pts / a.max - b.pts / b.max)[0]; return `point faible : ${w.label.toLowerCase()} ${String(w.pts).replace(".", ",")}/${w.max}`; })()
+            : reserves.length ? `${reserves.length} réserve${reserves.length > 1 ? "s" : ""}` : "rien ne manque"}</span></span>
         <span aria-hidden="true" style={{color:C.accent,fontSize:13,fontWeight:700}}>{open ? "Masquer" : "Détail"}</span>
       </button>
       {!open && reserves[0] && <div style={{fontSize:13,color:C.text}}>{reserves[0].t}</div>}
       {open && (
         <ul style={{margin:"4px 0 0",padding:0,listStyle:"none",display:"grid",gap:4}}>
+          {v2 && v2.parts.map((p) => (
+            <li key={p.k} style={{display:"flex",gap:8,fontSize:13.5,color:C.text}}>
+              <span aria-hidden="true" style={{width:14,flexShrink:0}}/>
+              <span><b style={{color:C.strong}}>{p.label} {String(p.pts).replace(".", ",")}/{p.max}</b> — {p.why}</span>
+            </li>
+          ))}
           {conf.items.map((i, k) => (
             <li key={k} style={{display:"flex",gap:8,fontSize:13.5,color:i.ok === "info" ? C.muted : C.text}}>
               <span aria-hidden="true" style={{width:14,flexShrink:0,textAlign:"center",fontWeight:800,color:MARK[i.ok][1]}}>{MARK[i.ok][0]}</span>

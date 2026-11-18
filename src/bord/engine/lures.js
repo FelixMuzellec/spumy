@@ -560,7 +560,7 @@ const LAYER_BAND = { surface: "surface", "sous-surface": "sous-surface", "mi-eau
 const LAYER_GROUP = { surface: "surface", "sous-surface": "sous la surface", "mi-eau": "entre deux eaux", "mi-eau à fond": "entre deux eaux et près du fond", fond: "près du fond" };
 
 /** Toutes les options de ta boîte pour ce créneau, notées ; la première est le conseil. */
-export function boxOptions(sit, fams, color, K = CATALOGUE) {
+export function boxOptions(sit, fams, color, K = CATALOGUE, box = BOITE) {
   const famOf = Object.fromEntries(fams.map((f) => [f.k, f]));
   const tgt = headTarget(sit);
   const t = sit.terr;
@@ -568,7 +568,7 @@ export function boxOptions(sit, fams, color, K = CATALOGUE) {
   const needMass = (sit.wind?.face && sit.wind.F >= 4) || sit.sea === "clapot" || sit.sea === "agitée" || sit.currentNow;
   const calm = !needMass && (sit.sea === "calme" || (sit.windF != null && sit.windF <= 2));
   const out = [];
-  for (const b of BOITE) {
+  for (const b of box) {
     const c = K[b.cat];
     if (!c || !c.layer) continue;                                   // nage inconnue : jamais conseillé
     if (c.layer === "surface" && !t.couches.includes("surface")) continue;
@@ -731,8 +731,8 @@ function journalWhy(o, spot, light) {
 }
 
 /** Le conseil dans ta boîte, un plan B dans une autre couche, et la parade aux suiveurs. */
-export function boxPick(sit, fams, color, K = CATALOGUE) {
-  const { options, target } = boxOptions(sit, fams, color, K);
+export function boxPick(sit, fams, color, K = CATALOGUE, box = BOITE) {
+  const { options, target } = boxOptions(sit, fams, color, K, box);
   // Une seule taille par modèle dans la liste affichée.
   const seen = new Set();
   const uniq = options.filter((o) => (seen.has(o.boxId) ? false : (seen.add(o.boxId), true)));
@@ -766,7 +766,8 @@ export function lureAdvice(spot, w, live, dateISO, ctx = {}) {
   const fams = familyRanking(sit);
   const best = fams[0];
   const color = colorAdvice(sit);
-  const box = boxPick(sit, fams, color, K);
+  // Phase 7 : ctx.box, une autre boîte (scénario S13 de la spécification v2) ; par défaut, la tienne (BOITE).
+  const box = boxPick(sit, fams, color, K, ctx.box || BOITE);
   const pick = box.main;
   // Familles à égalité en tête : annoncées comme telles (le départage par la fiche reste visible).
   const tiedTop = fams.filter((f) => f.score === best.score);

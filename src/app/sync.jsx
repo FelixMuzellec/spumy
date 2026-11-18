@@ -13,6 +13,7 @@ import { getTheme, setTheme } from "../design/theme.js";
 import { b64dec, b64enc, DEFAULT_CFG, explain, getCfg, gh, setCfg } from "../core/ghsync.js";
 import { mergeEntries } from "./merge.js";
 import { TransferPanel } from "./TransferPanel.jsx";
+import { EnginePanel } from "./EnginePanel.jsx";
 export { getCfg };
 
 const fileFor = (siteId) => `journal-${siteId}.json`;
@@ -154,6 +155,7 @@ export function SyncBar({ siteId, initial }) {
               <button key={k} onClick={() => pickTheme(k)} aria-pressed={theme === k} style={{ flex: 1, minHeight: 44, borderRadius: 8, border: `1px solid ${theme === k ? C.acc : C.line}`, background: theme === k ? "rgba(14,165,233,0.15)" : "none", color: theme === k ? "#e2e8f0" : C.txt, fontSize: 13.5, fontWeight: 700, cursor: "pointer" }}>{l}</button>
             ))}
           </div>
+          <EnginePanel />
           <TransferPanel />
           <div style={{ color: "#e2e8f0", fontWeight: 700, marginBottom: 6 }}>Sauvegarde du journal sur GitHub</div>
           <p style={{ margin: "0 0 8px" }}>

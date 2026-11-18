@@ -2,7 +2,7 @@
 // Tout ce qui est dessiné vient des données : la lumière (aube, jour, crépuscule, nuit) et le ciel du créneau retenu
 // colorent la scène ; aucune photo, aucun paysage prétendant montrer le spot.
 import { factorGroups } from "../engine/factors.js";
-import { ScoreRing } from "../../design/components.jsx";
+import { isV2, NoteRing, noteLabel } from "./note.jsx";
 import { Icon } from "../../design/icons.jsx";
 import { C, fr, num } from "../../design/kit.jsx";
 
@@ -63,7 +63,7 @@ export function DecisionHero({ g, timing, toggle }) {
       <div style={{position:"relative",padding:"16px 16px 15px",display:"flex",flexDirection:"column",justifyContent:"flex-end",minHeight:196,boxSizing:"border-box"}}>
         <div style={{fontSize:12.5,fontWeight:700,letterSpacing:"0.08em",textTransform:"uppercase",color:"#bae6fd",textShadow:"0 1px 2px #0008"}}>{w?.light?.label || "Meilleur créneau"}</div>
         <h2 id="hero-h" style={{margin:"3px 0 0",fontSize:"clamp(23px, 6.6vw, 28px)",lineHeight:1.12,fontWeight:850,color:"#fff",textWrap:"balance",textShadow:"0 2px 10px #000a"}}>
-          {conditionLabel(s.score, s.verify)} {whenLabel(w?.startDecimal, g.selectedDate, g.todayISO)}
+          {noteLabel(s)} {whenLabel(w?.startDecimal, g.selectedDate, g.todayISO)}
         </h2>
         {w && <div style={{marginTop:6,fontSize:15.5,color:"#e2e8f0",textShadow:"0 1px 4px #000c",...num}}>
           Meilleure fenêtre <b style={{color:"#fff"}}>{w.startFmt} → {w.endFmt}</b> à <b style={{color:"#fff"}}>{s.name}</b></div>}
@@ -113,15 +113,17 @@ export function CompareCard({ g }) {
   if (!v) return null;
   const items = [v, ...(v.next || [])].filter((x) => x?.s).slice(0, 3);
   if (items.length < 2) return null;
-  const rows = items.map((x) => ({ ...x, f: factorGroups(x.w?.parts || x.s.bestParts) }));
+  const rows = items.map((x) => ({ ...x, f: factorGroups(isV2(x.s) ? (x.w?.f || x.s.v2?.f) : (x.w?.parts || x.s.bestParts)) }));
+  const v2 = isV2(items[0].s), fp = (x) => (v2 ? String(Math.round(x)) : fr(x));
   const fams = rows[0].f.map((f) => f.key);
   const maxAbs = Math.max(1, ...rows.flatMap((r) => r.f.map((f) => Math.abs(f.v))));
   // Ce qui sépare le premier du deuxième : la famille où l'écart est le plus grand.
   const gap = rows[0].f.map((f, i) => ({ label: f.label, d: f.v - rows[1].f[i].v })).sort((a, b) => b.d - a.d)[0];
+  const minGap = v2 ? 3 : 0.3;
   const bar = (val, label, name) => {
     const w = Math.min(50, (Math.abs(val) / maxAbs) * 50);
     return (
-      <div role="img" aria-label={`${name}, ${label} : ${val >= 0 ? "+" : "−"}${fr(Math.abs(val))} point`} style={{position:"relative",height:10,borderRadius:5,background:"#13233a"}}>
+      <div role="img" aria-label={`${name}, ${label} : ${val >= 0 ? "+" : "−"}${fp(Math.abs(val))} point${v2 ? "s sur 100" : ""}`} style={{position:"relative",height:10,borderRadius:5,background:"#13233a"}}>
         <span style={{position:"absolute",left:"50%",top:-2,bottom:-2,width:1,background:"#334155"}}/>
         {Math.abs(val) >= 0.05 && <span style={{position:"absolute",top:0,bottom:0,borderRadius:5,background:val >= 0 ? "linear-gradient(90deg,#0ea5e9,#38bdf8)" : "#64748b",
           left:val >= 0 ? "50%" : `${50 - w}%`,width:`${w}%`}}/>}
@@ -136,7 +138,7 @@ export function CompareCard({ g }) {
         <span/>
         {rows.map((r, i) => (
           <button key={r.s.id} onClick={() => g.goToSpot(r.s.id)} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:4,minWidth:0,border:"none",background:"none",color:C.text,cursor:"pointer",padding:0}}>
-            <ScoreRing score={r.s.score} size={54} label="" verify={!!r.s.verify?.length}/>
+            <NoteRing s={r.s} size={54} label=""/>
             <span style={{fontSize:13.5,fontWeight:750,color:C.strong,textAlign:"center",lineHeight:1.2,overflow:"hidden",display:"-webkit-box",WebkitLineClamp:2,WebkitBoxOrient:"vertical",maxWidth:"100%"}}>
               {i === 0 ? "★ " : ""}{r.s.name}</span>
             <span style={{fontSize:12,color:C.muted,...num}}>{r.w ? `${r.w.startFmt}–${r.w.endFmt}` : ""}</span>
@@ -150,9 +152,9 @@ export function CompareCard({ g }) {
         ))}
       </div>
       <p style={{margin:"12px 0 0",fontSize:13.5,color:C.text,lineHeight:1.5}}>
-        {gap && gap.d >= 0.3 ? <>Ce qui fait la différence pour <b style={{color:C.strong}}>{rows[0].s.name}</b> : <b style={{color:C.strong}}>{gap.label.toLowerCase()}</b>.</>
+        {gap && gap.d >= minGap ? <>Ce qui fait la différence pour <b style={{color:C.strong}}>{rows[0].s.name}</b> : <b style={{color:C.strong}}>{gap.label.toLowerCase()}</b>.</>
           : <>Les deux premiers se valent sur chaque famille : prends le plus pratique.</>}
-        <span style={{color:C.faint}}> Barres : ce que chaque famille ajoute (bleu) ou retire (gris) à la note du meilleur créneau.</span>
+        <span style={{color:C.faint}}> Barres : ce que chaque famille ajoute (bleu) ou retire (gris) à la note du meilleur créneau{v2 ? ` (points sur 100 ; « saison et eau » : ce que la présence du bar retire)` : ""}.</span>
       </p>
       <button onClick={() => g.goTab("spots")} style={{display:"inline-flex",alignItems:"center",gap:4,marginTop:6,minHeight:44,padding:0,border:"none",background:"none",color:C.accent,fontSize:14.5,fontWeight:700,cursor:"pointer"}}>
         Classement complet et carte <Icon name="chevron" size={16} stroke={2.2}/></button>

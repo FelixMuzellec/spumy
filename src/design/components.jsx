@@ -2,29 +2,64 @@
 // (jauge, pastille, chargement) et des trois copies identiques du style de bouton (accueil, Offshore, ajout de spot),
 // à l'identique : le rendu ne change pas. Les autres composants communs sont dans kit.jsx (carte, tuile, puce,
 // bloc repliable, sous-onglets, ligne, source, bandeau).
-import { color, font, radius, scoreBands, touch } from "./tokens.js";
+import { color, favBands, font, pastille, radius, scoreBands, touch } from "./tokens.js";
 
 /**
- * v9.2 — Anneau de note /10 : l'arc suit la note, sa couleur est celle de la note (vert ≥ 7, orange ≥ 5, gris en dessous).
- * Une seule échelle partout. size : diamètre en px ; label : texte sous le chiffre (« sur 10 » par défaut).
+ * v9.2 — Anneau de note : l'arc suit la note, sa couleur est celle de la note. size : diamètre en px ; label : texte
+ * sous le chiffre (« sur 10 » par défaut).
+ * Note sur 10 (moteur v1) : vert ≥ 7, orange ≥ 5, gris en dessous ; verify (phase 4) : arc orange, jamais vert.
+ * Phase 7 — favorabilité sur 100 (moteur v2, max = 100) : l'arc prend le bleu de son palier (band 1 à 5) ; « à vérifier »
+ * ajoute un contour pointillé orange et un « ? » ; text : le chiffre déjà formaté.
  */
-// verify (phase 4) : note « à vérifier » (vent, rafales, houle inconnue) : arc orange, jamais vert.
-export function ScoreRing({ score, size = 76, color: c0, label = "sur 10", track = color.track, verify = false }) {
+export function ScoreRing({ score, size = 76, color: c0, label = "sur 10", track = color.track, verify = false, max = 10, band = null, text = null }) {
   const sw = Math.max(5, Math.round(size / 11)), r = (size - sw) / 2 - 1, circ = 2 * Math.PI * r, cx = size / 2;
   const ok = score != null && Number.isFinite(+score);
-  const c = c0 || (ok && verify ? color.warn : ok ? (score >= scoreBands.good ? color.good : score >= scoreBands.fair ? color.warn : color.muted) : color.dim);
-  const f = ok ? Math.max(0.02, Math.min(1, score / 10)) : 0;
+  const v2 = max === 100;
+  const c = c0 || (!ok ? color.dim : v2 ? favBands[(band || 1) - 1] : verify ? color.warn : score >= scoreBands.good ? color.good : score >= scoreBands.fair ? color.warn : color.muted);
+  const f = ok ? Math.max(0.02, Math.min(1, score / max)) : 0;
   const big = Math.round(size * 0.31), small = Math.max(11, Math.round(size * 0.15));
+  const shown = !ok ? "–" : text != null ? text : v2 ? String(Math.round(score)) : score.toFixed(1).replace(".", ",");
+  const aria = ok ? `${v2 ? "Favorabilité" : "Note"} ${shown} sur ${max}${verify ? ", à vérifier" : ""}` : "Pas de note";
   return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} role="img" aria-label={ok ? `Note ${String(score.toFixed(1)).replace(".", ",")} sur 10${verify ? ", à vérifier" : ""}` : "Pas de note"} style={{flexShrink:0,display:"block"}}>
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} role="img" aria-label={aria} style={{flexShrink:0,display:"block"}}>
       <circle cx={cx} cy={cx} r={r} fill="none" stroke={track} strokeWidth={sw}/>
       {ok && <circle cx={cx} cy={cx} r={r} fill="none" stroke={c} strokeWidth={sw} strokeLinecap="round"
         strokeDasharray={`${f * circ} ${circ}`} transform={`rotate(-90 ${cx} ${cx})`} style={{filter:`drop-shadow(0 0 ${Math.round(sw / 1.5)}px ${c}55)`}}/>}
+      {ok && v2 && verify && <circle cx={cx} cy={cx} r={r + sw / 2 + 1} fill="none" stroke={pastille.verify} strokeWidth={2} strokeDasharray="5 4"/>}
       <text x={cx} y={cx + (label ? big * 0.12 : big * 0.35)} textAnchor="middle" fontSize={big} fontWeight="800" fill={color.strong} fontFamily={font.familySvg} style={font.numbers}>
-        {ok ? score.toFixed(1).replace(".", ",") : "–"}</text>
+        {shown}{ok && v2 && verify ? "?" : ""}</text>
       {label && <text x={cx} y={cx + big * 0.12 + small * 1.25} textAnchor="middle" fontSize={small} fontWeight="600" fill={color.muted} fontFamily={font.familySvg}>{label}</text>}
     </svg>
   );
+}
+
+/**
+ * Phase 7 — Pastille d'un spot (spécification v2, §8) : kind « fill » (favorabilité, band 1 à 5), « verify » (à vérifier :
+ * remplissage du palier, contour pointillé orange et « ? »), « nr » (non recommandé : gris, barré), « none » (pas de note : vide).
+ * Le sens n'est jamais porté par la seule couleur : forme, « ? », barre, et le chiffre ou le mot à côté.
+ */
+export const PASTILLE_TEXT = { fill: "", verify: "à vérifier", nr: "non recommandé", none: "pas de note" };
+export function Pastille({ kind = "none", band = null, size = 16, title }) {
+  const r = size / 2 - 1.5, cx = size / 2;
+  const fill = kind === "nr" ? pastille.nr : kind === "none" ? "none" : favBands[(band || 1) - 1];
+  return (
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} role={title ? "img" : undefined} aria-label={title} aria-hidden={title ? undefined : true} style={{flexShrink:0,display:"block"}}>
+      <circle cx={cx} cy={cx} r={r} fill={fill} fillOpacity={kind === "nr" ? 0.6 : 1} stroke={kind === "verify" ? pastille.verify : kind === "none" ? pastille.none : pastille.ring}
+        strokeWidth={kind === "verify" ? 2 : 1.5} strokeDasharray={kind === "verify" ? "3 2" : kind === "none" ? "2 2" : undefined}/>
+      {kind === "nr" && <line x1={cx - r * 0.7} y1={cx + r * 0.7} x2={cx + r * 0.7} y2={cx - r * 0.7} stroke={pastille.nrBar} strokeWidth={Math.max(1.5, size / 9)} strokeLinecap="round"/>}
+      {kind === "verify" && <text x={cx} y={cx + size * 0.18} textAnchor="middle" fontSize={size * 0.55} fontWeight="900" fill={band >= 4 ? pastille.ring : color.strong} fontFamily={font.familySvg}>?</text>}
+    </svg>
+  );
+}
+/** La même pastille en texte SVG, pour les marqueurs de carte (Leaflet). */
+export function pastilleSvg(kind, band, size = 22) {
+  const r = size / 2 - 1.5, cx = size / 2;
+  const fill = kind === "nr" ? pastille.nr : kind === "none" ? "none" : favBands[(band || 1) - 1];
+  const stroke = kind === "verify" ? pastille.verify : kind === "none" ? pastille.none : pastille.ring;
+  const dash = kind === "verify" ? ' stroke-dasharray="3 2"' : kind === "none" ? ' stroke-dasharray="2 2"' : "";
+  const bar = kind === "nr" ? `<line x1="${cx - r * 0.7}" y1="${cx + r * 0.7}" x2="${cx + r * 0.7}" y2="${cx - r * 0.7}" stroke="${pastille.nrBar}" stroke-width="${Math.max(1.5, size / 9)}" stroke-linecap="round"/>` : "";
+  const q = kind === "verify" ? `<text x="${cx}" y="${cx + size * 0.18}" text-anchor="middle" font-size="${size * 0.55}" font-weight="900" fill="${band >= 4 ? pastille.ring : color.strong}" font-family="${font.familySvg}">?</text>` : "";
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" aria-hidden="true"><circle cx="${cx}" cy="${cx}" r="${r}" fill="${fill}" fill-opacity="${kind === "nr" ? 0.6 : 1}" stroke="${stroke}" stroke-width="${kind === "verify" ? 2 : 1.5}"${dash}/>${bar}${q}</svg>`;
 }
 
 /** Pastille de couleur (état, catégorie). */

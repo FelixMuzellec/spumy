@@ -1011,10 +1011,14 @@ if (E.SITE.id === "pirou-plage") {
   t("sécurité : rafales à 90 km/h → spot non recommandé, même par vent moyen faible", g90.eligible === false && /Rafales à 90 km\/h/.test(g90.reason), g90.reason);
   const f7 = sw(sp, { wind_force: 7, wind_kmh: 55 });
   t("sécurité : grand frais (force 7) → proposé mais à vérifier", f7.eligible && f7.verify.some((v) => v.k === "vent") && /À vérifier/.test(f7.reason), f7.reason);
-  const g75 = sw(sp, { gust_kmh: 75 });
-  t("sécurité : rafales à 75 km/h → à vérifier", g75.eligible && g75.verify.some((v) => v.k === "rafales"));
-  const g74 = sw(sp, { gust_kmh: 74 });
-  t("sécurité : rafales à 74 km/h → pas de doute de sécurité (seuil 75)", g74.eligible && !g74.verify.some((v) => v.k === "rafales"));
+  // Phase 7 — seuils plus prudents choisis par Félix (13 nov. 2026) : à vérifier dès la force 6 ou 60 km/h de rafales.
+  const f6 = sw(sp, { wind_force: 6, wind_kmh: 42 }), f5 = sw(sp, { wind_force: 5, wind_kmh: 35 });
+  t("sécurité : vent frais (force 6) → proposé mais à vérifier (seuil de Félix)", f6.eligible && f6.verify.some((v) => v.k === "vent" && /force 6/.test(v.t)), f6.reason);
+  t("sécurité : force 5 → pas de doute de vent", f5.eligible && !f5.verify.some((v) => v.k === "vent"));
+  const g60 = sw(sp, { gust_kmh: 60 });
+  t("sécurité : rafales à 60 km/h → à vérifier", g60.eligible && g60.verify.some((v) => v.k === "rafales"));
+  const g59 = sw(sp, { gust_kmh: 59 });
+  t("sécurité : rafales à 59 km/h → pas de doute de sécurité (seuil 60)", g59.eligible && !g59.verify.some((v) => v.k === "rafales"));
   const hu = sw(sp, { houle: 0, houleKnown: false });
   t("houle inconnue en côte ouverte : à vérifier, jamais 0 m silencieux", hu.eligible && hu.verify.some((v) => v.k === "houle") && /houle inconnue/.test(hu.reason), hu.reason);
   if (rade) { const hr = sw(rade, { houle: 0, houleKnown: false }); t("houle inconnue en rade : pas de doute (mer du vent calculée sur place)", hr.eligible === false || !hr.verify.some((v) => v.k === "houle")); }
@@ -1031,7 +1035,7 @@ if (E.SITE.id === "pirou-plage") {
   // Indicateur de sécurité : les rafales y figurent.
   const s90 = E.safetyOf(sp, { zw: { ...zw0, gust_kmh: 92 }, light: win.light }), s75 = E.safetyOf(sp, { zw: { ...zw0, gust_kmh: 78 }, light: win.light });
   t("indicateur de sécurité : rafales de tempête → alerte ; fortes rafales → prudence", s90.level === "alerte" && s75.level === "prudence" && s75.items.some((i) => /Rafales à 78 km\/h/.test(i.t)));
-  t("seuils de vent écrits une seule fois, avec leur source", E.WIND_LIMITS.blockForce === 8 && E.WIND_LIMITS.blockGust === 90 && E.WIND_LIMITS.doubtForce === 7 && E.WIND_LIMITS.doubtGust === 75 && /Météo-France/.test(E.SRC_WIND));
+  t("seuils de vent écrits une seule fois, avec leur source", E.WIND_LIMITS.blockForce === 8 && E.WIND_LIMITS.blockGust === 90 && E.WIND_LIMITS.doubtForce === 6 && E.WIND_LIMITS.doubtGust === 60 && /Météo-France/.test(E.SRC_WIND));
   if (label === "logonna") {
     const mm = E.SPOTS.find((s) => s.id === "moulinmer");
     const r = sw(mm, { wind_dir: "NE", wind_force: 9, wind_kmh: 81, gust_kmh: 85 });
@@ -1039,7 +1043,7 @@ if (E.SITE.id === "pirou-plage") {
   }
   // Revue finale des phases 3 et 4 : une donnée de vent qui manque est un doute, jamais un calme supposé.
   const gu = sw(sp, { gust_kmh: null });
-  t("rafales inconnues → à vérifier (on ne sait pas si elles dépassent 75 ou 90 km/h)", gu.eligible && gu.verify.some((v) => v.t === "rafales inconnues"), gu.reason);
+  t("rafales inconnues → à vérifier (on ne sait pas si elles dépassent 60 ou 90 km/h)", gu.eligible && gu.verify.some((v) => v.t === "rafales inconnues"), gu.reason);
   const du = sw(sp, { wind_dir: "?", wind_force: 3, wind_kmh: 15 });
   t("direction du vent inconnue (force 3) → à vérifier", du.eligible && du.verify.some((v) => v.t === "direction du vent inconnue"));
   const d0 = sw(sp, { wind_dir: "?", wind_force: 0, wind_kmh: 1 });
@@ -1240,7 +1244,10 @@ if (E.SITE.id === "pirou-plage") {
 
 // ── 16 duodecies. v8.15 : tendance d'un spot d'aujourd'hui à demain (recherche de l'accueil) ──
 {
-  const T = E.trendOf, el = (score) => ({ eligible: true, score });
+  // Phase 7 : la tendance suit l'échelle du moteur choisi ; ici, la note sur 10 (v1), puis la favorabilité sur 100 (v2).
+  const T = (a, b) => E.trendOf(a, b, "v1"), el = (score) => ({ eligible: true, score });
+  t("tendance v2 : stable à 3 points près, en hausse au-delà", E.trendOf(el(70), el(73), "v2")?.arrow === "→" && E.trendOf(el(70), el(74), "v2")?.arrow === "↗" && E.trendOf(el(70), el(66), "v2")?.arrow === "↘");
+  t("tendance v2 : favorabilité inconnue (pas de note) → stable, jamais une flèche inventée", E.trendOf(el(70), el(null), "v2")?.arrow === "→");
   t("tendance : en hausse au-delà de 0,2 point", T(el(7.0), el(7.3))?.arrow === "↗" && T(el(7.0), el(7.3)).word === "en hausse");
   t("tendance : en baisse au-delà de 0,2 point", T(el(7.0), el(6.7))?.arrow === "↘");
   t("tendance : stable à 0,2 point près (précision du modèle)", T(el(7.0), el(7.2))?.arrow === "→" && T(el(7.0), el(6.8))?.arrow === "→" && T(el(7.0), el(7.0)).word === "stable");

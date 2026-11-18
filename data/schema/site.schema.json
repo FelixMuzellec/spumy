@@ -221,7 +221,7 @@
         "securite": {
           "type": "array",
           "items": {
-            "type": "object", "required": ["t", "s"], "additionalProperties": false,
+            "type": "object", "required": ["t", "s"], "additionalProperties": false, "dependentRequired": { "isolement": ["when"] },
             "properties": {
               "t": { "$ref": "#/$defs/texte", "description": "La consigne." },
               "s": { "$ref": "#/$defs/texte", "description": "Sa source." },
@@ -229,7 +229,8 @@
                 "type": "object", "minProperties": 1, "additionalProperties": false,
                 "description": "Consigne active seulement dans ces conditions ; sans when, toujours affichée.",
                 "properties": { "coefAbove": { "type": "number", "minimum": 20, "maximum": 120 }, "phase": { "$ref": "#/$defs/phaseMaree" } }
-              }
+              },
+              "isolement": { "const": true, "description": "Phase 7 : la consigne dit que la marée coupe le retour (seuil écrit dans la fiche). Active, elle rend le créneau non recommandé." }
             }
           }
         },

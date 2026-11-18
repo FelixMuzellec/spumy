@@ -49,5 +49,15 @@ export const touch = { min: 44, main: 48 };
 /** Durées d'animation (coupées si l'appareil demande moins de mouvement). */
 export const motion = { fast: ".15s" };
 
-/** Seuils de couleur d'une note sur 10 (les trois scores sur 100 viendront en phase 7). */
+/** Seuils de couleur d'une note sur 10 (moteur v1, et note du mode BATEAU). */
 export const scoreBands = { good: 7, fair: 5 };
+
+/**
+ * Phase 7 — Pastilles du moteur v2 (spécification v2, §8). La couleur de remplissage dit la favorabilité, en cinq
+ * paliers d'une seule teinte (bleu), du plus faible au plus fort : sur le fond sombre, le plus fort est le plus clair.
+ * Ni vert, ni orange, ni rouge : la sécurité a sa propre forme (contour pointillé et « ? » : à vérifier ; pastille
+ * grise barrée : non recommandé ; pastille vide : pas de note). Rampe contrôlée (luminosité monotone, écarts visibles,
+ * palier le plus sombre à 2,2:1 sur le fond des cartes) ; le chiffre reste écrit en couleur de texte, jamais en bleu.
+ */
+export const favBands = ["#184f95", "#256abf", "#3987e5", "#6da7ec", "#b7d3f6"];
+export const pastille = { nr: "#64748b", nrBar: "#e2e8f0", none: "#64748b", verify: "#f59e0b", ring: "#020617" };

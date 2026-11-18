@@ -11,9 +11,12 @@ import { safetyOf } from "../../engine/safety.js";
 import { SafetyPanel } from "../Indicators.jsx";
 import { localDecimal } from "../../../core/tide.js";
 import { DayStrip, TerrainBlock, TopoBlock, WindowRow } from "../components.jsx";
-import { Pill, ScoreRing } from "../../../design/components.jsx";
+import { Pill } from "../../../design/components.jsx";
+import { evidenceOf } from "../../engine/v2.js";
+import { isV2, NoteRing, noteLabel } from "../note.jsx";
+import { ScoresPanel } from "../Scores.jsx";
 import { keyFactors } from "../../engine/model.js";
-import { conditionLabel, WhyWatch } from "../Decision.jsx";
+import { WhyWatch } from "../Decision.jsx";
 import { Icon } from "../../../design/icons.jsx";
 import { Alert, C, Disclosure, GoLink, Muted, Stack, SubTabs, fr } from "../../../design/kit.jsx";
 import { Orientation } from "../Orientation.jsx";
@@ -36,7 +39,7 @@ function Creneaux({ g, spot }) {
         <DayStrip spot={spot} date={g.selectedDate} live={g.live} tide={g.tideFor(spot.tidePort)} sun={g.sun} hours={g.hours} nowDec={Number.isFinite(g.nowMs) ? localDecimal(g.nowMs, g.selectedDate) : null}/>
         <div style={{fontSize:12.5,color:C.muted,marginTop:4,lineHeight:1.5}}>En haut : nuit, basse lumière (violet), jour. Courbe : marée du port du spot. Bandes : créneaux notés{restricted ? " (assombri : hors de tes heures)" : ""}. Flèches : vent toutes les 3 heures, pointées vers où il souffle (le texte donne d'où il vient). Trait blanc : maintenant.</div>
       </div>
-      {shown.map((w, i) => <WindowRow key={`${w.id}-${i}`} w={w} lure={g.live && w.eligible ? lureAdvice(spot, w, g.live, g.selectedDate, g.lureCtx).summary : null}/>)}
+      {shown.map((w, i) => <WindowRow key={`${w.id}-${i}`} w={w} engine={spot.engine} lure={g.live && w.eligible ? lureAdvice(spot, w, g.live, g.selectedDate, g.lureCtx).summary : null}/>)}
       {!day.length && <Muted>Données de marée manquantes.</Muted>}
       {day.length > 0 && !shown.length && (
         <div style={{padding:"12px 13px",background:C.card2,border:`1px solid ${C.line}`,borderRadius:12}}>
@@ -83,16 +86,19 @@ function DepthEditor({ g, spot }) {
 }
 
 function Terrain({ g, spot }) {
+  // Phase 7 : niveau de preuve de chaque rubrique (phase 5) à la place de « sourcé / terrain / déduit ».
+  const ev = evidenceOf(spot);
   return (
     <Stack gap={10}>
-      <TerrainBlock spot={spot}/>
+      <TerrainBlock spot={spot} niveau={ev.terrain}/>
       <DepthEditor g={g} spot={spot}/>
       <Orientation spot={spot} base={allSpots().find((s) => s.id === spot.id) || spot} orient={g.orient} onChange={g.setOrient}/>
-      <TopoBlock title="Fond" data={spot.topology.fond}/>
-      <TopoBlock title="Structure et comportement" data={spot.topology.structure}/>
-      <TopoBlock title="Courant" data={spot.topology.courant}/>
-      <TopoBlock title="Exposition" data={spot.topology.exposition}/>
-      <TopoBlock title="Population" data={spot.topology.bars}/>
+      <TopoBlock title="Fond" data={spot.topology.fond} niveau={ev.fond}/>
+      <TopoBlock title="Structure et comportement" data={spot.topology.structure} niveau={ev.structure}/>
+      <TopoBlock title="Courant" data={spot.topology.courant} niveau={ev.courant}/>
+      <TopoBlock title="Exposition" data={spot.topology.exposition} niveau={ev.exposition}/>
+      <TopoBlock title="Population" data={spot.topology.bars} niveau={ev.bars}/>
+      <Muted>Niveaux de preuve : 1 scientifique ou institutionnel, 2 observation documentée, 3 retour local identifiable, 4 hypothèse, 5 heuristique{spot.custom ? " (ton spot : estimé, niveau 5)" : ""}.</Muted>
       <Disclosure title="Sources utilisées pour ce spot">
         <ul style={{margin:0,paddingLeft:18,fontSize:13,color:C.muted,lineHeight:1.7,listStyle:"disc"}}>
           {spot.sources.map((s, i) => <li key={i}>{linkify(s)}</li>)}
@@ -202,8 +208,8 @@ export function SpotDetail({ g, spot, detailRef }) {
       <div style={{padding:"15px 15px 12px",background:`linear-gradient(160deg,${spot.color}18 0%,transparent 60%)`}}>
         <div style={{display:"flex",alignItems:"flex-start",gap:12}}>
           <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:4,flexShrink:0}}>
-            <ScoreRing score={spot.eligible ? spot.score : null} size={84} verify={!!spot.verify?.length}/>
-            {spot.eligible && <span style={{fontSize:11.5,fontWeight:700,color:C.muted,maxWidth:96,textAlign:"center",lineHeight:1.2}}>{conditionLabel(spot.score, spot.verify)}</span>}
+            <NoteRing s={spot} size={84}/>
+            {spot.eligible && <span style={{fontSize:11.5,fontWeight:700,color:C.muted,maxWidth:96,textAlign:"center",lineHeight:1.2}}>{noteLabel(spot)}</span>}
           </div>
           <div style={{flex:1,minWidth:0}}>
             <h2 style={{margin:0,fontSize:21,fontWeight:800,color:C.strong,lineHeight:1.15}}>{spot.name}</h2>
@@ -230,7 +236,8 @@ export function SpotDetail({ g, spot, detailRef }) {
             </span>
           </div>
         )}
-        {spot.eligible && best && <WhyWatch factors={keyFactors(best.parts)}/>}
+        {spot.eligible && best && <WhyWatch factors={keyFactors(isV2(spot) ? best.f : best.parts)}/>}
+        {spot.eligible && isV2(spot) && <ScoresPanel s={spot}/>}
         {spot.zw?.fromSpot && (
           <div style={{fontSize:14,color:"#7dd3fc",marginTop:8}}>Ici (6 h-22 h) : 🌬 {spot.zw.wind_dir} {spot.zw.wind_kmh} km/h{spot.zw.gust_kmh != null ? ` · raf. ${spot.zw.gust_kmh}` : ""} · 🌊 {spot.zw.houleKnown ? `${fr(spot.zw.houle)} m` : "houle inconnue"}</div>
         )}
