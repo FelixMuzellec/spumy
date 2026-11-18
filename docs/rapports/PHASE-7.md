@@ -1,6 +1,6 @@
 # SPUMY — Phase 7 : moteur BORD v2
 
-18 novembre 2026 · Félix
+18 novembre 2026 · Félix · version de référence : document Claude « SPUMY — Phase 7 : moteur BORD v2 » (https://claude.ai/artifact/5VVWp9Z3HfSvn72Uy3Ztwo) · proposition de fusion n° 6 (brouillon)
 
 Le moteur v2 de la spécification que tu as validée le 18 novembre est en place, à côté de la v1. Il donne trois scores sur 100, jamais fusionnés : favorabilité, pertinence et confiance. Le filtre de sécurité de la spécification est commun aux deux moteurs. La v2 est le moteur par défaut. Tant que la phase 8 ne l'a pas validée, *Réglages → Moteur de notes* ramène la note sur 10.
 
