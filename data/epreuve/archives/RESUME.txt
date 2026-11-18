@@ -1,0 +1,7 @@
+logonna : 39 journées, 0 en échec, 9 sans houle ou sans eau
+pirou : 36 journées, 0 en échec, 18 sans houle ou sans eau
+plouguerneau : 36 journées, 0 en échec, 12 sans houle ou sans eau
+audierne : 36 journées, 0 en échec, 14 sans houle ou sans eau
+carantec : 36 journées, 0 en échec, 11 sans houle ou sans eau
+concarneau : 36 journées, 0 en échec, 8 sans houle ou sans eau
+crozon : 36 journées, 0 en échec, 4 sans houle ou sans eau
