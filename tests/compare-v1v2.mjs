@@ -67,6 +67,9 @@ for (const s of SITES) {
       out.top3Overlap += v2.slice(0, 3).filter((sp) => t3.has(sp.id)).length / Math.min(3, n);
       const A = v1[0], B = v2[0];
       if (A.id === B.id) { out.top1Same++; g.top1Same++; continue; }
+      // Écart sous la précision de l'un ou l'autre moteur : les deux spots s'y valent déjà.
+      if (B.v2.fav - A.v2.fav <= 3) out.tieV2 = (out.tieV2 || 0) + 1;
+      if (Math.abs((A.v1.robust ?? 0) - (B.v1.robust ?? 0)) <= 0.2) out.tieV1 = (out.tieV1 || 0) + 1;
       let cause;
       if (A.v1.bestWindowId !== A.bestWindowId || B.v1.bestWindowId !== B.bestWindowId) cause = "créneau";
       else {
@@ -87,7 +90,8 @@ const pct = (a, b) => `${((100 * a) / Math.max(1, b)).toFixed(1)} %`;
 console.log(`[v1 / v2] ${out.cases} journées d'essai (7 guides × 12 mois × 24 météos), ${out.compared} avec au moins deux spots notés`);
 console.log(`  même premier spot : ${out.top1Same} (${pct(out.top1Same, out.compared)}) · trois premiers en commun : ${(100 * out.top3Overlap / out.compared).toFixed(1)} % · corrélation de rang moyenne (Spearman) : ${(out.spearman / out.nSpear).toFixed(2)}`);
 const diff = out.compared - out.top1Same;
-console.log(`  premier spot différent : ${diff}, cause :`);
+console.log(`  premier spot différent : ${diff} ; dont à égalité dans la v2 (3 points ou moins) : ${out.tieV2 || 0} (${pct(out.tieV2 || 0, diff)}), à égalité dans la v1 (0,2 point ou moins) : ${out.tieV1 || 0} (${pct(out.tieV1 || 0, diff)})`);
+console.log(`  cause :`);
 for (const [k, v] of Object.entries(out.causes).sort((a, b) => b[1] - a[1])) console.log(`    ${String(v).padStart(5)} (${pct(v, diff)})  ${k}${out.examples[k] ? `  — ex. ${out.examples[k][0]}` : ""}`);
 for (const [k, v] of Object.entries(out.byGuide)) console.log(`  ${k.padEnd(13)} même premier spot ${pct(v.top1Same, v.compared)} (${v.compared} journées)`);
 if (process.argv[2]) fs.writeFileSync(process.argv[2], JSON.stringify(out, null, 1));

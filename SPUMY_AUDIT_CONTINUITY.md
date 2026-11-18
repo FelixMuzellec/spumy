@@ -16,7 +16,7 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 4. Audit BORD approfondi + corrections météo et sécurité demandées par Félix | VALIDATED (13 nov. 2026, 12 h 37, « APPROVED — PROCEED TO PHASE 5 ») ; revue finale puis fusion dans `main` le 13 nov. (e743b10, propositions n° 1 et n° 2), pas en ligne | Branche `claude/phase-4-bord` (partie de `claude/phase-3-socle`), demande de fusion n° 2 (brouillon) ; rapport « SPUMY — Phase 4 : audit BORD et corrections météo » https://claude.ai/artifact/LryzgD9Q9KbMNec91sMYNx |
 | 5. Connaissances halieutiques | VALIDATED (13 nov. 2026, 13 h 58, « APPROVED — PROCEED TO PHASE 6 ») ; non fusionnée (accord de fusion non donné) | Branche `claude/phase-5-halieutique`, demande de fusion n° 3 ; rapport « SPUMY — Phase 5 : connaissances halieutiques » https://claude.ai/artifact/BmTd9B29oPziqDZqh9n1cC |
 | 6. Conception du moteur BORD (spécification, sans code) | VALIDATED (18 nov. 2026, 14 h 47, « APPROVED — PROCEED TO PHASE 7 ») ; non fusionnée (accord de fusion non donné) | Branche `claude/phase-6-conception`, demande de fusion n° 4 ; `docs/SPEC-MOTEUR-BORD-V2.md` ; rapport « SPUMY — Phase 6 : conception du moteur BORD » https://claude.ai/artifact/Fa93x9zkURzEdVRxRZy8Fj (copie : `docs/rapports/PHASE-6.md`) |
-| 7. Moteur BORD v2 | IN PROGRESS (depuis le 18 nov. 2026) | Branche `claude/phase-7-moteur-v2` (phase 6 + `main`) |
+| 7. Moteur BORD v2 | TESTED, en attente de validation | Branche `claude/phase-7-moteur-v2` (phase 6 + `main`) ; rapport `docs/rapports/PHASE-7.md` |
 | 8 à 17 | NOT STARTED | — |
 
 ### Phase 4, lots
@@ -34,10 +34,11 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | Lot | Statut | Preuve |
 | --- | --- | --- |
 | 7.0 Départ | TESTED | Branche `claude/phase-7-moteur-v2` = phase 6 + `main` ; construction identique à `main` (bc6ce2bfa664) avant tout changement |
-| 7.2 Sécurité de la spécification | TESTED | `windowSafety` (safety.js), commun aux deux moteurs ; `tests/v2.mjs` S1 à S9 ; unitaires des 7 guides ; grille 73 986 cas comparée (seuils de Félix, houle au-dessus du maximum) |
-| 7.1 Trois scores, réglage v1/v2 | IMPLEMENTED | `src/bord/engine/v2.js`, `v2-params.js` ; `rankDay` ; Réglages → Moteur de notes ; `tests/v2.mjs` S10 à S16 et règles ; comparaison v1/v2 `tests/compare-v1v2.mjs` |
-| 7.3 Pastilles, preuves, conseil de la boîte | IMPLEMENTED | `note.jsx`, `Scores.jsx`, `Pastille` (design) ; captures v1 et v2 revues |
-| 7.4 Tests | IN PROGRESS | — |
+| 7.2 Sécurité de la spécification | TESTED | `windowSafety` (safety.js), commun aux deux moteurs ; `tests/v2.mjs` S1 à S9 ; grille 73 986 cas : 0 danger proposé, 12 672 cas « à vérifier » de plus, 0 au vert sans météo |
+| 7.1 Trois scores, réglage v1/v2 | TESTED | `src/bord/engine/v2.js`, `v2-params.js`, `rankDay` ; Réglages → Moteur de notes ; `tests/v2.mjs` 51/51 ; comparaison v1/v2 sur 2 016 journées d'essai : même premier spot 52,9 %, écarts expliqués (vent et mer 49 %, ensemble v1 26 %, créneau 13 %, marée 11 %) |
+| 7.3 Pastilles, preuves, conseil de la boîte | TESTED | `note.jsx`, `Scores.jsx`, `Pastille` ; parcours e2e ; captures v1 et v2 relues |
+| 7.4 Tests | TESTED | e2e 843/843 ; unitaires 7 guides verts ; `test:v2` en intégration continue |
+| 7.5 Rapport, questions | IMPLEMENTED | `docs/rapports/PHASE-7.md` ; questions une par une à Félix |
 
 ### Phase 5, lots
 
@@ -154,4 +155,4 @@ Consigne de Félix : « une organisation GitHub gratuite « spumy », qui donne 
 
 ## Prochaine action
 
-Phase 7 : lots 7.2 (sécurité), 7.1 (trois scores, réglage v1/v2), 7.3 (pastilles, niveaux de preuve, conseil de la boîte), 7.4 (16 scénarios en tests), puis rapport, questions une par une à Félix, arrêt. Attendre `APPROVED — PROCEED TO PHASE 8`.
+Phase 7 livrée (rapport `docs/rapports/PHASE-7.md`). Poser à Félix ses questions une par une (liste en section 8 du rapport), corriger selon ses réponses, puis attendre `APPROVED — PROCEED TO PHASE 8`. Aucune fusion dans `main` sans son accord.
