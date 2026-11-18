@@ -1,0 +1,39 @@
+# Phase 8 — Épreuve du moteur : télécharge les journées de référence (prévisions archivées d'Open-Meteo, houle et eau
+# comprises) pour les sept guides, et les garde en artefact (90 jours). Le bac à sable de Claude n'atteint pas
+# Open-Meteo ; l'intégration continue, si. Les tirages Monte Carlo se font ensuite sur ces fichiers
+# (scripts/epreuve-mc.mjs), dans l'intégration continue comme sur une machine de travail.
+name: Épreuve du moteur (journées archivées)
+
+on:
+  push:
+    branches: ["claude/phase-8-*"]
+    paths: ["data/epreuve/journees.json", "scripts/epreuve-fetch.mjs", ".github/workflows/epreuve.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: epreuve-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  journees:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Journées de référence (36 dates × 7 guides)
+        run: node scripts/epreuve-fetch.mjs out/epreuve
+      - name: Résumé
+        run: cat out/epreuve/RESUME.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: epreuve-journees
+          path: out/epreuve
+          retention-days: 90
