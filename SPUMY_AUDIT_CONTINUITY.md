@@ -41,6 +41,16 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 7.4 Tests | TESTED | e2e 843/843 ; unitaires 7 guides verts ; axe 0 violation ; mise à jour 11/11 ; GitHub : « Tests » et contrat réel verts (commit 9337732, proposition n° 6) |
 | 7.5 Rapport, questions | VALIDATED | `docs/rapports/PHASE-7.md` ; questions 1 à 3 sans préférence, la 4e a reçu l'approbation de la phase 8 |
 
+### Phase 8, lots
+
+| Lot | Statut | Preuve |
+| --- | --- | --- |
+| 8.1 Journées de référence | TESTED | 36 dates fixées d'avance (6, 16, 26 de chaque mois, nov. 2025 à nov. 2026) + 3 sessions du journal ; téléchargées par l'intégration continue (« Épreuve du moteur », passage 44330704552), déposées dans la branche (`data/epreuve/archives/`) ; 0 journée en échec |
+| 8.2 Monte Carlo | TESTED | `scripts/epreuve-mc.mjs` : 1 000 tirages par journée et par guide, 241 journées-guides notées ; tirages « entrées seules » et « hypothèses seules » (300) ; `data/epreuve/resultats/` |
+| 8.3 Analyse telle quelle | TESTED | `scripts/epreuve-analyse.mjs` : coût de la prudence, paliers, v1/v2 réels, journal, qualité des données |
+| 8.4 Corrections | IN PROGRESS | Paliers 75/65/55/45 ; lumière en rampe pour les créneaux de plein jour qui mordent sur la basse lumière. Règle fixée avant le second passage : la rampe est gardée si les trois premiers inchangés gagnent au moins 2 points en moyenne sans que le premier inchangé perde plus de 1 point ; sinon elle est retirée |
+| 8.5 Rapport, arrêt | NOT STARTED | — |
+
 ### Phase 5, lots
 
 | Lot | Statut | Preuve |
