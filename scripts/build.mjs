@@ -42,7 +42,7 @@ export function cspFor(script, { connect = [], img = [], selfScript = false } = 
   return [
     "default-src 'none'", `script-src ${scripts}`, "style-src 'self' 'unsafe-inline'",
     `img-src 'self' data: blob: ${img.join(" ")}`.trim(), `connect-src 'self' ${connect.join(" ")}`.trim(),
-    "manifest-src 'self'", "worker-src 'self'", "base-uri 'none'", "form-action 'none'", "object-src 'none'",
+    "font-src 'self'", "manifest-src 'self'", "worker-src 'self'", "base-uri 'none'", "form-action 'none'", "object-src 'none'",
   ].join("; ");
 }
 const scriptOf = (html) => { const m = html.match(/<script>([\s\S]*?)<\/script>/g) || []; if (m.length !== 1) throw new Error(`CSP : ${m.length} scripts en ligne, 1 attendu`); return m[0].slice(8, -9); };
@@ -199,7 +199,7 @@ ${LEAFLET_CSS}${MAP_CSS}</style>
 const manifest = JSON.stringify({
   name: APP.name, short_name: APP.short, lang: "fr", dir: "ltr",
   description: "SPUMY : où et quand pêcher le bar aux leurres du bord. Sept guides, en Finistère (rade de Brest, presqu'île de Crozon et baie de Douarnenez, Pays des Abers, Cap Sizun, baie de Morlaix et Haut-Léon, Cornouaille) et dans la Manche (Cotentin ouest).",
-  start_url: "./", scope: "./", display: "standalone", background_color: "#020617", theme_color: "#020617",
+  start_url: "./", scope: "./", display: "standalone", background_color: "#071427", theme_color: "#071427",
   icons: [
     { src: "icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
     { src: "icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
@@ -210,6 +210,14 @@ const manifest = JSON.stringify({
 stamp.update(manifest);
 fs.writeFileSync(path.join(OUT, "manifest.json"), manifest);
 for (const f of ["icon-192.png", "icon-512.png", "icon-maskable.png", "apple-touch-icon.png"]) { stamp.update(fs.readFileSync(path.join(root, "assets", f))); fs.copyFileSync(path.join(root, "assets", f), path.join(OUT, f)); }
+// v10 — Charte de la phase 11 : logos de Félix (scripts/logos.py) et police des titres (Roboto Condensed, OFL, auto-hébergée).
+const BRAND_FILES = {
+  "logo-spumy.webp": "assets/brand/web/spumy-logo-sombre.webp", "logo-spumy-clair.webp": "assets/brand/web/spumy-logo-clair.webp",
+  "inshore.webp": "assets/brand/web/inshore-clair.webp", "offshore.webp": "assets/brand/web/offshore-clair.webp",
+  "roboto-condensed.woff2": "node_modules/@fontsource-variable/roboto-condensed/files/roboto-condensed-latin-wght-normal.woff2",
+  "roboto-condensed-ext.woff2": "node_modules/@fontsource-variable/roboto-condensed/files/roboto-condensed-latin-ext-wght-normal.woff2",
+};
+for (const [f, src] of Object.entries(BRAND_FILES)) { const b = fs.readFileSync(path.join(root, src)); stamp.update(b); fs.writeFileSync(path.join(OUT, f), b); }
 // v8.0–v8.3 avaient un manifeste par guide (deux applications séparées) : remplacés.
 for (const f of ["logonna-manifest.json", "pirou-manifest.json"]) fs.rmSync(path.join(OUT, f), { force: true });
 // v9.2 et avant : home.js (moteurs de l'accueil), remplacé par app.js (lot 3.5).

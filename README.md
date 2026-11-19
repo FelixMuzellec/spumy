@@ -84,8 +84,8 @@ Le détail est dans [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 Settings → Pages → *Deploy from a branch* → Branch `main`, dossier `/ (root)` → Save.
 
-Mettre le site à jour depuis le téléphone : *Add file → Upload files* à la racine du dépôt, avec les 29 fichiers du site
-(`index.html`, `app.js`, `logonna.html`, `pirou.html`, `plouguerneau.html`, `audierne.html`, `carantec.html`, `concarneau.html`, `crozon.html`, `logonna.json`, `pirou.json`, `plouguerneau.json`, `audierne.json`, `carantec.json`, `concarneau.json`, `crozon.json`, `manifest.json`, `icon-192.png`, `icon-512.png`, `icon-maskable.png`, `apple-touch-icon.png`, `logonna.png`, `pirou.png`, `plouguerneau.png`, `audierne.png`, `carantec.png`, `concarneau.png`, `crozon.png`, `sw.js`).
+Mettre le site à jour depuis le téléphone : *Add file → Upload files* à la racine du dépôt, avec les 35 fichiers du site
+(`index.html`, `app.js`, `logonna.html`, `pirou.html`, `plouguerneau.html`, `audierne.html`, `carantec.html`, `concarneau.html`, `crozon.html`, `logonna.json`, `pirou.json`, `plouguerneau.json`, `audierne.json`, `carantec.json`, `concarneau.json`, `crozon.json`, `manifest.json`, `icon-192.png`, `icon-512.png`, `icon-maskable.png`, `apple-touch-icon.png`, `logonna.png`, `pirou.png`, `plouguerneau.png`, `audierne.png`, `carantec.png`, `concarneau.png`, `crozon.png`, `logo-spumy.webp`, `logo-spumy-clair.webp`, `inshore.webp`, `offshore.webp`, `roboto-condensed.woff2`, `roboto-condensed-ext.woff2`, `sw.js`).
 L'identifiant de construction est l'empreinte de tous les fichiers servis : le moindre changement change le cache hors ligne, et la copie hors ligne est toujours relue sur le serveur (jamais dans le cache HTTP du navigateur).
 Ne jamais déposer un fichier de `src/` à la racine. Après un dépôt, vérifier qu'aucun doublon « (1) », « (2) » n'a été créé, puis que le bas de l'accueil affiche la nouvelle version.
 

@@ -3,3 +3,4 @@ tests/shots/
 tests/.build/
 studio-build/
 tests/tmp/
+__pycache__/
