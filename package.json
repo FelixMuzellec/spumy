@@ -24,8 +24,9 @@
     "test:studio": "node scripts/build-studio.mjs && node tests/studio.mjs",
     "test:design": "node tests/design.mjs",
     "test:prototype": "node scripts/build-prototype.mjs && node tests/prototype.mjs --axe",
-    "test": "npm run lint && npm run test:layers && npm run test:data && npm run test:knowledge && npm run test:design && npm run test:v2 && npm run test:unit && npm run test:e2e && CONTRACT_MOCK=1 npm run test:contract",
-    "test:upgrade": "node tests/upgrade.mjs"
+    "test": "npm run lint && npm run test:layers && npm run test:data && npm run test:knowledge && npm run test:design && npm run test:v2 && npm run test:bateau && npm run test:unit && npm run test:e2e && CONTRACT_MOCK=1 npm run test:contract",
+    "test:upgrade": "node tests/upgrade.mjs",
+    "test:bateau": "node tests/bateau.mjs"
   },
   "dependencies": {
     "leaflet": "^1.9.4",
