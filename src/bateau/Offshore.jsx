@@ -13,6 +13,7 @@ import { dir16, fetchPoints, isoAdd } from "./wx.js";
 import { PickMap } from "../core/MySpotForm.jsx";
 import { Alert, C, Chip, fr, scoreColor } from "../design/kit.jsx";
 import { buttonStyle } from "../design/components.jsx";
+import { Sortie } from "./Sortie.jsx";
 
 const engine = (key) => window.BAR_SITES?.[key] || null;
 const WX_KEY = "bar:offshore:wx", WX_TTL = 90 * 6e4, TIDE_KM = 40;
@@ -347,6 +348,9 @@ export function Offshore({ index }) {
       <p style={{ margin: "0 0 4px", fontSize: 14, color: "#cbd8e6", lineHeight: 1.55 }}>
         Pêche en bateau, toutes espèces. Les spots sont les tiens : aucune marque n'est fournie. Le modèle part de zéro et apprend de tes sorties, prises et capots compris ; la note n'apparaît qu'à partir de {MIN_TRIPS} sorties.
       </p>
+
+      {/* Phase 13 : la sécurité de la sortie et les espèces, avant tout le reste. */}
+      <Sortie spots={spots} wx={wx} dateISO={dateISO} isToday={dayI === 0} tideAt={tideAt} trips={trips} parisMs={parisMs} catchCount={catchCount}/>
 
       <section aria-labelledby="off-spots-h" style={box}>
         <h2 id="off-spots-h" style={h2}>Tes spots bateau</h2>

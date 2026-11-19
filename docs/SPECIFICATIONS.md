@@ -177,23 +177,39 @@ Gros caractères, le meilleur choix seul, utilisable d'une main.
 
 **Acceptation** : le réglage est gardé sur l'appareil ; contraste AA.
 
-### 5.9 Offshore (BATEAU) — EN SERVICE (v8.15) ; moteur de la phase 10 À FAIRE
+### 5.9 Offshore (BATEAU) — EN SERVICE (v8.15) ; « Sortir aujourd'hui ? » en v10.1 (phase 13)
 
-- **Aujourd'hui** :
+- **Avant la phase 13** :
     - tes spots en mer (GPS, carte ou coordonnées ; type ; profondeur) ;
     - conditions des 7 prochains jours : vent, vagues, houle, eau, pression, marée du port le plus proche ;
     - tes sorties et leurs prises ;
     - un modèle empirique qui n'affiche pas de note avant 8 sorties.
-- **À FAIRE** (phase 10, écrans du prototype) :
-    - « Sortir aujourd'hui ? » ;
-    - sécurité de la sortie heure par heure (règles `SEC_*`, seuils à valider) ;
-    - zones et cercles de distance des abris ;
-    - espèces et réglementation, techniques sourcées.
-- **Règle** : aucun verdict de sécurité tant que les seuils ne sont pas validés par Félix (questions 16 à 25).
+- **v10.1 (phase 13)** :
+    - profil du bateau (catégorie, armement, port d'attache, vitesse, tes limites, seul à bord, canne), gardé sur l'appareil ;
+    - « Sortir aujourd'hui ? » pour un créneau : verdict, raisons au pire moment, zones classées (les sûres d'abord) ;
+    - règles `SEC_*` zone par zone ;
+    - espèces ouvertes et leurs trois scores, technique et poids, réglementation ;
+    - espèces non proposées, avec leur raison ;
+    - rappels toujours affichés.
+- **Règles** :
+    - sans profil complet, aucun verdict ;
+    - une donnée de sécurité inconnue rend la sortie « à vérifier » ;
+    - les seuils de vent et de mer sont ceux proposés par la spécification, **affichés comme à valider** (questions 16 à 25) ; ta limite et la catégorie du bateau passent avant ;
+    - le lieu noir n'est proposé que si tes sorties en ont pris.
+- **À FAIRE** :
+    - carte des zones et cercles de distance des abris ;
+    - lecture des BMS ;
+    - courant et heures de renverse des raz ;
+    - marée au-delà de 40 km d'un guide ;
+    - ajustement personnel branché sur le modèle de tes sorties ;
+    - profil du bateau dans la sauvegarde GitHub ;
+    - épreuve sur journées archivées (§ 11 de la spécification BATEAU).
 - **Acceptation** :
     - pas de note avant 8 sorties ;
     - un spot sans coordonnées valides est refusé ;
-    - l'export et l'import rendent les mêmes données.
+    - l'export et l'import rendent les mêmes données ;
+    - les 16 scénarios de la spécification passent (`test:bateau`) ;
+    - parcours : pas de verdict sans profil, zone au-delà de l'armement « non recommandée » (`test:e2e`).
 
 ## 6. Exigences non fonctionnelles
 
@@ -212,7 +228,7 @@ Gros caractères, le meilleur choix seul, utilisable d'une main.
 1. Fiche à trois niveaux (Vue rapide, Détails, Expert) et anneaux de score en dégradé.
 2. Classement sous la carte ; pastilles écartées.
 3. Écrans dédiés Comparaison et Stratégie, avec les leurres dessinés.
-4. Moteur et écrans BATEAU : phase 13 (Développement BATEAU), avec le moteur de la phase 10 ; seuils de sécurité à valider par Félix.
+4. BATEAU : moteur et « Sortir aujourd'hui ? » livrés en phase 13 (v10.1). Restent la carte des zones, les BMS, les courants et l'épreuve (§ 5.9) ; seuils de sécurité à valider par Félix.
 
 Les points 1, 2, 3 et 5 forment le lot BORD restant, à placer avant la QA globale (phase 16).
 5. Planche des états, appliquée à chaque écran.

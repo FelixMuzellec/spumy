@@ -75,6 +75,9 @@ src/                  les sources (lot 3.4 : une couche par dossier, règles vé
     offshore.js           espèces, fiches, conditions d'une sortie, régression de Poisson, note, courbes
     wx.js                 météo et mer des spots bateau (Open-Meteo)
     Offshore.jsx          l'onglet Offshore de l'accueil
+    Sortie.jsx            phase 13 : profil du bateau et « Sortir aujourd'hui ? » (dans l'onglet Offshore)
+    engine/               phase 13 : moteur BATEAU sans réseau — safety.js (règles SEC_*), species.js (favorabilité par
+                          espèce, pertinence, confiance), sun.js (soleil en mer, phase de la marée), index.js
   design/               le style commun, sans métier
     tokens.js             jetons (lot 3.7) : couleurs, typographie, rayons, cibles tactiles, durées, seuils de note
     kit.jsx               carte, tuile, puce, bloc repliable, sous-onglets, ligne, source, bandeau (valeurs tirées des jetons)
@@ -108,6 +111,7 @@ data/
     bateau.json         phase 9 : connaissances du mode BATEAU (six espèces, réglementation 2026, sécurité en mer),
                         chacune avec son espèce, son niveau de preuve, ses sources, ses limites et la règle de
                         docs/SPEC-MOTEUR-BATEAU.md qui l'utilise (SEC_*, ESP_*)
+  bateau/moteur.json    phase 13 : paramètres du moteur BATEAU (seuils, espèces, réglementation vérifiée, rappels)
   photos/catalogue.json  phase 11 : les 32 photos d'ambiance fournies par Félix (images générées), décrites (lumière, ciel,
                         mer, lieu, « reconnaissable ») ; les fichiers WebP sont dans assets/photos/ (scripts/photos.py)
   epreuve/              phase 8 : dates des journées de référence (journees.json), journées archivées d'Open-Meteo
@@ -161,7 +165,7 @@ Pour corriger la description d'un spot, le seul fichier à modifier est `data/si
 2. **Ce qui est partagé** : interface et système de design, marée, astres, client météo, stockage, sauvegarde, carte (couches séparées), infrastructure du journal, moteur de règles.
 3. **Ce qui reste séparé** : moteurs de recommandation, filtres de sécurité, connaissances halieutiques, profils, apprentissage personnel, écrans de décision.
 4. **Circuit d'un moteur** (en place pour le BORD depuis la phase 7 : `windowSafety` dans `src/bord/engine/safety.js`, appelée par `scoreWindow` avant toute note, puis les trois scores de `v2.js`) : données qualifiées (valeur, nature, source, âge, fiabilité), puis filtre de sécurité non compensable (un danger bloquant retire le spot, une donnée de sécurité inconnue n'est jamais « verte »), puis trois scores sur 100 jamais fusionnés (favorabilité, pertinence, confiance), puis classement et explication.
-5. **Arborescence visée** : `src/core/`, `src/bord/`, `src/bateau/`, `src/design/`, `data/` — en place depuis le lot 3.4, avec `src/app/` pour la coquille. Règles de couches, vérifiées à chaque test (`tests/layers.mjs`) : `design` n'importe que `design` ; `core` importe `core` et `design` ; `bord` et `bateau` importent leur propre dossier, `core` et `design`, jamais l'un l'autre ; `app` assemble le tout.
+5. **Arborescence visée** : `src/core/`, `src/bord/`, `src/bateau/`, `src/design/`, `data/` — en place depuis le lot 3.4, avec `src/app/` pour la coquille. Règles de couches, vérifiées à chaque test (`tests/layers.mjs`) : `design` n'importe que `design` ; `core` importe `core` et `design` ; `bord` et `bateau` importent leur propre dossier, `core`, `design` et `data`, jamais l'un l'autre ; `app` assemble le tout.
 
 ### Lots de la phase 3
 

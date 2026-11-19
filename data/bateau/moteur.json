@@ -1,0 +1,181 @@
+{
+  "titre": "Moteur BATEAU (phase 13) : paramètres de sécurité, des espèces et de la réglementation",
+  "origine": "docs/SPEC-MOTEUR-BATEAU.md (phase 9) ; sources et niveaux de preuve dans data/knowledge/bateau.json. Les poids sont des HYPOTHÈSES de départ (niveau 4) ; les seuils SEC_VENT et SEC_MER sont ceux proposés à Félix, À DÉCIDER.",
+  "securite": {
+    "armement_milles": {
+      "basique": 2,
+      "cotier": 6,
+      "semi": 60,
+      "hauturier": null
+    },
+    "categorie": {
+      "A": {
+        "bf": null,
+        "vagues": null
+      },
+      "B": {
+        "bf": 8,
+        "vagues": 4
+      },
+      "C": {
+        "bf": 6,
+        "vagues": 2
+      },
+      "D": {
+        "bf": 4,
+        "vagues": 0.3
+      }
+    },
+    "marge_categorie": {
+      "bf": 1,
+      "vagues_part": 0.2
+    },
+    "vent_propose": {
+      "verifier_bf": 5,
+      "verifier_rafales_kmh": 50,
+      "non_bf": 6,
+      "non_rafales_kmh": 60,
+      "statut": "À DÉCIDER"
+    },
+    "mer_proposee": {
+      "verifier_m": 1.25,
+      "courte_periode_s": 5,
+      "courte_m": 0.8,
+      "statut": "À DÉCIDER"
+    },
+    "bms_bf": 7,
+    "visibilite_m": {
+      "mauvaise": 3704,
+      "brume": 926
+    },
+    "orage": {
+      "codes": [
+        95,
+        96,
+        99
+      ],
+      "cape": 1000
+    },
+    "donnees_age_h": 12
+  },
+  "especes": [
+    {
+      "id": "lieu-jaune",
+      "nom": "Lieu jaune",
+      "latin": "Pollachius pollachius",
+      "preuve": 15,
+      "reg": {
+        "statut": "VÉRIFIÉ",
+        "texte": "2 par pêcheur et par jour du 1er mai au 31 décembre · 42 cm · marquage · RecFishing",
+        "ferme": [
+          [
+            "01-01",
+            "04-30"
+          ]
+        ],
+        "ferme_texte": "Fermé du 1er janvier au 30 avril, relâcher compris",
+        "ref": "lj-reglementation"
+      },
+      "technique": "Jig ou leurre souple : toucher le fond, remonter lentement à mi-hauteur",
+      "connaissances": [
+        "lj-habitat",
+        "lj-reproduction",
+        "lj-technique",
+        "lj-maree-lumiere",
+        "lj-reglementation"
+      ]
+    },
+    {
+      "id": "lieu-noir",
+      "nom": "Lieu noir",
+      "latin": "Pollachius virens",
+      "preuve": 8,
+      "seulement_si_pris": true,
+      "reg": {
+        "statut": "VÉRIFIÉ",
+        "texte": "35 cm · marquage",
+        "ref": "ln-reglementation"
+      },
+      "technique": "Jig dans le courant, plus profond en hiver",
+      "connaissances": [
+        "ln-distribution",
+        "ln-pertinence-finistere",
+        "ln-reglementation"
+      ]
+    },
+    {
+      "id": "maquereau",
+      "nom": "Maquereau",
+      "latin": "Scomber scombrus",
+      "preuve": 18,
+      "reg": {
+        "statut": "VÉRIFIÉ",
+        "texte": "10 par pêcheur et par jour · 20 cm · marquage · RecFishing",
+        "ref": "maq-reglementation"
+      },
+      "technique": "Train de plumes ou petit jig, souvent entre 15 et 30 m ; chercher les oiseaux",
+      "connaissances": [
+        "maq-habitat-saison",
+        "maq-comportement",
+        "maq-reglementation"
+      ]
+    },
+    {
+      "id": "bar",
+      "nom": "Bar",
+      "latin": "Dicentrarchus labrax",
+      "preuve": 10,
+      "reg": {
+        "statut": "VÉRIFIÉ",
+        "texte": "Au nord du 48e parallèle : 3 par jour, relâcher seul du 1er février au 31 mars ; au sud : 2 par jour · 42 cm · marquage · RecFishing",
+        "ref": "src/core/rules.js"
+      },
+      "technique": "Leurre souple ou stickbait sur les plateaux et les roches dans le courant",
+      "connaissances": [
+        "bar-bateau-commun",
+        "bar-bateau-criteres"
+      ]
+    },
+    {
+      "id": "vieille",
+      "nom": "Vieille",
+      "latin": "Labrus bergylta",
+      "preuve": 18,
+      "reg": {
+        "statut": "INCONNU",
+        "texte": "Taille et quota : aucun trouvé dans les textes lus",
+        "ref": "vieille-reglementation"
+      },
+      "technique": "Leurre souple texan ou appât, au ras des roches et des laminaires ; remettre à l'eau les gros sujets (conseil)",
+      "connaissances": [
+        "vieille-habitat",
+        "vieille-comportement",
+        "vieille-reproduction",
+        "vieille-reglementation"
+      ]
+    },
+    {
+      "id": "saint-pierre",
+      "nom": "Saint-pierre",
+      "latin": "Zeus faber",
+      "preuve": 6,
+      "reg": {
+        "statut": "INCONNU",
+        "texte": "Taille et quota : aucun trouvé dans les textes lus",
+        "ref": "sp-reglementation"
+      },
+      "technique": "Près du fond, 50 à 150 m ; vif ou leurre lent",
+      "connaissances": [
+        "sp-habitat",
+        "sp-saison-cote",
+        "sp-reglementation"
+      ]
+    }
+  ],
+  "rappels": [
+    "Une aide à la flottabilité par personne, adaptée à son poids et à sa taille (obligatoire).",
+    "VHF canal 16 pour appeler le CROSS et entendre ses bulletins ; 196 depuis la terre.",
+    "Bulletin météorologique spécial (BMS côte) : l'application ne le lit pas encore ; le consulter avant de partir (meteofrance.com, VHF).",
+    "Donner ton itinéraire et ton heure de retour à un proche."
+  ]
+}

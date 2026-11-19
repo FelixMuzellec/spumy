@@ -46,6 +46,8 @@ jobs:
         run: npm run -s test:design
       - name: Moteur v2 (16 scénarios de la spécification, trois scores)
         run: npm run -s test:v2
+      - name: Moteur BATEAU (16 scénarios de la spécification, sécurité, trois scores)
+        run: npm run -s test:bateau
       - name: Tests unitaires (7 guides + fuseau Auckland)
         run: npm run -s test:unit
       - name: Parcours complets (Chromium)

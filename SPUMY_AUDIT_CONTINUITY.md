@@ -20,10 +20,10 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 8. Épreuve du moteur (Monte Carlo, journées archivées) | VALIDATED (19 nov. 2026, 14 h 27, « APPROVED — PROCEED TO PHASE 9 ») ; critère de stabilité FAILED, dit dans le rapport ; fusionnée dans `main` le 19 nov. 2026 (f9f39e7) | Branche `claude/phase-8-epreuve`, proposition de fusion n° 7 (phases 5 à 8) ; rapport « SPUMY — Phase 8 : épreuve du moteur » https://claude.ai/artifact/WcWRqYiDoNWaJWUtfmFKLY (copie : `docs/rapports/PHASE-8.md`) |
 | 8bis. Revue de qualité avant la phase 9 | Faite le 19 nov. 2026 ; fusionnée dans `main` (40ba84f, proposition n° 9) | `CHANGELOG.md` |
 | 9. BATEAU — conception | VALIDATED (19 nov. 2026, 18 h 14, « APPROVED — PROCEED TO PHASE 11 ») ; fusionnée dans `main` le 19 nov. 2026 avec la phase 11 (e7ad6ba, proposition n° 11) | Branche `claude/phase-9-bateau`, proposition de fusion n° 10 (marquée fusionnée par GitHub avec la n° 11) ; `docs/SPEC-MOTEUR-BATEAU.md`, `data/knowledge/bateau.json` ; rapport « SPUMY — Phase 9 : BATEAU, conception » https://claude.ai/artifact/UziTDraLFrMrgTDQYtmgjz (copie : `docs/rapports/PHASE-9.md`) |
-| 10. Moteur BATEAU par espèce | NOT STARTED (mise de côté « pour le moment » par Félix le 19 nov., 18 h 14) | — |
+| 10. Moteur BATEAU par espèce | IMPLEMENTED en phase 13 (mise de côté le 19 nov., 18 h 14, puis faite avec la phase 13) | `src/bateau/engine/`, `test:bateau` |
 | 11. Direction artistique et UX/UI | VALIDATED (19 nov. 2026, 23 h 11, « APPROVED — PROCEED TO PHASE 12 ») ; fusionnée dans `main` le 19 nov. 2026 à la demande de Félix (e7ad6ba, proposition n° 11 ; tests et contrat verts sur cf1c2c3), publiée par GitHub Pages (voir « Publication ») | Branche `claude/phase-11-design` (partie de `claude/phase-9-bateau`), proposition de fusion n° 11 ; `docs/DIRECTION-ARTISTIQUE.md` ; prototype https://claude.ai/artifact/BBDcujdvLQxMft99DxqCuP (aussi dans `prototype/`) ; rapport « SPUMY — Phase 11 : direction artistique et écrans » https://claude.ai/artifact/SCaJaTS7YAcLTe4242KAQr (copie : `docs/rapports/PHASE-11.md`) |
-| 12. Spécifications fonctionnelles et techniques (+ charte dans l'application, v10) | VALIDATED (19 nov. 2026, 23 h 36, « APPROVED — PROCEED TO PHASE 13 ») | Branche `claude/phase-12` ; `docs/SPECIFICATIONS.md` ; rapport « SPUMY — Phase 12 » https://claude.ai/artifact/Rg4Dj3svg8JgLfspxESA1g (copie : `docs/rapports/PHASE-12.md`) ; fusion dans `main` (proposition n° 14) |
-| 13. Développement BATEAU | IN PROGRESS (depuis le 19 nov. 2026, 23 h 36) | Branche `claude/phase-13-bateau` ; commence par le moteur de la phase 10 |
+| 12. Spécifications fonctionnelles et techniques (+ charte dans l'application, v10) | VALIDATED (19 nov. 2026, 23 h 36, « APPROVED — PROCEED TO PHASE 13 ») ; fusionnée dans `main` le 19 nov. (bb4f940, proposition n° 14) | Branche `claude/phase-12` ; `docs/SPECIFICATIONS.md` ; rapport « SPUMY — Phase 12 » https://claude.ai/artifact/Rg4Dj3svg8JgLfspxESA1g (copie : `docs/rapports/PHASE-12.md`) |
+| 13. Développement BATEAU | TESTED (remise le 20 nov. 2026 ; en attente de « APPROVED — PROCEED TO PHASE 14 ») | Branche `claude/phase-13-bateau`, proposition de fusion n° 15 en brouillon (pas fusionnée sans accord) ; rapport « SPUMY — Phase 13 » https://claude.ai/artifact/Cp32mm98mZHanVKXyEXP7r (copie : `docs/rapports/PHASE-13.md`) |
 | 14 à 17 | NOT STARTED | — |
 
 ### Phase 4, lots
@@ -57,6 +57,18 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 9.3 Sécurité en mer | TESTED | 12 règles `SEC_*` ; 14 connaissances (sécurité, données) ; une règle sans source n'est jamais « VÉRIFIÉ » (contrôlé) |
 | 9.4 Spécification | IMPLEMENTED | `docs/SPEC-MOTEUR-BATEAU.md` : circuit, profil, sécurité, trois scores par espèce, 16 scénarios, plan d'épreuve ; aucun fichier de `src/` ni de `scripts/` modifié |
 | 9.5 Rapport, arrêt | IMPLEMENTED | `docs/rapports/PHASE-9.md` ; `test:knowledge` 27/27, `test:v2` 56/56, unitaires 3 390, `test:data` 69/69, couches 0 écart, lint 0 problème |
+
+### Phase 13, lots
+
+| Lot | Statut | Preuve |
+| --- | --- | --- |
+| 13.0 Départ | IMPLEMENTED | Phase 12 fusionnée dans `main` (bb4f940, proposition n° 14, tests et contrat verts) ; branche `claude/phase-13-bateau` |
+| 13.A Moteur | TESTED | 06c8121 : `src/bateau/engine/` (sécurité SEC_*, espèces, pertinence, confiance), `data/bateau/moteur.json` ; `test:bateau` 29/29 (16 scénarios B1 à B16) |
+| 13.B Météo du large | TESTED | 799d0b9 : `wx.js` demande visibilité, code temps, CAPE ; soleil en mer et phase de la marée (`engine/sun.js`) |
+| 13.C Interface Offshore | TESTED | 799d0b9 : `src/bateau/Sortie.jsx` : profil du bateau ; « Sortir aujourd'hui ? » (verdict, raisons au pire moment, zones, espèces et trois scores, réglementation, technique, rappels) ; version 10.1.0 |
+| 13.D Tests de parcours | TESTED | e2e 856/856 : sans profil pas de verdict ; zone à 7,8 milles et armement côtier → non recommandée ; à 1 mille → plus de refus ; espèces, scores, réglementation, rappels ; profil gardé (force 7 : scénarios B1, B11 de `test:bateau`) |
+| 13.E Documents, rapport | IMPLEMENTED | Tests GitHub de la proposition n° 15 verts (tests et contrat). Parcours local : l'étape « analyse enregistrée rouverte » dépasse parfois 12 s (instable depuis la phase 11), à traiter en phase 16 |
+| 13.E (détail) | IMPLEMENTED | Spécifications § 5.9, SPEC BATEAU (statut), fonctionnalités, architecture, journal des versions 10.1, rapport `docs/rapports/PHASE-13.md` ; proposition de fusion en brouillon (pas fusionnée sans accord) |
 
 ### Phase 12, lots
 
@@ -277,4 +289,4 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 
 ## Prochaine action
 
-Phase 13 en cours (Développement BATEAU) sur `claude/phase-13-bateau`, lots poussés un à un ; d'abord la fusion de la phase 12 (proposition n° 14) une fois les tests GitHub verts. Seuils de sécurité BATEAU : « à vérifier » tant que Félix ne les a pas validés (questions 16 à 25). À la fin : rapport en neuf parties, **STOP**, attendre « APPROVED — PROCEED TO PHASE 14 ». GitHub Pages publie `main`.
+**STOP** : phase 13 remise (rapport `docs/rapports/PHASE-13.md`, proposition de fusion n° 15 en brouillon, pas fusionnée sans accord). Attendre « APPROVED — PROCEED TO PHASE 14 » (journal, personnalisation et offline). Décisions attendues : seuils de sécurité BATEAU (questions 16 à 25, appliqués avec les valeurs proposées et affichés « à valider »), fusion de la phase 13. Tâche de reprise programmée (20 nov., 4 h 30) : si elle se déclenche, ne rien refaire. GitHub Pages publie `main` (v10.0).

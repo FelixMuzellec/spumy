@@ -51,6 +51,7 @@ npm run test:upgrade      # mise à jour d'un téléphone : version publiée (ma
 npm run test:knowledge    # connaissances BORD et BATEAU : niveaux de preuve, sources, rubriques des 66 spots
 npm run test:contract     # contrat avec le vrai Open-Meteo (réseau)
 npm run test:v2           # moteur v2 : les 16 scénarios de la spécification et les règles des trois scores
+npm run test:bateau       # moteur BATEAU : les 16 scénarios de la spécification (sécurité, espèces, trois scores)
 npm run test:design       # contrastes WCAG des jetons du système de design (phase 11), deux thèmes
 npm run build:prototype   # construit le prototype de la phase 11 dans prototype/
 npm run test:prototype    # construit puis parcourt les 23 écrans du prototype (390 et 320 px, deux thèmes, axe-core)
