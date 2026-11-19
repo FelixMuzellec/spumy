@@ -205,7 +205,7 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 14. Rampe de lumière : retirée selon la règle fixée d'avance ; la reprendre si le gain « à égalité près » (+3,5 points) suffit.
 15. Dépôt de sauvegarde par défaut du journal : `FelixMuzellec/spumy-journal`.
 16. Seuils en bateau (SEC_VENT, SEC_MER) : à vérifier dès la force 5 ou 50 km/h de rafales, non recommandé dès la force 6 ou 60 km/h ; mer « agitée » à vérifier.
-17. Profil du bateau : catégorie de conception, armement, port d'attache et abris, vitesse de route, matériel.
+17. Profil du bateau (le sien, celui d'un ami, une location ?) : catégorie de conception, armement, port d'attache et abris, vitesse de route ; matériel de départ à confirmer : canne Daiwa Megaforce 170 (90 à 210 g), Stradic 4000, tresse 16/100.
 18. Seul à bord : seuils serrés d'un cran ?
 19. Retour après le coucher du soleil : « à vérifier » ?
 20. Lieu noir : proposé seulement s'il a déjà été pris, ou toujours avec une confiance faible ?

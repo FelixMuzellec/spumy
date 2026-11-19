@@ -185,7 +185,7 @@ Questions gardées des phases 3 à 8 :
 Nouvelles questions de la phase 9 :
 
 16. Tes seuils en bateau (SEC_VENT, SEC_MER) : à vérifier dès la force 5 ou 50 km/h de rafales, non recommandé dès la force 6 ou 60 km/h ; mer « agitée » à vérifier.
-17. Ton bateau : catégorie de conception, armement, port d'attache et abris, vitesse de route, matériel (cannes, poids le plus lourd).
+17. Ton bateau (le tien, celui d'un ami, une location ?) : catégorie de conception, armement, port d'attache et abris, vitesse de route. Pour le matériel, je pars de ta canne de jigging Daiwa Megaforce 170 (90 à 210 g) et de ton Stradic 4000 tressé en 16/100 : à confirmer.
 18. Seul à bord : serrer les seuils d'un cran ?
 19. Retour après le coucher du soleil : « à vérifier » ?
 20. Lieu noir : le proposer seulement si tu en as déjà pris, ou toujours, avec une confiance faible ?
