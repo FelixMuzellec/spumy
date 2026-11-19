@@ -34,7 +34,7 @@ Phase 11 du prompt maître : analyser l'image de référence, en tirer un systè
 
 ## 3. Livrables
 
-- **Prototype interactif** : https://claude.ai/artifact/BBDcujdvLQxMft99DxqCuP. Il sera aussi en ligne à `https://felixmuzellec.github.io/spumy/prototype/` une fois GitHub Pages activé (fusion dans `main` demandée par Félix le 19 novembre à 19 h 25). Sur téléphone, l'onglet au bord droit ouvre la liste des écrans ; sur ordinateur, le téléphone est au centre et la note de l'écran à droite.
+- **Prototype interactif** : https://claude.ai/artifact/BBDcujdvLQxMft99DxqCuP. Depuis la fusion dans `main` (demandée par Félix le 19 novembre à 19 h 25), il est aussi publié par GitHub Pages à `https://felixmuzellec.github.io/spumy/prototype/` (déploiement signalé réussi par GitHub ; adresse que je ne peux pas ouvrir d'ici). Sur téléphone, l'onglet au bord droit ouvre la liste des écrans ; sur ordinateur, le téléphone est au centre et la note de l'écran à droite.
 - `docs/DIRECTION-ARTISTIQUE.md` : analyse, principes, système, photos, navigation, écarts voulus, accessibilité.
 - `src/design/ds/` : le système de design. Il contient `tokens.css`, `components.css`, `ui.jsx`, `lucide.js`, `glyphs.js`, `ambiance.js` et `illustrations.js`.
 - `src/prototype/` : les écrans et leurs données. `prototype/` : la construction publiée.
@@ -153,7 +153,7 @@ La planche « Conformité » du prototype place chaque écran de la référence 
 - **Écarts voulus à la référence**, que tu peux refuser : pastilles bleues, pas de photo de spot ni de prise, leurres dessinés sans étoiles, pas de bathymétrie, texte secondaire éclairci pour la lisibilité.
 - **Poids** : le prototype pèse 450 Ko de code, sans compter les photos. C'est sans effet sur l'application, qui ne le charge pas.
 - **Captures « avant »** : elles sont faites avec la météo simulée des tests et un fond de carte remplacé par un aplat. Elles servent à comparer la forme, pas les données.
-- **Mise en ligne** : l'artefact est privé, et GitHub Pages n'est toujours pas activé (décision ouverte n° 9).
+- **Mise en ligne** : l'artefact est privé. GitHub Pages publie maintenant `main` (déploiement du 19 novembre signalé réussi) : le prototype y est public, comme l'application ; je ne peux pas vérifier l'adresse depuis mon espace.
 
 ## 7. Critères d'acceptation
 

@@ -21,7 +21,7 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 8bis. Revue de qualité avant la phase 9 | Faite le 19 nov. 2026 ; fusionnée dans `main` (40ba84f, proposition n° 9) | `CHANGELOG.md` |
 | 9. BATEAU — conception | VALIDATED (19 nov. 2026, 18 h 14, « APPROVED — PROCEED TO PHASE 11 ») ; fusionnée dans `main` le 19 nov. 2026 avec la phase 11 (e7ad6ba, proposition n° 11) | Branche `claude/phase-9-bateau`, proposition de fusion n° 10 (marquée fusionnée par GitHub avec la n° 11) ; `docs/SPEC-MOTEUR-BATEAU.md`, `data/knowledge/bateau.json` ; rapport « SPUMY — Phase 9 : BATEAU, conception » https://claude.ai/artifact/UziTDraLFrMrgTDQYtmgjz (copie : `docs/rapports/PHASE-9.md`) |
 | 10. Moteur BATEAU par espèce | NOT STARTED (mise de côté « pour le moment » par Félix le 19 nov., 18 h 14) | — |
-| 11. Direction artistique et UX/UI | TESTED (remise le 19 nov. 2026 ; en attente de « APPROVED — PROCEED TO PHASE 12 ») ; fusionnée dans `main` le 19 nov. 2026 à la demande de Félix (e7ad6ba, proposition n° 11 ; tests et contrat verts sur cf1c2c3), pas en ligne tant que GitHub Pages n'est pas activé | Branche `claude/phase-11-design` (partie de `claude/phase-9-bateau`), proposition de fusion n° 11 ; `docs/DIRECTION-ARTISTIQUE.md` ; prototype https://claude.ai/artifact/BBDcujdvLQxMft99DxqCuP (aussi dans `prototype/`) ; rapport « SPUMY — Phase 11 : direction artistique et écrans » https://claude.ai/artifact/SCaJaTS7YAcLTe4242KAQr (copie : `docs/rapports/PHASE-11.md`) |
+| 11. Direction artistique et UX/UI | TESTED (remise le 19 nov. 2026 ; en attente de « APPROVED — PROCEED TO PHASE 12 ») ; fusionnée dans `main` le 19 nov. 2026 à la demande de Félix (e7ad6ba, proposition n° 11 ; tests et contrat verts sur cf1c2c3), publiée par GitHub Pages (voir « Publication ») | Branche `claude/phase-11-design` (partie de `claude/phase-9-bateau`), proposition de fusion n° 11 ; `docs/DIRECTION-ARTISTIQUE.md` ; prototype https://claude.ai/artifact/BBDcujdvLQxMft99DxqCuP (aussi dans `prototype/`) ; rapport « SPUMY — Phase 11 : direction artistique et écrans » https://claude.ai/artifact/SCaJaTS7YAcLTe4242KAQr (copie : `docs/rapports/PHASE-11.md`) |
 | 12 à 17 | NOT STARTED | — |
 
 ### Phase 4, lots
@@ -141,7 +141,7 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 6. Espèces du mode BORD — décidé le 13 nov. : bar seul.
 7. Seuils de vent — décidé le 13 nov. : plus prudents (à vérifier dès la force 6 ou 60 km/h de rafales ; non recommandé dès la force 8 ou 90 km/h). Appliqués en phase 7.
 8. Seuils en rade : les mêmes qu'en côte ouverte, ou par exposition — phase 6.
-9. Publication : fusion des phases 3 et 4 autorisée le 13 nov. (12 h 37) ; fusion des phases 5 à 8 demandée le 18 nov. (« Transfert tous les fichiers sur https://github.com/FelixMuzellec/spumy ») ; activation de GitHub Pages à faire par Félix (API Pages refusée à Claude par le proxy).
+9. Publication : fusion des phases 3 et 4 autorisée le 13 nov. (12 h 37) ; fusion des phases 5 à 8 demandée le 18 nov. (« Transfert tous les fichiers sur https://github.com/FelixMuzellec/spumy ») ; fusion des phases 9 et 11 demandée le 19 nov. (19 h 25). GitHub Pages actif depuis le 19 nov. 2026 : la tâche « pages build and deployment » de GitHub a publié e7ad6ba à 18 h 43 UTC sur https://felixmuzellec.github.io/spumy/ (« Reported success ») ; Claude ne peut pas ouvrir l'adresse depuis son espace (hors de sa liste autorisée), à vérifier par Félix.
 
 ## Défauts bloquants connus (audit de phase 1)
 
@@ -216,7 +216,7 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 
 ## Questions retenues pour Félix (à traiter ensemble)
 
-1. Adresse — réglée le 18 nov. : https://felixmuzellec.github.io/spumy/ seule ; reste l'activation de GitHub Pages par Félix (*Settings → Pages → Deploy from a branch → `main` / (root)*).
+1. Adresse — réglée le 18 nov. : https://felixmuzellec.github.io/spumy/ seule. GitHub Pages actif depuis le 19 nov. 2026 : la tâche « pages build and deployment » de GitHub a publié e7ad6ba à 18 h 43 UTC sur https://felixmuzellec.github.io/spumy/ (« Reported success ») ; Claude ne peut pas ouvrir l'adresse depuis son espace (hors de sa liste autorisée), à vérifier par Félix (application à la racine, prototype dans `prototype/`).
 2. Fusion des phases 5 à 8 dans `main` — lue comme accordée le 18 nov. au soir (« Transfert tous les fichiers sur https://github.com/FelixMuzellec/spumy ») ; **faite le 19 nov.** (f9f39e7, tests et contrat Open-Meteo verts). Branches de travail des phases 3 à 8 et `claude/transfert-spumy` : toutes contenues dans `main`, mais leur suppression est refusée à Claude par le proxy Git ; à supprimer par Félix s'il le souhaite (*Code → Branches*).
 3. Inventaire complet de la boîte — sans préférence le 18 nov.
 4. Temps de trajet maximal (45 min par défaut).
@@ -250,4 +250,4 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 
 ## Prochaine action
 
-**STOP** : phase 11 remise (rapport `docs/rapports/PHASE-11.md`, prototype https://claude.ai/artifact/BBDcujdvLQxMft99DxqCuP) et fusionnée dans `main` avec la phase 9 (e7ad6ba). Attendre « APPROVED — PROCEED TO PHASE 12 ». Phase 12 proposée : spécifications fonctionnelles et techniques (écrans, composants, états, actions, données, règles métier, API, comportements, critères d'acceptation) à partir du prototype. La phase 10 (moteur BATEAU) reste mise de côté. Les questions 1 à 31 restent à traiter ensemble quand Félix le voudra. Site hors ligne tant que GitHub Pages n'est pas activé par Félix.
+**STOP** : phase 11 remise (rapport `docs/rapports/PHASE-11.md`, prototype https://claude.ai/artifact/BBDcujdvLQxMft99DxqCuP) et fusionnée dans `main` avec la phase 9 (e7ad6ba). Attendre « APPROVED — PROCEED TO PHASE 12 ». Phase 12 proposée : spécifications fonctionnelles et techniques (écrans, composants, états, actions, données, règles métier, API, comportements, critères d'acceptation) à partir du prototype. La phase 10 (moteur BATEAU) reste mise de côté. Les questions 1 à 31 restent à traiter ensemble quand Félix le voudra. GitHub Pages actif depuis le 19 nov. 2026 : la tâche « pages build and deployment » de GitHub a publié e7ad6ba à 18 h 43 UTC sur https://felixmuzellec.github.io/spumy/ (« Reported success ») ; Claude ne peut pas ouvrir l'adresse depuis son espace (hors de sa liste autorisée), à vérifier par Félix.
