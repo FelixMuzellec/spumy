@@ -1,6 +1,6 @@
 # Direction artistique de SPUMY
 
-Phase 11 du prompt maître · novembre 2026 · statut : **IMPLEMENTED / TESTED** (prototype), validation de Félix attendue.
+Phase 11 du prompt maître · novembre 2026 · statut : **VALIDATED** (« APPROVED — PROCEED TO PHASE 12 », 19 novembre 2026) ; appliquée à l'application en phase 12 (v10), avec les logos de Félix.
 
 Ce document fixe l'identité visuelle et l'interface de SPUMY, pour le mode **BORD** (pêcheur sur le rivage) et le mode **BATEAU** (sortie en mer). Il s'appuie sur la maquette de référence fournie par Félix et sur ses photos. Il est accompagné d'un **prototype interactif** (`prototype/`, 23 écrans) et de quatre planches (système, BORD face à BATEAU, avant / après, conformité).
 
@@ -13,6 +13,7 @@ Ce document fixe l'identité visuelle et l'interface de SPUMY, pour le mode **BO
 | `SPUMY_Fishing_App_UI_Showcase.png` (1536 × 1024) | Maquette de référence de Félix : huit écrans de téléphone (Décision, Carte, Fiche, Comparaison, Stratégie, Matériel, Journal, Terrain) | Analysée ci-dessous ; recadrages dans `docs/reference/ref-*.webp` |
 | 39 images Gemini | Photos générées, fournies par Félix (38 distinctes) | 32 retenues, 6 écartées avec leur raison (`data/photos/catalogue.json`) |
 | Application v9.2 | L'application actuelle | Captures « avant » (`docs/reference/avant-*.webp`, `scripts/avant-prototype.mjs`) |
+| 3 logos de Félix (19 novembre 2026) | SPUMY (bar en S dans un disque orange, nom en capitales), Inshore (pêcheur sur la roche), Offshore (bateau de pêche) | Marque de l'application, du site et du prototype (§ 5 bis) |
 
 Consigne de Félix (19 novembre 2026) : « I am impatient how you will stunningly improve the UX including the pictures I sent you. »
 Décision déjà actée (continuité) : les photos fournies sont **ambiance et illustration seulement, jamais présentées comme la photo réelle d'un spot ou d'une prise**.
@@ -57,7 +58,7 @@ Fichiers : `src/design/ds/tokens.css` (jetons), `components.css` (composants), `
 
 **Contrastes mesurés (Nuit marine, `tests/design.mjs`, 41/41 contrôles WCAG dans les deux thèmes)** : texte principal 14,4:1 sur une carte, texte secondaire 6,3:1, cyan de texte 10,9:1, bouton principal 9,2:1, chiffres des pastilles 4,9:1 à 11,6:1.
 
-**Favorabilité.** Cinq paliers de bleu (spécification v2, bornes 75, 65, 55, 45), du plus clair (très favorable) au plus foncé. Jamais d'orange ni de rouge : ces couleurs sont réservées à la sécurité. « À vérifier » : ambre, contour pointillé et « ? ». « Non recommandé » : gris barré. La forme porte le sens autant que la couleur.
+**Favorabilité.** Cinq paliers de bleu (spécification v2, bornes 75, 65, 55, 45), du plus clair (très favorable) au plus foncé. Jamais d'ambre ni de rouge : ces couleurs sont réservées à la sécurité. L'orange de la marque (#d9772f, logos) ne porte jamais un statut. « À vérifier » : ambre, contour pointillé et « ? ». « Non recommandé » : gris barré. La forme porte le sens autant que la couleur.
 
 **Typographie.** Roboto Condensed (police variable, graisses 100 à 900) pour les titres, les chiffres (tabulaires) et les libellés ; Roboto pour les textes. Échelle : 11, 12, 13, 15, 17, 18, 22, 30 et 40 px ; chiffres 34 et 64 px.
 
@@ -73,6 +74,21 @@ Fichiers : `src/design/ds/tokens.css` (jetons), `components.css` (composants), `
 - **Chaîne** : `python3 scripts/photos.py <dossier>` produit des WebP 1600 et 720 px (qualité 74 et 70) et une miniature floue pour l'affichage progressif.
 - **Choix** (`ambiance.js`) : la photo suit d'abord la lumière du créneau (même lumière +10, aube et crépuscule voisins +7, nuit contre jour pénalisée), puis le ciel, la mer et le type de lieu ; le résultat est déterministe (même contexte, même photo).
 - **Honnêteté** : une image reconnaissable (phare, port, granit, abbaye) ne va jamais sur la fiche d'un spot nommé ; une photo de poisson ne sert qu'aux fiches d'espèce, jamais au journal comme « ta prise » ; chaque photo porte « Illustration ».
+
+## 5 bis. Logos et marque (phase 12)
+
+- **Logos de Félix** (`assets/brand/sources/`) : SPUMY, Inshore, Offshore. Bleu marine (#14283c), orange (#d9772f), crème (#efe7d8).
+- **Déclinaisons** (`python3 scripts/logos.py`, dessin intact) :
+    - fond crème rendu transparent (« clair ») ;
+    - bleu marine passé en crème pour les fonds sombres (« sombre »), le dessin du disque orange restant tel quel ;
+    - icônes de l'application : la marque sur un carré crème.
+- **Usage** :
+    - accueil : grand logo, et choix Inshore / Offshore avec leurs logos sur un badge crème ;
+    - en-tête des guides et icônes du téléphone : la marque ;
+    - prototype : la marque dans le logo, et les logos de mode sur les cartes de l'accueil et la planche BORD / BATEAU.
+- **Petites tailles** : en dessous d'environ 32 px, les pictogrammes au trait (modes BORD et BATEAU) remplacent les logos, dont les détails ne se lisent plus.
+- **Noms des modes** : **Inshore** (du bord) et **Offshore** (en bateau), comme les nomme Félix ; BORD et BATEAU restent les noms techniques.
+- **Orange** : identité seulement (logos, accroche de l'accueil), jamais une alerte.
 
 ## 6. Navigation et architecture de l'information
 

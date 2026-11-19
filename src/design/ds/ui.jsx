@@ -21,23 +21,25 @@ export function Icon({ name, size = 22, stroke = 2, label, className, style }) {
 const svgAttrs = (a) => Object.fromEntries(Object.entries(a).map(([k, v]) => [k === "stroke-dasharray" ? "strokeDasharray" : k, v]));
 
 /** Marque SPUMY : une crête d'écume (spume) qui déferle sur une ligne d'eau, au dégradé cyan. */
+/* global BRAND_BASE */
+// Phase 12 : les logos de Félix (scripts/logos.py) remplacent la marque dessinée de la phase 11.
+const BRAND = typeof BRAND_BASE === "string" ? BRAND_BASE : "brand/";
+export const brandSrc = (name) => `${BRAND}${name}.webp`;
+
+/** La marque SPUMY : le bar dans le disque orange (lisible sur les deux thèmes). */
 export function LogoMark({ size = 36 }) {
-  const id = useId().replace(/:/g, "");
+  return <img src={brandSrc("spumy-marque-sombre")} width={size} height={size} alt="" aria-hidden="true" style={{ display: "block", flex: "none", width: size, height: size, objectFit: "contain" }} />;
+}
+
+/** Logos de mode de Félix : Inshore (pêcheur sur la roche, BORD) et Offshore (bateau, BATEAU), sur un badge crème. */
+export function ModeLogo({ mode = "bord", size = 56 }) {
   return (
-    <svg width={size * 1.4} height={size} viewBox="0 0 56 40" aria-hidden="true" focusable="false" style={{ display: "block", flex: "none" }}>
-      <defs>
-        <linearGradient id={`lg${id}`} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#7ef0ff" /><stop offset="0.55" stopColor="var(--accent, #1fd2f5)" /><stop offset="1" stopColor="var(--accent-2, #2a9df4)" />
-        </linearGradient>
-      </defs>
-      <g fill="none" stroke={`url(#lg${id})`} strokeLinecap="round" strokeLinejoin="round">
-        <path d="M5 25C11 13 22 6.5 33 8.2c7.4 1.1 11.6 6.6 9.8 11.8-1.4 4-6.4 5.3-9.4 2.7-2.3-2-1.6-5.6 1.4-6.2" strokeWidth="5" />
-        <path d="M4 33.5c6.5-4 12.5-4 19 0s12.5 4 19 0c3.6-2.2 6.8-3 10-2.4" strokeWidth="4.2" />
-      </g>
-      <g fill="#e9fbff"><circle cx="47.5" cy="9" r="2.2" /><circle cx="51.8" cy="14" r="1.5" /><circle cx="44.2" cy="4.6" r="1.3" /></g>
-    </svg>
+    <span className="s-modelogo" style={{ width: size, height: size }} aria-hidden="true">
+      <img src={brandSrc(mode === "bateau" ? "offshore-clair" : "inshore-clair")} alt="" />
+    </span>
   );
 }
+
 export function Logo({ size = 30, href, onClick }) {
   const inner = (<><LogoMark size={size} /><span className="s-logo__word" style={{ fontSize: size * 0.84 }}>SPUMY</span></>);
   return href || onClick ? <a className="s-logo" href={href || "#"} onClick={onClick} aria-label="SPUMY, accueil">{inner}</a> : <span className="s-logo">{inner}</span>;

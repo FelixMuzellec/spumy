@@ -1,6 +1,6 @@
 // Prototype — accueil SPUMY (choix du mode) et planche des états (chargement, hors ligne, erreur, vide…).
 import { useState } from "react";
-import { Alert, Banner, Button, Card, Chip, Icon, IconButton, Logo, Pastille, Photo, SectionTitle, Skeleton } from "../design/ds/ui.jsx";
+import { Alert, Banner, Button, Card, Chip, Icon, IconButton, Logo, Pastille, Photo, SectionTitle, Skeleton, ModeLogo } from "../design/ds/ui.jsx";
 import { PHOTO, photoFor } from "./photos.js";
 import bord from "./data/bord.json";
 import { TOP } from "./bord.jsx";
@@ -26,11 +26,11 @@ export function Accueil({ go }) {
         <h1 className="s-h1" style={{ marginTop: 18 }}>Où pêches-tu <span className="s-grad-text">aujourd'hui</span> ?</h1>
       </div>
       <div className="s-pad p-modes" role="radiogroup" aria-label="Mode de pêche">
-        {[["bord", "Du bord", "mode-bord", "roche-ciel-bleu", "7 guides · 66 spots"], ["bateau", "En bateau", "mode-bateau", "semi-rigide-gilets", "Tes zones · 6 espèces"]].map(([id, label, ic, ph, sub]) => (
+        {[["bord", "Inshore", "roche-ciel-bleu", "du bord · 7 guides · 66 spots"], ["bateau", "Offshore", "semi-rigide-gilets", "en bateau · tes zones · 6 espèces"]].map(([id, label, ph, sub]) => (
           <button key={id} type="button" role="radio" aria-checked={mode === id} className={`p-mode ${mode === id ? "is-on" : ""}`} onClick={() => setMode(id)}>
             <Photo photo={PHOTO[ph]} size={720} scrim className="p-mode__img" markPos="tr" />
             <span className="p-mode__body">
-              <span className="p-mode__icon"><Icon name={ic} size={34} stroke={2.1} /></span>
+              <ModeLogo mode={id} size={58} />
               <span className="p-mode__label">{label}</span>
               <span className="p-mode__sub">{sub}</span>
             </span>
@@ -66,7 +66,7 @@ export function Accueil({ go }) {
         </> : <>
           <Card as="button" onClick={() => go("bateau-sortir")} tight>
             <div className="s-row" style={{ gap: 12 }}>
-              <span className="p-mode__icon p-mode__icon--sm"><Icon name="mode-bateau" size={26} /></span>
+              <ModeLogo mode="bateau" size={46} />
               <div className="s-grow"><div className="s-h3">Sortir aujourd'hui ?</div><div className="s-small">Sécurité de la sortie, zones, espèces</div></div>
               <Chip tone="warn">À vérifier</Chip>
             </div>

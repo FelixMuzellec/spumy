@@ -31,7 +31,7 @@ async function bundle(outdir, defines) {
 
 // 1. Sortie publiée avec le site.
 const pub = path.join(root, "prototype");
-const s1 = await bundle(pub, { PHOTO_BASE: "../assets/photos/", REF_BASE: "../docs/reference/" });
+const s1 = await bundle(pub, { PHOTO_BASE: "../assets/photos/", REF_BASE: "../docs/reference/", BRAND_BASE: "../assets/brand/web/" });
 fs.writeFileSync(path.join(pub, "index.html"), `<!doctype html>
 <html lang="fr">
 <head>
@@ -50,7 +50,9 @@ console.log(`prototype/ : app.js ${s1.js} Ko, app.css ${s1.css} Ko`);
 
 // 2. Page de revue autonome (le squelette du document est ajouté à la publication : contenu seulement).
 if (revue) {
-  const s2 = await bundle(revue, { PHOTO_BASE: "photos/", REF_BASE: "ref/" });
+  const s2 = await bundle(revue, { PHOTO_BASE: "photos/", REF_BASE: "ref/", BRAND_BASE: "brand/" });
+  fs.mkdirSync(path.join(revue, "brand"), { recursive: true });
+  for (const f of fs.readdirSync(path.join(root, "assets/brand/web"))) fs.copyFileSync(path.join(root, "assets/brand/web", f), path.join(revue, "brand", f));
   fs.mkdirSync(path.join(revue, "photos"), { recursive: true });
   for (const f of fs.readdirSync(path.join(root, "assets/photos"))) fs.copyFileSync(path.join(root, "assets/photos", f), path.join(revue, "photos", f));
   fs.mkdirSync(path.join(revue, "ref"), { recursive: true });

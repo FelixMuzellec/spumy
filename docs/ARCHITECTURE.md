@@ -67,6 +67,7 @@ src/                  les sources (lot 3.4 : une couche par dossier, règles vé
     ui/
       App.jsx               données du jour et navigation par onglets
       TabBar.jsx, Decision.jsx, Indicators.jsx, MapView.jsx, Orientation.jsx, components.jsx
+      ambiance.js, AmbiancePhoto.jsx  phase 12 : photo d'ambiance du créneau (Décision, fiche), marque « Illustration »
       tabs/                 un fichier par onglet : Synthese, Spots (+ SpotDetail), Photos, Leurres, Maree, Meteo,
                             Saison, JournalTab, Regles
       photoPrep.js, photoJob.js, myspotCtx.js
@@ -141,8 +142,12 @@ scripts/build-prototype.mjs  phase 11 : construit le prototype dans prototype/ (
 scripts/prototype-data.mjs, carte-prototype.py, photos.py, avant-prototype.mjs  données, cartes, photos et captures « avant » du prototype
 scripts/epreuve-*.mjs épreuve du moteur (phase 8) : téléchargement des journées (fetch, dans l'intégration continue),
                       lecture des archives (journees), tirages Monte Carlo (mc, params), synthèse, analyse telle quelle
-scripts/icons.mjs     dessine toutes les icônes depuis brand.mjs (assets/brand/*.svg → assets/*.png)
+scripts/icons.mjs     dessine les icônes vectorielles des guides depuis brand.mjs (assets/brand/*.svg)
+scripts/logos.py      phase 12 : déclinaisons des logos de Félix et icônes de l'application (192, 512, masquable, Apple, guides)
 assets/               icônes : sources vectorielles (brand/) et rendus PNG (application, iOS, guides)
+  brand/sources/        phase 12 : les logos de Félix (SPUMY, Inshore, Offshore) ; brand/*.png et brand/web/*.webp en sont tirés
+                        par scripts/logos.py (fond crème transparent, version pour fond sombre, icônes du téléphone)
+  photos/               photos d'ambiance WebP (1600 et 720 px), hors du cache hors ligne
 audit/                AUDIT-SPUMY-v9.1.md : audit de la V2 et liste complète des corrections ;
                       UX-SPUMY-v9.2.md : refonte UX d'après la maquette, écarts assumés, suite
 .github/workflows/    tests à chaque proposition de fusion et sur main, contrat Open-Meteo chaque matin, épreuve du moteur (à la main)

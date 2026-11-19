@@ -239,3 +239,7 @@
 .s-toast { position: fixed; left: 50%; bottom: calc(96px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 50;
   display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: var(--r-pill); background: var(--surface-solid);
   border: 1px solid var(--border-strong); box-shadow: var(--shadow-2); color: var(--text-1); font-size: 14px; }
+
+/* Logos de mode (Félix) : badge crème de la marque */
+.s-modelogo { display: inline-grid; place-items: center; flex: none; border-radius: 22%; background: #efe7d8; box-shadow: var(--shadow-1); overflow: hidden; }
+.s-modelogo img { width: 86%; height: 86%; object-fit: contain; display: block; }
