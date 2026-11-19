@@ -5,7 +5,10 @@
 //      source ; une connaissance de niveau 1 à 3 cite au moins une source ; ce qu'elle dit utiliser existe dans le code.
 //   2. Les règles du moteur de leurres sont toutes classées, et leur nombre par source est celui du code.
 //   3. data/knowledge/preuves-spots.json couvre chaque rubrique de chaque spot une fois, avec son étiquette actuelle.
-//   4. Le contrôle attrape vraiment les erreurs (chaque cas doit être refusé).
+//   4. data/knowledge/bateau.json (phase 9) suit son schéma et les mêmes règles de niveau ; chaque espèce a ses
+//      connaissances et sa réglementation (même inconnue) ; chaque règle SEC_* et ESP_* de docs/SPEC-MOTEUR-BATEAU.md
+//      est portée par au moins une connaissance ; une connaissance « VÉRIFIÉ » cite une source.
+//   5. Le contrôle attrape vraiment les erreurs (chaque cas doit être refusé).
 // Usage : node tests/knowledge.mjs
 import fs from "node:fs";
 import path from "node:path";
@@ -20,14 +23,15 @@ const t = (name, ok, detail = "") => { if (ok) pass++; else { fail++; console.lo
 
 const ajv = new Ajv2020({ allErrors: true, strict: true });
 const validate = ajv.compile(read("data/schema/knowledge.schema.json"));
+const validateBateau = ajv.compile(read("data/schema/knowledge-bateau.schema.json"));
 const lures = fs.readFileSync(path.join(root, "src/bord/engine/lures.js"), "utf8");
 const lureCounts = {};
 for (const m of lures.matchAll(/\br\(\s*(?:`[^`]*`|"[^"]*")\s*,\s*"([a-zA-Z]+)"/g)) lureCounts[m[1]] = (lureCounts[m[1]] || 0) + 1;
 
 // Problèmes d'un fichier de connaissances (vide = juste).
-function knowledgeProblems(doc) {
+function knowledgeProblems(doc, schema = validate, lureRules = true) {
   const p = [];
-  if (!validate(doc)) p.push(...validate.errors.map((e) => `schéma : ${e.instancePath || "/"} ${e.message}`));
+  if (!schema(doc)) p.push(...schema.errors.map((e) => `schéma : ${e.instancePath || "/"} ${e.message}`));
   const ids = new Set();
   for (const k of doc.connaissances || []) {
     if (ids.has(k.id)) p.push(`${k.id} : identifiant en double`); ids.add(k.id);
@@ -45,6 +49,7 @@ function knowledgeProblems(doc) {
         p.push(`${k.id} : « ${ident} » introuvable dans ${file}`);
     }
   }
+  if (!lureRules) return p;
   const rl = doc.regles_leurres || {};
   for (const [key, n] of Object.entries(lureCounts)) {
     if (!rl[key]) p.push(`règles de leurres : source « ${key} » non classée (${n} règles)`);
@@ -105,7 +110,38 @@ t("preuves-niveaux.json : extrait des niveaux égal à preuves-spots.json (moteu
 t(`preuves-spots.json : chacune des ${current.size} rubriques classée une fois, étiquette actuelle, résumé juste`, !pp.length, pp.slice(0, 8).join(" | "));
 t("preuves-spots.json : les 192 rubriques « verified » relues (aucune laissée sans motif propre ou par défaut)", P.rubriques.filter((x) => x.ancien === "verified").length === [...current.values()].filter((v) => v === "verified").length);
 
-// 4. Le contrôle attrape les erreurs
+// 4. Connaissances du mode BATEAU (phase 9)
+const SPEC_BATEAU = fs.readFileSync(path.join(root, "docs/SPEC-MOTEUR-BATEAU.md"), "utf8");
+function bateauProblems(doc) {
+  const p = knowledgeProblems(doc, validateBateau, false);
+  const C = doc.connaissances || [], esp = new Set((doc.especes || []).map((e) => e.id));
+  for (const k of C) {
+    if (k.espece !== "toutes" && !esp.has(k.espece)) p.push(`${k.id} : espèce inconnue « ${k.espece} »`);
+    if (k.statut === "VÉRIFIÉ" && !(k.sources || []).length) p.push(`${k.id} : « VÉRIFIÉ » sans source`);
+  }
+  const tokens = new Set(SPEC_BATEAU.match(/\b(?:SEC|ESP)_[A-Z_]+\b/g) || []);
+  for (const e of doc.especes || []) {
+    if (!C.some((k) => k.espece === e.id)) p.push(`${e.id} : aucune connaissance`);
+    if (!C.some((k) => k.espece === e.id && k.domaine === "réglementation")) p.push(`${e.id} : réglementation absente (même inconnue, elle doit être écrite)`);
+    if (!tokens.has(e.jeton)) p.push(`${e.id} : ${e.jeton} absent de la spécification`);
+  }
+  const used = new Set(C.flatMap((k) => k.utilise_par).map((u) => u.split(" : ")[1]).filter(Boolean));
+  for (const tok of tokens) if (!used.has(tok)) p.push(`${tok} : règle de la spécification portée par aucune connaissance`);
+  return p;
+}
+const B = read("data/knowledge/bateau.json");
+const bp = bateauProblems(B);
+t("bateau.json : schéma, niveaux, sources, espèces, réglementation, règles SEC_* et ESP_* de la spécification", !bp.length, bp.slice(0, 8).join(" | "));
+t("bateau.json : les six espèces prioritaires, dans l'ordre de Félix",
+  B.especes.map((e) => e.id).join() === "lieu-jaune,lieu-noir,maquereau,bar,vieille,saint-pierre" && B.especes.every((e, i) => e.priorite === i + 1));
+t("bateau.json : la réglementation de chaque espèce est de niveau 1 ou dite inconnue",
+  B.especes.every((e) => B.connaissances.filter((k) => k.espece === e.id && k.domaine === "réglementation").every((k) => k.niveau === 1 || k.statut === "INCONNU")));
+t("bateau.json : la fermeture du lieu jaune (1er janvier au 30 avril) cite un texte officiel",
+  B.connaissances.some((k) => k.id === "lj-reglementation" && /1er janvier au 30 avril/.test(k.enonce) && k.sources.some((s) => s.niveau === 1)));
+t("bateau.json : une règle de sécurité sans source n'est jamais « VÉRIFIÉ »",
+  B.connaissances.filter((k) => k.domaine === "sécurité" && !k.sources.length).every((k) => ["HYPOTHÈSE", "À DÉCIDER"].includes(k.statut)));
+
+// 5. Le contrôle attrape les erreurs
 const clone = (o) => JSON.parse(JSON.stringify(o));
 const refuse = (name, doc, fn) => { const p = fn(doc); t(`contrôle : ${name} refusé`, p.length > 0, "accepté à tort"); };
 { const d = clone(K); d.connaissances[0].sources = []; refuse("niveau 1 sans source", d, knowledgeProblems); }
@@ -117,6 +153,12 @@ const refuse = (name, doc, fn) => { const p = fn(doc); t(`contrôle : ${name} re
 { const d = clone(P); d.rubriques.pop(); refuse("rubrique de spot oubliée", d, preuvesProblems); }
 { const d = clone(P); d.rubriques[0].ancien = "verified"; refuse("étiquette différente de la fiche", d, preuvesProblems); }
 { const d = clone(P); d.rubriques.push(clone(d.rubriques[0])); refuse("rubrique en double", d, preuvesProblems); }
+{ const d = clone(B); d.connaissances[0].espece = "congre"; refuse("bateau : espèce inconnue", d, bateauProblems); }
+{ const d = clone(B); d.connaissances = d.connaissances.filter((k) => !k.utilise_par.some((u) => u.endsWith(" : SEC_RAZ"))); refuse("bateau : règle SEC_RAZ sans connaissance", d, bateauProblems); }
+{ const d = clone(B); d.connaissances = d.connaissances.filter((k) => k.id !== "vieille-reglementation"); refuse("bateau : espèce sans réglementation", d, bateauProblems); }
+{ const d = clone(B); d.connaissances.find((k) => k.statut === "VÉRIFIÉ").sources = []; refuse("bateau : « VÉRIFIÉ » sans source", d, bateauProblems); }
+{ const d = clone(B); d.connaissances.find((k) => k.niveau === 5).niveau = 2; refuse("bateau : niveau 2 sans source", d, bateauProblems); }
+{ const d = clone(B); d.connaissances[0].utilise_par = ["docs/SPEC-MOTEUR-BATEAU.md : SEC_INEXISTANTE"]; refuse("bateau : règle introuvable dans la spécification", d, bateauProblems); }
 
-console.log(`[connaissances] ${K.connaissances.length} connaissances, ${current.size} rubriques de spot : ${pass}/${pass + fail}`);
+console.log(`[connaissances] ${K.connaissances.length} connaissances BORD, ${B.connaissances.length} BATEAU, ${current.size} rubriques de spot : ${pass}/${pass + fail}`);
 if (fail) process.exitCode = 1;
