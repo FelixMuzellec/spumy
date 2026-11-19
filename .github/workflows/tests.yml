@@ -42,6 +42,8 @@ jobs:
         run: npm run -s test:data
       - name: Connaissances halieutiques (niveaux de preuve, sources, rubriques des spots)
         run: npm run -s test:knowledge
+      - name: Système de design (contrastes WCAG des deux thèmes)
+        run: npm run -s test:design
       - name: Moteur v2 (16 scénarios de la spécification, trois scores)
         run: npm run -s test:v2
       - name: Tests unitaires (7 guides + fuseau Auckland)
@@ -58,6 +60,8 @@ jobs:
         run: npm run -s test:studio
       - name: Accessibilité (axe-core)
         run: npm run -s test:a11y
+      - name: Prototype de la phase 11 (23 écrans, deux largeurs, deux thèmes, axe-core)
+        run: npm run -s test:prototype
       - if: failure()
         uses: actions/upload-artifact@v4
         with:

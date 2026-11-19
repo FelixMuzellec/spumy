@@ -1,6 +1,6 @@
 # SPUMY — Phase 11 : direction artistique et écrans
 
-19 novembre 2026 · Félix · version de référence : document Claude « SPUMY — Phase 11 : direction artistique et écrans » (https://claude.ai/artifact/SCaJaTS7YAcLTe4242KAQr) · prototype interactif : https://claude.ai/artifact/BBDcujdvLQxMft99DxqCuP (privé tant que tu ne le partages pas) · branche `claude/phase-11-design`, proposition de fusion en brouillon (pas fusionnée sans ton accord)
+19 novembre 2026 · Félix · version de référence : document Claude « SPUMY — Phase 11 : direction artistique et écrans » (https://claude.ai/artifact/SCaJaTS7YAcLTe4242KAQr) · prototype interactif : https://claude.ai/artifact/BBDcujdvLQxMft99DxqCuP (privé tant que tu ne le partages pas) · branche `claude/phase-11-design`, proposition de fusion n° 11 en brouillon (pas fusionnée sans ton accord)
 
 SPUMY a maintenant une direction artistique tirée de ta maquette de référence, un système de design complet et un **prototype interactif de 23 écrans** que tu peux ouvrir sur ton téléphone ou ton ordinateur. Pour le BORD, il montre une vraie journée : le 16 mai 2026 à Logonna-Daoulas, la météo archivée passée au moteur v2. Pour le BATEAU, il montre des données d'exemple, marquées comme telles. Tes photos donnent l'ambiance de chaque écran : elles sont choisies selon la lumière, le ciel, la mer et le lieu du moment, et elles ne sont jamais présentées comme la photo d'un spot ou d'une prise.
 
@@ -34,7 +34,7 @@ Phase 11 du prompt maître : analyser l'image de référence, en tirer un systè
 
 ## 3. Livrables
 
-- **Prototype interactif** : https://claude.ai/artifact/BBDcujdvLQxMft99DxqCuP. Il sera aussi en ligne à `https://felixmuzellec.github.io/spumy/prototype/` une fois GitHub Pages activé et la branche fusionnée. Sur téléphone, l'onglet au bord droit ouvre la liste des écrans ; sur ordinateur, le téléphone est au centre et la note de l'écran à droite.
+- **Prototype interactif** : https://claude.ai/artifact/BBDcujdvLQxMft99DxqCuP. Il sera aussi en ligne à `https://felixmuzellec.github.io/spumy/prototype/` une fois GitHub Pages activé (fusion dans `main` demandée par Félix le 19 novembre à 19 h 25). Sur téléphone, l'onglet au bord droit ouvre la liste des écrans ; sur ordinateur, le téléphone est au centre et la note de l'écran à droite.
 - `docs/DIRECTION-ARTISTIQUE.md` : analyse, principes, système, photos, navigation, écarts voulus, accessibilité.
 - `src/design/ds/` : le système de design. Il contient `tokens.css`, `components.css`, `ui.jsx`, `lucide.js`, `glyphs.js`, `ambiance.js` et `illustrations.js`.
 - `src/prototype/` : les écrans et leurs données. `prototype/` : la construction publiée.
@@ -59,7 +59,7 @@ Phase 11 du prompt maître : analyser l'image de référence, en tirer un systè
 | `npm run test:layers` | 0 écart aux couches (nouvelle couche `prototype` : n'importe que `design` et `data`) ; couleurs en dur hors de `src/design/` : 291, inchangé |
 | `test:data`, `test:knowledge`, `test:v2` | 69/69, 27/27, 56/56 |
 | `test:unit` (sept guides et un fuseau de l'autre côté du monde) | 3 390 contrôles, tous verts |
-| `test:e2e` (application inchangée) | voir le suivi : premier passage interrompu par un délai dépassé pendant que d'autres tests chargeaient la machine (étape déjà connue pour sa lenteur), relancé seul |
+| `test:e2e` (application inchangée) | 850/850. Les deux premiers passages se sont arrêtés à la même étape lente (rouvrir une analyse photo enregistrée, délai de 12 s dépassé) ; le troisième est passé, comme la branche de la phase 9 sur la même machine |
 
 Défauts trouvés à la relecture des captures, puis corrigés :
 - photo de nuit sur un spot de l'aube : la lumière pèse désormais plus que le reste ;
@@ -179,7 +179,7 @@ Je ne te pose pas ces questions maintenant ; elles rejoignent la liste à traite
 - 28 : l'origine et les droits des photos ;
 - 29 : quand appliquer le système à l'application (décision ouverte n° 5) ;
 - 30 : les écarts voulus à la référence ;
-- 31 : la fusion de la phase 11 dans `main`.
+- 31 : la fusion de la phase 11 dans `main` — réglée le 19 novembre à 19 h 25 : « Fusion de la phase 11 dans `main` ». La branche part de la phase 9, qui entre donc aussi dans `main`.
 
 ## 9. Prochaine phase proposée, et arrêt
 
