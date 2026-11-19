@@ -216,7 +216,8 @@ const btn = (page, name) => page.getByRole("button", { name }).first();
   await page.fill("#q", "Trévignon"); await page.press("#q", "Enter");
   await page.waitForURL(/concarneau\.html#spots$/); await waitText(page, /Pointe de Trévignon/);
   const opened = await page.evaluate(() => ({ tab: document.querySelector('[role="tab"][aria-selected="true"]')?.textContent, hash: location.hash }));
-  await page.waitForTimeout(400);
+  // La fiche défile à l'écran une fois la carte posée : on attend qu'elle y soit (5 s au plus, machine chargée).
+  await page.waitForFunction(() => { const h = [...document.querySelectorAll("h2,h3")].find((x) => /Pointe de Trévignon/.test(x.textContent)); if (!h) return false; const r = h.getBoundingClientRect(); return r.top >= 0 && r.top < innerHeight; }, null, { timeout: 5000 }).catch(() => {});
   const sheet = await page.evaluate(() => { const h = [...document.querySelectorAll("h2,h3")].find((x) => /Pointe de Trévignon/.test(x.textContent)); if (!h) return null; const r = h.getBoundingClientRect(); return { top: r.top, vh: innerHeight }; });
   ok(opened.tab === "Carte" && opened.hash === "#spots" && sheet && sheet.top >= 0 && sheet.top < sheet.vh, "Entrée : le guide s'ouvre sur la fiche du spot trouvé (onglet Carte, fiche à l'écran)" + ` — ${JSON.stringify({ opened, sheet })}`);
   await page.goBack(); await page.waitForURL(/\/(index\.html)?$/);
@@ -867,9 +868,9 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
   await tab(o3b.page, "Journal");
   await o3b.page.fill('input[placeholder^="Asturie"]', "Essai sauvegarde refusée");
   await btn(o3b.page, /^Enregistrer$/).click();
-  await waitText(o3b.page, /dépôt spumy\/journal public/, 10000).catch(() => {});
+  await waitText(o3b.page, /dépôt FelixMuzellec\/spumy-journal public/, 10000).catch(() => {});
   const local3b = await o3b.page.evaluate(() => localStorage.getItem("bar:journal:logonna-daoulas") || "");
-  ok(!gh3b.log.some((l) => l.startsWith("PUT")) && /dépôt spumy\/journal public/.test(await T(o3b.page)) && /Essai sauvegarde refusée/.test(local3b),
+  ok(!gh3b.log.some((l) => l.startsWith("PUT")) && /dépôt FelixMuzellec\/spumy-journal public/.test(await T(o3b.page)) && /Essai sauvegarde refusée/.test(local3b),
     "[sécurité] dépôt de sauvegarde public : rien n'est envoyé, message clair, la session reste sur le téléphone" + ` — ${gh3b.log.join(", ")}`);
   await o3b.ctx.close();
 
