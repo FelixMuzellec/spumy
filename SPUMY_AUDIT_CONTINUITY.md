@@ -19,7 +19,7 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 7. Moteur BORD v2 | VALIDATED (18 nov. 2026, « APPROVED — PROCEED TO PHASE 8 ») ; fusionnée dans `main` le 19 nov. 2026 (f9f39e7, proposition n° 7) | Branche `claude/phase-7-moteur-v2`, proposition de fusion n° 6 (brouillon, contient les phases 5 et 6) ; rapport « SPUMY — Phase 7 : moteur BORD v2 » https://claude.ai/artifact/5VVWp9Z3HfSvn72Uy3Ztwo (copie : `docs/rapports/PHASE-7.md`) |
 | 8. Épreuve du moteur (Monte Carlo, journées archivées) | VALIDATED (19 nov. 2026, 14 h 27, « APPROVED — PROCEED TO PHASE 9 ») ; critère de stabilité FAILED, dit dans le rapport ; fusionnée dans `main` le 19 nov. 2026 (f9f39e7) | Branche `claude/phase-8-epreuve`, proposition de fusion n° 7 (phases 5 à 8) ; rapport « SPUMY — Phase 8 : épreuve du moteur » https://claude.ai/artifact/WcWRqYiDoNWaJWUtfmFKLY (copie : `docs/rapports/PHASE-8.md`) |
 | 8bis. Revue de qualité avant la phase 9 | Faite le 19 nov. 2026 ; fusionnée dans `main` (40ba84f, proposition n° 9) | `CHANGELOG.md` |
-| 9. BATEAU — conception | IMPLEMENTED (rapport remis le 19 nov. 2026 ; en attente de « APPROVED — PROCEED TO PHASE 10 ») | Branche `claude/phase-9-bateau`, proposition de fusion en brouillon (pas fusionnée sans accord) ; `docs/SPEC-MOTEUR-BATEAU.md`, `data/knowledge/bateau.json` ; rapport `docs/rapports/PHASE-9.md` et document Claude « SPUMY — Phase 9 : BATEAU, conception » |
+| 9. BATEAU — conception | IMPLEMENTED (rapport remis le 19 nov. 2026 ; en attente de « APPROVED — PROCEED TO PHASE 10 ») | Branche `claude/phase-9-bateau`, proposition de fusion n° 10 en brouillon (pas fusionnée sans accord) ; `docs/SPEC-MOTEUR-BATEAU.md`, `data/knowledge/bateau.json` ; rapport « SPUMY — Phase 9 : BATEAU, conception » https://claude.ai/artifact/UziTDraLFrMrgTDQYtmgjz (copie : `docs/rapports/PHASE-9.md`) |
 | 10 à 17 | NOT STARTED | — |
 
 ### Phase 4, lots
@@ -213,7 +213,7 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 22. Saint-pierre : saison en côte (source ou expérience de Félix).
 23. Raz : liste des zones « raz » et source des heures de renverse (atlas de courants du SHOM, ou marques de Félix).
 24. BMS : source lisible par l'application, ou rester à l'écran.
-25. Fusion de la phase 9 dans `main` : proposition en brouillon, pas fusionnée sans accord.
+25. Fusion de la phase 9 dans `main` : proposition n° 10 en brouillon, pas fusionnée sans accord.
 
 ## Prochaine action
 

@@ -1,6 +1,6 @@
 # SPUMY — Phase 9 : BATEAU, conception
 
-19 novembre 2026 · Félix · version de référence : document Claude « SPUMY — Phase 9 : BATEAU, conception » · branche `claude/phase-9-bateau`, proposition de fusion en brouillon (pas fusionnée sans ton accord)
+19 novembre 2026 · Félix · version de référence : document Claude « SPUMY — Phase 9 : BATEAU, conception » (https://claude.ai/artifact/UziTDraLFrMrgTDQYtmgjz) · branche `claude/phase-9-bateau`, proposition de fusion n° 10 en brouillon (pas fusionnée sans ton accord)
 
 Le mode BATEAU d'aujourd'hui est un carnet : tes spots, tes sorties, et une note apprise de tes prises après 8 sorties. Il n'a aucune sécurité en mer, aucune logique par espèce et aucune réglementation des espèces du bateau. La spécification écrite dans cette phase corrige les trois, sans une ligne de code :
 - douze règles de sécurité en mer, séparées de celles du bord, qui jugent toute la sortie, du départ au retour, selon ton bateau autant que selon la météo ;
@@ -193,7 +193,7 @@ Nouvelles questions de la phase 9 :
 22. Saint-pierre : sa saison en côte, d'après une source ou ton expérience.
 23. Raz : liste de tes zones « raz », et source des heures de renverse (atlas de courants du SHOM, ou tes marques).
 24. BMS : chercher une source lisible par l'application, ou rester à l'écran.
-25. Fusion de la phase 9 dans `main` : proposition en brouillon, pas fusionnée sans ton accord.
+25. Fusion de la phase 9 dans `main` : proposition n° 10 en brouillon, pas fusionnée sans ton accord.
 
 ## 9. Prochaine phase proposée, et arrêt
 
