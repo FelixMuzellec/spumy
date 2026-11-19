@@ -41,23 +41,23 @@ export function TideChart({ tideData, windows, nowDec }) {
     <svg width="100%" viewBox={`0 0 ${W} ${H}`} style={{display:"block"}}>
       <defs>
         <linearGradient id="tg6" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#0ea5e9" stopOpacity="0.35"/>
-          <stop offset="100%" stopColor="#0ea5e9" stopOpacity="0.03"/>
+          <stop offset="0%" stopColor="#2a9df4" stopOpacity="0.35"/>
+          <stop offset="100%" stopColor="#2a9df4" stopOpacity="0.03"/>
         </linearGradient>
       </defs>
       {primes.map((w,i)=>{
         const x1=toX(Math.max(0,w.startDecimal)), x2=toX(Math.min(24,w.endDecimal));
         return x2>x1?<rect key={i} x={x1.toFixed(1)} y={pad.top} width={(x2-x1).toFixed(1)} height={cH} fill="#f59e0b" opacity="0.15"/>:null;
       })}
-      {[0,3,6,9,12,15,18,21,24].map(t=><line key={t} x1={toX(t)} x2={toX(t)} y1={pad.top} y2={pad.top+cH} stroke="#0f172a" strokeWidth="1"/>)}
-      {yTicks.map(v=><line key={v} x1={pad.left} x2={pad.left+cW} y1={toY(v)} y2={toY(v)} stroke="#1e293b" strokeWidth="0.6" strokeDasharray="3,3"/>)}
+      {[0,3,6,9,12,15,18,21,24].map(t=><line key={t} x1={toX(t)} x2={toX(t)} y1={pad.top} y2={pad.top+cH} stroke="#0a1b31" strokeWidth="1"/>)}
+      {yTicks.map(v=><line key={v} x1={pad.left} x2={pad.left+cW} y1={toY(v)} y2={toY(v)} stroke="#22405f" strokeWidth="0.6" strokeDasharray="3,3"/>)}
       <path d={`${pathD} L ${toX(24)},${toY(0)} L ${toX(0)},${toY(0)} Z`} fill="url(#tg6)"/>
-      <path d={pathD} fill="none" stroke="#38bdf8" strokeWidth="1.8"/>
-      {[0,6,12,18,24].map(t=><text key={t} x={toX(t).toFixed(1)} y={H-5} textAnchor={t===0?"start":t===24?"end":"middle"} fontSize="13" fill="#94a3b8" fontFamily="system-ui,sans-serif">{`${String(t).padStart(2,"0")}h`}</text>)}
-      {yTicks.map(v=><text key={v} x={pad.left-3} y={toY(v)+4} textAnchor="end" fontSize="12" fill="#94a3b8" fontFamily="system-ui,sans-serif">{v}m</text>)}
+      <path d={pathD} fill="none" stroke="#1fd2f5" strokeWidth="1.8"/>
+      {[0,6,12,18,24].map(t=><text key={t} x={toX(t).toFixed(1)} y={H-5} textAnchor={t===0?"start":t===24?"end":"middle"} fontSize="13" fill="#9fb3c8" fontFamily="system-ui,sans-serif">{`${String(t).padStart(2,"0")}h`}</text>)}
+      {yTicks.map(v=><text key={v} x={pad.left-3} y={toY(v)+4} textAnchor="end" fontSize="12" fill="#9fb3c8" fontFamily="system-ui,sans-serif">{v}m</text>)}
       {Number.isFinite(nowDec) && nowDec>=0 && nowDec<=24 && <g>
-        <line x1={toX(nowDec)} x2={toX(nowDec)} y1={pad.top} y2={pad.top+cH} stroke="#f8fafc" strokeWidth="1.6" strokeDasharray="4,3"/>
-        <text x={Math.min(W-4,Math.max(pad.left+2,toX(nowDec)))} y={pad.top+10} textAnchor={nowDec>20?"end":nowDec<3?"start":"middle"} fontSize="12" fontWeight="700" fill="#f8fafc" fontFamily="system-ui,sans-serif">maintenant</text>
+        <line x1={toX(nowDec)} x2={toX(nowDec)} y1={pad.top} y2={pad.top+cH} stroke="#f3f8fc" strokeWidth="1.6" strokeDasharray="4,3"/>
+        <text x={Math.min(W-4,Math.max(pad.left+2,toX(nowDec)))} y={pad.top+10} textAnchor={nowDec>20?"end":nowDec<3?"start":"middle"} fontSize="12" fontWeight="700" fill="#f3f8fc" fontFamily="system-ui,sans-serif">maintenant</text>
       </g>}
     </svg>
   );
@@ -85,16 +85,16 @@ export function DayStrip({ spot, date, live, tide, sun, hours, nowDec }) {
   const bands = [];
   if (sun?.sunrise != null && sun?.sunset != null) {
     bands.push({ a: 0, b: sun.dawn ?? sun.sunrise, c: "#0b1020" }, { a: sun.dawn ?? sun.sunrise, b: sun.sunrise + 0.75, c: "#7c3aed" },
-               { a: sun.sunrise + 0.75, b: sun.sunset - 0.75, c: "#1e3a5f" }, { a: sun.sunset - 0.75, b: sun.dusk ?? sun.sunset, c: "#7c3aed" },
+               { a: sun.sunrise + 0.75, b: sun.sunset - 0.75, c: "#1e3b60" }, { a: sun.sunset - 0.75, b: sun.dusk ?? sun.sunset, c: "#7c3aed" },
                { a: sun.dusk ?? sun.sunset, b: 24, c: "#0b1020" });
   }
   const wins = (spot.windows || []).filter((w) => Number.isFinite(w.startDecimal) && Math.abs(w.offsetBefore) < 50);
   const restricted = hours && (hours.from > 0 || hours.to < 24);
   // Phase 7 : couleur du créneau dans l'échelle du moteur du spot (v1 : vert, orange, gris ; v2 : bleu de son palier).
   const v2 = spot.engine === "v2";
-  const col = (w) => (v2 ? noteFill({ ...w, engine: "v2" }) : !w.eligible ? "#64748b" : w.score >= 7 ? "#22c55e" : w.score >= 5 ? "#f59e0b" : "#94a3b8");
+  const col = (w) => (v2 ? noteFill({ ...w, engine: "v2" }) : !w.eligible ? "#7a8fa6" : w.score >= 7 ? "#22c55e" : w.score >= 5 ? "#f59e0b" : "#9fb3c8");
   const tcol = (w) => (v2 ? C.strong : col(w));
-  const fCol = (f) => (f >= 6 ? "#f87171" : f >= 4 ? "#f59e0b" : "#7dd3fc");
+  const fCol = (f) => (f >= 6 ? "#f87171" : f >= 4 ? "#f59e0b" : "#7ee7ff");
   return (
     <svg width="100%" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Journée sur ${spot.name} : lumière, marée, créneaux et vent`} style={{display:"block"}}>
       {bands.map((b, i) => b.b > b.a ? <rect key={i} x={X(b.a)} y={yLight} width={X(b.b) - X(b.a)} height={hLight} fill={b.c} opacity={b.c === "#7c3aed" ? 0.55 : 0.9} /> : null)}
@@ -114,10 +114,10 @@ export function DayStrip({ spot, date, live, tide, sun, hours, nowDec }) {
           </g>
         );
       })}
-      {path && <path d={`${path} L${X(24)},${yTide + hTide} L${X(0)},${yTide + hTide} Z`} fill="#0ea5e9" opacity="0.12" />}
-      {path && <path d={path} fill="none" stroke="#38bdf8" strokeWidth="2" />}
+      {path && <path d={`${path} L${X(24)},${yTide + hTide} L${X(0)},${yTide + hTide} Z`} fill="#2a9df4" opacity="0.12" />}
+      {path && <path d={path} fill="none" stroke="#1fd2f5" strokeWidth="2" />}
       {(tide?.dayEvents || []).map((e, i) => (
-        <text key={i} x={X(e.dec)} y={e.type === "PM" ? Math.min(yTide + hTide - 4, Y(e.h ?? yMax) + 16) : yTide + hTide - 4} textAnchor="middle" fontSize="12" fill="#cbd5e1" fontFamily="system-ui,sans-serif">{e.type}</text>
+        <text key={i} x={X(e.dec)} y={e.type === "PM" ? Math.min(yTide + hTide - 4, Y(e.h ?? yMax) + 16) : yTide + hTide - 4} textAnchor="middle" fontSize="12" fill="#cbd8e6" fontFamily="system-ui,sans-serif">{e.type}</text>
       ))}
       {wind.map((w, i) => {
         const len = 6 + Math.min(10, w.f * 2), cx = X(w.h), cy = yWind + 10;
@@ -133,10 +133,10 @@ export function DayStrip({ spot, date, live, tide, sun, hours, nowDec }) {
       })}
       {!wind.length && <text x={padL + cw / 2} y={yWind + 20} textAnchor="middle" fontSize="13" fill="#8a9ab0" fontFamily="system-ui,sans-serif">vent : météo non chargée</text>}
       <text x={padL - 4} y={yWind + 14} textAnchor="end" fontSize="12" fill="#8a9ab0" fontFamily="system-ui,sans-serif">km/h</text>
-      {[0, 6, 12, 18, 24].map((h) => <text key={h} x={X(h)} y={H - 2} textAnchor={h === 0 ? "start" : h === 24 ? "end" : "middle"} fontSize="13" fill="#94a3b8" fontFamily="system-ui,sans-serif">{String(h).padStart(2, "0")}h</text>)}
+      {[0, 6, 12, 18, 24].map((h) => <text key={h} x={X(h)} y={H - 2} textAnchor={h === 0 ? "start" : h === 24 ? "end" : "middle"} fontSize="13" fill="#9fb3c8" fontFamily="system-ui,sans-serif">{String(h).padStart(2, "0")}h</text>)}
       {Number.isFinite(nowDec) && nowDec >= 0 && nowDec <= 24 && <g>
-        <line x1={X(nowDec)} x2={X(nowDec)} y1={yLight} y2={yWind + hWind - 14} stroke="#f8fafc" strokeWidth="1.6" strokeDasharray="4,3" />
-        <text x={Math.min(W - 2, Math.max(padL + 2, X(nowDec)))} y={yTide + hTide - 18} textAnchor={nowDec > 20 ? "end" : nowDec < 3 ? "start" : "middle"} fontSize="12" fontWeight="700" fill="#f8fafc" fontFamily="system-ui,sans-serif">maintenant</text>
+        <line x1={X(nowDec)} x2={X(nowDec)} y1={yLight} y2={yWind + hWind - 14} stroke="#f3f8fc" strokeWidth="1.6" strokeDasharray="4,3" />
+        <text x={Math.min(W - 2, Math.max(padL + 2, X(nowDec)))} y={yTide + hTide - 18} textAnchor={nowDec > 20 ? "end" : nowDec < 3 ? "start" : "middle"} fontSize="12" fontWeight="700" fill="#f3f8fc" fontFamily="system-ui,sans-serif">maintenant</text>
       </g>}
     </svg>
   );
@@ -295,7 +295,7 @@ export function WindowRow({ w, lure, engine = "v1" }) {
         {w.ongoing && !w.tooLate && <Pill color={C.good} title="Créneau en cours">En cours · encore {fmtLeft(w.remainingH)}</Pill>}
       </div>
       {w.zw?.fromSpot && (
-        <div title={`Météo prévue sur ce créneau, aux coordonnées du spot${w.zw.model?` (${w.zw.model})`:""}`} style={{fontSize:13.5,color:"#7dd3fc",marginTop:7,...num}}>
+        <div title={`Météo prévue sur ce créneau, aux coordonnées du spot${w.zw.model?` (${w.zw.model})`:""}`} style={{fontSize:13.5,color:"#7ee7ff",marginTop:7,...num}}>
           🌬 {w.zw.wind_dir} {w.zw.wind_kmh} km/h{w.zw.gust_kmh!=null?` · raf. ${w.zw.gust_kmh}`:""} · 🌊 {w.zw.houleKnown?`${String(w.zw.houle).replace(".",",")} m`:"?"}{w.zw.cloud!=null?` · ☁ ${w.zw.cloud} %`:""}{w.zw.rain>=0.5?` · 🌧 ${String(w.zw.rain).replace(".",",")} mm`:""}
         </div>
       )}

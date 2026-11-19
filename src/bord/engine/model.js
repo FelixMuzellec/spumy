@@ -641,7 +641,7 @@ export function preyForMonth(month) {
 // ═══════════════════════════════════════════════════════════════════
 export const PRESSURE_MODEL = {
   low:    { min: 0, max: 1010, label: "Basse",   color: "#60a5fa" },
-  normal: { min: 1010, max: 1015, label: "Moyenne", color: "#94a3b8" },
+  normal: { min: 1010, max: 1015, label: "Moyenne", color: "#9fb3c8" },
   high:   { min: 1015, max: 1025, label: "Haute",  color: "#22c55e" },
   veryHigh: { min: 1025, max: 9999, label: "Très haute", color: "#f59e0b" },
 };

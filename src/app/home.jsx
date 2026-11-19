@@ -21,7 +21,7 @@ const GUIDES = __HOME_GUIDES__;   // [{ key, id, name }, …], dans l'ordre de l
 const GBY = Object.fromEntries(GUIDES.map((g) => [g.key, g]));
 const engine = (key) => window.BAR_SITES?.[key] || null;
 const DAYS = [["0", "Aujourd'hui"], ["1", "Demain"]];
-const UNKNOWN = "#475569";
+const UNKNOWN = "#4d6a8a";
 const PAR = 3;   // guides calculés en même temps (Open-Meteo limite les rafales)
 
 const btn = buttonStyle;   // lot 3.7 : style commun (src/design/components.jsx)
@@ -86,7 +86,7 @@ function GlobalMap({ spots, selected, onPick }) {
       if (v2 && known) mk.setStyle({ color: on ? TK.strong : s.mine ? MYSPOT_COLOR : st.kind === "verify" ? pastille.verify : st.kind === "none" ? pastille.none : pastille.ring,
         weight: on || s.mine || st.kind === "verify" ? 3 : 2, dashArray: st.kind === "verify" || st.kind === "none" ? "4 3" : null,
         fillColor: noteFill(s), fillOpacity: st.kind === "none" ? 0 : st.kind === "nr" ? 0.6 : 0.95 });
-      else mk.setStyle({ color: on ? "#f8fafc" : s.mine ? MYSPOT_COLOR : "#020617", weight: on || s.mine ? 3 : 2,
+      else mk.setStyle({ color: on ? "#f3f8fc" : s.mine ? MYSPOT_COLOR : "#071427", weight: on || s.mine ? 3 : 2,
                     fillColor: known ? scoreColor(s.score, s.eligible, s.verify?.length) : UNKNOWN, fillOpacity: known ? (s.eligible ? 0.95 : 0.5) : 0.55 });
       const glyph = v2 && known && (st.kind === "verify" || st.kind === "nr") ? st.kind : null;
       if (glyph !== mk._glyphKind) {
@@ -105,8 +105,8 @@ function GlobalMap({ spots, selected, onPick }) {
   }, [spots, selected, ready]);
   return (
     <div>
-      <div ref={box} role="region" aria-label="Carte interactive : touche un spot pour sa note" style={{ position: "relative", zIndex: 0, isolation: "isolate", height: 360, borderRadius: 12, border: "1px solid #1e293b", overflow: "hidden", background: "#0b1626" }} />
-      <p style={{ fontSize: 13, color: "#94a3b8", margin: "8px 2px 0", lineHeight: 1.5 }}>
+      <div ref={box} role="region" aria-label="Carte interactive : touche un spot pour sa note" style={{ position: "relative", zIndex: 0, isolation: "isolate", height: 360, borderRadius: 12, border: "1px solid #22405f", overflow: "hidden", background: "#0e2139" }} />
+      <p style={{ fontSize: 13, color: "#9fb3c8", margin: "8px 2px 0", lineHeight: 1.5 }}>
         {spots.some(isV2) ? "Bleu : favorabilité sur 100 (le plus clair : 75 et plus ; le plus sombre : moins de 45) · contour pointillé et « ? » : à vérifier · gris barré : non recommandé · disque vide : pas de note · gris clair : en cours de calcul."
           : "Disque vert : note ≥ 7 · orange ≥ 5 · gris foncé en dessous ou non proposé · gris clair : note en cours de calcul."} Contour rose : tes spots. Touche un spot pour sa note et sa fiche.
         {tilesFailed && <span style={{ color: "#fbbf24" }}> Fond de carte indisponible (hors ligne ?) : les spots restent placés.</span>}
@@ -129,12 +129,12 @@ function scoreBadge(t, m) {
 function SpotLink({ s, rank }) {
   const col = s.score != null ? noteText(s) : UNKNOWN, dot = s.score != null ? noteFill(s) : UNKNOWN;
   return (
-    <a href={`${s.key}.html#spot=${s.id}`} style={{ display: "flex", alignItems: "center", gap: 10, minHeight: 52, padding: "8px 12px", color: "inherit", textDecoration: "none", borderTop: rank ? "1px solid #1e293b" : "none", background: "rgba(10,20,38,0.85)" }}>
+    <a href={`${s.key}.html#spot=${s.id}`} style={{ display: "flex", alignItems: "center", gap: 10, minHeight: 52, padding: "8px 12px", color: "inherit", textDecoration: "none", borderTop: rank ? "1px solid #22405f" : "none", background: "rgba(10,20,38,0.85)" }}>
       {isV2(s) && s.score != null ? <NoteDot s={s} size={16}/>
         : <span aria-hidden="true" style={{ width: 14, height: 14, borderRadius: "50%", background: dot, border: s.mine ? `2px solid ${MYSPOT_COLOR}` : "none", flexShrink: 0 }} />}
       <span style={{ minWidth: 0, flex: 1 }}>
         <strong style={{ display: "block", fontSize: 15 }}>{s.name}</strong>
-        <span style={{ display: "block", fontSize: 13, color: "#94a3b8" }}>Guide {GBY[s.key]?.name}{s.mine ? " · ton spot" : ""}{s.best ? ` · ${s.best}` : ""}</span>
+        <span style={{ display: "block", fontSize: 13, color: "#9fb3c8" }}>Guide {GBY[s.key]?.name}{s.mine ? " · ton spot" : ""}{s.best ? ` · ${s.best}` : ""}</span>
       </span>
       <span style={{ fontSize: 17, fontWeight: 800, color: col, fontVariantNumeric: "tabular-nums" }}>{s.score != null && s.eligible ? `${fmtNote(s)}${isV2(s) && s.verify?.length ? "?" : ""}` : "–"}</span>
     </a>
@@ -171,7 +171,7 @@ function AddSpot({ open, setOpen, onAdded }) {
       {done && !open && (
         <div role="status" style={{ marginBottom: 10, fontSize: 14.5, lineHeight: 1.5 }}>
           « {done.rec.name} » est ajouté au guide <b>{done.guideName}</b>, classé avec les autres spots du guide.
-          <a href={`${done.key}.html#spot=${done.rec.id}`} style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: 10, minHeight: 48, borderRadius: 10, border: "1px solid #0ea5e9", background: "rgba(14,165,233,0.12)", color: "#e0f2fe", fontWeight: 700, textDecoration: "none" }}>Voir le spot dans le guide {done.guideName} →</a>
+          <a href={`${done.key}.html#spot=${done.rec.id}`} style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: 10, minHeight: 48, borderRadius: 10, border: "1px solid #2a9df4", background: "rgba(14,165,233,0.12)", color: "#f3f8fc", fontWeight: 700, textDecoration: "none" }}>Voir le spot dans le guide {done.guideName} →</a>
         </div>
       )}
       {open ? (
@@ -181,7 +181,7 @@ function AddSpot({ open, setOpen, onAdded }) {
         </>
       ) : (
         <>
-          {!done && <p style={{ margin: "0 0 4px", fontSize: 14, color: "#cbd5e1" }}>Un poste que tu connais et qui n'est pas dans les guides : place-le (ta position, la carte ou des coordonnées). Il va tout seul dans le guide du spot le plus proche, avec sa propre météo et sa note.</p>}
+          {!done && <p style={{ margin: "0 0 4px", fontSize: 14, color: "#cbd8e6" }}>Un poste que tu connais et qui n'est pas dans les guides : place-le (ta position, la carte ou des coordonnées). Il va tout seul dans le guide du spot le plus proche, avec sa propre météo et sa note.</p>}
           <button type="button" onClick={() => { setDone(null); setOpen(true); }} style={{ ...btn(MYSPOT_COLOR, true), width: "100%", marginTop: 8 }}>＋ {done ? "Ajouter un autre spot" : "Ajouter un spot"}</button>
         </>
       )}
@@ -267,35 +267,35 @@ function Home() {
       <div role="group" aria-label="Jour affiché" style={{ display: "flex", gap: 8, margin: "0 0 10px", flexWrap: "wrap", alignItems: "center" }}>
         {DAYS.map(([k, l]) => (
           <button key={k} type="button" aria-pressed={offset === k} onClick={() => { setOffset(k); setSelected(null); }}
-            style={{ minHeight: 44, padding: "0 14px", borderRadius: 999, border: `1px solid ${offset === k ? "#38bdf8" : "#334155"}`, background: offset === k ? "rgba(56,189,248,0.16)" : "transparent", color: offset === k ? "#e0f2fe" : "#cbd5e1", fontSize: 14.5, fontWeight: 700, cursor: "pointer" }}>{l}</button>
+            style={{ minHeight: 44, padding: "0 14px", borderRadius: 999, border: `1px solid ${offset === k ? "#1fd2f5" : "#2c4a6b"}`, background: offset === k ? "rgba(31,210,245,0.16)" : "transparent", color: offset === k ? "#f3f8fc" : "#cbd8e6", fontSize: 14.5, fontWeight: 700, cursor: "pointer" }}>{l}</button>
         ))}
         <button type="button" onClick={() => both({ force: true })} disabled={busy} aria-label="Retélécharger la météo et recalculer les notes"
-          style={{ marginLeft: "auto", minHeight: 44, padding: "0 12px", borderRadius: 10, border: "1px solid #334155", background: "none", color: "#38bdf8", fontSize: 14, cursor: busy ? "progress" : "pointer" }}>↻ Météo</button>
+          style={{ marginLeft: "auto", minHeight: 44, padding: "0 12px", borderRadius: 10, border: "1px solid #2c4a6b", background: "none", color: "#1fd2f5", fontSize: 14, cursor: busy ? "progress" : "pointer" }}>↻ Météo</button>
       </div>
       <GlobalMap spots={spots} selected={selected} onPick={setSelected} />
-      <p id="map-status" role="status" aria-live="polite" style={{ margin: "8px 2px 0", fontSize: 13, color: "#94a3b8" }}>
+      <p id="map-status" role="status" aria-live="polite" style={{ margin: "8px 2px 0", fontSize: 13, color: "#9fb3c8" }}>
         {busy ? `Calcul des notes ${dayOf} : ${nOk} guide${nOk > 1 ? "s" : ""} sur ${GUIDES.length}…` : nOk === GUIDES.length ? `Notes ${dayOf} calculées pour les ${GUIDES.length} guides, avec la météo de chaque spot.` : `Notes ${dayOf} : ${nOk} guide${nOk > 1 ? "s" : ""} sur ${GUIDES.length}.`}
       </p>
       {notes.length > 0 && <ul style={{ margin: "6px 0 0", padding: "0 0 0 18px", fontSize: 13, color: "#fbbf24" }}>{notes.map((t) => <li key={t}>{t}</li>)}</ul>}
       {sel && (
-        <div role="region" aria-label="Spot choisi sur la carte" aria-live="polite" style={{ marginTop: 10, padding: "12px 14px", border: "1px solid #334155", borderRadius: 12, background: "rgba(10,20,38,0.85)" }}>
+        <div role="region" aria-label="Spot choisi sur la carte" aria-live="polite" style={{ marginTop: 10, padding: "12px 14px", border: "1px solid #2c4a6b", borderRadius: 12, background: "rgba(10,20,38,0.85)" }}>
           <strong style={{ fontSize: 16 }}>{sel.name}</strong>
-          <div style={{ fontSize: 13.5, color: "#94a3b8" }}>Guide {GBY[sel.key]?.name}{sel.mine ? " · ton spot" : ""}</div>
+          <div style={{ fontSize: 13.5, color: "#9fb3c8" }}>Guide {GBY[sel.key]?.name}{sel.mine ? " · ton spot" : ""}</div>
           <div style={{ fontSize: 14.5, marginTop: 4 }}>
             {sel.score == null ? "Note en cours de calcul…"
-              : sel.eligible ? <>{isV2(sel) ? "Favorabilité" : "Note"} <b style={{ color: noteText(sel) }}>{fmtNote(sel)}</b>{isV2(sel) ? " sur 100" : ""}{isV2(sel) && sel.verify?.length ? " · à vérifier" : ""}{sel.best ? ` · meilleur créneau ${sel.best}` : ""}{sel.reason ? <span style={{ display: "block", fontSize: 13, color: "#cbd5e1" }}>{sel.reason}</span> : null}</>
+              : sel.eligible ? <>{isV2(sel) ? "Favorabilité" : "Note"} <b style={{ color: noteText(sel) }}>{fmtNote(sel)}</b>{isV2(sel) ? " sur 100" : ""}{isV2(sel) && sel.verify?.length ? " · à vérifier" : ""}{sel.best ? ` · meilleur créneau ${sel.best}` : ""}{sel.reason ? <span style={{ display: "block", fontSize: 13, color: "#cbd8e6" }}>{sel.reason}</span> : null}</>
               : <>Non proposé {dayLbl} : {sel.reason || "aucun créneau praticable"}</>}
           </div>
-          <a href={`${sel.key}.html#spot=${sel.id}`} style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: 10, minHeight: 48, borderRadius: 10, border: "1px solid #0ea5e9", background: "rgba(14,165,233,0.12)", color: "#e0f2fe", fontWeight: 700, textDecoration: "none" }}>Ouvrir la fiche dans le guide {GBY[sel.key]?.name} →</a>
+          <a href={`${sel.key}.html#spot=${sel.id}`} style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: 10, minHeight: 48, borderRadius: 10, border: "1px solid #2a9df4", background: "rgba(14,165,233,0.12)", color: "#f3f8fc", fontWeight: 700, textDecoration: "none" }}>Ouvrir la fiche dans le guide {GBY[sel.key]?.name} →</a>
         </div>
       )}
       <h3 style={{ fontSize: 15.5, margin: "16px 0 8px" }}>Meilleurs spots {dayLbl}, tous guides confondus</h3>
       {top.length ? (
-        <nav aria-label={`Meilleurs spots ${dayLbl}`} style={{ border: "1px solid #1e293b", borderRadius: 12, overflow: "hidden" }}>
+        <nav aria-label={`Meilleurs spots ${dayLbl}`} style={{ border: "1px solid #22405f", borderRadius: 12, overflow: "hidden" }}>
           {top.map((s, i) => <SpotLink key={s.uid} s={s} rank={i} />)}
         </nav>
-      ) : <p style={{ margin: 0, fontSize: 13.5, color: "#94a3b8" }}>{busy || nOk === 0 ? "Calcul en cours…" : `Aucun spot praticable ${dayLbl} dans tes heures de pêche.`}</p>}
-      <p style={{ margin: "8px 2px 0", fontSize: 12.5, color: "#94a3b8" }}>{spots.some(isV2)
+      ) : <p style={{ margin: 0, fontSize: 13.5, color: "#9fb3c8" }}>{busy || nOk === 0 ? "Calcul en cours…" : `Aucun spot praticable ${dayLbl} dans tes heures de pêche.`}</p>}
+      <p style={{ margin: "8px 2px 0", fontSize: 12.5, color: "#9fb3c8" }}>{spots.some(isV2)
         ? "Favorabilité sur 100 : où et quand le bar a le plus de chances d'être là, pas « ça mord à coup sûr ». Sous 3 points d'écart, deux spots se valent. Les spots à vérifier passent après les autres."
         : "Le vert veut dire « rien ne bloque » (marée dans la plage utile, vent et houle tenables), pas « ça mord à coup sûr ». Sous 0,2 point d'écart, deux spots se valent."}</p>
       <AddSpot open={open} setOpen={setOpen} onAdded={onAdded} />

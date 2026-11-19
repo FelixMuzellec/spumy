@@ -67,8 +67,8 @@ function MapFilters({ g, value, onChange }) {
         const on = value === k;
         return (
           <button key={k} onClick={() => onChange(k)} aria-pressed={on} style={{minHeight:40,padding:"0 14px",borderRadius:999,cursor:"pointer",fontSize:14,fontWeight:on ? 750 : 600,
-            border:`1px solid ${on ? "#38bdf8" : C.line}`,background:on ? "rgba(56,189,248,0.16)" : "transparent",color:on ? C.strong : C.muted}}>
-            {lbl} <span style={{...num,fontWeight:500,color:on ? "#bae6fd" : C.faint}}>{n[k]}</span>
+            border:`1px solid ${on ? "#1fd2f5" : C.line}`,background:on ? "rgba(31,210,245,0.16)" : "transparent",color:on ? C.strong : C.muted}}>
+            {lbl} <span style={{...num,fontWeight:500,color:on ? "#bdf3ff" : C.faint}}>{n[k]}</span>
           </button>
         );
       })}

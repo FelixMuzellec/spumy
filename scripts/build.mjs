@@ -25,7 +25,7 @@ export const OUT = root;
 // Feuille de style de Leaflet (carte des spots), intégrée à la page : rien à télécharger.
 const LEAFLET_CSS = fs.readFileSync(path.join(root, "node_modules/leaflet/dist/leaflet.css"), "utf8")
   .replace(/\/\*[\s\S]*?\*\//g, "").replace(/\s*\n\s*/g, "").replace(/\s{2,}/g, " ");
-const MAP_CSS = ".leaflet-container{font:12px system-ui,sans-serif}.leaflet-tooltip.spot-tip{background:#0b1626;color:#e2e8f0;border:1px solid #334155;"
+const MAP_CSS = ".leaflet-container{font:12px system-ui,sans-serif}.leaflet-tooltip.spot-tip{background:#0e2139;color:#e3ecf5;border:1px solid #22405f;"
   + "box-shadow:none;font-weight:600;padding:2px 6px}.leaflet-tooltip.spot-tip::before{display:none}.leaflet-control-attribution{font-size:11.5px}";
 // ── Politique de sécurité du contenu (CSP) ─────────────────────────────
 // Le seul script autorisé est celui de la page, identifié par son empreinte SHA-256 : un
@@ -159,7 +159,7 @@ for (const { s, m } of guides) {
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>${s.title}</title>
 <meta name="description" content="SPUMY · ${escH(s.blurb)} : où et quand pêcher le bar aux leurres du bord, marée calculée et météo par spot.">
-<meta name="theme-color" content="#020617">
+<meta name="theme-color" content="#071427">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -168,12 +168,13 @@ for (const { s, m } of guides) {
 <link rel="icon" type="image/png" href="${s.key}.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>/* Socle CSS identique à celui des artefacts claude.ai (préflight Tailwind), pour lequel l'interface a été dessinée */
-*,::before,::after{box-sizing:border-box;border:0 solid #1e293b}html{line-height:1.5;-webkit-text-size-adjust:100%}
-h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}
+@font-face { font-family: "Roboto Condensed"; font-style: normal; font-display: swap; font-weight: 100 900; src: url(roboto-condensed.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }@font-face { font-family: "Roboto Condensed"; font-style: normal; font-display: swap; font-weight: 100 900; src: url(roboto-condensed-ext.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+*,::before,::after{box-sizing:border-box;border:0 solid #22405f}html{line-height:1.5;-webkit-text-size-adjust:100%}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}h1,h2,h3{font-family:"Roboto Condensed",system-ui,-apple-system,sans-serif;letter-spacing:.005em}
 button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}
 button,select{text-transform:none}button,[type=button]{-webkit-appearance:button;background-color:transparent;background-image:none}button{cursor:pointer}
 blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre{margin:0}ol,ul{list-style:none;margin:0;padding:0}img,svg,video,canvas{display:block;vertical-align:middle}
-html,body{margin:0;background:#020617;color:#e2e8f0}#boot{font:13px system-ui,sans-serif;color:#64748b;padding:40px 16px;text-align:center}@media (pointer:coarse){input,select,textarea{font-size:16px!important}}
+html,body{margin:0;background:#071427;color:#e3ecf5}#boot{font:13px system-ui,sans-serif;color:#7a8fa6;padding:40px 16px;text-align:center}@media (pointer:coarse){input,select,textarea{font-size:16px!important}}
 :focus-visible{outline:2px solid #38bdf8;outline-offset:2px}@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important}}
 ${LEAFLET_CSS}${MAP_CSS}</style>
 <script src="app.js" defer></script>

@@ -25,16 +25,16 @@ function bootFailed(err) {
   root.textContent = "";
   const box = document.createElement("div");
   box.setAttribute("role", "alert");
-  box.style.cssText = "max-width:560px;margin:0 auto;padding:24px 16px;color:#e2e8f0;font:16px/1.5 system-ui,sans-serif";
+  box.style.cssText = "max-width:560px;margin:0 auto;padding:24px 16px;color:#e3ecf5;font:16px/1.5 system-ui,sans-serif";
   const h = document.createElement("h1"); h.style.fontSize = "20px"; h.textContent = "Le guide n'a pas pu se charger";
   const p = document.createElement("p");
   p.textContent = "Sa fiche n'a pas pu être lue (pas de réseau, et pas encore gardée sur ce téléphone ?). Ton journal n'est pas touché. Vérifie la connexion, puis recharge.";
-  const d = document.createElement("p"); d.style.cssText = "font-size:13px;color:#94a3b8"; d.textContent = `Détail : ${String(err?.message || err)}`;
+  const d = document.createElement("p"); d.style.cssText = "font-size:13px;color:#9fb3c8"; d.textContent = `Détail : ${String(err?.message || err)}`;
   const b = document.createElement("button");
   b.textContent = "Recharger";
-  b.style.cssText = "display:block;width:100%;min-height:48px;margin:10px 0;border-radius:10px;border:1px solid #38bdf8;background:#0b2a42;color:#fff;font-size:16px;font-weight:700";
+  b.style.cssText = "display:block;width:100%;min-height:48px;margin:10px 0;border-radius:10px;border:1px solid #1fd2f5;background:#0b2a42;color:#fff;font-size:16px;font-weight:700";
   b.addEventListener("click", () => location.reload());
-  const a = document.createElement("a"); a.href = "index.html"; a.textContent = "Retour à l'accueil"; a.style.cssText = "color:#38bdf8;text-decoration:underline";
+  const a = document.createElement("a"); a.href = "index.html"; a.textContent = "Retour à l'accueil"; a.style.cssText = "color:#1fd2f5;text-decoration:underline";
   box.append(h, p, d, b, a);
   root.append(box);
 }

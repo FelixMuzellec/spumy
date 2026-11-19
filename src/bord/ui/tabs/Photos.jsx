@@ -211,7 +211,7 @@ function Viewer({ a, start, focus, onClose }) {
           {!p.view && <div style={{fontSize:12.5,color:C.warn,marginBottom:6}}>Image en petite taille : cette analyse date d'avant la visionneuse.</div>}
           {legend.map((x) => (
             <button key={x.id} onClick={() => setActive(x.id)} aria-pressed={active === x.id}
-              style={{display:"block",width:"100%",textAlign:"left",minHeight:40,padding:"6px 8px",margin:"2px 0",borderRadius:8,border:"none",background:active === x.id ? "#1e3a5f" : "transparent",color:C.text,fontSize:14,lineHeight:1.45,cursor:"pointer"}}>
+              style={{display:"block",width:"100%",textAlign:"left",minHeight:40,padding:"6px 8px",margin:"2px 0",borderRadius:8,border:"none",background:active === x.id ? "#1e3b60" : "transparent",color:C.text,fontSize:14,lineHeight:1.45,cursor:"pointer"}}>
               <b style={{color:x.c}}>{x.id}</b> · {x.t}
             </button>
           ))}

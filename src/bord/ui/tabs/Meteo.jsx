@@ -35,7 +35,7 @@ export function Meteo({ g }) {
           {g.allScored.map((s, i) => (
             <button key={s.id} onClick={() => g.goToSpot(s.id)} style={{display:"flex",width:"100%",justifyContent:"space-between",gap:10,padding:"9px 0",border:"none",borderTop:i ? `1px solid ${C.line2}` : "none",background:"none",color:C.text,cursor:"pointer",textAlign:"left"}}>
               <span style={{minWidth:0,fontSize:14.5}}>{s.name}</span>
-              <span style={{fontSize:14,textAlign:"right",...num,color:"#7dd3fc"}}>
+              <span style={{fontSize:14,textAlign:"right",...num,color:"#7ee7ff"}}>
                 {s.zw?.fromSpot ? `${s.zw.wind_dir} ${s.zw.wind_kmh} km/h${s.zw.gust_kmh != null ? ` · raf. ${s.zw.gust_kmh}` : ""} · ${s.zw.houleKnown ? fr(s.zw.houle) + " m" : "?"}` : "–"}
               </span>
             </button>

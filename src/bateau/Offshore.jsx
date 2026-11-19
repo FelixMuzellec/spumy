@@ -17,7 +17,7 @@ import { buttonStyle } from "../design/components.jsx";
 const engine = (key) => window.BAR_SITES?.[key] || null;
 const WX_KEY = "bar:offshore:wx", WX_TTL = 90 * 6e4, TIDE_KM = 40;
 const HOURS = [6, 9, 12, 15, 18, 21];
-const box = { marginTop: 14, padding: "14px 16px", border: "1px solid #1e293b", borderRadius: 12, background: "rgba(10,20,38,0.6)" };
+const box = { marginTop: 14, padding: "14px 16px", border: "1px solid #22405f", borderRadius: 12, background: "rgba(10,20,38,0.6)" };
 const h2 = { fontSize: 17, margin: "0 0 8px" };
 const lbl = { display: "block", fontSize: 14, fontWeight: 700, color: C.strong, margin: "12px 0 6px" };
 const inp = { width: "100%", boxSizing: "border-box", minHeight: 44, padding: "9px 11px", borderRadius: 10, border: `1px solid ${C.line}`, background: "#060f1e", color: C.text, fontSize: 16 };
@@ -75,12 +75,12 @@ function BoatMap({ spots, scores, selected, onPick }) {
       if (!mk) { mk = L.circleMarker([s.lat, s.lon], { radius: 10, weight: 2, className: `bspot bspot-${s.id}` }).addTo(m); mk.on("click", () => pick.current(s.id)); marks.current.set(s.id, mk); }
       else mk.setLatLng([s.lat, s.lon]);
       const sc = scores[s.id], on = s.id === selected;
-      mk.setStyle({ color: on ? "#f8fafc" : "#020617", weight: on ? 3 : 2, fillColor: sc != null ? scoreColor(sc, true) : OFF_COLOR, fillOpacity: 0.95 });
+      mk.setStyle({ color: on ? "#f3f8fc" : "#071427", weight: on ? 3 : 2, fillColor: sc != null ? scoreColor(sc, true) : OFF_COLOR, fillOpacity: 0.95 });
       mk.unbindTooltip(); mk.bindTooltip(`${s.name}${sc != null ? ` · ${fr(sc)}` : ""}`, { permanent: on, direction: "auto", className: "spot-tip" });
     }
     if (spots.length && !m._fitted) { m.fitBounds(L.latLngBounds(spots.map((s) => [s.lat, s.lon])), { padding: [28, 28], maxZoom: 11, animate: false }); m._fitted = true; }
   }, [spots, scores, selected]);
-  return <div ref={el} role="region" aria-label="Carte de tes spots bateau" style={{ position: "relative", zIndex: 0, isolation: "isolate", height: 280, borderRadius: 12, border: "1px solid #1e293b", overflow: "hidden", background: "#0b1626" }} />;
+  return <div ref={el} role="region" aria-label="Carte de tes spots bateau" style={{ position: "relative", zIndex: 0, isolation: "isolate", height: 280, borderRadius: 12, border: "1px solid #22405f", overflow: "hidden", background: "#0e2139" }} />;
 }
 
 function BoatSpotForm({ initial, onSave, onCancel }) {
@@ -205,12 +205,12 @@ function Curve({ cv }) {
   const fx = (x) => (cv.k === "doy" ? new Date(Date.UTC(2026, 0, Math.round(x))).toLocaleDateString("fr-FR", { day: "numeric", month: "short", timeZone: "UTC" }) : `${fr(x, VAR_BY[cv.k].d)}${cv.unit ? " " + cv.unit : ""}`);
   return (
     <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Courbe de régression : prises par heure attendues selon ${cv.label.toLowerCase()}, de ${fx(cv.lo)} à ${fx(cv.hi)} ; points : tes sorties.`} style={{ width: "100%", maxWidth: 520, display: "block", marginTop: 8 }}>
-      <line x1={P.l} y1={H - P.b} x2={W - P.r} y2={H - P.b} stroke="#334155" />
-      <line x1={P.l} y1={P.t} x2={P.l} y2={H - P.b} stroke="#334155" />
-      {[0, 0.5, 1].map((f) => <text key={f} x={P.l - 5} y={Y(ymax * f / 1.08) + 4} fontSize="10" fill="#94a3b8" textAnchor="end">{fr(ymax * f / 1.08)}</text>)}
-      <text x={P.l} y={H - 8} fontSize="10" fill="#94a3b8">{fx(cv.lo)}</text>
-      <text x={W - P.r} y={H - 8} fontSize="10" fill="#94a3b8" textAnchor="end">{fx(cv.hi)}</text>
-      {cv.obs.map((o, i) => <circle key={i} cx={X(Math.min(cv.hi, Math.max(cv.lo, o.x)))} cy={Y(o.y)} r="3" fill="#64748b" />)}
+      <line x1={P.l} y1={H - P.b} x2={W - P.r} y2={H - P.b} stroke="#2c4a6b" />
+      <line x1={P.l} y1={P.t} x2={P.l} y2={H - P.b} stroke="#2c4a6b" />
+      {[0, 0.5, 1].map((f) => <text key={f} x={P.l - 5} y={Y(ymax * f / 1.08) + 4} fontSize="10" fill="#9fb3c8" textAnchor="end">{fr(ymax * f / 1.08)}</text>)}
+      <text x={P.l} y={H - 8} fontSize="10" fill="#9fb3c8">{fx(cv.lo)}</text>
+      <text x={W - P.r} y={H - 8} fontSize="10" fill="#9fb3c8" textAnchor="end">{fx(cv.hi)}</text>
+      {cv.obs.map((o, i) => <circle key={i} cx={X(Math.min(cv.hi, Math.max(cv.lo, o.x)))} cy={Y(o.y)} r="3" fill="#7a8fa6" />)}
       <polyline fill="none" stroke={OFF_COLOR} strokeWidth="2.5" points={cv.pts.map((p) => `${X(p.x).toFixed(1)},${Y(p.y).toFixed(1)}`).join(" ")} />
     </svg>
   );
@@ -344,7 +344,7 @@ export function Offshore({ index }) {
   if (!shown) return <p className="wait">Chargement de la pêche en bateau…</p>;
   return (
     <div>
-      <p style={{ margin: "0 0 4px", fontSize: 14, color: "#cbd5e1", lineHeight: 1.55 }}>
+      <p style={{ margin: "0 0 4px", fontSize: 14, color: "#cbd8e6", lineHeight: 1.55 }}>
         Pêche en bateau, toutes espèces. Les spots sont les tiens : aucune marque n'est fournie. Le modèle part de zéro et apprend de tes sorties, prises et capots compris ; la note n'apparaît qu'à partir de {MIN_TRIPS} sorties.
       </p>
 
