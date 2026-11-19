@@ -1,6 +1,6 @@
 # Moteur BATEAU — spécification (phase 9)
 
-Statut : **À VALIDER par Félix.** Il n'y a aucun code ici. Le moteur par espèce se code en phase 10, l'interface en phase 13, puis il sera éprouvé comme le BORD (journées archivées, tirages).
+Statut : **À VALIDER par Félix.** Code (phase 13, v10.1) : `src/bateau/engine/` (sécurité, espèces, pertinence, confiance), paramètres dans `data/bateau/moteur.json`, interface « Sortir aujourd'hui ? » dans l'onglet Offshore ; les 16 scénarios du § 10 sont des tests (`npm run test:bateau`). Reste l'épreuve sur journées archivées (§ 11).
 
 Espèces, dans l'ordre de priorité fixé par Félix : lieu jaune, lieu noir là où il est pertinent, maquereau, bar, vieille, saint-pierre.
 

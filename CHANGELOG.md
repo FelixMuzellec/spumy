@@ -1,5 +1,21 @@
 # Journal des versions
 
+## 10.1 — Offshore : « Sortir aujourd'hui ? » et moteur BATEAU (phase 13)
+
+Branche `claude/phase-13-bateau`.
+
+- **Moteur BATEAU** (`src/bateau/engine/`, paramètres dans `data/bateau/moteur.json`) :
+    - sécurité de la sortie, non compensable : SEC_ARMEMENT, SEC_CATEGORIE, SEC_BMS, SEC_VENT, SEC_MER, SEC_VISIBILITE, SEC_ORAGE, SEC_NUIT, SEC_RAZ, SEC_DONNEES ;
+    - le pire moment du créneau décide, et une donnée inconnue rend la sortie « à vérifier » ;
+    - favorabilité par espèce (lieu jaune, lieu noir, maquereau, bar, vieille, saint-pierre) = conditions × présence ;
+    - pertinence (canne, route, réglementation) et confiance, qui ne classe jamais ;
+    - fermetures réglementaires.
+- **Onglet Offshore** :
+    - profil du bateau ;
+    - « Sortir aujourd'hui ? » : verdict, raisons au pire moment, zones et espèces avec leurs trois scores, technique, réglementation, rappels.
+- **Météo du large** : visibilité, code temps et CAPE.
+- **Tests** : `test:bateau` (les 16 scénarios de la spécification, 29/29), e2e 856/856.
+
 ## 10.0 — la charte SPUMY dans l'application (phase 12)
 
 Branche `claude/phase-12`. Consignes de Félix du 19 novembre (20 h 14 et 23 h 11).
