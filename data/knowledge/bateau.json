@@ -1,0 +1,852 @@
+{
+  "titre": "Connaissances du mode BATEAU — espèces prioritaires, réglementation et sécurité en mer",
+  "version": 1,
+  "relu_le": "2026-11-19",
+  "mode": "BATEAU",
+  "echelle": {
+    "1": "Scientifique ou institutionnel : publication scientifique, Ifremer, SHOM, Météo-France, MNHN (INPN), Région (inventaire du patrimoine), textes réglementaires",
+    "2": "Observation documentée : article, guide, ouvrage ou page attribuable (auteur ou éditeur identifié)",
+    "3": "Retour local identifiable : pêcheur nommé ou pseudonyme suivi (forum, blog, liste de spots), office de tourisme citant un pêcheur, ton journal",
+    "4": "Hypothèse : déduction du guide, propre à un lieu ou à une situation, à vérifier",
+    "5": "Heuristique : règle générale de pêcheur ou de modèle, appliquée sans source propre"
+  },
+  "regles": [
+    "Le niveau est celui de la source qui porte l'énoncé tel qu'il est écrit. Une valeur chiffrée (seuil, poids) écrite dans aucune source est une hypothèse (4), même quand le principe est sourcé : elle est alors notée à part (« valeurs »).",
+    "Une étude faite en captivité ou dans une autre région garde son niveau 1, mais ses limites le disent.",
+    "Rien n'est déduit pour combler un trou : une connaissance sans source est classée 4 ou 5 et marquée « source à trouver ».",
+    "La sécurité en mer est séparée de celle du BORD : aucune connaissance de ce fichier ne change le moteur du BORD.",
+    "Une règle de sécurité sans source reste une règle de prudence (HYPOTHÈSE ou À DÉCIDER) : elle peut rendre une sortie plus prudente, jamais plus permissive."
+  ],
+  "especes": [
+    {
+      "id": "lieu-jaune",
+      "nom": "lieu jaune",
+      "latin": "Pollachius pollachius",
+      "priorite": 1,
+      "jeton": "ESP_LIEU_JAUNE"
+    },
+    {
+      "id": "lieu-noir",
+      "nom": "lieu noir",
+      "latin": "Pollachius virens",
+      "priorite": 2,
+      "jeton": "ESP_LIEU_NOIR"
+    },
+    {
+      "id": "maquereau",
+      "nom": "maquereau",
+      "latin": "Scomber scombrus",
+      "priorite": 3,
+      "jeton": "ESP_MAQUEREAU"
+    },
+    {
+      "id": "bar",
+      "nom": "bar",
+      "latin": "Dicentrarchus labrax",
+      "priorite": 4,
+      "jeton": "ESP_BAR_BATEAU"
+    },
+    {
+      "id": "vieille",
+      "nom": "vieille",
+      "latin": "Labrus bergylta",
+      "priorite": 5,
+      "jeton": "ESP_VIEILLE"
+    },
+    {
+      "id": "saint-pierre",
+      "nom": "saint-pierre",
+      "latin": "Zeus faber",
+      "priorite": 6,
+      "jeton": "ESP_SAINT_PIERRE"
+    }
+  ],
+  "connaissances": [
+    {
+      "id": "lj-habitat",
+      "espece": "lieu-jaune",
+      "domaine": "milieu",
+      "enonce": "Le lieu jaune adulte vit près des fonds durs, des épaves et des roches, habituellement de 40 à 100 m (jusqu'à 200 m) ; les juvéniles restent côtiers deux à trois ans. Les pêcheurs le trouvent sur les épaves par plus de 25 m et derrière les têtes de roche par plus de 15 m.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : ESP_LIEU_JAUNE"
+      ],
+      "niveau": 1,
+      "sources": [
+        {
+          "ref": "FishBase — Pollachius pollachius, Pollack (fiche espèce ; Cohen et al. 1990)",
+          "url": "https://fishbase.se/summary/34",
+          "niveau": 1
+        },
+        {
+          "ref": "MarLIN (Marine Biological Association) — Pollack (Pollachius pollachius)",
+          "url": "https://marlin.ac.uk/species/detail/9",
+          "niveau": 1
+        },
+        {
+          "ref": "peche.com — Le lieu jaune, un poisson combatif présent sur la façade atlantique (G. Fourrier, 07/12/2023)",
+          "url": "https://www.peche.com/article/32023/lieu-jaune-poisson-combatif-de-la-facade-atlantique",
+          "niveau": 2
+        }
+      ],
+      "limites": "Profondeurs de FishBase et MarLIN pour toute l'aire de l'espèce ; celles de peche.com (niveau 2) pour la pêche en bateau. Les poids de la spécification (30 et 20 points) sont des hypothèses.",
+      "verdict": "retenir ; poids à éprouver",
+      "statut": "VÉRIFIÉ",
+      "valeurs": {
+        "texte": "Structure dure 30 points, profondeur 20 points",
+        "niveau": 4
+      }
+    },
+    {
+      "id": "lj-reproduction",
+      "espece": "lieu-jaune",
+      "domaine": "biologie",
+      "enonce": "Le lieu jaune fraie de février à mai (MarLIN), en mars au large sur les épaves selon peche.com ; il forme alors des bancs denses sur les frayères, et de gros géniteurs gagnent des fonds de 100 à 150 m.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : ESP_LIEU_JAUNE"
+      ],
+      "niveau": 1,
+      "sources": [
+        {
+          "ref": "MarLIN (Marine Biological Association) — Pollack (Pollachius pollachius)",
+          "url": "https://marlin.ac.uk/species/detail/9",
+          "niveau": 1
+        },
+        {
+          "ref": "FishBase — Pollachius pollachius, Pollack (fiche espèce ; Cohen et al. 1990)",
+          "url": "https://fishbase.se/summary/34",
+          "niveau": 1
+        },
+        {
+          "ref": "peche.com — Le lieu jaune, un poisson combatif présent sur la façade atlantique (G. Fourrier, 07/12/2023)",
+          "url": "https://www.peche.com/article/32023/lieu-jaune-poisson-combatif-de-la-facade-atlantique",
+          "niveau": 2
+        }
+      ],
+      "limites": "La période de frai recouvre la fermeture réglementaire (1er janvier au 30 avril) : le moteur ne propose pas l'espèce pendant ce temps, quelle que soit sa présence.",
+      "verdict": "retenir",
+      "statut": "VÉRIFIÉ"
+    },
+    {
+      "id": "lj-technique",
+      "espece": "lieu-jaune",
+      "domaine": "technique",
+      "enonce": "Le lieu jaune se pêche en touchant le fond avec un leurre souple ou un lançon, puis en remontant lentement jusqu'à mi-hauteur.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : ESP_LIEU_JAUNE",
+        "docs/SPEC-MOTEUR-BATEAU.md : Pertinence"
+      ],
+      "niveau": 2,
+      "sources": [
+        {
+          "ref": "peche.com — Le lieu jaune, un poisson combatif présent sur la façade atlantique (G. Fourrier, 07/12/2023)",
+          "url": "https://www.peche.com/article/32023/lieu-jaune-poisson-combatif-de-la-facade-atlantique",
+          "niveau": 2
+        }
+      ],
+      "limites": "Une source de pêcheur. La dérive praticable (vent modéré) qui en découle est une hypothèse (15 points).",
+      "verdict": "retenir ; seuil de dérive à éprouver",
+      "statut": "VÉRIFIÉ",
+      "valeurs": {
+        "texte": "Dérive praticable 15 points",
+        "niveau": 4
+      }
+    },
+    {
+      "id": "lj-maree-lumiere",
+      "espece": "lieu-jaune",
+      "domaine": "comportement",
+      "enonce": "Le lieu jaune mord mieux dans un courant établi qu'au plus fort du courant, et à l'aube et au crépuscule.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : ESP_LIEU_JAUNE"
+      ],
+      "niveau": 5,
+      "sources": [],
+      "limites": "Pratique de pêcheur répandue, source à trouver. Les poids (20 et 15 points) sont des hypothèses.",
+      "verdict": "garder à l'essai ; source à trouver",
+      "statut": "HYPOTHÈSE"
+    },
+    {
+      "id": "lj-reglementation",
+      "espece": "lieu-jaune",
+      "domaine": "réglementation",
+      "enonce": "Lieu jaune, pêche de loisir 2026 (zones CIEM 7 et 8) : 2 poissons par pêcheur et par jour du 1er mai au 31 décembre ; aucun ne peut être gardé du 1er janvier au 30 avril, et la pêche suivie d'un relâcher y est aussi interdite ; taille minimale 42 cm ; marquage ; déclaration RecFishing.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : ESP_LIEU_JAUNE",
+        "docs/SPEC-MOTEUR-BATEAU.md : Pertinence"
+      ],
+      "niveau": 1,
+      "sources": [
+        {
+          "ref": "DDTM du Finistère — synthèse de la réglementation de la pêche maritime de loisir (actualisation avril 2026)",
+          "url": "https://www.locquirec.bzh/wp-content/uploads/2026/04/2026-SYNTHESE-peche-loisir-en-mer.pdf",
+          "niveau": 1
+        },
+        {
+          "ref": "Service-public.fr — Pêche de loisir en mer : tailles, quotas, marquage, déclaration RecFishing (fiche F2118, vérifiée le 17/04/2026)",
+          "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2118",
+          "niveau": 1
+        },
+        {
+          "ref": "peche.com — Les quotas bars et lieus 2026 pour les pêcheurs de loisir (08/01/2026)",
+          "url": "https://www.peche.com/article/50915/les-quotas-bars-et-lieus-2026-pour-les-pecheurs-de-loisir",
+          "niveau": 2
+        }
+      ],
+      "limites": "Le règlement de l'Union permet 3 lieus jaunes en zone 7, la France en garde 2 (FFESSM, 9/03/2026, lu en phase 9). Arrêté du 24/12/2024 et règlement (UE) 2026/249 : à revérifier chaque année (règlement de janvier).",
+      "verdict": "conserver ; revérifier en janvier 2027",
+      "statut": "VÉRIFIÉ"
+    },
+    {
+      "id": "ln-distribution",
+      "espece": "lieu-noir",
+      "domaine": "milieu",
+      "enonce": "Le lieu noir vit de 37 à 364 m ; il entre en eaux côtières au printemps et regagne le large en hiver. Le golfe de Gascogne est à la limite sud de son aire, où il est rare.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : ESP_LIEU_NOIR"
+      ],
+      "niveau": 1,
+      "sources": [
+        {
+          "ref": "FishBase — Pollachius virens, Saithe (fiche espèce)",
+          "url": "https://fishbase.se/summary/1343",
+          "niveau": 1
+        }
+      ],
+      "limites": "Source générale pour toute l'aire ; rien de propre au Finistère.",
+      "verdict": "retenir",
+      "statut": "VÉRIFIÉ"
+    },
+    {
+      "id": "ln-pertinence-finistere",
+      "espece": "lieu-noir",
+      "domaine": "milieu",
+      "enonce": "En Finistère, la présence du lieu noir est faible : le moteur ne le propose que si tes sorties en ont déjà pris, ou si tu l'ajoutes.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : ESP_LIEU_NOIR"
+      ],
+      "niveau": 4,
+      "sources": [
+        {
+          "ref": "FishBase — Pollachius virens, Saithe (fiche espèce)",
+          "url": "https://fishbase.se/summary/1343",
+          "niveau": 1
+        }
+      ],
+      "limites": "Déduction de la limite d'aire ; aucune donnée locale. La règle de proposition est à décider par Félix.",
+      "verdict": "à décider",
+      "statut": "À DÉCIDER"
+    },
+    {
+      "id": "ln-reglementation",
+      "espece": "lieu-noir",
+      "domaine": "réglementation",
+      "enonce": "Lieu noir, pêche de loisir : taille minimale 35 cm ; marquage ; pas de déclaration RecFishing.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : ESP_LIEU_NOIR",
+        "docs/SPEC-MOTEUR-BATEAU.md : Pertinence"
+      ],
+      "niveau": 1,
+      "sources": [
+        {
+          "ref": "DDTM du Finistère — synthèse de la réglementation de la pêche maritime de loisir (actualisation avril 2026)",
+          "url": "https://www.locquirec.bzh/wp-content/uploads/2026/04/2026-SYNTHESE-peche-loisir-en-mer.pdf",
+          "niveau": 1
+        }
+      ],
+      "limites": "Synthèse d'avril 2026 ; la lecture faite n'y a relevé aucun quota journalier.",
+      "verdict": "conserver ; revérifier en janvier 2027",
+      "statut": "VÉRIFIÉ"
+    },
+    {
+      "id": "maq-habitat-saison",
+      "espece": "maquereau",
+      "domaine": "milieu",
+      "enonce": "Le maquereau hiverne plus profond et vient en côte au printemps quand l'eau atteint 11 à 14 °C ; il est présent à la côte du printemps à octobre, et fraie de mars à juillet.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : ESP_MAQUEREAU"
+      ],
+      "niveau": 1,
+      "sources": [
+        {
+          "ref": "FishBase — Scomber scombrus, Atlantic mackerel (fiche espèce)",
+          "url": "https://fishbase.se/summary/118",
+          "niveau": 1
+        },
+        {
+          "ref": "peche.com — Le maquereau, un poisson chasseur accessible à tous (auteur et date non indiqués sur la page)",
+          "url": "https://www.peche.com/article/31966/le-maquereau-poisson-chasseur-accessible-a-tous",
+          "niveau": 2
+        }
+      ],
+      "limites": "Les seuils thermiques viennent de FishBase pour toute l'aire ; la fenêtre de présence est celle de peche.com (niveau 2). La courbe de présence de la spécification est une hypothèse.",
+      "verdict": "retenir ; courbe à éprouver",
+      "statut": "VÉRIFIÉ",
+      "valeurs": {
+        "texte": "Saison et eau 35 points ; présence forte au-dessus de 11 °C",
+        "niveau": 4
+      }
+    },
+    {
+      "id": "maq-comportement",
+      "espece": "maquereau",
+      "domaine": "comportement",
+      "enonce": "Le maquereau se nourrit surtout de jour et en bancs, parfois très étendus ; ses chasses se repèrent aux piqués d'oiseaux en surface. Il se pêche souvent de 15 à 30 m, en majorité au train de plumes blanches.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : ESP_MAQUEREAU",
+        "docs/SPEC-MOTEUR-BATEAU.md : Pertinence"
+      ],
+      "niveau": 1,
+      "sources": [
+        {
+          "ref": "FishBase — Scomber scombrus, Atlantic mackerel (fiche espèce)",
+          "url": "https://fishbase.se/summary/118",
+          "niveau": 1
+        },
+        {
+          "ref": "MarLIN (Marine Biological Association) — Atlantic mackerel (Scomber scombrus)",
+          "url": "https://www.marlin.ac.uk/species/detail/44",
+          "niveau": 1
+        },
+        {
+          "ref": "peche.com — Le maquereau, un poisson chasseur accessible à tous (auteur et date non indiqués sur la page)",
+          "url": "https://www.peche.com/article/31966/le-maquereau-poisson-chasseur-accessible-a-tous",
+          "niveau": 2
+        }
+      ],
+      "limites": "Les profondeurs et la technique viennent de peche.com (niveau 2). Le seuil de mer praticable est une hypothèse.",
+      "verdict": "retenir",
+      "statut": "VÉRIFIÉ",
+      "valeurs": {
+        "texte": "Lumière 20, profondeur 20, mer 15 points",
+        "niveau": 4
+      }
+    },
+    {
+      "id": "maq-reglementation",
+      "espece": "maquereau",
+      "domaine": "réglementation",
+      "enonce": "Maquereau, pêche de loisir 2026 : 10 par pêcheur et par jour ; taille minimale 20 cm ; marquage (en bateau, il peut se faire au débarquement selon la synthèse de la DDTM) ; déclaration RecFishing.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : ESP_MAQUEREAU",
+        "docs/SPEC-MOTEUR-BATEAU.md : Pertinence"
+      ],
+      "niveau": 1,
+      "sources": [
+        {
+          "ref": "DDTM du Finistère — synthèse de la réglementation de la pêche maritime de loisir (actualisation avril 2026)",
+          "url": "https://www.locquirec.bzh/wp-content/uploads/2026/04/2026-SYNTHESE-peche-loisir-en-mer.pdf",
+          "niveau": 1
+        },
+        {
+          "ref": "Service-public.fr — Pêche de loisir en mer : tailles, quotas, marquage, déclaration RecFishing (fiche F2118, vérifiée le 17/04/2026)",
+          "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2118",
+          "niveau": 1
+        }
+      ],
+      "limites": "Arrêté du 1er avril 2026 relatif au maquereau. La taille légale (20 cm) est sous la taille de première maturité (28,7 cm, FishBase).",
+      "verdict": "conserver ; revérifier en janvier 2027",
+      "statut": "VÉRIFIÉ"
+    },
+    {
+      "id": "bar-bateau-commun",
+      "espece": "bar",
+      "domaine": "réglementation",
+      "enonce": "Le bar pêché en bateau suit la réglementation du BORD (au nord du 48e parallèle 3 par jour et relâcher seul du 1er février au 31 mars, au sud 2 par jour ; 42 cm ; marquage ; RecFishing) et sa biologie (data/knowledge/bar-bord.json).",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : ESP_BAR_BATEAU",
+        "src/core/rules.js : REGLEMENTATION"
+      ],
+      "niveau": 1,
+      "sources": [
+        {
+          "ref": "Arrêté du 1er avril 2026 réglementant la pêche de loisir du bar européen (NOR TECM2608397A, JO du 9/04/2026)",
+          "url": "https://www.locquirec.bzh/wp-content/uploads/2026/04/Arrete-du-1er-avril-2026-Bar-loisir.pdf",
+          "niveau": 1
+        },
+        {
+          "ref": "DDTM du Finistère — synthèse de la réglementation de la pêche maritime de loisir (actualisation avril 2026)",
+          "url": "https://www.locquirec.bzh/wp-content/uploads/2026/04/2026-SYNTHESE-peche-loisir-en-mer.pdf",
+          "niveau": 1
+        }
+      ],
+      "limites": "Une seule source de vérité pour la réglementation : src/core/rules.js, lue par les deux modes.",
+      "verdict": "conserver",
+      "statut": "VÉRIFIÉ"
+    },
+    {
+      "id": "bar-bateau-criteres",
+      "espece": "bar",
+      "domaine": "comportement",
+      "enonce": "En bateau, le bar se trouve sur les plateaux et les roches dans le courant et dans les raz, quand le courant est établi, en lumière basse, sur une mer formée sur les hauts-fonds, par moins de 20 m.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : ESP_BAR_BATEAU"
+      ],
+      "niveau": 5,
+      "sources": [],
+      "limites": "Critères de pêcheur, source à trouver ; le raz n'est jamais conseillé contre la sécurité (SEC_RAZ).",
+      "verdict": "garder à l'essai ; source à trouver",
+      "statut": "HYPOTHÈSE"
+    },
+    {
+      "id": "vieille-habitat",
+      "espece": "vieille",
+      "domaine": "milieu",
+      "enonce": "La vieille vit sur la roche et dans les laminaires, de 1 à 50 m, habituellement de 2 à 30 m ; elle est résidente toute l'année, très fidèle à un petit territoire.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : ESP_VIEILLE"
+      ],
+      "niveau": 1,
+      "sources": [
+        {
+          "ref": "FishBase — Labrus bergylta, Ballan wrasse (fiche espèce)",
+          "url": "https://fishbase.se/summary/572",
+          "niveau": 1
+        },
+        {
+          "ref": "Devon and Severn IFCA — A review of wrasse ecology and fisheries interactions (S. Davies, septembre 2016), citant Morel et al. 2013 (Jersey) et Villegas-Ríos et al. 2013 (Galice)",
+          "url": "https://www.devonandsevernifca.gov.uk/wp-content/uploads/2023/09/Reviewofwrasseecology.pdf",
+          "niveau": 1
+        }
+      ],
+      "limites": "Fidélité mesurée en Galice et à Jersey.",
+      "verdict": "retenir",
+      "statut": "VÉRIFIÉ"
+    },
+    {
+      "id": "vieille-comportement",
+      "espece": "vieille",
+      "domaine": "comportement",
+      "enonce": "La vieille est active de jour, davantage au printemps et en été ; elle est plus détectée aux phases de lune des vives-eaux. Les labres « hibernent » dans les failles en hiver.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : ESP_VIEILLE"
+      ],
+      "niveau": 1,
+      "sources": [
+        {
+          "ref": "Devon and Severn IFCA — A review of wrasse ecology and fisheries interactions (S. Davies, septembre 2016), citant Morel et al. 2013 (Jersey) et Villegas-Ríos et al. 2013 (Galice)",
+          "url": "https://www.devonandsevernifca.gov.uk/wp-content/uploads/2023/09/Reviewofwrasseecology.pdf",
+          "niveau": 1
+        }
+      ],
+      "limites": "Une seule étude de marquage acoustique (Morel et al. 2013, Jersey) ; l'hivernage est écrit pour les labres en général. Les poids sont des hypothèses.",
+      "verdict": "retenir ; poids à éprouver",
+      "statut": "VÉRIFIÉ",
+      "valeurs": {
+        "texte": "Jour 25, saison 20, vives-eaux 10 points",
+        "niveau": 4
+      }
+    },
+    {
+      "id": "vieille-reproduction",
+      "espece": "vieille",
+      "domaine": "biologie",
+      "enonce": "La vieille naît femelle et peut devenir mâle ; le mâle garde un nid d'algues dans une faille ; le frai a lieu d'avril à août.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : ESP_VIEILLE"
+      ],
+      "niveau": 1,
+      "sources": [
+        {
+          "ref": "FishBase — Labrus bergylta, Ballan wrasse (fiche espèce)",
+          "url": "https://fishbase.se/summary/572",
+          "niveau": 1
+        },
+        {
+          "ref": "Devon and Severn IFCA — A review of wrasse ecology and fisheries interactions (S. Davies, septembre 2016), citant Morel et al. 2013 (Jersey) et Villegas-Ríos et al. 2013 (Galice)",
+          "url": "https://www.devonandsevernifca.gov.uk/wp-content/uploads/2023/09/Reviewofwrasseecology.pdf",
+          "niveau": 1
+        }
+      ],
+      "limites": "La vulnérabilité à des prélèvements répétés sur une même roche est une déduction (INFÉRÉ) ; le conseil de remettre à l'eau les gros sujets est à décider.",
+      "verdict": "retenir ; conseil à décider",
+      "statut": "VÉRIFIÉ"
+    },
+    {
+      "id": "vieille-reglementation",
+      "espece": "vieille",
+      "domaine": "réglementation",
+      "enonce": "Aucune taille minimale ni aucun quota de la vieille n'a été trouvé dans les textes lus.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : ESP_VIEILLE",
+        "docs/SPEC-MOTEUR-BATEAU.md : Pertinence"
+      ],
+      "niveau": 4,
+      "sources": [
+        {
+          "ref": "DDTM du Finistère — synthèse de la réglementation de la pêche maritime de loisir (actualisation avril 2026)",
+          "url": "https://www.locquirec.bzh/wp-content/uploads/2026/04/2026-SYNTHESE-peche-loisir-en-mer.pdf",
+          "niveau": 1
+        },
+        {
+          "ref": "Service-public.fr — Pêche de loisir en mer : tailles, quotas, marquage, déclaration RecFishing (fiche F2118, vérifiée le 17/04/2026)",
+          "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2118",
+          "niveau": 1
+        }
+      ],
+      "limites": "L'absence dans la synthèse de la DDTM et sur service-public ne prouve pas l'absence de règle (arrêtés locaux, annexe de l'arrêté du 26/10/2012) : à vérifier.",
+      "verdict": "à vérifier avant la phase 10",
+      "statut": "INCONNU"
+    },
+    {
+      "id": "sp-habitat",
+      "espece": "saint-pierre",
+      "domaine": "milieu",
+      "enonce": "Le saint-pierre vit seul près du fond, de 5 à 400 m, habituellement de 50 à 150 m ; il se nourrit surtout de poissons en bancs ; il fraie en fin d'hiver et au début du printemps.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : ESP_SAINT_PIERRE"
+      ],
+      "niveau": 1,
+      "sources": [
+        {
+          "ref": "FishBase — Zeus faber, John dory (fiche espèce)",
+          "url": "https://fishbase.se/summary/1370",
+          "niveau": 1
+        }
+      ],
+      "limites": "Source générale pour toute l'aire ; la présence de proies n'est pas mesurable par l'application.",
+      "verdict": "retenir",
+      "statut": "VÉRIFIÉ"
+    },
+    {
+      "id": "sp-saison-cote",
+      "espece": "saint-pierre",
+      "domaine": "comportement",
+      "enonce": "La saison où le saint-pierre se prend en côte en Bretagne, et l'effet de la marée et de la lumière, ne sont pas connus.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : ESP_SAINT_PIERRE"
+      ],
+      "niveau": 5,
+      "sources": [],
+      "limites": "Source à trouver ; tant qu'elle manque, la confiance du saint-pierre reste faible.",
+      "verdict": "source à trouver",
+      "statut": "INCONNU"
+    },
+    {
+      "id": "sp-reglementation",
+      "espece": "saint-pierre",
+      "domaine": "réglementation",
+      "enonce": "Aucune taille minimale ni aucun quota du saint-pierre n'a été trouvé dans les textes lus.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : ESP_SAINT_PIERRE",
+        "docs/SPEC-MOTEUR-BATEAU.md : Pertinence"
+      ],
+      "niveau": 4,
+      "sources": [
+        {
+          "ref": "DDTM du Finistère — synthèse de la réglementation de la pêche maritime de loisir (actualisation avril 2026)",
+          "url": "https://www.locquirec.bzh/wp-content/uploads/2026/04/2026-SYNTHESE-peche-loisir-en-mer.pdf",
+          "niveau": 1
+        },
+        {
+          "ref": "Service-public.fr — Pêche de loisir en mer : tailles, quotas, marquage, déclaration RecFishing (fiche F2118, vérifiée le 17/04/2026)",
+          "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2118",
+          "niveau": 1
+        }
+      ],
+      "limites": "Comme pour la vieille : l'absence dans la synthèse ne prouve pas l'absence de règle.",
+      "verdict": "à vérifier avant la phase 10",
+      "statut": "INCONNU"
+    },
+    {
+      "id": "reg-hamecons",
+      "espece": "toutes",
+      "domaine": "réglementation",
+      "enonce": "Pêche de loisir en mer : 12 hameçons au plus en tout sur les lignes à main et les lignes de traîne ; 2 palangres de 30 hameçons au plus par bateau.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : Pertinence"
+      ],
+      "niveau": 1,
+      "sources": [
+        {
+          "ref": "DDTM du Finistère — synthèse de la réglementation de la pêche maritime de loisir (actualisation avril 2026)",
+          "url": "https://www.locquirec.bzh/wp-content/uploads/2026/04/2026-SYNTHESE-peche-loisir-en-mer.pdf",
+          "niveau": 1
+        }
+      ],
+      "limites": "La synthèse ne précise pas, dans la lecture faite, si les 12 hameçons s'entendent par pêcheur ou par bateau : à relire dans l'arrêté du 26/10/2012.",
+      "verdict": "conserver ; préciser",
+      "statut": "VÉRIFIÉ"
+    },
+    {
+      "id": "reg-marquage-recfishing",
+      "espece": "toutes",
+      "domaine": "réglementation",
+      "enonce": "Les espèces à déclarer sur RecFishing sont le lieu jaune, le bar, le thon rouge, la dorade rose et le maquereau : enregistrement des pêcheurs de 16 ans et plus (au plus tard la veille, valable 12 mois), déclaration dans les 24 h. En bateau, le marquage se fait dès la montée à bord.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : RecFishing"
+      ],
+      "niveau": 1,
+      "sources": [
+        {
+          "ref": "Service-public.fr — Pêche de loisir en mer : tailles, quotas, marquage, déclaration RecFishing (fiche F2118, vérifiée le 17/04/2026)",
+          "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2118",
+          "niveau": 1
+        },
+        {
+          "ref": "DDTM du Finistère — synthèse de la réglementation de la pêche maritime de loisir (actualisation avril 2026)",
+          "url": "https://www.locquirec.bzh/wp-content/uploads/2026/04/2026-SYNTHESE-peche-loisir-en-mer.pdf",
+          "niveau": 1
+        }
+      ],
+      "limites": "Application RecFishing depuis le 12/02/2026 ; à revérifier chaque année.",
+      "verdict": "conserver ; revérifier en janvier 2027",
+      "statut": "VÉRIFIÉ"
+    },
+    {
+      "id": "sec-zones-armement",
+      "espece": "toutes",
+      "domaine": "sécurité",
+      "enonce": "Le matériel d'armement fixe la distance d'un abri : basique à moins de 2 milles, côtier de 2 à 6 milles, semi-hauturier de 6 à 60 milles (VHF fixe obligatoire depuis 2017), hauturier au-delà. Un abri est un lieu de la côte où l'on peut se mettre en sécurité et repartir sans aide, compte tenu de la météo et du bateau.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : SEC_ARMEMENT"
+      ],
+      "niveau": 1,
+      "sources": [
+        {
+          "ref": "Ministère de la Mer — Le matériel d'armement et de sécurité et les limites d'utilisation (division 240 de l'arrêté du 23/11/1987, modifiée le 21/05/2026 ; page mise à jour le 19/06/2026)",
+          "url": "https://www.mer.gouv.fr/le-materiel-darmement-et-de-securite-et-les-limites-dutilisation",
+          "niveau": 1
+        }
+      ],
+      "limites": "La distance d'un abri dépend du jour : le moteur la mesure aux abris choisis par toi, jamais à un port supposé.",
+      "verdict": "conserver",
+      "statut": "VÉRIFIÉ"
+    },
+    {
+      "id": "sec-categorie-conception",
+      "espece": "toutes",
+      "domaine": "sécurité",
+      "enonce": "Catégories de conception des bateaux de plaisance : A au-delà de force 8 et de 4 m de vagues (hauteur significative) ; B jusqu'à force 8 et 4 m ; C jusqu'à force 6 et 2 m ; D jusqu'à force 4 et 0,3 m, avec des vagues occasionnelles de 0,5 m.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : SEC_CATEGORIE"
+      ],
+      "niveau": 1,
+      "sources": [
+        {
+          "ref": "Directive 2013/53/UE relative aux bateaux de plaisance, annexe I, A, 1 (catégories de conception) — copie de legislation.gov.uk",
+          "url": "https://www.legislation.gov.uk/eudr/2013/53/annex/I/division/A/data.pdf",
+          "niveau": 1
+        }
+      ],
+      "limites": "Ce sont des limites de conception, pas des conditions confortables. La marge (1 Beaufort, 20 % de vagues) est une hypothèse.",
+      "verdict": "conserver ; marge à décider",
+      "statut": "VÉRIFIÉ",
+      "valeurs": {
+        "texte": "À vérifier à moins de 1 Beaufort ou 20 % de vagues de la limite",
+        "niveau": 4
+      }
+    },
+    {
+      "id": "sec-bms",
+      "espece": "toutes",
+      "domaine": "sécurité",
+      "enonce": "Météo-France émet un bulletin météorologique spécial (BMS côte) dès que le vent observé ou prévu atteint la force 7, jusqu'à 20 milles des côtes.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : SEC_BMS"
+      ],
+      "niveau": 1,
+      "sources": [
+        {
+          "ref": "Météo-France — Guide marine (octobre 2022) : BMS, échelle de l'état de la mer, termes de visibilité, bulletins côtiers",
+          "url": "https://meteofrance.fr/sites/meteofrance.fr/files/files/editorial/Guide_marine_octobre2022.pdf",
+          "niveau": 1
+        }
+      ],
+      "limites": "L'application ne lit pas les BMS aujourd'hui : l'écran le dit, et une prévision de force 7 sur le créneau vaut BMS.",
+      "verdict": "conserver ; source lisible à trouver",
+      "statut": "VÉRIFIÉ"
+    },
+    {
+      "id": "sec-etat-mer",
+      "espece": "toutes",
+      "domaine": "sécurité",
+      "enonce": "Échelle de l'état de la mer de Météo-France : de calme (0) à énorme (9) ; « agitée » de 1,25 à 2,5 m.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : SEC_MER"
+      ],
+      "niveau": 1,
+      "sources": [
+        {
+          "ref": "Météo-France — Guide marine (octobre 2022) : BMS, échelle de l'état de la mer, termes de visibilité, bulletins côtiers",
+          "url": "https://meteofrance.fr/sites/meteofrance.fr/files/files/editorial/Guide_marine_octobre2022.pdf",
+          "niveau": 1
+        }
+      ],
+      "limites": "Les seuils de la spécification (à vérifier dès « agitée », mer courte sous 5 s avec 0,8 m) sont des hypothèses.",
+      "verdict": "conserver ; seuils à éprouver",
+      "statut": "VÉRIFIÉ",
+      "valeurs": {
+        "texte": "À vérifier dès 1,25 m ; mer courte : période < 5 s et 0,8 m et plus",
+        "niveau": 4
+      }
+    },
+    {
+      "id": "sec-limites-felix",
+      "espece": "toutes",
+      "domaine": "sécurité",
+      "enonce": "Limites personnelles proposées : à vérifier dès la force 5 ou 50 km/h de rafales, non recommandé dès la force 6 ou 60 km/h ; seul à bord, marges serrées d'un cran ; jamais au-delà de la catégorie du bateau.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : SEC_VENT",
+        "docs/SPEC-MOTEUR-BATEAU.md : SEC_MER",
+        "docs/SPEC-MOTEUR-BATEAU.md : SEC_SEUL"
+      ],
+      "niveau": 5,
+      "sources": [],
+      "limites": "Propositions de départ, sans source : à décider par Félix pour son bateau.",
+      "verdict": "à décider",
+      "statut": "À DÉCIDER"
+    },
+    {
+      "id": "sec-visibilite",
+      "espece": "toutes",
+      "domaine": "sécurité",
+      "enonce": "Termes de visibilité de Météo-France : bonne à 5 milles et plus, moyenne de 2 à 5 milles, mauvaise de 0,5 à 2 milles ; brume sous 0,5 mille.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : SEC_VISIBILITE"
+      ],
+      "niveau": 1,
+      "sources": [
+        {
+          "ref": "Météo-France — Guide marine (octobre 2022) : BMS, échelle de l'état de la mer, termes de visibilité, bulletins côtiers",
+          "url": "https://meteofrance.fr/sites/meteofrance.fr/files/files/editorial/Guide_marine_octobre2022.pdf",
+          "niveau": 1
+        }
+      ],
+      "limites": "Le classement (mauvaise : à vérifier ; brume : non recommandé) est une hypothèse de prudence.",
+      "verdict": "conserver ; seuils à éprouver",
+      "statut": "VÉRIFIÉ",
+      "valeurs": {
+        "texte": "Mauvaise : à vérifier ; sous 0,5 mille : non recommandé",
+        "niveau": 4
+      }
+    },
+    {
+      "id": "sec-visibilite-donnees",
+      "espece": "toutes",
+      "domaine": "données",
+      "enonce": "La visibilité n'est pas dans les variables des modèles Météo-France servis par Open-Meteo ; la variable existe dans l'API générale, sans liste des modèles qui la fournissent.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : SEC_VISIBILITE",
+        "docs/SPEC-MOTEUR-BATEAU.md : SEC_DONNEES"
+      ],
+      "niveau": 2,
+      "sources": [
+        {
+          "ref": "Open-Meteo — documentation de l'API Météo-France (AROME, ARPEGE : liste des variables)",
+          "url": "https://open-meteo.com/en/docs/meteofrance-api",
+          "niveau": 2
+        }
+      ],
+      "limites": "Lu dans la documentation en phase 9 (novembre 2026) ; à tester en phase 10 sur tes zones. Sans visibilité, la sortie reste « à vérifier ».",
+      "verdict": "tester en phase 10",
+      "statut": "VÉRIFIÉ"
+    },
+    {
+      "id": "sec-raz",
+      "espece": "toutes",
+      "domaine": "sécurité",
+      "enonce": "On ne passe pas un raz avec un vent opposé au courant ; on attend l'étale ; on évite les heures du courant le plus fort ; une houle opposée au courant forme une barre de déferlement quasi immobile à éviter.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : SEC_RAZ"
+      ],
+      "niveau": 2,
+      "sources": [
+        {
+          "ref": "bateaux.com — Navigation délicate, le passage d'un raz (C. Fernbach, 15/07/2025)",
+          "url": "https://www.bateaux.com/article/31514/navigation-delicate-le-passage-d-un-raz",
+          "niveau": 2
+        }
+      ],
+      "limites": "Source de navigation de plaisance (niveau 2). Les heures de renverse de chaque raz ne sont pas dans l'application.",
+      "verdict": "conserver",
+      "statut": "VÉRIFIÉ"
+    },
+    {
+      "id": "sec-courants-donnees",
+      "espece": "toutes",
+      "domaine": "données",
+      "enonce": "Les courants et marées de l'API marine d'Open-Meteo (SMOC) ne sont pas adaptés à la navigation côtière, selon Open-Meteo.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : SEC_RAZ"
+      ],
+      "niveau": 2,
+      "sources": [
+        {
+          "ref": "Open-Meteo — documentation de l'API marine (MFWAM, ECMWF WAM, courants SMOC « pas adaptés à la navigation côtière »)",
+          "url": "https://open-meteo.com/en/docs/marine-weather-api",
+          "niveau": 2
+        }
+      ],
+      "limites": "Le courant prévu ne sert donc jamais à dire « sûr » : information seulement.",
+      "verdict": "conserver",
+      "statut": "VÉRIFIÉ"
+    },
+    {
+      "id": "sec-orage",
+      "espece": "toutes",
+      "domaine": "sécurité",
+      "enonce": "Un orage prévu sur le créneau rend la sortie « à vérifier » ; avec des rafales au-delà des limites, « non recommandé ».",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : SEC_ORAGE"
+      ],
+      "niveau": 5,
+      "sources": [],
+      "limites": "Règle de prudence sans source ; le seuil d'énergie convective est à choisir et à éprouver.",
+      "verdict": "garder à l'essai",
+      "statut": "HYPOTHÈSE"
+    },
+    {
+      "id": "sec-nuit",
+      "espece": "toutes",
+      "domaine": "sécurité",
+      "enonce": "Un retour prévu après le coucher du soleil rend la sortie « à vérifier ».",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : SEC_NUIT"
+      ],
+      "niveau": 5,
+      "sources": [],
+      "limites": "Règle de prudence sans source ; à décider par Félix.",
+      "verdict": "à décider",
+      "statut": "À DÉCIDER"
+    },
+    {
+      "id": "sec-age-prevision",
+      "espece": "toutes",
+      "domaine": "données",
+      "enonce": "Une prévision de plus de 12 h, ou qui ne couvre pas tout le créneau de la sortie, rend la sortie « à vérifier ».",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : SEC_DONNEES"
+      ],
+      "niveau": 5,
+      "sources": [],
+      "limites": "Seuil de prudence sans source ; Météo-France publie ses bulletins côtiers trois fois par jour.",
+      "verdict": "garder à l'essai",
+      "statut": "HYPOTHÈSE"
+    },
+    {
+      "id": "sec-rappels",
+      "espece": "toutes",
+      "domaine": "sécurité",
+      "enonce": "Une aide à la flottabilité adaptée par personne est obligatoire ; en difficulté, on appelle le CROSS sur le canal 16 de la VHF, ou le 196 depuis la terre ; on informe un proche de son itinéraire.",
+      "utilise_par": [
+        "docs/SPEC-MOTEUR-BATEAU.md : SEC_RAPPELS"
+      ],
+      "niveau": 1,
+      "sources": [
+        {
+          "ref": "Ministère de la Transition écologique — fiche presse « Sécurité en mer » (mai 2026)",
+          "url": "https://www.ecologie.gouv.fr/sites/default/files/documents/27052026.Fiche-presse_S%C3%A9curit%C3%A9_en_mer.pdf",
+          "niveau": 1
+        },
+        {
+          "ref": "Ministère de la Mer — Plaisance et loisirs nautiques : adoptez les bons réflexes (mis à jour le 03/07/2026)",
+          "url": "https://mer.gouv.fr/plaisance-et-loisirs-nautiques-decouvrez-les-bons-gestes-adopter",
+          "niveau": 1
+        }
+      ],
+      "limites": "L'heure de retour donnée à un proche est un ajout de prudence (aucune des deux sources ne la cite).",
+      "verdict": "conserver",
+      "statut": "VÉRIFIÉ"
+    }
+  ]
+}

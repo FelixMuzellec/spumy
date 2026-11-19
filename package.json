@@ -11,6 +11,7 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "icons": "node scripts/icons.mjs",
+    "build:prototype": "node scripts/build-prototype.mjs",
     "lint": "eslint -c .eslintrc.json --ext .js,.jsx,.mjs src data scripts tests",
     "test:layers": "node tests/layers.mjs",
     "test:data": "node tests/data.mjs",
@@ -21,7 +22,9 @@
     "test:contract": "node tests/contract.mjs",
     "test:a11y": "node tests/a11y.mjs",
     "test:studio": "node scripts/build-studio.mjs && node tests/studio.mjs",
-    "test": "npm run lint && npm run test:layers && npm run test:data && npm run test:knowledge && npm run test:v2 && npm run test:unit && npm run test:e2e && CONTRACT_MOCK=1 npm run test:contract",
+    "test:design": "node tests/design.mjs",
+    "test:prototype": "node scripts/build-prototype.mjs && node tests/prototype.mjs --axe",
+    "test": "npm run lint && npm run test:layers && npm run test:data && npm run test:knowledge && npm run test:design && npm run test:v2 && npm run test:unit && npm run test:e2e && CONTRACT_MOCK=1 npm run test:contract",
     "test:upgrade": "node tests/upgrade.mjs"
   },
   "dependencies": {
@@ -30,6 +33,8 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@fontsource-variable/roboto": "5.3.0",
+    "@fontsource-variable/roboto-condensed": "5.3.0",
     "ajv": "8.20.0",
     "axe-core": "^4.10.2",
     "esbuild": "^0.28.2",

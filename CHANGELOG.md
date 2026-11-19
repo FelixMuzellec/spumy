@@ -1,5 +1,29 @@
 # Journal des versions
 
+## Non publié — phase 11, direction artistique et écrans (prototype)
+
+Branche `claude/phase-11-design`. Aucun fichier de l'application publiée n'est modifié : le nouveau système de design sert le prototype ; son application à l'application réelle est prévue en phase 13 (décision ouverte n° 5).
+
+- **Direction artistique** (`docs/DIRECTION-ARTISTIQUE.md`) : analyse de la maquette de référence de Félix (couleurs mesurées sur les pixels, observable et interprété séparés), principes, système, photos, navigation, écarts voulus à la référence et leur raison.
+- **Système de design** (`src/design/ds/`) : thèmes Nuit marine (défaut) et Plein soleil ; Roboto Condensed et Roboto auto-hébergées ; 22 composants React ; 96 icônes Lucide (ISC) et 8 pictogrammes SPUMY, dont deux pictogrammes de mode distincts (pêcheur sur le rivage, bateau) ; favorabilité en cinq bleus, « à vérifier » en ambre pointillé, « non recommandé » en gris barré.
+- **Photos d'ambiance** : 32 des 38 images fournies par Félix, décrites dans `data/photos/catalogue.json` (6 écartées avec leur raison), converties en WebP 1600 et 720 px (`assets/photos/`, `scripts/photos.py`). Choix déterministe selon la lumière, le ciel, la mer et le lieu ; jamais une image reconnaissable sur un spot nommé ; toujours marquées « Illustration ».
+- **Prototype interactif** (`prototype/`, `npm run build:prototype`) : accueil, 9 écrans BORD (Décision, Carte avec classement, Fiche à trois niveaux, Comparaison, Stratégie, Matériel, Journal, Terrain, Plus) sur une journée réelle (16 mai 2026, Logonna-Daoulas, moteur v2), 8 écrans BATEAU (Sortir ?, Sécurité de la sortie, Zones, Zone, Espèces, Technique avec les connaissances sourcées, Sorties, Bateau) sur des données d'exemple marquées, planche des états, planches Système, BORD/BATEAU, Avant/après (captures de la v9.2 par `scripts/avant-prototype.mjs`) et Conformité à la référence.
+- **Tests** : `test:design` 41/41 (contrastes WCAG des jetons, deux thèmes) ; `test:prototype` 244/244 (23 écrans × 390 et 320 px × deux thèmes, interactions, aucune pastille masquée, axe-core sans violation) ; `test:layers` connaît la couche `prototype` (n'importe que `design` et `data`) ; couleurs en dur hors de `src/design/` inchangées (291) ; `test:design` et `test:prototype` ajoutés à l'intégration continue ; parcours de l'application 850/850 (inchangée).
+
+## Non publié — phase 9, BATEAU : conception (sans code)
+
+Branche `claude/phase-9-bateau`. Aucun fichier de l'application n'est modifié.
+
+- **Audit du mode BATEAU** (onglet Offshore) : un carnet de spots et de sorties, et une note apprise de tes prises après 8 sorties ; ni sécurité en mer, ni logique par espèce, ni réglementation des espèces du bateau.
+- **Spécification du moteur BATEAU**, à valider (`docs/SPEC-MOTEUR-BATEAU.md`) :
+    - profil du bateau ;
+    - 12 règles de sécurité en mer (`SEC_*`), séparées du bord, jugées sur tout le créneau et au pire moment : armement et distance d'un abri, catégorie de conception, vent, mer, BMS, visibilité, orage, nuit, raz, âge des données, seul à bord, rappels ;
+    - trois scores par zone et par espèce (`ESP_*`) : lieu jaune, lieu noir, maquereau, bar, vieille, saint-pierre ;
+    - apprentissage personnel gardé (±10 au plus, jamais sur la sécurité) ;
+    - 16 scénarios et un plan d'épreuve.
+- **Connaissances du mode BATEAU** (`data/knowledge/bateau.json`, schéma `data/schema/knowledge-bateau.schema.json`) : 35 connaissances (21 de niveau 1), 22 sources. Elles couvrent la réglementation 2026 (fermeture du lieu jaune du 1er janvier au 30 avril, tailles, quotas, marquage, RecFishing, hameçons) ; la vieille et le saint-pierre y sont marqués inconnus.
+- **Tests** : `test:knowledge` 27/27 contrôle aussi le fichier BATEAU et son lien avec la spécification (chaque règle `SEC_*` et `ESP_*` portée par une connaissance), avec six cas d'erreur refusés.
+
 ## Non publié — revue de qualité avant la phase 9 (19 novembre)
 
 Branche `claude/qualite-avant-phase-9`. Demandée par Félix : « tout est-il optimisé, précis et propre ? ».

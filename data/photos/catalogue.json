@@ -1,0 +1,655 @@
+{
+  "titre": "Photos d'ambiance de SPUMY",
+  "origine": "Images générées par Gemini, fournies par Félix dans la conversation de travail (novembre 2026). 32 retenues sur 38 distinctes.",
+  "regle": "Ambiance et illustration seulement : jamais présentées comme la photo réelle d'un spot, d'une prise ou d'une sortie. Une image reconnaissable (phare, port, granit) ne va jamais sur la fiche d'un spot. L'interface les marque « Illustration ».",
+  "ecartees": [
+    {
+      "source": "Gemini_Generated_Image_6eg3766eg3766eg3.jpg",
+      "raison": "montre un téléphone avec une fausse interface SPUMY"
+    },
+    {
+      "source": "Gemini_Generated_Image_e2o13ne2o13ne2o1.jpg",
+      "raison": "presque identique à lsct1fls"
+    },
+    {
+      "source": "Gemini_Generated_Image_tc17ihtc17ihtc17.jpg",
+      "raison": "presque identique à lsct1fls"
+    },
+    {
+      "source": "Gemini_Generated_Image_bdmipsbdmipsbdmi.jpg",
+      "raison": "troisième semi-rigide vu de haut, presque identique"
+    },
+    {
+      "source": "Gemini_Generated_Image_be23eybe23eybe23.jpg",
+      "raison": "semi-rigide vu de haut, redondant"
+    },
+    {
+      "source": "Gemini_Generated_Image_ue3huuue3huuue3h.jpg",
+      "raison": "surfcasting à deux cannes sur pique : pas la pêche de SPUMY (leurres)"
+    }
+  ],
+  "photos": [
+    {
+      "id": "estuaire-averse",
+      "source": "Gemini_Generated_Image_6e0sro6e0sro6e0s.jpg",
+      "alt": "Pêcheur au bord d'un estuaire sous une averse, ciel très sombre",
+      "mode": "bord",
+      "sujet": "pecheur",
+      "lumiere": "jour",
+      "ciel": "pluie",
+      "mer": "calme",
+      "lieu": "estuaire",
+      "focus": [
+        25,
+        70
+      ],
+      "w": 2576,
+      "h": 1438,
+      "orientation": "paysage",
+      "lqip": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAACwAwCdASoYAA0APtFWpEuoJKOhsAgBABoJZwAAYXa0fyp+yHi5kAD+lQ6XyyAkrN181+8MtwMirMTJQdJMlbYpbrPX4HlyJm20DC/E1zmCGKFt7sDiFFLjBsBh3DLncgK0ZT8ImnBDQAAA"
+    },
+    {
+      "id": "falaise-mer-formee",
+      "source": "Gemini_Generated_Image_1r24gt1r24gt1r24.jpg",
+      "alt": "Pêcheur sur une roche au pied d'une falaise, mer formée",
+      "mode": "bord",
+      "sujet": "pecheur",
+      "lumiere": "jour",
+      "ciel": "nuageux",
+      "mer": "formee",
+      "lieu": "falaise",
+      "focus": [
+        32,
+        70
+      ],
+      "w": 2576,
+      "h": 1438,
+      "orientation": "paysage",
+      "lqip": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAADQAwCdASoYAA0APtFUpEuoJKOhsAgBABoJZwC+SCHnUKMatwMLnAAA99+XT+d5DZ9m3mdR5V+4lb5KzkBMS+G0GvT+aK3n3sSmtNZ/gbsGyGYXdkWRTCzsVZF/LAHCm162GHrYCrHYINT1LlhJAAAA"
+    },
+    {
+      "id": "lancer-ressac",
+      "source": "Gemini_Generated_Image_breft3breft3bref.jpg",
+      "alt": "Pêcheur en plein lancer sur les rochers, vagues qui déferlent",
+      "mode": "bord",
+      "sujet": "pecheur",
+      "lumiere": "jour",
+      "ciel": "nuageux",
+      "mer": "formee",
+      "lieu": "rochers",
+      "focus": [
+        68,
+        45
+      ],
+      "w": 2576,
+      "h": 1438,
+      "orientation": "paysage",
+      "lqip": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAQBACdASoYAA0APtFUpEuoJKOhsAgBABoJYwCw7B6T/LT1B1qHppUkAAD+7gsFl57yoM564v3vEt5A6y0p8XLfN/nU6U86g6odChTDd5MgK4SQ/7/SJuePrQl+2TQaiafq/EFgOOPqu2YZZNO5KWAn3jGtaqBEqczgreaV+kHyNe2vAAA="
+    },
+    {
+      "id": "semi-rigide-falaises",
+      "source": "Gemini_Generated_Image_qhj1p1qhj1p1qhj1.jpg",
+      "alt": "Deux pêcheurs sur un semi-rigide au pied des falaises",
+      "mode": "bateau",
+      "sujet": "bateau",
+      "lumiere": "jour",
+      "ciel": "nuageux",
+      "mer": "calme",
+      "lieu": "cote",
+      "focus": [
+        55,
+        62
+      ],
+      "w": 2576,
+      "h": 1438,
+      "orientation": "paysage",
+      "lqip": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAQBACdASoYAA0APtFUpEuoJKOhsAgBABoJYwCdACHwypgMTJ8dCtEHUAD+56tggnIgv/dPGufbJ2BSykY5x32/2Q6agvQmDDzv1qpcT3hsKCFDKRTqccJ3rOj8bvLeIgQbgHHrHxmbA509n4q0L91ySvH24JpnXVgAAA=="
+    },
+    {
+      "id": "roches-eau-turquoise",
+      "source": "Gemini_Generated_Image_i9fnjzi9fnjzi9fn.jpg",
+      "alt": "Pêcheur sur des roches claires au-dessus d'une eau turquoise",
+      "mode": "bord",
+      "sujet": "pecheur",
+      "lumiere": "jour",
+      "ciel": "clair",
+      "mer": "calme",
+      "lieu": "rochers",
+      "focus": [
+        70,
+        42
+      ],
+      "w": 2576,
+      "h": 1438,
+      "orientation": "paysage",
+      "lqip": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAABQBACdASoYAA0APtFYpkwoJSOiMAgBABoJZACdMoADTsvMZtvAJD3gBqYAAP7wfd6KUODFORJis8SJ7JWk9sF3hIkCH1oVSwOTZaeXSDO0EHV+SR7f1JsGJAUqOjPxrLr7Fr7YQlhhtb7YQN+NfNVJakn0IqXyUZgPPdhdPCbMZApcoRekjlc9GXSvAJ0tgPKpsAAA"
+    },
+    {
+      "id": "boite-leurres",
+      "source": "Gemini_Generated_Image_n2ggdin2ggdin2gg.jpg",
+      "alt": "Boîte de leurres ouverte sur les rochers, canne et moulinet",
+      "mode": "materiel",
+      "sujet": "leurres",
+      "lumiere": "jour",
+      "ciel": "nuageux",
+      "mer": "formee",
+      "lieu": "rochers",
+      "focus": [
+        42,
+        55
+      ],
+      "w": 2576,
+      "h": 1438,
+      "orientation": "paysage",
+      "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAAAwBACdASoYAA0APtFWpEuoJKOhsAgBABoJYwCdAB9Cxfc/0H7ngQZ4QMAA/rI5el4efS4Lkt96xnBebkzepleUvdDQpUTym2H0cN7nOJ7uro+TdLxrr1unjAgeFVkeO7na098XRVa1iFZ0WgNMR4F0cLUqYkOjbw1eSPEjVJ53tAAA"
+    },
+    {
+      "id": "phare-tempete",
+      "source": "Gemini_Generated_Image_i29o52i29o52i29o_1.jpg",
+      "alt": "Phare battu par les vagues dans la tempête",
+      "mode": "tous",
+      "sujet": "paysage",
+      "lumiere": "jour",
+      "ciel": "orage",
+      "mer": "tempete",
+      "lieu": "large",
+      "reconnaissable": true,
+      "focus": [
+        55,
+        45
+      ],
+      "w": 2576,
+      "h": 1438,
+      "orientation": "paysage",
+      "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAwBACdASoYAA0APtFUo0uoJKMhsAgBABoJZQCdABwzGDZb0X5YvmXxVYAAyVmAX2JTSKavhBB0kWbUrnz0AxtVcPbSNNgZZvY9S1uBbvLN/nZrNSNDwvrarn/Lipm9O+DfB+jkDY+LRVU2GlVeyTRqreRvQAAA"
+    },
+    {
+      "id": "lieu-jaune-goemon",
+      "source": "Gemini_Generated_Image_mr3gfimr3gfimr3g.jpg",
+      "alt": "Lieu jaune posé sur le goémon, à côté d'une canne",
+      "mode": "espece",
+      "sujet": "poisson",
+      "espece": "lieu-jaune",
+      "lumiere": "jour",
+      "ciel": "nuageux",
+      "mer": "formee",
+      "lieu": "rochers",
+      "focus": [
+        40,
+        55
+      ],
+      "w": 2576,
+      "h": 1438,
+      "orientation": "paysage",
+      "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAAAQBACdASoYAA0APtFUpEuoJKOhsAgBABoJYwCw7CFn9JqliXl+EFp86AD+xgLNQk0OcOCLLkF75Kbgd9MoCmL2z+imR9qn0JAeSs5WB748aPfO8VYfkBs1HFC2Nhbs6ezIG9dUxrAd4QsXHqECPI+FNxNhH1s6Ih1vn6OO57KVAAAA"
+    },
+    {
+      "id": "bar-roche",
+      "source": "Gemini_Generated_Image_ebcb8nebcb8nebcb.jpg",
+      "alt": "Bar posé sur une roche à goémon, leurre et moulinet",
+      "mode": "espece",
+      "sujet": "poisson",
+      "espece": "bar",
+      "lumiere": "jour",
+      "ciel": "nuageux",
+      "mer": "formee",
+      "lieu": "rochers",
+      "focus": [
+        40,
+        55
+      ],
+      "w": 2576,
+      "h": 1438,
+      "orientation": "paysage",
+      "lqip": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAQBACdASoYAA0APtFWo0uoJKMhsAgBABoJYwCdMoC4AAyIr2s9dl8C4ADiZzDEZmJJ//m1n49MJCFgEmEvBdABmQHWH4LtT9Uv678TOlMhXWiyhMe+sftuyxdA7xZMJg27alx4uXpUxnAz7gQi1Uv08hlW9To+xaE3pAGDlOVgEASGAAA="
+    },
+    {
+      "id": "phare-pointe-aube",
+      "source": "Gemini_Generated_Image_j725qyj725qyj725.jpg",
+      "alt": "Pêcheur sur une pointe rocheuse face à un phare, lumière du matin",
+      "mode": "bord",
+      "sujet": "pecheur",
+      "lumiere": "aube",
+      "ciel": "nuageux",
+      "mer": "formee",
+      "lieu": "pointe",
+      "reconnaissable": true,
+      "focus": [
+        50,
+        55
+      ],
+      "w": 2576,
+      "h": 1438,
+      "orientation": "paysage",
+      "lqip": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAADwAwCdASoYAA0APtFUpEuoJKOhsAgBABoJQBOmUABsDk4JIwK9K8oAAP6RvTpXS/C35FQFSJlPoU0pdxuWA61FH507o0kXXZMDcSRe8USZUGIOOxLec1zRyBfiMnLU9gHI/Pg/fOBgUdHe/9LWljMz69zNAn4S9me9leGe774AAA=="
+    },
+    {
+      "id": "falaises-couchant",
+      "source": "Gemini_Generated_Image_a48ab3a48ab3a48a.jpg",
+      "alt": "Pêcheur en action devant des falaises au soleil couchant",
+      "mode": "bord",
+      "sujet": "pecheur",
+      "lumiere": "crepuscule",
+      "ciel": "clair",
+      "mer": "calme",
+      "lieu": "falaise",
+      "focus": [
+        70,
+        50
+      ],
+      "w": 2576,
+      "h": 1438,
+      "orientation": "paysage",
+      "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAAAwBACdASoYAA0APtFWpEuoJKOhsAgBABoJYwC7IExDA2dnENB/AWHwhgAA/f0lYSwUFOG2WXcM5xk0zQzawA6+xSXYEtkq/jwl+xYrf+qjL+VEd7x4EOP/p2vxPEHx2Gixo2UStQ6ArZxgWYOzYOZl6GN6cOMx8LP2zoJgsm1QD1S+h/kSDAAA"
+    },
+    {
+      "id": "abbaye-crepuscule",
+      "source": "Gemini_Generated_Image_50mdqr50mdqr50md.jpg",
+      "alt": "Pêcheur au crépuscule devant un phare et les ruines d'une abbaye",
+      "mode": "bord",
+      "sujet": "pecheur",
+      "lumiere": "crepuscule",
+      "ciel": "clair",
+      "mer": "calme",
+      "lieu": "pointe",
+      "reconnaissable": true,
+      "focus": [
+        75,
+        55
+      ],
+      "w": 2576,
+      "h": 1438,
+      "orientation": "paysage",
+      "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAABQBACdASoYAA0APtFUpEuoJKOhsAgBABoJYgCdMoACMD5M00PlqW4w32TAAMlYQ2WLTXbgX165uZDaHD+LLz1bVK5J9tMn9JG1jK7l7BeZrurTgrK5EhFWTg1O7uOznDNWIXEePQqlx+wAAAA="
+    },
+    {
+      "id": "plage-averse",
+      "source": "Gemini_Generated_Image_9c8j399c8j399c8j.jpg",
+      "alt": "Pêcheur sur une grande plage sous un ciel d'averse",
+      "mode": "bord",
+      "sujet": "pecheur",
+      "lumiere": "jour",
+      "ciel": "pluie",
+      "mer": "formee",
+      "lieu": "plage",
+      "focus": [
+        52,
+        62
+      ],
+      "w": 2576,
+      "h": 1438,
+      "orientation": "paysage",
+      "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAwBACdASoYAA0APtFYpkwoJSOiMAgBABoJYwCdMoMe6DunValoQcy++UAA+I8gVZTjT+3c6lEWH+2/H9YG8jgPpV8HnOcA4aWhSxHUwI2RdBelK0Jxm865gzn/nluuMNx6CbXv79lIOUQNwAA="
+    },
+    {
+      "id": "mesure-bar",
+      "source": "Gemini_Generated_Image_wcmb1jwcmb1jwcmb.jpg",
+      "alt": "Mains gantées mesurant un bar sur les rochers",
+      "mode": "journal",
+      "sujet": "poisson",
+      "espece": "bar",
+      "lumiere": "jour",
+      "ciel": "nuageux",
+      "mer": "formee",
+      "lieu": "rochers",
+      "focus": [
+        60,
+        70
+      ],
+      "w": 2576,
+      "h": 1438,
+      "orientation": "paysage",
+      "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAABwBACdASoYAA0APtFUo0uoJKMhsAgBABoJZQCpFKnDBkF8jOe+v1ZkwET3EAD+4AmkPco57hLWS/dTXPXx2f3kynqFYtxT665ZTJQWl4yglzmCZBPQ4Lp4g1WyII0LEToq3mLaCBtt3iLBNCc/QBnMRhzkIGyYfiV++ZWChyLmASJxkgAAAA=="
+    },
+    {
+      "id": "port-crepuscule",
+      "source": "Gemini_Generated_Image_s9v5kls9v5kls9v5.jpg",
+      "alt": "Pêcheur sur un quai de port breton au crépuscule",
+      "mode": "bord",
+      "sujet": "pecheur",
+      "lumiere": "crepuscule",
+      "ciel": "clair",
+      "mer": "calme",
+      "lieu": "port",
+      "reconnaissable": true,
+      "focus": [
+        80,
+        55
+      ],
+      "w": 2576,
+      "h": 1438,
+      "orientation": "paysage",
+      "lqip": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAAAQBACdASoYAA0APtFWpEuoJKOhsAgBABoJYwCdMoADgIMrJKB/bzoKAADxP9LnMPeIhzGj5ROev4PuCxgmAyKj7yOkqc1jRRU1AayzUo0AS6UmQDF08Dxe7L2F/L1nqlUivxhqS6SlBUZeCbyS8fzWiSARxWm5JVEhq8XC2EAAAA=="
+    },
+    {
+      "id": "maquereau-roche",
+      "source": "Gemini_Generated_Image_u3vc5u3vc5u3vc5u.jpg",
+      "alt": "Maquereau posé sur une roche, canne et leurre",
+      "mode": "espece",
+      "sujet": "poisson",
+      "espece": "maquereau",
+      "lumiere": "jour",
+      "ciel": "nuageux",
+      "mer": "formee",
+      "lieu": "rochers",
+      "focus": [
+        40,
+        65
+      ],
+      "w": 2576,
+      "h": 1438,
+      "orientation": "paysage",
+      "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAAAQBACdASoYAA0APtFWpUwoJKOiMAgBABoJYwCdACG0xehmI6WPcHzWAAD+W1Iz6efV44J+b3XmvB6qd/1WOD3gFXTEdna2yfbfZGzhTs47z4yRdwlnRAcTsFkyFyGAJugu737qfS28wiG4hYm9w2Gfo+fHhlSpEBsNPjFTnHLanJKW6G7gfjAA"
+    },
+    {
+      "id": "granit-crique",
+      "source": "Gemini_Generated_Image_2g7c002g7c002g7c.jpg",
+      "alt": "Pêcheur sur des blocs de granit au-dessus d'une crique turquoise",
+      "mode": "bord",
+      "sujet": "pecheur",
+      "lumiere": "jour",
+      "ciel": "clair",
+      "mer": "calme",
+      "lieu": "crique",
+      "reconnaissable": true,
+      "focus": [
+        62,
+        55
+      ],
+      "w": 2576,
+      "h": 1438,
+      "orientation": "paysage",
+      "lqip": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAADwAwCdASoYAA0APtFapEwoJSOiMAgBABoJZgCdACKTO0fAeemreuoAAP7fJKGLnDG+wFv230DiWaunFu39/e4BFkFCGIDeNzlkHKx4TR/gqwGW9+G2tQG9h4jMBxlBCFt0vnsp1Hg/+FGYV05roa8OZgvfe/Ico+70DmMC+0LWl+1Elhjy8HYeHitgcHfJAAA="
+    },
+    {
+      "id": "nuit-frontale",
+      "source": "Gemini_Generated_Image_utkqmtutkqmtutkq.jpg",
+      "alt": "Pêcheur de nuit à la lampe frontale sur une digue",
+      "mode": "bord",
+      "sujet": "pecheur",
+      "lumiere": "nuit",
+      "ciel": "nuageux",
+      "mer": "calme",
+      "lieu": "digue",
+      "focus": [
+        72,
+        52
+      ],
+      "w": 2576,
+      "h": 1438,
+      "orientation": "paysage",
+      "lqip": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAwCdASoYAA0APtFWo0uoJKMhsAgBABoJZwDG9Bj0WJF6KuJ94QCAAP70MsZXGnHG4wm5+arLntTKEod7ZMl9BrBDSl0U7/WlK+CkdsT1pItPgHNHe1fiUwAAAA=="
+    },
+    {
+      "id": "roche-ciel-bleu",
+      "source": "Gemini_Generated_Image_vz9drlvz9drlvz9d.jpg",
+      "alt": "Pêcheur sur une roche, eau claire et ciel bleu",
+      "mode": "bord",
+      "sujet": "pecheur",
+      "lumiere": "jour",
+      "ciel": "clair",
+      "mer": "calme",
+      "lieu": "rochers",
+      "focus": [
+        70,
+        45
+      ],
+      "w": 1438,
+      "h": 2576,
+      "orientation": "portrait",
+      "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAACwBACdASoNABgAPtFapkyoJSOiMAgBABoJbACdMoRwACxRYfw6L6GmDm+EZxvAAP5ZLSoGR7/fLA5wygaRYDzhonk3bbdzuycxbseW5vX7RA3w8Ks4BnvlX3dFLyY9aetayW1Hbv1K0jo/eKehc6qliAGkaAAA"
+    },
+    {
+      "id": "semi-rigide-lieu",
+      "source": "Gemini_Generated_Image_lsct1flsct1flsct.jpg",
+      "alt": "Semi-rigide vu de haut, un pêcheur montre un lieu",
+      "mode": "bateau",
+      "sujet": "bateau",
+      "lumiere": "jour",
+      "ciel": "nuageux",
+      "mer": "calme",
+      "lieu": "large",
+      "focus": [
+        50,
+        60
+      ],
+      "w": 1438,
+      "h": 2576,
+      "orientation": "portrait",
+      "lqip": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADwAwCdASoNABgAPtFWpUwoJKOiMAgBABoJZQCdABbC5McCbpQyURHQAPzTw3/xepg5PJKylgL2y/pQhZN96rzShXFWqAqHNN2syAzdLl0JgmMlgzyphySasWyzn6R+bwIWB7+QAAA="
+    },
+    {
+      "id": "tempete-roches",
+      "source": "Gemini_Generated_Image_9bpcjp9bpcjp9bpc.jpg",
+      "alt": "Vagues de tempête qui explosent sur les roches",
+      "mode": "tous",
+      "sujet": "paysage",
+      "lumiere": "jour",
+      "ciel": "orage",
+      "mer": "tempete",
+      "lieu": "rochers",
+      "focus": [
+        60,
+        50
+      ],
+      "w": 1438,
+      "h": 2576,
+      "orientation": "portrait",
+      "lqip": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAQBACdASoNABgAPtFWpEuoJKOhsAgBABoJZwDCgBuJWiHqXfVnlMzkAAD+uwvD1iHKIRACHvu+novOP4fTqyCdGovjG90tSg60Nyv/LbUcMQwKZ0H+QFziI/7H+V1kx3WBiXAA"
+    },
+    {
+      "id": "lieu-jaune-boudin",
+      "source": "Gemini_Generated_Image_j506oj506oj506oj.jpg",
+      "alt": "Lieu jaune tenu au-dessus du boudin d'un semi-rigide",
+      "mode": "espece",
+      "sujet": "poisson",
+      "espece": "lieu-jaune",
+      "lumiere": "jour",
+      "ciel": "nuageux",
+      "mer": "calme",
+      "lieu": "large",
+      "focus": [
+        40,
+        55
+      ],
+      "w": 1438,
+      "h": 2576,
+      "orientation": "portrait",
+      "lqip": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADQAwCdASoNABgAPtFWpEuoJKOhsAgBABoJQBOgBCN9+zXli/jikAAA/utGe+MALzJnJaDSe39SRYu1eObWLVhu5RTPgnxiQqadAYuRv8kanEL/M3XDh7skqKSn1jhAtLrBiFCeQrySmPyGpSkcr3yrQAA="
+    },
+    {
+      "id": "silhouette-couchant",
+      "source": "Gemini_Generated_Image_sd4e6xsd4e6xsd4e.jpg",
+      "alt": "Silhouette d'un pêcheur sur une roche, mer d'huile au coucher du soleil",
+      "mode": "bord",
+      "sujet": "pecheur",
+      "lumiere": "crepuscule",
+      "ciel": "clair",
+      "mer": "calme",
+      "lieu": "rochers",
+      "focus": [
+        70,
+        52
+      ],
+      "w": 1438,
+      "h": 2576,
+      "orientation": "portrait",
+      "lqip": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAABwAwCdASoNABgAPtFWpEuoJKOhsAgBABoJQBYdg9C7io7UEtAA/j7aUYJbqyaOWrh6onaZwEr1r0fSE0x+m9dxDVF99WDlsduTX7A+gcmPhmKMA6sWDfuptyp+wAAA"
+    },
+    {
+      "id": "lieu-noir-boudin",
+      "source": "Gemini_Generated_Image_9bpcjp9bpcjp9bpc_2.jpg",
+      "alt": "Lieu noir tenu au-dessus du boudin, un jig à la ligne",
+      "mode": "espece",
+      "sujet": "poisson",
+      "espece": "lieu-noir",
+      "lumiere": "jour",
+      "ciel": "nuageux",
+      "mer": "calme",
+      "lieu": "large",
+      "focus": [
+        45,
+        50
+      ],
+      "w": 1438,
+      "h": 2576,
+      "orientation": "portrait",
+      "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAADwAwCdASoNABgAPtFUpEuoJKOhsAgBABoJYgCdACH3ocDDIBmFqU48AP6vFIdQF5UxXa3c++xrrlew77FCSUzCm/0yr8zQ/k10gUgfYNwjZNhVnwYNf5GCjMc3WLOQl9XVZURfD7pSd9PxK7sZ03Yr0I7IAAAA"
+    },
+    {
+      "id": "semi-rigide-aube-port",
+      "source": "Gemini_Generated_Image_w81vyaw81vyaw81v.jpg",
+      "alt": "Semi-rigide qui sort du port à l'aube, phare de la jetée",
+      "mode": "bateau",
+      "sujet": "bateau",
+      "lumiere": "aube",
+      "ciel": "clair",
+      "mer": "calme",
+      "lieu": "port",
+      "reconnaissable": true,
+      "focus": [
+        50,
+        70
+      ],
+      "w": 1438,
+      "h": 2576,
+      "orientation": "portrait",
+      "lqip": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAwBACdASoNABgAPtFapkyoJSOiMAgBABoJYwCdMoADTp6k7MxeqTEg4gAA/usr9T9QPP+CkNQL2QD1Uvxel/tx6E7Nk+OyeVDWn/RpxTaMA2v19MbqSyn6ErDkDnNsX5Bg+FFcQcd7BpAA"
+    },
+    {
+      "id": "silhouette-aube-rose",
+      "source": "Gemini_Generated_Image_78rcxo78rcxo78rc.jpg",
+      "alt": "Silhouette d'un pêcheur sur une roche, ciel rose de l'aube",
+      "mode": "bord",
+      "sujet": "pecheur",
+      "lumiere": "aube",
+      "ciel": "clair",
+      "mer": "calme",
+      "lieu": "rochers",
+      "focus": [
+        65,
+        55
+      ],
+      "w": 1438,
+      "h": 2576,
+      "orientation": "portrait",
+      "lqip": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQBACdASoNABgAPtFUpEuoJKOhsAgBABoJYgCdACHfsV/MPYsV/3G8AAD+1Klwiav/qGJjRm1eGw34ycG4V4fIs7ot5QSTCNzvybJPgo7fFbdB/QRhjyp9hwMkFAAA"
+    },
+    {
+      "id": "semi-rigide-gilets",
+      "source": "Gemini_Generated_Image_ln2nphln2nphln2n.jpg",
+      "alt": "Deux pêcheurs en gilet sur un semi-rigide, mer calme",
+      "mode": "bateau",
+      "sujet": "bateau",
+      "lumiere": "jour",
+      "ciel": "nuageux",
+      "mer": "calme",
+      "lieu": "large",
+      "focus": [
+        50,
+        62
+      ],
+      "w": 1438,
+      "h": 2576,
+      "orientation": "portrait",
+      "lqip": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAwBACdASoNABgAPtFapkuoJaOhsAgBABoJZQCdACP/97bO6PtaCWk+zkAA/t+umqXiBqmWJppGN0GFBYjqcMduf4Ze8O8BvJxoRNBMfCE+m51cz0rQKn30hORkAA=="
+    },
+    {
+      "id": "bar-boudin",
+      "source": "Gemini_Generated_Image_6y3yf66y3yf66y3y.jpg",
+      "alt": "Bar tenu au-dessus du boudin d'un semi-rigide",
+      "mode": "espece",
+      "sujet": "poisson",
+      "espece": "bar",
+      "lumiere": "jour",
+      "ciel": "nuageux",
+      "mer": "calme",
+      "lieu": "large",
+      "focus": [
+        45,
+        50
+      ],
+      "w": 1438,
+      "h": 2576,
+      "orientation": "portrait",
+      "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADQAwCdASoNABgAPtFUo0uoJKMhsAgBABoJYwCdACEVTZE/2dtwHgAA/ug3Z0bQPguBOq7IIUPDj+UtpVg8GaIx1T6aDN278j0yHfAZ4Su+mwagar8FXdnUjMuxH/NEpkbJcBHEk7gAAA=="
+    },
+    {
+      "id": "maquereau-banquette",
+      "source": "Gemini_Generated_Image_v2gmpsv2gmpsv2gm.jpg",
+      "alt": "Maquereau sur la banquette d'un semi-rigide",
+      "mode": "espece",
+      "sujet": "poisson",
+      "espece": "maquereau",
+      "lumiere": "jour",
+      "ciel": "nuageux",
+      "mer": "calme",
+      "lieu": "large",
+      "focus": [
+        65,
+        50
+      ],
+      "w": 1438,
+      "h": 2576,
+      "orientation": "portrait",
+      "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADwAwCdASoNABgAPtFWo0uoJKMhsAgBABoJYwCdABVCHAEZkcZF/JQAAP7pp2CRQqxFghONT16dz/4N48+FUVTnZw7392PPYvTMc+AoCgbLQcX4TZCn/xEY41xFW0K2xo5dYlblExgDJyU0gAA="
+    },
+    {
+      "id": "semi-rigide-brume",
+      "source": "Gemini_Generated_Image_zfhow6zfhow6zfho.jpg",
+      "alt": "Semi-rigide dans une mer grise, ciel bas et brume",
+      "mode": "bateau",
+      "sujet": "bateau",
+      "lumiere": "jour",
+      "ciel": "brume",
+      "mer": "calme",
+      "lieu": "large",
+      "focus": [
+        50,
+        70
+      ],
+      "w": 1438,
+      "h": 2576,
+      "orientation": "portrait",
+      "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAwCdASoNABgAPtFWpEuoJKOhsAgBABoJZwDCgGlh3h5O/PnJygAA/v57cYQ1DcGMHtlHQNXLIdE58+FnvxS+RidNJPlXaCTJpJoTJgzDCwmja0SAAA=="
+    },
+    {
+      "id": "nuit-lune",
+      "source": "Gemini_Generated_Image_9bpcjp9bpcjp9bpc_1.jpg",
+      "alt": "Pêcheur de nuit sur une roche, reflet de la lune",
+      "mode": "bord",
+      "sujet": "pecheur",
+      "lumiere": "nuit",
+      "ciel": "nuageux",
+      "mer": "calme",
+      "lieu": "rochers",
+      "focus": [
+        65,
+        60
+      ],
+      "w": 1438,
+      "h": 2576,
+      "orientation": "portrait",
+      "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAwAwCdASoNABgAPtFYpEuoJSOhsAgBABoJZwAAUrfGTJ4AAP7ytM8IlCBta8YqDN5IwP9lpeDwJuMv57mJ0/mtAFrxyerlP/mjuAAA"
+    },
+    {
+      "id": "estuaire-pres-sales",
+      "source": "Gemini_Generated_Image_z6d6c7z6d6c7z6d6.jpg",
+      "alt": "Pêcheur au bord d'un chenal dans les prés salés",
+      "mode": "bord",
+      "sujet": "pecheur",
+      "lumiere": "jour",
+      "ciel": "nuageux",
+      "mer": "calme",
+      "lieu": "estuaire",
+      "focus": [
+        35,
+        70
+      ],
+      "w": 1438,
+      "h": 2576,
+      "orientation": "portrait",
+      "lqip": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACQAgCdASoNABgAAsBMJQBYdhuj6arr33mZ8JZ+AAD+kJlRwWawrnC3I1qrbZ0ZcW2VsuU8B5tD7ENP4JRcT9+6FKU4YEpnjH5x/H8pF101geogcAA="
+    }
+  ]
+}

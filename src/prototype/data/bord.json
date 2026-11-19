@@ -1,0 +1,5048 @@
+{
+ "meta": {
+  "guide": "logonna",
+  "guideName": "Logonna-Daoulas",
+  "date": "2026-05-16",
+  "source": "Journée réelle archivée (Open-Meteo, AROME), passée au moteur v2 de l'application",
+  "generatedBy": "scripts/prototype-data.mjs",
+  "ens": {
+   "lo": 88,
+   "hi": 93,
+   "firstShare": 100,
+   "firstTieShare": 100,
+   "members": 9
+  }
+ },
+ "live": {
+  "resume": "Vent OSO 13 km/h (F3), rafales 37 · ciel voilé à mi-couvert · 1012 hPa stable (+0,8 sur 24 h) · eau 14,8 °C — moyenne 6 h-22 h à Logonna-Daoulas.",
+  "windDir": "OSO",
+  "windForce": 3,
+  "windKmh": 13,
+  "gustKmh": 37,
+  "sky": "partly",
+  "wave": 0.2,
+  "sst": 14.8,
+  "pressure": 1012,
+  "pressureTrend": "stable",
+  "rainMm": 0.3,
+  "models": [
+   "AROME"
+  ],
+  "zones": {
+   "local": {
+    "wind_dir": "OSO",
+    "wind_force": 3,
+    "wind_kmh": 17,
+    "sky": "partly",
+    "houle": 0.2
+   },
+   "inter": {
+    "wind_dir": "OSO",
+    "wind_force": 3,
+    "wind_kmh": 15,
+    "sky": "partly",
+    "houle": 0.1
+   },
+   "far": {
+    "wind_dir": "O",
+    "wind_force": 4,
+    "wind_kmh": 21,
+    "sky": "partly",
+    "houle": 0.8
+   }
+  }
+ },
+ "tide": {
+  "port": "Brest",
+  "coefs": [
+   93,
+   97
+  ],
+  "events": [
+   {
+    "type": "PM",
+    "time": "05h11",
+    "dec": 5.2,
+    "h": 7,
+    "coef": 93
+   },
+   {
+    "type": "BM",
+    "time": "11h32",
+    "dec": 11.5,
+    "h": 1.2,
+    "coef": 97
+   },
+   {
+    "type": "PM",
+    "time": "17h35",
+    "dec": 17.6,
+    "h": 7.1,
+    "coef": 97
+   },
+   {
+    "type": "BM",
+    "time": "23h55",
+    "dec": 23.9,
+    "h": 1,
+    "coef": 99
+   }
+  ],
+  "curve": [
+   [
+    0,
+    1.57
+   ],
+   [
+    0.5,
+    2.01
+   ],
+   [
+    1,
+    2.6
+   ],
+   [
+    1.5,
+    3.29
+   ],
+   [
+    2,
+    4.03
+   ],
+   [
+    2.5,
+    4.75
+   ],
+   [
+    3,
+    5.43
+   ],
+   [
+    3.5,
+    6.02
+   ],
+   [
+    4,
+    6.5
+   ],
+   [
+    4.5,
+    6.83
+   ],
+   [
+    5,
+    6.99
+   ],
+   [
+    5.5,
+    6.96
+   ],
+   [
+    6,
+    6.74
+   ],
+   [
+    6.5,
+    6.34
+   ],
+   [
+    7,
+    5.8
+   ],
+   [
+    7.5,
+    5.17
+   ],
+   [
+    8,
+    4.48
+   ],
+   [
+    8.5,
+    3.8
+   ],
+   [
+    9,
+    3.14
+   ],
+   [
+    9.5,
+    2.53
+   ],
+   [
+    10,
+    1.99
+   ],
+   [
+    10.5,
+    1.56
+   ],
+   [
+    11,
+    1.27
+   ],
+   [
+    11.5,
+    1.15
+   ],
+   [
+    12,
+    1.25
+   ],
+   [
+    12.5,
+    1.55
+   ],
+   [
+    13,
+    2.04
+   ],
+   [
+    13.5,
+    2.68
+   ],
+   [
+    14,
+    3.41
+   ],
+   [
+    14.5,
+    4.17
+   ],
+   [
+    15,
+    4.92
+   ],
+   [
+    15.5,
+    5.61
+   ],
+   [
+    16,
+    6.21
+   ],
+   [
+    16.5,
+    6.68
+   ],
+   [
+    17,
+    6.99
+   ],
+   [
+    17.5,
+    7.12
+   ],
+   [
+    18,
+    7.06
+   ],
+   [
+    18.5,
+    6.79
+   ],
+   [
+    19,
+    6.34
+   ],
+   [
+    19.5,
+    5.74
+   ],
+   [
+    20,
+    5.06
+   ],
+   [
+    20.5,
+    4.33
+   ],
+   [
+    21,
+    3.62
+   ],
+   [
+    21.5,
+    2.93
+   ],
+   [
+    22,
+    2.31
+   ],
+   [
+    22.5,
+    1.77
+   ],
+   [
+    23,
+    1.34
+   ],
+   [
+    23.5,
+    1.08
+   ],
+   [
+    24,
+    1
+   ]
+  ]
+ },
+ "sun": {
+  "dawn": "05h59",
+  "sunrise": "06h36",
+  "sunset": "21h51",
+  "dusk": "22h29"
+ },
+ "spots": [
+  {
+   "id": "penhir",
+   "name": "Pointe de Pen-Hir",
+   "subtitle": "Camaret-sur-Mer, mer d'Iroise",
+   "type": "CÔTE OCÉANIQUE",
+   "distMin": 75,
+   "lat": 48.254116,
+   "lon": -4.621814,
+   "status": "ok",
+   "rank": 1,
+   "nrReason": null,
+   "verify": [],
+   "fav": 93,
+   "favLine": "Favorabilité 93 = conditions 98 (marée 43/45, lumière 25/25, vent et mer 30/30) × présence 0,95",
+   "cond": 98,
+   "presence": {
+    "factor": 0.95,
+    "label": "saison : retour"
+   },
+   "crit": [
+    {
+     "k": "fenetre",
+     "label": "Marée : fenêtre",
+     "pts": 25,
+     "max": 25,
+     "why": "fenêtre « prime » de la fiche",
+     "niveau": 2
+    },
+    {
+     "k": "coef",
+     "label": "Marée : coefficient",
+     "pts": 17.6,
+     "max": 20,
+     "why": "coef 93, au-dessus de la plage utile (45 à 90)",
+     "niveau": 4
+    },
+    {
+     "k": "lumiere",
+     "label": "Lumière",
+     "pts": 25,
+     "max": 25,
+     "why": "aube",
+     "niveau": 2
+    },
+    {
+     "k": "vent",
+     "label": "Vent et mer",
+     "pts": 30,
+     "max": 30,
+     "why": "vent de mer force 3",
+     "niveau": 2
+    }
+   ],
+   "pert": {
+    "score": 83,
+    "parts": [
+     {
+      "label": "Ta boîte : la bonne technique",
+      "pts": 50,
+      "max": 50,
+      "why": "Xorus Z Claw Evo 100 : stickbait, le premier choix ici"
+     },
+     {
+      "label": "Ta boîte : poids et lancer",
+      "pts": 25,
+      "max": 25,
+      "why": "10 g visés, dans ta boîte et dans la plage de ta canne (14 à 42 g)"
+     },
+     {
+      "label": "Distance",
+      "pts": 8.3,
+      "max": 25,
+      "why": "75 min de trajet, au-delà de ton maximum (45 min)"
+     }
+    ],
+    "top": [
+     {
+      "name": "Xorus Z Claw Evo 100",
+      "weight": "22,5 g",
+      "color": "Blanc nacré",
+      "famLabel": "Stickbait",
+      "why": "Lancers longs même vent de face."
+     },
+     {
+      "name": "Xorus Asturie 110",
+      "weight": "15 g",
+      "color": "Cabot",
+      "famLabel": "Stickbait",
+      "why": "Mer belle à peu agitée : la surface travaille bien."
+     },
+     {
+      "name": "Xorus Asturie 130",
+      "weight": "27 g",
+      "color": "Cabot",
+      "famLabel": "Stickbait",
+      "why": "Mer belle à peu agitée : la surface travaille bien."
+     }
+    ]
+   },
+   "conf": {
+    "score": 67,
+    "label": "Moyenne",
+    "parts": [
+     {
+      "label": "Données",
+      "pts": 32.5,
+      "max": 40,
+      "why": "âge de la prévision inconnu ; aujourd'hui ; 100 % des critères calculés"
+     },
+     {
+      "label": "Accord des modèles",
+      "pts": 20,
+      "max": 20,
+      "why": "AROME et ECMWF : 0 Beaufort d'écart, 1 secteur de direction"
+     },
+     {
+      "label": "Preuves",
+      "pts": 14.3,
+      "max": 25,
+      "why": "exposition 4, courant 4, bars 4 sur l'échelle de 1 à 5"
+     },
+     {
+      "label": "Ton journal",
+      "pts": 0,
+      "max": 15,
+      "why": "aucune session notée ici"
+     }
+    ]
+   },
+   "best": {
+    "start": "06h11",
+    "end": "08h11",
+    "label": "Descendant plein (1-3h après PM)",
+    "light": "aube",
+    "lightLabel": "Aube",
+    "coeff": 93,
+    "tide": "descendant"
+   },
+   "windows": [
+    {
+     "start": 5,
+     "end": 6.176666666666666,
+     "startFmt": "05h00",
+     "endFmt": "06h11",
+     "fav": null,
+     "ok": false,
+     "verify": false,
+     "light": "nuit",
+     "label": "Pleine mer (PM−1 → PM+1)"
+    },
+    {
+     "start": 6.176666666666666,
+     "end": 8.176666666666666,
+     "startFmt": "06h11",
+     "endFmt": "08h11",
+     "fav": 93,
+     "ok": true,
+     "verify": false,
+     "light": "aube",
+     "label": "Descendant plein (1-3h après PM)"
+    },
+    {
+     "start": 8.530833333333334,
+     "end": 11.030833333333334,
+     "startFmt": "08h32",
+     "endFmt": "11h02",
+     "fav": 73,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "3 dernières heures avant BM"
+    },
+    {
+     "start": 16.584999999999997,
+     "end": 18.584999999999997,
+     "startFmt": "16h35",
+     "endFmt": "18h35",
+     "fav": 63,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "Pleine mer (PM−1 → PM+1)"
+    },
+    {
+     "start": 18.584999999999997,
+     "end": 20.584999999999997,
+     "startFmt": "18h35",
+     "endFmt": "20h35",
+     "fav": 70,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "Descendant plein (1-3h après PM)"
+    },
+    {
+     "start": 20.91777777777778,
+     "end": 23,
+     "startFmt": "20h55",
+     "endFmt": "23h00",
+     "fav": 84,
+     "ok": true,
+     "verify": false,
+     "light": "crepuscule",
+     "label": "3 dernières heures avant BM"
+    }
+   ],
+   "lure": {
+    "summary": "Z Claw Evo 100 · 22,5 g · Blanc nacré",
+    "family": "Stickbait",
+    "familyLabel": "Surface : stickbait, pencil",
+    "pick": {
+     "name": "Xorus Z Claw Evo 100",
+     "weight": "22,5 g",
+     "color": "Blanc nacré",
+     "named": true
+    },
+    "alts": [
+     {
+      "name": "Megabass Spindle Worm 100",
+      "weight": "sans plomb, nagé au-dessus du fond",
+      "color": "blanc, coloris contrastés, tons chauds"
+     },
+     {
+      "name": "Sakura Mr Joe 105",
+      "weight": "23 g",
+      "color": "blanc, coloris contrastés, tons chauds"
+     }
+    ],
+    "color": "Contrastée : blanc, Cabot ou tons chauds",
+    "colorWhy": [
+     "Aube et crépuscule : coloris contrastés ou chauds, qui restent visibles en lumière douce.",
+     "Blanc, efficace en eau claire par faible luminosité, le soir ou le matin."
+    ],
+    "size": "Profil de lançon / équille, 8-15 cm",
+    "weight": "22,5 g",
+    "weightWhy": [
+     "Poids du leurre : 22,5 g (22,5 g (SeabassLureShop, Ardent Pêche, Spécialiste Leurres) ; une copie peut différer).",
+     "Montage conseillé par la fiche : Stickbait et sinking pencil ; leurre coulant compté sur les basses accessibles."
+    ],
+    "anim": [
+     "Walking the dog. Scion haut, il remonte en surface ; scion bas, il plonge légèrement.",
+     "Attaques souvent dans les derniers mètres : le ramener jusqu'au bout.",
+     "Walking the dog : environ deux coups de scion par seconde ; long-slide, plus lent, pour les gros poissons."
+    ]
+   },
+   "access": [
+    "Depuis Logonna : Le Faou, puis la D791 et le pont de Térénez, direction Crozon / Camaret. Parking pointe de Pen-Hir (monument aux Bretons). Sentier GR34 puis descente technique aux rochers. Niveau pêcheur expérimenté + conditions calmes impératives."
+   ],
+   "securite": [
+    "Jamais seul, gilet obligatoire. Descente technique aux rochers : conditions calmes impératives et bulletin mer d'Iroise vérifié."
+   ],
+   "hourly": [
+    {
+     "h": 5,
+     "wind": 20,
+     "gust": 23,
+     "dir": 297,
+     "wave": 0.8,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 13.5
+    },
+    {
+     "h": 6,
+     "wind": 19,
+     "gust": 25,
+     "dir": 282,
+     "wave": 0.8,
+     "cloud": 81,
+     "rain": 0,
+     "sst": 13.5
+    },
+    {
+     "h": 7,
+     "wind": 17,
+     "gust": 24,
+     "dir": 265,
+     "wave": 0.8,
+     "cloud": 19,
+     "rain": 0,
+     "sst": 13.5
+    },
+    {
+     "h": 8,
+     "wind": 19,
+     "gust": 24,
+     "dir": 248,
+     "wave": 0.8,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 13.5
+    },
+    {
+     "h": 9,
+     "wind": 18,
+     "gust": 24,
+     "dir": 242,
+     "wave": 0.7,
+     "cloud": 1,
+     "rain": 0,
+     "sst": 13.5
+    },
+    {
+     "h": 10,
+     "wind": 13,
+     "gust": 26,
+     "dir": 224,
+     "wave": 0.7,
+     "cloud": 79,
+     "rain": 0,
+     "sst": 13.6
+    },
+    {
+     "h": 11,
+     "wind": 18,
+     "gust": 25,
+     "dir": 261,
+     "wave": 0.7,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 13.6
+    },
+    {
+     "h": 12,
+     "wind": 21,
+     "gust": 25,
+     "dir": 283,
+     "wave": 0.7,
+     "cloud": 8,
+     "rain": 0,
+     "sst": 13.6
+    },
+    {
+     "h": 13,
+     "wind": 25,
+     "gust": 27,
+     "dir": 278,
+     "wave": 0.7,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 13.6
+    },
+    {
+     "h": 14,
+     "wind": 22,
+     "gust": 28,
+     "dir": 259,
+     "wave": 0.8,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 13.7
+    },
+    {
+     "h": 15,
+     "wind": 20,
+     "gust": 29,
+     "dir": 269,
+     "wave": 0.8,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 13.7
+    },
+    {
+     "h": 16,
+     "wind": 25,
+     "gust": 25,
+     "dir": 264,
+     "wave": 0.8,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 13.7
+    },
+    {
+     "h": 17,
+     "wind": 24,
+     "gust": 28,
+     "dir": 268,
+     "wave": 0.8,
+     "cloud": 100,
+     "rain": 0.1,
+     "sst": 13.8
+    },
+    {
+     "h": 18,
+     "wind": 24,
+     "gust": 25,
+     "dir": 264,
+     "wave": 0.9,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 13.8
+    },
+    {
+     "h": 19,
+     "wind": 23,
+     "gust": 27,
+     "dir": 247,
+     "wave": 0.9,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 13.8
+    },
+    {
+     "h": 20,
+     "wind": 25,
+     "gust": 30,
+     "dir": 257,
+     "wave": 0.9,
+     "cloud": 28,
+     "rain": 0,
+     "sst": 13.8
+    },
+    {
+     "h": 21,
+     "wind": 23,
+     "gust": 30,
+     "dir": 256,
+     "wave": 0.9,
+     "cloud": 37,
+     "rain": 0,
+     "sst": 13.8
+    },
+    {
+     "h": 22,
+     "wind": 25,
+     "gust": 31,
+     "dir": 275,
+     "wave": 0.9,
+     "cloud": 89,
+     "rain": 0,
+     "sst": 13.8
+    },
+    {
+     "h": 23,
+     "wind": 16,
+     "gust": 34,
+     "dir": 282,
+     "wave": 0.9,
+     "cloud": 99,
+     "rain": 0,
+     "sst": 13.8
+    }
+   ]
+  },
+  {
+   "id": "minou",
+   "name": "Pointe du Petit Minou",
+   "subtitle": "Plouzané, Goulet nord",
+   "type": "POINTE / PHARE",
+   "distMin": 60,
+   "lat": 48.3367,
+   "lon": -4.613987,
+   "status": "ok",
+   "rank": 2,
+   "nrReason": null,
+   "verify": [],
+   "fav": 86,
+   "favLine": "Favorabilité 86 = conditions 90 (marée 35/45, lumière 25/25, vent et mer 30/30) × présence 0,95",
+   "cond": 90,
+   "presence": {
+    "factor": 0.95,
+    "label": "saison : retour"
+   },
+   "crit": [
+    {
+     "k": "fenetre",
+     "label": "Marée : fenêtre",
+     "pts": 25,
+     "max": 25,
+     "why": "fenêtre « prime » de la fiche",
+     "niveau": 2
+    },
+    {
+     "k": "coef",
+     "label": "Marée : coefficient",
+     "pts": 10,
+     "max": 20,
+     "why": "coef 99, au-dessus de la plage utile (55 à 88)",
+     "niveau": 4
+    },
+    {
+     "k": "lumiere",
+     "label": "Lumière",
+     "pts": 25,
+     "max": 25,
+     "why": "crépuscule",
+     "niveau": 2
+    },
+    {
+     "k": "vent",
+     "label": "Vent et mer",
+     "pts": 30,
+     "max": 30,
+     "why": "vent de mer force 3",
+     "niveau": 2
+    }
+   ],
+   "pert": {
+    "score": 92,
+    "parts": [
+     {
+      "label": "Ta boîte : la bonne technique",
+      "pts": 50,
+      "max": 50,
+      "why": "Xorus Asturie 150 : stickbait, le premier choix ici"
+     },
+     {
+      "label": "Ta boîte : poids et lancer",
+      "pts": 25,
+      "max": 25,
+      "why": "15 g visés, dans ta boîte et dans la plage de ta canne (14 à 42 g)"
+     },
+     {
+      "label": "Distance",
+      "pts": 16.7,
+      "max": 25,
+      "why": "60 min de trajet, au-delà de ton maximum (45 min)"
+     }
+    ],
+    "top": [
+     {
+      "name": "Xorus Asturie 150",
+      "weight": "32 g",
+      "color": "",
+      "famLabel": "Stickbait",
+      "why": "Mer belle à peu agitée : la surface travaille bien."
+     },
+     {
+      "name": "Xorus Z Claw Evo 100",
+      "weight": "22,5 g",
+      "color": "Blanc nacré",
+      "famLabel": "Stickbait",
+      "why": "Lancers longs même vent de face."
+     },
+     {
+      "name": "Xorus Asturie 130",
+      "weight": "27 g",
+      "color": "Cabot",
+      "famLabel": "Stickbait",
+      "why": "Mer belle à peu agitée : la surface travaille bien."
+     }
+    ]
+   },
+   "conf": {
+    "score": 62,
+    "label": "Moyenne",
+    "parts": [
+     {
+      "label": "Données",
+      "pts": 32.5,
+      "max": 40,
+      "why": "âge de la prévision inconnu ; aujourd'hui ; 100 % des critères calculés"
+     },
+     {
+      "label": "Accord des modèles",
+      "pts": 15,
+      "max": 20,
+      "why": "AROME et ECMWF : 1 Beaufort d'écart, 0 secteur de direction"
+     },
+     {
+      "label": "Preuves",
+      "pts": 14.3,
+      "max": 25,
+      "why": "exposition 4, courant 4, bars 4 sur l'échelle de 1 à 5"
+     },
+     {
+      "label": "Ton journal",
+      "pts": 0,
+      "max": 15,
+      "why": "aucune session notée ici"
+     }
+    ]
+   },
+   "best": {
+    "start": "21h55",
+    "end": "23h00",
+    "label": "Fin de jusant (BM−2 → BM−0,5)",
+    "light": "crepuscule",
+    "lightLabel": "Crépuscule",
+    "coeff": 99,
+    "tide": "descendant"
+   },
+   "windows": [
+    {
+     "start": 6.176666666666666,
+     "end": 7.676666666666666,
+     "startFmt": "06h11",
+     "endFmt": "07h41",
+     "fav": 77,
+     "ok": true,
+     "verify": false,
+     "light": "aube",
+     "label": "1-2h après PM (descendant)"
+    },
+    {
+     "start": 9.530833333333334,
+     "end": 11.030833333333334,
+     "startFmt": "09h32",
+     "endFmt": "11h02",
+     "fav": 70,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "Fin de jusant (BM−2 → BM−0,5)"
+    },
+    {
+     "start": 10.830833333333334,
+     "end": 12.230833333333333,
+     "startFmt": "10h50",
+     "endFmt": "12h14",
+     "fav": 70,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "Étale BM (±45min)"
+    },
+    {
+     "start": 18.584999999999997,
+     "end": 20.084999999999997,
+     "startFmt": "18h35",
+     "endFmt": "20h05",
+     "fav": 58,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "1-2h après PM (descendant)"
+    },
+    {
+     "start": 21.91777777777778,
+     "end": 23,
+     "startFmt": "21h55",
+     "endFmt": "23h00",
+     "fav": 86,
+     "ok": true,
+     "verify": false,
+     "light": "crepuscule",
+     "label": "Fin de jusant (BM−2 → BM−0,5)"
+    }
+   ],
+   "lure": {
+    "summary": "Asturie 150 · 32 g",
+    "family": "Stickbait",
+    "familyLabel": "Surface : stickbait, pencil",
+    "pick": {
+     "name": "Xorus Asturie 150",
+     "weight": "32 g",
+     "color": "blanc, coloris contrastés, tons chauds",
+     "named": false
+    },
+    "alts": [
+     {
+      "name": "Sakura Mr Joe 120",
+      "weight": "35 g",
+      "color": "blanc, coloris contrastés, tons chauds"
+     }
+    ],
+    "color": "Contrastée : blanc, Cabot ou tons chauds",
+    "colorWhy": [
+     "Aube et crépuscule : coloris contrastés ou chauds, qui restent visibles en lumière douce.",
+     "Blanc, efficace en eau claire par faible luminosité, le soir ou le matin."
+    ],
+    "size": "Profil de lançon / équille, 8-15 cm",
+    "weight": "32 g",
+    "weightWhy": [
+     "Poids du leurre : 32 g (32 g (Nootica, Leurre de la pêche) ou 31,6 g (Leurres Mania)).",
+     "Vent de face, clapot, vagues ou courant : le plus lourd de la boîte se lance plus loin et tient mieux sa trajectoire."
+    ],
+    "anim": [
+     "Récupération rapide et erratique, scion haut, à-coups irréguliers (pas un walking the dog pur).",
+     "Par mer calme, à l'aube et au crépuscule : très lent. Scion bas pour le faire passer juste sous la surface.",
+     "Walking the dog : environ deux coups de scion par seconde ; long-slide, plus lent, pour les gros poissons."
+    ]
+   },
+   "access": [
+    "D789 depuis Brest direction Plouzané / phare du Petit Minou. Parking devant le phare (gratuit). Descente par sentier GR34 vers les rochers. Possibilité de pêcher depuis la plage en contrebas."
+   ],
+   "securite": [
+    "Houle de sud-ouest : au-delà de 1,8 m, quitter la pointe pour les petites anses abritées."
+   ],
+   "hourly": [
+    {
+     "h": 5,
+     "wind": 10,
+     "gust": 11,
+     "dir": 309,
+     "wave": 0.8,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 13.6
+    },
+    {
+     "h": 6,
+     "wind": 12,
+     "gust": 17,
+     "dir": 299,
+     "wave": 0.8,
+     "cloud": 5,
+     "rain": 0,
+     "sst": 13.6
+    },
+    {
+     "h": 7,
+     "wind": 21,
+     "gust": 22,
+     "dir": 261,
+     "wave": 0.8,
+     "cloud": 53,
+     "rain": 0,
+     "sst": 13.6
+    },
+    {
+     "h": 8,
+     "wind": 22,
+     "gust": 25,
+     "dir": 248,
+     "wave": 0.8,
+     "cloud": 83,
+     "rain": 0,
+     "sst": 13.6
+    },
+    {
+     "h": 9,
+     "wind": 18,
+     "gust": 25,
+     "dir": 235,
+     "wave": 0.7,
+     "cloud": 40,
+     "rain": 0,
+     "sst": 13.6
+    },
+    {
+     "h": 10,
+     "wind": 14,
+     "gust": 25,
+     "dir": 229,
+     "wave": 0.7,
+     "cloud": 16,
+     "rain": 0,
+     "sst": 13.6
+    },
+    {
+     "h": 11,
+     "wind": 17,
+     "gust": 23,
+     "dir": 277,
+     "wave": 0.7,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 13.6
+    },
+    {
+     "h": 12,
+     "wind": 21,
+     "gust": 30,
+     "dir": 281,
+     "wave": 0.7,
+     "cloud": 4,
+     "rain": 0,
+     "sst": 13.7
+    },
+    {
+     "h": 13,
+     "wind": 24,
+     "gust": 29,
+     "dir": 280,
+     "wave": 0.7,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 13.7
+    },
+    {
+     "h": 14,
+     "wind": 25,
+     "gust": 32,
+     "dir": 272,
+     "wave": 0.8,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 13.7
+    },
+    {
+     "h": 15,
+     "wind": 23,
+     "gust": 31,
+     "dir": 260,
+     "wave": 0.8,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 13.8
+    },
+    {
+     "h": 16,
+     "wind": 28,
+     "gust": 30,
+     "dir": 264,
+     "wave": 0.8,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 13.8
+    },
+    {
+     "h": 17,
+     "wind": 26,
+     "gust": 30,
+     "dir": 264,
+     "wave": 0.8,
+     "cloud": 100,
+     "rain": 0.1,
+     "sst": 13.8
+    },
+    {
+     "h": 18,
+     "wind": 26,
+     "gust": 28,
+     "dir": 260,
+     "wave": 0.9,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 13.8
+    },
+    {
+     "h": 19,
+     "wind": 25,
+     "gust": 28,
+     "dir": 247,
+     "wave": 0.9,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 13.9
+    },
+    {
+     "h": 20,
+     "wind": 26,
+     "gust": 31,
+     "dir": 255,
+     "wave": 0.9,
+     "cloud": 19,
+     "rain": 0,
+     "sst": 13.9
+    },
+    {
+     "h": 21,
+     "wind": 23,
+     "gust": 32,
+     "dir": 253,
+     "wave": 0.9,
+     "cloud": 37,
+     "rain": 0,
+     "sst": 13.9
+    },
+    {
+     "h": 22,
+     "wind": 20,
+     "gust": 32,
+     "dir": 275,
+     "wave": 0.9,
+     "cloud": 73,
+     "rain": 0,
+     "sst": 13.9
+    },
+    {
+     "h": 23,
+     "wind": 13,
+     "gust": 33,
+     "dir": 288,
+     "wave": 0.9,
+     "cloud": 100,
+     "rain": 0.4,
+     "sst": 13.9
+    }
+   ]
+  },
+  {
+   "id": "armorique",
+   "name": "Pointe de l'Armorique",
+   "subtitle": "Plougastel-Daoulas, rive sud de la presqu'île",
+   "type": "POINTE RADE",
+   "distMin": 30,
+   "lat": 48.327343,
+   "lon": -4.45779,
+   "status": "ok",
+   "rank": 3,
+   "nrReason": null,
+   "verify": [],
+   "fav": 81,
+   "favLine": "Favorabilité 81 = conditions 83 (marée 42/45, lumière 25/25, vent et mer 16/30) × présence 0,975",
+   "cond": 83,
+   "presence": {
+    "factor": 0.975,
+    "label": "saison : retour"
+   },
+   "crit": [
+    {
+     "k": "fenetre",
+     "label": "Marée : fenêtre",
+     "pts": 25,
+     "max": 25,
+     "why": "fenêtre « prime » de la fiche",
+     "niveau": 2
+    },
+    {
+     "k": "coef",
+     "label": "Marée : coefficient",
+     "pts": 17.3,
+     "max": 20,
+     "why": "coef 93, au-dessus de la plage utile (55 à 90)",
+     "niveau": 4
+    },
+    {
+     "k": "lumiere",
+     "label": "Lumière",
+     "pts": 25,
+     "max": 25,
+     "why": "aube",
+     "niveau": 2
+    },
+    {
+     "k": "vent",
+     "label": "Vent et mer",
+     "pts": 16,
+     "max": 30,
+     "why": "vent de mer force 3",
+     "niveau": 2
+    }
+   ],
+   "pert": {
+    "score": 100,
+    "parts": [
+     {
+      "label": "Ta boîte : la bonne technique",
+      "pts": 50,
+      "max": 50,
+      "why": "Sakura Mr Joe 120 : stickbait, le premier choix ici"
+     },
+     {
+      "label": "Ta boîte : poids et lancer",
+      "pts": 25,
+      "max": 25,
+      "why": "20 g visés, dans ta boîte et dans la plage de ta canne (14 à 42 g)"
+     },
+     {
+      "label": "Distance",
+      "pts": 25,
+      "max": 25,
+      "why": "30 min de trajet, dans ton maximum (45 min)"
+     }
+    ],
+    "top": [
+     {
+      "name": "Sakura Mr Joe 120",
+      "weight": "35 g",
+      "color": "",
+      "famLabel": "Poisson nageur",
+      "why": "Courant fort ou zone profonde : leurres coulants (jerkbaits, casting jigs)."
+     },
+     {
+      "name": "Xorus Asturie 150",
+      "weight": "32 g",
+      "color": "",
+      "famLabel": "Stickbait",
+      "why": "Mer belle à peu agitée : la surface travaille bien."
+     },
+     {
+      "name": "Xorus Z Claw Evo 100",
+      "weight": "22,5 g",
+      "color": "Blanc nacré",
+      "famLabel": "Stickbait",
+      "why": "Lancers longs même vent de face."
+     }
+    ]
+   },
+   "conf": {
+    "score": 68,
+    "label": "Moyenne",
+    "parts": [
+     {
+      "label": "Données",
+      "pts": 32.5,
+      "max": 40,
+      "why": "âge de la prévision inconnu ; aujourd'hui ; 100 % des critères calculés"
+     },
+     {
+      "label": "Accord des modèles",
+      "pts": 20,
+      "max": 20,
+      "why": "AROME et ECMWF : 0 Beaufort d'écart, 1 secteur de direction"
+     },
+     {
+      "label": "Preuves",
+      "pts": 15,
+      "max": 25,
+      "why": "exposition 4, courant 2, bars 5 sur l'échelle de 1 à 5"
+     },
+     {
+      "label": "Ton journal",
+      "pts": 0,
+      "max": 15,
+      "why": "aucune session notée ici"
+     }
+    ]
+   },
+   "best": {
+    "start": "06h11",
+    "end": "07h41",
+    "label": "1-2h après PM (descendant)",
+    "light": "aube",
+    "lightLabel": "Aube",
+    "coeff": 93,
+    "tide": "descendant"
+   },
+   "windows": [
+    {
+     "start": 6.176666666666666,
+     "end": 7.676666666666666,
+     "startFmt": "06h11",
+     "endFmt": "07h41",
+     "fav": 81,
+     "ok": true,
+     "verify": false,
+     "light": "aube",
+     "label": "1-2h après PM (descendant)"
+    },
+    {
+     "start": 8.530833333333334,
+     "end": 11.030833333333334,
+     "startFmt": "08h32",
+     "endFmt": "11h02",
+     "fav": 59,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "3 dernières heures avant BM"
+    },
+    {
+     "start": 12.030833333333334,
+     "end": 14.030833333333334,
+     "startFmt": "12h02",
+     "endFmt": "14h02",
+     "fav": 48,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "Début de montant (côté SO)"
+    },
+    {
+     "start": 18.584999999999997,
+     "end": 20.084999999999997,
+     "startFmt": "18h35",
+     "endFmt": "20h05",
+     "fav": 55,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "1-2h après PM (descendant)"
+    },
+    {
+     "start": 20.91777777777778,
+     "end": 23,
+     "startFmt": "20h55",
+     "endFmt": "23h00",
+     "fav": 76,
+     "ok": true,
+     "verify": false,
+     "light": "crepuscule",
+     "label": "3 dernières heures avant BM"
+    }
+   ],
+   "lure": {
+    "summary": "Mr Joe 120 · 35 g",
+    "family": "Stickbait",
+    "familyLabel": "Surface : stickbait, pencil",
+    "pick": {
+     "name": "Sakura Mr Joe 120",
+     "weight": "35 g",
+     "color": "blanc, coloris contrastés, tons chauds",
+     "named": false
+    },
+    "alts": [
+     {
+      "name": "Xorus Asturie 150",
+      "weight": "32 g",
+      "color": "blanc, coloris contrastés, tons chauds"
+     }
+    ],
+    "color": "Contrastée : blanc, Cabot ou tons chauds",
+    "colorWhy": [
+     "Aube et crépuscule : coloris contrastés ou chauds, qui restent visibles en lumière douce.",
+     "Blanc, efficace en eau claire par faible luminosité, le soir ou le matin."
+    ],
+    "size": "Profil de lançon / équille, 8-15 cm",
+    "weight": "35 g",
+    "weightWhy": [
+     "Poids du leurre : 35 g.",
+     "Vent de face, clapot, vagues ou courant : le plus lourd de la boîte se lance plus loin et tient mieux sa trajectoire."
+    ],
+    "anim": [
+     "Le laisser couler jusqu'à la profondeur voulue, puis récupérer avec quelques coups de scion en dents de scie.",
+     "Compter la descente du leurre et la raccourcir dès le premier contact avec la roche."
+    ]
+   },
+   "access": [
+    "Depuis Logonna : D770 puis direction Plougastel-Daoulas nord, route de la Pointe de l'Armorique. Parking en bout de route. Sentier côtier. Accès rochers par descente courte."
+   ],
+   "securite": [],
+   "hourly": [
+    {
+     "h": 5,
+     "wind": 15,
+     "gust": 21,
+     "dir": 296,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.1
+    },
+    {
+     "h": 6,
+     "wind": 17,
+     "gust": 23,
+     "dir": 279,
+     "wave": 0.5,
+     "cloud": 0,
+     "rain": 0,
+     "sst": 14.1
+    },
+    {
+     "h": 7,
+     "wind": 13,
+     "gust": 23,
+     "dir": 272,
+     "wave": 0.5,
+     "cloud": 1,
+     "rain": 0,
+     "sst": 14.1
+    },
+    {
+     "h": 8,
+     "wind": 13,
+     "gust": 22,
+     "dir": 243,
+     "wave": 0.5,
+     "cloud": 98,
+     "rain": 0,
+     "sst": 14.1
+    },
+    {
+     "h": 9,
+     "wind": 14,
+     "gust": 24,
+     "dir": 225,
+     "wave": 0.5,
+     "cloud": 25,
+     "rain": 0,
+     "sst": 14.1
+    },
+    {
+     "h": 10,
+     "wind": 16,
+     "gust": 25,
+     "dir": 223,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.1
+    },
+    {
+     "h": 11,
+     "wind": 19,
+     "gust": 23,
+     "dir": 238,
+     "wave": 0.5,
+     "cloud": 99,
+     "rain": 0,
+     "sst": 14.2
+    },
+    {
+     "h": 12,
+     "wind": 20,
+     "gust": 26,
+     "dir": 263,
+     "wave": 0.5,
+     "cloud": 73,
+     "rain": 0,
+     "sst": 14.2
+    },
+    {
+     "h": 13,
+     "wind": 23,
+     "gust": 29,
+     "dir": 266,
+     "wave": 0.5,
+     "cloud": 95,
+     "rain": 0,
+     "sst": 14.2
+    },
+    {
+     "h": 14,
+     "wind": 18,
+     "gust": 32,
+     "dir": 276,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.2
+    },
+    {
+     "h": 15,
+     "wind": 26,
+     "gust": 30,
+     "dir": 263,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0.8,
+     "sst": 14.3
+    },
+    {
+     "h": 16,
+     "wind": 21,
+     "gust": 28,
+     "dir": 259,
+     "wave": 0.6,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.3
+    },
+    {
+     "h": 17,
+     "wind": 26,
+     "gust": 34,
+     "dir": 265,
+     "wave": 0.6,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.3
+    },
+    {
+     "h": 18,
+     "wind": 26,
+     "gust": 30,
+     "dir": 261,
+     "wave": 0.6,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.3
+    },
+    {
+     "h": 19,
+     "wind": 25,
+     "gust": 29,
+     "dir": 248,
+     "wave": 0.6,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.4
+    },
+    {
+     "h": 20,
+     "wind": 24,
+     "gust": 34,
+     "dir": 254,
+     "wave": 0.6,
+     "cloud": 47,
+     "rain": 0,
+     "sst": 14.4
+    },
+    {
+     "h": 21,
+     "wind": 23,
+     "gust": 31,
+     "dir": 245,
+     "wave": 0.6,
+     "cloud": 76,
+     "rain": 0,
+     "sst": 14.4
+    },
+    {
+     "h": 22,
+     "wind": 18,
+     "gust": 31,
+     "dir": 251,
+     "wave": 0.7,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.4
+    },
+    {
+     "h": 23,
+     "wind": 8,
+     "gust": 27,
+     "dir": 280,
+     "wave": 0.7,
+     "cloud": 99,
+     "rain": 0.6,
+     "sst": 14.3
+    }
+   ]
+  },
+  {
+   "id": "moulinmer",
+   "name": "Moulin Mer",
+   "subtitle": "Anse de Moulin-Mer, Logonna-Daoulas",
+   "type": "BORDURES GOÉMON",
+   "distMin": 5,
+   "lat": 48.3159,
+   "lon": -4.2862,
+   "status": "ok",
+   "rank": 4,
+   "nrReason": null,
+   "verify": [],
+   "fav": 74,
+   "favLine": "Favorabilité 74 = conditions 76 (marée 35/45, lumière 25/25, vent et mer 16/30) × présence 0,975",
+   "cond": 76,
+   "presence": {
+    "factor": 0.975,
+    "label": "saison : retour"
+   },
+   "crit": [
+    {
+     "k": "fenetre",
+     "label": "Marée : fenêtre",
+     "pts": 25,
+     "max": 25,
+     "why": "fenêtre « prime » de la fiche",
+     "niveau": 2
+    },
+    {
+     "k": "coef",
+     "label": "Marée : coefficient",
+     "pts": 9.6,
+     "max": 20,
+     "why": "coef 93, au-dessus de la plage utile (40 à 80)",
+     "niveau": 4
+    },
+    {
+     "k": "lumiere",
+     "label": "Lumière",
+     "pts": 25,
+     "max": 25,
+     "why": "aube",
+     "niveau": 2
+    },
+    {
+     "k": "vent",
+     "label": "Vent et mer",
+     "pts": 16,
+     "max": 30,
+     "why": "vent de travers force 1",
+     "niveau": 2
+    }
+   ],
+   "pert": {
+    "score": 100,
+    "parts": [
+     {
+      "label": "Ta boîte : la bonne technique",
+      "pts": 50,
+      "max": 50,
+      "why": "Xorus Asturie 110 : stickbait, le premier choix ici"
+     },
+     {
+      "label": "Ta boîte : poids et lancer",
+      "pts": 25,
+      "max": 25,
+      "why": "5 g visés, dans ta boîte et dans la plage de ta canne (14 à 42 g)"
+     },
+     {
+      "label": "Distance",
+      "pts": 25,
+      "max": 25,
+      "why": "5 min de trajet, dans ton maximum (45 min)"
+     }
+    ],
+    "top": [
+     {
+      "name": "Xorus Asturie 110",
+      "weight": "15 g",
+      "color": "Cabot",
+      "famLabel": "Stickbait",
+      "why": "Sa fiche produit recommande particulièrement l'Asturie 110 en mer calme."
+     },
+     {
+      "name": "Xorus Asturie 130",
+      "weight": "27 g",
+      "color": "Cabot",
+      "famLabel": "Stickbait",
+      "why": "Mer belle à peu agitée : la surface travaille bien."
+     },
+     {
+      "name": "Xorus Z Claw Evo 100",
+      "weight": "22,5 g",
+      "color": "Blanc nacré",
+      "famLabel": "Stickbait",
+      "why": "Mer belle à peu agitée : la surface travaille bien."
+     }
+    ]
+   },
+   "conf": {
+    "score": 63,
+    "label": "Moyenne",
+    "parts": [
+     {
+      "label": "Données",
+      "pts": 32.5,
+      "max": 40,
+      "why": "âge de la prévision inconnu ; aujourd'hui ; 100 % des critères calculés"
+     },
+     {
+      "label": "Accord des modèles",
+      "pts": 15,
+      "max": 20,
+      "why": "AROME et ECMWF : 1 Beaufort d'écart, 1 secteur de direction"
+     },
+     {
+      "label": "Preuves",
+      "pts": 15,
+      "max": 25,
+      "why": "exposition 4, courant 4, bars 3 sur l'échelle de 1 à 5"
+     },
+     {
+      "label": "Ton journal",
+      "pts": 0,
+      "max": 15,
+      "why": "aucune session notée ici"
+     }
+    ]
+   },
+   "best": {
+    "start": "05h41",
+    "end": "07h41",
+    "label": "Début de descendant",
+    "light": "aube",
+    "lightLabel": "Aube",
+    "coeff": 93,
+    "tide": "descendant"
+   },
+   "windows": [
+    {
+     "start": 5.676666666666667,
+     "end": 7.676666666666666,
+     "startFmt": "05h41",
+     "endFmt": "07h41",
+     "fav": 74,
+     "ok": true,
+     "verify": false,
+     "light": "aube",
+     "label": "Début de descendant"
+    },
+    {
+     "start": 11.530833333333334,
+     "end": 14.030833333333334,
+     "startFmt": "11h32",
+     "endFmt": "14h02",
+     "fav": 54,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "Début de flot (BM → BM+2,5)"
+    },
+    {
+     "start": 14.584999999999997,
+     "end": 17.084999999999997,
+     "startFmt": "14h35",
+     "endFmt": "17h05",
+     "fav": 52,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "2e moitié de montant"
+    },
+    {
+     "start": 18.084999999999997,
+     "end": 20.084999999999997,
+     "startFmt": "18h05",
+     "endFmt": "20h05",
+     "fav": 55,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "Début de descendant"
+    }
+   ],
+   "lure": {
+    "summary": "Asturie 110 · 15 g · Cabot",
+    "family": "Stickbait",
+    "familyLabel": "Surface : stickbait, pencil",
+    "pick": {
+     "name": "Xorus Asturie 110",
+     "weight": "15 g",
+     "color": "Cabot",
+     "named": true
+    },
+    "alts": [
+     {
+      "name": "Megabass Spindle Worm 100",
+      "weight": "sans plomb, nagé au-dessus du goémon",
+      "color": "blanc, coloris contrastés, tons chauds"
+     },
+     {
+      "name": "Sakura Mr Joe 105",
+      "weight": "23 g",
+      "color": "blanc, coloris contrastés, tons chauds"
+     }
+    ],
+    "color": "Contrastée : blanc, Cabot ou tons chauds",
+    "colorWhy": [
+     "Aube et crépuscule : coloris contrastés ou chauds, qui restent visibles en lumière douce.",
+     "Blanc, efficace en eau claire par faible luminosité, le soir ou le matin."
+    ],
+    "size": "Profil de lançon / équille, 8-15 cm",
+    "weight": "15 g",
+    "weightWhy": [
+     "Poids du leurre : 15 g (15 g (Nootica, Ardent Pêche) ou 16,5 g (Rokmax, Leurres Mania)).",
+     "Montage conseillé par la fiche : Weightless ou texan (hameçon texan 3/0 à 4/0). Pas de tête plombée nue : elle finit dans les rochers."
+    ],
+    "anim": [
+     "Récupération rapide et erratique, scion haut, à-coups irréguliers (pas un walking the dog pur).",
+     "Par mer calme, à l'aube et au crépuscule : très lent. Scion bas pour le faire passer juste sous la surface.",
+     "Walking the dog : environ deux coups de scion par seconde ; long-slide, plus lent, pour les gros poissons."
+    ]
+   },
+   "access": [
+    "Depuis Logonna-Daoulas bourg, direction Moulin Mer/Pointe du Château. Parking devant le centre nautique. Accès direct aux bordures rocheuses à pied. Bottes suffisent, semelles crantées utiles sur goémon humide."
+   ],
+   "securite": [
+    "Goémon humide glissant : semelles crantées."
+   ],
+   "hourly": [
+    {
+     "h": 5,
+     "wind": 5,
+     "gust": 12,
+     "dir": 330,
+     "wave": 0.4,
+     "cloud": 97,
+     "rain": 0,
+     "sst": 15.1
+    },
+    {
+     "h": 6,
+     "wind": 2,
+     "gust": 11,
+     "dir": 301,
+     "wave": 0.4,
+     "cloud": 0,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 7,
+     "wind": 5,
+     "gust": 12,
+     "dir": 288,
+     "wave": 0.4,
+     "cloud": 0,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 8,
+     "wind": 2,
+     "gust": 20,
+     "dir": 158,
+     "wave": 0.4,
+     "cloud": 17,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 9,
+     "wind": 7,
+     "gust": 23,
+     "dir": 240,
+     "wave": 0.4,
+     "cloud": 15,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 10,
+     "wind": 10,
+     "gust": 28,
+     "dir": 236,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 11,
+     "wind": 13,
+     "gust": 29,
+     "dir": 216,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.1
+    },
+    {
+     "h": 12,
+     "wind": 11,
+     "gust": 30,
+     "dir": 252,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.1
+    },
+    {
+     "h": 13,
+     "wind": 15,
+     "gust": 32,
+     "dir": 259,
+     "wave": 0.4,
+     "cloud": 56,
+     "rain": 0.1,
+     "sst": 15.1
+    },
+    {
+     "h": 14,
+     "wind": 17,
+     "gust": 36,
+     "dir": 260,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.1
+    },
+    {
+     "h": 15,
+     "wind": 20,
+     "gust": 26,
+     "dir": 263,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0.1,
+     "sst": 15.1
+    },
+    {
+     "h": 16,
+     "wind": 19,
+     "gust": 37,
+     "dir": 261,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 17,
+     "wind": 21,
+     "gust": 38,
+     "dir": 264,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 18,
+     "wind": 20,
+     "gust": 34,
+     "dir": 262,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 19,
+     "wind": 18,
+     "gust": 32,
+     "dir": 254,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 20,
+     "wind": 15,
+     "gust": 32,
+     "dir": 237,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 21,
+     "wind": 14,
+     "gust": 28,
+     "dir": 233,
+     "wave": 0.5,
+     "cloud": 55,
+     "rain": 0.1,
+     "sst": 15.2
+    },
+    {
+     "h": 22,
+     "wind": 12,
+     "gust": 27,
+     "dir": 220,
+     "wave": 0.5,
+     "cloud": 83,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 23,
+     "wind": 7,
+     "gust": 32,
+     "dir": 177,
+     "wave": 0.5,
+     "cloud": 81,
+     "rain": 0.4,
+     "sst": 15.2
+    }
+   ]
+  },
+  {
+   "id": "bendy",
+   "name": "Pointe du Bendy",
+   "subtitle": "Anse du Bendy, Logonna-Daoulas",
+   "type": "POINTE ROCHEUSE",
+   "distMin": 10,
+   "lat": 48.315,
+   "lon": -4.336333,
+   "status": "ok",
+   "rank": 5,
+   "nrReason": null,
+   "verify": [],
+   "fav": 69,
+   "favLine": "Favorabilité 69 = conditions 71 (marée 28/45, lumière 25/25, vent et mer 18/30) × présence 0,975",
+   "cond": 71,
+   "presence": {
+    "factor": 0.975,
+    "label": "saison : retour"
+   },
+   "crit": [
+    {
+     "k": "fenetre",
+     "label": "Marée : fenêtre",
+     "pts": 15,
+     "max": 25,
+     "why": "« bonne » fenêtre de la fiche",
+     "niveau": 2
+    },
+    {
+     "k": "coef",
+     "label": "Marée : coefficient",
+     "pts": 13,
+     "max": 20,
+     "why": "coef 93, au-dessus de la plage utile (50 à 85)",
+     "niveau": 4
+    },
+    {
+     "k": "lumiere",
+     "label": "Lumière",
+     "pts": 25,
+     "max": 25,
+     "why": "aube",
+     "niveau": 2
+    },
+    {
+     "k": "vent",
+     "label": "Vent et mer",
+     "pts": 18,
+     "max": 30,
+     "why": "vent de mer force 2",
+     "niveau": 2
+    }
+   ],
+   "pert": {
+    "score": 100,
+    "parts": [
+     {
+      "label": "Ta boîte : la bonne technique",
+      "pts": 50,
+      "max": 50,
+      "why": "Xorus Asturie 110 : stickbait, le premier choix ici"
+     },
+     {
+      "label": "Ta boîte : poids et lancer",
+      "pts": 25,
+      "max": 25,
+      "why": "5 g visés, dans ta boîte et dans la plage de ta canne (14 à 42 g)"
+     },
+     {
+      "label": "Distance",
+      "pts": 25,
+      "max": 25,
+      "why": "10 min de trajet, dans ton maximum (45 min)"
+     }
+    ],
+    "top": [
+     {
+      "name": "Xorus Asturie 110",
+      "weight": "15 g",
+      "color": "Cabot",
+      "famLabel": "Stickbait",
+      "why": "Sa fiche produit recommande particulièrement l'Asturie 110 en mer calme."
+     },
+     {
+      "name": "Xorus Asturie 130",
+      "weight": "27 g",
+      "color": "Cabot",
+      "famLabel": "Stickbait",
+      "why": "Mer belle à peu agitée : la surface travaille bien."
+     },
+     {
+      "name": "Xorus Z Claw Evo 100",
+      "weight": "22,5 g",
+      "color": "Blanc nacré",
+      "famLabel": "Stickbait",
+      "why": "Mer belle à peu agitée : la surface travaille bien."
+     }
+    ]
+   },
+   "conf": {
+    "score": 62,
+    "label": "Moyenne",
+    "parts": [
+     {
+      "label": "Données",
+      "pts": 32.5,
+      "max": 40,
+      "why": "âge de la prévision inconnu ; aujourd'hui ; 100 % des critères calculés"
+     },
+     {
+      "label": "Accord des modèles",
+      "pts": 15,
+      "max": 20,
+      "why": "AROME et ECMWF : 1 Beaufort d'écart, 0 secteur de direction"
+     },
+     {
+      "label": "Preuves",
+      "pts": 14.3,
+      "max": 25,
+      "why": "exposition 4, courant 4, bars 4 sur l'échelle de 1 à 5"
+     },
+     {
+      "label": "Ton journal",
+      "pts": 0,
+      "max": 15,
+      "why": "aucune session notée ici"
+     }
+    ]
+   },
+   "best": {
+    "start": "06h11",
+    "end": "07h41",
+    "label": "1-2h après PM (descendant)",
+    "light": "aube",
+    "lightLabel": "Aube",
+    "coeff": 93,
+    "tide": "descendant"
+   },
+   "windows": [
+    {
+     "start": 6.176666666666666,
+     "end": 7.676666666666666,
+     "startFmt": "06h11",
+     "endFmt": "07h41",
+     "fav": 69,
+     "ok": true,
+     "verify": false,
+     "light": "aube",
+     "label": "1-2h après PM (descendant)"
+    },
+    {
+     "start": 12.530833333333334,
+     "end": 14.530833333333334,
+     "startFmt": "12h32",
+     "endFmt": "14h32",
+     "fav": 42,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "Début de montant (BM+1 → BM+3)"
+    },
+    {
+     "start": 15.584999999999997,
+     "end": 18.584999999999997,
+     "startFmt": "15h35",
+     "endFmt": "18h35",
+     "fav": 54,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "Fin de montant → 1h après PM"
+    },
+    {
+     "start": 18.584999999999997,
+     "end": 20.084999999999997,
+     "startFmt": "18h35",
+     "endFmt": "20h05",
+     "fav": 44,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "1-2h après PM (descendant)"
+    }
+   ],
+   "lure": {
+    "summary": "Asturie 110 · 15 g · Cabot",
+    "family": "Stickbait",
+    "familyLabel": "Surface : stickbait, pencil",
+    "pick": {
+     "name": "Xorus Asturie 110",
+     "weight": "15 g",
+     "color": "Cabot",
+     "named": true
+    },
+    "alts": [
+     {
+      "name": "Megabass Spindle Worm 100",
+      "weight": "texan, plomb d'environ 5 g",
+      "color": "blanc, coloris contrastés, tons chauds"
+     },
+     {
+      "name": "Sakura Mr Joe 105",
+      "weight": "23 g",
+      "color": "blanc, coloris contrastés, tons chauds"
+     }
+    ],
+    "color": "Contrastée : blanc, Cabot ou tons chauds",
+    "colorWhy": [
+     "Aube et crépuscule : coloris contrastés ou chauds, qui restent visibles en lumière douce.",
+     "Blanc, efficace en eau claire par faible luminosité, le soir ou le matin."
+    ],
+    "size": "Profil de lançon / équille, 8-15 cm",
+    "weight": "15 g",
+    "weightWhy": [
+     "Poids du leurre : 15 g (15 g (Nootica, Ardent Pêche) ou 16,5 g (Rokmax, Leurres Mania)).",
+     "Montage conseillé par la fiche : Tête weedless ou texan sur les platiers ; tête plombée classique seulement sur le sable."
+    ],
+    "anim": [
+     "Récupération rapide et erratique, scion haut, à-coups irréguliers (pas un walking the dog pur).",
+     "Par mer calme, à l'aube et au crépuscule : très lent. Scion bas pour le faire passer juste sous la surface.",
+     "Walking the dog : environ deux coups de scion par seconde ; long-slide, plus lent, pour les gros poissons."
+    ]
+   },
+   "access": [
+    "Depuis Logonna-Daoulas bourg, route vers Pointe du Bendy (fléché). Parking au bout de la route. Accès à pied par sentier côtier (GR34). Pêche depuis les rochers de la pointe ou sur les platiers selon marée."
+   ],
+   "securite": [],
+   "hourly": [
+    {
+     "h": 5,
+     "wind": 10,
+     "gust": 20,
+     "dir": 309,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.7
+    },
+    {
+     "h": 6,
+     "wind": 6,
+     "gust": 22,
+     "dir": 349,
+     "wave": 0.4,
+     "cloud": 0,
+     "rain": 0,
+     "sst": 14.7
+    },
+    {
+     "h": 7,
+     "wind": 11,
+     "gust": 25,
+     "dir": 281,
+     "wave": 0.4,
+     "cloud": 0,
+     "rain": 0,
+     "sst": 14.7
+    },
+    {
+     "h": 8,
+     "wind": 7,
+     "gust": 26,
+     "dir": 248,
+     "wave": 0.4,
+     "cloud": 31,
+     "rain": 0,
+     "sst": 14.7
+    },
+    {
+     "h": 9,
+     "wind": 10,
+     "gust": 23,
+     "dir": 249,
+     "wave": 0.4,
+     "cloud": 3,
+     "rain": 0,
+     "sst": 14.7
+    },
+    {
+     "h": 10,
+     "wind": 15,
+     "gust": 26,
+     "dir": 234,
+     "wave": 0.4,
+     "cloud": 97,
+     "rain": 0,
+     "sst": 14.7
+    },
+    {
+     "h": 11,
+     "wind": 20,
+     "gust": 25,
+     "dir": 226,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.7
+    },
+    {
+     "h": 12,
+     "wind": 20,
+     "gust": 23,
+     "dir": 259,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0.1,
+     "sst": 14.7
+    },
+    {
+     "h": 13,
+     "wind": 23,
+     "gust": 30,
+     "dir": 260,
+     "wave": 0.4,
+     "cloud": 30,
+     "rain": 0,
+     "sst": 14.8
+    },
+    {
+     "h": 14,
+     "wind": 24,
+     "gust": 35,
+     "dir": 265,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.8
+    },
+    {
+     "h": 15,
+     "wind": 27,
+     "gust": 30,
+     "dir": 264,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.8
+    },
+    {
+     "h": 16,
+     "wind": 26,
+     "gust": 32,
+     "dir": 261,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.8
+    },
+    {
+     "h": 17,
+     "wind": 27,
+     "gust": 38,
+     "dir": 263,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.9
+    },
+    {
+     "h": 18,
+     "wind": 26,
+     "gust": 34,
+     "dir": 262,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.9
+    },
+    {
+     "h": 19,
+     "wind": 24,
+     "gust": 29,
+     "dir": 255,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.9
+    },
+    {
+     "h": 20,
+     "wind": 19,
+     "gust": 34,
+     "dir": 241,
+     "wave": 0.6,
+     "cloud": 99,
+     "rain": 0,
+     "sst": 14.9
+    },
+    {
+     "h": 21,
+     "wind": 21,
+     "gust": 32,
+     "dir": 245,
+     "wave": 0.6,
+     "cloud": 71,
+     "rain": 0,
+     "sst": 14.9
+    },
+    {
+     "h": 22,
+     "wind": 16,
+     "gust": 30,
+     "dir": 244,
+     "wave": 0.6,
+     "cloud": 75,
+     "rain": 0,
+     "sst": 14.9
+    },
+    {
+     "h": 23,
+     "wind": 4,
+     "gust": 32,
+     "dir": 204,
+     "wave": 0.6,
+     "cloud": 94,
+     "rain": 0.2,
+     "sst": 14.9
+    }
+   ]
+  },
+  {
+   "id": "espagnols",
+   "name": "Pointe des Espagnols",
+   "subtitle": "Roscanvel, entrée du Goulet",
+   "type": "GOULET / COURANT FORT",
+   "distMin": 55,
+   "lat": 48.341271,
+   "lon": -4.533564,
+   "status": "ok",
+   "rank": 6,
+   "nrReason": null,
+   "verify": [],
+   "fav": 68,
+   "favLine": "Favorabilité 68 = conditions 72 (marée 27/45, lumière 25/25, vent et mer 20/30) × présence 0,95",
+   "cond": 72,
+   "presence": {
+    "factor": 0.95,
+    "label": "saison : retour"
+   },
+   "crit": [
+    {
+     "k": "fenetre",
+     "label": "Marée : fenêtre",
+     "pts": 15,
+     "max": 25,
+     "why": "« bonne » fenêtre de la fiche",
+     "niveau": 2
+    },
+    {
+     "k": "coef",
+     "label": "Marée : coefficient",
+     "pts": 12,
+     "max": 20,
+     "why": "coef 93, au-dessus de la plage utile (55 à 85)",
+     "niveau": 4
+    },
+    {
+     "k": "lumiere",
+     "label": "Lumière",
+     "pts": 25,
+     "max": 25,
+     "why": "aube",
+     "niveau": 2
+    },
+    {
+     "k": "vent",
+     "label": "Vent et mer",
+     "pts": 20,
+     "max": 30,
+     "why": "vent de travers force 2",
+     "niveau": 2
+    }
+   ],
+   "pert": {
+    "score": 94,
+    "parts": [
+     {
+      "label": "Ta boîte : la bonne technique",
+      "pts": 50,
+      "max": 50,
+      "why": "Sakura Mr Joe 120 : poisson nageur, le premier choix ici"
+     },
+     {
+      "label": "Ta boîte : poids et lancer",
+      "pts": 25,
+      "max": 25,
+      "why": "20 g visés, dans ta boîte et dans la plage de ta canne (14 à 42 g)"
+     },
+     {
+      "label": "Distance",
+      "pts": 19.4,
+      "max": 25,
+      "why": "55 min de trajet, au-delà de ton maximum (45 min)"
+     }
+    ],
+    "top": [
+     {
+      "name": "Sakura Mr Joe 120",
+      "weight": "35 g",
+      "color": "",
+      "famLabel": "Poisson nageur",
+      "why": "Courant fort ou zone profonde : leurres coulants (jerkbaits, casting jigs)."
+     },
+     {
+      "name": "Xorus Asturie 150",
+      "weight": "32 g",
+      "color": "",
+      "famLabel": "Stickbait",
+      "why": "Mer belle à peu agitée : la surface travaille bien."
+     },
+     {
+      "name": "Xorus Asturie 130",
+      "weight": "27 g",
+      "color": "Cabot",
+      "famLabel": "Stickbait",
+      "why": "Mer belle à peu agitée : la surface travaille bien."
+     }
+    ]
+   },
+   "conf": {
+    "score": 65,
+    "label": "Moyenne",
+    "parts": [
+     {
+      "label": "Données",
+      "pts": 32.5,
+      "max": 40,
+      "why": "âge de la prévision inconnu ; aujourd'hui ; 100 % des critères calculés"
+     },
+     {
+      "label": "Accord des modèles",
+      "pts": 15,
+      "max": 20,
+      "why": "AROME et ECMWF : 1 Beaufort d'écart, 1 secteur de direction"
+     },
+     {
+      "label": "Preuves",
+      "pts": 17.1,
+      "max": 25,
+      "why": "exposition 4, courant 2, bars 2 sur l'échelle de 1 à 5"
+     },
+     {
+      "label": "Ton journal",
+      "pts": 0,
+      "max": 15,
+      "why": "aucune session notée ici"
+     }
+    ]
+   },
+   "best": {
+    "start": "06h11",
+    "end": "08h11",
+    "label": "Contre-courant sous la pointe",
+    "light": "aube",
+    "lightLabel": "Aube",
+    "coeff": 93,
+    "tide": "variable"
+   },
+   "windows": [
+    {
+     "start": 5,
+     "end": 5.876666666666667,
+     "startFmt": "05h00",
+     "endFmt": "05h53",
+     "fav": null,
+     "ok": false,
+     "verify": false,
+     "light": "nuit",
+     "label": "Étale PM (±45min)"
+    },
+    {
+     "start": 6.176666666666666,
+     "end": 8.176666666666666,
+     "startFmt": "06h11",
+     "endFmt": "08h11",
+     "fav": 68,
+     "ok": true,
+     "verify": false,
+     "light": "aube",
+     "label": "Contre-courant sous la pointe"
+    },
+    {
+     "start": 10.830833333333334,
+     "end": 12.230833333333333,
+     "startFmt": "10h50",
+     "endFmt": "12h14",
+     "fav": 50,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "Étale BM (±45min)"
+    },
+    {
+     "start": 16.884999999999998,
+     "end": 18.284999999999997,
+     "startFmt": "16h53",
+     "endFmt": "18h17",
+     "fav": 49,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "Étale PM (±45min)"
+    },
+    {
+     "start": 18.584999999999997,
+     "end": 20.584999999999997,
+     "startFmt": "18h35",
+     "endFmt": "20h35",
+     "fav": 37,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "Contre-courant sous la pointe"
+    }
+   ],
+   "lure": {
+    "summary": "Mr Joe 120 · 35 g",
+    "family": "Poisson nageur",
+    "familyLabel": "Poisson nageur : minnow, jerkbait, coulant",
+    "pick": {
+     "name": "Sakura Mr Joe 120",
+     "weight": "35 g",
+     "color": "blanc, coloris contrastés, tons chauds",
+     "named": false
+    },
+    "alts": [
+     {
+      "name": "Xorus Asturie 150",
+      "weight": "32 g",
+      "color": "blanc, coloris contrastés, tons chauds"
+     }
+    ],
+    "color": "Contrastée : blanc, Cabot ou tons chauds",
+    "colorWhy": [
+     "Aube et crépuscule : coloris contrastés ou chauds, qui restent visibles en lumière douce.",
+     "Blanc, efficace en eau claire par faible luminosité, le soir ou le matin."
+    ],
+    "size": "Profil de lançon / équille, 8-15 cm",
+    "weight": "35 g",
+    "weightWhy": [
+     "Poids du leurre : 35 g.",
+     "Vent de face, clapot, vagues ou courant : le plus lourd de la boîte se lance plus loin et tient mieux sa trajectoire."
+    ],
+    "anim": [
+     "Le laisser couler jusqu'à la profondeur voulue, puis récupérer avec quelques coups de scion en dents de scie."
+    ]
+   },
+   "access": [
+    "Depuis Logonna : Le Faou, puis la D791 et le pont de Térénez vers la presqu'île de Crozon, direction Roscanvel / pointe des Espagnols. Parking près de la pointe. Accès aux rochers par sentier : repérage conseillé. Niveau expérimenté."
+   ],
+   "securite": [
+    "Falaise de plus de 60 m (Wikipédia) : ne descendre que par un sentier repéré de jour, jamais seul.",
+    "Courants forts entre la pointe et la Cormorandière : ne jamais pêcher en plein courant ; gilet et semelles crantées. Repérage indispensable avant la première session."
+   ],
+   "hourly": [
+    {
+     "h": 5,
+     "wind": 12,
+     "gust": 13,
+     "dir": 293,
+     "wave": 0.7,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 13.9
+    },
+    {
+     "h": 6,
+     "wind": 14,
+     "gust": 17,
+     "dir": 283,
+     "wave": 0.7,
+     "cloud": 0,
+     "rain": 0,
+     "sst": 13.9
+    },
+    {
+     "h": 7,
+     "wind": 10,
+     "gust": 18,
+     "dir": 279,
+     "wave": 0.6,
+     "cloud": 0,
+     "rain": 0,
+     "sst": 13.9
+    },
+    {
+     "h": 8,
+     "wind": 12,
+     "gust": 16,
+     "dir": 265,
+     "wave": 0.6,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 13.9
+    },
+    {
+     "h": 9,
+     "wind": 16,
+     "gust": 26,
+     "dir": 235,
+     "wave": 0.6,
+     "cloud": 91,
+     "rain": 0,
+     "sst": 13.9
+    },
+    {
+     "h": 10,
+     "wind": 16,
+     "gust": 27,
+     "dir": 222,
+     "wave": 0.6,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 13.9
+    },
+    {
+     "h": 11,
+     "wind": 15,
+     "gust": 25,
+     "dir": 245,
+     "wave": 0.6,
+     "cloud": 99,
+     "rain": 0,
+     "sst": 13.9
+    },
+    {
+     "h": 12,
+     "wind": 17,
+     "gust": 31,
+     "dir": 266,
+     "wave": 0.6,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 13.9
+    },
+    {
+     "h": 13,
+     "wind": 19,
+     "gust": 31,
+     "dir": 271,
+     "wave": 0.6,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14
+    },
+    {
+     "h": 14,
+     "wind": 14,
+     "gust": 28,
+     "dir": 271,
+     "wave": 0.6,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14
+    },
+    {
+     "h": 15,
+     "wind": 22,
+     "gust": 32,
+     "dir": 255,
+     "wave": 0.7,
+     "cloud": 100,
+     "rain": 0.2,
+     "sst": 14
+    },
+    {
+     "h": 16,
+     "wind": 22,
+     "gust": 29,
+     "dir": 261,
+     "wave": 0.7,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14
+    },
+    {
+     "h": 17,
+     "wind": 22,
+     "gust": 32,
+     "dir": 261,
+     "wave": 0.7,
+     "cloud": 100,
+     "rain": 0.1,
+     "sst": 14.1
+    },
+    {
+     "h": 18,
+     "wind": 24,
+     "gust": 31,
+     "dir": 252,
+     "wave": 0.7,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.1
+    },
+    {
+     "h": 19,
+     "wind": 25,
+     "gust": 32,
+     "dir": 241,
+     "wave": 0.7,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.1
+    },
+    {
+     "h": 20,
+     "wind": 22,
+     "gust": 34,
+     "dir": 249,
+     "wave": 0.8,
+     "cloud": 49,
+     "rain": 0,
+     "sst": 14.1
+    },
+    {
+     "h": 21,
+     "wind": 19,
+     "gust": 31,
+     "dir": 243,
+     "wave": 0.8,
+     "cloud": 30,
+     "rain": 0,
+     "sst": 14.1
+    },
+    {
+     "h": 22,
+     "wind": 16,
+     "gust": 30,
+     "dir": 245,
+     "wave": 0.8,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.1
+    },
+    {
+     "h": 23,
+     "wind": 10,
+     "gust": 21,
+     "dir": 266,
+     "wave": 0.8,
+     "cloud": 92,
+     "rain": 0.8,
+     "sst": 14.1
+    }
+   ]
+  },
+  {
+   "id": "lauberlach",
+   "name": "Sillon de Lauberlac'h",
+   "subtitle": "Anse de l'Auberlach, Plougastel-Daoulas",
+   "type": "SILLON / ANSE",
+   "distMin": 25,
+   "lat": 48.337254,
+   "lon": -4.414256,
+   "status": "ok",
+   "rank": 7,
+   "nrReason": null,
+   "verify": [],
+   "fav": 67,
+   "favLine": "Favorabilité 67 = conditions 69 (marée 41/45, lumière 15/25, vent et mer 13/30) × présence 0,975",
+   "cond": 69,
+   "presence": {
+    "factor": 0.975,
+    "label": "saison : retour"
+   },
+   "crit": [
+    {
+     "k": "fenetre",
+     "label": "Marée : fenêtre",
+     "pts": 25,
+     "max": 25,
+     "why": "fenêtre « prime » de la fiche",
+     "niveau": 2
+    },
+    {
+     "k": "coef",
+     "label": "Marée : coefficient",
+     "pts": 15.5,
+     "max": 20,
+     "why": "coef 93, au-dessus de la plage utile (50 à 88)",
+     "niveau": 4
+    },
+    {
+     "k": "lumiere",
+     "label": "Lumière",
+     "pts": 15,
+     "max": 25,
+     "why": "nuit",
+     "niveau": 2
+    },
+    {
+     "k": "vent",
+     "label": "Vent et mer",
+     "pts": 13,
+     "max": 30,
+     "why": "vent de terre force 3",
+     "niveau": 2
+    }
+   ],
+   "pert": {
+    "score": 100,
+    "parts": [
+     {
+      "label": "Ta boîte : la bonne technique",
+      "pts": 50,
+      "max": 50,
+      "why": "Fiiish Black Minnow 90 : souple plombé, le premier choix ici"
+     },
+     {
+      "label": "Ta boîte : poids et lancer",
+      "pts": 25,
+      "max": 25,
+      "why": "5 g visés, dans ta boîte et dans la plage de ta canne (14 à 42 g)"
+     },
+     {
+      "label": "Distance",
+      "pts": 25,
+      "max": 25,
+      "why": "25 min de trajet, dans ton maximum (45 min)"
+     }
+    ],
+    "top": [
+     {
+      "name": "Fiiish Black Minnow 90",
+      "weight": "tête Shore 5 g",
+      "color": "",
+      "famLabel": "Souple plombé",
+      "why": "Black Minnow 90 cité pour la nuit (tête 5 g)."
+     },
+     {
+      "name": "Fiiish Crazy Paddle Tail 100",
+      "weight": "tête Shore 5 g",
+      "color": "",
+      "famLabel": "Souple plombé",
+      "why": "Crazy Paddle Tail cité sur les zones à lançon (vert ou kaki)."
+     },
+     {
+      "name": "Fiiish Master Shad 100",
+      "weight": "tête Light 8 g",
+      "color": "",
+      "famLabel": "Souple plombé",
+      "why": "Nuit : petits souples de 85 à 100 mm sur têtes de 5 à 10 g, en zones peu profondes."
+     }
+    ]
+   },
+   "conf": {
+    "score": 63,
+    "label": "Moyenne",
+    "parts": [
+     {
+      "label": "Données",
+      "pts": 32.5,
+      "max": 40,
+      "why": "âge de la prévision inconnu ; aujourd'hui ; 100 % des critères calculés"
+     },
+     {
+      "label": "Accord des modèles",
+      "pts": 15,
+      "max": 20,
+      "why": "AROME et ECMWF : 1 Beaufort d'écart, 1 secteur de direction"
+     },
+     {
+      "label": "Preuves",
+      "pts": 15.7,
+      "max": 25,
+      "why": "exposition 2, courant 4, bars 4 sur l'échelle de 1 à 5"
+     },
+     {
+      "label": "Ton journal",
+      "pts": 0,
+      "max": 15,
+      "why": "aucune session notée ici"
+     }
+    ]
+   },
+   "best": {
+    "start": "05h00",
+    "end": "06h41",
+    "label": "Étale PM + début descendant (dans l'anse)",
+    "light": "nuit",
+    "lightLabel": "Nuit",
+    "coeff": 93,
+    "tide": "renversement"
+   },
+   "windows": [
+    {
+     "start": 5,
+     "end": 6.676666666666666,
+     "startFmt": "05h00",
+     "endFmt": "06h41",
+     "fav": 67,
+     "ok": true,
+     "verify": false,
+     "light": "nuit",
+     "label": "Étale PM + début descendant (dans l'anse)"
+    },
+    {
+     "start": 13.030833333333334,
+     "end": 16.030833333333334,
+     "startFmt": "13h02",
+     "endFmt": "16h02",
+     "fav": 56,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "Montant plein (flot établi)"
+    },
+    {
+     "start": 17.084999999999997,
+     "end": 19.084999999999997,
+     "startFmt": "17h05",
+     "endFmt": "19h05",
+     "fav": 56,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "Étale PM + début descendant (dans l'anse)"
+    }
+   ],
+   "lure": {
+    "summary": "Black Minnow 90 · tête Shore 5 g",
+    "family": "Souple plombé",
+    "familyLabel": "Souple plombé : shad, slug",
+    "pick": {
+     "name": "Fiiish Black Minnow 90",
+     "weight": "tête Shore 5 g",
+     "color": "blanc, bone, sardine",
+     "named": false
+    },
+    "alts": [
+     {
+      "name": "Megabass Spindle Worm 100",
+      "weight": "texan, plomb d'environ 5 g",
+      "color": "blanc, bone, sardine"
+     }
+    ],
+    "color": "Blanc",
+    "colorWhy": [
+     "De nuit, « le coloris blanc se distingue largement ».",
+     "Sur les zones à lançon : vert ou kaki (Crazy Sand Eel, Crazy Paddle Tail) ; un leurre blanc peut aussi imiter un lançon."
+    ],
+    "size": "Petit souple de 85 à 100 mm",
+    "weight": "tête Shore 5 g",
+    "weightWhy": [
+     "Visé : environ 5 g (entre 5 et 10 g). Règle décisive : nuit : têtes de 5 à 10 g en zones peu profondes.",
+     "Du bord, 1 à 4 m d'eau : départ à 5 g en linéaire, entre 3 et 10 g selon la session (base : 1 g par mètre sans vent ni courant)."
+    ],
+    "anim": [
+     "Linéaire lent à modéré, ou à gratter.",
+     "Nuit : récupération saccadée."
+    ]
+   },
+   "access": [
+    "D770 puis direction Lauberlac'h / Plougastel-Daoulas sud. Parking à la cale de l'anse. Sentier côtier (GR34) longe le sillon — accès direct aux deux côtés. Pas de difficulté technique."
+   ],
+   "securite": [],
+   "hourly": [
+    {
+     "h": 5,
+     "wind": 12,
+     "gust": 19,
+     "dir": 300,
+     "wave": 0.2,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.7
+    },
+    {
+     "h": 6,
+     "wind": 15,
+     "gust": 21,
+     "dir": 280,
+     "wave": 0.2,
+     "cloud": 0,
+     "rain": 0,
+     "sst": 14.7
+    },
+    {
+     "h": 7,
+     "wind": 12,
+     "gust": 22,
+     "dir": 270,
+     "wave": 0.2,
+     "cloud": 2,
+     "rain": 0,
+     "sst": 14.7
+    },
+    {
+     "h": 8,
+     "wind": 12,
+     "gust": 23,
+     "dir": 243,
+     "wave": 0.2,
+     "cloud": 91,
+     "rain": 0,
+     "sst": 14.7
+    },
+    {
+     "h": 9,
+     "wind": 11,
+     "gust": 23,
+     "dir": 226,
+     "wave": 0.2,
+     "cloud": 29,
+     "rain": 0,
+     "sst": 14.7
+    },
+    {
+     "h": 10,
+     "wind": 14,
+     "gust": 25,
+     "dir": 226,
+     "wave": 0.2,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.7
+    },
+    {
+     "h": 11,
+     "wind": 19,
+     "gust": 24,
+     "dir": 236,
+     "wave": 0.2,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.7
+    },
+    {
+     "h": 12,
+     "wind": 19,
+     "gust": 27,
+     "dir": 260,
+     "wave": 0.2,
+     "cloud": 95,
+     "rain": 0,
+     "sst": 14.7
+    },
+    {
+     "h": 13,
+     "wind": 22,
+     "gust": 32,
+     "dir": 265,
+     "wave": 0.2,
+     "cloud": 89,
+     "rain": 0,
+     "sst": 14.8
+    },
+    {
+     "h": 14,
+     "wind": 18,
+     "gust": 36,
+     "dir": 275,
+     "wave": 0.2,
+     "cloud": 100,
+     "rain": 0.1,
+     "sst": 14.8
+    },
+    {
+     "h": 15,
+     "wind": 24,
+     "gust": 30,
+     "dir": 264,
+     "wave": 0.2,
+     "cloud": 100,
+     "rain": 0.7,
+     "sst": 14.8
+    },
+    {
+     "h": 16,
+     "wind": 20,
+     "gust": 32,
+     "dir": 265,
+     "wave": 0.2,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.8
+    },
+    {
+     "h": 17,
+     "wind": 24,
+     "gust": 36,
+     "dir": 265,
+     "wave": 0.3,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.9
+    },
+    {
+     "h": 18,
+     "wind": 23,
+     "gust": 32,
+     "dir": 262,
+     "wave": 0.3,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.9
+    },
+    {
+     "h": 19,
+     "wind": 22,
+     "gust": 31,
+     "dir": 249,
+     "wave": 0.3,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 14.9
+    },
+    {
+     "h": 20,
+     "wind": 21,
+     "gust": 35,
+     "dir": 253,
+     "wave": 0.3,
+     "cloud": 46,
+     "rain": 0,
+     "sst": 14.9
+    },
+    {
+     "h": 21,
+     "wind": 20,
+     "gust": 30,
+     "dir": 241,
+     "wave": 0.3,
+     "cloud": 75,
+     "rain": 0,
+     "sst": 14.9
+    },
+    {
+     "h": 22,
+     "wind": 16,
+     "gust": 30,
+     "dir": 243,
+     "wave": 0.3,
+     "cloud": 99,
+     "rain": 0,
+     "sst": 14.9
+    },
+    {
+     "h": 23,
+     "wind": 7,
+     "gust": 29,
+     "dir": 225,
+     "wave": 0.3,
+     "cloud": 96,
+     "rain": 0.7,
+     "sst": 14.9
+    }
+   ]
+  },
+  {
+   "id": "camfrout",
+   "name": "L'Hôpital-Camfrout",
+   "subtitle": "Rivière du Camfrout, Tibidy, Troaon",
+   "type": "ESTUAIRE / TOMBOLO",
+   "distMin": 15,
+   "lat": 48.300126,
+   "lon": -4.247263,
+   "status": "ok",
+   "rank": 8,
+   "nrReason": null,
+   "verify": [],
+   "fav": 66,
+   "favLine": "Favorabilité 66 = conditions 68 (marée 28/45, lumière 25/25, vent et mer 15/30) × présence 0,975",
+   "cond": 68,
+   "presence": {
+    "factor": 0.975,
+    "label": "saison : retour"
+   },
+   "crit": [
+    {
+     "k": "fenetre",
+     "label": "Marée : fenêtre",
+     "pts": 15,
+     "max": 25,
+     "why": "« bonne » fenêtre de la fiche",
+     "niveau": 2
+    },
+    {
+     "k": "coef",
+     "label": "Marée : coefficient",
+     "pts": 13,
+     "max": 20,
+     "why": "coef 93, au-dessus de la plage utile (45 à 85)",
+     "niveau": 4
+    },
+    {
+     "k": "lumiere",
+     "label": "Lumière",
+     "pts": 25,
+     "max": 25,
+     "why": "aube",
+     "niveau": 2
+    },
+    {
+     "k": "vent",
+     "label": "Vent et mer",
+     "pts": 15,
+     "max": 30,
+     "why": "vent de terre force 1",
+     "niveau": 2
+    }
+   ],
+   "pert": {
+    "score": 100,
+    "parts": [
+     {
+      "label": "Ta boîte : la bonne technique",
+      "pts": 50,
+      "max": 50,
+      "why": "Xorus Asturie 110 : stickbait, le premier choix ici"
+     },
+     {
+      "label": "Ta boîte : poids et lancer",
+      "pts": 25,
+      "max": 25,
+      "why": "5 g visés, dans ta boîte et dans la plage de ta canne (14 à 42 g)"
+     },
+     {
+      "label": "Distance",
+      "pts": 25,
+      "max": 25,
+      "why": "15 min de trajet, dans ton maximum (45 min)"
+     }
+    ],
+    "top": [
+     {
+      "name": "Xorus Asturie 110",
+      "weight": "15 g",
+      "color": "Cabot",
+      "famLabel": "Stickbait",
+      "why": "Sa fiche produit recommande particulièrement l'Asturie 110 en mer calme."
+     },
+     {
+      "name": "Xorus Asturie 130",
+      "weight": "27 g",
+      "color": "Cabot",
+      "famLabel": "Stickbait",
+      "why": "Mer belle à peu agitée : la surface travaille bien."
+     },
+     {
+      "name": "Xorus Z Claw Evo 100",
+      "weight": "22,5 g",
+      "color": "Blanc nacré",
+      "famLabel": "Stickbait",
+      "why": "Mer belle à peu agitée : la surface travaille bien."
+     }
+    ]
+   },
+   "conf": {
+    "score": 61,
+    "label": "Moyenne",
+    "parts": [
+     {
+      "label": "Données",
+      "pts": 32.5,
+      "max": 40,
+      "why": "âge de la prévision inconnu ; aujourd'hui ; 100 % des critères calculés"
+     },
+     {
+      "label": "Accord des modèles",
+      "pts": 15,
+      "max": 20,
+      "why": "AROME et ECMWF : 1 Beaufort d'écart, 1 secteur de direction"
+     },
+     {
+      "label": "Preuves",
+      "pts": 13.6,
+      "max": 25,
+      "why": "exposition 4, courant 4, bars 5 sur l'échelle de 1 à 5"
+     },
+     {
+      "label": "Ton journal",
+      "pts": 0,
+      "max": 15,
+      "why": "aucune session notée ici"
+     }
+    ]
+   },
+   "best": {
+    "start": "05h41",
+    "end": "07h41",
+    "label": "Début de descendant (postage chenal)",
+    "light": "aube",
+    "lightLabel": "Aube",
+    "coeff": 93,
+    "tide": "descendant"
+   },
+   "windows": [
+    {
+     "start": 5.676666666666667,
+     "end": 7.676666666666666,
+     "startFmt": "05h41",
+     "endFmt": "07h41",
+     "fav": 66,
+     "ok": true,
+     "verify": false,
+     "light": "aube",
+     "label": "Début de descendant (postage chenal)"
+    },
+    {
+     "start": 9.530833333333334,
+     "end": 11.030833333333334,
+     "startFmt": "09h32",
+     "endFmt": "11h02",
+     "fav": 44,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "Fin de descendant (sortie d'estuaire)"
+    },
+    {
+     "start": 12.030833333333334,
+     "end": 14.530833333333334,
+     "startFmt": "12h02",
+     "endFmt": "14h32",
+     "fav": 51,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "3 premières heures de montant"
+    },
+    {
+     "start": 18.084999999999997,
+     "end": 20.084999999999997,
+     "startFmt": "18h05",
+     "endFmt": "20h05",
+     "fav": 44,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "Début de descendant (postage chenal)"
+    },
+    {
+     "start": 21.91777777777778,
+     "end": 23,
+     "startFmt": "21h55",
+     "endFmt": "23h00",
+     "fav": 60,
+     "ok": true,
+     "verify": false,
+     "light": "crepuscule",
+     "label": "Fin de descendant (sortie d'estuaire)"
+    }
+   ],
+   "lure": {
+    "summary": "Asturie 110 · 15 g · Cabot",
+    "family": "Stickbait",
+    "familyLabel": "Surface : stickbait, pencil",
+    "pick": {
+     "name": "Xorus Asturie 110",
+     "weight": "15 g",
+     "color": "Cabot",
+     "named": true
+    },
+    "alts": [
+     {
+      "name": "Megabass Spindle Worm 100",
+      "weight": "texan, plomb d'environ 5 g",
+      "color": "blanc, coloris contrastés, tons chauds"
+     },
+     {
+      "name": "Sakura Mr Joe 105",
+      "weight": "23 g",
+      "color": "blanc, coloris contrastés, tons chauds"
+     }
+    ],
+    "color": "Contrastée : blanc, Cabot ou tons chauds",
+    "colorWhy": [
+     "Aube et crépuscule : coloris contrastés ou chauds, qui restent visibles en lumière douce.",
+     "Blanc, efficace en eau claire par faible luminosité, le soir ou le matin."
+    ],
+    "size": "Profil de lançon / équille, 8-15 cm",
+    "weight": "15 g",
+    "weightWhy": [
+     "Poids du leurre : 15 g (15 g (Nootica, Ardent Pêche) ou 16,5 g (Rokmax, Leurres Mania)).",
+     "Montage conseillé par la fiche : Texan anti-accroche sur les parcs et les herbiers ; weightless à vue dans les bordures peu profondes."
+    ],
+    "anim": [
+     "Récupération rapide et erratique, scion haut, à-coups irréguliers (pas un walking the dog pur).",
+     "Par mer calme, à l'aube et au crépuscule : très lent. Scion bas pour le faire passer juste sous la surface.",
+     "Walking the dog : environ deux coups de scion par seconde ; long-slide, plus lent, pour les gros poissons."
+    ]
+   },
+   "access": [
+    "Depuis Logonna : D770 vers L'Hôpital-Camfrout. Parkings du bourg et de Kerhascoët. Accès à Troaon, Kerdreolet et au cordon de Tibidy (l'îlot de Tibidy est privé : ne pas y monter). Bottes ou waders selon le poste."
+   ],
+   "securite": [
+    "L'îlot de Tibidy est privé : ne pas y monter."
+   ],
+   "hourly": [
+    {
+     "h": 5,
+     "wind": 7,
+     "gust": 17,
+     "dir": 351,
+     "wave": 0.4,
+     "cloud": 88,
+     "rain": 0,
+     "sst": 15.1
+    },
+    {
+     "h": 6,
+     "wind": 2,
+     "gust": 17,
+     "dir": 14,
+     "wave": 0.4,
+     "cloud": 0,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 7,
+     "wind": 10,
+     "gust": 14,
+     "dir": 242,
+     "wave": 0.4,
+     "cloud": 0,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 8,
+     "wind": 2,
+     "gust": 16,
+     "dir": 169,
+     "wave": 0.4,
+     "cloud": 27,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 9,
+     "wind": 5,
+     "gust": 18,
+     "dir": 238,
+     "wave": 0.4,
+     "cloud": 31,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 10,
+     "wind": 12,
+     "gust": 25,
+     "dir": 238,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 11,
+     "wind": 17,
+     "gust": 25,
+     "dir": 226,
+     "wave": 0.4,
+     "cloud": 92,
+     "rain": 0.1,
+     "sst": 15.1
+    },
+    {
+     "h": 12,
+     "wind": 18,
+     "gust": 26,
+     "dir": 275,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.1
+    },
+    {
+     "h": 13,
+     "wind": 22,
+     "gust": 30,
+     "dir": 271,
+     "wave": 0.4,
+     "cloud": 1,
+     "rain": 0.1,
+     "sst": 15.1
+    },
+    {
+     "h": 14,
+     "wind": 24,
+     "gust": 32,
+     "dir": 271,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.1
+    },
+    {
+     "h": 15,
+     "wind": 26,
+     "gust": 29,
+     "dir": 275,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.1
+    },
+    {
+     "h": 16,
+     "wind": 25,
+     "gust": 35,
+     "dir": 271,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 17,
+     "wind": 28,
+     "gust": 35,
+     "dir": 277,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 18,
+     "wind": 26,
+     "gust": 31,
+     "dir": 274,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 19,
+     "wind": 23,
+     "gust": 29,
+     "dir": 269,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 20,
+     "wind": 20,
+     "gust": 29,
+     "dir": 245,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 21,
+     "wind": 16,
+     "gust": 25,
+     "dir": 241,
+     "wave": 0.5,
+     "cloud": 95,
+     "rain": 0.2,
+     "sst": 15.2
+    },
+    {
+     "h": 22,
+     "wind": 17,
+     "gust": 21,
+     "dir": 238,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 23,
+     "wind": 4,
+     "gust": 26,
+     "dir": 248,
+     "wave": 0.5,
+     "cloud": 99,
+     "rain": 0,
+     "sst": 15.2
+    }
+   ]
+  },
+  {
+   "id": "rostiviec",
+   "name": "Rostiviec",
+   "subtitle": "Port et anse de Penfoul, Loperhet",
+   "type": "RIA / BAIE DE DAOULAS",
+   "distMin": 15,
+   "lat": 48.347654,
+   "lon": -4.326763,
+   "status": "ok",
+   "rank": 9,
+   "nrReason": null,
+   "verify": [],
+   "fav": 59,
+   "favLine": "Favorabilité 59 = conditions 61 (marée 21/45, lumière 25/25, vent et mer 15/30) × présence 0,975",
+   "cond": 61,
+   "presence": {
+    "factor": 0.975,
+    "label": "saison : retour"
+   },
+   "crit": [
+    {
+     "k": "fenetre",
+     "label": "Marée : fenêtre",
+     "pts": 15,
+     "max": 25,
+     "why": "« bonne » fenêtre de la fiche",
+     "niveau": 2
+    },
+    {
+     "k": "coef",
+     "label": "Marée : coefficient",
+     "pts": 5.6,
+     "max": 20,
+     "why": "coef 93, au-dessus de la plage utile (35 à 75)",
+     "niveau": 4
+    },
+    {
+     "k": "lumiere",
+     "label": "Lumière",
+     "pts": 25,
+     "max": 25,
+     "why": "aube",
+     "niveau": 2
+    },
+    {
+     "k": "vent",
+     "label": "Vent et mer",
+     "pts": 15,
+     "max": 30,
+     "why": "vent de terre force 1",
+     "niveau": 2
+    }
+   ],
+   "pert": {
+    "score": 100,
+    "parts": [
+     {
+      "label": "Ta boîte : la bonne technique",
+      "pts": 50,
+      "max": 50,
+      "why": "Xorus Asturie 110 : stickbait, le premier choix ici"
+     },
+     {
+      "label": "Ta boîte : poids et lancer",
+      "pts": 25,
+      "max": 25,
+      "why": "5 g visés, dans ta boîte et dans la plage de ta canne (14 à 42 g)"
+     },
+     {
+      "label": "Distance",
+      "pts": 25,
+      "max": 25,
+      "why": "15 min de trajet, dans ton maximum (45 min)"
+     }
+    ],
+    "top": [
+     {
+      "name": "Xorus Asturie 110",
+      "weight": "15 g",
+      "color": "Cabot",
+      "famLabel": "Stickbait",
+      "why": "Sa fiche produit recommande particulièrement l'Asturie 110 en mer calme."
+     },
+     {
+      "name": "Xorus Asturie 130",
+      "weight": "27 g",
+      "color": "Cabot",
+      "famLabel": "Stickbait",
+      "why": "Mer belle à peu agitée : la surface travaille bien."
+     },
+     {
+      "name": "Xorus Z Claw Evo 100",
+      "weight": "22,5 g",
+      "color": "Blanc nacré",
+      "famLabel": "Stickbait",
+      "why": "Mer belle à peu agitée : la surface travaille bien."
+     }
+    ]
+   },
+   "conf": {
+    "score": 62,
+    "label": "Moyenne",
+    "parts": [
+     {
+      "label": "Données",
+      "pts": 32.5,
+      "max": 40,
+      "why": "âge de la prévision inconnu ; aujourd'hui ; 100 % des critères calculés"
+     },
+     {
+      "label": "Accord des modèles",
+      "pts": 15,
+      "max": 20,
+      "why": "AROME et ECMWF : 1 Beaufort d'écart, 3 secteurs de direction"
+     },
+     {
+      "label": "Preuves",
+      "pts": 14.3,
+      "max": 25,
+      "why": "exposition 4, courant 4, bars 4 sur l'échelle de 1 à 5"
+     },
+     {
+      "label": "Ton journal",
+      "pts": 0,
+      "max": 15,
+      "why": "aucune session notée ici"
+     }
+    ]
+   },
+   "best": {
+    "start": "05h41",
+    "end": "07h41",
+    "label": "Début de descendant (chenal)",
+    "light": "aube",
+    "lightLabel": "Aube",
+    "coeff": 93,
+    "tide": "descendant"
+   },
+   "windows": [
+    {
+     "start": 5.676666666666667,
+     "end": 7.676666666666666,
+     "startFmt": "05h41",
+     "endFmt": "07h41",
+     "fav": 59,
+     "ok": true,
+     "verify": false,
+     "light": "aube",
+     "label": "Début de descendant (chenal)"
+    },
+    {
+     "start": 12.030833333333334,
+     "end": 14.530833333333334,
+     "startFmt": "12h02",
+     "endFmt": "14h32",
+     "fav": 51,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "3 premières heures de montant"
+    },
+    {
+     "start": 15.584999999999997,
+     "end": 17.084999999999997,
+     "startFmt": "15h35",
+     "endFmt": "17h05",
+     "fav": 38,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "Fin de montant sur les mouillages"
+    },
+    {
+     "start": 18.084999999999997,
+     "end": 20.084999999999997,
+     "startFmt": "18h05",
+     "endFmt": "20h05",
+     "fav": 41,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "Début de descendant (chenal)"
+    }
+   ],
+   "lure": {
+    "summary": "Asturie 110 · 15 g · Cabot",
+    "family": "Stickbait",
+    "familyLabel": "Surface : stickbait, pencil",
+    "pick": {
+     "name": "Xorus Asturie 110",
+     "weight": "15 g",
+     "color": "Cabot",
+     "named": true
+    },
+    "alts": [
+     {
+      "name": "Megabass Spindle Worm 100",
+      "weight": "texan, plomb d'environ 5 g",
+      "color": "blanc, coloris contrastés, tons chauds"
+     },
+     {
+      "name": "Sakura Mr Joe 105",
+      "weight": "23 g",
+      "color": "blanc, coloris contrastés, tons chauds"
+     }
+    ],
+    "color": "Contrastée : blanc, Cabot ou tons chauds",
+    "colorWhy": [
+     "Aube et crépuscule : coloris contrastés ou chauds, qui restent visibles en lumière douce.",
+     "Blanc, efficace en eau claire par faible luminosité, le soir ou le matin."
+    ],
+    "size": "Profil de lançon / équille, 8-15 cm",
+    "weight": "15 g",
+    "weightWhy": [
+     "Poids du leurre : 15 g (15 g (Nootica, Ardent Pêche) ou 16,5 g (Rokmax, Leurres Mania)).",
+     "Montage conseillé par la fiche : Texan obligatoire près des parcs et des corps-morts ; tête légère possible sur la vase dégagée du chenal."
+    ],
+    "anim": [
+     "Récupération rapide et erratique, scion haut, à-coups irréguliers (pas un walking the dog pur).",
+     "Par mer calme, à l'aube et au crépuscule : très lent. Scion bas pour le faire passer juste sous la surface.",
+     "Walking the dog : environ deux coups de scion par seconde ; long-slide, plus lent, pour les gros poissons."
+    ]
+   },
+   "access": [
+    "Depuis Logonna : Daoulas puis Loperhet, direction port de Rostiviec. Parking à la cale, sentier côtier vers l'anse de Penfoul. Aucune difficulté."
+   ],
+   "securite": [
+    "L'anse de Penfoul « se vide entièrement à marée basse » : ne pas s'avancer sur la vase."
+   ],
+   "hourly": [
+    {
+     "h": 5,
+     "wind": 5,
+     "gust": 12,
+     "dir": 326,
+     "wave": 0.1,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.1
+    },
+    {
+     "h": 6,
+     "wind": 4,
+     "gust": 12,
+     "dir": 336,
+     "wave": 0.1,
+     "cloud": 0,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 7,
+     "wind": 3,
+     "gust": 10,
+     "dir": 360,
+     "wave": 0.1,
+     "cloud": 0,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 8,
+     "wind": 2,
+     "gust": 13,
+     "dir": 45,
+     "wave": 0.1,
+     "cloud": 17,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 9,
+     "wind": 2,
+     "gust": 11,
+     "dir": 315,
+     "wave": 0.1,
+     "cloud": 2,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 10,
+     "wind": 13,
+     "gust": 27,
+     "dir": 231,
+     "wave": 0.1,
+     "cloud": 98,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 11,
+     "wind": 17,
+     "gust": 26,
+     "dir": 225,
+     "wave": 0.1,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.1
+    },
+    {
+     "h": 12,
+     "wind": 14,
+     "gust": 28,
+     "dir": 249,
+     "wave": 0.1,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.1
+    },
+    {
+     "h": 13,
+     "wind": 16,
+     "gust": 30,
+     "dir": 262,
+     "wave": 0.2,
+     "cloud": 69,
+     "rain": 0,
+     "sst": 15.1
+    },
+    {
+     "h": 14,
+     "wind": 17,
+     "gust": 32,
+     "dir": 265,
+     "wave": 0.2,
+     "cloud": 100,
+     "rain": 0.3,
+     "sst": 15.1
+    },
+    {
+     "h": 15,
+     "wind": 22,
+     "gust": 26,
+     "dir": 261,
+     "wave": 0.2,
+     "cloud": 100,
+     "rain": 0.2,
+     "sst": 15.1
+    },
+    {
+     "h": 16,
+     "wind": 21,
+     "gust": 35,
+     "dir": 259,
+     "wave": 0.2,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 17,
+     "wind": 22,
+     "gust": 35,
+     "dir": 259,
+     "wave": 0.2,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 18,
+     "wind": 20,
+     "gust": 31,
+     "dir": 260,
+     "wave": 0.2,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 19,
+     "wind": 20,
+     "gust": 30,
+     "dir": 245,
+     "wave": 0.2,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 20,
+     "wind": 16,
+     "gust": 33,
+     "dir": 229,
+     "wave": 0.3,
+     "cloud": 97,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 21,
+     "wind": 16,
+     "gust": 28,
+     "dir": 229,
+     "wave": 0.3,
+     "cloud": 99,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 22,
+     "wind": 14,
+     "gust": 27,
+     "dir": 224,
+     "wave": 0.3,
+     "cloud": 55,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 23,
+     "wind": 7,
+     "gust": 26,
+     "dir": 180,
+     "wave": 0.3,
+     "cloud": 80,
+     "rain": 1.4,
+     "sst": 15.2
+    }
+   ]
+  },
+  {
+   "id": "landevennec",
+   "name": "Landévennec",
+   "subtitle": "Cale de Port Maria + Sillon des Anglais",
+   "type": "ANSE + SILLON",
+   "distMin": 35,
+   "lat": 48.294932,
+   "lon": -4.269158,
+   "status": "ok",
+   "rank": 10,
+   "nrReason": null,
+   "verify": [],
+   "fav": 56,
+   "favLine": "Favorabilité 56 = conditions 57 (marée 38/45, lumière 5/25, vent et mer 14/30) × présence 0,975",
+   "cond": 57,
+   "presence": {
+    "factor": 0.975,
+    "label": "saison : retour"
+   },
+   "crit": [
+    {
+     "k": "fenetre",
+     "label": "Marée : fenêtre",
+     "pts": 25,
+     "max": 25,
+     "why": "fenêtre « prime » de la fiche",
+     "niveau": 2
+    },
+    {
+     "k": "coef",
+     "label": "Marée : coefficient",
+     "pts": 13,
+     "max": 20,
+     "why": "coef 93, au-dessus de la plage utile (50 à 85)",
+     "niveau": 4
+    },
+    {
+     "k": "lumiere",
+     "label": "Lumière",
+     "pts": 5,
+     "max": 25,
+     "why": "plein jour",
+     "niveau": 2
+    },
+    {
+     "k": "vent",
+     "label": "Vent et mer",
+     "pts": 14,
+     "max": 30,
+     "why": "vent de terre force 2",
+     "niveau": 2
+    }
+   ],
+   "pert": {
+    "score": 100,
+    "parts": [
+     {
+      "label": "Ta boîte : la bonne technique",
+      "pts": 50,
+      "max": 50,
+      "why": "Xorus Asturie 150 : stickbait, le premier choix ici"
+     },
+     {
+      "label": "Ta boîte : poids et lancer",
+      "pts": 25,
+      "max": 25,
+      "why": "15 g visés, dans ta boîte et dans la plage de ta canne (14 à 42 g)"
+     },
+     {
+      "label": "Distance",
+      "pts": 25,
+      "max": 25,
+      "why": "35 min de trajet, dans ton maximum (45 min)"
+     }
+    ],
+    "top": [
+     {
+      "name": "Xorus Asturie 150",
+      "weight": "32 g",
+      "color": "",
+      "famLabel": "Stickbait",
+      "why": "Mer belle à peu agitée : la surface travaille bien."
+     },
+     {
+      "name": "Xorus Asturie 130",
+      "weight": "27 g",
+      "color": "Anchois",
+      "famLabel": "Stickbait",
+      "why": "Mer belle à peu agitée : la surface travaille bien."
+     },
+     {
+      "name": "Xorus Patchinko 140",
+      "weight": "25 g",
+      "color": "",
+      "famLabel": "Stickbait",
+      "why": "Mer belle à peu agitée : la surface travaille bien."
+     }
+    ]
+   },
+   "conf": {
+    "score": 71,
+    "label": "Haute",
+    "parts": [
+     {
+      "label": "Données",
+      "pts": 32.5,
+      "max": 40,
+      "why": "âge de la prévision inconnu ; aujourd'hui ; 100 % des critères calculés"
+     },
+     {
+      "label": "Accord des modèles",
+      "pts": 20,
+      "max": 20,
+      "why": "AROME et ECMWF : 0 Beaufort d'écart, 0 secteur de direction"
+     },
+     {
+      "label": "Preuves",
+      "pts": 18.6,
+      "max": 25,
+      "why": "exposition 2, courant 2, bars 2 sur l'échelle de 1 à 5"
+     },
+     {
+      "label": "Ton journal",
+      "pts": 0,
+      "max": 15,
+      "why": "aucune session notée ici"
+     }
+    ]
+   },
+   "best": {
+    "start": "06h11",
+    "end": "09h11",
+    "label": "Jusant dès la 2e heure (Port Maria)",
+    "light": "jour",
+    "lightLabel": "Plein jour",
+    "coeff": 93,
+    "tide": "descendant"
+   },
+   "windows": [
+    {
+     "start": 6.176666666666666,
+     "end": 9.176666666666666,
+     "startFmt": "06h11",
+     "endFmt": "09h11",
+     "fav": 56,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "Jusant dès la 2e heure (Port Maria)"
+    },
+    {
+     "start": 13.030833333333334,
+     "end": 15.530833333333334,
+     "startFmt": "13h02",
+     "endFmt": "15h32",
+     "fav": 45,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "Flot établi (Sillon des Anglais)"
+    },
+    {
+     "start": 18.584999999999997,
+     "end": 21.584999999999997,
+     "startFmt": "18h35",
+     "endFmt": "21h35",
+     "fav": 54,
+     "ok": true,
+     "verify": false,
+     "light": "jour",
+     "label": "Jusant dès la 2e heure (Port Maria)"
+    }
+   ],
+   "lure": {
+    "summary": "Asturie 150 · 32 g",
+    "family": "Stickbait",
+    "familyLabel": "Surface : stickbait, pencil",
+    "pick": {
+     "name": "Xorus Asturie 150",
+     "weight": "32 g",
+     "color": "naturel, imitation de la proie du moment",
+     "named": false
+    },
+    "alts": [
+     {
+      "name": "Sakura Mr Joe 120",
+      "weight": "35 g",
+      "color": "naturel, imitation de la proie du moment"
+     }
+    ],
+    "color": "Naturelle, proche de la proie",
+    "colorWhy": [
+     "Clarté non mesurée, plein jour : coloris naturel, proche des proies locales — la source donne ce conseil pour l'eau claire ; il est repris ici faute de mieux.",
+     "Sur les zones à lançon : vert ou kaki (Crazy Sand Eel, Crazy Paddle Tail) ; un leurre blanc peut aussi imiter un lançon."
+    ],
+    "size": "Profil de lançon / équille, 8-15 cm",
+    "weight": "32 g",
+    "weightWhy": [
+     "Poids du leurre : 32 g (32 g (Nootica, Leurre de la pêche) ou 31,6 g (Leurres Mania)).",
+     "Vent de face, clapot, vagues ou courant : le plus lourd de la boîte se lance plus loin et tient mieux sa trajectoire."
+    ],
+    "anim": [
+     "Récupération rapide et erratique, scion haut, à-coups irréguliers (pas un walking the dog pur).",
+     "Par mer calme, à l'aube et au crépuscule : très lent. Scion bas pour le faire passer juste sous la surface.",
+     "Walking the dog : environ deux coups de scion par seconde ; long-slide, plus lent, pour les gros poissons."
+    ]
+   },
+   "access": [
+    "Depuis Logonna : Le Faou puis D60/D791 vers Landévennec. Port Maria = bord de route, parking église Notre-Dame. Sillon des Anglais = GR34 depuis Landévennec, marche dans la forêt domaniale (15-20min)."
+   ],
+   "securite": [],
+   "hourly": [
+    {
+     "h": 5,
+     "wind": 8,
+     "gust": 17,
+     "dir": 317,
+     "wave": 0.4,
+     "cloud": 95,
+     "rain": 0,
+     "sst": 15.1
+    },
+    {
+     "h": 6,
+     "wind": 1,
+     "gust": 17,
+     "dir": 360,
+     "wave": 0.4,
+     "cloud": 2,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 7,
+     "wind": 9,
+     "gust": 14,
+     "dir": 234,
+     "wave": 0.4,
+     "cloud": 0,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 8,
+     "wind": 9,
+     "gust": 16,
+     "dir": 234,
+     "wave": 0.4,
+     "cloud": 37,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 9,
+     "wind": 11,
+     "gust": 18,
+     "dir": 245,
+     "wave": 0.4,
+     "cloud": 21,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 10,
+     "wind": 11,
+     "gust": 25,
+     "dir": 246,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 11,
+     "wind": 13,
+     "gust": 25,
+     "dir": 227,
+     "wave": 0.4,
+     "cloud": 98,
+     "rain": 0.1,
+     "sst": 15.1
+    },
+    {
+     "h": 12,
+     "wind": 14,
+     "gust": 26,
+     "dir": 275,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.1
+    },
+    {
+     "h": 13,
+     "wind": 18,
+     "gust": 30,
+     "dir": 271,
+     "wave": 0.4,
+     "cloud": 1,
+     "rain": 0.1,
+     "sst": 15.1
+    },
+    {
+     "h": 14,
+     "wind": 21,
+     "gust": 32,
+     "dir": 271,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.1
+    },
+    {
+     "h": 15,
+     "wind": 23,
+     "gust": 29,
+     "dir": 276,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.1
+    },
+    {
+     "h": 16,
+     "wind": 21,
+     "gust": 35,
+     "dir": 273,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 17,
+     "wind": 24,
+     "gust": 35,
+     "dir": 276,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 18,
+     "wind": 22,
+     "gust": 31,
+     "dir": 275,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 19,
+     "wind": 19,
+     "gust": 29,
+     "dir": 265,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 20,
+     "wind": 15,
+     "gust": 29,
+     "dir": 240,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 21,
+     "wind": 15,
+     "gust": 25,
+     "dir": 239,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0.2,
+     "sst": 15.2
+    },
+    {
+     "h": 22,
+     "wind": 15,
+     "gust": 21,
+     "dir": 234,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 23,
+     "wind": 5,
+     "gust": 26,
+     "dir": 200,
+     "wave": 0.5,
+     "cloud": 97,
+     "rain": 0,
+     "sst": 15.2
+    }
+   ]
+  },
+  {
+   "id": "terenez",
+   "name": "Île de Térénez",
+   "subtitle": "Sortie de l'Aulne, Rosnoën",
+   "type": "ÎLE TIDALE",
+   "distMin": 30,
+   "lat": 48.283495,
+   "lon": -4.279264,
+   "status": "nr",
+   "rank": 11,
+   "nrReason": "Coef 93 : au-delà de 85, l'île n'est « plus accessible en permanence » (peche-poissons.com, 2022) : non proposée, par prudence",
+   "verify": [],
+   "fav": null,
+   "favLine": null,
+   "cond": null,
+   "presence": null,
+   "crit": [],
+   "pert": null,
+   "conf": null,
+   "best": null,
+   "windows": [
+    {
+     "start": 5,
+     "end": 6.176666666666666,
+     "startFmt": "05h00",
+     "endFmt": "06h11",
+     "fav": null,
+     "ok": false,
+     "verify": false,
+     "light": "nuit",
+     "label": "Étale PM (±1h)"
+    },
+    {
+     "start": 10.530833333333334,
+     "end": 12.530833333333334,
+     "startFmt": "10h32",
+     "endFmt": "12h32",
+     "fav": null,
+     "ok": false,
+     "verify": false,
+     "light": "jour",
+     "label": "Étale BM (±1h)"
+    },
+    {
+     "start": 16.584999999999997,
+     "end": 18.584999999999997,
+     "startFmt": "16h35",
+     "endFmt": "18h35",
+     "fav": null,
+     "ok": false,
+     "verify": false,
+     "light": "jour",
+     "label": "Étale PM (±1h)"
+    }
+   ],
+   "lure": null,
+   "access": [
+    "D770 vers Le Faou puis D791 rive droite de l'Aulne direction Landévennec, fléchage Térénez. Parking en bord de grève. Traversée à pied à marée basse (vérifier le coef !). Retour obligatoire avant le flot."
+   ],
+   "securite": [
+    "Coefficient supérieur à 85 : l'île n'est plus accessible en permanence, on peut y rester bloqué à marée haute. Prendre la montre.",
+    "Traversée à pied à marée basse : retour obligatoire avant le flot."
+   ],
+   "hourly": [
+    {
+     "h": 5,
+     "wind": 8,
+     "gust": 18,
+     "dir": 291,
+     "wave": 0.4,
+     "cloud": 90,
+     "rain": 0,
+     "sst": 15.1
+    },
+    {
+     "h": 6,
+     "wind": 8,
+     "gust": 16,
+     "dir": 270,
+     "wave": 0.4,
+     "cloud": 0,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 7,
+     "wind": 7,
+     "gust": 13,
+     "dir": 252,
+     "wave": 0.4,
+     "cloud": 0,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 8,
+     "wind": 7,
+     "gust": 16,
+     "dir": 241,
+     "wave": 0.4,
+     "cloud": 19,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 9,
+     "wind": 9,
+     "gust": 18,
+     "dir": 230,
+     "wave": 0.4,
+     "cloud": 39,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 10,
+     "wind": 10,
+     "gust": 28,
+     "dir": 231,
+     "wave": 0.4,
+     "cloud": 96,
+     "rain": 0,
+     "sst": 15
+    },
+    {
+     "h": 11,
+     "wind": 10,
+     "gust": 26,
+     "dir": 228,
+     "wave": 0.4,
+     "cloud": 97,
+     "rain": 0.1,
+     "sst": 15.1
+    },
+    {
+     "h": 12,
+     "wind": 8,
+     "gust": 25,
+     "dir": 243,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0.3,
+     "sst": 15.1
+    },
+    {
+     "h": 13,
+     "wind": 11,
+     "gust": 31,
+     "dir": 268,
+     "wave": 0.4,
+     "cloud": 32,
+     "rain": 0,
+     "sst": 15.1
+    },
+    {
+     "h": 14,
+     "wind": 13,
+     "gust": 32,
+     "dir": 279,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.1
+    },
+    {
+     "h": 15,
+     "wind": 13,
+     "gust": 27,
+     "dir": 276,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0.4,
+     "sst": 15.1
+    },
+    {
+     "h": 16,
+     "wind": 13,
+     "gust": 32,
+     "dir": 268,
+     "wave": 0.4,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 17,
+     "wind": 15,
+     "gust": 30,
+     "dir": 267,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0.1,
+     "sst": 15.2
+    },
+    {
+     "h": 18,
+     "wind": 13,
+     "gust": 26,
+     "dir": 264,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 19,
+     "wind": 16,
+     "gust": 28,
+     "dir": 242,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 20,
+     "wind": 13,
+     "gust": 30,
+     "dir": 225,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 21,
+     "wind": 11,
+     "gust": 24,
+     "dir": 214,
+     "wave": 0.5,
+     "cloud": 82,
+     "rain": 0.1,
+     "sst": 15.2
+    },
+    {
+     "h": 22,
+     "wind": 12,
+     "gust": 21,
+     "dir": 204,
+     "wave": 0.5,
+     "cloud": 99,
+     "rain": 0,
+     "sst": 15.2
+    },
+    {
+     "h": 23,
+     "wind": 7,
+     "gust": 25,
+     "dir": 191,
+     "wave": 0.5,
+     "cloud": 100,
+     "rain": 0,
+     "sst": 15.2
+    }
+   ]
+  }
+ ],
+ "box": [
+  {
+   "id": "ast110",
+   "cat": "asturie",
+   "name": "Xorus Asturie 110",
+   "kind": "stickbait flottant",
+   "fam": "surface",
+   "g": 15,
+   "colors": [
+    "Cabot",
+    "Mackerel"
+   ],
+   "anyColor": false,
+   "allSizes": false,
+   "note": "2 bars à Moulin Mer le 27/12/2025, avant le coucher (avec l'Asturie 130 Blanc)."
+  },
+  {
+   "id": "ast130",
+   "cat": "asturie",
+   "name": "Xorus Asturie 130",
+   "kind": "stickbait flottant",
+   "fam": "surface",
+   "g": 27,
+   "colors": [
+    "Ghost Iwashi",
+    "Blanc",
+    "Cabot",
+    "Anchois"
+   ],
+   "anyColor": false,
+   "allSizes": false,
+   "note": null
+  },
+  {
+   "id": "ast150",
+   "cat": "asturie",
+   "name": "Xorus Asturie 150",
+   "kind": "stickbait flottant",
+   "fam": "surface",
+   "g": 32,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": false,
+   "note": null
+  },
+  {
+   "id": "patch140",
+   "cat": "patchinko",
+   "name": "Xorus Patchinko 140",
+   "kind": "stickbait flottant",
+   "fam": "surface",
+   "g": 25,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": false,
+   "note": "Vrai Xorus ou copie : « on n'est pas au gramme près »."
+  },
+  {
+   "id": "zclaw",
+   "cat": "zclaw",
+   "name": "Xorus Z Claw Evo 100",
+   "kind": "stickbait flottant à bruiteur",
+   "fam": "surface",
+   "g": 22.5,
+   "colors": [
+    "Blanc nacré"
+   ],
+   "anyColor": true,
+   "allSizes": false,
+   "note": "1 bar à Moulin Mer le 08/08/2026, au coucher du soleil."
+  },
+  {
+   "id": "joe105",
+   "cat": "mrjoe",
+   "name": "Sakura Mr Joe 105",
+   "kind": "stickbait coulant",
+   "fam": "nageur",
+   "g": 23,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": false,
+   "note": null
+  },
+  {
+   "id": "joe120",
+   "cat": "mrjoe",
+   "name": "Sakura Mr Joe 120",
+   "kind": "stickbait coulant",
+   "fam": "nageur",
+   "g": 35,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": false,
+   "note": null
+  },
+  {
+   "id": "balsa130",
+   "cat": "balsa",
+   "name": "Leurre balsa 130",
+   "kind": "leurre en balsa, 20 g (marque et nage à préciser)",
+   "fam": "nageur",
+   "g": 20,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": false,
+   "note": null
+  },
+  {
+   "id": "bavette",
+   "cat": "bavette",
+   "name": "Poissons nageurs à bavette (Jackson Artist…)",
+   "kind": "minnows à bavette (tailles à préciser ; Artist FR80 : 8 g)",
+   "fam": "nageur",
+   "g": null,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": true,
+   "note": null
+  },
+  {
+   "id": "cpt",
+   "cat": "cpt",
+   "name": "Fiiish Crazy Paddle Tail",
+   "kind": "shad à palette sur tête",
+   "fam": "shad",
+   "g": null,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": true,
+   "note": null
+  },
+  {
+   "id": "ms",
+   "cat": "mastershad",
+   "name": "Fiiish Master Shad",
+   "kind": "shad sur tête",
+   "fam": "shad",
+   "g": null,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": true,
+   "note": null
+  },
+  {
+   "id": "bm",
+   "cat": "blackminnow",
+   "name": "Fiiish Black Minnow",
+   "kind": "shad à palette sur tête (hameçon texan)",
+   "fam": "shad",
+   "g": null,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": true,
+   "note": null
+  },
+  {
+   "id": "spindle",
+   "cat": "spindle",
+   "name": "Megabass Spindle Worm",
+   "kind": "souple fin (montage à préciser)",
+   "fam": "weightless",
+   "g": null,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": true,
+   "note": null
+  },
+  {
+   "id": "xlayer",
+   "cat": "xlayer",
+   "name": "Megabass X-Layer",
+   "kind": "slug souple",
+   "fam": "weightless",
+   "g": null,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": true,
+   "note": null
+  },
+  {
+   "id": "dmc",
+   "cat": "dragmetal",
+   "name": "DUO Drag Metal Cast",
+   "kind": "jig de lancer compact",
+   "fam": "metal",
+   "g": null,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": true,
+   "note": "De 20 à 40 g (26/10/2026)."
+  },
+  {
+   "id": "curly",
+   "cat": "curlyspindle",
+   "name": "Curly Spindle Worm",
+   "kind": "souple à queue curly (modèle à préciser)",
+   "fam": "weightless",
+   "g": null,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": true,
+   "note": null
+  },
+  {
+   "id": "ds",
+   "cat": "darksleeper",
+   "name": "Megabass Dark Sleeper",
+   "kind": "souple pré-plombé, hameçon caché (61, 76, 97 et 114 mm = 2,4, 3, 3,8 et 4,5 pouces)",
+   "fam": "shad",
+   "g": null,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": true,
+   "note": null
+  },
+  {
+   "id": "craw",
+   "cat": "craw",
+   "name": "Craw (écrevisse)",
+   "kind": "imitation de crustacé (montage à préciser)",
+   "fam": "weightless",
+   "g": null,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": true,
+   "note": null
+  }
+ ],
+ "canne": {
+  "min": 14,
+  "max": 42
+ },
+ "journal": [
+  {
+   "id": "log-2025-12-27-moulinmer",
+   "date": "2025-12-27",
+   "spotId": "moulinmer",
+   "fish": 2,
+   "result": 7,
+   "moment": "coucher",
+   "lure": "Asturie 130 blanc · Asturie 110 Cabot",
+   "note": "2 bars avant le coucher du soleil. Aucune chasse en surface.",
+   "spotName": "Moulin Mer"
+  },
+  {
+   "id": "log-2026-08-07-moulinmer",
+   "date": "2026-08-07",
+   "spotId": "moulinmer",
+   "fish": 0,
+   "result": 1,
+   "lure": "Asturie et Z-Claw, nombreux modèles essayés",
+   "note": "Bredouille malgré une prospection large de la boîte.",
+   "spotName": "Moulin Mer"
+  },
+  {
+   "id": "log-2026-08-08-moulinmer",
+   "date": "2026-08-08",
+   "spotId": "moulinmer",
+   "fish": 1,
+   "result": 5,
+   "moment": "coucher",
+   "lure": "Z-Claw blanc nacré",
+   "note": "1 bar au moment du coucher du soleil. Aucune chasse en surface.",
+   "spotName": "Moulin Mer"
+  }
+ ]
+}

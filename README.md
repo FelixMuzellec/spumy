@@ -48,9 +48,12 @@ npm test                  # contrôle du code, règles de couches, fiches des si
 npm run test:a11y         # accessibilité (axe-core) sur toutes les pages
 npm run test:studio       # page d'analyse photo par l'abonnement Claude, avec un Claude simulé
 npm run test:upgrade      # mise à jour d'un téléphone : version publiée (main) → cette version, données et hors ligne
-npm run test:knowledge    # connaissances halieutiques : niveaux de preuve, sources, rubriques des 66 spots
+npm run test:knowledge    # connaissances BORD et BATEAU : niveaux de preuve, sources, rubriques des 66 spots
 npm run test:contract     # contrat avec le vrai Open-Meteo (réseau)
 npm run test:v2           # moteur v2 : les 16 scénarios de la spécification et les règles des trois scores
+npm run test:design       # contrastes WCAG des jetons du système de design (phase 11), deux thèmes
+npm run build:prototype   # construit le prototype de la phase 11 dans prototype/
+npm run test:prototype    # construit puis parcourt les 23 écrans du prototype (390 et 320 px, deux thèmes, axe-core)
 ```
 
 Épreuve du moteur (phase 8), sans réseau, sur les journées du dépôt (`data/epreuve/archives/`, une archive compressée par guide, lue telle quelle) : `node scripts/epreuve-analyse.mjs` (coût de la prudence, paliers, v1 et v2, journal) ; `node scripts/epreuve-mc.mjs data/epreuve/archives 1000 tout <résultat.json> [guide,guide…]` puis `node scripts/epreuve-synthese.mjs <résultat.json>…` (Monte Carlo, environ 25 minutes pour les sept guides sur deux cœurs).
@@ -61,14 +64,17 @@ Sur une machine neuve, installer Chromium pour Playwright une fois : `npx playwr
 
 ```
 src/       code source : coquille (app/), socle commun (core/), pêche du bord (bord/), pêche en bateau (bateau/),
-           style commun (design/), studio photo (studio/)
+           style commun (design/, dont le système de design de la phase 11 dans design/ds/), studio photo (studio/),
+           prototype de la phase 11 (prototype/)
 data/      fiches des 7 sites (sites/), connaissances halieutiques et niveaux de preuve (knowledge/), schémas (schema/),
-           journées et résultats de l'épreuve du moteur (epreuve/)
+           journées et résultats de l'épreuve du moteur (epreuve/), catalogue des photos d'ambiance (photos/)
 scripts/   construction du site, icônes, studio, épreuve du moteur (epreuve-*.mjs)
 tests/     tests unitaires, moteur v2, parcours, contrat Open-Meteo, accessibilité, studio, mise à jour
-assets/    images sources (logos, icônes)
+assets/    images sources (logos, icônes), photos d'ambiance en WebP (photos/)
 audit/     audit de la v9.1, note UX de la v9.2
-docs/      architecture, fonctionnalités détaillées, spécification du moteur v2, rapports de phase (rapports/)
+docs/      architecture, fonctionnalités détaillées, spécifications des moteurs BORD v2 et BATEAU, direction artistique,
+           rapports de phase (rapports/), images de référence et captures « avant » (reference/)
+prototype/ maquette interactive de la phase 11, construite (npm run build:prototype) ; pas l'application
 racine     site compilé (*.html, app.js, fiches *.json, sw.js, manifest.json, icônes), publié tel quel par GitHub Pages
 ```
 
@@ -97,6 +103,7 @@ Ne jamais déposer un fichier de `src/` à la racine. Après un dépôt, vérifi
 
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) : organisation du code, architecture actuelle et cible.
 - [docs/FONCTIONNALITES.md](docs/FONCTIONNALITES.md) : ce que fait chaque écran, l'analyse photo, la sauvegarde du journal.
+- [docs/DIRECTION-ARTISTIQUE.md](docs/DIRECTION-ARTISTIQUE.md) : direction artistique et système de design (phase 11), prototype dans [prototype/](prototype/).
 - [CHANGELOG.md](CHANGELOG.md) : ce qui change à chaque version.
 - [CONTRIBUTING.md](CONTRIBUTING.md) : comment proposer une modification.
 - [SPUMY_AUDIT_CONTINUITY.md](SPUMY_AUDIT_CONTINUITY.md) : état du chantier en cours (audit et refonte).
@@ -108,7 +115,7 @@ Ne jamais déposer un fichier de `src/` à la racine. Après un dépôt, vérifi
 2. Phase 3 (faite) : socle technique — code dans le dépôt, tests automatiques, réorganisation, application unique, données des sites, jetons de design, sécurité rapide.
 3. Phases 4 à 8 (faites, phase 8 en attente de validation) : BORD — audit approfondi, audit halieutique, conception du moteur à trois scores sur 100 avec sécurité bloquante, mise en œuvre, épreuve sur de vraies journées.
 4. Phases 9, 10 et 13 : BATEAU — conception, moteur par espèce, développement.
-5. Phase 11 : direction artistique et écrans ; phase 12 : spécifications.
+5. Phase 11 (prototype livré, en attente de validation) : direction artistique et écrans ; phase 12 : spécifications. La phase 10 (moteur BATEAU) est mise de côté pour le moment.
 6. Phases 14 à 17 : journal et hors ligne, sécurité et réglementation, recette complète, audit final.
 
 ## Données, sources et licences
