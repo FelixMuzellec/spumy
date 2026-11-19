@@ -1,8 +1,9 @@
 // v8.15 — Accès au dépôt GitHub du journal, sans guide : partagé par les guides (sync.jsx) et l'accueil
 // (sorties en bateau, offshore.json). Le jeton reste sur l'appareil et ne part que vers api.github.com.
 const CFG_KEY = "bar:sync";
-// 13 nov. 2026 : dépôt de sauvegarde par défaut dans l'organisation spumy (spumy.github.io), sans lien avec l'ancien guide.
-export const DEFAULT_CFG = { owner: "spumy", repo: "journal", token: "" };
+// 18 nov. 2026 : SPUMY vit à felixmuzellec.github.io/spumy/ (seule adresse) ; dépôt de sauvegarde par défaut
+// `spumy-journal` du compte, distinct de celui de l'ancien guide. Un réglage déjà enregistré sur l'appareil est gardé.
+export const DEFAULT_CFG = { owner: "FelixMuzellec", repo: "spumy-journal", token: "" };
 
 export function getCfg() {
   try { const c = JSON.parse(localStorage.getItem(CFG_KEY) || "null"); return c && c.token ? { ...DEFAULT_CFG, ...c } : null; }

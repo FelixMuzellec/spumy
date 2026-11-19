@@ -1,5 +1,5 @@
 // Tests de bout en bout dans Chromium (Playwright), sur les pages construites
-// (racine du dépôt), servies à la racine comme sur GitHub Pages (spumy.github.io/...). Open-Meteo,
+// (racine du dépôt), servies sous /spumy/ comme sur GitHub Pages (felixmuzellec.github.io/spumy/). Open-Meteo,
 // l'API GitHub et les tuiles OpenStreetMap sont simulés au niveau du réseau ;
 // tout le reste est réel.
 import { chromium, devices } from "playwright";
@@ -12,7 +12,7 @@ import { omRespond } from "./om_mock.mjs";
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const SHOTS = process.env.SHOTS || path.join(ROOT, "tests/shots");
 fs.mkdirSync(SHOTS, { recursive: true });
-const PREFIX = "";   // spumy.github.io : le site est à la racine de son adresse
+const PREFIX = "/spumy";   // felixmuzellec.github.io/spumy/ : le site est dans le dossier du dépôt
 const DOCS = ROOT;   // le site est construit à la racine du dépôt
 // Tuile de carte factice (PNG 1×1) : aucun appel réel à OpenStreetMap pendant les tests.
 const PNG1 = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==", "base64");
@@ -293,7 +293,7 @@ const btn = (page, name) => page.getByRole("button", { name }).first();
 }
 // ── 0 ter. v8.15 : onglets Inshore / Offshore ; pêche en bateau (spots, conditions, sorties, modèle empirique) ──
 {
-  const SYNC = { owner: "spumy", repo: "journal", token: "github_pat_TEST" };
+  const SYNC = { owner: "FelixMuzellec", repo: "spumy-journal", token: "github_pat_TEST" };
   const gh = fakeGitHub();
   const ctx = await browser.newContext({ ...devices["iPhone 13"], locale: "fr-FR", timezoneId: "Europe/Paris", serviceWorkers: "block" });
   await ctx.clock.install({ time: FIXED_NOW });
@@ -821,7 +821,7 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
 
 // ── 4. Sauvegarde GitHub du journal ──
 {
-  const SYNC = { owner: "spumy", repo: "journal", token: "github_pat_TEST" };
+  const SYNC = { owner: "FelixMuzellec", repo: "spumy-journal", token: "github_pat_TEST" };
   // a) dépôt vide → premier enregistrement crée le fichier (seeds compris)
   const gh = fakeGitHub();
   const { ctx, page, errors } = await openApp("logonna", { sync: SYNC, gh });
@@ -900,7 +900,7 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
 
 // ── 4 bis. v8.11 : tes spots, ajoutés sur le téléphone. v8.14 : depuis l'accueil, rangés dans le bon guide ──
 {
-  const SYNC = { owner: "spumy", repo: "journal", token: "github_pat_TEST" };
+  const SYNC = { owner: "FelixMuzellec", repo: "spumy-journal", token: "github_pat_TEST" };
   const gh = fakeGitHub();
   const ctxG = await browser.newContext({ ...devices["iPhone 13"], locale: "fr-FR", timezoneId: "Europe/Paris", serviceWorkers: "block",
     geolocation: { latitude: 48.3305, longitude: -4.295, accuracy: 12 }, permissions: ["geolocation"] });
@@ -1147,8 +1147,8 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
   await b.ctx.close();
 }
 
-// ── 5 quater bis. Toutes mes données : d'une adresse à l'autre (passage à spumy.github.io, 13 nov. 2026) ──
-// Le navigateur range le stockage par adresse : deux contextes séparés jouent l'ancienne et la nouvelle adresse.
+// ── 5 quater bis. Toutes mes données : d'un téléphone à l'autre ──
+// Deux contextes séparés jouent l'ancien et le nouveau téléphone (stockages distincts).
 {
   const L = (s) => `[transfert] ${s}`;
   const a = await openApp("logonna");
@@ -1160,7 +1160,7 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
     J("bar:myspots:logonna-daoulas", [{ id: "moi-abcd1234", name: "Mon poste", lat: 48.33, lon: -4.3, water: 90, createdAt: 1, updatedAt: 1 }]);
     localStorage.setItem("bar:theme", "sun");
     localStorage.setItem("bar:boite", JSON.stringify({ essai: true }));
-    J("bar:sync", { owner: "spumy", repo: "journal", token: "github_pat_SECRET" });
+    J("bar:sync", { owner: "FelixMuzellec", repo: "spumy-journal", token: "github_pat_SECRET" });
     localStorage.setItem("bar:claude", "sk-ant-SECRET");
     localStorage.setItem("bar:data:essai", "{}");
     await new Promise((ok, ko) => { const r = indexedDB.open("guide-bar", 1); r.onupgradeneeded = () => r.result.createObjectStore("kv");
@@ -1179,7 +1179,7 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
   ok(/3 sessions au journal/.test(await T(a.page)), L("le guide dit ce qu'il a enregistré"));
   await a.ctx.close();
 
-  const b = await openApp("logonna");   // nouvelle adresse : stockage vide, sauf une session et un réglage déjà là
+  const b = await openApp("logonna");   // nouveau téléphone : stockage vide, sauf une session et un réglage déjà là
   await waitText(b.page, READY);
   await b.page.evaluate(() => { localStorage.setItem("bar:journal:logonna-daoulas", JSON.stringify([{ id: "b1", spotId: "moulinmer", date: "2026-11-01", fish: 0 }])); localStorage.setItem("bar:theme", "nuit"); });
   await b.page.evaluate(() => window.dispatchEvent(new Event("bar:reglages")));

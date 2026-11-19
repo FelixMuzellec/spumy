@@ -1,5 +1,18 @@
 # Journal des versions
 
+## Non publié — phase 8, épreuve du moteur (Monte Carlo sur de vraies journées)
+
+Branche `claude/phase-8-epreuve` (partie de la phase 7).
+
+- **Journées de référence** : 36 dates par guide fixées d'avance (le 6, le 16 et le 26 de chaque mois, de fin novembre 2025 à mi-novembre 2026) et les trois jours du journal ; prévisions archivées d'Open-Meteo téléchargées et déposées dans la branche par l'intégration continue (`data/epreuve/`).
+- **Monte Carlo** : 1 000 tirages par journée et par guide (`scripts/epreuve-mc.mjs`), entrées perturbées selon leur incertitude, hypothèses selon leur niveau de preuve ; synthèse (`scripts/epreuve-synthese.mjs`) ; analyse des journées telles quelles (`scripts/epreuve-analyse.mjs`).
+- **Paliers de favorabilité recalés** sur les journées réelles : 75, 65, 55 et 45 (au lieu de 80, 65, 50 et 35) ; les cinq paliers apparaissent en saison.
+§RAMPE§
+- **Fiabilité du conseil** (onglet Météo) : dit ce que l'épreuve a mesuré pour la v2.
+- **Connaissances** : verdicts de la phase 8 dans `data/knowledge/bar-bord.json`.
+- **Adresse** (décision de Félix, 18 novembre) : une seule, <https://felixmuzellec.github.io/spumy/> (GitHub Pages sur `FelixMuzellec/spumy`, branche `main`). Les tests servent le site sous `/spumy/` ; la mise à jour d'un téléphone vérifie que la copie hors ligne de l'ancien guide (`/guide-peche-bar/`, même origine) n'est pas touchée. Dépôt de sauvegarde du journal par défaut : `FelixMuzellec/spumy-journal` (un réglage déjà enregistré est gardé).
+- **Fichiers retirés** : voir la liste dans le rapport de la phase 8.
+
 ## Non publié — phase 7, moteur BORD v2 (trois scores sur 100, sécurité de la spécification)
 
 Branche `claude/phase-7-moteur-v2` (phases 5 et 6, et `main`). Spécification validée par Félix le 18 novembre.
@@ -11,25 +24,15 @@ Branche `claude/phase-7-moteur-v2` (phases 5 et 6, et `main`). Spécification va
 - **Réglages → Moteur de notes** : revenir à la note sur 10 (v1), boîte complète ou non, temps de trajet maximal.
 - **Tests** : `npm run test:v2` (16 scénarios de la spécification, règles des trois scores) ; comparaison des deux moteurs sur 2 016 journées d'essai (`tests/compare-v1v2.mjs`).
 
-## Non publié — adresse propre spumy.github.io et transfert de toutes les données, fusionnés dans `main` le 13 novembre (1f5c740), pas en ligne
-
-Demande de Félix : une organisation GitHub gratuite « spumy » (adresse `spumy.github.io`), sans perdre le journal enregistré dans l'ancien guide, puis plus aucun lien entre les deux.
+## Non publié — toutes mes données (changer de téléphone), fusionné dans `main` le 13 novembre (1f5c740)
 
 - **Toutes mes données** (*Réglages*) : « Enregistrer toutes mes données » télécharge un fichier qui contient :
     - le journal de chaque guide, tes spots, ta boîte, tes réglages ;
     - tes sorties en bateau et tes analyses photo.
 
   « Importer un fichier de données » l'ajoute à l'appareil sans rien écraser : union par identifiant, réglages déjà présents gardés. Le jeton GitHub, la clé Claude et la météo en cache ne voyagent jamais. Un journal d'un seul guide est reconnu et renvoyé vers l'onglet *Journal*.
-- **Plus de lien avec l'ancien guide.**
-    - Sauvegarde par défaut : dépôt privé `journal` de l'organisation `spumy`, au lieu de `guide-peche-bar-journal`.
-    - Les tests servent le site à la racine, comme à `spumy.github.io`.
-    - Le passage depuis la v8.15 de l'ancien dépôt est retiré de l'intégration continue.
-    - Les commentaires et la documentation ne citent plus l'ancienne adresse. La marche à suivre (une fois) est dans le `README`.
-- **Noms internes gardés** : clés `bar:…` (le poisson), cache « guide-bar-… », base « guide-bar ». Ils ne relient SPUMY à rien. Les garder permet au transfert de lire les données de l'ancien guide à l'étape 2 de la marche à suivre.
-- **Tests**
-    - Parcours : 11 contrôles du transfert, entre deux téléphones simulés.
-    - Accessibilité : réglages ouverts, 0 violation.
-    - Mise à jour d'un téléphone, servie à la racine : 11/11.
+- **Noms internes gardés** : clés `bar:…` (le poisson), cache « guide-bar-… », base « guide-bar ». Ils permettent de lire directement, à la même origine, ce que l'ancien guide a enregistré sur le téléphone.
+- **Tests** : parcours, 11 contrôles du transfert entre deux téléphones simulés ; accessibilité, réglages ouverts, 0 violation.
 
 ## Non publié — phase 6, conception du moteur BORD v2 (spécification, sans code)
 

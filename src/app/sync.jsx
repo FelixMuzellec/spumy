@@ -163,7 +163,7 @@ export function SyncBar({ siteId, initial }) {
             il est aussi écrit dans un dépôt GitHub <strong>privé</strong> (un fichier par application, un historique par enregistrement).
           </p>
           <ol style={{ margin: "0 0 8px", paddingLeft: 18 }}>
-            <li>Crée un dépôt <strong>privé</strong> nommé <code>journal</code> dans l'organisation <code>spumy</code> (ou dans ton compte : change alors « Compte »).</li>
+            <li>Crée un dépôt <strong>privé</strong> nommé <code>spumy-journal</code> dans ton compte GitHub (un autre nom convient : change alors « Dépôt »).</li>
             <li>GitHub → Settings → Developer settings → Fine-grained tokens → Generate : accès au seul dépôt
               du journal, permission <em>Contents : Read and write</em>.</li>
             <li>Colle le jeton ci-dessous. Il reste sur cet appareil et n'est envoyé qu'à GitHub.</li>

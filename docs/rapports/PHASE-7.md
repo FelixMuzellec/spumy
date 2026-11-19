@@ -119,10 +119,7 @@ Sur 2 016 journées d'essai, le premier spot change dans 47 % des cas :
 7. **Sécurité commune aux deux moteurs** : c'est ma lecture de ta décision sur les seuils de vent ; à confirmer.
 8. **Stabilité de la v2 non mesurée.** La carte « Fiabilité du conseil » parle encore de la v1, et le dit. Le Monte Carlo, c'est la phase 8.
 9. **Carte OpenStreetMap.** Le bleu le plus clair se distingue mal de la mer claire du fond ; le contour sombre le sauve. À revoir avec la conformité visuelle (phases 11 et 13).
-10. **Mise en ligne.**
-    - Le dépôt est toujours `FelixMuzellec/spumy`, sans Pages.
-    - L'organisation `spumy` n'est pas visible d'ici.
-    - Rien de SPUMY n'est donc en ligne à la nouvelle adresse.
+10. **Mise en ligne.** Le dépôt `FelixMuzellec/spumy` n'a pas encore Pages : rien de SPUMY n'est en ligne.
 
 ## 7. Critères d'acceptation
 
@@ -144,7 +141,7 @@ Statut de la phase : **TESTED, en attente de ta validation.**
 ## 8. Décisions attendues
 
 Je te les pose une par une à la suite de ce rapport :
-1. Le passage à `spumy.github.io`.
+1. La mise en ligne.
 2. La fusion des phases 5, 6 et 7 dans `main`.
 3. L'inventaire complet de ta boîte.
 4. Ton temps de trajet maximal.

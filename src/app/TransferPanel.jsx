@@ -1,5 +1,5 @@
 // Réglages → « Toutes mes données » : enregistrer un fichier de tout ce que cet appareil garde, et l'importer à
-// une autre adresse ou sur un autre téléphone (voir transfer.js). Passage à spumy.github.io, 13 nov. 2026.
+// un autre téléphone (voir transfer.js).
 import { useRef, useState } from "react";
 import { color, radius, touch } from "../design/tokens.js";
 import { collectAll, importAll, readTransfer, saveFile, summarize } from "./transfer.js";
@@ -42,8 +42,8 @@ export function TransferPanel() {
     <section aria-label="Toutes mes données" style={{ margin: "0 0 12px" }}>
       <div style={{ color: color.text, fontWeight: 700, marginBottom: 6 }}>Toutes mes données</div>
       <p style={{ margin: "0 0 8px" }}>
-        Pour changer d'adresse ou de téléphone : enregistre un fichier de tout ce que garde cet appareil (journal de chaque
-        guide, tes spots, ta boîte, tes réglages, tes analyses photo), puis importe-le à la nouvelle adresse. Rien n'est écrasé :
+        Pour changer de téléphone : enregistre un fichier de tout ce que garde cet appareil (journal de chaque
+        guide, tes spots, ta boîte, tes réglages, tes analyses photo), puis importe-le sur le nouveau téléphone. Rien n'est écrasé :
         les données s'ajoutent à celles qui y sont déjà.
       </p>
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
