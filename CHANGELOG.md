@@ -7,11 +7,12 @@ Branche `claude/phase-8-epreuve` (partie de la phase 7).
 - **Journées de référence** : 36 dates par guide fixées d'avance (le 6, le 16 et le 26 de chaque mois, de fin novembre 2025 à mi-novembre 2026) et les trois jours du journal ; prévisions archivées d'Open-Meteo téléchargées et déposées dans la branche par l'intégration continue (`data/epreuve/`).
 - **Monte Carlo** : 1 000 tirages par journée et par guide (`scripts/epreuve-mc.mjs`), entrées perturbées selon leur incertitude, hypothèses selon leur niveau de preuve ; synthèse (`scripts/epreuve-synthese.mjs`) ; analyse des journées telles quelles (`scripts/epreuve-analyse.mjs`).
 - **Paliers de favorabilité recalés** sur les journées réelles : 75, 65, 55 et 45 (au lieu de 80, 65, 50 et 35) ; les cinq paliers apparaissent en saison.
-§RAMPE§
+- **Lumière en rampe** (créneau de plein jour qui mord sur l'aube ou le crépuscule) : essayée, puis retirée selon la règle fixée avant l'essai (gain de 1,8 point sur les trois premiers inchangés, 2 demandés).
+- **Épreuve** : critère « trois premiers inchangés dans 80 % des tirages » non tenu (20 journées sur 241) ; aucune hypothèse de niveau 4 ou 5 au-dessus de 30 % de la variance (21,4 % au plus) ; tes seuils de vent coûtent 1,0 % des spots praticables.
 - **Fiabilité du conseil** (onglet Météo) : dit ce que l'épreuve a mesuré pour la v2.
 - **Connaissances** : verdicts de la phase 8 dans `data/knowledge/bar-bord.json`.
 - **Adresse** (décision de Félix, 18 novembre) : une seule, <https://felixmuzellec.github.io/spumy/> (GitHub Pages sur `FelixMuzellec/spumy`, branche `main`). Les tests servent le site sous `/spumy/` ; la mise à jour d'un téléphone vérifie que la copie hors ligne de l'ancien guide (`/guide-peche-bar/`, même origine) n'est pas touchée. Dépôt de sauvegarde du journal par défaut : `FelixMuzellec/spumy-journal` (un réglage déjà enregistré est gardé).
-- **Fichiers retirés** : voir la liste dans le rapport de la phase 8.
+- **Fichiers retirés** : `scripts/sourced_facts_2026-10-10.py` (correctif ponctuel de la v6, ses faits sont dans les fiches) ; `.github/workflows/epreuve-depot.yml` et `data/epreuve/depot.json` (dépôt unique des journées de la phase 8, fait).
 
 ## Non publié — phase 7, moteur BORD v2 (trois scores sur 100, sécurité de la spécification)
 

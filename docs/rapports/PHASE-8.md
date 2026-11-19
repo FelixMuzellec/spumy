@@ -1,6 +1,6 @@
 # SPUMY — Phase 8 : épreuve du moteur
 
-18 novembre 2026 · Félix · version de référence : document Claude « SPUMY — Phase 8 : épreuve du moteur » (§LIEN§) · proposition de fusion n° §PR§ (brouillon)
+18 novembre 2026 · Félix · version de référence : document Claude « SPUMY — Phase 8 : épreuve du moteur » (§LIEN§) · proposition de fusion n° 7 (brouillon)
 
 Le moteur v2 a été éprouvé sur 252 vraies journées (36 par guide, choisies d'avance, toutes saisons), avec 1 000 tirages par journée. Le classement ne tient pas le critère de la spécification : les trois premiers ne restent les mêmes dans 80 % des tirages que sur 20 journées sur 241. Ce n'est pas une erreur de calcul. Les spots d'un guide sont souvent trop proches pour que l'incertitude des prévisions et des hypothèses les départage : sur 241 journées, le premier et le deuxième sont à 3 points ou moins 152 fois. Aucune hypothèse de niveau 4 ou 5 ne décide seule (la plus forte explique 21,4 % de la variance, sous le seuil de 30 %). Tes seuils de vent coûtent peu : 1 % des spots praticables passent « à vérifier » à cause d'eux seuls. Une correction est appliquée (les paliers de couleur) ; une autre a été essayée puis retirée, comme la règle fixée d'avance le demandait. Tu poses les questions à la fin, comme tu l'as demandé : je ne t'en pose aucune ici.
 
@@ -47,11 +47,18 @@ Tous les chiffres viennent de fichiers du dépôt, recalculables sans réseau.
 | Preuve | Commande ou passage | Résultat |
 | --- | --- | --- |
 | Journées archivées | intégration continue, « Épreuve du moteur », passage 44330704552 (1 h 12) | 7 guides × 39 journées ; `data/epreuve/archives/RESUME.txt` |
-| Monte Carlo, moteur livré | `node scripts/epreuve-mc.mjs <journées> 1000 tout …` puis `scripts/epreuve-synthese.mjs` | §CONTROLE§ |
+| Monte Carlo, moteur livré | `node scripts/epreuve-mc.mjs <journées> 1000 tout …` puis `scripts/epreuve-synthese.mjs` | `resultats/mc-v2-livre-1000-*.json` : identique au premier passage (`mc-v2-tout-1000-*`) pour les 252 journées-guides, 0 écart sur le premier, les trois premiers, les égalités, Spearman et l'écart au deuxième |
 | Entrées seules, hypothèses seules | même script, modes `entrees` et `hypotheses`, 300 tirages | `resultats/mc-v2-entrees-300.json`, `mc-v2-hypotheses-300.json` |
 | Rampe de lumière | même script, 1 000 tirages, moteur avec la rampe | `resultats/mc-v2-rampe-1000-*.json` |
 | Journées telles quelles | `node scripts/epreuve-analyse.mjs <journées>` | `resultats/analyse-v2-livre.json` (moteur livré), `analyse-v2.json` (avant), `analyse-v2-rampe.json` |
-| Tests | §TESTS§ | §TESTSR§ |
+| Moteur v2 : 16 scénarios et règles des trois scores | `npm run test:v2` | 51/51 (test des paliers mis aux nouvelles bornes) |
+| Unitaires, 7 guides et fuseau d'Auckland | `npm run test:unit` | 2 953 contrôles pour les 7 guides, plus 437 à Auckland : tous verts |
+| Parcours complets dans Chromium, servis sous `/spumy/` | `npm run test:e2e` | 843/843 |
+| Mise à jour d'un téléphone depuis `main`, sous `/spumy/` | `npm run test:upgrade` | 12/12, dont : la copie hors ligne de `/guide-peche-bar/` n'est pas touchée |
+| Accessibilité (axe-core) | `npm run test:a11y` | 0 violation |
+| Données, connaissances, contrat Open-Meteo simulé, studio photo | `test:data`, `test:knowledge`, `test:contract`, `test:studio` | 69/69, 16/16, 28/28, 34/34 |
+| Lint ; couches ; couleurs écrites en dur | `npm run lint`, `test:layers` | 0 erreur (1 avertissement, déjà là avant) ; 0 écart ; 291, comme avant |
+| Intégration continue (proposition n° 7) | « Tests » et « Contrat Open-Meteo » (réel) | §CI§ |
 
 Les tirages sont déterministes : même graine par guide et par journée. Le passage de contrôle refait le classement du premier passage au tirage près, ce qui vérifie que la rampe est bien retirée et que les paliers ne touchent pas au classement.
 
@@ -156,7 +163,7 @@ Avec les paliers de la spécification (80, 65, 50, 35), le palier du bas n'appar
 | 45 à 54 | 10,1 % | 4,0 % | 25,1 % |
 | moins de 45 | 2,9 % | 0,8 % | 38,0 % |
 
-Favorabilité de mai à octobre : 10e centile 52, médiane 69, 90e centile 83. De novembre à avril : 34, 49, 70. Le palier d'un spot reste le même dans §PALIER§ des tirages.
+Favorabilité de mai à octobre : 10e centile 52, médiane 69, 90e centile 83. De novembre à avril : 34, 49, 70. Le palier d'un spot reste le même dans 56,1 % des tirages (60,9 % avec les anciens paliers, plus larges : des paliers plus fins changent plus souvent) des tirages.
 
 ### 5.6 La v1 et la v2 sur de vraies journées
 
@@ -216,7 +223,7 @@ Dans l'onglet *Météo*, la carte « Fiabilité du conseil » le dit : avec la v
 | Coût de la prudence mesuré | 1,0 % dû à tes seuils seuls | TESTED |
 | Vérité terrain | 3 sessions : trop peu pour conclure | INCONNU |
 | Hypothèses gardées, corrigées ou retirées | tableau 5.8, verdicts dans la base | TESTED |
-| Tests de l'application | §TESTSR§ | §TESTSS§ |
+| Tests de l'application | toutes les suites vertes ici ; sur GitHub : §CI§ | §CIS§ |
 
 ## 8. Décisions attendues
 

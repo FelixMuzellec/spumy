@@ -17,7 +17,7 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 5. Connaissances halieutiques | VALIDATED (13 nov. 2026, 13 h 58, « APPROVED — PROCEED TO PHASE 6 ») ; non fusionnée (accord de fusion non donné) | Branche `claude/phase-5-halieutique`, demande de fusion n° 3 ; rapport « SPUMY — Phase 5 : connaissances halieutiques » https://claude.ai/artifact/BmTd9B29oPziqDZqh9n1cC |
 | 6. Conception du moteur BORD (spécification, sans code) | VALIDATED (18 nov. 2026, 14 h 47, « APPROVED — PROCEED TO PHASE 7 ») ; non fusionnée (accord de fusion non donné) | Branche `claude/phase-6-conception`, demande de fusion n° 4 ; `docs/SPEC-MOTEUR-BORD-V2.md` ; rapport « SPUMY — Phase 6 : conception du moteur BORD » https://claude.ai/artifact/Fa93x9zkURzEdVRxRZy8Fj (copie : `docs/rapports/PHASE-6.md`) |
 | 7. Moteur BORD v2 | VALIDATED (18 nov. 2026, « APPROVED — PROCEED TO PHASE 8 ») ; non fusionnée (accord de fusion non donné) | Branche `claude/phase-7-moteur-v2`, proposition de fusion n° 6 (brouillon, contient les phases 5 et 6) ; rapport « SPUMY — Phase 7 : moteur BORD v2 » https://claude.ai/artifact/5VVWp9Z3HfSvn72Uy3Ztwo (copie : `docs/rapports/PHASE-7.md`) |
-| 8. Épreuve du moteur (Monte Carlo, journées archivées) | IN PROGRESS (depuis le 18 nov. 2026) | Branche `claude/phase-8-epreuve` (partie de la phase 7) |
+| 8. Épreuve du moteur (Monte Carlo, journées archivées) | TESTED, en attente de validation (« APPROVED — PROCEED TO PHASE 9 ») ; critère de stabilité FAILED, dit dans le rapport | Branche `claude/phase-8-epreuve`, proposition de fusion n° 7 (phases 5 à 8) ; rapport `docs/rapports/PHASE-8.md` |
 | 9 à 17 | NOT STARTED | — |
 
 ### Phase 4, lots
@@ -48,8 +48,8 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 8.1 Journées de référence | TESTED | 36 dates fixées d'avance (6, 16, 26 de chaque mois, nov. 2025 à nov. 2026) + 3 sessions du journal ; téléchargées par l'intégration continue (« Épreuve du moteur », passage 44330704552), déposées dans la branche (`data/epreuve/archives/`) ; 0 journée en échec |
 | 8.2 Monte Carlo | TESTED | `scripts/epreuve-mc.mjs` : 1 000 tirages par journée et par guide, 241 journées-guides notées ; tirages « entrées seules » et « hypothèses seules » (300) ; `data/epreuve/resultats/` |
 | 8.3 Analyse telle quelle | TESTED | `scripts/epreuve-analyse.mjs` : coût de la prudence, paliers, v1/v2 réels, journal, qualité des données |
-| 8.4 Corrections | IN PROGRESS | Paliers 75/65/55/45 (gardés). Lumière en rampe pour les créneaux de plein jour qui mordent sur la basse lumière : règle fixée avant le second passage (gardée si les trois premiers inchangés gagnent au moins 2 points en moyenne sans que le premier inchangé perde plus de 1 point) ; mesuré : +1,8 point (35,9 → 37,7 %), premier +1,4 point → **retirée** (`resultats/mc-v2-rampe-1000-*.json`). Passage de contrôle du moteur livré (sans rampe) en cours |
-| 8.5 Rapport, arrêt | NOT STARTED | — |
+| 8.4 Corrections | TESTED | Paliers 75/65/55/45 (gardés). Lumière en rampe : règle fixée avant le second passage (gardée si les trois premiers inchangés gagnent au moins 2 points sans que le premier perde plus de 1 point) ; mesuré +1,8 point (35,9 → 37,7 %), premier +1,4 → **retirée** (`resultats/mc-v2-rampe-1000-*`). Passage de contrôle du moteur livré (`mc-v2-livre-1000-*`) : identique au premier passage, 0 écart sur 252 journées-guides ; palier inchangé 56,1 % |
+| 8.5 Rapport, arrêt | IMPLEMENTED | `docs/rapports/PHASE-8.md` ; tests 51/51, 3 390, 843/843, 12/12, 0 violation ; proposition de fusion n° 7 |
 
 ### Phase 5, lots
 
@@ -164,16 +164,21 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 ## Questions retenues pour Félix (à traiter ensemble)
 
 1. Adresse — réglée le 18 nov. : https://felixmuzellec.github.io/spumy/ seule ; reste l'activation de GitHub Pages par Félix (*Settings → Pages → Deploy from a branch → `main` / (root)*).
-2. Fusion des phases 5, 6, 7 (et 8) dans `main` — sans préférence le 18 nov.
+2. Fusion des phases 5 à 8 dans `main` — lue comme accordée le 18 nov. au soir (« Transfert tous les fichiers sur https://github.com/FelixMuzellec/spumy ») ; à confirmer.
 3. Inventaire complet de la boîte — sans préférence le 18 nov.
 4. Temps de trajet maximal (45 min par défaut).
 5. Vigilance Météo-France : compte portail-api et tâche GitHub, ou rester INCONNU.
 6. Isolement par la marée : Mousterlin (coef. > 75), Agon et Sciotot (marée montante) → non recommandé ?
 7. Écart à la spécification pour S12 (présence en abri 0,6 entre 7,5 et 9,5 °C).
 8. Sécurité commune aux deux moteurs (lecture de Claude).
-9. Historique de sorties réelles (vérité terrain).
+9. Historique de sorties réelles (vérité terrain) : 3 sessions, trop peu ; ordre de grandeur pour trancher un critère : 40 sessions par situation.
 10. Restes de la phase 5 : 9 rubriques « connaissance locale », positions GPS des 7 spots de Pirou, 3 spots sans source.
+11. Houle maximale de chaque spot : première cause de « non recommandé » (298 spots-journées) ; la revoir spot par spot.
+12. Paliers 75/65/55/45 : les garder.
+13. Égalité à 3 points : la garder, ou annoncer l'égalité jusqu'à 10 points (le premier ne tient dans 80 % des tirages qu'à 10 points d'avance).
+14. Rampe de lumière : retirée selon la règle fixée d'avance ; la reprendre si le gain « à égalité près » (+3,5 points) suffit.
+15. Dépôt de sauvegarde par défaut du journal : `FelixMuzellec/spumy-journal`.
 
 ## Prochaine action
 
-Phase 8 : journées archivées (intégration continue), Monte Carlo, coût de la prudence, paliers, rapport, arrêt. Ne poser aucune question (les ajouter à la liste ci-dessus).
+Phase 8 livrée (rapport, proposition de fusion n° 7). Après la fusion dans `main` et le nettoyage : **STOP**, attendre « APPROVED — PROCEED TO PHASE 9 » (BATEAU, conception). Ne poser aucune question avant la fin de toutes les étapes ; les ajouter à la liste ci-dessus.
