@@ -349,6 +349,30 @@ const btn = (page, name) => page.getByRole("button", { name }).first();
   ok(!/Note\b/.test(await page.locator("#offshore-app thead").innerText()), "spot bateau : pas de note sans sorties (modèle empirique)");
   await page.getByRole("button", { name: "Dem.", exact: true }).click();
   ok(/Samedi 31 octobre|Samedi|samedi|Dimanche|Lundi|Mardi|Mercredi|Jeudi|Vendredi/.test(await app()) && await page.locator("#offshore-app tbody tr").count() === 6, "spot bateau : le jour choisi change les conditions affichées");
+  // Phase 13 — « Sortir ce jour-là ? » : sans profil du bateau, aucun verdict ; avec, la sécurité zone par zone et les espèces.
+  const sortie = () => page.evaluate(() => document.querySelector('[aria-labelledby="off-sortie-h"]')?.innerText || "");
+  ok(/Sortir (ce jour-là|aujourd'hui) \?/.test(await sortie()) && /besoin de ton bateau/.test(await sortie()) && !/Oui, de|À vérifier avant de partir|Non : sortie/.test(await sortie()), "sortie bateau : sans profil du bateau, aucun verdict");
+  const pf = page.locator('form[aria-label="Ton bateau"]');
+  await pf.getByRole("button", { name: "C · à proximité des côtes" }).click();
+  await pf.getByRole("button", { name: "Côtier (6 milles)" }).click();
+  await page.fill("#pf-port", "Camaret");
+  await page.fill("#pf-coords", "48.25, -4.62");   // ≈ 7,8 milles de la zone (48,20 ; −4,80) : au-delà de 6 milles
+  await page.fill("#pf-v", "15");
+  await pf.getByRole("button", { name: "Enregistrer ton bateau" }).click();
+  await page.waitForFunction(() => /Non : sortie non recommandée|À vérifier avant de partir|Oui, de/.test(document.querySelector('[aria-labelledby="off-sortie-h"]')?.innerText || ""), null, { timeout: 10000 }).catch(() => {});
+  const s1 = await sortie();
+  ok(/Non : sortie non recommandée/.test(s1) && /Distance d'un abri : Zone à \d+,\d milles/.test(s1), "sortie bateau : zone au-delà de 6 milles de l'abri, armement côtier → non recommandée (Division 240)" + ` — ${s1.slice(0, 200).replace(/\n/g, " ")}`);
+  await page.getByRole("button", { name: "Modifier ton bateau" }).click();
+  await page.fill("#pf-coords", "48.21, -4.78");
+  await pf.getByRole("button", { name: "Enregistrer ton bateau" }).click();
+  await page.waitForTimeout(300);
+  const s2 = await sortie();
+  ok(/À vérifier avant de partir|Oui, de/.test(s2) && !/Non : sortie/.test(s2), "sortie bateau : zone à 1 mille de l'abri → plus de refus pour la distance" + ` — ${s2.slice(0, 200).replace(/\n/g, " ")}`);
+  await page.locator('[aria-labelledby="off-sortie-h"] details summary').first().click();
+  const s3 = await sortie();
+  ok(/SÉCURITÉ/.test(s3) && /Lieu jaune/.test(s3) && /Favorabilité/.test(s3) && /Pertinence/.test(s3) && /Confiance/.test(s3) && /⚖ 2 par pêcheur/.test(s3), "sortie bateau : règles de sécurité, espèces ouvertes et leurs trois scores, réglementation");
+  ok(/canal 16/.test(s3) && /aide à la flottabilité/i.test(s3), "sortie bateau : rappels de sécurité toujours affichés");
+  ok(await page.evaluate(() => { try { return JSON.parse(localStorage.getItem("bar:offshore:profil")).categorie === "C"; } catch { return false; } }), "sortie bateau : profil du bateau gardé sur l'appareil");
   // Sorties : une avec prises, un capot.
   const trip = async (start, end, catches) => {
     await page.getByRole("button", { name: "＋ Enregistrer une sortie" }).click();

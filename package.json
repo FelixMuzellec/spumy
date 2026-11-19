@@ -1,6 +1,6 @@
 {
   "name": "spumy",
-  "version": "10.0.0",
+  "version": "10.1.0",
   "description": "SPUMY — où et quand pêcher le bar aux leurres du bord (sept guides en Finistère et dans la Manche) et pêche en bateau toutes espèces.",
   "private": true,
   "type": "module",

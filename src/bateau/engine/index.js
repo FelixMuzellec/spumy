@@ -4,6 +4,7 @@ import { milles, RAPPELS, ST, tripSafety, worse } from "./safety.js";
 import { lightOf, rankSpecies } from "./species.js";
 
 export { beaufort, milles, profileProblems, RAPPELS, ST, thresholds, tripSafety } from "./safety.js";
+export { sunAt, tidePhase } from "./sun.js";
 export { closedOn, confidence, criteria, ESPECES, favorability, lightOf, personalAdjust, presence, rankSpecies, relevance, weightNeeded } from "./species.js";
 
 /** Temps de route (min) depuis ton port d'attache (premier abri) à ta vitesse (nœuds). */

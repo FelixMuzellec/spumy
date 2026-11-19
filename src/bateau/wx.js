@@ -3,9 +3,10 @@
 // spots à la fois. Sans guide : ne dépend que de wxcore.js.
 import { omFetch, omUrl, WX } from "../core/wxcore.js";
 
-export const OFF_HOURLY = ["wind_speed_10m", "wind_gusts_10m", "wind_direction_10m", "pressure_msl", "cloud_cover", "precipitation", "temperature_2m"];
+// Phase 13 : visibilité, code temps (orage) et énergie convective (CAPE) pour la sécurité de la sortie (SEC_VISIBILITE, SEC_ORAGE).
+export const OFF_HOURLY = ["wind_speed_10m", "wind_gusts_10m", "wind_direction_10m", "pressure_msl", "cloud_cover", "precipitation", "temperature_2m", "visibility", "weather_code", "cape"];
 export const OFF_MARINE = ["wave_height", "wave_direction", "wave_period", "swell_wave_height", "swell_wave_period", "swell_wave_direction", "sea_surface_temperature"];
-const MAP_F = { wind: "wind_speed_10m", gust: "wind_gusts_10m", dir: "wind_direction_10m", pressure: "pressure_msl", cloud: "cloud_cover", precip: "precipitation", temp: "temperature_2m" };
+const MAP_F = { wind: "wind_speed_10m", gust: "wind_gusts_10m", dir: "wind_direction_10m", pressure: "pressure_msl", cloud: "cloud_cover", precip: "precipitation", temp: "temperature_2m", visibility: "visibility", code: "weather_code", cape: "cape" };
 const MAP_M = { wave: "wave_height", waveDir: "wave_direction", period: "wave_period", swell: "swell_wave_height", swellPeriod: "swell_wave_period", swellDir: "swell_wave_direction", sst: "sea_surface_temperature" };
 const isoAdd = (iso, n) => { const t = new Date(Date.UTC(+iso.slice(0, 4), +iso.slice(5, 7) - 1, +iso.slice(8, 10) + n)); return t.toISOString().slice(0, 10); };
 const daysBetween = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 864e5);

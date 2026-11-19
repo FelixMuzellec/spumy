@@ -58,6 +58,9 @@ export function omRespond(urlStr, scenario = "nominal") {
           case "swell_wave_height": return 0.9;
           case "swell_wave_period": return 11;
           case "sea_surface_temperature": return 15.8;
+          case "visibility": return 24000;
+          case "weather_code": return 2;
+          case "cape": return 80;
           default: return null;
         }
       });
