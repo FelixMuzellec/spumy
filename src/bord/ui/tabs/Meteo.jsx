@@ -44,11 +44,12 @@ export function Meteo({ g }) {
         <Card title="Fiabilité du conseil" kicker="Le classement face à l'incertitude du vent">
           {g.top3.map((s) => {
             // Phase 7 : cette robustesse est celle de la note sur 10 (moteur v1, ensemble de météos plausibles) ;
-            // avec la v2, elle reste calculée sur la v1 et dite comme telle (la v2 sera éprouvée en phase 8).
+            // avec la v2, elle reste calculée sur la v1 et dite comme telle ; ce que l'épreuve de la phase 8 a mesuré pour
+            // la v2 (252 vraies journées, 1 000 tirages chacune) est dit à côté.
             const v1 = s.v1 || s;
             return <Row key={s.id} label={s.name}>{s.v1 ? "note v1 " : ""}{fr(v1.score)} · plage {fr(v1.worst)}–{fr(v1.best)} · {v1.stability}</Row>;
           })}
-          {g.top3[0]?.engine === "v2" && <Muted>Moteur v2 : cette mesure est faite sur la note sur 10 de la v1 ; la stabilité des trois scores sur 100 sera mesurée en phase 8 (Monte Carlo).</Muted>}
+          {g.top3[0]?.engine === "v2" && <Muted>Moteur v2 : cette mesure est faite sur la note sur 10 de la v1. Éprouvée sur de vraies journées, la favorabilité sur 100 garde le même premier spot une fois sur deux environ quand on fait varier la prévision et les hypothèses ; quand deux spots sont à moins de 10 points, l'un vaut l'autre.</Muted>}
           <Muted>Une prévision de vent reste incertaine d'au moins ±1 Beaufort et ±1 secteur. La note affichée est la moyenne sur cette plage, pas la valeur d'un point unique. Quand AROME et ECMWF ne s'accordent pas sur le vent d'un créneau, la plage est élargie à leur écart réel (jusqu'à ±3 Beaufort et ±3 secteurs). « Plage » : la note aux deux extrêmes. Un spot « volatile » n'est premier que si la prévision est exacte.</Muted>
         </Card>
       )}

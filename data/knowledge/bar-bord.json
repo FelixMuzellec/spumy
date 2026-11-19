@@ -72,7 +72,7 @@
     }
    ],
    "limites": "Le calendrier suit les sources (frai hivernal, présence côtière de mai à novembre) ; les valeurs chiffrées ne sont écrites dans aucune source.",
-   "verdict": "à éprouver en phase 6 (journal, marquages)",
+   "verdict": "garder, niveau 4 inchangé : 21,4 % de la variance avec les facteurs d'abri (phase 8 : part de la variance de la favorabilité sur 241 journées réelles × 1 000 tirages ; c'est une sensibilité, pas une preuve), première hypothèse mais sous le seuil de 30 % ; à confronter au journal",
    "statut": "HYPOTHÈSE",
    "valeurs": {
     "texte": "roche et plage : 0,6 0,5 0,55 0,75 0,95 1 1 1 1 1 0,95 0,75 ; abri : écart réduit de moitié",
@@ -100,7 +100,7 @@
     }
    ],
    "limites": "Indice seulement : des bars marqués ont hiverné dans un port belge à 6,9 °C de température médiane (Goossens et al. 2023, cité par Edwards 2025) ; aucune observation en rade de Brest ni dans les abers.",
-   "verdict": "à éprouver en phase 6",
+   "verdict": "garder, niveau 4 : compté avec les facteurs de saison, 21,4 % de la variance (phase 8 : part de la variance de la favorabilité sur 241 journées réelles × 1 000 tirages ; c'est une sensibilité, pas une preuve)",
    "statut": "HYPOTHÈSE"
   },
   {
@@ -143,7 +143,7 @@
     }
    ],
    "limites": "Aucune source ne donne ces paliers. Des bars ont été suivis jusqu'à 6,5 °C (de Pontual 2023) et ont hiverné à 6,9 °C dans un port (Edwards 2025) : « l'essentiel des adultes a rejoint le large sous 7,5 °C » n'est pas démontré.",
-   "verdict": "à revoir en phase 6",
+   "verdict": "garder, niveau 4 : 4,8 % de la variance (phase 8 : part de la variance de la favorabilité sur 241 journées réelles × 1 000 tirages ; c'est une sensibilité, pas une preuve) ; la température de l'eau elle-même (±1 °C) en explique 6,5 %",
    "statut": "HYPOTHÈSE",
    "valeurs": {
     "texte": "7,5 / 9,5 / 11,5 / 13,5 / 19 / 21,5 °C ; facteurs 0,30 / 0,50 / 0,75 / 0,92 / 1 / 0,90 / 0,72",
@@ -190,7 +190,7 @@
     }
    ],
    "limites": "En bassin et en cage, l'alimentation culmine à l'aube ou au crépuscule selon les individus (Millot et Bégout 2009 ; Chen 2023), mais aucune étude en milieu naturel n'a été trouvée sur l'activité de jour et de nuit du bar adulte. Les poids +1,2 et −0,9 sont des choix de modèle.",
-   "verdict": "conserver ; poids à éprouver en phase 6",
+   "verdict": "garder : poids de la lumière 3,9 %, valeur de la nuit 3,8 %, valeur du plein jour 3,6 % de la variance (phase 8 : part de la variance de la favorabilité sur 241 journées réelles × 1 000 tirages ; c'est une sensibilité, pas une preuve). Une rampe pour les créneaux de jour qui mordent sur l'aube ou le crépuscule a été essayée puis retirée (gain de 1,8 point sur les trois premiers inchangés, 2 demandés d'avance)",
    "statut": "INFÉRÉ",
    "valeurs": {
     "texte": "+1,2 basse lumière, +0,5 nuit, −0,9 plein jour (compensé par ciel couvert et houle)",
@@ -226,7 +226,7 @@
     }
    ],
    "limites": "La source parle du choix des couleurs par ciel couvert, pas d'un effet sur l'activité du poisson.",
-   "verdict": "à éprouver en phase 6",
+   "verdict": "garder : compté dans la valeur du plein jour, 3,6 % de la variance (phase 8 : part de la variance de la favorabilité sur 241 journées réelles × 1 000 tirages ; c'est une sensibilité, pas une preuve)",
    "statut": "INFÉRÉ"
   },
   {
@@ -256,7 +256,7 @@
     }
    ],
    "limites": "En milieu naturel : grands bars vus traversant des vasières submergées à pleine mer (Edwards 2025), signal de marée sur environ 35 % des marques (de Pontual 2023) ; le détail des fenêtres de chaque spot vient de sources de pêche ou de déductions (voir preuves-spots.json).",
-   "verdict": "conserver",
+   "verdict": "garder : poids de la fenêtre 4,3 % de la variance ; les heures des fenêtres (±30 min) 11,0 %, et ce sont elles qui font le plus souvent changer le premier spot (phase 8 : part de la variance de la favorabilité sur 241 journées réelles × 1 000 tirages ; c'est une sensibilité, pas une preuve)",
    "statut": "VÉRIFIÉ"
   },
   {
@@ -270,7 +270,7 @@
    "niveau": 4,
    "sources": [],
    "limites": "Quelques bornes sont sourcées (Térénez : passage coupé au-delà de 85, peche-poissons.com 2022 ; Cotentin : 70 à 90 préférés, despoissonssigrands.com) ; les autres sont déduites, spot par spot.",
-   "verdict": "à éprouver en phase 6",
+   "verdict": "garder, niveau 4 : plage utile 21,0 % de la variance (deuxième hypothèse, sous le seuil de 30 %), poids du coefficient 3,0 % (phase 8 : part de la variance de la favorabilité sur 241 journées réelles × 1 000 tirages ; c'est une sensibilité, pas une preuve) ; à confronter au journal",
    "statut": "HYPOTHÈSE"
   },
   {
@@ -328,7 +328,7 @@
     }
    ],
    "limites": "Principe de pêcheurs ; les valeurs de windMod (jusqu'à force 4 favorable, pénalités au-delà) ne sont écrites dans aucune source.",
-   "verdict": "conserver ; valeurs à éprouver en phase 6",
+   "verdict": "garder : poids du vent et de la mer 3,5 %, amplitude du tableau 2,6 % de la variance ; la force (±1 Beaufort) et la direction (±1 secteur) prévues en expliquent 5,3 % et 3,2 % (phase 8 : part de la variance de la favorabilité sur 241 journées réelles × 1 000 tirages ; c'est une sensibilité, pas une preuve)",
    "statut": "INFÉRÉ",
    "valeurs": {
     "texte": "bonus et pénalités de windMod selon force, direction et exposition du spot",
@@ -548,7 +548,7 @@
    "niveau": 5,
    "sources": [],
    "limites": "Choix de prudence de Félix (13 nov. 2026), appliqué en phase 7 : pas une connaissance. Il remplace le seuil de rafales de 75 km/h déduit de l'échelle de Beaufort (v1). Météo-France n'émet un BMS côte qu'à partir de la force 7. Coût mesuré sur la grille de 73 986 cas ; fréquence réelle sur des journées archivées en phase 8.",
-   "verdict": "conserver (décision de Félix) ; coût à mesurer en phase 8",
+   "verdict": "conserver (décision de Félix) ; coût mesuré en phase 8 sur 252 journées réelles : 20 spots-journées sur 1 960 praticables (1,0 %) passent « à vérifier » à cause de ces seuils seuls",
    "statut": "VÉRIFIÉ"
   },
   {
@@ -575,7 +575,7 @@
    "niveau": 4,
    "sources": [],
    "limites": "Valeurs estimées par le guide spot par spot ; aucune n'est mesurée.",
-   "verdict": "à éprouver en phase 8",
+   "verdict": "garder (sécurité) ; phase 8 : première cause de « non recommandé » (298 spots-journées sur 2 376, 12,5 %) ; sur les journées où les vagues sont connues partout, 16,8 % des spots sont non recommandés. Valeurs estimées spot par spot : à revoir avec Félix",
    "statut": "HYPOTHÈSE"
   }
  ],
