@@ -1,0 +1,23 @@
+{
+ "--text-1": "14,4:1 sur une carte",
+ "--text-2": "10,7:1 sur une carte",
+ "--text-3": "6,3:1 sur une carte",
+ "--accent-ink": "10,9:1 sur une carte",
+ "--warn-ink": "11,4:1 sur une carte",
+ "--good-ink": "11,7:1 sur une carte",
+ "--gold": "10,5:1 sur une carte",
+ "--danger": "6,1:1 sur une carte",
+ "--fav-1": "8,1:1 avec son chiffre",
+ "--fav-2": "5,4:1 avec son chiffre",
+ "--fav-3": "4,9:1 avec son chiffre",
+ "--fav-4": "7,1:1 avec son chiffre",
+ "--fav-5": "11,6:1 avec son chiffre",
+ "--good-deep": "6,3:1 avec son chiffre",
+ "--bg-0": "18,5:1 avec les titres",
+ "--bg-1": "17,3:1 avec les titres",
+ "--bg-2": "15,8:1 avec les titres",
+ "--surface-solid": "14,4:1 avec les titres",
+ "--surface-2": "12,5:1 avec les titres",
+ "--accent": "9,2:1 avec le texte du bouton",
+ "--accent-2": "5,7:1 avec le texte du bouton"
+}

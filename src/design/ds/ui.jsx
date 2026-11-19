@@ -157,7 +157,7 @@ export function BottomNav({ items, current, onSelect }) {
  * Photo d'ambiance : aperçu flou immédiat puis image nette ; marquée « Illustration » (décision : jamais présentée comme
  * la photo réelle d'un spot ou d'une prise). `focus` = point d'intérêt en % pour le recadrage.
  */
-export function Photo({ photo, size = 1600, fade, scrim, mark = true, markPos = "tr", className, style, children, eager }) {
+export function Photo({ photo, size = 1600, fade, scrim, mark = true, markPos = "tr", markStyle, className, style, children, eager }) {
   const [loaded, setLoaded] = useState(false);
   if (!photo) return <div className={["s-photo", className].filter(Boolean).join(" ")} style={style}>{children}</div>;
   const pos = `${photo.focus?.[0] ?? 50}% ${photo.focus?.[1] ?? 50}%`;
@@ -167,7 +167,7 @@ export function Photo({ photo, size = 1600, fade, scrim, mark = true, markPos = 
       {photo.lqip && <img className="s-photo__lqip" src={photo.lqip} alt="" aria-hidden="true" style={{ objectPosition: pos, opacity: loaded ? 0 : 1 }} />}
       <img src={photo.src(size)} alt={photo.alt} loading={eager ? "eager" : "lazy"} decoding="async" onLoad={() => setLoaded(true)}
         style={{ objectPosition: pos, opacity: loaded ? 1 : 0 }} />
-      {mark && <span className="s-chip s-chip--photo" style={corner} title="Image générée : ambiance, pas une photo de ce lieu">Illustration</span>}
+      {mark && <span className="s-chip s-chip--photo" style={{ ...corner, ...markStyle }} title="Image générée : ambiance, pas une photo de ce lieu">Illustration</span>}
       {children && <div className="s-photo__content">{children}</div>}
     </div>
   );
@@ -188,7 +188,7 @@ export function ScoreRing({ value, kind = "fav", size = 72, stroke = 7, suffix =
   const v = value == null ? 0 : Math.max(0, Math.min(100, value));
   const [a, b] = RING[kind] || RING.fav;
   return (
-    <span className="s-ring" style={{ width: size, height: size }} role="img" aria-label={label ? `${label} : ${value == null ? "pas de note" : `${value} sur 100`}` : undefined}>
+    <span className="s-ring" style={{ width: size, height: size }} {...(label ? { role: "img", "aria-label": `${label} : ${value == null ? "pas de note" : `${value} sur 100`}` } : { "aria-hidden": true })}>
       <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} aria-hidden="true">
         <defs><linearGradient id={`rg${id}`} x1="0" y1="1" x2="1" y2="0"><stop offset="0" stopColor={a} /><stop offset="1" stopColor={b} /></linearGradient></defs>
         <g transform={`rotate(120 ${size / 2} ${size / 2})`}>

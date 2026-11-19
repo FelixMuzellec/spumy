@@ -4778,5 +4778,271 @@
     }
    ]
   }
+ ],
+ "box": [
+  {
+   "id": "ast110",
+   "cat": "asturie",
+   "name": "Xorus Asturie 110",
+   "kind": "stickbait flottant",
+   "fam": "surface",
+   "g": 15,
+   "colors": [
+    "Cabot",
+    "Mackerel"
+   ],
+   "anyColor": false,
+   "allSizes": false,
+   "note": "2 bars à Moulin Mer le 27/12/2025, avant le coucher (avec l'Asturie 130 Blanc)."
+  },
+  {
+   "id": "ast130",
+   "cat": "asturie",
+   "name": "Xorus Asturie 130",
+   "kind": "stickbait flottant",
+   "fam": "surface",
+   "g": 27,
+   "colors": [
+    "Ghost Iwashi",
+    "Blanc",
+    "Cabot",
+    "Anchois"
+   ],
+   "anyColor": false,
+   "allSizes": false,
+   "note": null
+  },
+  {
+   "id": "ast150",
+   "cat": "asturie",
+   "name": "Xorus Asturie 150",
+   "kind": "stickbait flottant",
+   "fam": "surface",
+   "g": 32,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": false,
+   "note": null
+  },
+  {
+   "id": "patch140",
+   "cat": "patchinko",
+   "name": "Xorus Patchinko 140",
+   "kind": "stickbait flottant",
+   "fam": "surface",
+   "g": 25,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": false,
+   "note": "Vrai Xorus ou copie : « on n'est pas au gramme près »."
+  },
+  {
+   "id": "zclaw",
+   "cat": "zclaw",
+   "name": "Xorus Z Claw Evo 100",
+   "kind": "stickbait flottant à bruiteur",
+   "fam": "surface",
+   "g": 22.5,
+   "colors": [
+    "Blanc nacré"
+   ],
+   "anyColor": true,
+   "allSizes": false,
+   "note": "1 bar à Moulin Mer le 08/08/2026, au coucher du soleil."
+  },
+  {
+   "id": "joe105",
+   "cat": "mrjoe",
+   "name": "Sakura Mr Joe 105",
+   "kind": "stickbait coulant",
+   "fam": "nageur",
+   "g": 23,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": false,
+   "note": null
+  },
+  {
+   "id": "joe120",
+   "cat": "mrjoe",
+   "name": "Sakura Mr Joe 120",
+   "kind": "stickbait coulant",
+   "fam": "nageur",
+   "g": 35,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": false,
+   "note": null
+  },
+  {
+   "id": "balsa130",
+   "cat": "balsa",
+   "name": "Leurre balsa 130",
+   "kind": "leurre en balsa, 20 g (marque et nage à préciser)",
+   "fam": "nageur",
+   "g": 20,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": false,
+   "note": null
+  },
+  {
+   "id": "bavette",
+   "cat": "bavette",
+   "name": "Poissons nageurs à bavette (Jackson Artist…)",
+   "kind": "minnows à bavette (tailles à préciser ; Artist FR80 : 8 g)",
+   "fam": "nageur",
+   "g": null,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": true,
+   "note": null
+  },
+  {
+   "id": "cpt",
+   "cat": "cpt",
+   "name": "Fiiish Crazy Paddle Tail",
+   "kind": "shad à palette sur tête",
+   "fam": "shad",
+   "g": null,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": true,
+   "note": null
+  },
+  {
+   "id": "ms",
+   "cat": "mastershad",
+   "name": "Fiiish Master Shad",
+   "kind": "shad sur tête",
+   "fam": "shad",
+   "g": null,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": true,
+   "note": null
+  },
+  {
+   "id": "bm",
+   "cat": "blackminnow",
+   "name": "Fiiish Black Minnow",
+   "kind": "shad à palette sur tête (hameçon texan)",
+   "fam": "shad",
+   "g": null,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": true,
+   "note": null
+  },
+  {
+   "id": "spindle",
+   "cat": "spindle",
+   "name": "Megabass Spindle Worm",
+   "kind": "souple fin (montage à préciser)",
+   "fam": "weightless",
+   "g": null,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": true,
+   "note": null
+  },
+  {
+   "id": "xlayer",
+   "cat": "xlayer",
+   "name": "Megabass X-Layer",
+   "kind": "slug souple",
+   "fam": "weightless",
+   "g": null,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": true,
+   "note": null
+  },
+  {
+   "id": "dmc",
+   "cat": "dragmetal",
+   "name": "DUO Drag Metal Cast",
+   "kind": "jig de lancer compact",
+   "fam": "metal",
+   "g": null,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": true,
+   "note": "De 20 à 40 g (26/10/2026)."
+  },
+  {
+   "id": "curly",
+   "cat": "curlyspindle",
+   "name": "Curly Spindle Worm",
+   "kind": "souple à queue curly (modèle à préciser)",
+   "fam": "weightless",
+   "g": null,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": true,
+   "note": null
+  },
+  {
+   "id": "ds",
+   "cat": "darksleeper",
+   "name": "Megabass Dark Sleeper",
+   "kind": "souple pré-plombé, hameçon caché (61, 76, 97 et 114 mm = 2,4, 3, 3,8 et 4,5 pouces)",
+   "fam": "shad",
+   "g": null,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": true,
+   "note": null
+  },
+  {
+   "id": "craw",
+   "cat": "craw",
+   "name": "Craw (écrevisse)",
+   "kind": "imitation de crustacé (montage à préciser)",
+   "fam": "weightless",
+   "g": null,
+   "colors": [],
+   "anyColor": true,
+   "allSizes": true,
+   "note": null
+  }
+ ],
+ "canne": {
+  "min": 14,
+  "max": 42
+ },
+ "journal": [
+  {
+   "id": "log-2025-12-27-moulinmer",
+   "date": "2025-12-27",
+   "spotId": "moulinmer",
+   "fish": 2,
+   "result": 7,
+   "moment": "coucher",
+   "lure": "Asturie 130 blanc · Asturie 110 Cabot",
+   "note": "2 bars avant le coucher du soleil. Aucune chasse en surface.",
+   "spotName": "Moulin Mer"
+  },
+  {
+   "id": "log-2026-08-07-moulinmer",
+   "date": "2026-08-07",
+   "spotId": "moulinmer",
+   "fish": 0,
+   "result": 1,
+   "lure": "Asturie et Z-Claw, nombreux modèles essayés",
+   "note": "Bredouille malgré une prospection large de la boîte.",
+   "spotName": "Moulin Mer"
+  },
+  {
+   "id": "log-2026-08-08-moulinmer",
+   "date": "2026-08-08",
+   "spotId": "moulinmer",
+   "fish": 1,
+   "result": 5,
+   "moment": "coucher",
+   "lure": "Z-Claw blanc nacré",
+   "note": "1 bar au moment du coucher du soleil. Aucune chasse en surface.",
+   "spotName": "Moulin Mer"
+  }
  ]
 }

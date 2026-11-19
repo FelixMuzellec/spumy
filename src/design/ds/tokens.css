@@ -123,12 +123,12 @@
   --scrim: rgba(244, 248, 252, 0.82);
   --border: rgba(10, 40, 80, 0.16); --border-strong: rgba(10, 40, 80, 0.36);
   --text-1: #04111f; --text-2: #13283f; --text-3: #3d5671; --text-on-photo: #ffffff;
-  --accent: #0b8fb8; --accent-2: #1662c4; --accent-ink: #075f80; --on-accent: #ffffff;
+  --accent: #087a9e; --accent-2: #1662c4; --accent-ink: #075f80; --on-accent: #ffffff;
   --accent-soft: rgba(11, 143, 184, 0.12); --accent-glow: rgba(11, 143, 184, 0.25);
   --fav-a: #059a74; --fav-b: #0b8fb8; --pert-a: #0b8fb8; --pert-b: #1d4ed8; --conf-a: #7c3aed; --conf-b: #4338ca;
   --ring-track: rgba(10, 40, 80, 0.12);
   --fav-1: #b7d3f6; --fav-2: #6da7ec; --fav-3: #3987e5; --fav-4: #256abf; --fav-5: #184f95;
-  --good: #0f8a47; --good-ink: #0b6b37; --good-soft: rgba(15, 138, 71, 0.12); --good-deep: #0f8a47;
+  --good: #0f8a47; --good-ink: #0b6b37; --good-soft: rgba(15, 138, 71, 0.12); --good-deep: #0c7a3e;
   --warn: #9a6400; --warn-ink: #7a4f00; --warn-soft: rgba(196, 128, 0, 0.14);
   --nr: #5b6b80; --nr-soft: rgba(91, 107, 128, 0.14);
   --danger: #b42318; --danger-soft: rgba(180, 35, 24, 0.10);

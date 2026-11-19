@@ -7,6 +7,8 @@
 //   bateau  → bateau, core, design        pêche en bateau : moteur, météo du large, interface
 //   app     → tout                        coquille : points d'entrée, accueil, service hors ligne
 //   studio  → bord, core, design          page d'analyse photo (non publiée)
+//   prototype → prototype, design, data   maquette de la phase 11 (non publiée dans l'application) : données figées
+//                                         produites par scripts/prototype-data.mjs, aucun moteur importé
 //
 // Le bord et le bateau ne s'importent jamais l'un l'autre : deux moteurs séparés.
 // Usage : node tests/layers.mjs
@@ -18,6 +20,7 @@ const src = path.join(root, "src");
 const ALLOWED = {
   design: ["design"], core: ["core", "design"], bord: ["bord", "core", "design", "data"], bateau: ["bateau", "core", "design"],
   app: ["app", "core", "bord", "bateau", "design", "data"], studio: ["studio", "bord", "core", "design", "data"],
+  prototype: ["prototype", "design", "data"],
 };
 const layerOf = (abs) => {
   const rel = path.relative(root, abs).split(path.sep);

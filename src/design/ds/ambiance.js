@@ -49,11 +49,12 @@ const hash = (s) => { let h = 2166136261; for (const ch of s) { h ^= ch.charCode
 /**
  * Meilleure photo pour un contexte.
  * ctx = { usage: "hero"|"spot"|"espece"|"materiel"|"journal"|"etat", mode: "bord"|"bateau", lumiere, ciel, mer, lieu,
- *         espece, spotNomme: bool, cle: chaîne de départage }
+ *         espece, spotNomme: bool, cle: chaîne de départage, exclure: ids déjà affichés sur l'écran }
  */
 export function pickPhoto(photos, ctx = {}) {
-  const { usage = "hero", mode = "bord", lumiere, ciel, mer, lieu, espece, spotNomme = false, cle = "" } = ctx;
+  const { usage = "hero", mode = "bord", lumiere, ciel, mer, lieu, espece, spotNomme = false, cle = "", exclure = [] } = ctx;
   const ok = photos.filter((p) => {
+    if (exclure.includes(p.id)) return false;
     if (spotNomme && p.reconnaissable) return false;
     if (usage === "espece") return p.sujet === "poisson" && (!espece || p.espece === espece);
     if (usage === "materiel") return p.sujet === "leurres";
@@ -65,7 +66,9 @@ export function pickPhoto(photos, ctx = {}) {
   if (!ok.length) return null;
   const score = (p) => {
     let s = 0;
-    if (lumiere) s += p.lumiere === lumiere ? 6 : (lumiere === "aube" && p.lumiere === "crepuscule") || (lumiere === "crepuscule" && p.lumiere === "aube") ? 3 : 0;
+    // La lumière se voit d'abord : même lumière +10 ; aube et crépuscule voisins +7 ; nuit contre jour, pénalité.
+    if (lumiere) s += p.lumiere === lumiere ? 10 : (lumiere === "aube" && p.lumiere === "crepuscule") || (lumiere === "crepuscule" && p.lumiere === "aube") ? 7
+      : (lumiere === "nuit") !== (p.lumiere === "nuit") ? -8 : 2;
     if (ciel) s += p.ciel === ciel ? 4 : (ciel === "pluie" && p.ciel === "orage") || (ciel === "orage" && p.ciel === "pluie") ? 2 : 0;
     if (mer) s += p.mer === mer ? 4 : (mer === "tempete" && p.mer === "formee") || (mer === "formee" && p.mer === "tempete") ? 1 : 0;
     if (lieu) s += p.lieu === lieu ? 3 : (LIEUX_PROCHES[lieu] || []).includes(p.lieu) ? 1.5 : 0;

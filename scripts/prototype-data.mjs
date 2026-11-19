@@ -90,6 +90,15 @@ const spots = day.map((x) => {
 });
 
 const first = day.find((x) => x.eligible);
+// Ta boîte (src/bord/engine/tackle.js) et ta canne : ce que l'onglet Matériel montre.
+const box = E.BOITE.map((b) => {
+  const K = E.CATALOGUE[b.cat] || {};
+  const sz = b.size && K.sizes?.[b.size];
+  return { id: b.id, cat: b.cat, name: `${K.name || b.cat}${b.size ? ` ${b.size}` : ""}`, kind: K.kind || null, fam: K.fam || null,
+           g: sz?.g ?? null, colors: (b.colors || []).map((c) => c.name), anyColor: !!b.anyColor, allSizes: !!b.allSizes, note: b.note || null };
+});
+// Ton journal réel (sessions notées, fiche du guide) : jamais d'exemple inventé ici.
+const journal = (E.SITE.seedJournal || []).map((j) => ({ ...j, spotName: E.SPOTS.find((s) => s.id === j.spotId)?.name || j.spotId }));
 const out = {
   meta: {
     guide, guideName: E.SITE.name || E.SITE.label || guide, date,
@@ -106,6 +115,7 @@ const out = {
           curve: (tide.curve || []).filter((p, i) => i % 2 === 0).map((p) => [p.hour, Math.round(p.height * 100) / 100]) },
   sun: { dawn: fmtH(sun.dawn), sunrise: fmtH(sun.sunrise), sunset: fmtH(sun.sunset), dusk: fmtH(sun.dusk) },
   spots,
+  box, canne: E.CANNE, journal,
 };
 const dest = path.join(root, "src/prototype/data/bord.json");
 fs.mkdirSync(path.dirname(dest), { recursive: true });

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Fond de carte du prototype (phase 11) : terres d'OpenStreetMap découpées autour des spots d'un guide.
 
-Usage : python3 scripts/carte-prototype.py <map.geo.json de @geo-maps/earth-lands-10m> [guide=logonna]
+Usage : python3 scripts/carte-prototype.py <map.geo.json de @geo-maps/earth-lands-10m> [nom=logonna] [W,S,E,N]
+(sans cadre : celui des spots du prototype BORD, avec une marge ; avec un cadre : la carte du mode BATEAU, par exemple)
 Source : @geo-maps/earth-lands-10m v0.6.0 (terres d'OpenStreetMap, erreur absolue 10 m), données ODbL
 © contributeurs OpenStreetMap. Le fichier source (135 Mo) n'est pas dans le dépôt.
 Sortie : src/prototype/data/carte-<guide>.json — chemin SVG des terres, projection (équirectangulaire corrigée de la
@@ -13,11 +14,13 @@ from shapely.ops import unary_union
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-def main(src, guide="logonna"):
+def main(src, guide="logonna", bbox=None):
     data = json.load(open(os.path.join(ROOT, "src/prototype/data/bord.json"), encoding="utf-8"))
     lats = [s["lat"] for s in data["spots"] if s.get("lat")]; lons = [s["lon"] for s in data["spots"] if s.get("lon")]
     m = 0.05
     W, S, E, N = min(lons) - m * 1.6, min(lats) - m, max(lons) + m * 1.6, max(lats) + m
+    if bbox:
+        W, S, E, N = [float(v) for v in bbox.split(",")]
     clip = box(W, S, E, N)
     geo = json.load(open(src, encoding="utf-8"))
     parts = []
