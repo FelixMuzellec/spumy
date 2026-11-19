@@ -33,7 +33,7 @@ export function windowTiming(w, nowMs, dateISO) {
 
 function VerdictCard({ g, degraded }) {
   const { s, w } = g.verdict;
-  // Égalité : tous les spots à 0,2 point ou moins du premier, et le plus proche d'entre eux.
+  // Égalité : tous les spots à l'écart d'égalité du moteur ou moins du premier (3 points en v2, 0,2 en v1), et le plus proche.
   const tied = tieGroup(g.allScored), sc = scaleFor(g.allScored);
   const nearest = tied.length ? [...tied].sort((a, b) => (a.distMin ?? 999) - (b.distMin ?? 999))[0] : null;
   const col = s.verify?.length ? C.warn : noteFill(s);

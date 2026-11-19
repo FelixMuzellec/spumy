@@ -42,15 +42,15 @@ Faire l'épreuve prévue par la spécification (§10) :
 
 ## 4. Preuves
 
-Tous les chiffres viennent de fichiers du dépôt, recalculables sans réseau.
+Tous les chiffres viennent de fichiers du dépôt, recalculables sans réseau : les scripts lisent directement les archives compressées de `data/epreuve/archives/`.
 
 | Preuve | Commande ou passage | Résultat |
 | --- | --- | --- |
 | Journées archivées | intégration continue, « Épreuve du moteur », passage 44330704552 (1 h 12) | 36 journées par guide, 39 pour Logonna (les 3 sessions du journal) ; 0 en échec ; `data/epreuve/archives/RESUME.txt` |
-| Monte Carlo, moteur livré | `node scripts/epreuve-mc.mjs <journées> 1000 tout …` puis `scripts/epreuve-synthese.mjs` | `resultats/mc-v2-livre-1000-*.json` : identique au premier passage (`mc-v2-tout-1000-*`) pour les 252 journées-guides, 0 écart sur le premier, les trois premiers, les égalités, Spearman et l'écart au deuxième |
+| Monte Carlo, moteur livré | `node scripts/epreuve-mc.mjs data/epreuve/archives 1000 tout <sortie> [guides]` puis `scripts/epreuve-synthese.mjs` | `resultats/mc-v2-livre-1000-*.json` : identique au premier passage (`mc-v2-tout-1000-*`) pour les 252 journées-guides, 0 écart sur le premier, les trois premiers, les égalités, Spearman et l'écart au deuxième |
 | Entrées seules, hypothèses seules | même script, modes `entrees` et `hypotheses`, 300 tirages | `resultats/mc-v2-entrees-300.json`, `mc-v2-hypotheses-300.json` |
 | Rampe de lumière | même script, 1 000 tirages, moteur avec la rampe | `resultats/mc-v2-rampe-1000-*.json` |
-| Journées telles quelles | `node scripts/epreuve-analyse.mjs <journées>` | `resultats/analyse-v2-livre.json` (moteur livré), `analyse-v2.json` (avant), `analyse-v2-rampe.json` |
+| Journées telles quelles | `node scripts/epreuve-analyse.mjs` (lit `data/epreuve/archives/`) | `resultats/analyse-v2-livre.json` (moteur livré), `analyse-v2.json` (avant), `analyse-v2-rampe.json` |
 | Moteur v2 : 16 scénarios et règles des trois scores | `npm run test:v2` | 51/51 (test des paliers mis aux nouvelles bornes) |
 | Unitaires, 7 guides et fuseau d'Auckland | `npm run test:unit` | 2 953 contrôles pour les 7 guides, plus 437 à Auckland : tous verts |
 | Parcours complets dans Chromium, servis sous `/spumy/` | `npm run test:e2e` | 843/843 |
@@ -74,7 +74,7 @@ Les tirages sont déterministes : même graine par guide et par journée. Le pas
 | Température de l'eau connue | 178 | 70,6 % |
 | Notées dans le Monte Carlo (au moins deux spots notés, hors sessions du journal) | 241 | — |
 
-Les trous viennent des archives d'Open-Meteo (vagues et eau archivées moins longtemps que le vent), pas de l'application : au quotidien, la prévision du jour a ces données.
+Les trous viennent des archives d'Open-Meteo : vagues ou eau manquent sur certaines journées, à un rythme voisin chaque mois de décembre 2025 à août 2026, et plus aucune depuis septembre 2026 (même chose pour AROME). Au quotidien, la prévision du jour a ces données : le contrat Open-Meteo de l'intégration continue le vérifie (« houle et température d'eau disponibles »).
 
 ### 5.2 Le classement tient-il ?
 
@@ -198,14 +198,14 @@ Le Monte Carlo dit ce qui fait bouger le classement, pas si c'est vrai. Aucune h
 | Houle maximale de chaque spot (niveau 4) | Gardée (sécurité). Première cause de « non recommandé » : valeurs à revoir avec toi |
 | Égalité à 3 points | Gardée pour l'instant. L'épreuve montre qu'elle est trop étroite : sous 10 points d'écart, le premier change dans près d'un tirage sur trois, ou plus. À décider avec toi |
 
-Dans l'onglet *Météo*, la carte « Fiabilité du conseil » le dit : avec la v2, le premier spot reste le même une fois sur deux environ, et à moins de 10 points d'écart, l'un vaut l'autre.
+Dans l'onglet *Météo*, la carte « Fiabilité du conseil » le dit. Depuis la revue de qualité du 19 novembre, elle mesure aussi la v2 sur la journée affichée : la favorabilité des trois premiers est refaite sur les météos plausibles (±1 Beaufort, ±1 secteur, élargies à l'écart AROME / ECMWF), avec sa plage et la part des météos où le premier reste premier. Elle rappelle l'épreuve : le premier reste premier dans 54 % des tirages, et avec moins de 10 points d'avance, 4 à 7 fois sur 10.
 
 ## 6. Problèmes et risques
 
 1. **Critère de stabilité non tenu (FAILED).** Les trois premiers tiennent dans 80 % des tirages sur 20 journées sur 241 (84 à égalité près). Aucune correction de poids ne peut le faire passer sans vérité terrain : les spots sont proches, et l'incertitude est réelle. Il faut le dire à l'écran, ou élargir l'égalité (question 13).
 2. **Sensibilité n'est pas preuve.** Une hypothèse qui pèse peu peut être fausse ; une qui pèse beaucoup peut être juste. Seul le journal tranchera, et trois sessions ne suffisent pas.
 3. **Houle maximale.** Première cause de « non recommandé » (298 spots-journées) ; valeurs estimées par le guide, aucune mesurée.
-4. **Trous d'archive.** La houle inconnue (166 « à vérifier ») vient surtout des archives, pas du quotidien. Les chiffres « à vérifier » sont donc un peu plus hauts qu'à l'usage.
+4. **Trous d'archive.** La houle inconnue (166 « à vérifier ») vient des journées d'archive sans vagues (décembre 2025 à août 2026), pas du quotidien. Les chiffres « à vérifier » sont donc un peu plus hauts qu'à l'usage.
 5. **Les pastilles changent de couleur.** Avec les paliers recalés, un 76 passe au plus clair, un 52 au deuxième plus sombre.
 6. **La v1 et la v2 diffèrent** une journée sur deux (54,6 % de même premier).
 7. **Calcul long.** Un passage complet prend environ 25 minutes sur deux cœurs ; les tirages sont rejouables à l'identique (graines fixes).

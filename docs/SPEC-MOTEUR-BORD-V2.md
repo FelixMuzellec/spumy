@@ -102,6 +102,8 @@ Total des maximums : 100.
 | Température de l'eau | paliers de la v1 (7,5 / 9,5 / 11,5 / 13,5 / 19 / 21,5 °C), **mais** plancher porté à 0,5 en abri (rade, ria, havre) l'hiver | 4 | les paliers sont en partie contredits : des bars ont été suivis jusqu'à 6,5 °C et ont hiverné à 6,9 °C |
 | Température inconnue | facteur de saison seul ; confiance en baisse | — | — |
 
+> **Mise en œuvre, phase 7 (écart à valider par Félix)** : en abri, la présence est portée à 0,5 sous 7,5 °C **et à 0,6 entre 7,5 et 9,5 °C**. Avec le seul plancher de 0,5, rade et côte ouverte restaient à égalité à 8 °C, et le scénario S12 ne tenait pas.
+
 ### Apprentissage personnel (journal)
 
 À part de la favorabilité et affiché à part : « ton journal sur ce spot : +6 ». Il ne joue qu'à partir de **5 sessions** sur le spot, dont au moins **2 avec prise** (exigence 10.5 : jamais de conclusion sur trop peu de sorties), borné à **±10 points**. Aujourd'hui, ton journal compte 3 sessions, toutes à Moulin Mer : il ne jouerait pas encore.
@@ -164,6 +166,8 @@ Un critère exclu ne vaut jamais « neutre » : il sort du calcul, et l'écran d
 | Pas de note (données insuffisantes) | pastille vide |
 
 Paliers de favorabilité de départ : 80 et plus, 65 à 79, 50 à 64, 35 à 49, moins de 35. Ils seront recalés en phase 8 pour que chacun apparaisse réellement en saison (aujourd'hui, 9 et 10 sur 10 n'arrivent jamais).
+
+> **Mise en œuvre, phase 8 (19 novembre 2026)** : paliers recalés sur 252 vraies journées à **75 et plus, 65 à 74, 55 à 64, 45 à 54, moins de 45** (« favorable » reste à 65). Avec ceux de départ, le palier du bas n'apparaissait pas en saison (0,2 % des spots de mai à octobre) ; avec ceux-ci, 2,9 %. Rapport : `docs/rapports/PHASE-8.md`, §5.5.
 
 ## 9. Scénarios de référence
 

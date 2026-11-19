@@ -5,14 +5,15 @@
 //   3. v1 et v2 sur de vraies journées : même premier spot, trois premiers en commun ;
 //   4. ton journal (Moulin Mer, trois sessions) : contrôle de vraisemblance, rien de plus ;
 //   5. qualité des données : modèles, houle, eau.
-// Usage : node scripts/epreuve-analyse.mjs <dossier des journées> [sortie.json]
+// Usage : node scripts/epreuve-analyse.mjs [dossier des journées=data/epreuve/archives] [sortie.json]
 import { build } from "esbuild";
 import fs from "node:fs";
 import path from "node:path";
+import { ARCHIVES, readDays } from "./epreuve-journees.mjs";
 import { SITES } from "./sites.mjs";
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
-const [dataDir = path.join(root, "out/epreuve"), outFile = null] = process.argv.slice(2);
+const [dataDir = ARCHIVES, outFile = null] = process.argv.slice(2);
 fs.mkdirSync(path.join(root, "tests/.build"), { recursive: true });
 const pct = (a, b) => (b ? `${((100 * a) / b).toFixed(1)} %` : "–");
 const inSeason = (date) => { const m = +date.slice(5, 7); return m >= 5 && m <= 10; };
@@ -32,9 +33,8 @@ const nrOf = (t) => (/Coup de vent/.test(t) ? "coup de vent (force 8 et plus)" :
   : /^Coef/.test(t) ? "courant (limite de la fiche)" : /heures de pêche|passés/.test(t) ? "hors de tes heures" : "autre");
 
 for (const s of SITES) {
-  const f = path.join(dataDir, `${s.key}.json`);
-  if (!fs.existsSync(f)) continue;
-  const data = JSON.parse(fs.readFileSync(f, "utf8"));
+  const data = readDays(dataDir, s.key);
+  if (!data) continue;
   const file = path.join(root, "tests/.build", `an_${s.key}.mjs`);
   await build({ entryPoints: [path.join(root, "src/engine.js")], bundle: true, format: "esm", platform: "node", outfile: file, jsx: "automatic",
     external: ["react", "react/jsx-runtime", "react-dom"], logLevel: "warning",

@@ -161,6 +161,15 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 - Lu comme : une fois la phase 8 terminée (rapport), et avant la phase 9 : retirer l'ancien projet d'adresse partout (code, tests, documentation, suivi, mémoire) ; servir les tests sous `/spumy/` ; fusionner les phases 5 à 8 dans `main` de `FelixMuzellec/spumy` (accord de fusion), par une proposition de fusion, une fois les tests verts sur GitHub ; retirer les fichiers qui ne servent plus. L'arrêt avant la phase 9 reste dû.
 - Dépôt de sauvegarde du journal par défaut : `FelixMuzellec/spumy-journal` (choix de Claude, à confirmer ; un réglage déjà enregistré sur le téléphone est gardé).
 
+## Consignes de Félix (19 nov. 2026, 13 h 56) — revue de qualité
+
+- « Avant de passer à l'étape 9, est-ce que tout est optimisé à ce point si on ignore les questions que tu as ? Si ce n'est pas optimisé, il est nécessaire de corriger. Il faut que l'ensemble soit super précis et propre. Continue quand tu le peux si tu arrives à ta propre limite. »
+- Fait (branche `claude/qualite-avant-phase-9`) : voir `CHANGELOG.md`, « revue de qualité avant la phase 9 ». Laissé en l'état, avec la raison :
+    - moteur compilé deux fois dans `app.js` (application et accueil), environ 165 Ko sur 991 : la dédoublonner touche toute l'interface du bord ; le tout est en cache dès la première visite ;
+    - 291 couleurs écrites en dur hors de `src/design/` : conformité visuelle des phases 11 et 13 (le compte ne peut que baisser) ;
+    - prise non saisie enregistrée « 0 » : journal, phase 14 ;
+    - branches de travail : leur suppression est refusée à Claude par le proxy Git.
+
 ## Questions retenues pour Félix (à traiter ensemble)
 
 1. Adresse — réglée le 18 nov. : https://felixmuzellec.github.io/spumy/ seule ; reste l'activation de GitHub Pages par Félix (*Settings → Pages → Deploy from a branch → `main` / (root)*).

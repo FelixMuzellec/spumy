@@ -27,29 +27,33 @@ Adresse : **<https://felixmuzellec.github.io/spumy/>**, la seule (décision de F
 
 ## État des fonctionnalités
 
-État réel au 6 novembre 2026, d'après l'audit de la phase 1 (application exécutée et testée).
+État au 19 novembre 2026 (fin de la phase 8 : moteur v2 en place et éprouvé sur 252 vraies journées).
 
 | Fonction | État | Limites connues |
 | --- | --- | --- |
-| BORD : décision, carte, fiches, matériel, journal, marée, météo, saison, règles, photos, mode terrain | Fonctionne ; 3 182 vérifications unitaires et 775 de parcours au vert | Note sur 10 (trois scores sur 100 prévus) ; la sécurité ne retire un spot que pour la houle ; une houle inconnue compte comme 0 m ; une prise non saisie est enregistrée « 0 » |
-| BATEAU (onglet Offshore de l'accueil) | Carnet de spots et de sorties ; note empirique après 8 sorties | Pas encore de logique par espèce ni de sécurité bateau |
+| BORD : décision, carte, fiches, matériel, journal, marée, météo, saison, règles, photos, mode terrain | Fonctionne. Trois scores sur 100 jamais fusionnés (favorabilité, pertinence, confiance), moteur v2 par défaut, v1 (note sur 10) dans les réglages. Sécurité non compensable : vent, rafales, houle, houle inconnue (« à vérifier », jamais favorable), nuit sur spot engagé, retour coupé par la marée. 3 390 contrôles unitaires, 56 du moteur v2, 844 de parcours, au vert | Le classement est sensible à l'incertitude : le premier spot reste premier dans 54 % des tirages de l'épreuve (rapport de la phase 8). Vigilance Météo-France non lue (dite à l'écran). Pertinence provisoire tant que l'inventaire de la boîte n'est pas complet. Une prise non saisie est enregistrée « 0 » |
+| BATEAU (onglet Offshore de l'accueil) | Carnet de spots et de sorties ; note empirique après 8 sorties | Pas encore de logique par espèce ni de sécurité bateau (phases 9, 10 et 13) |
 | Hors ligne | Fonctionne ; la dernière météo s'affiche avec son âge | Pas de fond de carte hors ligne (interdit par OpenStreetMap) |
 | Sauvegarde GitHub, analyse photo | Testées contre des services simulés | Pas d'essai automatique contre les vrais services |
+| Mise en ligne | Code dans `main`, construit à la racine | GitHub Pages n'est pas encore activé sur le dépôt : le site n'est pas en ligne |
 
-Ces limites sont traitées dans les phases suivantes (voir la feuille de route).
+Ces limites sont traitées dans les phases suivantes (voir la feuille de route), ou attendent une décision de Félix (`SPUMY_AUDIT_CONTINUITY.md`, questions gardées).
 
 ## Démarrer
 
 ```bash
 npm ci                    # Node 20 ou plus (.nvmrc : 22)
 npm run build             # construit le site à la racine depuis src/ et data/
-npm test                  # contrôle du code, règles de couches, fiches des sites, connaissances halieutiques, tests unitaires, parcours Chromium, contrat Open-Meteo simulé
+npm test                  # contrôle du code, règles de couches, fiches des sites, connaissances halieutiques, moteur v2, tests unitaires, parcours Chromium, contrat Open-Meteo simulé
 npm run test:a11y         # accessibilité (axe-core) sur toutes les pages
 npm run test:studio       # page d'analyse photo par l'abonnement Claude, avec un Claude simulé
 npm run test:upgrade      # mise à jour d'un téléphone : version publiée (main) → cette version, données et hors ligne
 npm run test:knowledge    # connaissances halieutiques : niveaux de preuve, sources, rubriques des 66 spots
 npm run test:contract     # contrat avec le vrai Open-Meteo (réseau)
+npm run test:v2           # moteur v2 : les 16 scénarios de la spécification et les règles des trois scores
 ```
+
+Épreuve du moteur (phase 8), sans réseau, sur les journées du dépôt (`data/epreuve/archives/`, une archive compressée par guide, lue telle quelle) : `node scripts/epreuve-analyse.mjs` (coût de la prudence, paliers, v1 et v2, journal) ; `node scripts/epreuve-mc.mjs data/epreuve/archives 1000 tout <résultat.json> [guide,guide…]` puis `node scripts/epreuve-synthese.mjs <résultat.json>…` (Monte Carlo, environ 25 minutes pour les sept guides sur deux cœurs).
 
 Sur une machine neuve, installer Chromium pour Playwright une fois : `npx playwright install chromium`.
 
@@ -58,12 +62,13 @@ Sur une machine neuve, installer Chromium pour Playwright une fois : `npx playwr
 ```
 src/       code source : coquille (app/), socle commun (core/), pêche du bord (bord/), pêche en bateau (bateau/),
            style commun (design/), studio photo (studio/)
-data/      fiches des 7 sites (sites/), connaissances halieutiques et niveaux de preuve (knowledge/), schémas (schema/)
-scripts/   construction du site, icônes, studio
-tests/     tests unitaires, parcours, contrat Open-Meteo, accessibilité, studio
+data/      fiches des 7 sites (sites/), connaissances halieutiques et niveaux de preuve (knowledge/), schémas (schema/),
+           journées et résultats de l'épreuve du moteur (epreuve/)
+scripts/   construction du site, icônes, studio, épreuve du moteur (epreuve-*.mjs)
+tests/     tests unitaires, moteur v2, parcours, contrat Open-Meteo, accessibilité, studio, mise à jour
 assets/    images sources (logos, icônes)
 audit/     audit de la v9.1, note UX de la v9.2
-docs/      architecture, fonctionnalités détaillées
+docs/      architecture, fonctionnalités détaillées, spécification du moteur v2, rapports de phase (rapports/)
 racine     site compilé (*.html, app.js, fiches *.json, sw.js, manifest.json, icônes), publié tel quel par GitHub Pages
 ```
 

@@ -2,7 +2,7 @@
 
 ## Principes
 
-- On ne modifie jamais à la main les fichiers compilés de la racine (`*.html`, `home.js`, `sw.js`, `manifest.json`, icônes) : on change `src/` ou `data/`, puis `npm run build`.
+- On ne modifie jamais à la main les fichiers compilés de la racine (`*.html`, `app.js`, les fiches `<guide>.json`, `sw.js`, `manifest.json`, icônes) : on change `src/` ou `data/`, puis `npm run build`.
 - Chaque fichier va dans sa couche : `src/core/` (commun au bord et au bateau), `src/bord/`, `src/bateau/`, `src/design/` (style sans métier), `src/app/` (coquille), `data/` (fiches des sites). Le bord et le bateau ne s'importent jamais l'un l'autre ; `npm run test:layers` le vérifie.
 - Couleurs, tailles de texte, rayons : par les jetons de `src/design/tokens.js`, jamais une valeur écrite en dur ailleurs (`npm run test:layers` compte les couleurs en dur hors de `src/design/` ; ce compte ne peut que baisser).
 - Un changement qui ne doit pas changer l'écran se prouve par les captures : `node tests/visual.mjs capture <avant>` sur l'ancienne construction, puis `capture <après>` et `compare <avant> <après>` (22 vues, pixel par pixel).
@@ -18,7 +18,7 @@ Le seul fichier à changer est `data/sites/<site>.config.js` (donnée pure : ni 
 
 1. Créer une branche depuis `main` (`claude/<sujet>` pour les travaux de Claude).
 2. Faire des commits petits et explicites, en français, qui disent ce qui change et pourquoi.
-3. Lancer `npm test` (contrôle du code, règles de couches, fiches des sites, unitaires, parcours, contrat simulé) ; selon le changement, `npm run test:a11y` et `npm run test:studio`.
+3. Lancer `npm test` (contrôle du code, règles de couches, fiches des sites, connaissances, moteur v2, unitaires, parcours, contrat simulé) ; selon le changement, `npm run test:a11y`, `npm run test:upgrade` (mise à jour d'un téléphone depuis `main`) et `npm run test:studio`. Un changement du moteur se mesure aussi sur les journées de référence (`scripts/epreuve-analyse.mjs`, `scripts/epreuve-mc.mjs`), avec une règle de décision écrite avant le passage.
 4. Ouvrir une demande de fusion vers `main` avec : objectif, fichiers concernés, tests lancés et résultats, risques, retour arrière.
 5. Rien n'est fusionné dans `main`, donc publié, sans tests verts et sans l'accord de Félix.
 

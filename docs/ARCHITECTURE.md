@@ -1,12 +1,13 @@
 # Architecture de SPUMY
 
-État au 13 novembre 2026 : v9.2, fin de la phase 3. La première partie décrit le code tel qu'il est ; la seconde, l'architecture cible décidée en phase 2, atteinte lot par lot. Ce document est mis à jour à chaque lot qui change l'organisation.
+État au 19 novembre 2026 : fin de la phase 8 (moteur BORD v2 en place et éprouvé). La première partie décrit le code tel qu'il est ; la seconde, l'architecture cible décidée en phase 2, atteinte lot par lot. Ce document est mis à jour à chaque lot qui change l'organisation.
 
-## Aujourd'hui (v9.2)
+## Aujourd'hui
 
 - **Une application, sept guides (lot 3.5).** `scripts/build.mjs` compile avec esbuild **un seul** `app.js`, chargé par l'accueil et par chaque guide. Chaque guide n'a que sa fiche (`data/sites/<site>.config.js`), publiée en `<site>.json`. La page d'un guide (`<site>.html`, 14 Ko, aucun script en ligne) dit quel guide elle est (`<html data-page="guide" data-site="logonna">`) ; `src/app/entry.jsx` télécharge sa fiche, puis démarre le moteur et l'interface du bord, qui lisent la fiche par l'alias `SITE_CONFIG` (`src/app/site-config.js`). Le code du bord n'est évalué que sur la page d'un guide (import dynamique).
 - **Accueil.** `index.html` charge le même `app.js` : il télécharge les sept fiches et crée une instance du moteur de chaque guide (`src/app/site-api.js`, compilé une fois, la fiche en paramètre) pour la carte de tous les spots, les notes de la recherche, l'ajout de spot et l'onglet Offshore (pêche en bateau, `src/bateau/`).
-- **Poids publié** : 7,0 Mo en v9.2 (sept paquets de 790 Ko et `home.js` de 1,2 Mo, avec sept copies du moteur), 1,7 Mo après le lot 3.5 (icônes comprises). Contrepartie : le tout premier guide ouvert télécharge 928 Ko au lieu de 788 Ko ; chaque guide suivant, 75 Ko au lieu de 780 Ko.
+- **Poids publié** : 7,0 Mo en v9.2 (sept paquets de 790 Ko et `home.js` de 1,2 Mo, avec sept copies du moteur), 1,7 Mo après le lot 3.5 (icônes comprises). Au 19 novembre : `app.js` 991 Ko (328 Ko compressé), dont l'application (828 Ko : interface du bord 224 Ko, moteur 159 Ko, Leaflet 147 Ko, React 139 Ko) et le moteur de l'accueil, compilé à part avec la fiche en paramètre ; chaque guide ajoute sa page (14 Ko) et sa fiche (`<guide>.json`, 38 à 66 Ko). Le tout est en cache dès la première visite.
+- **Deux moteurs du bord, une seule sécurité.** `src/bord/engine/model.js` (v1, note sur 10) note les créneaux ; `src/bord/engine/v2.js` (v2, phase 7) en tire les trois scores sur 100 (favorabilité, pertinence, confiance) avec la même sécurité (`windowSafety`, `safety.js`). `rankDay` classe une journée avec le moteur choisi (*Réglages → Moteur de notes*, clé `bar:moteur`, v2 par défaut) ; les valeurs de départ, paliers et poids sont dans `v2-params.js`, sans fiche, pour que l'accueil et les réglages les lisent.
 - **Pas de serveur.** Météo : Open-Meteo, appelé depuis le téléphone ; marée calculée sur place ; stockage dans le navigateur (`localStorage`, clés `bar:*` séparées par site ; IndexedDB pour les photos) ; hors ligne par service worker (`sw.js`).
 - **Services optionnels.** Sauvegarde du journal sur un dépôt GitHub de l'utilisateur (`src/core/ghsync.js`), analyse photo par l'API Anthropic avec la clé de l'utilisateur ou par la page studio.
 
@@ -32,6 +33,8 @@ src/                  les sources (lot 3.4 : une couche par dossier, règles vé
     site-config.js        la fiche du guide ouvert, lue par le moteur (alias SITE_CONFIG)
     site-api.js           moteur d'un guide sans interface, compilé une fois ; l'accueil en crée une instance par guide
     sync.jsx              sauvegarde du journal et de tes spots sur GitHub (bandeau et fusion)
+    EnginePanel.jsx       Réglages → Moteur de notes (v1 / v2, boîte complète, trajet maximal)
+    transfer.js, TransferPanel.jsx  Réglages → Toutes mes données : un fichier pour changer de téléphone, importé sans rien écraser
     index.html            modèle de l'accueil : la construction y écrit les guides par département et l'index des spots
     sw.template.js        modèle du sw.js (nommé ainsi pour ne jamais écraser le sw.js construit)
   core/                 le socle commun au bord et au bateau
@@ -39,7 +42,7 @@ src/                  les sources (lot 3.4 : une couche par dossier, règles vé
     tide.js               marée (prédiction harmonique, heure de Paris)
     wxcore.js             Open-Meteo sans guide (adresses, variables, requête), partagé par les guides et l'accueil
     rules.js              réglementation 2026 (nord et sud du 48e parallèle), remise à l'eau, sécurité par spot
-    scale.js              repères de l'échelle des notes (égalité, « au vert ») et tendance vers demain
+    scale.js              échelles des deux moteurs (sur 10, sur 100 : égalité, « favorable »), moteur choisi, tendance vers demain
     myspots-core.js       tes spots, partie sans guide : choix du formulaire, coordonnées collées, guide d'un point
     MySpotForm.jsx        formulaire « Ajouter un spot » (GPS, carte, coordonnées collées), commun aux deux pêches
     storage.js            stockage de l'appareil (API window.storage sur localStorage) ; signale chaque écriture du journal
@@ -49,9 +52,12 @@ src/                  les sources (lot 3.4 : une couche par dossier, règles vé
                           refuse d'écrire si le dépôt n'est pas privé (lot 3.8)
   bord/                 la pêche du bord
     engine/
-      model.js              fenêtres, note, saison, terrain, proies, pression, orientation
+      model.js              moteur v1 : fenêtres, note sur 10, ensemble de météos plausibles, saison, terrain, proies, pression, orientation
+      v2.js                 moteur v2 (phase 7) : favorabilité, pertinence, confiance, classement, fiabilité sur les météos plausibles
+      v2-params.js          valeurs de départ de la v2 (poids, paliers recalés en phase 8, seuils), réglages de l'appareil
       weather.js            météo des spots du guide, incertitude entre modèles, cache
-      safety.js             sécurité ; confidence.js : confiance ; factors.js : familles de facteurs de la note
+      safety.js             sécurité commune aux deux moteurs (vent, rafales, houle, nuit, isolement ; vigilance non lue, dite) ;
+                            confidence.js : confiance de la v1 ; factors.js : familles de facteurs de la note
       journal.js            journal de session, recalibrage, prises par heure
       lures.js              conseil leurres : courant du créneau, vent de face, profondeur, leurre de ta boîte, taille, tête, couleur
       tackle.js             fiches techniques des leurres de ta boîte (poids, nage, têtes), relevées chez les fabricants
@@ -83,14 +89,20 @@ data/
                         données pures écrites en JavaScript commenté : les commentaires portent la provenance
                         (source, date, à confirmer sur place) et JSON n'en admet pas ; exportables en JSON sans perte
   schema/site.schema.json  le schéma d'une fiche (JSON Schema 2020-12) : chaque champ, son type, son unité, ses valeurs
-  knowledge/            phase 5 : connaissances halieutiques, lues par les tests et par toi, pas encore par l'application
+  knowledge/            phase 5 : connaissances halieutiques, avec leur niveau de preuve et, depuis la phase 8, leur verdict
     bar-bord.json       chaque connaissance du moteur BORD sur le bar : énoncé, niveau de preuve (1 à 5), sources,
                         limites, code qui l'utilise ; et le niveau des 82 règles du moteur de leurres
     preuves-spots.json  le niveau de preuve (1 à 5) de chacune des 396 rubriques des 66 spots, avec son motif
+    preuves-niveaux.json  extrait lu par le moteur v2 (niveau des rubriques de chaque spot), contrôlé par test:knowledge
+  epreuve/              phase 8 : dates des journées de référence (journees.json), journées archivées d'Open-Meteo
+                        (archives/<guide>.json.gz), résultats des tirages et de l'analyse (resultats/)
   schema/knowledge.schema.json  le schéma du fichier de connaissances
 tests/
   unit.mjs              moteur + schéma des fiches + contrôle de la marée (Pirou, ports du Finistère)
-  e2e.mjs               parcours complet dans Chromium (téléphone simulé)
+  v2.mjs                moteur v2 : les 16 scénarios de la spécification et les règles des trois scores
+  compare-v1v2.mjs      les deux moteurs sur 2 016 journées d'essai, avec la cause de chaque écart de premier spot
+  scenarios.mjs, audit-spots.mjs  grille de sécurité (73 986 cas) et audit des fiches, outils d'audit hors suite
+  e2e.mjs               parcours complet dans Chromium (téléphone simulé), servi sous /spumy/ comme sur GitHub Pages
   studio.mjs            page d'analyse par l'abonnement, avec un Claude simulé
   contract.mjs          contrat avec le vrai service Open-Meteo
   knowledge.mjs         connaissances halieutiques : schéma, niveaux, sources, code utilisé, rubriques des spots
@@ -108,11 +120,13 @@ scripts/build.mjs     construit les 22 fichiers du site, à la racine, depuis sr
 scripts/site-data.mjs contrôle d'une fiche (schéma, données pures, règles croisées), export JSON, empreintes
 scripts/build-studio.mjs  construit la page d'analyse (studio-build/analyse-photo.html, non publiée par GitHub Pages)
 scripts/brand.mjs     la marque SPUMY (dessin vectoriel du bar et de l'écume, couleurs des guides)
+scripts/epreuve-*.mjs épreuve du moteur (phase 8) : téléchargement des journées (fetch, dans l'intégration continue),
+                      lecture des archives (journees), tirages Monte Carlo (mc, params), synthèse, analyse telle quelle
 scripts/icons.mjs     dessine toutes les icônes depuis brand.mjs (assets/brand/*.svg → assets/*.png)
 assets/               icônes : sources vectorielles (brand/) et rendus PNG (application, iOS, guides)
 audit/                AUDIT-SPUMY-v9.1.md : audit de la V2 et liste complète des corrections ;
                       UX-SPUMY-v9.2.md : refonte UX d'après la maquette, écarts assumés, suite
-.github/workflows/    tests à chaque dépôt, contrat Open-Meteo chaque matin
+.github/workflows/    tests à chaque proposition de fusion et sur main, contrat Open-Meteo chaque matin, épreuve du moteur (à la main)
 ```
 
 Pour corriger la description d'un spot, le seul fichier à modifier est `data/sites/<site>.config.js` ; la construction et `npm run test:data` la vérifient contre le schéma `data/schema/site.schema.json` et les règles croisées (zone et port de marée connus, créneaux, sessions initiales), puis les tests unitaires sa cohérence (coordonnées, secteurs de vent, bande de coefficient, terrain, sécurité). Toute modification d'un spot change son empreinte : `npm run test:data` la signale et nomme le spot ; si elle est voulue, `node tests/data.mjs --update-ref` met à jour `tests/ref/sites.json` dans le même commit.
@@ -122,7 +136,7 @@ Pour corriger la description d'un spot, le seul fichier à modifier est `data/si
 1. **Couches.** Une application unique ; deux moteurs séparés, BORD et BATEAU ; un socle commun (marée et astres, météo qualifiée, stockage et sauvegarde, règles) ; des données hors du code (spots, zones, connaissances avec niveau de preuve, réglementation datée, journal et profil).
 2. **Ce qui est partagé** : interface et système de design, marée, astres, client météo, stockage, sauvegarde, carte (couches séparées), infrastructure du journal, moteur de règles.
 3. **Ce qui reste séparé** : moteurs de recommandation, filtres de sécurité, connaissances halieutiques, profils, apprentissage personnel, écrans de décision.
-4. **Circuit d'un moteur** (première étape en place pour le BORD depuis la phase 4 : `windSafety` dans `src/bord/engine/safety.js`, appelée par `scoreWindow` avant toute note — « non recommandé » ou « à vérifier ») : données qualifiées (valeur, nature, source, âge, fiabilité), puis filtre de sécurité non compensable (un danger bloquant retire le spot, une donnée de sécurité inconnue n'est jamais « verte »), puis trois scores sur 100 jamais fusionnés (favorabilité, pertinence, confiance), puis classement et explication.
+4. **Circuit d'un moteur** (en place pour le BORD depuis la phase 7 : `windowSafety` dans `src/bord/engine/safety.js`, appelée par `scoreWindow` avant toute note, puis les trois scores de `v2.js`) : données qualifiées (valeur, nature, source, âge, fiabilité), puis filtre de sécurité non compensable (un danger bloquant retire le spot, une donnée de sécurité inconnue n'est jamais « verte »), puis trois scores sur 100 jamais fusionnés (favorabilité, pertinence, confiance), puis classement et explication.
 5. **Arborescence visée** : `src/core/`, `src/bord/`, `src/bateau/`, `src/design/`, `data/` — en place depuis le lot 3.4, avec `src/app/` pour la coquille. Règles de couches, vérifiées à chaque test (`tests/layers.mjs`) : `design` n'importe que `design` ; `core` importe `core` et `design` ; `bord` et `bateau` importent leur propre dossier, `core` et `design`, jamais l'un l'autre ; `app` assemble le tout.
 
 ### Lots de la phase 3

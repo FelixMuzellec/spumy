@@ -15,14 +15,15 @@
 // Critères (spécification) : trois premiers inchangés dans au moins 80 % des tirages ; une hypothèse de niveau 4 ou 5
 // qui explique plus de 30 % de la variance est signalée.
 //
-// Usage : node scripts/epreuve-mc.mjs <dossier des journées> [tirages=1000] [mode=tout|entrees|hypotheses] [sortie.json] [guide,guide…]
+// Usage : node scripts/epreuve-mc.mjs [dossier des journées=data/epreuve/archives] [tirages=1000] [mode=tout|entrees|hypotheses] [sortie.json] [guide,guide…]
 import { build } from "esbuild";
 import fs from "node:fs";
 import path from "node:path";
+import { ARCHIVES, readDays } from "./epreuve-journees.mjs";
 import { SITES } from "./sites.mjs";
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
-const [dataDir = path.join(root, "out/epreuve"), nArg = "1000", mode = "tout", outFile = null, onlyArg = ""] = process.argv.slice(2);
+const [dataDir = ARCHIVES, nArg = "1000", mode = "tout", outFile = null, onlyArg = ""] = process.argv.slice(2);
 const ONLY = onlyArg ? onlyArg.split(",") : null;
 const N = +nArg;
 const useIn = mode !== "hypotheses", useHyp = mode !== "entrees";
@@ -95,9 +96,8 @@ const KEYS = [...(useHyp ? HYP.map((h) => h.k) : []), ...(useIn ? INPUTS.map((x)
 const out = { mode, N, keys: KEYS, guides: {}, dates: 0 };
 const t0 = Date.now();
 for (const s of SITES.filter((x) => !ONLY || ONLY.includes(x.key))) {
-  const f = path.join(dataDir, `${s.key}.json`);
-  if (!fs.existsSync(f)) { console.log(`${s.key} : pas de journées (${f})`); continue; }
-  const data = JSON.parse(fs.readFileSync(f, "utf8"));
+  const data = readDays(dataDir, s.key);
+  if (!data) { console.log(`${s.key} : pas de journées (${dataDir})`); continue; }
   const file = path.join(root, "tests/.build", `mc_${s.key}.mjs`);
   await build({ entryPoints: [path.join(root, "src/engine.js")], bundle: true, format: "esm", platform: "node", outfile: file, jsx: "automatic",
     external: ["react", "react/jsx-runtime", "react-dom"], logLevel: "warning",

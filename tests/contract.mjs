@@ -21,8 +21,10 @@ const t = (n, c, info = "") => { if (c) { pass++; console.log(`  ✓ ${n}${info 
 const pause = (ms) => new Promise((r) => setTimeout(r, MOCK ? 0 : ms));
 
 // Réseau réel : un service injoignable (« fetch failed ») n'est pas un contrat rompu. On garde la cause exacte
-// (code d'erreur réseau, nom du serveur) et on refait l'essai UNE fois après une minute ; le second essai est
-// signalé dans le compte rendu. Si le service reste injoignable, le test échoue avec la cause.
+// (code d'erreur réseau, nom du serveur) et on refait l'essai, au plus deux fois : après une minute, puis après
+// trois (le 19 nov. 2026, deux essais à deux minutes d'écart sont tombés sur la même coupure entre GitHub et
+// Open-Meteo). Chaque nouvel essai est signalé dans le compte rendu. Si le service reste injoignable, le test
+// échoue avec la cause. Une réponse reçue mais incomplète (modèle ou variable disparus) n'est jamais refaite.
 const netErrors = [];
 if (!MOCK) {
   const f0 = globalThis.fetch;
@@ -34,19 +36,23 @@ if (!MOCK) {
     }
   };
 }
+const RETRY_MS = [60000, 180000];
 async function tryTwice(fn, ok) {
   netErrors.length = 0;
   let v = null, err = null;
   try { v = await fn(); } catch (e) { err = e; }
   // Un essai touché par le réseau est refait, même s'il a « réussi » grâce aux relais (modèle de secours).
   if (MOCK || !netErrors.length) return { v, err, note: "" };
-  const first = [...new Set(netErrors)].join(" ; ");
-  console.log(`  … service injoignable (${first}) : nouvel essai dans une minute`);
-  await pause(60000);
-  netErrors.length = 0; v = null; err = null;
-  try { v = await fn(); } catch (e) { err = e; }
-  const again = [...new Set(netErrors)].join(" ; ");
-  return { v, err, note: ok(v) && !err && !again ? "au 2e essai" : `2e essai${again ? ` encore touché par le réseau (${again})` : ok(v) && !err ? "" : " aussi en échec"}` };
+  let again = [...new Set(netErrors)].join(" ; "), n = 1;
+  for (const wait of RETRY_MS) {
+    console.log(`  … service injoignable (${again}) : nouvel essai dans ${wait / 60000} min`);
+    await pause(wait);
+    netErrors.length = 0; v = null; err = null; n++;
+    try { v = await fn(); } catch (e) { err = e; }
+    again = [...new Set(netErrors)].join(" ; ");
+    if (!again) break;
+  }
+  return { v, err, note: ok(v) && !err && !again ? `au ${n}e essai` : `${n}e essai${again ? ` encore touché par le réseau (${again})` : ok(v) && !err ? "" : " aussi en échec"}` };
 }
 
 for (const label of ["logonna", "pirou"]) {
