@@ -22,7 +22,7 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 9. BATEAU — conception | VALIDATED (19 nov. 2026, 18 h 14, « APPROVED — PROCEED TO PHASE 11 ») ; fusionnée dans `main` le 19 nov. 2026 avec la phase 11 (e7ad6ba, proposition n° 11) | Branche `claude/phase-9-bateau`, proposition de fusion n° 10 (marquée fusionnée par GitHub avec la n° 11) ; `docs/SPEC-MOTEUR-BATEAU.md`, `data/knowledge/bateau.json` ; rapport « SPUMY — Phase 9 : BATEAU, conception » https://claude.ai/artifact/UziTDraLFrMrgTDQYtmgjz (copie : `docs/rapports/PHASE-9.md`) |
 | 10. Moteur BATEAU par espèce | NOT STARTED (mise de côté « pour le moment » par Félix le 19 nov., 18 h 14) | — |
 | 11. Direction artistique et UX/UI | VALIDATED (19 nov. 2026, 23 h 11, « APPROVED — PROCEED TO PHASE 12 ») ; fusionnée dans `main` le 19 nov. 2026 à la demande de Félix (e7ad6ba, proposition n° 11 ; tests et contrat verts sur cf1c2c3), publiée par GitHub Pages (voir « Publication ») | Branche `claude/phase-11-design` (partie de `claude/phase-9-bateau`), proposition de fusion n° 11 ; `docs/DIRECTION-ARTISTIQUE.md` ; prototype https://claude.ai/artifact/BBDcujdvLQxMft99DxqCuP (aussi dans `prototype/`) ; rapport « SPUMY — Phase 11 : direction artistique et écrans » https://claude.ai/artifact/SCaJaTS7YAcLTe4242KAQr (copie : `docs/rapports/PHASE-11.md`) |
-| 12. Spécifications fonctionnelles et techniques (+ charte dans l'application, v10) | VALIDATED (19 nov. 2026, 23 h 36, « APPROVED — PROCEED TO PHASE 13 ») | Branche `claude/phase-12` ; `docs/SPECIFICATIONS.md` ; rapport « SPUMY — Phase 12 » https://claude.ai/artifact/Rg4Dj3svg8JgLfspxESA1g (copie : `docs/rapports/PHASE-12.md`) ; fusion dans `main` (proposition n° 14) |
+| 12. Spécifications fonctionnelles et techniques (+ charte dans l'application, v10) | VALIDATED (19 nov. 2026, 23 h 36, « APPROVED — PROCEED TO PHASE 13 ») ; fusionnée dans `main` le 19 nov. (bb4f940, proposition n° 14) | Branche `claude/phase-12` ; `docs/SPECIFICATIONS.md` ; rapport « SPUMY — Phase 12 » https://claude.ai/artifact/Rg4Dj3svg8JgLfspxESA1g (copie : `docs/rapports/PHASE-12.md`) |
 | 13. Développement BATEAU | IN PROGRESS (depuis le 19 nov. 2026, 23 h 36) | Branche `claude/phase-13-bateau` ; commence par le moteur de la phase 10 |
 | 14 à 17 | NOT STARTED | — |
 
@@ -57,6 +57,17 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 9.3 Sécurité en mer | TESTED | 12 règles `SEC_*` ; 14 connaissances (sécurité, données) ; une règle sans source n'est jamais « VÉRIFIÉ » (contrôlé) |
 | 9.4 Spécification | IMPLEMENTED | `docs/SPEC-MOTEUR-BATEAU.md` : circuit, profil, sécurité, trois scores par espèce, 16 scénarios, plan d'épreuve ; aucun fichier de `src/` ni de `scripts/` modifié |
 | 9.5 Rapport, arrêt | IMPLEMENTED | `docs/rapports/PHASE-9.md` ; `test:knowledge` 27/27, `test:v2` 56/56, unitaires 3 390, `test:data` 69/69, couches 0 écart, lint 0 problème |
+
+### Phase 13, lots
+
+| Lot | Statut | Preuve |
+| --- | --- | --- |
+| 13.0 Départ | IMPLEMENTED | Phase 12 fusionnée dans `main` (bb4f940, proposition n° 14, tests et contrat verts) ; branche `claude/phase-13-bateau` |
+| 13.A Moteur | TESTED | 06c8121 : `src/bateau/engine/` (sécurité SEC_*, espèces, pertinence, confiance), `data/bateau/moteur.json` ; `test:bateau` 29/29 (16 scénarios B1 à B16) |
+| 13.B Météo du large | NOT STARTED | `wx.js` : visibilité, code temps (orage), CAPE ; heure de la prévision |
+| 13.C Interface Offshore | NOT STARTED | Profil du bateau (catégorie, armement, abris, vitesse, limites, seul, canne) ; « Sortir aujourd'hui ? » : verdict, raisons au pire moment, zones, espèces et trois scores, réglementation, technique, rappels |
+| 13.D Tests de parcours | NOT STARTED | e2e : sans profil, pas de verdict ; avec profil, verdict et espèces ; force 7 simulée → non recommandé |
+| 13.E Documents, rapport | NOT STARTED | Spécifications, suivi, journal des versions, rapport PHASE-13, proposition de fusion |
 
 ### Phase 12, lots
 
