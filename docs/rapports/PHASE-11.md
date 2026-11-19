@@ -1,6 +1,6 @@
 # SPUMY — Phase 11 : direction artistique et écrans
 
-19 novembre 2026 · Félix · prototype interactif : https://claude.ai/artifact/BBDcujdvLQxMft99DxqCuP (privé tant que tu ne le partages pas) · branche `claude/phase-11-design`, proposition de fusion en brouillon (pas fusionnée sans ton accord)
+19 novembre 2026 · Félix · version de référence : document Claude « SPUMY — Phase 11 : direction artistique et écrans » (https://claude.ai/artifact/SCaJaTS7YAcLTe4242KAQr) · prototype interactif : https://claude.ai/artifact/BBDcujdvLQxMft99DxqCuP (privé tant que tu ne le partages pas) · branche `claude/phase-11-design`, proposition de fusion en brouillon (pas fusionnée sans ton accord)
 
 SPUMY a maintenant une direction artistique tirée de ta maquette de référence, un système de design complet et un **prototype interactif de 23 écrans** que tu peux ouvrir sur ton téléphone ou ton ordinateur. Pour le BORD, il montre une vraie journée : le 16 mai 2026 à Logonna-Daoulas, la météo archivée passée au moteur v2. Pour le BATEAU, il montre des données d'exemple, marquées comme telles. Tes photos donnent l'ambiance de chaque écran : elles sont choisies selon la lumière, le ciel, la mer et le lieu du moment, et elles ne sont jamais présentées comme la photo d'un spot ou d'une prise.
 

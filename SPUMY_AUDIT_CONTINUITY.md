@@ -21,7 +21,7 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 8bis. Revue de qualité avant la phase 9 | Faite le 19 nov. 2026 ; fusionnée dans `main` (40ba84f, proposition n° 9) | `CHANGELOG.md` |
 | 9. BATEAU — conception | VALIDATED (19 nov. 2026, 18 h 14, « APPROVED — PROCEED TO PHASE 11 ») | Branche `claude/phase-9-bateau`, proposition de fusion n° 10 en brouillon (pas fusionnée sans accord) ; `docs/SPEC-MOTEUR-BATEAU.md`, `data/knowledge/bateau.json` ; rapport « SPUMY — Phase 9 : BATEAU, conception » https://claude.ai/artifact/UziTDraLFrMrgTDQYtmgjz (copie : `docs/rapports/PHASE-9.md`) |
 | 10. Moteur BATEAU par espèce | NOT STARTED (mise de côté « pour le moment » par Félix le 19 nov., 18 h 14) | — |
-| 11. Direction artistique et UX/UI | TESTED (remise le 19 nov. 2026 ; en attente de « APPROVED — PROCEED TO PHASE 12 ») | Branche `claude/phase-11-design` (partie de `claude/phase-9-bateau`), proposition de fusion en brouillon (pas fusionnée sans accord) ; `docs/DIRECTION-ARTISTIQUE.md` ; prototype https://claude.ai/artifact/BBDcujdvLQxMft99DxqCuP (aussi dans `prototype/`) ; rapport `docs/rapports/PHASE-11.md` |
+| 11. Direction artistique et UX/UI | TESTED (remise le 19 nov. 2026 ; en attente de « APPROVED — PROCEED TO PHASE 12 ») | Branche `claude/phase-11-design` (partie de `claude/phase-9-bateau`), proposition de fusion en brouillon (pas fusionnée sans accord) ; `docs/DIRECTION-ARTISTIQUE.md` ; prototype https://claude.ai/artifact/BBDcujdvLQxMft99DxqCuP (aussi dans `prototype/`) ; rapport « SPUMY — Phase 11 : direction artistique et écrans » https://claude.ai/artifact/SCaJaTS7YAcLTe4242KAQr (copie : `docs/rapports/PHASE-11.md`) |
 | 12 à 17 | NOT STARTED | — |
 
 ### Phase 4, lots
