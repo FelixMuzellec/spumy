@@ -67,7 +67,8 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 13.B Météo du large | TESTED | 799d0b9 : `wx.js` demande visibilité, code temps, CAPE ; soleil en mer et phase de la marée (`engine/sun.js`) |
 | 13.C Interface Offshore | TESTED | 799d0b9 : `src/bateau/Sortie.jsx` : profil du bateau ; « Sortir aujourd'hui ? » (verdict, raisons au pire moment, zones, espèces et trois scores, réglementation, technique, rappels) ; version 10.1.0 |
 | 13.D Tests de parcours | TESTED | e2e 856/856 : sans profil pas de verdict ; zone à 7,8 milles et armement côtier → non recommandée ; à 1 mille → plus de refus ; espèces, scores, réglementation, rappels ; profil gardé (force 7 : scénarios B1, B11 de `test:bateau`) |
-| 13.E Documents, rapport | IMPLEMENTED | Spécifications § 5.9, SPEC BATEAU (statut), fonctionnalités, architecture, journal des versions 10.1, rapport `docs/rapports/PHASE-13.md` ; proposition de fusion en brouillon (pas fusionnée sans accord) |
+| 13.E Documents, rapport | IMPLEMENTED | Tests GitHub de la proposition n° 15 verts (tests et contrat). Parcours local : l'étape « analyse enregistrée rouverte » dépasse parfois 12 s (instable depuis la phase 11), à traiter en phase 16 |
+| 13.E (détail) | IMPLEMENTED | Spécifications § 5.9, SPEC BATEAU (statut), fonctionnalités, architecture, journal des versions 10.1, rapport `docs/rapports/PHASE-13.md` ; proposition de fusion en brouillon (pas fusionnée sans accord) |
 
 ### Phase 12, lots
 

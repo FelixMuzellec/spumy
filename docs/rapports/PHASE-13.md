@@ -75,6 +75,7 @@ Ce que vérifient les contrôles e2e de la sortie :
 - **BMS non lus** : une prévision de force 7 vaut BMS, mais l'application ne lit pas les bulletins. L'écran invite à les consulter.
 - **Raz** : sans courant fiable, une zone de raz reste « à vérifier ». Une zone est marquée raz quand son nom ou ses notes contiennent « raz ».
 - **Visibilité** : quand le modèle ne la donne pas, la sortie est « à vérifier ». C'est voulu (spécification), mais cela peut être fréquent.
+- **Test de parcours instable** (connu depuis la phase 11, hors BATEAU) : sur cette machine, rouvrir une analyse photo enregistrée dépasse parfois 12 s, et le parcours s'arrête là (2 passages sur 4 ici). Il passe sur GitHub (proposition n° 15 verte). À traiter en phase 16 (QA).
 - **Pas encore fait** :
     - ajustement personnel par tes sorties (prévu, ±10 au plus, à partir de 8 sorties) ;
     - profil du bateau dans la sauvegarde GitHub ;
