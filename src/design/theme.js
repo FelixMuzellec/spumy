@@ -8,6 +8,6 @@ export const SUN_CSS = "html.sun body{background:#f5f7fa}"
 export function getTheme() { try { return localStorage.getItem(THEME_KEY) === "sun" ? "sun" : "nuit"; } catch { return "nuit"; } }
 export function applyTheme(v = getTheme()) {
   try { document.documentElement.classList.toggle("sun", v === "sun"); } catch { /* sans effet */ }
-  try { const m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute("content", v === "sun" ? "#f5f7fa" : "#020c18"); } catch { /* sans effet */ }
+  try { const m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute("content", v === "sun" ? "#f5f7fa" : "#071427"); } catch { /* sans effet */ }
 }
 export function setTheme(v) { try { localStorage.setItem(THEME_KEY, v); } catch { /* stockage refusé : le choix vaut pour la session */ } applyTheme(v); }

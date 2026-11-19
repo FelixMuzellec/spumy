@@ -25,12 +25,12 @@ class Recover extends Component {
       const u = URL.createObjectURL(new Blob([raw], { type: "application/json" }));
       const a = document.createElement("a"); a.href = u; a.download = `journal-bar-${SITE_ID}-brut.json`; a.click(); URL.revokeObjectURL(u);
     };
-    const btn = { display: "block", width: "100%", minHeight: 48, margin: "10px 0", borderRadius: 10, border: "1px solid #38bdf8", background: "#0b2a42", color: "#fff", fontSize: 16, fontWeight: 700 };
+    const btn = { display: "block", width: "100%", minHeight: 48, margin: "10px 0", borderRadius: 10, border: "1px solid #1fd2f5", background: "#0b2a42", color: "#fff", fontSize: 16, fontWeight: 700 };
     return (
-      <div role="alert" style={{ maxWidth: 560, margin: "0 auto", padding: "24px 16px", color: "#e2e8f0", fontFamily: "system-ui, sans-serif", lineHeight: 1.5 }}>
+      <div role="alert" style={{ maxWidth: 560, margin: "0 auto", padding: "24px 16px", color: "#e3ecf5", fontFamily: "system-ui, sans-serif", lineHeight: 1.5 }}>
         <h1 style={{ fontSize: 20 }}>Le guide n'a pas pu s'afficher</h1>
         <p>Ton journal n'est pas effacé. Exporte-le, puis recharge. Si l'erreur revient juste après une synchronisation, coupe la sauvegarde GitHub : il faudra recoller ton jeton dans les Réglages pour la réactiver.</p>
-        <p style={{ fontSize: 13, color: "#94a3b8" }}>Détail : {String(this.state.err?.message || this.state.err)}</p>
+        <p style={{ fontSize: 13, color: "#9fb3c8" }}>Détail : {String(this.state.err?.message || this.state.err)}</p>
         <button style={btn} onClick={exportRaw}>Exporter le journal brut</button>
         <button style={btn} onClick={() => { try { localStorage.removeItem("bar:sync"); } catch { /* sans effet */ } location.reload(); }}>Couper la sauvegarde GitHub et recharger</button>
         <button style={btn} onClick={() => location.reload()}>Recharger</button>

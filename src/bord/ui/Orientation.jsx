@@ -22,14 +22,14 @@ function Compass({ water, exposed, sheltered }) {
   const [ax, ay] = pt(water, R - 6);
   return (
     <svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label={`L'eau est vers le ${DIR_FR[nameOf(water)]}`} style={{flexShrink:0}}>
-      <circle cx={C} cy={C} r={R} fill="#0b1626" stroke="#334155"/>
-      {exposed.map((d) => wedge(d, "#38bdf8"))}
+      <circle cx={C} cy={C} r={R} fill="#0e2139" stroke="#2c4a6b"/>
+      {exposed.map((d) => wedge(d, "#1fd2f5"))}
       {sheltered.map((d) => wedge(d, "#22c55e"))}
-      {DIR16.map((_, i) => { const [x1, y1] = pt(i * 22.5, R), [x2, y2] = pt(i * 22.5, R - (i % 4 ? 4 : 8)); return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#64748b"/>; })}
-      {[["N", 0], ["E", 90], ["S", 180], ["O", 270]].map(([l, d]) => { const [x, y] = pt(d, R + 9); return <text key={l} x={x} y={y + 4} textAnchor="middle" fontSize="12" fill="#94a3b8" fontFamily="system-ui,sans-serif">{l}</text>; })}
-      <line x1={C} y1={C} x2={ax} y2={ay} stroke="#f8fafc" strokeWidth="3" strokeLinecap="round"/>
-      <circle cx={ax} cy={ay} r="4" fill="#38bdf8"/>
-      <circle cx={C} cy={C} r="3" fill="#f8fafc"/>
+      {DIR16.map((_, i) => { const [x1, y1] = pt(i * 22.5, R), [x2, y2] = pt(i * 22.5, R - (i % 4 ? 4 : 8)); return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#7a8fa6"/>; })}
+      {[["N", 0], ["E", 90], ["S", 180], ["O", 270]].map(([l, d]) => { const [x, y] = pt(d, R + 9); return <text key={l} x={x} y={y + 4} textAnchor="middle" fontSize="12" fill="#9fb3c8" fontFamily="system-ui,sans-serif">{l}</text>; })}
+      <line x1={C} y1={C} x2={ax} y2={ay} stroke="#f3f8fc" strokeWidth="3" strokeLinecap="round"/>
+      <circle cx={ax} cy={ay} r="4" fill="#1fd2f5"/>
+      <circle cx={C} cy={C} r="3" fill="#f3f8fc"/>
     </svg>
   );
 }
@@ -48,16 +48,16 @@ export function Orientation({ spot, base, orient, onChange }) {
   };
   const conf = base.topology?.exposition?.confidence;
   return (
-    <div style={{padding:"12px 13px",background:"#071120",border:"1px solid #1e293b",borderRadius:12}}>
-      <div style={{fontSize:15,color:"#f8fafc",fontWeight:700,marginBottom:8}}>🧭 Orientation du poste</div>
+    <div style={{padding:"12px 13px",background:"#0a1b31",border:"1px solid #22405f",borderRadius:12}}>
+      <div style={{fontSize:15,color:"#f3f8fc",fontWeight:700,marginBottom:8}}>🧭 Orientation du poste</div>
       <div style={{display:"flex",gap:12,alignItems:"center",flexWrap:"wrap"}}>
         <Compass water={cur} exposed={spot.exposedAngles} sheltered={spot.shelteredAngles}/>
-        <div style={{flex:"1 1 160px",minWidth:0,fontSize:13,color:"#cbd5e1",lineHeight:1.55}}>
-          <div>L'eau est vers le <b style={{color:"#f8fafc"}}>{DIR_FR[nameOf(cur)]}</b> ({nameOf(cur)}).</div>
-          <div style={{fontSize:13,color:"#94a3b8",marginTop:3}}>
-            <span style={{color:"#7dd3fc"}}>■</span> vents de mer (de face) · <span style={{color:"#4ade80"}}>■</span> vents de terre (dans le dos)
+        <div style={{flex:"1 1 160px",minWidth:0,fontSize:13,color:"#cbd8e6",lineHeight:1.55}}>
+          <div>L'eau est vers le <b style={{color:"#f3f8fc"}}>{DIR_FR[nameOf(cur)]}</b> ({nameOf(cur)}).</div>
+          <div style={{fontSize:13,color:"#9fb3c8",marginTop:3}}>
+            <span style={{color:"#7ee7ff"}}>■</span> vents de mer (de face) · <span style={{color:"#4ade80"}}>■</span> vents de terre (dans le dos)
           </div>
-          <div style={{fontSize:13,marginTop:5,color:status === "fiche" ? "#94a3b8" : "#a78bfa"}}>
+          <div style={{fontSize:13,marginTop:5,color:status === "fiche" ? "#9fb3c8" : "#a78bfa"}}>
             {status === "fiche" ? `Déduite de la fiche${conf === "verified" ? " (exposition sourcée)" : conf === "inference" ? " (exposition déduite)" : ""} : à confirmer sur place.`
               : status === "confirmé" ? `◎ Confirmée sur place le ${o.at || "?"}.` : `◎ Corrigée sur place le ${o.at || "?"} (fiche : ${nameOf(fiche)}).`}
           </div>
@@ -69,15 +69,15 @@ export function Orientation({ spot, base, orient, onChange }) {
             ✓ C'est juste : l'eau est vers {nameOf(fiche)}
           </button>
         )}
-        <label style={{fontSize:14,color:"#94a3b8",display:"flex",alignItems:"center",gap:6}}>
+        <label style={{fontSize:14,color:"#9fb3c8",display:"flex",alignItems:"center",gap:6}}>
           Corriger :
-          <select aria-label="Direction de l'eau" value={nameOf(cur)} onChange={(e) => set(DIR16.indexOf(e.target.value) * 22.5)} style={{background:"#060f1e",color:"#e2e8f0",border:"1px solid #1e293b",borderRadius:5,padding:"4px 6px"}}>
+          <select aria-label="Direction de l'eau" value={nameOf(cur)} onChange={(e) => set(DIR16.indexOf(e.target.value) * 22.5)} style={{background:"#060f1e",color:"#e3ecf5",border:"1px solid #22405f",borderRadius:5,padding:"4px 6px"}}>
             {DIR16.map((d) => <option key={d} value={d}>{d}</option>)}
           </select>
         </label>
-        {status !== "fiche" && <button onClick={() => set(null)} style={{fontSize:13.5,color:"#7dd3fc",background:"none",border:"none",padding:0,cursor:"pointer",textDecoration:"underline"}}>revenir à la fiche</button>}
+        {status !== "fiche" && <button onClick={() => set(null)} style={{fontSize:13.5,color:"#7ee7ff",background:"none",border:"none",padding:0,cursor:"pointer",textDecoration:"underline"}}>revenir à la fiche</button>}
       </div>
-      <div style={{fontSize:13,color:"#94a3b8",marginTop:8,lineHeight:1.5}}>Regarde le large depuis ton poste : indique où est l'eau. Le classement des spots en tient compte aussitôt, sur cet appareil.</div>
+      <div style={{fontSize:13,color:"#9fb3c8",marginTop:8,lineHeight:1.5}}>Regarde le large depuis ton poste : indique où est l'eau. Le classement des spots en tient compte aussitôt, sur cet appareil.</div>
     </div>
   );
 }

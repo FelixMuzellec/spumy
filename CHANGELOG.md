@@ -1,5 +1,16 @@
 # Journal des versions
 
+## 10.0 — la charte SPUMY dans l'application (phase 12)
+
+Branche `claude/phase-12`. Consignes de Félix du 19 novembre (20 h 14 et 23 h 11).
+
+- **Logos de Félix** : SPUMY, Inshore (du bord) et Offshore (en bateau), dans l'accueil, l'en-tête des guides, les icônes du téléphone et le prototype (`assets/brand/`, `scripts/logos.py` : fond crème rendu transparent, version pour fond sombre, dessin intact).
+- **Accueil** : grand logo, choix Inshore / Offshore avec leurs logos, bleu nuit, cyan pour l'action, orange de la marque ; Roboto Condensed auto-hébergée.
+- **Guides** : palette Nuit marine de la direction artistique (fond #071427, cartes #0e2139, cyan #1fd2f5), titres condensés, anneaux de note en dégradé ; couleurs en dur hors de `src/design/` 291 → 253.
+- **Photos d'ambiance** (photos de Félix) sur l'écran Décision et dans la fiche du spot, choisies d'après la lumière, le ciel, la mer et le type de lieu du créneau ; toujours « Illustration », jamais une image reconnaissable sur un spot nommé ; miniature floue hors connexion (les photos ne sont pas dans le cache).
+- **Service worker** : `prototype/`, `assets/` et `docs/` ne passent jamais par le cache de l'application.
+- **Spécifications** fonctionnelles et techniques : `docs/SPECIFICATIONS.md`.
+
 ## Non publié — phase 11, direction artistique et écrans (prototype)
 
 Branche `claude/phase-11-design`, fusionnée dans `main` le 19 novembre (proposition n° 11, avec la phase 9). Aucun fichier de l'application publiée n'est modifié : le nouveau système de design sert le prototype ; son application à l'application réelle est prévue en phase 13 (décision ouverte n° 5).

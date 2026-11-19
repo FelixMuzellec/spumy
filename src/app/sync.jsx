@@ -99,7 +99,7 @@ async function syncJournalOnly(siteId, cfg) {
 }
 
 // ── Bandeau d'état et réglages ───────────────────────────────────────
-const C = { bg: "#020617", line: "#1e293b", txt: "#94a3b8", dim: "#475569", ok: "#22c55e", warn: "#f59e0b", err: "#f87171", acc: "#38bdf8" };
+const C = { bg: "#071427", line: "#22405f", txt: "#9fb3c8", dim: "#4d6a8a", ok: "#22c55e", warn: "#f59e0b", err: "#f87171", acc: "#1fd2f5" };
 const fmt = (ms) => new Date(ms).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
 
 export function SyncBar({ siteId, initial }) {
@@ -143,21 +143,21 @@ export function SyncBar({ siteId, initial }) {
     : st.state === "error" ? <span style={{ color: C.err }}>⚠ Sauvegarde GitHub en échec : {st.msg}</span>
     : <span style={{ color: C.txt }}>○ Journal gardé sur cet appareil (sans copie GitHub)</span>;
 
-  const inp = { width: "100%", boxSizing: "border-box", padding: "8px 9px", borderRadius: 6, border: `1px solid ${C.line}`, background: "#0b1220", color: "#e2e8f0", fontSize: 13, fontFamily: "monospace", marginTop: 3 };
+  const inp = { width: "100%", boxSizing: "border-box", padding: "8px 9px", borderRadius: 6, border: `1px solid ${C.line}`, background: "#0b1220", color: "#e3ecf5", fontSize: 13, fontFamily: "monospace", marginTop: 3 };
   return (
     <footer className="sync-bar" aria-label="Sauvegarde du journal" hidden={!open && st.state !== "error" && st.state !== "syncing"}
       style={{ position: "fixed", left: 0, right: 0, bottom: "calc(64px + env(safe-area-inset-bottom))", zIndex: 1000, background: C.bg, borderTop: `1px solid ${C.line}`, fontFamily: "system-ui,sans-serif", boxShadow: "0 -8px 24px rgba(0,0,0,0.35)" }}>
       {open && (
         <div style={{ maxWidth: 560, margin: "0 auto", padding: "12px 16px 4px", color: C.txt, fontSize: 13, lineHeight: 1.55, maxHeight: "70vh", overflowY: "auto" }}>
-          <div style={{ color: "#e2e8f0", fontWeight: 700, marginBottom: 6 }}>Affichage</div>
+          <div style={{ color: "#e3ecf5", fontWeight: 700, marginBottom: 6 }}>Affichage</div>
           <div role="group" aria-label="Affichage" style={{ display: "flex", gap: 8, marginBottom: 12 }}>
             {[["nuit", "Sombre (nuit, aube)"], ["sun", "Plein soleil (fond clair)"]].map(([k, l]) => (
-              <button key={k} onClick={() => pickTheme(k)} aria-pressed={theme === k} style={{ flex: 1, minHeight: 44, borderRadius: 8, border: `1px solid ${theme === k ? C.acc : C.line}`, background: theme === k ? "rgba(14,165,233,0.15)" : "none", color: theme === k ? "#e2e8f0" : C.txt, fontSize: 13.5, fontWeight: 700, cursor: "pointer" }}>{l}</button>
+              <button key={k} onClick={() => pickTheme(k)} aria-pressed={theme === k} style={{ flex: 1, minHeight: 44, borderRadius: 8, border: `1px solid ${theme === k ? C.acc : C.line}`, background: theme === k ? "rgba(14,165,233,0.15)" : "none", color: theme === k ? "#e3ecf5" : C.txt, fontSize: 13.5, fontWeight: 700, cursor: "pointer" }}>{l}</button>
             ))}
           </div>
           <EnginePanel />
           <TransferPanel />
-          <div style={{ color: "#e2e8f0", fontWeight: 700, marginBottom: 6 }}>Sauvegarde du journal sur GitHub</div>
+          <div style={{ color: "#e3ecf5", fontWeight: 700, marginBottom: 6 }}>Sauvegarde du journal sur GitHub</div>
           <p style={{ margin: "0 0 8px" }}>
             Le journal est gardé sur cet appareil. Pour ne plus jamais le perdre et le retrouver sur tous tes appareils,
             il est aussi écrit dans un dépôt GitHub <strong>privé</strong> (un fichier par application, un historique par enregistrement).

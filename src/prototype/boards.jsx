@@ -1,5 +1,5 @@
 // Prototype — planches : système de design, BORD face à BATEAU, avant / après, conformité à la référence.
-import { Alert, Banner, Button, Card, Chip, DemoMark, FactorBar, Icon, ICON_NAMES, Logo, Pastille, Photo, ScoreRing, Segmented, Skeleton, Stats } from "../design/ds/ui.jsx";
+import { Alert, Banner, Button, Card, Chip, DemoMark, FactorBar, Icon, ICON_NAMES, Logo, Pastille, Photo, ScoreRing, Segmented, Skeleton, Stats, ModeLogo } from "../design/ds/ui.jsx";
 import { PHOTOS, CATALOGUE } from "./photos.js";
 import { LureArt } from "./art.jsx";
 /* global REF_BASE */
@@ -69,8 +69,8 @@ export function SystemeBoard({ contrasts }) {
       <h2 className="s-h2 p-board__h">Pictogrammes</h2>
       <p className="s-body">Lucide (licence ISC) pour l'interface, et des pictogrammes SPUMY dessinés sur la même grille (24 px, trait 2) : modes, leurre, jig, marée, gilet, houle. Plus aucun émoji.</p>
       <div className="p-modeicons">
-        {[["mode-bord", "BORD", "Un pêcheur debout sur la roche, canne pliée, ligne dans les vagues"], ["mode-bateau", "BATEAU", "Une coque de pêche, sa cabine et une canne à l'arrière"]].map(([ic, l, d]) => (
-          <Card key={ic}><div className="s-row" style={{ gap: 18 }}><span className="p-mode__icon"><Icon name={ic} size={44} stroke={2} /></span><div><div className="s-h2">{l}</div><p className="s-small">{d}</p><div className="s-row" style={{ gap: 12, marginTop: 8, color: "var(--accent-ink)" }}><Icon name={ic} size={16} /><Icon name={ic} size={20} /><Icon name={ic} size={28} /></div></div></div></Card>
+        {[["mode-bord", "bord", "Inshore · BORD", "Logo de Félix : un pêcheur sur la roche, soleil orange, deux vagues. Pictogramme au trait pour les petites tailles"], ["mode-bateau", "bateau", "Offshore · BATEAU", "Logo de Félix : un bateau de pêche à console, deux cannes, soleil orange, vague. Pictogramme au trait pour les petites tailles"]].map(([ic, m, l, d]) => (
+          <Card key={ic}><div className="s-row" style={{ gap: 18 }}><ModeLogo mode={m} size={84} /><div><div className="s-h2">{l}</div><p className="s-small">{d}</p><div className="s-row" style={{ gap: 12, marginTop: 8, color: "var(--accent-ink)" }}><Icon name={ic} size={16} /><Icon name={ic} size={20} /><Icon name={ic} size={28} /></div></div></div></Card>
         ))}
       </div>
       <div className="p-icons">{ICON_NAMES.map((n) => <div key={n} title={n}><Icon name={n} size={24} /><span>{n}</span></div>)}</div>

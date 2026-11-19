@@ -17,14 +17,15 @@ const DOCS = ROOT;   // le site est construit à la racine du dépôt
 // Tuile de carte factice (PNG 1×1) : aucun appel réel à OpenStreetMap pendant les tests.
 const PNG1 = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==", "base64");
 import { SITE_FILES } from "../scripts/sites.mjs";
-const TYPES = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".json": "application/json", ".webmanifest": "application/manifest+json", ".png": "image/png" };
+const TYPES = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".json": "application/json", ".webmanifest": "application/manifest+json", ".png": "image/png", ".webp": "image/webp", ".woff2": "font/woff2" };
 const server = http.createServer((req, res) => {
   let p = decodeURIComponent(new URL(req.url, "http://x").pathname);
   if (!p.startsWith(PREFIX)) { res.writeHead(404); return res.end(); }
   p = p.slice(PREFIX.length) || "/";
   if (p.endsWith("/")) p += "index.html";
-  // Seuls les fichiers du site sont servis : preuve qu'ils suffisent une fois déposés sur GitHub.
-  if (!SITE_FILES.includes(p.slice(1))) { res.writeHead(404); return res.end("404"); }
+  // Seuls les fichiers du site sont servis : preuve qu'ils suffisent une fois déposés sur GitHub. v10 : plus les photos
+  // d'ambiance (assets/photos/, publiées par GitHub Pages avec le dépôt, hors du cache hors ligne).
+  if (!SITE_FILES.includes(p.slice(1)) && !/^\/assets\/photos\/[a-z0-9-]+-(720|1600)\.webp$/.test(p)) { res.writeHead(404); return res.end("404"); }
   const f = path.join(DOCS, p);
   if (!f.startsWith(DOCS) || !fs.existsSync(f)) { res.writeHead(404); return res.end("404"); }
   res.writeHead(200, { "Content-Type": TYPES[path.extname(f)] || "application/octet-stream", "Cache-Control": "no-cache" });
@@ -142,7 +143,8 @@ const btn = (page, name) => page.getByRole("button", { name }).first();
   ok(await dState() === "29:fermé:caché 50:ouvert:visible", "accueil : toucher « Manche » déplie ses guides");
   await page.reload();
   ok(await dState() === "29:fermé:caché 50:ouvert:visible", "accueil : le département ouvert le reste au retour sur l'accueil");
-  ok(/Version 9\.2 · [0-9a-f]{12}/.test(home), "accueil : numéro de version affiché (vérifier le dépôt)");
+  const VERSION = JSON.parse(fs.readFileSync(path.join(DOCS, "package.json"), "utf8")).version.replace(/\.0$/, "");
+  ok(new RegExp(`Version ${VERSION.replace(/\./g, "\\.")} · [0-9a-f]{12}`).test(home), `accueil : numéro de version affiché (${VERSION}, vérifier le dépôt)`);
   ok(await page.isVisible("#install") && !(await page.isVisible("#install-btn")) && /Installer sur le téléphone/.test(home), "accueil (navigateur) : aide à l'installation, pas de bouton tant que Chrome ne le propose pas");
   await page.screenshot({ path: `${SHOTS}/accueil.png` });
   // Manifeste commun : une application, qui s'ouvre sur l'accueil.
@@ -245,14 +247,14 @@ const btn = (page, name) => page.getByRole("button", { name }).first();
   ok(mk.length === 66 && mk.every((m) => m.score !== "?"), `carte de l'accueil : les 66 spots des sept guides, tous notés (${mk.length})`);
   ok(om.calls > 0 && om.calls <= 21, `carte de l'accueil : la météo de chaque guide en une fois (${om.calls} requêtes Open-Meteo, 3 par guide au plus)`);
   // Phase 7 — moteur v2 (par défaut) : remplissage = un des cinq bleus de la favorabilité ; « à vérifier » : contour
-  // pointillé orange et « ? » posé dessus ; non recommandé : gris barré ; jamais de vert.
+  // pointillé ambre (v10 : #ffc53d, orange avant) et « ? » posé dessus ; non recommandé : gris barré ; jamais de vert.
   const FAV = ["#184f95", "#256abf", "#3987e5", "#6da7ec", "#b7d3f6"];
   const glyphs = await page.evaluate(() => ({ verify: document.querySelectorAll(".gspot-glyph-verify").length, nr: document.querySelectorAll(".gspot-glyph-nr").length }));
   const nV = mk.filter((m) => m.state === "verify").length, nNR = mk.filter((m) => m.state === "nr").length;
   ok(mk.every((m) => m.state === "nr" || m.state === "none" || FAV.includes(m.fill)) && mk.some((m) => FAV.includes(m.fill)) && !mk.some((m) => /#22c55e/i.test(m.fill || "")),
     `carte de l'accueil : pastilles en cinq bleus selon la favorabilité, jamais de vert (${new Set(mk.map((m) => m.fill)).size} remplissages)`);
-  ok(mk.filter((m) => m.state === "verify").every((m) => m.dash && /#f59e0b/i.test(m.stroke)) && glyphs.verify === nV && glyphs.nr === nNR,
-    `carte de l'accueil : à vérifier en pointillé orange avec « ? » (${nV}), non recommandé barré (${nNR})`);
+  ok(mk.filter((m) => m.state === "verify").every((m) => m.dash && /#ffc53d/i.test(m.stroke)) && glyphs.verify === nV && glyphs.nr === nNR,
+    `carte de l'accueil : à vérifier en pointillé ambre avec « ? » (${nV}), non recommandé barré (${nNR})`);
   // La pastille est exactement la note que le guide affiche (même moteur, même météo, mêmes réglages), et le guide
   // s'ouvre ensuite sans redemander la météo téléchargée par l'accueil.
   const calls0 = om.calls, mism = [];

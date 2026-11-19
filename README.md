@@ -84,8 +84,8 @@ Le détail est dans [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 Settings → Pages → *Deploy from a branch* → Branch `main`, dossier `/ (root)` → Save.
 
-Mettre le site à jour depuis le téléphone : *Add file → Upload files* à la racine du dépôt, avec les 29 fichiers du site
-(`index.html`, `app.js`, `logonna.html`, `pirou.html`, `plouguerneau.html`, `audierne.html`, `carantec.html`, `concarneau.html`, `crozon.html`, `logonna.json`, `pirou.json`, `plouguerneau.json`, `audierne.json`, `carantec.json`, `concarneau.json`, `crozon.json`, `manifest.json`, `icon-192.png`, `icon-512.png`, `icon-maskable.png`, `apple-touch-icon.png`, `logonna.png`, `pirou.png`, `plouguerneau.png`, `audierne.png`, `carantec.png`, `concarneau.png`, `crozon.png`, `sw.js`).
+Mettre le site à jour depuis le téléphone : *Add file → Upload files* à la racine du dépôt, avec les 35 fichiers du site
+(`index.html`, `app.js`, `logonna.html`, `pirou.html`, `plouguerneau.html`, `audierne.html`, `carantec.html`, `concarneau.html`, `crozon.html`, `logonna.json`, `pirou.json`, `plouguerneau.json`, `audierne.json`, `carantec.json`, `concarneau.json`, `crozon.json`, `manifest.json`, `icon-192.png`, `icon-512.png`, `icon-maskable.png`, `apple-touch-icon.png`, `logonna.png`, `pirou.png`, `plouguerneau.png`, `audierne.png`, `carantec.png`, `concarneau.png`, `crozon.png`, `logo-spumy.webp`, `logo-spumy-clair.webp`, `inshore.webp`, `offshore.webp`, `roboto-condensed.woff2`, `roboto-condensed-ext.woff2`, `sw.js`).
 L'identifiant de construction est l'empreinte de tous les fichiers servis : le moindre changement change le cache hors ligne, et la copie hors ligne est toujours relue sur le serveur (jamais dans le cache HTTP du navigateur).
 Ne jamais déposer un fichier de `src/` à la racine. Après un dépôt, vérifier qu'aucun doublon « (1) », « (2) » n'a été créé, puis que le bas de l'accueil affiche la nouvelle version.
 
@@ -103,7 +103,8 @@ Ne jamais déposer un fichier de `src/` à la racine. Après un dépôt, vérifi
 
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) : organisation du code, architecture actuelle et cible.
 - [docs/FONCTIONNALITES.md](docs/FONCTIONNALITES.md) : ce que fait chaque écran, l'analyse photo, la sauvegarde du journal.
-- [docs/DIRECTION-ARTISTIQUE.md](docs/DIRECTION-ARTISTIQUE.md) : direction artistique et système de design (phase 11), prototype dans [prototype/](prototype/).
+- [docs/DIRECTION-ARTISTIQUE.md](docs/DIRECTION-ARTISTIQUE.md) : direction artistique, logos et système de design (phases 11 et 12), prototype dans [prototype/](prototype/).
+- [docs/SPECIFICATIONS.md](docs/SPECIFICATIONS.md) : spécifications fonctionnelles et techniques, écran par écran (phase 12).
 - [CHANGELOG.md](CHANGELOG.md) : ce qui change à chaque version.
 - [CONTRIBUTING.md](CONTRIBUTING.md) : comment proposer une modification.
 - [SPUMY_AUDIT_CONTINUITY.md](SPUMY_AUDIT_CONTINUITY.md) : état du chantier en cours (audit et refonte).
@@ -115,7 +116,7 @@ Ne jamais déposer un fichier de `src/` à la racine. Après un dépôt, vérifi
 2. Phase 3 (faite) : socle technique — code dans le dépôt, tests automatiques, réorganisation, application unique, données des sites, jetons de design, sécurité rapide.
 3. Phases 4 à 8 (faites, phase 8 en attente de validation) : BORD — audit approfondi, audit halieutique, conception du moteur à trois scores sur 100 avec sécurité bloquante, mise en œuvre, épreuve sur de vraies journées.
 4. Phases 9, 10 et 13 : BATEAU — conception, moteur par espèce, développement.
-5. Phase 11 (prototype livré, en attente de validation) : direction artistique et écrans ; phase 12 : spécifications. La phase 10 (moteur BATEAU) est mise de côté pour le moment.
+5. Phase 11 (validée) : direction artistique et prototype ; phase 12 : spécifications (`docs/SPECIFICATIONS.md`) et charte dans l'application (v10, logos de Félix, photos d'ambiance). Phase 13 : développement BATEAU, avec le moteur de la phase 10.
 6. Phases 14 à 17 : journal et hors ligne, sécurité et réglementation, recette complète, audit final.
 
 ## Données, sources et licences

@@ -122,7 +122,7 @@ export function JournalTab({ g }) {
             return (
               <div key={e.id} style={{display:"flex",gap:12,padding:"12px 0",borderTop:i ? `1px solid ${C.line2}` : "none"}}>
                 <span aria-hidden="true" style={{width:46,height:46,borderRadius:12,flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center",
-                  background:caught ? "rgba(34,197,94,0.14)" : "rgba(148,163,184,0.10)",color:caught ? "#86efac" : "#94a3b8",border:`1px solid ${caught ? "rgba(34,197,94,0.35)" : C.line}`}}>
+                  background:caught ? "rgba(34,197,94,0.14)" : "rgba(148,163,184,0.10)",color:caught ? "#86efac" : "#9fb3c8",border:`1px solid ${caught ? "rgba(34,197,94,0.35)" : C.line}`}}>
                   {caught ? <span style={{fontSize:20,fontWeight:800,...num}}>{e.fish}</span> : <Icon name="journal" size={21}/>}
                 </span>
                 <span style={{flex:1,minWidth:0}}>
@@ -131,7 +131,7 @@ export function JournalTab({ g }) {
                     {e.fish != null && <span style={{fontWeight:600,color:e.fish > 0 ? C.good : C.muted}}> · {e.fish} bar{e.fish > 1 ? "s" : ""}{e.duree ? ` en ${fr(+e.duree, e.duree % 1 ? 1 : 0)} h` : ""}</span>}
                     {e.seed && <> <Pill color={C.violet}>Archivé</Pill></>}
                   </span>
-                  {(e.heure || e.cond) && <span style={{display:"block",fontSize:13,color:"#7dd3fc",marginTop:2}}>{e.heure ? String(e.heure).replace(":", "h") : e.cond ? `≈ ${fmtH(e.cond.h)} (${e.moment === "coucher" ? "coucher du soleil" : "heure estimée"})` : ""}{e.cond ? " · " + conditionsLine(e.cond) : ""}</span>}
+                  {(e.heure || e.cond) && <span style={{display:"block",fontSize:13,color:"#7ee7ff",marginTop:2}}>{e.heure ? String(e.heure).replace(":", "h") : e.cond ? `≈ ${fmtH(e.cond.h)} (${e.moment === "coucher" ? "coucher du soleil" : "heure estimée"})` : ""}{e.cond ? " · " + conditionsLine(e.cond) : ""}</span>}
                   {!e.cond && (e.heure || e.moment) && <span style={{display:"block",fontSize:12.5,color:C.faint,marginTop:2}}>Conditions calculées à l'ouverture de ce jour (météo nécessaire).</span>}
                   {e.lure && <span style={{display:"block",fontSize:13.5,color:C.text,marginTop:2}}>🎣 {e.lure}</span>}
                   {e.note && <span style={{display:"block",fontSize:13.5,color:C.muted,marginTop:1}}>{e.note}</span>}

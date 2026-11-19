@@ -5,7 +5,7 @@ import { useState } from "react";
 import { ON_SITE } from "../engine/safety.js";
 import { C } from "../../design/kit.jsx";
 
-const TONE = { alerte: C.bad, prudence: C.warn, neutre: "#64748b" };
+const TONE = { alerte: C.bad, prudence: C.warn, neutre: "#7a8fa6" };
 const Shield = ({ color }) => (
   <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style={{flexShrink:0,display:"block"}}>
     <path d="M12 2.5 4.5 5.4v5.9c0 4.7 3.1 8.6 7.5 10.2 4.4-1.6 7.5-5.5 7.5-10.2V5.4z" fill="none" stroke={color} strokeWidth="2" strokeLinejoin="round"/>
@@ -23,7 +23,7 @@ export function SafetyPanel({ safety, standing = true, id }) {
     <section id={id} aria-label={`Sécurité : ${safety.label}`} role={safety.level === "alerte" ? "alert" : undefined}
       style={{marginTop:10,padding:"10px 12px",borderRadius:12,border:`1px solid ${tone}88`,background:`${tone}14`,color:C.strong,fontSize:14,lineHeight:1.5}}>
       <div style={{display:"flex",alignItems:"center",gap:7,fontWeight:800}}>
-        <Shield color={safety.level === "neutre" ? "#94a3b8" : tone}/>
+        <Shield color={safety.level === "neutre" ? "#9fb3c8" : tone}/>
         <span>Sécurité · {safety.label}</span>
       </div>
       {main.length > 0 && (
@@ -40,15 +40,15 @@ export function SafetyPanel({ safety, standing = true, id }) {
         </div>
       )}
       {safety.vigilance && <div style={{marginTop:7,fontSize:13.5,color:C.text}}>• {safety.vigilance.t} <span style={{fontSize:12,color:C.faint}}>— {safety.vigilance.s}</span></div>}
-      <div style={{marginTop:7,fontSize:13,color:"#cbd5e1"}}>{ON_SITE}</div>
+      <div style={{marginTop:7,fontSize:13,color:"#cbd8e6"}}>{ON_SITE}</div>
     </section>
   );
 }
 
-const MARK = { ok: ["✓", "#7dd3fc"], reserve: ["!", "#cbd5e1"], manque: ["✕", "#f8fafc"], info: ["·", C.muted] };
+const MARK = { ok: ["✓", "#7ee7ff"], reserve: ["!", "#cbd8e6"], manque: ["✕", "#f3f8fc"], info: ["·", C.muted] };
 const Dots = ({ n }) => (
   <span aria-hidden="true" style={{display:"inline-flex",gap:3,verticalAlign:"middle"}}>
-    {[1, 2, 3].map((i) => <span key={i} style={{width:8,height:8,borderRadius:4,background:i <= n ? "#7dd3fc" : "transparent",border:"1.5px solid #7dd3fc"}}/>)}
+    {[1, 2, 3].map((i) => <span key={i} style={{width:8,height:8,borderRadius:4,background:i <= n ? "#7ee7ff" : "transparent",border:"1.5px solid #7ee7ff"}}/>)}
   </span>
 );
 

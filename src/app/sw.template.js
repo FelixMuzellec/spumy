@@ -18,7 +18,7 @@ self.addEventListener("install", (e) => {
 // entrées situées sous la portée de CE service worker (le cache entier s'il ne contient qu'elles) : l'origine
 // felixmuzellec.github.io est commune à tous les sites GitHub Pages du compte, et l'ancien guide (/guide-peche-bar/)
 // nomme ses caches de la même façon ; sa copie hors ligne reste intacte.
-const SCOPE = self.registration.scope;
+const SCOPE = self.registration.scope, SCOPE_PATH = new URL(SCOPE).pathname;
 const prune = () => caches.keys().then((ks) => Promise.all(ks.filter((k) => k.startsWith("guide-bar-") && k !== CACHE).map(async (k) => {
   const c = await caches.open(k), reqs = await c.keys();
   const mine = reqs.filter((r) => r.url.startsWith(SCOPE));
@@ -32,6 +32,9 @@ self.addEventListener("activate", (e) => {
 self.addEventListener("fetch", (e) => {
   const u = new URL(e.request.url);
   if (e.request.method !== "GET" || u.origin !== self.location.origin) return;
+  // Le prototype de la phase 11 (prototype/, assets/, docs/) n'est pas l'application : jamais dans son cache hors ligne.
+  const rel = u.pathname.startsWith(SCOPE_PATH) ? u.pathname.slice(SCOPE_PATH.length) : u.pathname;
+  if (/^(prototype|assets|docs)\//.test(rel)) return;
   if (e.request.mode === "navigate") e.waitUntil(prune().catch(() => {}));
   e.respondWith((async () => {
     const cache = await caches.open(CACHE);

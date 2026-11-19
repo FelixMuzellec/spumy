@@ -442,15 +442,15 @@ export default function FishingGuide() {
 
       {/* Barre d'onglets et session en cours dans un même bloc collant : pas de chevauchement. */}
       {/* v9.2 — Zone de la barre d'état (application installée) : peinte, le contenu ne passe pas dessous. */}
-      <div aria-hidden="true" style={{position:"fixed",top:0,left:0,right:0,height:"env(safe-area-inset-top)",background:"rgba(3,11,23,0.96)",zIndex:60}}/>
+      <div aria-hidden="true" style={{position:"fixed",top:0,left:0,right:0,height:"env(safe-area-inset-top)",background:"rgba(7,20,39,0.96)",zIndex:60}}/>
       <div style={{position:"sticky",top:"env(safe-area-inset-top)",zIndex:50}}>
         {tab !== "photos" && (ph.job || ph.unseen) && (
           <div role="status" style={{background:"rgba(8,47,73,0.97)",borderBottom:"1px solid #0369a1"}}>
-            <div style={{maxWidth:760,margin:"0 auto",padding:"3px 8px 3px 14px",display:"flex",alignItems:"center",gap:8,fontSize:14,color:"#e0f2fe"}}>
+            <div style={{maxWidth:760,margin:"0 auto",padding:"3px 8px 3px 14px",display:"flex",alignItems:"center",gap:8,fontSize:14,color:"#f3f8fc"}}>
               <span style={{flex:1,minWidth:0,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>
                 📷 {ph.job?.status === "running" ? <>Analyse photo · passe {ph.job.step}/3 en cours</> : ph.job ? <>Analyse photo interrompue avant la passe {nextPass(ph.job.partial)}/3</> : <b>Analyse photo prête</b>}
               </span>
-              <button onClick={() => goTab("photos")} style={{minHeight:40,padding:"0 12px",borderRadius:8,border:"1px solid #7dd3fc",background:"rgba(125,211,252,0.15)",color:"#fff",fontSize:13.5,fontWeight:700,cursor:"pointer",flexShrink:0}}>{ph.job && ph.job.status !== "running" ? "Reprendre" : "Voir"}</button>
+              <button onClick={() => goTab("photos")} style={{minHeight:40,padding:"0 12px",borderRadius:8,border:"1px solid #7ee7ff",background:"rgba(125,211,252,0.15)",color:"#fff",fontSize:13.5,fontWeight:700,cursor:"pointer",flexShrink:0}}>{ph.job && ph.job.status !== "running" ? "Reprendre" : "Voir"}</button>
             </div>
           </div>
         )}

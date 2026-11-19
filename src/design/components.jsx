@@ -2,6 +2,7 @@
 // (jauge, pastille, chargement) et des trois copies identiques du style de bouton (accueil, Offshore, ajout de spot),
 // à l'identique : le rendu ne change pas. Les autres composants communs sont dans kit.jsx (carte, tuile, puce,
 // bloc repliable, sous-onglets, ligne, source, bandeau).
+import { useId } from "react";
 import { color, favBands, font, pastille, radius, scoreBands, touch } from "./tokens.js";
 
 /**
@@ -20,13 +21,17 @@ export function ScoreRing({ score, size = 76, color: c0, label = "sur 10", track
   const big = Math.round(size * 0.31), small = Math.max(11, Math.round(size * 0.15));
   const shown = !ok ? "–" : text != null ? text : v2 ? String(Math.round(score)) : score.toFixed(1).replace(".", ",");
   const aria = ok ? `${v2 ? "Favorabilité" : "Note"} ${shown} sur ${max}${verify ? ", à vérifier" : ""}` : "Pas de note";
+  // v10 : arc en dégradé dans la teinte de la note (du palier vers le palier suivant, plus clair), chiffre en condensé.
+  const gid = `sr${useId().replace(/[^a-zA-Z0-9]/g, "")}`;
+  const c2 = !c0 && ok && v2 ? favBands[Math.min(4, band || 1)] : c;
   return (
     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} role="img" aria-label={aria} style={{flexShrink:0,display:"block"}}>
+      <defs><linearGradient id={gid} x1="0" y1="1" x2="1" y2="0"><stop offset="0" stopColor={c}/><stop offset="1" stopColor={c2}/></linearGradient></defs>
       <circle cx={cx} cy={cx} r={r} fill="none" stroke={track} strokeWidth={sw}/>
-      {ok && <circle cx={cx} cy={cx} r={r} fill="none" stroke={c} strokeWidth={sw} strokeLinecap="round"
+      {ok && <circle cx={cx} cy={cx} r={r} fill="none" stroke={`url(#${gid})`} strokeWidth={sw} strokeLinecap="round"
         strokeDasharray={`${f * circ} ${circ}`} transform={`rotate(-90 ${cx} ${cx})`} style={{filter:`drop-shadow(0 0 ${Math.round(sw / 1.5)}px ${c}55)`}}/>}
       {ok && v2 && verify && <circle cx={cx} cy={cx} r={r + sw / 2 + 1} fill="none" stroke={pastille.verify} strokeWidth={2} strokeDasharray="5 4"/>}
-      <text x={cx} y={cx + (label ? big * 0.12 : big * 0.35)} textAnchor="middle" fontSize={big} fontWeight="800" fill={color.strong} fontFamily={font.familySvg} style={font.numbers}>
+      <text x={cx} y={cx + (label ? big * 0.12 : big * 0.35)} textAnchor="middle" fontSize={Math.round(big * 1.08)} fontWeight="700" fill={color.strong} fontFamily={font.display} style={font.numbers}>
         {shown}{ok && v2 && verify ? "?" : ""}</text>
       {label && <text x={cx} y={cx + big * 0.12 + small * 1.25} textAnchor="middle" fontSize={small} fontWeight="600" fill={color.muted} fontFamily={font.familySvg}>{label}</text>}
     </svg>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>SPUMY · pêche du bar aux leurres</title>
 <meta name="description" content="SPUMY : où et quand pêcher le bar aux leurres du bord, sept guides en Finistère et dans la Manche, et la pêche en bateau. Marée calculée, météo et houle par spot, journal, analyse de photos.">
-<meta name="theme-color" content="#020617">
+<meta name="theme-color" content="#071427">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -15,111 +15,122 @@
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
-  :root { color-scheme: dark; }
+  /* v10 — Charte SPUMY (phase 11, logos de Félix) : bleu nuit, surfaces vitrées, cyan pour l'action, orange et crème de la marque. */
+  @font-face { font-family: "Roboto Condensed"; font-style: normal; font-display: swap; font-weight: 100 900; src: url(roboto-condensed.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  @font-face { font-family: "Roboto Condensed"; font-style: normal; font-display: swap; font-weight: 100 900; src: url(roboto-condensed-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  :root { color-scheme: dark; --bg: #071427; --surface: rgba(18, 41, 70, 0.72); --line: rgba(150, 190, 230, 0.16); --line-2: rgba(150, 190, 230, 0.3);
+          --text: #f3f8fc; --text-2: #cbd8e6; --muted: #93a8c0; --accent: #1fd2f5; --accent-2: #2a9df4; --accent-ink: #7ee7ff; --on-accent: #032036;
+          --orange: #e0843f; --creme: #efe7d8; --display: "Roboto Condensed", "Arial Narrow", system-ui, sans-serif; }
   [hidden] { display: none !important; }
-  body { margin: 0; background: #020617; color: #e2e8f0; font: 15px/1.55 system-ui, -apple-system, sans-serif; }
-  main { max-width: 560px; margin: 0 auto; padding: calc(28px + env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 48px max(16px, env(safe-area-inset-left)); }
-  /* v9.1 — En-tête SPUMY : la marque en image, le nom et la promesse en vrai texte (toujours net, lu par les lecteurs d'écran). */
-  header.brand { display: flex; align-items: center; gap: 14px; margin: 0 0 18px; }
-  header.brand img { width: 56px; height: 56px; border-radius: 14px; flex-shrink: 0; box-shadow: 0 6px 18px rgba(3, 105, 161, 0.35); }
-  header.brand div { min-width: 0; }
-  h1 { font-size: 26px; line-height: 1.1; margin: 0; font-weight: 800; letter-spacing: 0.14em; color: #f8fafc; }
-  p.tagline { margin: 3px 0 0; font-size: 15px; font-weight: 600; color: #7dd3fc; text-wrap: balance; }
-  p.sub { color: #94a3b8; margin: 0 0 18px; font-size: 13px; text-wrap: pretty; }
+  body { margin: 0; color: var(--text); font: 15px/1.55 system-ui, -apple-system, sans-serif;
+         background: var(--bg) radial-gradient(130% 55% at 50% -5%, #123358 0%, #0a1d36 45%, var(--bg) 75%) no-repeat; background-attachment: fixed; }
+  main { max-width: 560px; margin: 0 auto; padding: calc(22px + env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 48px max(16px, env(safe-area-inset-left)); }
+  /* En-tête : le logo SPUMY de Félix (image décorative), le nom et la promesse en vrai texte. */
+  header.brand { display: flex; flex-direction: column; align-items: center; gap: 8px; margin: 0 0 14px; text-align: center; }
+  header.brand img { width: 190px; height: auto; aspect-ratio: 520 / 429; }
+  html.sun header.brand img { content: url(logo-spumy-clair.webp); }
+  .sr, header.brand h1 { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  p.tagline { margin: 0; font: 700 21px/1.2 var(--display); letter-spacing: 0.01em; color: var(--creme); text-wrap: balance; }
+  p.tagline span { color: var(--orange); }
+  p.sub { color: var(--muted); margin: 0 0 18px; font-size: 13px; text-align: center; text-wrap: pretty; }
+  h2 { font-family: var(--display); }
   /* Recherche d'un spot par son nom, sa commune ou son guide */
   #search { margin: 0 0 22px; }
-  #search label { display: block; font-weight: 700; font-size: 15px; margin-bottom: 6px; }
-  #search .hint { font-weight: 500; font-size: 13px; color: #94a3b8; }
-  #q { box-sizing: border-box; width: 100%; min-height: 50px; padding: 10px 14px; border: 1px solid #334155; border-radius: 12px;
-       background: #0b1626; color: #f1f5f9; font: 16px system-ui, -apple-system, sans-serif; }
-  #q::placeholder { color: #8a9bb1; }
-  #q:focus { border-color: #38bdf8; outline: 2px solid #38bdf8; outline-offset: 1px; }
-  #near { display: block; width: 100%; min-height: 48px; margin-top: 8px; border: 1px solid #0ea5e9; border-radius: 12px;
-          background: rgba(14,165,233,0.12); color: #e0f2fe; font: 700 15px system-ui, -apple-system, sans-serif; cursor: pointer; }
+  #search label { display: block; font: 700 17px var(--display); margin-bottom: 6px; }
+  #search .hint { font: 500 13px system-ui, -apple-system, sans-serif; color: var(--muted); }
+  #q { box-sizing: border-box; width: 100%; min-height: 52px; padding: 10px 14px; border: 1px solid var(--line-2); border-radius: 14px;
+       background: rgba(7, 20, 39, 0.85); color: var(--text); font: 16px system-ui, -apple-system, sans-serif; }
+  #q::placeholder { color: #8ea3bb; }
+  #q:focus { border-color: var(--accent); outline: 2px solid var(--accent); outline-offset: 1px; }
+  #near { display: block; width: 100%; min-height: 52px; margin-top: 10px; border: 0; border-radius: 999px;
+          background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: var(--on-accent); font: 700 16px var(--display); letter-spacing: 0.01em; cursor: pointer;
+          box-shadow: 0 10px 28px rgba(31, 210, 245, 0.25); }
   #near:disabled { opacity: 0.85; cursor: progress; }
-  #count { margin: 8px 2px 0; font-size: 13px; color: #94a3b8; }
+  #count { margin: 8px 2px 0; font-size: 13px; color: var(--muted); }
   #count:empty { display: none; }
-  #results { list-style: none; margin: 8px 0 0; padding: 0; border: 1px solid #1e293b; border-radius: 12px; overflow: hidden; }
-  #results li + li { border-top: 1px solid #1e293b; }
-  #results a { display: flex; gap: 12px; align-items: center; min-height: 56px; padding: 10px 14px; color: inherit; text-decoration: none; background: rgba(10,20,38,0.85); }
-  #results a:hover, #results a:focus-visible { background: #0b2a42; }
+  #results { list-style: none; margin: 8px 0 0; padding: 0; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+  #results li + li { border-top: 1px solid var(--line); }
+  #results a { display: flex; gap: 12px; align-items: center; min-height: 56px; padding: 10px 14px; color: inherit; text-decoration: none; background: var(--surface); }
+  #results a:hover, #results a:focus-visible { background: #17304f; }
   #results img { width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0; }
   #results .t { min-width: 0; }
-  #results strong { display: block; font-size: 15.5px; }
-  #results .s { display: block; color: #cbd5e1; font-size: 13px; }
-  #results .g { display: block; color: #94a3b8; font-size: 12.5px; }
-  #results .d { display: block; color: #7dd3fc; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  #results strong { display: block; font: 700 16.5px var(--display); }
+  #results .s { display: block; color: var(--text-2); font-size: 13px; }
+  #results .g { display: block; color: var(--muted); font-size: 12.5px; }
+  #results .d { display: block; color: var(--accent-ink); font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
   /* v8.15 — Note du jour et tendance vers demain, à droite de chaque résultat (remplies par app.js) */
   #results .t { flex: 1; }
   #results .sc { flex-shrink: 0; min-width: 48px; text-align: right; font-variant-numeric: tabular-nums; }
   #results .sc:empty { display: none; }
-  #results .sc b { display: block; font-size: 17px; font-weight: 800; white-space: nowrap; }
-  #results .sc small { display: block; font-size: 12px; color: #94a3b8; white-space: nowrap; }
-  .sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  #results .sc b { display: block; font: 800 18px var(--display); white-space: nowrap; }
+  #results .sc small { display: block; font-size: 12px; color: var(--muted); white-space: nowrap; }
   /* Guides regroupés par département, chaque département replié par défaut (v8.15) */
-  details.dept { margin: 0 0 10px; border: 1px solid #1e293b; border-radius: 12px; background: rgba(10,20,38,0.5); }
-  details.dept > summary { list-style: none; display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 6px 14px; cursor: pointer; border-radius: 12px; }
+  details.dept { margin: 0 0 10px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+  details.dept > summary { list-style: none; display: flex; align-items: center; gap: 10px; min-height: 54px; padding: 6px 14px; cursor: pointer; border-radius: 16px; }
   details.dept > summary::-webkit-details-marker { display: none; }
-  details.dept > summary::after { content: "▾"; margin-left: auto; color: #38bdf8; font-size: 16px; transition: transform .15s; }
+  details.dept > summary::after { content: "▾"; margin-left: auto; color: var(--accent); font-size: 16px; transition: transform .15s; }
   details.dept:not([open]) > summary::after { transform: rotate(-90deg); }
-  details.dept > summary:hover { background: rgba(14,165,233,0.08); }
-  details.dept h2 { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; font-size: 17px; margin: 0; }
-  details.dept h2 small { font-size: 12.5px; font-weight: 600; color: #94a3b8; }
+  details.dept > summary:hover { background: rgba(31, 210, 245, 0.06); }
+  details.dept h2 { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; font-size: 19px; margin: 0; }
+  details.dept h2 small { font: 600 12.5px system-ui, -apple-system, sans-serif; color: var(--muted); }
   details.dept > .cards { padding: 4px 10px 2px; }
-  /* Onglets Inshore / Offshore (v8.15) */
-  .tabs { display: flex; gap: 6px; margin: 0 0 18px; padding: 4px; border: 1px solid #1e293b; border-radius: 14px; background: #0b1626; }
-  .tabs [role=tab] { flex: 1; min-width: 0; min-height: 56px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 6px 8px; border: 0; border-radius: 10px;
-                    background: transparent; color: #cbd5e1; font: 700 15px system-ui, -apple-system, sans-serif; cursor: pointer; text-align: left; }
-  .tabs [role=tab] svg { width: 26px; height: 26px; flex-shrink: 0; fill: none; stroke: #7dd3fc; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-  .tabs [role=tab] circle:last-of-type { fill: #7dd3fc; stroke: none; }
+  /* Modes Inshore (du bord) et Offshore (en bateau) : les logos de Félix sur un badge crème. */
+  .tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0 0 20px; }
+  .tabs [role=tab] { min-width: 0; min-height: 132px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 12px 8px;
+                    border: 1.5px solid var(--line); border-radius: 18px; background: var(--surface); color: var(--text-2); font: 700 18px var(--display); cursor: pointer; text-align: center; }
+  .tabs .badge { display: grid; place-items: center; width: 76px; height: 64px; border-radius: 14px; background: var(--creme); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35); }
+  .tabs .badge img { width: 64px; height: 52px; object-fit: contain; }
   .tabs [role=tab] span { min-width: 0; }
-  .tabs [role=tab] small { display: block; font-weight: 500; font-size: 12px; color: #94a3b8; }
-  .tabs [role=tab][aria-selected=true] { background: #0b2a42; color: #f1f5f9; box-shadow: inset 0 0 0 1px #38bdf8; }
-  #offshore-app .wait { margin: 0; padding: 14px; border: 1px solid #1e293b; border-radius: 12px; color: #94a3b8; font-size: 14px; }
-  a.card { display: flex; gap: 14px; align-items: center; padding: 14px 16px; margin-bottom: 10px; border: 1px solid #1e293b; border-radius: 12px;
-           background: rgba(10,20,38,0.8); color: inherit; text-decoration: none; }
-  a.card:active, a.card:hover { border-color: #0ea5e9; }
-  a.card img { width: 52px; height: 52px; border-radius: 12px; flex-shrink: 0; }
+  .tabs [role=tab] small { display: block; font: 500 12.5px system-ui, -apple-system, sans-serif; color: var(--muted); }
+  .tabs [role=tab][aria-selected=true] { color: var(--text); border-color: var(--accent); background: #10284a; box-shadow: 0 0 0 1px rgba(31, 210, 245, 0.35), 0 10px 30px rgba(31, 210, 245, 0.18); }
+  #offshore-app .wait { margin: 0; padding: 14px; border: 1px solid var(--line); border-radius: 14px; color: var(--muted); font-size: 14px; }
+  a.card { display: flex; gap: 14px; align-items: center; padding: 12px 14px; margin-bottom: 10px; border: 1px solid var(--line); border-radius: 14px;
+           background: rgba(7, 20, 39, 0.55); color: inherit; text-decoration: none; }
+  a.card:active, a.card:hover { border-color: var(--accent); }
+  a.card img { width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0; }
   a.card div { min-width: 0; }
-  a.card strong { display: block; font-size: 16px; }
-  a.card span { color: #94a3b8; font-size: 13px; }
-  #install { margin-top: 20px; padding: 14px 16px; border: 1px solid #1e293b; border-radius: 12px; background: rgba(10,20,38,0.5); }
-  #install-btn { display: block; width: 100%; min-height: 48px; margin-bottom: 10px; border: 1px solid #0ea5e9; border-radius: 10px;
-                 background: #0369a1; color: #fff; font: 700 15px system-ui, -apple-system, sans-serif; cursor: pointer; }
-  #install-msg { margin: 0 0 10px; color: #4ade80; font-size: 14px; }
-  #install summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; color: #38bdf8; font-weight: 600; font-size: 14.5px; }
-  #install p { margin: 8px 0 0; font-size: 13.5px; color: #cbd5e1; }
-  #install b { color: #e2e8f0; }
-  :focus-visible { outline: 2px solid #38bdf8; outline-offset: 2px; }
-  footer { color: #94a3b8; font-size: 11.5px; margin-top: 28px; }
-  footer a { color: #94a3b8; }
+  a.card strong { display: block; font: 700 17px var(--display); }
+  a.card span { color: var(--muted); font-size: 13px; }
+  #install { margin-top: 20px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+  #install-btn { display: block; width: 100%; min-height: 52px; margin-bottom: 10px; border: 0; border-radius: 999px;
+                 background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: var(--on-accent); font: 700 16px var(--display); cursor: pointer; }
+  #install-msg { margin: 0 0 10px; color: #35e07c; font-size: 14px; }
+  #install summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; color: var(--accent-ink); font-weight: 600; font-size: 14.5px; }
+  #install p { margin: 8px 0 0; font-size: 13.5px; color: var(--text-2); }
+  #install b { color: var(--text); }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  footer { color: var(--muted); font-size: 11.5px; margin-top: 28px; }
+  footer a { color: var(--muted); }
   /* Affichage « plein soleil » choisi dans un guide (réglage commun à l'appareil) */
   html.sun body { background: #f5f7fa; }
-  html.sun main { background: #020617; filter: invert(1) hue-rotate(180deg); }
+  html.sun main { background: var(--bg); filter: invert(1) hue-rotate(180deg); }
   html.sun main img, html.sun main .leaflet-tile-pane { filter: invert(1) hue-rotate(180deg); }
   /* v8.14 — Carte de tous les spots et ajout d'un spot (app.js) */
   section#carte { margin: 0 0 22px; }
   section#carte > h2 { font-size: 17px; margin: 0 0 4px; }
-  section#carte > p.lead { margin: 0 0 10px; font-size: 13px; color: #94a3b8; }
-  #home-app .wait { margin: 0; padding: 14px; border: 1px solid #1e293b; border-radius: 12px; color: #94a3b8; font-size: 14px; }
-  #home-app a:focus-visible { outline: 2px solid #38bdf8; outline-offset: -2px; }
+  section#carte > p.lead { margin: 0 0 10px; font-size: 13px; color: #9fb3c8; }
+  #home-app .wait { margin: 0; padding: 14px; border: 1px solid #22405f; border-radius: 12px; color: #9fb3c8; font-size: 14px; }
+  #home-app a:focus-visible { outline: 2px solid #1fd2f5; outline-offset: -2px; }
 /*__LEAFLET_CSS__*/
 </style>
 </head>
 <body>
 <main>
   <header class="brand">
-    <img src="icon-192.png" width="56" height="56" alt="">
-    <div><h1>SPUMY</h1><p class="tagline">Où et quand pêcher le bar aux leurres</p></div>
+    <img src="logo-spumy.webp" width="190" height="157" alt="">
+    <h1>SPUMY</h1>
+    <p class="tagline">Où et quand pêcher <span>le bar aux leurres</span></p>
   </header>
   <p class="sub">Marée calculée sur l'appareil · météo AROME et houle par spot · carte · réglementation · journal de session · analyse de photos.</p>
 
   <div class="tabs" role="tablist" aria-label="Type de pêche">
     <button type="button" role="tab" id="tab-inshore" aria-controls="panel-inshore" aria-selected="true">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21.4h7.5"/><path d="M3.6 20.6 16.6 3"/><circle cx="6.6" cy="16.9" r="1.7"/><path d="M16.6 3c2.9 3.2 4.1 7 3.9 11.2"/><circle cx="20.5" cy="15.4" r="1.3"/><path d="M11.6 21.2c1.5 0 1.5-.9 3-.9s1.5.9 3 .9 1.5-.9 3-.9"/></svg>
+      <span class="badge" aria-hidden="true"><img src="inshore.webp" width="64" height="52" alt=""></span>
       <span>Inshore<small>du bord · bar</small></span></button>
     <button type="button" role="tab" id="tab-offshore" aria-controls="panel-offshore" aria-selected="false" tabindex="-1">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 13.5h19l-2.8 4.6H5.6z"/><path d="M7.5 13.5V8.2h5.2l2.4 5.3"/><path d="M17.2 13.5 20 5"/><path d="M2 21.2c1.7 0 1.7-1 3.3-1s1.7 1 3.3 1 1.7-1 3.4-1 1.6 1 3.3 1 1.7-1 3.3-1 1.7 1 3.4 1"/></svg>
+      <span class="badge" aria-hidden="true"><img src="offshore.webp" width="64" height="52" alt=""></span>
       <span>Offshore<small>en bateau · toutes espèces</small></span></button>
   </div>
 

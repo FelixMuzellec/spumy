@@ -47,15 +47,15 @@ function VerdictCard({ g, degraded }) {
         <NoteRing s={s} size={88}/>
         <div style={{flex:1,minWidth:0}}>
           <h2 style={{margin:0,fontSize:23,fontWeight:800,color:C.strong,lineHeight:1.15}}>{s.name}</h2>
-          {w && <div style={{display:"flex",alignItems:"center",gap:6,fontSize:20,fontWeight:800,color:C.strong,marginTop:5,...num}}><Icon name="horloge" size={18} color="#7dd3fc"/>{w.startFmt} → {w.endFmt}</div>}
+          {w && <div style={{display:"flex",alignItems:"center",gap:6,fontSize:20,fontWeight:800,color:C.strong,marginTop:5,...num}}><Icon name="horloge" size={18} color="#7ee7ff"/>{w.startFmt} → {w.endFmt}</div>}
           {timing && <div style={{fontSize:15,fontWeight:700,color:timing.col,marginTop:2}}>{timing.t}</div>}
         </div>
       </div>
       {w && <div style={{fontSize:15,color:C.text,marginTop:8}}>{w.label}{w.light && w.light.band !== "inconnu" ? ` · ${LIGHT_ICON[w.light.band] || ""} ${w.light.label.toLowerCase()}` : ""}</div>}
       {w?.clipped && <div style={{fontSize:13.5,color:C.muted,marginTop:2}}>Créneau de marée {w.tideStartFmt} → {w.tideEndFmt}, ramené à tes heures de pêche.</div>}
       {w?.zw?.fromSpot && (
-        <div style={{fontSize:15,color:"#7dd3fc",marginTop:9,...num}}>
-          🌬 {w.zw.wind_dir} {w.zw.wind_kmh} km/h (F{w.zw.wind_force}){side ? <b style={{color:side === "face" && w.zw.wind_force >= 4 ? C.warn : "#bae6fd"}}> · {SIDE[side]}</b> : ""}{w.zw.gust_kmh != null ? ` · rafales ${w.zw.gust_kmh}` : ""} · 🌊 {w.zw.houleKnown ? `${fr(w.zw.houle)} m` : "houle inconnue"}{w.coeff != null ? ` · coef ${w.coeff}` : ""}
+        <div style={{fontSize:15,color:"#7ee7ff",marginTop:9,...num}}>
+          🌬 {w.zw.wind_dir} {w.zw.wind_kmh} km/h (F{w.zw.wind_force}){side ? <b style={{color:side === "face" && w.zw.wind_force >= 4 ? C.warn : "#bdf3ff"}}> · {SIDE[side]}</b> : ""}{w.zw.gust_kmh != null ? ` · rafales ${w.zw.gust_kmh}` : ""} · 🌊 {w.zw.houleKnown ? `${fr(w.zw.houle)} m` : "houle inconnue"}{w.coeff != null ? ` · coef ${w.coeff}` : ""}
         </div>
       )}
       {w?.zw && <ModelSpread zw={w.zw}/>}
@@ -115,7 +115,7 @@ function FieldCard({ g }) {
       {safety && (
         <div style={{marginTop:10,fontSize:16,fontWeight:700,color:C.strong}}>
           Sécurité · {safety.label}{safety.items.find((i) => i.level !== "info") ? ` : ${safety.items.find((i) => i.level !== "info").t}` : ""}
-          <div style={{fontSize:14,fontWeight:500,color:"#cbd5e1",marginTop:2}}>Vérifie sur place.</div>
+          <div style={{fontSize:14,fontWeight:500,color:"#cbd8e6",marginTop:2}}>Vérifie sur place.</div>
         </div>
       )}
       <div style={{display:"flex",gap:8,flexWrap:"wrap",marginTop:12}}>
@@ -130,8 +130,8 @@ function FieldToggle({ g, onPhoto }) {
   return (
     <button type="button" onClick={() => g.setFieldMode(!on)} aria-pressed={on}
       style={{display:"inline-flex",alignItems:"center",gap:6,minHeight:36,padding:"0 12px",borderRadius:999,cursor:"pointer",fontSize:13,fontWeight:750,whiteSpace:"nowrap",
-        border:`1px solid ${on ? "#4ade80" : onPhoto ? "rgba(255,255,255,0.35)" : C.line}`,background:on ? "rgba(34,197,94,0.18)" : onPhoto ? "rgba(3,11,23,0.55)" : "transparent",
-        color:on ? "#bbf7d0" : onPhoto ? "#f8fafc" : C.muted,backdropFilter:onPhoto ? "blur(6px)" : undefined,WebkitBackdropFilter:onPhoto ? "blur(6px)" : undefined}}>
+        border:`1px solid ${on ? "#4ade80" : onPhoto ? "rgba(255,255,255,0.35)" : C.line}`,background:on ? "rgba(34,197,94,0.18)" : onPhoto ? "rgba(7,20,39,0.55)" : "transparent",
+        color:on ? "#bbf7d0" : onPhoto ? "#f3f8fc" : C.muted,backdropFilter:onPhoto ? "blur(6px)" : undefined,WebkitBackdropFilter:onPhoto ? "blur(6px)" : undefined}}>
       <Icon name="cible" size={15} stroke={2}/>{on ? "Mode terrain activé" : "Mode terrain"}<span style={{position:"absolute",width:1,height:1,overflow:"hidden",clip:"rect(0 0 0 0)"}}> · gros caractères</span>
     </button>
   );

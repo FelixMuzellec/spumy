@@ -30,11 +30,11 @@ export function PickMap({ pos, onPick, center, color = MYSPOT_COLOR, label = "Ca
   useEffect(() => {
     const m = map.current; if (!m) return;
     if (!pos) { if (mk.current) { mk.current.remove(); mk.current = null; } return; }
-    if (!mk.current) mk.current = L.circleMarker([pos.lat, pos.lon], { radius: 11, weight: 3, color: "#f8fafc", fillColor: color, fillOpacity: 0.95, className: "myspot-pick" }).addTo(m);
+    if (!mk.current) mk.current = L.circleMarker([pos.lat, pos.lon], { radius: 11, weight: 3, color: "#f3f8fc", fillColor: color, fillOpacity: 0.95, className: "myspot-pick" }).addTo(m);
     else mk.current.setLatLng([pos.lat, pos.lon]);
     if (pos.from !== "carte") m.setView([pos.lat, pos.lon], Math.max(m.getZoom(), 14), { animate: false });
   }, [pos]);
-  return <div ref={box} role="region" aria-label={label} style={{ position: "relative", zIndex: 0, isolation: "isolate", height: 230, borderRadius: 10, border: `1px solid ${C.line}`, overflow: "hidden", background: "#0b1626" }} />;
+  return <div ref={box} role="region" aria-label={label} style={{ position: "relative", zIndex: 0, isolation: "isolate", height: 230, borderRadius: 10, border: `1px solid ${C.line}`, overflow: "hidden", background: "#0e2139" }} />;
 }
 
 function Choices({ id, label, value, onChange, items, color = C.accent, hint }) {

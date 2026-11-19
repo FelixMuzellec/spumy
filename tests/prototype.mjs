@@ -84,7 +84,7 @@ for (const [w, h] of [[390, 844], [320, 640]]) {
   await page.getByRole("button", { name: /^Basse de l'Iroise/ }).first().click();
   t("Zones : zone au-delà de 6 milles non recommandée", await page.getByText(/au-delà de 6 milles/).isVisible());
   await page.goto(`${base}#accueil`);
-  await page.getByRole("radio", { name: /En bateau/ }).click();
+  await page.getByRole("radio", { name: /Offshore/ }).click();
   t("Accueil : choix du mode BATEAU", await page.getByText("Sortir aujourd'hui ?").isVisible());
   await page.close();
 }

@@ -41,7 +41,7 @@ export function BottomNav({ tab, onChange }) {
     requestAnimationFrame(() => document.getElementById(`onglet-${k}`)?.focus());
   };
   return (
-    <nav aria-label="Navigation du guide" className="bottom-nav" style={{position:"fixed",left:0,right:0,bottom:0,zIndex:900,background:"rgba(3,11,23,0.94)",
+    <nav aria-label="Navigation du guide" className="bottom-nav" style={{position:"fixed",left:0,right:0,bottom:0,zIndex:900,background:"rgba(7,20,39,0.94)",
       backdropFilter:"blur(14px) saturate(140%)",WebkitBackdropFilter:"blur(14px) saturate(140%)",borderTop:`1px solid ${C.line}`,paddingBottom:"env(safe-area-inset-bottom)"}}>
       <div role="tablist" aria-label="Navigation du guide" onKeyDown={onKey} style={{maxWidth:640,margin:"0 auto",display:"flex",height:NAV_H,padding:"0 max(4px, env(safe-area-inset-left)) 0 max(4px, env(safe-area-inset-right))"}}>
         {PILLARS.map(([k, lbl, ic]) => {
@@ -49,11 +49,11 @@ export function BottomNav({ tab, onChange }) {
           return (
             <button key={k} role="tab" id={`onglet-${k}`} aria-selected={on} aria-controls="panneau" tabIndex={on ? 0 : -1} onClick={() => onChange(k)}
               style={{flex:1,minWidth:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:3,border:"none",background:"none",cursor:"pointer",
-                color:on ? "#7dd3fc" : "#94a3b8",padding:0}}>
-              <span style={{display:"flex",alignItems:"center",justifyContent:"center",width:54,height:30,borderRadius:999,background:on ? "rgba(56,189,248,0.16)" : "transparent",transition:"background .15s"}}>
+                color:on ? "#7ee7ff" : "#9fb3c8",padding:0}}>
+              <span style={{display:"flex",alignItems:"center",justifyContent:"center",width:54,height:30,borderRadius:999,background:on ? "rgba(31,210,245,0.16)" : "transparent",transition:"background .15s"}}>
                 <Icon name={ic} size={23} stroke={on ? 2 : 1.8}/>
               </span>
-              <span style={{fontSize:12,fontWeight:on ? 750 : 550,letterSpacing:"0.01em",color:on ? "#e0f2fe" : "#94a3b8",lineHeight:1}}>{lbl}</span>
+              <span style={{fontSize:12,fontWeight:on ? 750 : 550,letterSpacing:"0.01em",color:on ? "#f3f8fc" : "#9fb3c8",lineHeight:1}}>{lbl}</span>
             </button>
           );
         })}
@@ -79,7 +79,7 @@ export const syncText = (st) => (st.state === "ok" ? "Journal sauvegardé sur Gi
 export function PlusHub({ onOpen }) {
   const st = useSyncState();
   const row = { display:"flex",alignItems:"center",gap:14,width:"100%",minHeight:68,padding:"12px 14px",border:"none",borderTop:`1px solid ${C.line2}`,background:"none",color:C.text,textAlign:"left",cursor:"pointer" };
-  const badge = (ic) => <span style={{width:42,height:42,borderRadius:12,display:"flex",alignItems:"center",justifyContent:"center",background:"rgba(56,189,248,0.12)",color:"#7dd3fc",flexShrink:0}}><Icon name={ic} size={22}/></span>;
+  const badge = (ic) => <span style={{width:42,height:42,borderRadius:12,display:"flex",alignItems:"center",justifyContent:"center",background:"rgba(31,210,245,0.12)",color:"#7ee7ff",flexShrink:0}}><Icon name={ic} size={22}/></span>;
   return (
     <div style={{display:"flex",flexDirection:"column",gap:14}}>
       <h2 style={{margin:"2px 2px 0",fontSize:22,fontWeight:800,color:C.strong}}>Plus</h2>
@@ -115,14 +115,14 @@ export function PlusHub({ onOpen }) {
 export function MoreHeader({ tab, onOpen }) {
   return (
     <div style={{display:"flex",alignItems:"center",gap:6,overflowX:"auto",scrollbarWidth:"none",margin:"0 -14px 12px",padding:"0 14px"}}>
-      <button onClick={() => onOpen("plus")} aria-label="Retour au sommaire Plus" style={{display:"flex",alignItems:"center",gap:2,flexShrink:0,minHeight:40,padding:"0 10px 0 4px",borderRadius:999,border:"none",background:"none",color:"#7dd3fc",fontSize:14,fontWeight:700,cursor:"pointer"}}>
+      <button onClick={() => onOpen("plus")} aria-label="Retour au sommaire Plus" style={{display:"flex",alignItems:"center",gap:2,flexShrink:0,minHeight:40,padding:"0 10px 0 4px",borderRadius:999,border:"none",background:"none",color:"#7ee7ff",fontSize:14,fontWeight:700,cursor:"pointer"}}>
         <Icon name="retour" size={18}/>Plus
       </button>
       {MORE.map(([k, lbl]) => {
         const on = tab === k;
         return (
           <button key={k} onClick={() => onOpen(k)} aria-current={on ? "page" : undefined}
-            style={{flexShrink:0,minHeight:40,padding:"0 14px",borderRadius:999,border:`1px solid ${on ? "#38bdf8" : C.line}`,background:on ? "rgba(56,189,248,0.16)" : "transparent",
+            style={{flexShrink:0,minHeight:40,padding:"0 14px",borderRadius:999,border:`1px solid ${on ? "#1fd2f5" : C.line}`,background:on ? "rgba(31,210,245,0.16)" : "transparent",
               color:on ? C.strong : C.muted,fontSize:14,fontWeight:on ? 700 : 550,cursor:"pointer",whiteSpace:"nowrap"}}>{lbl}</button>
         );
       })}

@@ -40,7 +40,7 @@ export function MapView({ spots, activeId, onPick }) {
     tiles.on("tileerror", () => { if (++errs >= 4) setTilesFailed(true); });
     tiles.on("tileload", () => { errs = 0; setTilesFailed(false); });
     tiles.addTo(m);
-    L.circleMarker([SITE.lat, SITE.lon], { radius: 5, color: "#e2e8f0", weight: 2, fillColor: "#0ea5e9", fillOpacity: 1 })
+    L.circleMarker([SITE.lat, SITE.lon], { radius: 5, color: "#e3ecf5", weight: 2, fillColor: "#2a9df4", fillOpacity: 1 })
       .bindTooltip(SITE.name, { direction: "top", offset: [0, -6] }).addTo(m);
     map.current = m;
     setReady(true);
@@ -92,7 +92,7 @@ export function MapView({ spots, activeId, onPick }) {
       // non recommandé : gris barré ; pas de note : disque vide.
       if (v2) mk.setStyle({ color: on ? color.strong : st.kind === "verify" ? pastille.verify : st.kind === "none" ? pastille.none : pastille.ring, fillColor: col,
                             fillOpacity: st.kind === "none" ? 0 : st.kind === "nr" ? 0.6 : 0.95, weight: on || st.kind === "verify" ? 3 : 2, dashArray: st.kind === "verify" || st.kind === "none" ? "4 3" : null });
-      else mk.setStyle({ color: on ? "#f8fafc" : "#020617", fillColor: col, fillOpacity: s.eligible ? 0.95 : 0.5, weight: on ? 3 : 2 });
+      else mk.setStyle({ color: on ? "#f3f8fc" : "#071427", fillColor: col, fillOpacity: s.eligible ? 0.95 : 0.5, weight: on ? 3 : 2 });
       // Le signe de l'état (« ? », barre) posé sur le disque, sans capter l'appui.
       const glyph = v2 && (st.kind === "verify" || st.kind === "nr") ? st.kind : null;
       if (glyph !== mk._glyphKind) {
@@ -112,8 +112,8 @@ export function MapView({ spots, activeId, onPick }) {
   return (
     <div>
       {/* isolation : les calques de Leaflet (z-index jusqu'à 1000) restent sous la barre d'onglets collante. */}
-      <div ref={box} role="region" aria-label="Carte des spots" style={{position:"relative",zIndex:0,isolation:"isolate",height:340,borderRadius:10,border:"1px solid #1e293b",overflow:"hidden",background:"#0b1626"}}/>
-      <div style={{fontSize:13,color:"#94a3b8",marginTop:8,lineHeight:1.5}}>
+      <div ref={box} role="region" aria-label="Carte des spots" style={{position:"relative",zIndex:0,isolation:"isolate",height:340,borderRadius:10,border:"1px solid #22405f",overflow:"hidden",background:"#0e2139"}}/>
+      <div style={{fontSize:13,color:"#9fb3c8",marginTop:8,lineHeight:1.5}}>
         {spots.some(isV2) ? "Bleu : favorabilité (du plus clair, 75 et plus, au plus sombre, moins de 45) · contour pointillé et « ? » : à vérifier · gris barré : non recommandé · disque vide : pas de note."
           : "Disque vert ≥ 7, orange ≥ 5, gris en dessous ou impraticable."} Touche un spot pour ouvrir sa fiche.
         {tilesFailed && <span style={{color:"#fbbf24"}}> Fond de carte indisponible (hors ligne ?) : les spots restent placés.</span>}

@@ -10,6 +10,9 @@ import { securityFor } from "../../../core/rules.js";
 import { safetyOf } from "../../engine/safety.js";
 import { SafetyPanel } from "../Indicators.jsx";
 import { localDecimal } from "../../../core/tide.js";
+import { color } from "../../../design/tokens.js";
+import { AmbiancePhoto } from "../AmbiancePhoto.jsx";
+import { photoForSpot } from "../ambiance.js";
 import { DayStrip, TerrainBlock, TopoBlock, WindowRow } from "../components.jsx";
 import { Pill } from "../../../design/components.jsx";
 import { evidenceOf } from "../../engine/v2.js";
@@ -205,7 +208,11 @@ export function SpotDetail({ g, spot, detailRef }) {
   const best = (spot.windows || []).find((w) => w.id === spot.bestWindowId) || null;
   return (
     <div ref={detailRef} style={{scrollMarginTop:`calc(${g.session ? 112 : 60}px + env(safe-area-inset-top))`,background:C.card,border:`1px solid ${spot.color}55`,borderRadius:16,overflow:"hidden"}}>
-      <div style={{padding:"15px 15px 12px",background:`linear-gradient(160deg,${spot.color}18 0%,transparent 60%)`}}>
+      {/* Phase 12 : photo d'ambiance du créneau (illustration, jamais une photo de ce spot). */}
+      <div style={{position:"relative",height:128,isolation:"isolate"}}>
+        <AmbiancePhoto photo={photoForSpot(spot, best)} scrim={`linear-gradient(180deg, rgba(7,20,39,.25) 0%, rgba(7,20,39,0) 38%, ${color.card} 100%)`}/>
+      </div>
+      <div style={{padding:"0 15px 12px",marginTop:-34,position:"relative"}}>
         <div style={{display:"flex",alignItems:"flex-start",gap:12}}>
           <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:4,flexShrink:0}}>
             <NoteRing s={spot} size={84}/>
@@ -228,7 +235,7 @@ export function SpotDetail({ g, spot, detailRef }) {
         {spot.eligible && spot.wxReason && <Muted style={{color:C.text}}>{spot.wxReason}</Muted>}
         {spot.eligible && best && (
           <div style={{display:"flex",alignItems:"center",gap:10,marginTop:12,padding:"10px 12px",borderRadius:12,background:C.card2,border:`1px solid ${C.line}`}}>
-            <span style={{color:"#7dd3fc"}}><Icon name="horloge" size={22}/></span>
+            <span style={{color:color.accentInk}}><Icon name="horloge" size={22}/></span>
             <span style={{flex:1,minWidth:0}}>
               <span style={{display:"block",fontSize:12.5,fontWeight:700,color:C.muted}}>Meilleure fenêtre</span>
               <span style={{display:"block",fontSize:18,fontWeight:800,color:C.strong,fontVariantNumeric:"tabular-nums"}}>{best.startFmt} → {best.endFmt}</span>
@@ -239,7 +246,7 @@ export function SpotDetail({ g, spot, detailRef }) {
         {spot.eligible && best && <WhyWatch factors={keyFactors(isV2(spot) ? best.f : best.parts)}/>}
         {spot.eligible && isV2(spot) && <ScoresPanel s={spot}/>}
         {spot.zw?.fromSpot && (
-          <div style={{fontSize:14,color:"#7dd3fc",marginTop:8}}>Ici (6 h-22 h) : 🌬 {spot.zw.wind_dir} {spot.zw.wind_kmh} km/h{spot.zw.gust_kmh != null ? ` · raf. ${spot.zw.gust_kmh}` : ""} · 🌊 {spot.zw.houleKnown ? `${fr(spot.zw.houle)} m` : "houle inconnue"}</div>
+          <div style={{fontSize:14,color:"#7ee7ff",marginTop:8}}>Ici (6 h-22 h) : 🌬 {spot.zw.wind_dir} {spot.zw.wind_kmh} km/h{spot.zw.gust_kmh != null ? ` · raf. ${spot.zw.gust_kmh}` : ""} · 🌊 {spot.zw.houleKnown ? `${fr(spot.zw.houle)} m` : "houle inconnue"}</div>
         )}
         <Muted><b style={{color:C.text}}>Exposition :</b> {spot.weatherNote}</Muted>
         {spot.custom && !editing && <MineBar g={g} spot={spot} onEdit={() => setEditing(true)}/>}
@@ -250,7 +257,7 @@ export function SpotDetail({ g, spot, detailRef }) {
           </div>
         )}
         {spot.eligible && best && (
-          <button onClick={() => g.goLure(spot.id, spot.bestWindowId)} style={{display:"flex",alignItems:"center",justifyContent:"center",gap:8,marginTop:12,width:"100%",minHeight:48,borderRadius:10,border:"none",background:"#0ea5e9",color:"#03111f",fontSize:15.5,fontWeight:800,cursor:"pointer"}}>
+          <button onClick={() => g.goLure(spot.id, spot.bestWindowId)} style={{display:"flex",alignItems:"center",justifyContent:"center",gap:8,marginTop:12,width:"100%",minHeight:48,borderRadius:10,border:"none",background:"#2a9df4",color:"#03111f",fontSize:15.5,fontWeight:800,cursor:"pointer"}}>
             <Icon name="materiel" size={20} stroke={2}/>Voir la stratégie
           </button>
         )}

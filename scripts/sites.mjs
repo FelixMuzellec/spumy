@@ -10,4 +10,4 @@ export const SITES = [
 ];
 // Lot 3.5 : app.js (l'application, unique) remplace home.js et le code intégré à chaque guide ; <guide>.json = la fiche.
 export const SITE_FILES = ["index.html", "app.js", ...SITES.map((s) => `${s.key}.html`), ...SITES.map((s) => `${s.key}.json`), "manifest.json", "icon-192.png", "icon-512.png", "icon-maskable.png", "apple-touch-icon.png",
-  ...SITES.map((s) => `${s.key}.png`), "sw.js"];
+  ...SITES.map((s) => `${s.key}.png`), "logo-spumy.webp", "logo-spumy-clair.webp", "inshore.webp", "offshore.webp", "roboto-condensed.woff2", "roboto-condensed-ext.woff2", "sw.js"];

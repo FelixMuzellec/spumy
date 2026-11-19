@@ -21,8 +21,10 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 8bis. Revue de qualité avant la phase 9 | Faite le 19 nov. 2026 ; fusionnée dans `main` (40ba84f, proposition n° 9) | `CHANGELOG.md` |
 | 9. BATEAU — conception | VALIDATED (19 nov. 2026, 18 h 14, « APPROVED — PROCEED TO PHASE 11 ») ; fusionnée dans `main` le 19 nov. 2026 avec la phase 11 (e7ad6ba, proposition n° 11) | Branche `claude/phase-9-bateau`, proposition de fusion n° 10 (marquée fusionnée par GitHub avec la n° 11) ; `docs/SPEC-MOTEUR-BATEAU.md`, `data/knowledge/bateau.json` ; rapport « SPUMY — Phase 9 : BATEAU, conception » https://claude.ai/artifact/UziTDraLFrMrgTDQYtmgjz (copie : `docs/rapports/PHASE-9.md`) |
 | 10. Moteur BATEAU par espèce | NOT STARTED (mise de côté « pour le moment » par Félix le 19 nov., 18 h 14) | — |
-| 11. Direction artistique et UX/UI | TESTED (remise le 19 nov. 2026 ; en attente de « APPROVED — PROCEED TO PHASE 12 ») ; fusionnée dans `main` le 19 nov. 2026 à la demande de Félix (e7ad6ba, proposition n° 11 ; tests et contrat verts sur cf1c2c3), publiée par GitHub Pages (voir « Publication ») | Branche `claude/phase-11-design` (partie de `claude/phase-9-bateau`), proposition de fusion n° 11 ; `docs/DIRECTION-ARTISTIQUE.md` ; prototype https://claude.ai/artifact/BBDcujdvLQxMft99DxqCuP (aussi dans `prototype/`) ; rapport « SPUMY — Phase 11 : direction artistique et écrans » https://claude.ai/artifact/SCaJaTS7YAcLTe4242KAQr (copie : `docs/rapports/PHASE-11.md`) |
-| 12 à 17 | NOT STARTED | — |
+| 11. Direction artistique et UX/UI | VALIDATED (19 nov. 2026, 23 h 11, « APPROVED — PROCEED TO PHASE 12 ») ; fusionnée dans `main` le 19 nov. 2026 à la demande de Félix (e7ad6ba, proposition n° 11 ; tests et contrat verts sur cf1c2c3), publiée par GitHub Pages (voir « Publication ») | Branche `claude/phase-11-design` (partie de `claude/phase-9-bateau`), proposition de fusion n° 11 ; `docs/DIRECTION-ARTISTIQUE.md` ; prototype https://claude.ai/artifact/BBDcujdvLQxMft99DxqCuP (aussi dans `prototype/`) ; rapport « SPUMY — Phase 11 : direction artistique et écrans » https://claude.ai/artifact/SCaJaTS7YAcLTe4242KAQr (copie : `docs/rapports/PHASE-11.md`) |
+| 12. Spécifications fonctionnelles et techniques (+ charte dans l'application, v10) | VALIDATED (19 nov. 2026, 23 h 36, « APPROVED — PROCEED TO PHASE 13 ») | Branche `claude/phase-12` ; `docs/SPECIFICATIONS.md` ; rapport « SPUMY — Phase 12 » https://claude.ai/artifact/Rg4Dj3svg8JgLfspxESA1g (copie : `docs/rapports/PHASE-12.md`) ; fusion dans `main` (proposition n° 14) |
+| 13. Développement BATEAU | IN PROGRESS (depuis le 19 nov. 2026, 23 h 36) | Branche `claude/phase-13-bateau` ; commence par le moteur de la phase 10 |
+| 14 à 17 | NOT STARTED | — |
 
 ### Phase 4, lots
 
@@ -55,6 +57,16 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 9.3 Sécurité en mer | TESTED | 12 règles `SEC_*` ; 14 connaissances (sécurité, données) ; une règle sans source n'est jamais « VÉRIFIÉ » (contrôlé) |
 | 9.4 Spécification | IMPLEMENTED | `docs/SPEC-MOTEUR-BATEAU.md` : circuit, profil, sécurité, trois scores par espèce, 16 scénarios, plan d'épreuve ; aucun fichier de `src/` ni de `scripts/` modifié |
 | 9.5 Rapport, arrêt | IMPLEMENTED | `docs/rapports/PHASE-9.md` ; `test:knowledge` 27/27, `test:v2` 56/56, unitaires 3 390, `test:data` 69/69, couches 0 écart, lint 0 problème |
+
+### Phase 12, lots
+
+| Lot | Statut | Preuve |
+| --- | --- | --- |
+| 12.A Logos et accueil | TESTED | f55822f : logos de Félix (`assets/brand/`, `scripts/logos.py`), icônes, accueil Inshore / Offshore, Roboto Condensed auto-hébergée, service worker sans `prototype/`, `assets/`, `docs/` ; lint, couches, unitaires, accessibilité, e2e 850/850, mise à jour 12/12 |
+| 12.B Charte dans les guides | TESTED | bc533f6 : jetons Nuit marine, palette remplacée (couleurs en dur 291 → 253), titres condensés, photo d'ambiance sur Décision et dans la fiche ; accessibilité 0 violation |
+| 12.C Finitions, prototype, v10 | TESTED | 5ae129f : anneaux en dégradé, chiffres condensés ; logos dans le prototype ; version 10.0.0 ; lint 0, couches 0 écart (253), données 69/69, connaissances 27/27, design 41/41, v2 56/56, unitaires tous verts, accessibilité 0 violation, e2e 850/850, mise à jour 12/12, studio 34/34, prototype 244/244 |
+| 12.D Spécifications | IMPLEMENTED | `docs/SPECIFICATIONS.md` |
+| 12.E Documents et fusion | IMPLEMENTED | Direction artistique § 5 bis, rapport, suivi, journal des versions ; proposition de fusion n° 14 puis `main` |
 
 ### Phase 11, lots
 
@@ -137,7 +149,7 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 2. Profil pour le score de pertinence — décidé le 13 nov. : inventaire complet de la boîte, à fournir par Félix (pas encore reçu au 18 nov. : la phase 7 part de la boîte déjà enregistrée dans l'application).
 3. Historique de sorties réelles comme référence — avant la phase 6.
 4. Gratuit et sans publicité ? — avant la phase 15.
-5. Direction artistique appliquée à BORD en phase 13 élargie — avant la phase 11.
+5. Direction artistique appliquée à l'application — décidé le 19 nov. (23 h 11 : « que tout fonctionne, ce qui inclut le nouveau design ») : faite en phase 12 (v10) ; le reste du prototype est le lot BORD restant (`docs/SPECIFICATIONS.md`, § 7).
 6. Espèces du mode BORD — décidé le 13 nov. : bar seul.
 7. Seuils de vent — décidé le 13 nov. : plus prudents (à vérifier dès la force 6 ou 60 km/h de rafales ; non recommandé dès la force 8 ou 90 km/h). Appliqués en phase 7.
 8. Seuils en rade : les mêmes qu'en côte ouverte, ou par exposition — phase 6.
@@ -214,6 +226,21 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 - « Fusion de la phase 11 dans `main`. Reprends dès que tu le peux si tu atteins ta limite. » (réponse à la question 31, depuis le rapport de la phase 11)
 - Lu comme : fusionner la proposition n° 11 dans `main`, une fois les tests verts sur GitHub. Elle part de la phase 9 (proposition n° 10) : la spécification et les connaissances BATEAU entrent donc aussi dans `main` (aucun code de l'application). La phase 11 reste en attente de validation (« APPROVED — PROCEED TO PHASE 12 »). Rappel de reprise programmé (19 nov., 21 h 26, heure de Paris).
 
+## Consignes de Félix (19 nov. 2026, 20 h 14)
+
+- « Pour l'instant, les changements graphiques ne semblent pas avoir été pris en compte. Pour t'aider dans le développement de la charte graphique voici le logo de Spumy à utiliser sur l'application et sur le site internet, le logo pour l'Inshore et l'Offshore. Créer une tâche pour continuer automatiquement si tu arrives dans ta limite. »
+- Logos : `assets/brand/sources/` (spumy.jpg, inshore.jpg, offshore.jpg). Travail interrompu par la limite d'usage à 20 h 23 (lot 12.A fait, non versé), repris à 23 h 11.
+
+## Consignes de Félix (19 nov. 2026, 23 h 11)
+
+- Même message, plus : « APPROVED — PROCEED TO PHASE 12. Fais en sorte que la phase 11 et 12 soient transférées sur github et que tout fonctionne, ce qui inclue le nouveau design, l'inclusion des nouvelles photos, photos et fonctionnalités etc etc. Si tu as des questions pour que cela fonctionne, ne me les pose pas et réponds y de façon indépendante et top tier. »
+- Lu comme : phase 11 validée ; phase 12 = spécifications + charte appliquée à l'application (v10), logos et photos compris ; fusion dans `main` quand les tests GitHub sont verts ; questions 26 à 31 réglées par Claude (ci-dessous, et rapport de la phase 12, § 8). Rappel de reprise programmé (20 nov., 4 h 30).
+
+## Consignes de Félix (19 nov. 2026, 23 h 36)
+
+- « APPROVED — PROCEED TO PHASE 13 et planifie une tâche de reprise » (depuis le rapport de la phase 12).
+- Lu comme : phase 12 validée ; fusion de la phase 12 dans `main` comme demandé à 23 h 11 ; phase 13 (Développement BATEAU) commencée par le moteur de la phase 10 ; tâche de reprise programmée.
+
 ## Questions retenues pour Félix (à traiter ensemble)
 
 1. Adresse — réglée le 18 nov. : https://felixmuzellec.github.io/spumy/ seule. GitHub Pages actif depuis le 19 nov. 2026 : la tâche « pages build and deployment » de GitHub a publié e7ad6ba à 18 h 43 UTC sur https://felixmuzellec.github.io/spumy/ (« Reported success ») ; Claude ne peut pas ouvrir l'adresse depuis son espace (hors de sa liste autorisée), à vérifier par Félix (application à la racine, prototype dans `prototype/`).
@@ -241,13 +268,13 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 23. Raz : liste des zones « raz » et source des heures de renverse (atlas de courants du SHOM, ou marques de Félix).
 24. BMS : source lisible par l'application, ou rester à l'écran.
 25. Fusion de la phase 9 dans `main` : faite avec la phase 11 le 19 nov. (e7ad6ba ; la branche de la phase 11 part de la phase 9).
-26. Direction artistique de la phase 11 (prototype) : la valider telle quelle, ou dire ce qui ne va pas (thème Nuit marine par défaut, Plein soleil, Roboto Condensed, pastilles bleues, photos d'ambiance).
-27. Logo : garder le dessin actuel (bar et écume), ou le redessiner dans la nouvelle direction ?
-28. Photos générées (Gemini) : origine et droits pour une application publiée ; garder la marque « Illustration » partout ?
-29. Application du système à l'application réelle : en phase 13 élargie (décision ouverte n° 5), ou le BORD plus tôt ?
-30. Écarts voulus à la référence : pastilles bleues, pas de photo de spot ni de prise, leurres dessinés sans étoiles, pas de bathymétrie, texte secondaire éclairci. Les accepter ?
+26. Direction artistique — réglée le 19 nov. (23 h 11, approbation) ; les logos de Félix ajoutent l'orange et la crème à la marque, l'interface garde le cyan pour l'action et l'ambre et le rouge pour la sécurité.
+27. Logo — réglé le 19 nov. : ceux de Félix, tels quels (`assets/brand/`).
+28. Photos générées — réglé par Claude à la demande de Félix (19 nov., 23 h 11) : publiées comme demandé, toujours marquées « Illustration », jamais une image reconnaissable sur un spot nommé, jamais une photo de prise.
+29. Application du système à l'application — réglée le 19 nov. (23 h 11) : faite en phase 12 (v10) ; le reste du prototype est le lot BORD restant.
+30. Écarts voulus à la référence — réglé par Claude (19 nov., 23 h 11) : gardés (pastilles bleues, pas de bathymétrie, leurres dessinés sans étoiles, texte secondaire éclairci).
 31. Fusion de la phase 11 dans `main` — demandée le 19 nov., 19 h 25 (« Fusion de la phase 11 dans `main` ») ; **faite le 19 nov.** (e7ad6ba, proposition n° 11, qui contient la phase 9 ; tests GitHub verts, dont les nouveaux contrôles du design et du prototype). Le prototype sera à https://felixmuzellec.github.io/spumy/prototype/ une fois Pages activé.
 
 ## Prochaine action
 
-**STOP** : phase 11 remise (rapport `docs/rapports/PHASE-11.md`, prototype https://claude.ai/artifact/BBDcujdvLQxMft99DxqCuP) et fusionnée dans `main` avec la phase 9 (e7ad6ba). Attendre « APPROVED — PROCEED TO PHASE 12 ». Phase 12 proposée : spécifications fonctionnelles et techniques (écrans, composants, états, actions, données, règles métier, API, comportements, critères d'acceptation) à partir du prototype. La phase 10 (moteur BATEAU) reste mise de côté. Les questions 1 à 31 restent à traiter ensemble quand Félix le voudra. GitHub Pages actif depuis le 19 nov. 2026 : la tâche « pages build and deployment » de GitHub a publié e7ad6ba à 18 h 43 UTC sur https://felixmuzellec.github.io/spumy/ (« Reported success ») ; Claude ne peut pas ouvrir l'adresse depuis son espace (hors de sa liste autorisée), à vérifier par Félix.
+Phase 13 en cours (Développement BATEAU) sur `claude/phase-13-bateau`, lots poussés un à un ; d'abord la fusion de la phase 12 (proposition n° 14) une fois les tests GitHub verts. Seuils de sécurité BATEAU : « à vérifier » tant que Félix ne les a pas validés (questions 16 à 25). À la fin : rapport en neuf parties, **STOP**, attendre « APPROVED — PROCEED TO PHASE 14 ». GitHub Pages publie `main`.

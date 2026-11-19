@@ -133,7 +133,7 @@ export function windowLight(win, sun) {
     aube:       { label: "Aube",           color: "#f59e0b" },
     crepuscule: { label: "Crépuscule",     color: "#f59e0b" },
     nuit:       { label: "Nuit",           color: "#818cf8" },
-    jour:       { label: "Plein jour",     color: "#94a3b8" },
+    jour:       { label: "Plein jour",     color: "#9fb3c8" },
   }[best[0]] || { label: "–", color: "#8a9ab0" };
   return {
     band: best[0],
