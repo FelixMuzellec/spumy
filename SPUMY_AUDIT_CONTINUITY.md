@@ -48,7 +48,7 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 8.1 Journées de référence | TESTED | 36 dates fixées d'avance (6, 16, 26 de chaque mois, nov. 2025 à nov. 2026) + 3 sessions du journal ; téléchargées par l'intégration continue (« Épreuve du moteur », passage 44330704552), déposées dans la branche (`data/epreuve/archives/`) ; 0 journée en échec |
 | 8.2 Monte Carlo | TESTED | `scripts/epreuve-mc.mjs` : 1 000 tirages par journée et par guide, 241 journées-guides notées ; tirages « entrées seules » et « hypothèses seules » (300) ; `data/epreuve/resultats/` |
 | 8.3 Analyse telle quelle | TESTED | `scripts/epreuve-analyse.mjs` : coût de la prudence, paliers, v1/v2 réels, journal, qualité des données |
-| 8.4 Corrections | IN PROGRESS | Paliers 75/65/55/45 ; lumière en rampe pour les créneaux de plein jour qui mordent sur la basse lumière. Règle fixée avant le second passage : la rampe est gardée si les trois premiers inchangés gagnent au moins 2 points en moyenne sans que le premier inchangé perde plus de 1 point ; sinon elle est retirée |
+| 8.4 Corrections | IN PROGRESS | Paliers 75/65/55/45 (gardés). Lumière en rampe pour les créneaux de plein jour qui mordent sur la basse lumière : règle fixée avant le second passage (gardée si les trois premiers inchangés gagnent au moins 2 points en moyenne sans que le premier inchangé perde plus de 1 point) ; mesuré : +1,8 point (35,9 → 37,7 %), premier +1,4 point → **retirée** (`resultats/mc-v2-rampe-1000-*.json`). Passage de contrôle du moteur livré (sans rampe) en cours |
 | 8.5 Rapport, arrêt | NOT STARTED | — |
 
 ### Phase 5, lots
@@ -104,7 +104,7 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 
 ## Décisions ouvertes
 
-1. Adresse dédiée — **décidée le 13 nov.** : organisation GitHub gratuite « spumy » (`spumy.github.io`), sans perdre le journal. Code fusionné dans `main` (1f5c740) ; marche à suivre dans le `README` (la première procédure, `docs/CHANGEMENT-ADRESSE.md` et `test:migration`, est remplacée par le transfert de toutes les données et retirée en phase 7). Création de l'organisation, transfert et activation de Pages : à faire par Félix. Constaté le 18 nov. : dépôt toujours `FelixMuzellec/spumy`, Pages non activé, organisation `spumy` invisible pour Claude.
+1. Adresse — **décidée le 18 nov.** : la seule adresse est https://felixmuzellec.github.io/spumy/ (GitHub Pages sur `FelixMuzellec/spumy`, branche `main`, racine). Tous les fichiers dans `main` de ce dépôt.
 2. Profil pour le score de pertinence — décidé le 13 nov. : inventaire complet de la boîte, à fournir par Félix (pas encore reçu au 18 nov. : la phase 7 part de la boîte déjà enregistrée dans l'application).
 3. Historique de sorties réelles comme référence — avant la phase 6.
 4. Gratuit et sans publicité ? — avant la phase 15.
@@ -112,7 +112,7 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 6. Espèces du mode BORD — décidé le 13 nov. : bar seul.
 7. Seuils de vent — décidé le 13 nov. : plus prudents (à vérifier dès la force 6 ou 60 km/h de rafales ; non recommandé dès la force 8 ou 90 km/h). Appliqués en phase 7.
 8. Seuils en rade : les mêmes qu'en côte ouverte, ou par exposition — phase 6.
-9. Publication : fusion des phases 3 et 4 autorisée par Félix le 13 nov. (12 h 37) sous condition de la revue finale ; la mise en ligne elle-même attend la décision 1 (GitHub Pages n'est pas activé sur ce dépôt).
+9. Publication : fusion des phases 3 et 4 autorisée le 13 nov. (12 h 37) ; fusion des phases 5 à 8 demandée le 18 nov. (« Transfert tous les fichiers sur https://github.com/FelixMuzellec/spumy ») ; activation de GitHub Pages à faire par Félix (API Pages refusée à Claude par le proxy).
 
 ## Défauts bloquants connus (audit de phase 1)
 
@@ -143,25 +143,11 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 ## Consignes de Félix (13 nov. 2026, 13 h 58)
 
 - « APPROVED — PROCEED TO PHASE 6 ». Réponses aux décisions : seuils de vent **plus prudents** (à vérifier dès la force 6 ou des rafales de 60 km/h ; non recommandé dès la force 8 ou 90 km/h) ; **bar seul** ; profil = **inventaire complet de sa boîte**, que Félix fournira, pour que SPUMY conseille les meilleurs leurres et montages ; pastilles : **attendre la phase 7**.
-- Questions posées : pourquoi la même adresse que guide-peche-bar (réponse : même compte GitHub, donc même domaine felixmuzellec.github.io ; seule une organisation ou un domaine donne une adresse à part, décision 1) ; pourquoi seulement orange ou vert sur les pastilles (réponse : échelle sur 10 tassée, et orange = « moyen » ou « à vérifier » depuis la phase 4 ; corrigé par la spécification de la phase 6, appliqué en phase 7).
-
-## Adresse propre (13 nov. 2026, 16 h 33 et 19 h 10)
-
-Consigne de Félix : « une organisation GitHub gratuite « spumy », qui donne `spumy.github.io` […] mais ne pas perdre les informations du journal enregistrées dans le guide du bar. Une fois celles-ci intégrées, il n'y aura aucun lien entre guide de pêche du bar et Spumy. » Puis « Continue ton travail ». Décision 1 (adresse dédiée) : **organisation `spumy`**, dépôt renommé `spumy.github.io`.
-
-- Fait par Claude (branche `claude/transfert-spumy`) : transfert de toutes les données par fichier (*Réglages → Toutes mes données*) ; dépôt de sauvegarde par défaut `spumy/journal` ; tests servis à la racine ; passage v8.15 retiré de l'intégration continue ; marche à suivre dans le `README`.
-- À faire par Félix, l'API GitHub refusant ces actions à Claude :
-    1. Pages temporaire sur `FelixMuzellec/spumy`, pour enregistrer le fichier à l'ancienne origine.
-    2. Créer l'organisation.
-    3. Transférer et renommer le dépôt.
-    4. Activer Pages.
-    5. Importer le fichier sur le téléphone.
-    6. Créer le dépôt `journal` et son jeton.
-- Après le transfert, l'accès de Claude au dépôt passe par son nouveau nom (`spumy/spumy.github.io`) : il faudra le rattacher à la session.
+- Questions posées : pourquoi la même adresse que guide-peche-bar (réponse : même compte GitHub, donc même domaine felixmuzellec.github.io) ; pourquoi seulement orange ou vert sur les pastilles (réponse : échelle sur 10 tassée, et orange = « moyen » ou « à vérifier » depuis la phase 4 ; corrigé par la spécification de la phase 6, appliqué en phase 7).
 
 ## Consignes de Félix (18 nov. 2026, 14 h 47)
 
-- « APPROVED — PROCEED TO PHASE 7 / And transfer / Tu me poseras toutes les questions une par une, à la fin du processus, pour corriger si besoin. » Lu comme : la spécification de la phase 6 est validée telle quelle ; Claude fait la phase 7 sans s'arrêter pour poser des questions, en prenant les recommandations de la spécification là où une décision manque, et pose toutes ses questions une par une à la fin, pour corriger ensuite. « And transfer » : le passage à `spumy.github.io` ; Claude ne peut ni créer l'organisation, ni transférer le dépôt, ni activer Pages (API refusée) : état vérifié, question posée à la fin.
+- « APPROVED — PROCEED TO PHASE 7 / And transfer / Tu me poseras toutes les questions une par une, à la fin du processus, pour corriger si besoin. » Lu comme : la spécification de la phase 6 est validée telle quelle ; Claude fait la phase 7 sans s'arrêter pour poser des questions, en prenant les recommandations de la spécification là où une décision manque, et pose toutes ses questions une par une à la fin, pour corriger ensuite. « And transfer » : question posée à la fin (réglée le 18 nov. au soir, voir plus bas).
 - Fusion des phases 5, 6 et 7 dans `main` : pas d'accord explicite ; question posée à la fin.
 
 ## Consignes de Félix (18 nov. 2026, vers 15 h 55)
@@ -169,9 +155,15 @@ Consigne de Félix : « une organisation GitHub gratuite « spumy », qui donne 
 - Questions de fin de phase 7, posées une par une : transfert (1), fusion (2), boîte (3) → « sans préférence » ; on garde l'état actuel (transfert non fait, rien fusionné, boîte provisoire, trajet 45 min).
 - En réponse à la question 4 : « APPROVED — PROCEED TO PHASE 8. Tu continueras automatiquement si tu arrives à ta limite. Retiens toutes tes questions que l'on traitera ensemble après que toutes les étapes sont accomplies. » Lu comme : phase 7 VALIDATED ; faire la phase 8 sans poser de question ; garder toutes les questions (celles de la phase 7 encore ouvertes et les nouvelles) pour les traiter ensemble plus tard ; reprise automatique programmée (rappel « Reprendre la phase 8 de SPUMY », 18 nov. 20 h 58, heure de Paris). L'arrêt de fin de phase reste dû (prompt maître) : rapport, puis attente de « APPROVED — PROCEED TO PHASE 9 ».
 
+## Consignes de Félix (18 nov. 2026, 20 h 48)
+
+- « Avant de passer à la prochaine étape et quand l'étape 8 est terminée : oublie complètement l'adresse [l'ancienne adresse dédiée] ; la seule adresse valable est https://felixmuzellec.github.io/spumy/ ; transfère tous les fichiers sur https://github.com/FelixMuzellec/spumy ; supprime tous les fichiers inutiles ; si tu arrives à ta limite, reprends quand tu le peux. »
+- Lu comme : une fois la phase 8 terminée (rapport), et avant la phase 9 : retirer l'ancien projet d'adresse partout (code, tests, documentation, suivi, mémoire) ; servir les tests sous `/spumy/` ; fusionner les phases 5 à 8 dans `main` de `FelixMuzellec/spumy` (accord de fusion), par une proposition de fusion, une fois les tests verts sur GitHub ; retirer les fichiers qui ne servent plus. L'arrêt avant la phase 9 reste dû.
+- Dépôt de sauvegarde du journal par défaut : `FelixMuzellec/spumy-journal` (choix de Claude, à confirmer ; un réglage déjà enregistré sur le téléphone est gardé).
+
 ## Questions retenues pour Félix (à traiter ensemble)
 
-1. Passage à `spumy.github.io` (organisation, transfert, Pages, import des données) — sans préférence le 18 nov.
+1. Adresse — réglée le 18 nov. : https://felixmuzellec.github.io/spumy/ seule ; reste l'activation de GitHub Pages par Félix (*Settings → Pages → Deploy from a branch → `main` / (root)*).
 2. Fusion des phases 5, 6, 7 (et 8) dans `main` — sans préférence le 18 nov.
 3. Inventaire complet de la boîte — sans préférence le 18 nov.
 4. Temps de trajet maximal (45 min par défaut).

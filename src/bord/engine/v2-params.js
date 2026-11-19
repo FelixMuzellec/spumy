@@ -19,9 +19,6 @@ export const V2 = {
   //   coefShift : déplace la plage utile du coefficient (±10 points) ; ventAmp : amplitude du tableau VENT_MER autour
   //   du calme (1 = tableau tel quel) ; kSeason, kThermal : multiplient ce que la saison et l'eau retirent à la présence.
   mc: { coefShift: 0, ventAmp: 1, kSeason: 1, kThermal: 1 },
-  // Phase 8 — créneau de plein jour qui mord sur la basse lumière : rampe de la note de jour à celle de la basse
-  // lumière dominante (atteinte à 50 % du créneau), au lieu d'un saut de 5 à 25 points au passage de la moitié.
-  lumiereProrata: true,
 };
 
 /** Palier de favorabilité : 5 (75 et plus) à 1 (moins de 45) ; null sans note. */
