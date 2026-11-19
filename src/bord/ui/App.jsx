@@ -240,7 +240,7 @@ export default function FishingGuide() {
   const clockMs = Math.floor(nowMs / 6e5) * 6e5;
   const dayOffSel = Math.round((new Date(selectedDate + "T12:00") - new Date(todayISO + "T12:00")) / 86400000);
   const v2opts = useMemo(() => ({ engine, journal, boxOv, boxComplete: v2prefs.boxComplete, trajetMax: v2prefs.trajetMax }), [engine, journal, boxOv, v2prefs]);
-  const allScored = useMemo(() => rankDay(selectedDate, d, { calib, hours, tideFor, orient, spots: spotsView, now: nowForDay, dayOffset: dayOffSel, clock: clockMs, ...v2opts }),
+  const allScored = useMemo(() => rankDay(selectedDate, d, { calib, hours, tideFor, orient, spots: spotsView, now: nowForDay, dayOffset: dayOffSel, clock: clockMs, ensemble: true, ...v2opts }),
     [selectedDate, d, calib, hours, tideFor, orient, spotsView, nowForDay, dayOffSel, clockMs, v2opts]);
   const top3 = useMemo(() => selectTop3(allScored), [allScored]);
   const localForced = useMemo(() => {

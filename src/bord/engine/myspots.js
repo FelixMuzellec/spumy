@@ -132,7 +132,6 @@ export function allSpots() {
   if (memo.src !== SPOTS || memo.ex !== extra) { memo.src = SPOTS; memo.ex = extra; memo.all = extra.length ? [...SPOTS, ...extra] : SPOTS; }
   return memo.all;
 }
-export const isMine = (spot) => !!spot?.custom;
 /** Applique tes fiches (actives) au moteur ; renvoie les fiches construites. */
 export function applyMyRecords(records) {
   extra = (records || []).filter((r) => r && !r.deleted).slice(0, MYSPOTS_MAX).map((r) => buildMySpot(r));

@@ -565,6 +565,9 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
     ok(READY.test(await T(page)), L("bouton retour → synthèse"));
     await tab(page, "Météo");
     ok(/Open-Meteo · AROME/.test(await T(page)) && /Spot par spot/.test(await T(page)), L("onglet Météo : source et météo spot par spot"));
+    { const mt = await T(page);
+      ok(/Fiabilité du conseil/.test(mt) && /favorabilité \d+ · plage \d+–\d+/.test(mt) && /reste premier dans \d+ % des météos plausibles/.test(mt) && !/note v1/.test(mt),
+        L("fiabilité du conseil en v2 : plage de favorabilité sur les météos plausibles, part où le premier reste premier")); }
     // Un spot choisi hors du TOP 3 doit s'afficher (et non le n°1)
     const target = PF.target;
     await tab(page, "Spots");

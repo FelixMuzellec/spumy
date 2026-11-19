@@ -10,9 +10,6 @@ const SKY = {
   aube: ["#1e3a8a", "#9a3412", "#fdba74"], crepuscule: ["#0b1e3f", "#7c2d12", "#fb923c"],
   jour: ["#0c4a6e", "#0369a1", "#7dd3fc"], nuit: ["#020617", "#0b1530", "#1e3a5f"], inconnu: ["#0c4a6e", "#075985", "#38bdf8"],
 };
-/** Libellé de la note (mêmes seuils que les couleurs : 7 et 5). */
-// Phase 4 — Un spot « à vérifier » ne s'annonce jamais en « bonnes conditions ».
-export const conditionLabel = (score, verify) => (verify?.length ? "Conditions à vérifier" : score >= 8 ? "Très bonnes conditions" : score >= 7 ? "Bonnes conditions" : score >= 5 ? "Conditions moyennes" : "Conditions difficiles");
 /** « ce soir », « demain matin », « jeudi après-midi »… d'après le début du créneau. */
 export function whenLabel(startDecimal, dateISO, todayISO) {
   const h = Number.isFinite(startDecimal) ? ((startDecimal % 24) + 24) % 24 : 12;
