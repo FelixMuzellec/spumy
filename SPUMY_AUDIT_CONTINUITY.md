@@ -17,8 +17,10 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 5. Connaissances halieutiques | VALIDATED (13 nov. 2026, 13 h 58, « APPROVED — PROCEED TO PHASE 6 ») ; fusionnée dans `main` le 19 nov. 2026 (f9f39e7, proposition n° 7) | Branche `claude/phase-5-halieutique`, demande de fusion n° 3 ; rapport « SPUMY — Phase 5 : connaissances halieutiques » https://claude.ai/artifact/BmTd9B29oPziqDZqh9n1cC |
 | 6. Conception du moteur BORD (spécification, sans code) | VALIDATED (18 nov. 2026, 14 h 47, « APPROVED — PROCEED TO PHASE 7 ») ; fusionnée dans `main` le 19 nov. 2026 (f9f39e7, proposition n° 7 ; la n° 4 est fermée) | Branche `claude/phase-6-conception`, demande de fusion n° 4 ; `docs/SPEC-MOTEUR-BORD-V2.md` ; rapport « SPUMY — Phase 6 : conception du moteur BORD » https://claude.ai/artifact/Fa93x9zkURzEdVRxRZy8Fj (copie : `docs/rapports/PHASE-6.md`) |
 | 7. Moteur BORD v2 | VALIDATED (18 nov. 2026, « APPROVED — PROCEED TO PHASE 8 ») ; fusionnée dans `main` le 19 nov. 2026 (f9f39e7, proposition n° 7) | Branche `claude/phase-7-moteur-v2`, proposition de fusion n° 6 (brouillon, contient les phases 5 et 6) ; rapport « SPUMY — Phase 7 : moteur BORD v2 » https://claude.ai/artifact/5VVWp9Z3HfSvn72Uy3Ztwo (copie : `docs/rapports/PHASE-7.md`) |
-| 8. Épreuve du moteur (Monte Carlo, journées archivées) | TESTED, en attente de validation (« APPROVED — PROCEED TO PHASE 9 ») ; critère de stabilité FAILED, dit dans le rapport ; fusionnée dans `main` le 19 nov. 2026 (f9f39e7) | Branche `claude/phase-8-epreuve`, proposition de fusion n° 7 (phases 5 à 8) ; rapport « SPUMY — Phase 8 : épreuve du moteur » https://claude.ai/artifact/WcWRqYiDoNWaJWUtfmFKLY (copie : `docs/rapports/PHASE-8.md`) |
-| 9 à 17 | NOT STARTED | — |
+| 8. Épreuve du moteur (Monte Carlo, journées archivées) | VALIDATED (19 nov. 2026, 14 h 27, « APPROVED — PROCEED TO PHASE 9 ») ; critère de stabilité FAILED, dit dans le rapport ; fusionnée dans `main` le 19 nov. 2026 (f9f39e7) | Branche `claude/phase-8-epreuve`, proposition de fusion n° 7 (phases 5 à 8) ; rapport « SPUMY — Phase 8 : épreuve du moteur » https://claude.ai/artifact/WcWRqYiDoNWaJWUtfmFKLY (copie : `docs/rapports/PHASE-8.md`) |
+| 8bis. Revue de qualité avant la phase 9 | Faite le 19 nov. 2026 ; fusionnée dans `main` (40ba84f, proposition n° 9) | `CHANGELOG.md` |
+| 9. BATEAU — conception | IN PROGRESS (depuis le 19 nov. 2026, 14 h 27, « APPROVED — PROCEED TO PHASE 9 ») | Branche `claude/phase-9-bateau` |
+| 10 à 17 | NOT STARTED | — |
 
 ### Phase 4, lots
 
@@ -170,6 +172,10 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
     - prise non saisie enregistrée « 0 » : journal, phase 14 ;
     - branches de travail : leur suppression est refusée à Claude par le proxy Git.
 
+## Consignes de Félix (19 nov. 2026, 14 h 27)
+
+- « APPROVED — PROCEED TO PHASE 9. Reprends automatiquement si limite atteinte. » Phase 8 validée. Périmètre de la phase 9, celui proposé à la fin de la phase 8 : audit du mode BATEAU tel qu'il est ; sécurité en mer, séparée de celle du bord ; spécification du moteur par espèce, sans code, à valider comme celle du BORD. Espèces prioritaires (consigne antérieure) : lieu jaune, lieu noir là où il est pertinent, maquereau, bar, vieille, saint-pierre.
+
 ## Questions retenues pour Félix (à traiter ensemble)
 
 1. Adresse — réglée le 18 nov. : https://felixmuzellec.github.io/spumy/ seule ; reste l'activation de GitHub Pages par Félix (*Settings → Pages → Deploy from a branch → `main` / (root)*).
@@ -190,4 +196,4 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 
 ## Prochaine action
 
-Phase 8 livrée ; phases 5 à 8 fusionnées dans `main` le 19 nov. (f9f39e7) ; adresse unique et nettoyage faits. **STOP** : attendre « APPROVED — PROCEED TO PHASE 9 » (BATEAU, conception). Site hors ligne tant que GitHub Pages n'est pas activé par Félix. Ne poser aucune question avant la fin de toutes les étapes ; les ajouter à la liste ci-dessus.
+Phase 9 (BATEAU, conception) : audit du mode tel qu'il est, connaissances par espèce et réglementation sourcées, sécurité en mer, spécification du moteur par espèce (sans code), rapport, **STOP** en attendant « APPROVED — PROCEED TO PHASE 10 ». Reprendre seul en cas d'interruption (consigne du 19 nov., 14 h 27) ; ne pas s'arrêter pour poser des questions, les ajouter à la liste ci-dessus. Site hors ligne tant que GitHub Pages n'est pas activé par Félix. Ne poser aucune question avant la fin de toutes les étapes ; les ajouter à la liste ci-dessus.
