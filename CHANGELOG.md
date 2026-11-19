@@ -2,7 +2,7 @@
 
 ## Non publié — phase 11, direction artistique et écrans (prototype)
 
-Branche `claude/phase-11-design`. Aucun fichier de l'application publiée n'est modifié : le nouveau système de design sert le prototype ; son application à l'application réelle est prévue en phase 13 (décision ouverte n° 5).
+Branche `claude/phase-11-design`, fusionnée dans `main` le 19 novembre (proposition n° 11, avec la phase 9). Aucun fichier de l'application publiée n'est modifié : le nouveau système de design sert le prototype ; son application à l'application réelle est prévue en phase 13 (décision ouverte n° 5).
 
 - **Direction artistique** (`docs/DIRECTION-ARTISTIQUE.md`) : analyse de la maquette de référence de Félix (couleurs mesurées sur les pixels, observable et interprété séparés), principes, système, photos, navigation, écarts voulus à la référence et leur raison.
 - **Système de design** (`src/design/ds/`) : thèmes Nuit marine (défaut) et Plein soleil ; Roboto Condensed et Roboto auto-hébergées ; 22 composants React ; 96 icônes Lucide (ISC) et 8 pictogrammes SPUMY, dont deux pictogrammes de mode distincts (pêcheur sur le rivage, bateau) ; favorabilité en cinq bleus, « à vérifier » en ambre pointillé, « non recommandé » en gris barré.
@@ -12,7 +12,7 @@ Branche `claude/phase-11-design`. Aucun fichier de l'application publiée n'est 
 
 ## Non publié — phase 9, BATEAU : conception (sans code)
 
-Branche `claude/phase-9-bateau`. Aucun fichier de l'application n'est modifié.
+Branche `claude/phase-9-bateau`, fusionnée dans `main` le 19 novembre avec la phase 11 (proposition n° 11). Aucun fichier de l'application n'est modifié.
 
 - **Audit du mode BATEAU** (onglet Offshore) : un carnet de spots et de sorties, et une note apprise de tes prises après 8 sorties ; ni sécurité en mer, ni logique par espèce, ni réglementation des espèces du bateau.
 - **Spécification du moteur BATEAU**, à valider (`docs/SPEC-MOTEUR-BATEAU.md`) :
