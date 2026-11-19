@@ -20,7 +20,7 @@ import { angDist, toAngle } from "../../core/core.js";
 import { engineMode } from "../../core/scale.js";
 import { calibrate, catchStats } from "./journal.js";
 import { lureAdvice } from "./lures.js";
-import { makeTideFor, rankCompare as rankCompareV1, regimeOf, scoreDay, seasonPresence, thermalPresence } from "./model.js";
+import { makeTideFor, perturbWx, regimeOf, scoreDay, seasonPresence, thermalPresence, WX_ENSEMBLE } from "./model.js";
 import { CANNE } from "./tackle.js";
 import { bandOf, BOX_COMPLETE_KEY, loadV2Prefs, saveV2Pref, TRAJET_KEY, V2 } from "./v2-params.js";
 export { bandOf, BOX_COMPLETE_KEY, loadV2Prefs, saveV2Pref, TRAJET_KEY, V2 };
@@ -390,10 +390,52 @@ function project(s) {
 }
 
 /**
+ * Fiabilité du classement v2 face à l'incertitude du vent : la favorabilité de chaque spot praticable est refaite sur
+ * l'ensemble de météos plausibles de la v1 (±1 Beaufort, ±1 secteur, élargi à l'écart AROME / ECMWF du créneau, mêmes
+ * poids). La sécurité reste celle de la prévision : un spot ne change pas de statut d'un membre à l'autre. Renvoie,
+ * par spot, la favorabilité la plus basse et la plus haute, et la part (pondérée) des membres où le premier du
+ * classement reste premier, strictement et à égalité près (V2.egalite).
+ */
+const rankClass = (x) => `${x.v2?.eligible ? 0 : 1}${x.v2?.verify?.length ? 1 : 0}${x.v2?.pert?.filters && x.v2.pert.under ? 1 : 0}`;
+function ensembleV2(items, ctx) {
+  const el = items.filter((s) => s.v2?.eligible && s.v2.fav != null && !s.v2.best?.f?.noScore);
+  if (el.length < 1) return null;
+  const favOf = (s, p) => {
+    const ok = (s.windows || []).filter(okWin);
+    const sure = ok.filter((w) => !(w.verify || []).length);
+    let best = null;
+    for (const w of sure.length ? sure : ok) {
+      const zw0 = w.zw || s.zw;
+      if (!zw0) continue;
+      const f = favorability(s, w, perturbWx(zw0, p.df * (zw0.spreadF || 1), p.dd * (zw0.spreadD || 1)), ctx);
+      if (!f.noScore && (best == null || f.fav > best)) best = f.fav;
+    }
+    return best ?? s.v2.fav;
+  };
+  const nominal = [...items].sort(rankCompareV2);
+  const first = nominal[0];
+  const range = new Map(el.map((s) => [s.id, { lo: Infinity, hi: -Infinity }]));
+  let w = 0, stays = 0, staysTie = 0;
+  for (const p of WX_ENSEMBLE) {
+    const favs = new Map(el.map((s) => [s.id, favOf(s, p)]));
+    for (const s of el) { const r = range.get(s.id), v = favs.get(s.id); r.lo = Math.min(r.lo, v); r.hi = Math.max(r.hi, v); }
+    const member = items.map((s) => (favs.has(s.id) ? { ...s, v2: { ...s.v2, fav: favs.get(s.id) } } : s)).sort(rankCompareV2);
+    w += p.w;
+    const lead = member[0], f1 = favs.get(first?.id);
+    if (lead?.id === first?.id) { stays += p.w; staysTie += p.w; }
+    // À égalité près : même rang de sécurité (sans doute, pertinence) que le premier du membre, et à V2.egalite points
+    // ou moins de lui : l'application les annonce alors à égalité.
+    else if (lead && f1 != null && rankClass(lead) === rankClass(first) && (lead.v2.fav ?? 0) - f1 <= V2.egalite) staysTie += p.w;
+  }
+  return { range, firstId: first?.id, firstShare: Math.round((100 * stays) / w), firstTieShare: Math.round((100 * staysTie) / w), members: WX_ENSEMBLE.length };
+}
+
+/**
  * Classement complet d'une journée (remplace scoreDay pour l'interface et l'accueil).
  * Options de scoreDay, plus : engine ("v1" | "v2", réglage de l'appareil par défaut), boxOv, journal (sessions),
  * box (une autre boîte), boxComplete (la boîte est-elle l'inventaire complet ? sinon la pertinence ne filtre pas),
- * trajetMax (minutes), dayOffset (écart au jour même), clock (heure de l'appareil, ms : âge de la prévision).
+ * trajetMax (minutes), dayOffset (écart au jour même), clock (heure de l'appareil, ms : âge de la prévision),
+ * ensemble (true : fiabilité du classement v2 sur les météos plausibles, en v2.ens ; réservé au jour affiché).
  */
 export function rankDay(dateISO, live, opts = {}) {
   const engine = opts.engine || engineMode();
@@ -423,7 +465,13 @@ export function rankDay(dateISO, live, opts = {}) {
   });
   if (engine !== "v2") return withV2.map((s) => ({ ...s, engine: "v1" }));
   const sorted = [...withV2].sort(rankCompareV2);
-  return sorted.map((s, i) => { const p = project(s); p.v2.rank = i + 1; return p; });
+  const ens = opts.ensemble ? ensembleV2(sorted, ctx) : null;
+  return sorted.map((s, i) => {
+    const p = project(s); p.v2.rank = i + 1;
+    const r = ens?.range.get(s.id);
+    if (r) p.v2.ens = { lo: r.lo, hi: r.hi, ...(s.id === ens.firstId ? { firstShare: ens.firstShare, firstTieShare: ens.firstTieShare, members: ens.members } : {}) };
+    return p;
+  });
 }
 /** Sessions, prises et sessions avec prise par spot (pour la confiance et l'apprentissage personnel). */
 function catchStatsPlus(entries) {
@@ -436,9 +484,3 @@ function catchStatsPlus(entries) {
   return by;
 }
 
-/** Comparaison v1 / v2 d'une journée classée par rankDay : rang de chaque spot dans chaque moteur. */
-export function compareEngines(sorted) {
-  const v1 = [...sorted].sort((a, b) => rankCompareV1(a.v1 ? { ...a, ...a.v1 } : a, b.v1 ? { ...b, ...b.v1 } : b));
-  const v2 = [...sorted].sort(rankCompareV2);
-  return { v1: v1.map((s) => s.id), v2: v2.map((s) => s.id) };
-}

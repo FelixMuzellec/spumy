@@ -2,6 +2,9 @@
 import { SITE } from "SITE_CONFIG";
 import { Alert, C, Card, Grid, Muted, Row, Stack, Tile, fr, num } from "../../../design/kit.jsx";
 import { WeekCompact } from "./Synthese.jsx";
+import { V2 } from "../../engine/v2-params.js";
+
+const SCALE_TIE = V2.egalite;
 
 const BEAUFORT = ["calme", "très légère brise", "légère brise", "petite brise", "jolie brise", "bonne brise", "vent frais", "grand frais", "coup de vent", "fort coup de vent", "tempête", "violente tempête", "ouragan"];
 const SKY = { clear: "clair", partly: "mi-nuageux", overcast: "couvert" };
@@ -43,14 +46,18 @@ export function Meteo({ g }) {
       {g.top3.length > 0 && g.top3[0].spread != null && (
         <Card title="Fiabilité du conseil" kicker="Le classement face à l'incertitude du vent">
           {g.top3.map((s) => {
-            // Phase 7 : cette robustesse est celle de la note sur 10 (moteur v1, ensemble de météos plausibles) ;
-            // avec la v2, elle reste calculée sur la v1 et dite comme telle ; ce que l'épreuve de la phase 8 a mesuré pour
-            // la v2 (252 vraies journées, 1 000 tirages chacune) est dit à côté.
+            // Phase 8 : avec la v2, la favorabilité est refaite sur le même ensemble de météos plausibles que la v1
+            // (rankDay, option ensemble) : plage sur 100, et part des météos où le premier reste premier.
+            const e = s.engine === "v2" ? s.v2?.ens : null;
+            if (e) return <Row key={s.id} label={s.name}>favorabilité {Math.round(s.v2.fav)} · plage {Math.round(e.lo)}–{Math.round(e.hi)}</Row>;
             const v1 = s.v1 || s;
             return <Row key={s.id} label={s.name}>{s.v1 ? "note v1 " : ""}{fr(v1.score)} · plage {fr(v1.worst)}–{fr(v1.best)} · {v1.stability}</Row>;
           })}
-          {g.top3[0]?.engine === "v2" && <Muted>Moteur v2 : cette mesure est faite sur la note sur 10 de la v1. Éprouvée sur de vraies journées, la favorabilité sur 100 garde le même premier spot une fois sur deux environ quand on fait varier la prévision et les hypothèses ; quand deux spots sont à moins de 10 points, l'un vaut l'autre.</Muted>}
-          <Muted>Une prévision de vent reste incertaine d'au moins ±1 Beaufort et ±1 secteur. La note affichée est la moyenne sur cette plage, pas la valeur d'un point unique. Quand AROME et ECMWF ne s'accordent pas sur le vent d'un créneau, la plage est élargie à leur écart réel (jusqu'à ±3 Beaufort et ±3 secteurs). « Plage » : la note aux deux extrêmes. Un spot « volatile » n'est premier que si la prévision est exacte.</Muted>
+          {g.top3[0]?.v2?.ens?.firstShare != null && (
+            <Muted style={{color:C.text}}>{g.top3[0].name} reste premier dans {g.top3[0].v2.ens.firstShare} % des météos plausibles{g.top3[0].v2.ens.firstTieShare > g.top3[0].v2.ens.firstShare ? ` (${g.top3[0].v2.ens.firstTieShare} % en comptant les spots à égalité, à ${SCALE_TIE} points ou moins)` : ""}.</Muted>
+          )}
+          {g.top3[0]?.engine === "v2" && <Muted>Éprouvée sur 241 vraies journées, en faisant varier aussi la marée, l'eau et les hypothèses du moteur, la favorabilité garde le même premier spot dans 54 % des tirages ; avec moins de 10 points d'avance sur le deuxième, le premier ne garde sa place que 4 à 7 fois sur 10.</Muted>}
+          <Muted>Une prévision de vent reste incertaine d'au moins ±1 Beaufort et ±1 secteur. {g.top3[0]?.engine === "v2" ? "La favorabilité affichée est celle de la prévision ; la plage, celle des météos plausibles." : "La note affichée est la moyenne sur cette plage, pas la valeur d'un point unique."} Quand AROME et ECMWF ne s'accordent pas sur le vent d'un créneau, la plage est élargie à leur écart réel (jusqu'à ±3 Beaufort et ±3 secteurs). « Plage » : {g.top3[0]?.engine === "v2" ? "la favorabilité" : "la note"} aux deux extrêmes.{g.top3[0]?.engine === "v2" ? "" : " Un spot « volatile » n'est premier que si la prévision est exacte."}</Muted>
         </Card>
       )}
 

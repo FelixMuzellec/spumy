@@ -1,5 +1,16 @@
 # Journal des versions
 
+## Non publié — revue de qualité avant la phase 9 (19 novembre)
+
+Branche `claude/qualite-avant-phase-9`. Demandée par Félix : « tout est-il optimisé, précis et propre ? ».
+
+- **Fiabilité du conseil** (onglet Météo) mesurée sur la v2 : pour la journée affichée, la favorabilité des spots est refaite sur l'ensemble de météos plausibles de la v1 (±1 Beaufort, ±1 secteur, élargi à l'écart AROME / ECMWF) ; la carte donne la plage de favorabilité des trois premiers et la part des météos où le premier reste premier (et à égalité près). Avant, elle ne montrait que la note sur 10 de la v1. Le rappel de l'épreuve ne contredit plus la règle d'égalité à 3 points.
+- **Épreuve rejouable depuis le dépôt** : `scripts/epreuve-analyse.mjs` et `scripts/epreuve-mc.mjs` lisent directement les archives compressées de `data/epreuve/archives/` (nouveau `scripts/epreuve-journees.mjs`) ; même résultat que sur les journées décompressées. `epreuve.yml` se lance à la main seulement.
+- **Contrat Open-Meteo** : une coupure réseau entre GitHub et Open-Meteo est refaite deux fois (après 1 puis 3 minutes) au lieu d'une ; une réponse incomplète n'est jamais refaite.
+- **Code mort retiré** (jamais appelé) : `compareEngines`, `conditionLabel`, `isMine`, `parseHHMM`, `PASTILLE_TEXT`, `MAX_OFF_SPOTS`. Lint sans avertissement.
+- **Documentation remise à jour** : `README` (état des fonctionnalités au 19 novembre, commandes, arborescence), `docs/ARCHITECTURE.md` (deux moteurs, une sécurité, fichiers des phases 5 à 8, poids publié), `CONTRIBUTING.md`, `docs/FONCTIONNALITES.md` (égalité : le plus proche est signalé, l'ordre reste celui des notes), spécification v2 (paliers recalés et écart S12 notés à leur place), rapport de la phase 8 (trous d'archive datés : décembre 2025 à août 2026).
+- **Tests** : moteur v2 56/56 (5 contrôles de la fiabilité v2) ; parcours 850/850 (la carte de fiabilité v2 contrôlée dans chacun des sept guides) ; unitaires 3 390 ; mise à jour 12/12 ; accessibilité 0 violation ; lint 0 problème.
+
 ## Non publié — phase 8, épreuve du moteur (Monte Carlo sur de vraies journées)
 
 Branche `claude/phase-8-epreuve` (partie de la phase 7).

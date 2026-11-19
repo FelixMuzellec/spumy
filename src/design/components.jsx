@@ -38,7 +38,6 @@ export function ScoreRing({ score, size = 76, color: c0, label = "sur 10", track
  * remplissage du palier, contour pointillé orange et « ? »), « nr » (non recommandé : gris, barré), « none » (pas de note : vide).
  * Le sens n'est jamais porté par la seule couleur : forme, « ? », barre, et le chiffre ou le mot à côté.
  */
-export const PASTILLE_TEXT = { fill: "", verify: "à vérifier", nr: "non recommandé", none: "pas de note" };
 export function Pastille({ kind = "none", band = null, size = 16, title }) {
   const r = size / 2 - 1.5, cx = size / 2;
   const fill = kind === "nr" ? pastille.nr : kind === "none" ? "none" : favBands[(band || 1) - 1];

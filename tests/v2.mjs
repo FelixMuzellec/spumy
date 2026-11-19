@@ -156,6 +156,16 @@ const rock = L.SPOTS.find((s) => L.regimeOf(s) === "roche" && s.exposedAngles?.l
   t("v1 : rien ne change pour l'écran (note sur 10)", v1.filter((s) => s.eligible).every((s) => s.engine === "v1" && s.score <= 10));
   t("confiance : affichée, sur 100, avec ses quatre parts", el.every((s) => s.v2.conf.parts.length === 4 && s.v2.conf.score >= 0 && s.v2.conf.score <= 100));
   t("pertinence : provisoire tant que la boîte n'est pas dite complète (ne filtre pas)", el.every((s) => !s.v2.pert || (s.v2.pert.provisional && !s.v2.pert.filters)));
+  // Phase 8 (qualité) : fiabilité du classement v2 sur les météos plausibles, pour le jour affiché seulement.
+  const ve = L.rankDay("2026-09-14", { ...live, _wxAt: now - 36e5 }, { engine: "v2", clock: now, dayOffset: 0, hours: { from: 0, to: 24 }, ensemble: true });
+  const ee = ve.filter((s) => s.eligible && s.v2.ens);
+  t("fiabilité v2 : sans l'option, rien n'est calculé (accueil, semaine)", v2.every((s) => !s.v2?.ens));
+  t("fiabilité v2 : même classement que sans l'option", ve.map((s) => s.id).join() === v2.map((s) => s.id).join());
+  t("fiabilité v2 : plage de chaque spot praticable autour de sa favorabilité", ee.length === el.length && ee.every((s) => s.v2.ens.lo <= s.v2.fav && s.v2.fav <= s.v2.ens.hi), ee.map((s) => `${s.id} ${s.v2.ens.lo}–${s.v2.fav}–${s.v2.ens.hi}`).slice(0, 3).join(" ; "));
+  const e1 = ve[0].v2.ens;
+  t("fiabilité v2 : part des météos où le premier reste premier, et à égalité près (≥)", e1 && e1.members === 9 && e1.firstShare >= 0 && e1.firstShare <= 100 && e1.firstTieShare >= e1.firstShare && e1.firstTieShare <= 100 && ve.slice(1).every((s) => s.v2.ens?.firstShare == null), JSON.stringify(e1));
+  const calm = L.rankDay("2026-09-14", { ...mkLive(L, 0), _wxAt: now - 36e5 }, { engine: "v2", clock: now, dayOffset: 0, hours: { from: 0, to: 24 }, ensemble: true });
+  t("fiabilité v2 : la plage ne descend jamais sous la force 0 (calme plat : membres −1 Beaufort ramenés à 0)", calm.filter((s) => s.v2.ens).every((s) => Number.isFinite(s.v2.ens.lo) && Number.isFinite(s.v2.ens.hi)));
   const v2f = L.rankDay("2026-09-14", { ...live, _wxAt: now - 36e5 }, { engine: "v2", clock: now, dayOffset: 0, hours: { from: 0, to: 24 }, boxComplete: true, trajetMax: 5 });
   const e2 = v2f.filter((s) => s.eligible && !s.verify.length);
   t("pertinence : boîte complète → les spots sous le seuil passent après les autres", e2.every((s, i) => i === 0 || !(e2[i - 1].v2.pert?.under && !s.v2.pert?.under)));

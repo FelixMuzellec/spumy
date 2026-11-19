@@ -148,13 +148,6 @@ export function windowLight(win, sun) {
 // ═══════════════════════════════════════════════════════════════════
 // TIME UTILS
 // ═══════════════════════════════════════════════════════════════════
-export function parseHHMM(str) {
-  if (!str) return null;
-  const clean = String(str).replace(/[hH]/g, ":");
-  const [h, m] = clean.split(":").map(Number);
-  if (isNaN(h) || isNaN(m)) return null;
-  return h + m / 60;
-}
 export function fmtH(dec) {
   if (dec == null || isNaN(dec)) return "–";
   let h = ((dec % 24) + 24) % 24;

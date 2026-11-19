@@ -189,7 +189,7 @@ if (E.terrainOf) {
     && E.windMod("NE", 4, mm0.exposedAngles, mm0.shelteredAngles, 0, 1.2, E.regimeOf(mm0)) > E.windMod("SO", 4, mm0.exposedAngles, mm0.shelteredAngles, 0, 1.2, E.regimeOf(mm0)));
   const prey = [...new Set(E.SITE.preyCalendar.map((p) => p.name))].map((n) => E.SITE.preyCalendar.find((p) => p.name === n));
   t("chaque proie porte sa couche d'eau", prey.every((p) => C.includes(p.couche)), prey.filter((p) => !C.includes(p.couche)).map((p) => p.name).join(", "));
-  const fondPrey = prey.find((p) => p.couche === "fond"), midPrey = prey.find((p) => p.couche !== "fond");
+  const fondPrey = prey.find((p) => p.couche === "fond");
   const non = E.SPOTS.find((s) => s.terrain.gratter === "non"), oui = E.SPOTS.find((s) => s.terrain.gratter === "oui"), tx = E.SPOTS.find((s) => s.terrain.gratter === "texan");
   if (non) { const a = E.adviceForSpot(non, fondPrey); t(`proie de fond sur ${non.id} : conseil remplacé (pas de grattage)`, a.adapted && a.replaces && /au-dessus/.test(a.note) && /fond trop encroché/.test(a.note)); }
   if (oui) t(`proie de fond sur ${oui.id} (sable) : conseil d'origine conservé`, !E.adviceForSpot(oui, fondPrey).adapted);

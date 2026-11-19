@@ -16,7 +16,7 @@ permissions:
 jobs:
   contrat:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 30   # coupure réseau : jusqu'à deux nouveaux essais (1 puis 3 min) par appel touché
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

@@ -13,7 +13,6 @@ export const OFF_SPOTS_KEY = "bar:offshore:spots";
 export const OFF_TRIPS_KEY = "bar:offshore:trips";
 export const OFF_FILE = "offshore.json";
 export const MIN_TRIPS = 8;          // sorties avec conditions avant de proposer une note
-export const MAX_OFF_SPOTS = 60;
 export const OFF_COLOR = "#2dd4bf";
 
 // Espèces majeures de la pêche à la ligne en Manche et Atlantique (nom courant, nom scientifique).
