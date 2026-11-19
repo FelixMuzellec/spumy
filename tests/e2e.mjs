@@ -1,5 +1,5 @@
 // Tests de bout en bout dans Chromium (Playwright), sur les pages construites
-// (racine du dépôt), servies à la racine comme sur GitHub Pages (spumy.github.io/...). Open-Meteo,
+// (racine du dépôt), servies sous /spumy/ comme sur GitHub Pages (felixmuzellec.github.io/spumy/). Open-Meteo,
 // l'API GitHub et les tuiles OpenStreetMap sont simulés au niveau du réseau ;
 // tout le reste est réel.
 import { chromium, devices } from "playwright";
@@ -12,7 +12,7 @@ import { omRespond } from "./om_mock.mjs";
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const SHOTS = process.env.SHOTS || path.join(ROOT, "tests/shots");
 fs.mkdirSync(SHOTS, { recursive: true });
-const PREFIX = "";   // spumy.github.io : le site est à la racine de son adresse
+const PREFIX = "/spumy";   // felixmuzellec.github.io/spumy/ : le site est dans le dossier du dépôt
 const DOCS = ROOT;   // le site est construit à la racine du dépôt
 // Tuile de carte factice (PNG 1×1) : aucun appel réel à OpenStreetMap pendant les tests.
 const PNG1 = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==", "base64");
@@ -216,7 +216,8 @@ const btn = (page, name) => page.getByRole("button", { name }).first();
   await page.fill("#q", "Trévignon"); await page.press("#q", "Enter");
   await page.waitForURL(/concarneau\.html#spots$/); await waitText(page, /Pointe de Trévignon/);
   const opened = await page.evaluate(() => ({ tab: document.querySelector('[role="tab"][aria-selected="true"]')?.textContent, hash: location.hash }));
-  await page.waitForTimeout(400);
+  // La fiche défile à l'écran une fois la carte posée : on attend qu'elle y soit (5 s au plus, machine chargée).
+  await page.waitForFunction(() => { const h = [...document.querySelectorAll("h2,h3")].find((x) => /Pointe de Trévignon/.test(x.textContent)); if (!h) return false; const r = h.getBoundingClientRect(); return r.top >= 0 && r.top < innerHeight; }, null, { timeout: 5000 }).catch(() => {});
   const sheet = await page.evaluate(() => { const h = [...document.querySelectorAll("h2,h3")].find((x) => /Pointe de Trévignon/.test(x.textContent)); if (!h) return null; const r = h.getBoundingClientRect(); return { top: r.top, vh: innerHeight }; });
   ok(opened.tab === "Carte" && opened.hash === "#spots" && sheet && sheet.top >= 0 && sheet.top < sheet.vh, "Entrée : le guide s'ouvre sur la fiche du spot trouvé (onglet Carte, fiche à l'écran)" + ` — ${JSON.stringify({ opened, sheet })}`);
   await page.goBack(); await page.waitForURL(/\/(index\.html)?$/);
@@ -239,11 +240,19 @@ const btn = (page, name) => page.getByRole("button", { name }).first();
   page.on("console", (m) => { if (m.type() === "error" && !/Failed to load resource/.test(m.text())) errs.push(m.text()); });
   await page.goto(`${BASE}/`);
   await waitText(page, /Notes d'aujourd'hui calculées pour les 7 guides/, 40000).catch(() => {});
-  const marks = async () => page.evaluate(() => [...document.querySelectorAll("path.gspot")].map((p) => ({ cls: [...p.classList].find((c) => /^gspot-[a-z]+-/.test(c)), score: p.getAttribute("data-score"), name: p.getAttribute("data-name"), fill: p.getAttribute("fill") })));
+  const marks = async () => page.evaluate(() => [...document.querySelectorAll("path.gspot")].map((p) => ({ cls: [...p.classList].find((c) => /^gspot-[a-z]+-/.test(c)), score: p.getAttribute("data-score"), name: p.getAttribute("data-name"), fill: p.getAttribute("fill"), state: p.getAttribute("data-state"), dash: p.getAttribute("stroke-dasharray"), stroke: p.getAttribute("stroke") })));
   const mk = await marks();
   ok(mk.length === 66 && mk.every((m) => m.score !== "?"), `carte de l'accueil : les 66 spots des sept guides, tous notés (${mk.length})`);
   ok(om.calls > 0 && om.calls <= 21, `carte de l'accueil : la météo de chaque guide en une fois (${om.calls} requêtes Open-Meteo, 3 par guide au plus)`);
-  ok(mk.every((m) => (m.score === "–" ? m.fill === "#475569" || /^#/.test(m.fill) : true)) && mk.some((m) => m.fill === "#22c55e"), "carte de l'accueil : pastilles colorées selon la note (vert ≥ 7)");
+  // Phase 7 — moteur v2 (par défaut) : remplissage = un des cinq bleus de la favorabilité ; « à vérifier » : contour
+  // pointillé orange et « ? » posé dessus ; non recommandé : gris barré ; jamais de vert.
+  const FAV = ["#184f95", "#256abf", "#3987e5", "#6da7ec", "#b7d3f6"];
+  const glyphs = await page.evaluate(() => ({ verify: document.querySelectorAll(".gspot-glyph-verify").length, nr: document.querySelectorAll(".gspot-glyph-nr").length }));
+  const nV = mk.filter((m) => m.state === "verify").length, nNR = mk.filter((m) => m.state === "nr").length;
+  ok(mk.every((m) => m.state === "nr" || m.state === "none" || FAV.includes(m.fill)) && mk.some((m) => FAV.includes(m.fill)) && !mk.some((m) => /#22c55e/i.test(m.fill || "")),
+    `carte de l'accueil : pastilles en cinq bleus selon la favorabilité, jamais de vert (${new Set(mk.map((m) => m.fill)).size} remplissages)`);
+  ok(mk.filter((m) => m.state === "verify").every((m) => m.dash && /#f59e0b/i.test(m.stroke)) && glyphs.verify === nV && glyphs.nr === nNR,
+    `carte de l'accueil : à vérifier en pointillé orange avec « ? » (${nV}), non recommandé barré (${nNR})`);
   // La pastille est exactement la note que le guide affiche (même moteur, même météo, mêmes réglages), et le guide
   // s'ouvre ensuite sans redemander la météo téléchargée par l'accueil.
   const calls0 = om.calls, mism = [];
@@ -262,9 +271,10 @@ const btn = (page, name) => page.getByRole("button", { name }).first();
   ok(mism.length === 0, "carte de l'accueil : chaque pastille porte la note affichée par son guide (66 spots comparés)" + (mism.length ? " — " + mism.slice(0, 4).join(" | ") : ""));
   ok(om.calls === calls0, `guides ouverts après l'accueil : météo du jour et de la semaine reprise du cache, aucune requête (${om.calls - calls0})`);
   // Meilleurs spots, tous guides confondus : liens vers les fiches, du meilleur au moins bon.
-  const top = await page.evaluate(() => [...document.querySelectorAll('nav[aria-label^="Meilleurs spots"] a')].map((a) => ({ href: a.getAttribute("href"), sc: parseFloat(a.lastElementChild.textContent.replace(",", ".")) })));
-  ok(top.length === 5 && top.every((x, i) => /^[a-z]+\.html#spot=[\w-]+$/.test(x.href) && (i === 0 || x.sc <= top[i - 1].sc)), "accueil : les 5 meilleurs spots du jour, tous guides confondus, avec le lien de leur fiche" + ` — ${JSON.stringify(top)}`);
-  const best = mk.filter((m) => m.score !== "–").sort((a, b) => parseFloat(b.score.replace(",", ".")) - parseFloat(a.score.replace(",", ".")))[0];
+  // Les spots « à vérifier » (« ? ») passent après les autres ; dans chaque groupe, du meilleur au moins bon.
+  const top = await page.evaluate(() => [...document.querySelectorAll('nav[aria-label^="Meilleurs spots"] a')].map((a) => ({ href: a.getAttribute("href"), sc: parseFloat(a.lastElementChild.textContent.replace(",", ".")), av: /\?$/.test(a.lastElementChild.textContent) })));
+  ok(top.length === 5 && top.every((x, i) => /^[a-z]+\.html#spot=[\w-]+$/.test(x.href) && (i === 0 || (top[i - 1].av === x.av ? x.sc <= top[i - 1].sc : !top[i - 1].av))), "accueil : les 5 meilleurs spots du jour, tous guides confondus, avec le lien de leur fiche" + ` — ${JSON.stringify(top)}`);
+  const best = mk.filter((m) => m.score !== "–" && (top[0]?.av || m.state !== "verify")).sort((a, b) => parseFloat(b.score.replace(",", ".")) - parseFloat(a.score.replace(",", ".")))[0];
   ok(best && top[0] && parseFloat(best.score.replace(",", ".")) === top[0].sc, "accueil : le premier de la liste a la meilleure pastille de la carte");
   // Toucher un spot sur la carte : sa note et le lien de sa fiche.
   await page.locator("#home-app .leaflet-container").scrollIntoViewIfNeeded(); await page.waitForTimeout(300);
@@ -272,7 +282,7 @@ const btn = (page, name) => page.getByRole("button", { name }).first();
   if (b) await page.mouse.click(b.x + b.width / 2, b.y + b.height / 2);
   await page.waitForTimeout(300);
   const card = await page.evaluate(() => { const r = document.querySelector('[aria-label="Spot choisi sur la carte"]'); return r ? { t: r.innerText, href: r.querySelector("a")?.getAttribute("href") } : null; });
-  ok(card && /Pointe de Trévignon/.test(card.t) && /Guide Concarneau/.test(card.t) && /Note \d,\d|Non proposé/.test(card.t) && card.href === "concarneau.html#spot=trevignon", "carte de l'accueil : toucher un spot donne sa note et le lien de sa fiche" + ` — ${JSON.stringify(card)}`);
+  ok(card && /Pointe de Trévignon/.test(card.t) && /Guide Concarneau/.test(card.t) && /Favorabilité \d{1,3} sur 100|Note \d,\d|Non proposé/.test(card.t) && card.href === "concarneau.html#spot=trevignon", "carte de l'accueil : toucher un spot donne sa note et le lien de sa fiche" + ` — ${JSON.stringify(card)}`);
   // Demain : notes de demain pour les sept guides.
   await page.getByRole("button", { name: "Demain", exact: true }).click();
   await waitText(page, /Notes de demain calculées pour les 7 guides/, 40000).catch(() => {});
@@ -284,7 +294,7 @@ const btn = (page, name) => page.getByRole("button", { name }).first();
 }
 // ── 0 ter. v8.15 : onglets Inshore / Offshore ; pêche en bateau (spots, conditions, sorties, modèle empirique) ──
 {
-  const SYNC = { owner: "spumy", repo: "journal", token: "github_pat_TEST" };
+  const SYNC = { owner: "FelixMuzellec", repo: "spumy-journal", token: "github_pat_TEST" };
   const gh = fakeGitHub();
   const ctx = await browser.newContext({ ...devices["iPhone 13"], locale: "fr-FR", timezoneId: "Europe/Paris", serviceWorkers: "block" });
   await ctx.clock.install({ time: FIXED_NOW });
@@ -417,7 +427,7 @@ const btn = (page, name) => page.getByRole("button", { name }).first();
   // La note de demain arrive après celles du jour (les sept guides d'abord pour aujourd'hui) : on attend les deux.
   await a.p.waitForFunction(() => document.querySelectorAll("#results a .sc b").length === 8 && document.querySelectorAll("#results a .sc small").length === 8, null, { timeout: 40000 }).catch(() => {});
   const sc = await a.p.evaluate(() => [...document.querySelectorAll("#results a")].map((x) => ({ k: x.getAttribute("data-k"), b: x.querySelector(".sc b")?.textContent || "", m: x.querySelector(".sc small")?.textContent || "", sr: x.querySelector(".sc .sr")?.textContent || "", col: x.querySelector(".sc b")?.style.color || "" })));
-  ok(sc.length === 8 && sc.every((x) => /^(\d,\d [↗↘→]|\d,\d|–)$/.test(x.b) && /^dem\. (\d,\d|–)$/.test(x.m) && /^(Note du jour \d,\d|Plus de créneau praticable aujourd'hui)/.test(x.sr) && x.col),
+  ok(sc.length === 8 && sc.every((x) => /^(\d{1,3}\?? [↗↘→]|\d{1,3}\??|–)$/.test(x.b) && /^dem\. (\d{1,3}\??|–)$/.test(x.m) && /^(Favorabilité du jour \d{1,3}|Plus de créneau praticable aujourd'hui)/.test(x.sr) && x.col),
     "accueil GPS : chaque spot proche avec sa note du jour, sa flèche et la note de demain" + ` — ${JSON.stringify(sc.slice(0, 3))}`);
   // La flèche suit les pastilles de la carte : note du jour, puis note de demain (bouton « Demain »).
   const markOf = async (k) => a.p.evaluate((cls) => document.querySelector(`path.gspot-${cls}`)?.getAttribute("data-score"), k.replace("/", "-"));
@@ -426,12 +436,14 @@ const btn = (page, name) => page.getByRole("button", { name }).first();
   await a.p.waitForFunction(() => /Notes de demain calculées pour les 7 guides/.test(document.body.innerText), null, { timeout: 40000 }).catch(() => {});
   const tom0 = await markOf(k0);
   const num = (v) => parseFloat(String(v).replace(",", "."));
-  const want = today0 === "–" ? "–" : tom0 === "–" ? `${today0} ↘` : num(tom0) - num(today0) > 0.2 + 1e-9 ? `${today0} ↗` : num(tom0) - num(today0) < -0.2 - 1e-9 ? `${today0} ↘` : `${today0} →`;
-  ok(sc[0].b === want && sc[0].m === `dem. ${tom0}`, `accueil GPS : flèche cohérente avec la carte (${k0} : aujourd'hui ${today0}, demain ${tom0} → « ${sc[0].b} »)`);
+  // Phase 7 : favorabilité sur 100, stable à 3 points près ; « ? » : à vérifier (le badge le porte, la pastille de la carte aussi).
+  const q0 = sc[0].b.includes("?") ? "?" : "", qm = /\?$/.test(sc[0].m) ? "?" : "";
+  const want = today0 === "–" ? "–" : tom0 === "–" ? `${today0}${q0} ↘` : num(tom0) - num(today0) > 3 + 1e-9 ? `${today0}${q0} ↗` : num(tom0) - num(today0) < -3 - 1e-9 ? `${today0}${q0} ↘` : `${today0}${q0} →`;
+  ok(sc[0].b === want && sc[0].m === `dem. ${tom0}${qm}`, `accueil GPS : flèche cohérente avec la carte (${k0} : aujourd'hui ${today0}, demain ${tom0} → « ${sc[0].b} »)`);
   await a.p.getByRole("button", { name: "Aujourd'hui", exact: true }).click();
   await a.p.fill("#q", "goury");
   ok(await a.p.evaluate(() => document.querySelector("#results a strong")?.textContent) === "Goury", "accueil GPS : taper un nom reprend la recherche par nom");
-  ok(/^\d,\d|^–/.test(await a.p.evaluate(() => document.querySelector("#results a .sc b")?.textContent || "")), "recherche par nom : la note du jour s'affiche aussi");
+  ok(/^\d{1,3}|^–/.test(await a.p.evaluate(() => document.querySelector("#results a .sc b")?.textContent || "")), "recherche par nom : la note du jour s'affiche aussi");
   await a.p.click("#near"); await a.p.waitForTimeout(800);
   await a.p.click("#results a"); await a.p.waitForURL(/concarneau\.html#spots$/);
   ok(/Pointe de Trévignon/.test(await T(a.p)), "accueil GPS : toucher le spot le plus proche ouvre sa fiche");
@@ -526,7 +538,9 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
     // v9.1 — Sécurité et confiance : à part de la note, jamais de feu vert, jamais un nombre.
     const sec = await page.locator("#securite-verdict").innerText().catch(() => "");
     ok(/^Sécurité · (Alerte sécurité|Prudence|Aucune alerte connue)/.test(sec) && /Vérifie sur place/.test(sec) && !/sûr|serein|SAFE/i.test(sec), L(`verdict : sécurité à part, « vérifie sur place », jamais de feu vert — ${sec.split("\n")[0]}`));
-    ok(!/\/ ?100\b/.test(txt) && /Confiance (élevée|moyenne|faible)/.test(txt), L("verdict : une seule échelle (/10), confiance en mots, aucun /100"));
+    // Phase 7 : trois scores sur 100 (moteur v2), jamais fusionnés ; la confiance en points et en mots, à part.
+    ok(/Favorabilité\s*\n?.*\d{1,3}\s*\/100/s.test(txt) && /Pertinence/.test(txt) && /Confiance \d{1,3}\/100 · (haute|moyenne|faible)/.test(txt) && /Favorabilité \d+ = conditions \d+ \(marée \d+\/45, lumière \d+\/25, vent et mer \d+\/30\) × présence/.test(txt) && !/sur 10\b/.test(txt.split("Tendance de la semaine")[0]),
+      L("verdict : favorabilité, pertinence et confiance sur 100, décomposées ; aucune note sur 10"));
     await page.getByRole("button", { name: /Confiance/ }).click();
     ok(/Classement (stable|sensible|volatil)/.test(await T(page)) && /pas une probabilité/.test(await T(page)), L("confiance : le détail dit ce que le conseil avait et ce qui manquait"));
     await page.getByRole("button", { name: /Confiance/ }).click();
@@ -631,8 +645,8 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
     // v8.14 — Départager une semaine « toute verte » : ★ sur le meilleur jour, spots au vert, ce qui porte la note.
     const wk = await page.evaluate(() => { const g = document.querySelector('[aria-label="Note du meilleur créneau, jour par jour"]');
       return { stars: g.querySelectorAll("[data-star]").length, best: [...g.querySelectorAll("button")].filter((b) => /meilleur jour/.test(b.getAttribute("aria-label"))).length,
-               vert: [...g.querySelectorAll("button")].filter((b) => /spots? au vert sur \d+/.test(b.getAttribute("aria-label"))).length, txt: document.body.innerText }; });
-    ok(wk.stars >= 1 && wk.stars === wk.best && wk.vert >= 1 && /spots? au vert sur \d+/.test(wk.txt) && /Ce qui porte la note : /.test(wk.txt), L(`semaine : ★ meilleur jour, spots au vert par jour, ce qui porte la note (${wk.stars} ★, ${wk.vert} jours)`));
+               vert: [...g.querySelectorAll("button")].filter((b) => /spots? (au vert|favorables?) sur \d+/.test(b.getAttribute("aria-label"))).length, txt: document.body.innerText }; });
+    ok(wk.stars >= 1 && wk.stars === wk.best && wk.vert >= 1 && /spots? favorables? sur \d+/.test(wk.txt) && /Ce qui porte la note : /.test(wk.txt), L(`semaine : ★ meilleur jour, spots favorables par jour, ce qui porte la note (${wk.stars} ★, ${wk.vert} jours)`));
     const order = await page.evaluate(() => { const top = (re) => { const el = [...document.querySelectorAll("section, div")].find((n) => n.children.length && re.test(n.firstElementChild?.textContent || "")); return el ? el.getBoundingClientRect().top : null; };
       const wk = [...document.querySelectorAll("*")].find((n) => n.childElementCount === 0 && /^Tendance de la semaine$/.test(n.textContent.trim()));
       const vd = [...document.querySelectorAll("*")].find((n) => n.childElementCount === 0 && /^Meilleur choix/.test(n.textContent.trim()));
@@ -771,7 +785,7 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
     // (avant : les spots de rade passaient au vert, vent compté calme).
     {
       const hero = await page.evaluate(() => document.getElementById("hero-h")?.textContent || "");
-      const rings = await page.evaluate(() => [...document.querySelectorAll('svg[role="img"][aria-label^="Note "]')].map((s) => [s.getAttribute("aria-label"), [...s.querySelectorAll("circle")].map((c) => c.getAttribute("stroke")).join()]));
+      const rings = await page.evaluate(() => [...document.querySelectorAll('svg[role="img"][aria-label^="Note "], svg[role="img"][aria-label^="Favorabilité "]')].map((s) => [s.getAttribute("aria-label"), [...s.querySelectorAll("circle")].map((c) => c.getAttribute("stroke")).join()]));
       ok((!hero || /Conditions à vérifier/.test(hero)) && rings.every(([l, st]) => /à vérifier/.test(l) && !/#22c55e/i.test(st)),
         L(`${sc} : sans météo, rien au vert — bandeau « ${hero.trim().slice(0, 30)} », ${rings.length} jauge(s) « à vérifier »`));
       if (sc === "allfail") ok(/vent inconnu|vent et houle inconnus/.test(txt), L("allfail : la raison (vent inconnu) est affichée"));
@@ -791,13 +805,14 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
     if (["pirou", "audierne", "concarneau", "crozon"].includes(site)) {
       await tab(page, "Spots");
       await page.waitForTimeout(300);
-      const cols = await page.evaluate(() => [...document.querySelectorAll("span")].filter((e) => /^\d,\d$/.test(e.textContent.trim()) && e.children.length === 0)
-        .map((e) => getComputedStyle(e).color));
+      // La note de chaque spot de la liste (dernier élément de la ligne) : jamais en vert.
+      const cols = await page.evaluate(() => [...document.querySelectorAll("button")].filter((b) => /^#\d+/.test(b.innerText)).map((b) => { const sp = b.querySelectorAll(":scope > span"); return sp[sp.length - 1]; })
+        .filter((e) => e && /^(\d,\d|\d{1,3})$/.test(e.textContent.trim())).map((e) => getComputedStyle(e).color));
       ok(cols.length > 0 && !cols.includes("rgb(34, 197, 94)"), L(`marine en panne : aucune note au vert, toutes « à vérifier » (${cols.length} notes)`));
       await tab(page, "Synthèse");
       const hero = await page.evaluate(() => document.getElementById("hero-h")?.textContent || "");
       ok(!hero || /Conditions à vérifier/.test(hero), L(`marine en panne : le bandeau dit « à vérifier » — « ${hero.trim().slice(0, 40)} »`));
-      const rings = await page.evaluate(() => [...document.querySelectorAll('svg[role="img"][aria-label^="Note "]')].map((s) => [s.getAttribute("aria-label"), [...s.querySelectorAll("circle")].map((c) => c.getAttribute("stroke")).join()]));
+      const rings = await page.evaluate(() => [...document.querySelectorAll('svg[role="img"][aria-label^="Note "], svg[role="img"][aria-label^="Favorabilité "]')].map((s) => [s.getAttribute("aria-label"), [...s.querySelectorAll("circle")].map((c) => c.getAttribute("stroke")).join()]));
       ok(rings.length > 0 && rings.every(([l, st]) => /à vérifier/.test(l) && !/#22c55e/i.test(st)), L(`marine en panne : jauges orange, annoncées « à vérifier » (${rings.length})`));
     }
     ok(errors.length === 0, L("marine en panne : aucune erreur JavaScript"));
@@ -807,7 +822,7 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
 
 // ── 4. Sauvegarde GitHub du journal ──
 {
-  const SYNC = { owner: "spumy", repo: "journal", token: "github_pat_TEST" };
+  const SYNC = { owner: "FelixMuzellec", repo: "spumy-journal", token: "github_pat_TEST" };
   // a) dépôt vide → premier enregistrement crée le fichier (seeds compris)
   const gh = fakeGitHub();
   const { ctx, page, errors } = await openApp("logonna", { sync: SYNC, gh });
@@ -853,9 +868,9 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
   await tab(o3b.page, "Journal");
   await o3b.page.fill('input[placeholder^="Asturie"]', "Essai sauvegarde refusée");
   await btn(o3b.page, /^Enregistrer$/).click();
-  await waitText(o3b.page, /dépôt spumy\/journal public/, 10000).catch(() => {});
+  await waitText(o3b.page, /dépôt FelixMuzellec\/spumy-journal public/, 10000).catch(() => {});
   const local3b = await o3b.page.evaluate(() => localStorage.getItem("bar:journal:logonna-daoulas") || "");
-  ok(!gh3b.log.some((l) => l.startsWith("PUT")) && /dépôt spumy\/journal public/.test(await T(o3b.page)) && /Essai sauvegarde refusée/.test(local3b),
+  ok(!gh3b.log.some((l) => l.startsWith("PUT")) && /dépôt FelixMuzellec\/spumy-journal public/.test(await T(o3b.page)) && /Essai sauvegarde refusée/.test(local3b),
     "[sécurité] dépôt de sauvegarde public : rien n'est envoyé, message clair, la session reste sur le téléphone" + ` — ${gh3b.log.join(", ")}`);
   await o3b.ctx.close();
 
@@ -886,7 +901,7 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
 
 // ── 4 bis. v8.11 : tes spots, ajoutés sur le téléphone. v8.14 : depuis l'accueil, rangés dans le bon guide ──
 {
-  const SYNC = { owner: "spumy", repo: "journal", token: "github_pat_TEST" };
+  const SYNC = { owner: "FelixMuzellec", repo: "spumy-journal", token: "github_pat_TEST" };
   const gh = fakeGitHub();
   const ctxG = await browser.newContext({ ...devices["iPhone 13"], locale: "fr-FR", timezoneId: "Europe/Paris", serviceWorkers: "block",
     geolocation: { latitude: 48.3305, longitude: -4.295, accuracy: 12 }, permissions: ["geolocation"] });
@@ -1061,6 +1076,37 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
   await ctx.close();
 }
 
+// ── 4 quater. Phase 7 — Réglages → Moteur de notes : revenir à la note sur 10 (v1), puis à la v2 ──
+{
+  const L = (x) => `moteur de notes · ${x}`;
+  const { ctx, page, errors } = await openApp("logonna");
+  await waitText(page, READY); await waitText(page, WX);
+  let txt = await T(page);
+  ok(/Favorabilité \d+ = conditions/.test(txt) && /Confiance \d{1,3}\/100/.test(txt), L("par défaut : moteur v2, trois scores sur 100"));
+  // Fiche du spot : niveaux de preuve des rubriques (phase 5).
+  await tab(page, "Spots"); await page.waitForTimeout(400);
+  await page.getByRole("button", { name: "Terrain", exact: true }).first().click(); await page.waitForTimeout(300);
+  ok(/Preuve [1-5] · (scientifique ou institutionnel|observation documentée|retour local identifiable|hypothèse|heuristique)/.test(await T(page)), L("fiche du spot : niveau de preuve de chaque rubrique"));
+  await tab(page, "Synthèse");   // le rechargement rouvre l'onglet affiché
+  await page.evaluate(() => window.dispatchEvent(new Event("bar:reglages"))); await page.waitForTimeout(400);
+  ok(await page.getByRole("button", { name: /^v2 · trois scores sur 100/ }).getAttribute("aria-pressed") === "true", L("réglages : v2 choisi"));
+  await Promise.all([page.waitForNavigation({ timeout: 15000 }).catch(() => {}), page.getByRole("button", { name: /^v1 · note sur 10/ }).click()]);
+  await waitText(page, READY); await waitText(page, WX);
+  txt = await T(page);
+  const ring = await page.evaluate(() => document.querySelector('svg[role="img"][aria-label^="Note "]')?.getAttribute("aria-label") || "");
+  ok(/^Note \d,\d sur 10/.test(ring) && /Confiance (élevée|moyenne|faible)/.test(txt) && !/Favorabilité \d+ = conditions/.test(txt), L(`v1 : note sur 10 après rechargement (${ring})`));
+  ok(await page.evaluate(() => localStorage.getItem("bar:moteur")) === "v1", L("v1 : choix gardé sur l'appareil"));
+  await page.evaluate(() => window.dispatchEvent(new Event("bar:reglages"))); await page.waitForTimeout(400);
+  await page.getByRole("checkbox", { name: /Ma boîte est l'inventaire complet/ }).check();
+  ok(await page.evaluate(() => localStorage.getItem("bar:boite-complete")) === "1", L("boîte complète : réglage gardé"));
+  await Promise.all([page.waitForNavigation({ timeout: 15000 }).catch(() => {}), page.getByRole("button", { name: /^v2 · trois scores sur 100/ }).click()]);
+  await waitText(page, READY); await waitText(page, WX);
+  ok(/Favorabilité \d+ = conditions/.test(await T(page)) && await page.evaluate(() => localStorage.getItem("bar:moteur")) === null, L("retour à la v2"));
+  ok(!/provisoire \(boîte/.test(await T(page)), L("boîte complète : la pertinence n'est plus provisoire"));
+  ok(errors.length === 0, L("aucune erreur JavaScript" + (errors.length ? " — " + errors[0] : "")));
+  await ctx.close();
+}
+
 // ── 5 quinquies. Phase 4 — Fiche du guide illisible (premier lancement sans réseau) : message clair, rien de cassé ──
 {
   const ctx = await browser.newContext({ ...devices["iPhone 13"], locale: "fr-FR", timezoneId: "Europe/Paris", serviceWorkers: "block" });
@@ -1102,8 +1148,8 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
   await b.ctx.close();
 }
 
-// ── 5 quater bis. Toutes mes données : d'une adresse à l'autre (passage à spumy.github.io, 13 nov. 2026) ──
-// Le navigateur range le stockage par adresse : deux contextes séparés jouent l'ancienne et la nouvelle adresse.
+// ── 5 quater bis. Toutes mes données : d'un téléphone à l'autre ──
+// Deux contextes séparés jouent l'ancien et le nouveau téléphone (stockages distincts).
 {
   const L = (s) => `[transfert] ${s}`;
   const a = await openApp("logonna");
@@ -1115,7 +1161,7 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
     J("bar:myspots:logonna-daoulas", [{ id: "moi-abcd1234", name: "Mon poste", lat: 48.33, lon: -4.3, water: 90, createdAt: 1, updatedAt: 1 }]);
     localStorage.setItem("bar:theme", "sun");
     localStorage.setItem("bar:boite", JSON.stringify({ essai: true }));
-    J("bar:sync", { owner: "spumy", repo: "journal", token: "github_pat_SECRET" });
+    J("bar:sync", { owner: "FelixMuzellec", repo: "spumy-journal", token: "github_pat_SECRET" });
     localStorage.setItem("bar:claude", "sk-ant-SECRET");
     localStorage.setItem("bar:data:essai", "{}");
     await new Promise((ok, ko) => { const r = indexedDB.open("guide-bar", 1); r.onupgradeneeded = () => r.result.createObjectStore("kv");
@@ -1134,7 +1180,7 @@ for (const site of (process.env.ONLY ? process.env.ONLY.split(",").filter((x) =>
   ok(/3 sessions au journal/.test(await T(a.page)), L("le guide dit ce qu'il a enregistré"));
   await a.ctx.close();
 
-  const b = await openApp("logonna");   // nouvelle adresse : stockage vide, sauf une session et un réglage déjà là
+  const b = await openApp("logonna");   // nouveau téléphone : stockage vide, sauf une session et un réglage déjà là
   await waitText(b.page, READY);
   await b.page.evaluate(() => { localStorage.setItem("bar:journal:logonna-daoulas", JSON.stringify([{ id: "b1", spotId: "moulinmer", date: "2026-11-01", fish: 0 }])); localStorage.setItem("bar:theme", "nuit"); });
   await b.page.evaluate(() => window.dispatchEvent(new Event("bar:reglages")));

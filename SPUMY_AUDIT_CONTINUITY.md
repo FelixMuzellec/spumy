@@ -12,10 +12,13 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | --- | --- | --- |
 | 1. Audit initial | VALIDATED (6 nov. 2026) | Rapport « SPUMY — Phase 1 : audit initial » (document Claude de Félix) |
 | 2. Architecture cible | VALIDATED (6 nov. 2026, 22 h 59) | Document « SPUMY — Phase 2 : architecture cible » ; résumé dans `docs/ARCHITECTURE.md` |
-| 3. Socle technique | VALIDATED (13 nov. 2026, 3 h 57, « APPROVED — PROCEED TO PHASE 4 ») ; fusion dans `main` avec la phase 4, après la revue finale | Branche `claude/phase-3-socle`, demande de fusion n° 1 ; rapport « SPUMY — Phase 3 : socle technique » https://claude.ai/artifact/NYumZHjRgLUa9jMQcBGXK9 |
-| 4. Audit BORD approfondi + corrections météo et sécurité demandées par Félix | VALIDATED (13 nov. 2026, 12 h 37, « APPROVED — PROCEED TO PHASE 5 ») ; revue finale avant fusion : voir plus bas | Branche `claude/phase-4-bord` (partie de `claude/phase-3-socle`), demande de fusion n° 2 (brouillon) ; rapport « SPUMY — Phase 4 : audit BORD et corrections météo » https://claude.ai/artifact/LryzgD9Q9KbMNec91sMYNx |
-| 5. Connaissances halieutiques | IN PROGRESS (13 nov. 2026) | Branche `claude/phase-5-halieutique` (à partir de `main` après fusion) |
-| 6 à 17 | NOT STARTED | — |
+| 3. Socle technique | VALIDATED (13 nov. 2026, 3 h 57, « APPROVED — PROCEED TO PHASE 4 ») ; fusionnée dans `main` le 13 nov. (e743b10), pas en ligne | Branche `claude/phase-3-socle`, demande de fusion n° 1 ; rapport « SPUMY — Phase 3 : socle technique » https://claude.ai/artifact/NYumZHjRgLUa9jMQcBGXK9 |
+| 4. Audit BORD approfondi + corrections météo et sécurité demandées par Félix | VALIDATED (13 nov. 2026, 12 h 37, « APPROVED — PROCEED TO PHASE 5 ») ; revue finale puis fusion dans `main` le 13 nov. (e743b10, propositions n° 1 et n° 2), pas en ligne | Branche `claude/phase-4-bord` (partie de `claude/phase-3-socle`), demande de fusion n° 2 (brouillon) ; rapport « SPUMY — Phase 4 : audit BORD et corrections météo » https://claude.ai/artifact/LryzgD9Q9KbMNec91sMYNx |
+| 5. Connaissances halieutiques | VALIDATED (13 nov. 2026, 13 h 58, « APPROVED — PROCEED TO PHASE 6 ») ; non fusionnée (accord de fusion non donné) | Branche `claude/phase-5-halieutique`, demande de fusion n° 3 ; rapport « SPUMY — Phase 5 : connaissances halieutiques » https://claude.ai/artifact/BmTd9B29oPziqDZqh9n1cC |
+| 6. Conception du moteur BORD (spécification, sans code) | VALIDATED (18 nov. 2026, 14 h 47, « APPROVED — PROCEED TO PHASE 7 ») ; non fusionnée (accord de fusion non donné) | Branche `claude/phase-6-conception`, demande de fusion n° 4 ; `docs/SPEC-MOTEUR-BORD-V2.md` ; rapport « SPUMY — Phase 6 : conception du moteur BORD » https://claude.ai/artifact/Fa93x9zkURzEdVRxRZy8Fj (copie : `docs/rapports/PHASE-6.md`) |
+| 7. Moteur BORD v2 | VALIDATED (18 nov. 2026, « APPROVED — PROCEED TO PHASE 8 ») ; non fusionnée (accord de fusion non donné) | Branche `claude/phase-7-moteur-v2`, proposition de fusion n° 6 (brouillon, contient les phases 5 et 6) ; rapport « SPUMY — Phase 7 : moteur BORD v2 » https://claude.ai/artifact/5VVWp9Z3HfSvn72Uy3Ztwo (copie : `docs/rapports/PHASE-7.md`) |
+| 8. Épreuve du moteur (Monte Carlo, journées archivées) | TESTED, en attente de validation (« APPROVED — PROCEED TO PHASE 9 ») ; critère de stabilité FAILED, dit dans le rapport | Branche `claude/phase-8-epreuve`, proposition de fusion n° 7 (phases 5 à 8) ; rapport « SPUMY — Phase 8 : épreuve du moteur » https://claude.ai/artifact/WcWRqYiDoNWaJWUtfmFKLY (copie : `docs/rapports/PHASE-8.md`) |
+| 9 à 17 | NOT STARTED | — |
 
 ### Phase 4, lots
 
@@ -26,6 +29,37 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 4.2 Vent et rafales | TESTED | Danger annoncé (force ≥ 8 ou rafales ≥ 90 km/h) : 69,3 % proposés avant, 0 après ; doute (force 7, rafales ≥ 75, houle inconnue) : 27,2 % au vert avant, 0 après ; sans doute : 13 376 cas identiques ; Moulin Mer NE force 9 non recommandé |
 | 4.3 Source météo, fiche injoignable | TESTED | « AROME · vent comparé à ECMWF » (unitaire et contrat) ; écran « Le guide n'a pas pu se charger » (e2e) |
 | 4.4 Audit BORD | TESTED | `tests/audit-spots.mjs` : 396 rubriques de preuve (192 vérifiées, 191 déduites, 13 connaissance locale) ; 3 spots sans rubrique vérifiée ; 9 spots sans consigne de sécurité ; 7 positions en degrés-minutes seulement |
+
+### Phase 7, lots
+
+| Lot | Statut | Preuve |
+| --- | --- | --- |
+| 7.0 Départ | TESTED | Branche `claude/phase-7-moteur-v2` = phase 6 + `main` ; construction identique à `main` (bc6ce2bfa664) avant tout changement |
+| 7.2 Sécurité de la spécification | TESTED | `windowSafety` (safety.js), commun aux deux moteurs ; `tests/v2.mjs` S1 à S9 ; grille 73 986 cas : 0 danger proposé, 12 672 cas « à vérifier » de plus, 0 au vert sans météo |
+| 7.1 Trois scores, réglage v1/v2 | TESTED | `src/bord/engine/v2.js`, `v2-params.js`, `rankDay` ; Réglages → Moteur de notes ; `tests/v2.mjs` 51/51 ; comparaison v1/v2 sur 2 016 journées d'essai : même premier spot 52,9 %, écarts expliqués (vent et mer 49 %, ensemble v1 26 %, créneau 13 %, marée 11 %) |
+| 7.3 Pastilles, preuves, conseil de la boîte | TESTED | `note.jsx`, `Scores.jsx`, `Pastille` ; parcours e2e ; captures v1 et v2 relues |
+| 7.4 Tests | TESTED | e2e 843/843 ; unitaires 7 guides verts ; axe 0 violation ; mise à jour 11/11 ; GitHub : « Tests » et contrat réel verts (commit 9337732, proposition n° 6) |
+| 7.5 Rapport, questions | VALIDATED | `docs/rapports/PHASE-7.md` ; questions 1 à 3 sans préférence, la 4e a reçu l'approbation de la phase 8 |
+
+### Phase 8, lots
+
+| Lot | Statut | Preuve |
+| --- | --- | --- |
+| 8.1 Journées de référence | TESTED | 36 dates fixées d'avance (6, 16, 26 de chaque mois, nov. 2025 à nov. 2026) + 3 sessions du journal ; téléchargées par l'intégration continue (« Épreuve du moteur », passage 44330704552), déposées dans la branche (`data/epreuve/archives/`) ; 0 journée en échec |
+| 8.2 Monte Carlo | TESTED | `scripts/epreuve-mc.mjs` : 1 000 tirages par journée et par guide, 241 journées-guides notées ; tirages « entrées seules » et « hypothèses seules » (300) ; `data/epreuve/resultats/` |
+| 8.3 Analyse telle quelle | TESTED | `scripts/epreuve-analyse.mjs` : coût de la prudence, paliers, v1/v2 réels, journal, qualité des données |
+| 8.4 Corrections | TESTED | Paliers 75/65/55/45 (gardés). Lumière en rampe : règle fixée avant le second passage (gardée si les trois premiers inchangés gagnent au moins 2 points sans que le premier perde plus de 1 point) ; mesuré +1,8 point (35,9 → 37,7 %), premier +1,4 → **retirée** (`resultats/mc-v2-rampe-1000-*`). Passage de contrôle du moteur livré (`mc-v2-livre-1000-*`) : identique au premier passage, 0 écart sur 252 journées-guides ; palier inchangé 56,1 % |
+| 8.5 Rapport, arrêt | IMPLEMENTED | `docs/rapports/PHASE-8.md` ; tests 51/51, 3 390, 843/843, 12/12, 0 violation ; proposition de fusion n° 7 |
+
+### Phase 5, lots
+
+| Lot | Statut | Preuve |
+| --- | --- | --- |
+| 5.0 Échelle à cinq niveaux | TESTED | `data/knowledge/bar-bord.json` (champ « echelle ») et `data/schema/knowledge.schema.json` |
+| 5.1 Connaissances du moteur BORD | TESTED | 27 connaissances : niveau 1 : 4, niveau 2 : 7, hypothèses : 9, heuristiques : 7 ; 82 règles de leurres classées par source |
+| 5.2 Rubriques des spots | TESTED | `data/knowledge/preuves-spots.json` : 396 rubriques ; les 192 « verified » relues : 8 → 1, 145 → 2, 31 → 3, 3 → 4, 5 → 5 |
+| 5.3 Vérifications prioritaires | TESTED | Réglementation revue (inchangée ; « retrait de RecFishing » = poisson d'avril) ; 3 spots sans source de pêche trouvée ; 22 mentions « à confirmer » classées ; 7 positions de Pirou : décision |
+| 5.4 Tests | TESTED | `npm run test:knowledge` 15/15 (9 erreurs de saisie refusées) ; dans l'intégration continue |
 
 ### Revue finale des phases 3 et 4 (13 nov. 2026, avant fusion)
 
@@ -70,15 +104,15 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 
 ## Décisions ouvertes
 
-1. Adresse dédiée (organisation GitHub, nom de domaine ou statu quo) — ouverte depuis le lot 3.8.
-2. Profil pour le score de pertinence — avant la phase 6.
+1. Adresse — **décidée le 18 nov.** : la seule adresse est https://felixmuzellec.github.io/spumy/ (GitHub Pages sur `FelixMuzellec/spumy`, branche `main`, racine). Tous les fichiers dans `main` de ce dépôt.
+2. Profil pour le score de pertinence — décidé le 13 nov. : inventaire complet de la boîte, à fournir par Félix (pas encore reçu au 18 nov. : la phase 7 part de la boîte déjà enregistrée dans l'application).
 3. Historique de sorties réelles comme référence — avant la phase 6.
 4. Gratuit et sans publicité ? — avant la phase 15.
 5. Direction artistique appliquée à BORD en phase 13 élargie — avant la phase 11.
-6. Espèces du mode BORD — avant la phase 5.
-7. Seuils de vent (force 8 / rafales 90 → non recommandé ; force 7 / rafales 75 → à vérifier ; 75 km/h déduit) — avant la phase 6.
+6. Espèces du mode BORD — décidé le 13 nov. : bar seul.
+7. Seuils de vent — décidé le 13 nov. : plus prudents (à vérifier dès la force 6 ou 60 km/h de rafales ; non recommandé dès la force 8 ou 90 km/h). Appliqués en phase 7.
 8. Seuils en rade : les mêmes qu'en côte ouverte, ou par exposition — phase 6.
-9. Publication : fusion des phases 3 et 4 autorisée par Félix le 13 nov. (12 h 37) sous condition de la revue finale ; la mise en ligne elle-même attend la décision 1 (GitHub Pages n'est pas activé sur ce dépôt).
+9. Publication : fusion des phases 3 et 4 autorisée le 13 nov. (12 h 37) ; fusion des phases 5 à 8 demandée le 18 nov. (« Transfert tous les fichiers sur https://github.com/FelixMuzellec/spumy ») ; activation de GitHub Pages à faire par Félix (API Pages refusée à Claude par le proxy).
 
 ## Défauts bloquants connus (audit de phase 1)
 
@@ -102,20 +136,49 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 - « APPROVED — PROCEED TO PHASE 5. Tu peux fusionner, si après la revue finale tu penses que la version remplit parfaitement le cahier des charges. » Lu comme : fusion des phases 3 et 4 après une revue finale stricte (voir « Revue finale »). La fusion de la phase 5 sera proposée dans son rapport.
 - Espèces (décision 6) non tranchées : la phase 5 part de la recommandation de la phase 2, le bar d'abord.
 
-## Adresse propre (13 nov. 2026, 16 h 33 et 19 h 10)
+## Consignes de Félix (13 nov. 2026, 13 h 28)
 
-Consigne de Félix : « une organisation GitHub gratuite « spumy », qui donne `spumy.github.io` […] mais ne pas perdre les informations du journal enregistrées dans le guide du bar. Une fois celles-ci intégrées, il n'y aura aucun lien entre guide de pêche du bar et Spumy. » Puis « Continue ton travail ». Décision 1 (adresse dédiée) : **organisation `spumy`**, dépôt renommé `spumy.github.io`.
+- Mise en ligne choisie : GitHub Pages sur `FelixMuzellec/spumy`, branche `main`, dossier racine (adresse https://felixmuzellec.github.io/spumy/). L'API Pages est bloquée pour Claude (proxy) : l'activation se fait par Félix dans *Settings → Pages* ; Claude vérifie ensuite le déploiement (dépôt `has_pages`, passage « pages-build-deployment »).
 
-- Fait par Claude (branche `claude/transfert-spumy`) : transfert de toutes les données par fichier (*Réglages → Toutes mes données*) ; dépôt de sauvegarde par défaut `spumy/journal` ; tests servis à la racine ; passage v8.15 retiré de l'intégration continue ; marche à suivre dans le `README`.
-- À faire par Félix, l'API GitHub refusant ces actions à Claude :
-    1. Pages temporaire sur `FelixMuzellec/spumy`, pour enregistrer le fichier à l'ancienne origine.
-    2. Créer l'organisation.
-    3. Transférer et renommer le dépôt.
-    4. Activer Pages.
-    5. Importer le fichier sur le téléphone.
-    6. Créer le dépôt `journal` et son jeton.
-- Après le transfert, l'accès de Claude au dépôt passe par son nouveau nom (`spumy/spumy.github.io`) : il faudra le rattacher à la session.
+## Consignes de Félix (13 nov. 2026, 13 h 58)
+
+- « APPROVED — PROCEED TO PHASE 6 ». Réponses aux décisions : seuils de vent **plus prudents** (à vérifier dès la force 6 ou des rafales de 60 km/h ; non recommandé dès la force 8 ou 90 km/h) ; **bar seul** ; profil = **inventaire complet de sa boîte**, que Félix fournira, pour que SPUMY conseille les meilleurs leurres et montages ; pastilles : **attendre la phase 7**.
+- Questions posées : pourquoi la même adresse que guide-peche-bar (réponse : même compte GitHub, donc même domaine felixmuzellec.github.io) ; pourquoi seulement orange ou vert sur les pastilles (réponse : échelle sur 10 tassée, et orange = « moyen » ou « à vérifier » depuis la phase 4 ; corrigé par la spécification de la phase 6, appliqué en phase 7).
+
+## Consignes de Félix (18 nov. 2026, 14 h 47)
+
+- « APPROVED — PROCEED TO PHASE 7 / And transfer / Tu me poseras toutes les questions une par une, à la fin du processus, pour corriger si besoin. » Lu comme : la spécification de la phase 6 est validée telle quelle ; Claude fait la phase 7 sans s'arrêter pour poser des questions, en prenant les recommandations de la spécification là où une décision manque, et pose toutes ses questions une par une à la fin, pour corriger ensuite. « And transfer » : question posée à la fin (réglée le 18 nov. au soir, voir plus bas).
+- Fusion des phases 5, 6 et 7 dans `main` : pas d'accord explicite ; question posée à la fin.
+
+## Consignes de Félix (18 nov. 2026, vers 15 h 55)
+
+- Questions de fin de phase 7, posées une par une : transfert (1), fusion (2), boîte (3) → « sans préférence » ; on garde l'état actuel (transfert non fait, rien fusionné, boîte provisoire, trajet 45 min).
+- En réponse à la question 4 : « APPROVED — PROCEED TO PHASE 8. Tu continueras automatiquement si tu arrives à ta limite. Retiens toutes tes questions que l'on traitera ensemble après que toutes les étapes sont accomplies. » Lu comme : phase 7 VALIDATED ; faire la phase 8 sans poser de question ; garder toutes les questions (celles de la phase 7 encore ouvertes et les nouvelles) pour les traiter ensemble plus tard ; reprise automatique programmée (rappel « Reprendre la phase 8 de SPUMY », 18 nov. 20 h 58, heure de Paris). L'arrêt de fin de phase reste dû (prompt maître) : rapport, puis attente de « APPROVED — PROCEED TO PHASE 9 ».
+
+## Consignes de Félix (18 nov. 2026, 20 h 48)
+
+- « Avant de passer à la prochaine étape et quand l'étape 8 est terminée : oublie complètement l'adresse [l'ancienne adresse dédiée] ; la seule adresse valable est https://felixmuzellec.github.io/spumy/ ; transfère tous les fichiers sur https://github.com/FelixMuzellec/spumy ; supprime tous les fichiers inutiles ; si tu arrives à ta limite, reprends quand tu le peux. »
+- Lu comme : une fois la phase 8 terminée (rapport), et avant la phase 9 : retirer l'ancien projet d'adresse partout (code, tests, documentation, suivi, mémoire) ; servir les tests sous `/spumy/` ; fusionner les phases 5 à 8 dans `main` de `FelixMuzellec/spumy` (accord de fusion), par une proposition de fusion, une fois les tests verts sur GitHub ; retirer les fichiers qui ne servent plus. L'arrêt avant la phase 9 reste dû.
+- Dépôt de sauvegarde du journal par défaut : `FelixMuzellec/spumy-journal` (choix de Claude, à confirmer ; un réglage déjà enregistré sur le téléphone est gardé).
+
+## Questions retenues pour Félix (à traiter ensemble)
+
+1. Adresse — réglée le 18 nov. : https://felixmuzellec.github.io/spumy/ seule ; reste l'activation de GitHub Pages par Félix (*Settings → Pages → Deploy from a branch → `main` / (root)*).
+2. Fusion des phases 5 à 8 dans `main` — lue comme accordée le 18 nov. au soir (« Transfert tous les fichiers sur https://github.com/FelixMuzellec/spumy ») ; à confirmer.
+3. Inventaire complet de la boîte — sans préférence le 18 nov.
+4. Temps de trajet maximal (45 min par défaut).
+5. Vigilance Météo-France : compte portail-api et tâche GitHub, ou rester INCONNU.
+6. Isolement par la marée : Mousterlin (coef. > 75), Agon et Sciotot (marée montante) → non recommandé ?
+7. Écart à la spécification pour S12 (présence en abri 0,6 entre 7,5 et 9,5 °C).
+8. Sécurité commune aux deux moteurs (lecture de Claude).
+9. Historique de sorties réelles (vérité terrain) : 3 sessions, trop peu ; ordre de grandeur pour trancher un critère : 40 sessions par situation.
+10. Restes de la phase 5 : 9 rubriques « connaissance locale », positions GPS des 7 spots de Pirou, 3 spots sans source.
+11. Houle maximale de chaque spot : première cause de « non recommandé » (298 spots-journées) ; la revoir spot par spot.
+12. Paliers 75/65/55/45 : les garder.
+13. Égalité à 3 points : la garder, ou annoncer l'égalité jusqu'à 10 points (le premier ne tient dans 80 % des tirages qu'à 10 points d'avance).
+14. Rampe de lumière : retirée selon la règle fixée d'avance ; la reprendre si le gain « à égalité près » (+3,5 points) suffit.
+15. Dépôt de sauvegarde par défaut du journal : `FelixMuzellec/spumy-journal`.
 
 ## Prochaine action
 
-Fusionner `claude/phase-4-bord` (phases 3 et 4, revue finale comprise) dans `main` une fois GitHub vert sur le commit exact, puis phase 5 sur `claude/phase-5-halieutique`. Rien n'est mis en ligne sans la décision 1.
+Phase 8 livrée (rapport, proposition de fusion n° 7). Après la fusion dans `main` et le nettoyage : **STOP**, attendre « APPROVED — PROCEED TO PHASE 9 » (BATEAU, conception). Ne poser aucune question avant la fin de toutes les étapes ; les ajouter à la liste ci-dessus.

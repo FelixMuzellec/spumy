@@ -3,7 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { ALL_HOURS } from "../../engine/model.js";
 import { MYSPOT_COLOR, MYSPOTS_MAX } from "../../engine/myspots.js";
 import { Pill } from "../../../design/components.jsx";
-import { C, Card, Muted, Stack, fr, num, scoreColor } from "../../../design/kit.jsx";
+import { C, Card, Muted, Stack, num } from "../../../design/kit.jsx";
+import { fmtNote, isV2, NoteDot, noteText, scaleFor } from "../note.jsx";
 import { MapView } from "../MapView.jsx";
 import { SpotDetail } from "./SpotDetail.jsx";
 
@@ -50,14 +51,19 @@ function MySpots({ g }) {
 }
 
 // v9.2 — Filtres de la carte : tous les spots, ceux au vert (note ≥ 7, praticables), tes spots.
+// Phase 7 — moteur v2 : « Favorables » (65 et plus sur 100, sans doute de sécurité).
 const FILTERS = [["tous", "Tous"], ["vert", "Au vert"], ["miens", "Tes spots"]];
-const filterSpots = (xs, f) => (f === "vert" ? xs.filter((s) => s.eligible && s.score >= 7) : f === "miens" ? xs.filter((s) => s.custom) : xs);
+const filterSpots = (xs, f) => {
+  const sc = scaleFor(xs);
+  return f === "vert" ? xs.filter((s) => s.eligible && s.score != null && s.score >= sc.good && !(sc.engine === "v2" && s.verify?.length)) : f === "miens" ? xs.filter((s) => s.custom) : xs;
+};
 function MapFilters({ g, value, onChange }) {
   const all = g.allScored || [];
   const n = { tous: all.length, vert: filterSpots(all, "vert").length, miens: filterSpots(all, "miens").length };
   return (
     <div role="group" aria-label="Filtrer la carte" style={{display:"flex",gap:6,flexWrap:"wrap",marginBottom:10}}>
-      {FILTERS.filter(([k]) => k !== "miens" || n.miens > 0).map(([k, lbl]) => {
+      {FILTERS.filter(([k]) => k !== "miens" || n.miens > 0).map(([k, lbl0]) => {
+        const lbl = k === "vert" && scaleFor(all).engine === "v2" ? "Favorables" : lbl0;
         const on = value === k;
         return (
           <button key={k} onClick={() => onChange(k)} aria-pressed={on} style={{minHeight:40,padding:"0 14px",borderRadius:999,cursor:"pointer",fontSize:14,fontWeight:on ? 750 : 600,
@@ -109,8 +115,10 @@ export function Spots({ g }) {
                 </span>
                 <span style={{display:"block",fontSize:13,color:C.muted,marginTop:2}}>{s.distance} · {s.type.toLowerCase()}</span>
                 {s.wxReason && <span style={{display:"block",fontSize:13,color:s.eligible ? C.text : "#fca5a5",marginTop:2}}>{s.wxReason}</span>}
+                {s.eligible && s.v2?.pert?.filters && s.v2.pert.under && <span style={{display:"block",fontSize:13,color:C.warn,marginTop:2}}>Pertinence {s.v2.pert.score} : {s.v2.pert.manque[0] || "ta boîte convient mal ici"}</span>}
               </span>
-              <span style={{fontSize:20,fontWeight:800,color:scoreColor(s.score, s.eligible, s.verify?.length),...num}}>{s.eligible ? fr(s.score) : "–"}</span>
+              {isV2(s) && <NoteDot s={s} size={18}/>}
+              <span style={{fontSize:20,fontWeight:800,color:noteText(s),...num}}>{fmtNote(s)}</span>
             </button>
           );
         })}

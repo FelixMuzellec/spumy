@@ -1,12 +1,12 @@
 // Modèle de choix des spots : fenêtres, score, ensemble, terrain, proies, pression.
 import { SITE } from "SITE_CONFIG";
-import { GOOD_SCORE, TIE_DELTA } from "../../core/scale.js";
+import { scaleOf } from "../../core/scale.js";
 import { allSpots } from "./myspots.js";
 import { DIR16, fmtH, overlapH, solarTimes, windMod, windowLight } from "../../core/core.js";
 import { localDecimal, parisParts, tideDay } from "../../core/tide.js";
 const parisISO = (ms) => { const p = parisParts(ms); return `${p.y}-${String(p.m).padStart(2, "0")}-${String(p.d).padStart(2, "0")}`; };
 import { spotWeather, spotWxBetween, spotZone } from "./weather.js";
-import { windSafety } from "./safety.js";
+import { windowSafety } from "./safety.js";
 
 
 // v5 — Les fenêtres sont construites sur TOUTES les marées du jour.
@@ -109,17 +109,13 @@ export function scoreWindow(spot, win, ctx) {
   const coeff = win.coeff ?? ctx.coeff;
   const houle = zw.houle, sky = zw.sky;
 
-  // v8.9 — Spot engagé (niveau 3) : plus proposé dès que la houle dépasse son maximum. Ailleurs, une marge
-  // de 0,5 m où le spot est seulement pénalisé (windMod), puis plus proposé.
-  // Phase 4 — Vent et rafales : un coup de vent ou des rafales de tempête retirent le spot (safety.js, seuils
-  // Météo-France) ; un grand frais, de fortes rafales ou une houle inconnue en côte ouverte le laissent proposé,
-  // mais « à vérifier » : jamais au vert, et classé après les spots sans doute.
-  const ws = windSafety(spot, zw);
-  if (ws.block) return { eligible: false, blocked: true, score: 0, rawScore: null, reason: ws.block };
+  // Sécurité d'abord (safety.js, windowSafety) : vent, rafales, houle au-delà du maximum, courant (coefHardMax), retour
+  // coupé par la marée, nuit sur spot engagé → non recommandé ; grand frais, fortes rafales, houle inconnue en côte
+  // ouverte ou légèrement au-dessus du maximum → « à vérifier » : jamais au vert, classé après les spots sans doute.
+  // Phase 7 : ce filtre est celui de la spécification v2, commun aux deux moteurs de notes.
+  const ws = windowSafety(spot, win, zw, { coeff });
+  if (ws.block) return { eligible: false, blocked: true, blockKind: ws.kind, score: 0, rawScore: null, reason: ws.block };
   const verify = ws.verify;
-
-  const houleTol = spot.dangerLevel >= 3 ? 0 : 0.5;
-  if (zw.houleKnown !== false && houle > spot.houleMax + houleTol) return { eligible: false, score: 0, rawScore: null, reason: `Houle trop forte (${houle} m ; max ${spot.houleMax} m${houleTol ? "" : ", spot engagé"})` };
 
   // v5 — BANDE D'UTILITÉ DU COEFFICIENT, SANS PORTE BASSE.
   //
@@ -147,16 +143,6 @@ export function scoreWindow(spot, win, ctx) {
   // La bande se lit [seuil bas, début du plateau, fin du plateau, limite haute].
   const band = spot.coefBand || [30, spot.coefMin ?? 45, spot.coefIdeal ?? 75, spot.coefMax ?? 105];
   const [cLo, cO1, cO2, cHi] = band;
-
-  // Seule porte dure conservée : le courant devenu dangereux ou impraticable,
-  // et uniquement là où une source le documente (coefHardMax).
-  if (spot.coefHardMax && coeff > spot.coefHardMax)
-    return { eligible: false, score: 0, rawScore: null,
-             reason: spot.coefHardMaxWhy ? `Coef ${coeff} : ${spot.coefHardMaxWhy}` : `Coef ${coeff} > ${spot.coefHardMax} — courant hors de portée du bord ici` };
-  // Houle inconnue (modèle de vagues indisponible, trop loin du spot, ou pas de météo) : 0 m n'est pas une mesure.
-  // Sur la côte ouverte, un spot engagé n'est pas proposé sans elle ; les autres restent notés, la houle affichée « ? ».
-  if (zw.houleKnown === false && SITE.zones?.[spot.zone]?.sea !== "rade" && spot.dangerLevel >= 3)
-    return { eligible: false, score: 0, rawScore: null, reason: "Houle inconnue (modèle de vagues indisponible) : spot engagé non proposé par prudence" };
 
   const lerpC = (a, b, t) => a + (b - a) * Math.max(0, Math.min(1, t));
   let coefTerm, coefLabel;
@@ -359,7 +345,17 @@ export function scoreSpotRobust(spot, ctx) {
 // v8.14 — Ce qui porte (ou freine) la note d'un créneau, dit en clair : sert à départager des jours tous « au vert ».
 // Entrée : les termes additifs du créneau (parts) ; on garde les atouts (≥ +0,3) et les freins (≤ −0,5) les plus forts.
 const PART_LABEL = (k, v) => (k === "Ciel" ? (v > 0 ? "Ciel couvert" : "Ciel dégagé") : k === "Fenêtre prime" ? "Créneau prime" : k);
+// Phase 7 : avec le moteur v2, on passe la favorabilité du créneau (f, avec ses critères) : atouts = critères à 80 %
+// de leur maximum et plus, freins = critères à 40 % et moins, présence du bar réduite ; v en points sur 100.
 export function keyFactors(parts, { maxPlus = 3, maxMinus = 2 } = {}) {
+  if (parts && !Array.isArray(parts) && Array.isArray(parts.crit)) {
+    const f = parts, cap = (t) => t.charAt(0).toUpperCase() + t.slice(1);
+    const plus = f.crit.filter((c) => c.pts >= 0.8 * c.max).sort((a, b) => b.pts / b.max - a.pts / a.max).map((c) => ({ label: cap(c.why), v: c.pts }));
+    const minus = f.crit.filter((c) => c.pts <= 0.4 * c.max).sort((a, b) => a.pts / a.max - b.pts / b.max).map((c) => ({ label: cap(c.why), v: c.pts - c.max }));
+    if (f.pres && f.pres.factor < 0.85) minus.unshift({ label: cap(f.pres.label), v: -Math.round((1 - f.pres.factor) * 100) });
+    for (const e of f.excluded || []) minus.push({ label: `${cap(e.why)} : critère « ${e.label.toLowerCase()} » non calculé`, v: 0 });
+    return { plus: plus.slice(0, maxPlus), minus: minus.slice(0, maxMinus) };
+  }
   const xs = (parts || []).filter((p) => p && Number.isFinite(p.v)).map((p) => ({ label: PART_LABEL(p.k, p.v), v: p.v }));
   return {
     plus: xs.filter((p) => p.v >= 0.3).sort((a, b) => b.v - a.v).slice(0, maxPlus),
@@ -368,7 +364,10 @@ export function keyFactors(parts, { maxPlus = 3, maxMinus = 2 } = {}) {
 }
 /** Nombre de spots « au vert » (note ≥ GOOD_SCORE, praticables) dans une journée notée. */
 export { GOOD_SCORE } from "../../core/scale.js";
-export function countGood(scored) { return (scored || []).filter((s) => s.eligible && s.score >= GOOD_SCORE && !s.verify?.length).length; }
+// Phase 7 : le seuil suit l'échelle du moteur qui a noté (s.engine) : 7 sur 10, ou 65 sur 100 (v2, « favorables »).
+export function countGood(scored) {
+  return (scored || []).filter((s) => s.eligible && s.score != null && s.score >= scaleOf(s.engine || "v1").good && !s.verify?.length).length;
+}
 /** Marée par port pour une date (mémorisée). */
 export function makeTideFor(dateISO, override) {
   const cache = new Map();
@@ -422,7 +421,9 @@ export function withEauObs(spots, eau) {
   return eau && Object.keys(eau).length ? spots.map((s) => (eau[s.id] ? { ...s, eauObs: eau[s.id] } : s)) : spots;
 }
 // `now` (ms) : pour aujourd'hui, les créneaux déjà finis ne sont plus proposés et le créneau en cours est signalé.
-export function scoreDay(dateISO, live, { calib, hours, tideFor, orient, spots = allSpots(), now = null } = {}) {
+// robust : false (phase 8, épreuve Monte Carlo) saute l'ensemble de météos plausibles de la v1 (dix fois plus rapide) ;
+// la sécurité et les créneaux sont les mêmes, seule la note sur 10 n'est plus moyennée.
+export function scoreDay(dateISO, live, { calib, hours, tideFor, orient, spots = allSpots(), now = null, robust = true } = {}) {
   const tf = tideFor || makeTideFor(dateISO);
   const coeff = tf(SITE.tide.defaultPort).maxCoef || 0;
   const pressure = parseInt(live?.pressure) || 0;
@@ -451,7 +452,8 @@ export function scoreDay(dateISO, live, { calib, hours, tideFor, orient, spots =
       }
       return x;
     });
-    const r = scoreSpotRobust(s, { coeff, zw, wins, pressure, pressureTrend, sst, sstConf, calib, month });
+    const sctx = { coeff, zw, wins, pressure, pressureTrend, sst, sstConf, calib, month };
+    const r = robust ? scoreSpotRobust(s, sctx) : scoreSpot(s, sctx);
     return { ...s, ...r, wxReason: r.reason, zw, zoneId: spotZone(s), tideLabel: st.label, tideAccuracy: st.accuracy };
   }).sort(rankCompare);
   return sorted;
@@ -466,8 +468,9 @@ export { TIE_DELTA } from "../../core/scale.js";
 export function tieGroup(sorted) {
   const el = (sorted || []).filter((s) => s.eligible);
   if (el.length < 2) return [];
-  const top = el[0].score;
-  const tied = el.filter((s) => top - s.score <= TIE_DELTA + 1e-9);
+  const top = el[0].score, tie = scaleOf(el[0].engine || "v1").tie;
+  if (top == null) return [];
+  const tied = el.filter((s) => s.score != null && top - s.score <= tie + 1e-9);
   return tied.length < 2 ? [] : tied;
 }
 /** Meilleur créneau de plein jour (hors aube, crépuscule et nuit) parmi les spots praticables. */

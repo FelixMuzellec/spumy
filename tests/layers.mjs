@@ -2,7 +2,8 @@
 //
 //   design  → design                      composants et style neutres, sans métier
 //   core    → core, design                commun au bord et au bateau (marée, soleil, stockage, synchronisation…)
-//   bord    → bord, core, design          pêche du bord : moteur et interface des guides
+//   bord    → bord, core, design, data    pêche du bord : moteur et interface des guides (phase 7 : le moteur v2 lit
+//                                         les niveaux de preuve de data/knowledge/, phase 5)
 //   bateau  → bateau, core, design        pêche en bateau : moteur, météo du large, interface
 //   app     → tout                        coquille : points d'entrée, accueil, service hors ligne
 //   studio  → bord, core, design          page d'analyse photo (non publiée)
@@ -15,7 +16,7 @@ import path from "node:path";
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const src = path.join(root, "src");
 const ALLOWED = {
-  design: ["design"], core: ["core", "design"], bord: ["bord", "core", "design"], bateau: ["bateau", "core", "design"],
+  design: ["design"], core: ["core", "design"], bord: ["bord", "core", "design", "data"], bateau: ["bateau", "core", "design"],
   app: ["app", "core", "bord", "bateau", "design", "data"], studio: ["studio", "bord", "core", "design", "data"],
 };
 const layerOf = (abs) => {

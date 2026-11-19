@@ -1,26 +1,58 @@
 # Journal des versions
 
-## Non publié — adresse propre spumy.github.io et transfert de toutes les données (13 novembre)
+## Non publié — phase 8, épreuve du moteur (Monte Carlo sur de vraies journées)
 
-Demande de Félix : une organisation GitHub gratuite « spumy » (adresse `spumy.github.io`), sans perdre le journal enregistré dans l'ancien guide, puis plus aucun lien entre les deux.
+Branche `claude/phase-8-epreuve` (partie de la phase 7).
+
+- **Journées de référence** : 36 dates par guide fixées d'avance (le 6, le 16 et le 26 de chaque mois, de fin novembre 2025 à mi-novembre 2026) et les trois jours du journal ; prévisions archivées d'Open-Meteo téléchargées et déposées dans la branche par l'intégration continue (`data/epreuve/`).
+- **Monte Carlo** : 1 000 tirages par journée et par guide (`scripts/epreuve-mc.mjs`), entrées perturbées selon leur incertitude, hypothèses selon leur niveau de preuve ; synthèse (`scripts/epreuve-synthese.mjs`) ; analyse des journées telles quelles (`scripts/epreuve-analyse.mjs`).
+- **Paliers de favorabilité recalés** sur les journées réelles : 75, 65, 55 et 45 (au lieu de 80, 65, 50 et 35) ; les cinq paliers apparaissent en saison.
+- **Lumière en rampe** (créneau de plein jour qui mord sur l'aube ou le crépuscule) : essayée, puis retirée selon la règle fixée avant l'essai (gain de 1,8 point sur les trois premiers inchangés, 2 demandés).
+- **Épreuve** : critère « trois premiers inchangés dans 80 % des tirages » non tenu (20 journées sur 241) ; aucune hypothèse de niveau 4 ou 5 au-dessus de 30 % de la variance (21,4 % au plus) ; tes seuils de vent coûtent 1,0 % des spots praticables.
+- **Fiabilité du conseil** (onglet Météo) : dit ce que l'épreuve a mesuré pour la v2.
+- **Connaissances** : verdicts de la phase 8 dans `data/knowledge/bar-bord.json`.
+- **Adresse** (décision de Félix, 18 novembre) : une seule, <https://felixmuzellec.github.io/spumy/> (GitHub Pages sur `FelixMuzellec/spumy`, branche `main`). Les tests servent le site sous `/spumy/` ; la mise à jour d'un téléphone vérifie que la copie hors ligne de l'ancien guide (`/guide-peche-bar/`, même origine) n'est pas touchée. Dépôt de sauvegarde du journal par défaut : `FelixMuzellec/spumy-journal` (un réglage déjà enregistré est gardé).
+- **Fichiers retirés** : `scripts/sourced_facts_2026-10-10.py` (correctif ponctuel de la v6, ses faits sont dans les fiches) ; `.github/workflows/epreuve-depot.yml` et `data/epreuve/depot.json` (dépôt unique des journées de la phase 8, fait).
+
+## Non publié — phase 7, moteur BORD v2 (trois scores sur 100, sécurité de la spécification)
+
+Branche `claude/phase-7-moteur-v2` (phases 5 et 6, et `main`). Spécification validée par Félix le 18 novembre.
+
+- **Sécurité** (commune aux deux moteurs) : à vérifier dès la force 6 ou 60 km/h de rafales (choix de Félix) ; non recommandé : nuit sur un spot engagé, retour coupé par la marée (Térénez au-delà de 85), houle de plus de 0,5 m au-dessus du maximum (spot engagé : dès le maximum) ; houle légèrement au-dessus du maximum : à vérifier au lieu d'une pénalité cachée. La vigilance Météo-France n'est pas lue : l'écran le dit.
+- **Moteur v2, par défaut** : favorabilité (conditions × présence), pertinence (ta boîte, la distance), confiance, sur 100, jamais fusionnés ; chaque score se décompose ; un critère sans donnée sort du calcul. Les trois meilleurs leurres de ta boîte pour le créneau et ce qui y manque.
+- **Pastilles** : cinq bleus pour la favorabilité ; « à vérifier » en pointillé avec « ? » ; non recommandé gris barré ; pas de note vide (cartes, listes, anneaux, accueil).
+- **Niveaux de preuve** (phase 5) affichés dans la fiche du spot.
+- **Réglages → Moteur de notes** : revenir à la note sur 10 (v1), boîte complète ou non, temps de trajet maximal.
+- **Tests** : `npm run test:v2` (16 scénarios de la spécification, règles des trois scores) ; comparaison des deux moteurs sur 2 016 journées d'essai (`tests/compare-v1v2.mjs`).
+
+## Non publié — toutes mes données (changer de téléphone), fusionné dans `main` le 13 novembre (1f5c740)
 
 - **Toutes mes données** (*Réglages*) : « Enregistrer toutes mes données » télécharge un fichier qui contient :
     - le journal de chaque guide, tes spots, ta boîte, tes réglages ;
     - tes sorties en bateau et tes analyses photo.
 
   « Importer un fichier de données » l'ajoute à l'appareil sans rien écraser : union par identifiant, réglages déjà présents gardés. Le jeton GitHub, la clé Claude et la météo en cache ne voyagent jamais. Un journal d'un seul guide est reconnu et renvoyé vers l'onglet *Journal*.
-- **Plus de lien avec l'ancien guide.**
-    - Sauvegarde par défaut : dépôt privé `journal` de l'organisation `spumy`, au lieu de `guide-peche-bar-journal`.
-    - Les tests servent le site à la racine, comme à `spumy.github.io`.
-    - Le passage depuis la v8.15 de l'ancien dépôt est retiré de l'intégration continue.
-    - Les commentaires et la documentation ne citent plus l'ancienne adresse. La marche à suivre (une fois) est dans le `README`.
-- **Noms internes gardés** : clés `bar:…` (le poisson), cache « guide-bar-… », base « guide-bar ». Ils ne relient SPUMY à rien. Les garder permet au transfert de lire les données de l'ancien guide à l'étape 2 de la marche à suivre.
-- **Tests**
-    - Parcours : 11 contrôles du transfert, entre deux téléphones simulés.
-    - Accessibilité : réglages ouverts, 0 violation.
-    - Mise à jour d'un téléphone, servie à la racine : 11/11.
+- **Noms internes gardés** : clés `bar:…` (le poisson), cache « guide-bar-… », base « guide-bar ». Ils permettent de lire directement, à la même origine, ce que l'ancien guide a enregistré sur le téléphone.
+- **Tests** : parcours, 11 contrôles du transfert entre deux téléphones simulés ; accessibilité, réglages ouverts, 0 violation.
 
-## Non publié — revue finale des phases 3 et 4, avant fusion (13 novembre)
+## Non publié — phase 6, conception du moteur BORD v2 (spécification, sans code)
+
+Branche `claude/phase-6-conception`. L'application ne change pas.
+
+- **`docs/SPEC-MOTEUR-BORD-V2.md`** : circuit, données qualifiées, filtre de sécurité (seuils plus prudents choisis par Félix : à vérifier dès la force 6 ou des rafales de 60 km/h), favorabilité sur 100 (conditions × présence, fiche par critère), pertinence sur 100 tirée de l'inventaire de la boîte, confiance sur 100, données manquantes, pastilles (la sécurité ne passe plus par la couleur de la note), 16 scénarios de référence, plan Monte Carlo de la phase 8.
+- **Mesures de départ** : la note sur 10 est tassée (médiane 5,6 et maximum 8,8 sur 1 746 meilleurs créneaux du jour ; 9 et 10 jamais atteints) ; les seuils plus prudents mettent « à vérifier » 11 712 des 73 986 cas de la grille.
+
+## Non publié — phase 5, connaissances halieutiques (BORD, bar)
+
+Branche `claude/phase-5-halieutique`. L'application ne change pas : la phase classe et source ce que le moteur sait du bar.
+
+- **Échelle de preuve à cinq niveaux** (scientifique ou institutionnel, observation documentée, retour local identifiable, hypothèse, heuristique) : `data/knowledge/bar-bord.json` et son schéma.
+- **27 connaissances du moteur BORD** classées, avec sources, limites et code qui les utilise : 4 de niveau 1 (migration saisonnière, frai, réglementation, seuils de vent de Météo-France), 7 de niveau 2, 9 hypothèses, 7 heuristiques ; les 82 règles du moteur de leurres classées par source.
+- **396 rubriques des 66 spots reclassées** (`data/knowledge/preuves-spots.json`) : les 192 « vérifiées » relues une à une (8 de niveau 1, 145 de niveau 2, 31 de niveau 3, 3 hypothèses, 5 heuristiques).
+- **Réglementation** revue le 13 novembre : inchangée ; l'article annonçant la fin de la déclaration RecFishing (1er avril 2026) était un poisson d'avril.
+- **Tests** `npm run test:knowledge` : schéma, aucune connaissance plus sûre que sa source, code utilisé présent, nombre de règles de leurres égal au code, chaque rubrique de spot classée une fois avec son étiquette actuelle, et 9 erreurs de saisie refusées.
+
+## Non publié — revue finale des phases 3 et 4, fusionnée dans `main` le 13 novembre (e743b10), pas en ligne
 
 Faite à la demande de Félix (« tu peux fusionner si, après la revue finale, la version remplit parfaitement le cahier des charges »).
 

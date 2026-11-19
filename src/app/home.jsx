@@ -11,8 +11,10 @@ import { MYSPOT_COLOR, MYSPOT_MAX_KM, noGuideMsg, ownerOf } from "../core/myspot
 import { trendOf } from "../core/scale.js";
 import { MySpotForm } from "../core/MySpotForm.jsx";
 import { Offshore } from "../bateau/Offshore.jsx";
-import { fr, scoreColor } from "../design/kit.jsx";
-import { buttonStyle } from "../design/components.jsx";
+import { scoreColor } from "../design/kit.jsx";
+import { buttonStyle, pastilleSvg } from "../design/components.jsx";
+import { color as TK, pastille } from "../design/tokens.js";
+import { fmtNote, isV2, NoteDot, noteFill, noteState, noteText } from "../bord/ui/note.jsx";
 
 const INDEX = __HOME_INDEX__;     // fiches d'origine : [[clé du guide, id, lat, lon, nom], …]
 const GUIDES = __HOME_GUIDES__;   // [{ key, id, name }, …], dans l'ordre de l'accueil
@@ -77,13 +79,27 @@ function GlobalMap({ spots, selected, onPick }) {
         const p = mk.getLatLng();
         if (Math.abs(p.lat - s.lat) > 1e-7 || Math.abs(p.lng - s.lon) > 1e-7) { mk.setLatLng([s.lat, s.lon]); mk._hit.setLatLng([s.lat, s.lon]); }
       }
-      const on = s.uid === selected, known = s.score != null;
-      mk.setStyle({ color: on ? "#f8fafc" : s.mine ? MYSPOT_COLOR : "#020617", weight: on || s.mine ? 3 : 2,
+      const on = s.uid === selected, computed = s.engine != null || s.score != null, v2 = isV2(s), st = noteState(s);
+      const known = v2 ? computed : s.score != null;
+      // Phase 7 — moteur v2 : remplissage = palier de favorabilité ; à vérifier : contour pointillé orange et « ? » ;
+      // non recommandé : gris barré ; pas de note : disque vide. Sans calcul encore : gris clair, comme avant.
+      if (v2 && known) mk.setStyle({ color: on ? TK.strong : s.mine ? MYSPOT_COLOR : st.kind === "verify" ? pastille.verify : st.kind === "none" ? pastille.none : pastille.ring,
+        weight: on || s.mine || st.kind === "verify" ? 3 : 2, dashArray: st.kind === "verify" || st.kind === "none" ? "4 3" : null,
+        fillColor: noteFill(s), fillOpacity: st.kind === "none" ? 0 : st.kind === "nr" ? 0.6 : 0.95 });
+      else mk.setStyle({ color: on ? "#f8fafc" : s.mine ? MYSPOT_COLOR : "#020617", weight: on || s.mine ? 3 : 2,
                     fillColor: known ? scoreColor(s.score, s.eligible, s.verify?.length) : UNKNOWN, fillOpacity: known ? (s.eligible ? 0.95 : 0.5) : 0.55 });
+      const glyph = v2 && known && (st.kind === "verify" || st.kind === "nr") ? st.kind : null;
+      if (glyph !== mk._glyphKind) {
+        if (mk._glyph) { try { mk._glyph.remove(); } catch { /* déjà retiré */ } mk._glyph = null; }
+        if (glyph) mk._glyph = L.marker([s.lat, s.lon], { interactive: false, keyboard: false,
+          icon: L.divIcon({ className: `gspot-glyph gspot-glyph-${glyph}`, html: pastilleSvg(glyph, st.band, 18), iconSize: [18, 18], iconAnchor: [9, 9] }) }).addTo(m);
+        mk._glyphKind = glyph;
+      } else if (mk._glyph) mk._glyph.setLatLng([s.lat, s.lon]);
       const el = mk.getElement?.();
-      if (el) { el.setAttribute("data-score", known ? (s.eligible ? fr(s.score) : "–") : "?"); el.setAttribute("data-name", s.name); }
+      const shown = known ? (s.eligible && s.score != null ? fmtNote(s) : "–") : "?";
+      if (el) { el.setAttribute("data-score", shown); el.setAttribute("data-name", s.name); if (v2 && known) el.setAttribute("data-state", st.kind); }
       mk.unbindTooltip();
-      mk.bindTooltip(`${s.name} · ${known ? (s.eligible ? fr(s.score) : "–") : "…"}`, { permanent: on, direction: "auto", className: "spot-tip" });
+      mk.bindTooltip(`${s.name} · ${known ? shown : "…"}${v2 && known && st.kind === "verify" ? " · à vérifier" : v2 && known && st.kind === "nr" ? " · non recommandé" : ""}`, { permanent: on, direction: "auto", className: "spot-tip" });
       if (on) mk.bringToFront();
     }
   }, [spots, selected, ready]);
@@ -91,7 +107,8 @@ function GlobalMap({ spots, selected, onPick }) {
     <div>
       <div ref={box} role="region" aria-label="Carte interactive : touche un spot pour sa note" style={{ position: "relative", zIndex: 0, isolation: "isolate", height: 360, borderRadius: 12, border: "1px solid #1e293b", overflow: "hidden", background: "#0b1626" }} />
       <p style={{ fontSize: 13, color: "#94a3b8", margin: "8px 2px 0", lineHeight: 1.5 }}>
-        Disque vert : note ≥ 7 · orange ≥ 5 · gris foncé en dessous ou non proposé · gris clair : note en cours de calcul. Contour rose : tes spots. Touche un spot pour sa note et sa fiche.
+        {spots.some(isV2) ? "Bleu : favorabilité sur 100 (le plus clair : 75 et plus ; le plus sombre : moins de 45) · contour pointillé et « ? » : à vérifier · gris barré : non recommandé · disque vide : pas de note · gris clair : en cours de calcul."
+          : "Disque vert : note ≥ 7 · orange ≥ 5 · gris foncé en dessous ou non proposé · gris clair : note en cours de calcul."} Contour rose : tes spots. Touche un spot pour sa note et sa fiche.
         {tilesFailed && <span style={{ color: "#fbbf24" }}> Fond de carte indisponible (hors ligne ?) : les spots restent placés.</span>}
       </p>
     </div>
@@ -99,24 +116,27 @@ function GlobalMap({ spots, selected, onPick }) {
 }
 
 /** Pastille d'un résultat de recherche : note du jour, flèche vers demain (sous 0,2 point d'écart : stable). */
+// Phase 7 : dans l'échelle du moteur choisi (v2 : favorabilité sur 100, sous 3 points d'écart : stable ; « ? » : à vérifier).
 function scoreBadge(t, m) {
-  const tr = trendOf(t, m);
-  const today = t.eligible ? fr(t.score) : "–", tomorrow = m ? (m.eligible ? fr(m.score) : "–") : null;
-  const label = [t.eligible ? `Note du jour ${today}` : "Plus de créneau praticable aujourd'hui",
+  const tr = trendOf(t, m, t.engine);
+  const v2 = isV2(t), q = (x) => (v2 && x?.eligible && x.verify?.length ? "?" : "");
+  const today = `${fmtNote(t)}${q(t)}`, tomorrow = m ? `${fmtNote(m)}${q(m)}` : null;
+  const label = [t.eligible ? `${v2 ? "Favorabilité" : "Note"} du jour ${fmtNote(t)}${q(t) ? ", à vérifier" : ""}` : "Plus de créneau praticable aujourd'hui",
     tr ? `${tr.word} : demain ${tomorrow}${tr.why ? ` (${tr.why})` : ""}` : tomorrow != null ? `demain ${tomorrow}` : ""].filter(Boolean).join(", ");
-  return { txt: today, color: scoreColor(t.score, t.eligible, t.verify?.length), arrow: tr?.arrow || "", tomorrow, label };
+  return { txt: today, color: noteText(t), arrow: tr?.arrow || "", tomorrow, label };
 }
 
 function SpotLink({ s, rank }) {
-  const col = s.score != null ? scoreColor(s.score, s.eligible, s.verify?.length) : UNKNOWN;
+  const col = s.score != null ? noteText(s) : UNKNOWN, dot = s.score != null ? noteFill(s) : UNKNOWN;
   return (
     <a href={`${s.key}.html#spot=${s.id}`} style={{ display: "flex", alignItems: "center", gap: 10, minHeight: 52, padding: "8px 12px", color: "inherit", textDecoration: "none", borderTop: rank ? "1px solid #1e293b" : "none", background: "rgba(10,20,38,0.85)" }}>
-      <span aria-hidden="true" style={{ width: 14, height: 14, borderRadius: "50%", background: col, border: s.mine ? `2px solid ${MYSPOT_COLOR}` : "none", flexShrink: 0 }} />
+      {isV2(s) && s.score != null ? <NoteDot s={s} size={16}/>
+        : <span aria-hidden="true" style={{ width: 14, height: 14, borderRadius: "50%", background: dot, border: s.mine ? `2px solid ${MYSPOT_COLOR}` : "none", flexShrink: 0 }} />}
       <span style={{ minWidth: 0, flex: 1 }}>
         <strong style={{ display: "block", fontSize: 15 }}>{s.name}</strong>
         <span style={{ display: "block", fontSize: 13, color: "#94a3b8" }}>Guide {GBY[s.key]?.name}{s.mine ? " · ton spot" : ""}{s.best ? ` · ${s.best}` : ""}</span>
       </span>
-      <span style={{ fontSize: 17, fontWeight: 800, color: col, fontVariantNumeric: "tabular-nums" }}>{s.score != null && s.eligible ? fr(s.score) : "–"}</span>
+      <span style={{ fontSize: 17, fontWeight: 800, color: col, fontVariantNumeric: "tabular-nums" }}>{s.score != null && s.eligible ? `${fmtNote(s)}${isV2(s) && s.verify?.length ? "?" : ""}` : "–"}</span>
     </a>
   );
 }
@@ -263,7 +283,7 @@ function Home() {
           <div style={{ fontSize: 13.5, color: "#94a3b8" }}>Guide {GBY[sel.key]?.name}{sel.mine ? " · ton spot" : ""}</div>
           <div style={{ fontSize: 14.5, marginTop: 4 }}>
             {sel.score == null ? "Note en cours de calcul…"
-              : sel.eligible ? <>Note <b style={{ color: scoreColor(sel.score, true, sel.verify?.length) }}>{fr(sel.score)}</b>{sel.best ? ` · meilleur créneau ${sel.best}` : ""}{sel.reason ? <span style={{ display: "block", fontSize: 13, color: "#cbd5e1" }}>{sel.reason}</span> : null}</>
+              : sel.eligible ? <>{isV2(sel) ? "Favorabilité" : "Note"} <b style={{ color: noteText(sel) }}>{fmtNote(sel)}</b>{isV2(sel) ? " sur 100" : ""}{isV2(sel) && sel.verify?.length ? " · à vérifier" : ""}{sel.best ? ` · meilleur créneau ${sel.best}` : ""}{sel.reason ? <span style={{ display: "block", fontSize: 13, color: "#cbd5e1" }}>{sel.reason}</span> : null}</>
               : <>Non proposé {dayLbl} : {sel.reason || "aucun créneau praticable"}</>}
           </div>
           <a href={`${sel.key}.html#spot=${sel.id}`} style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: 10, minHeight: 48, borderRadius: 10, border: "1px solid #0ea5e9", background: "rgba(14,165,233,0.12)", color: "#e0f2fe", fontWeight: 700, textDecoration: "none" }}>Ouvrir la fiche dans le guide {GBY[sel.key]?.name} →</a>
@@ -275,7 +295,9 @@ function Home() {
           {top.map((s, i) => <SpotLink key={s.uid} s={s} rank={i} />)}
         </nav>
       ) : <p style={{ margin: 0, fontSize: 13.5, color: "#94a3b8" }}>{busy || nOk === 0 ? "Calcul en cours…" : `Aucun spot praticable ${dayLbl} dans tes heures de pêche.`}</p>}
-      <p style={{ margin: "8px 2px 0", fontSize: 12.5, color: "#94a3b8" }}>Le vert veut dire « rien ne bloque » (marée dans la plage utile, vent et houle tenables), pas « ça mord à coup sûr ». Sous 0,2 point d'écart, deux spots se valent.</p>
+      <p style={{ margin: "8px 2px 0", fontSize: 12.5, color: "#94a3b8" }}>{spots.some(isV2)
+        ? "Favorabilité sur 100 : où et quand le bar a le plus de chances d'être là, pas « ça mord à coup sûr ». Sous 3 points d'écart, deux spots se valent. Les spots à vérifier passent après les autres."
+        : "Le vert veut dire « rien ne bloque » (marée dans la plage utile, vent et houle tenables), pas « ça mord à coup sûr ». Sous 0,2 point d'écart, deux spots se valent."}</p>
       <AddSpot open={open} setOpen={setOpen} onAdded={onAdded} />
     </>
   );

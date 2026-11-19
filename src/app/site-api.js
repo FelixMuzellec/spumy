@@ -4,7 +4,9 @@
 /* global __SITE_KEY__ */
 import { SITE } from "SITE_CONFIG";
 import { calibrate, loadJournal } from "../bord/engine/journal.js";
-import { DEFAULT_HOURS, loadOrient, makeTideFor, scoreDay, withEauObs } from "../bord/engine/model.js";
+import { DEFAULT_HOURS, loadOrient, makeTideFor, withEauObs } from "../bord/engine/model.js";
+import { loadV2Prefs, rankDay } from "../bord/engine/v2.js";
+import { engineMode } from "../core/scale.js";
 import { allSpots, applyMyRecords, estimateMinutes, loadMyRecords, MYSPOTS_MAX, nearestGuideSpot, sanitizeMySpot, saveMyRecords } from "../bord/engine/myspots.js";
 import { TERRAIN_KEY, withTerrainOverrides } from "../bord/engine/terrain.js";
 import { reconcileCoefs, tideDay } from "../core/tide.js";
@@ -58,12 +60,14 @@ async function day(offset = 0, { nowMs = Date.now(), force = false } = {}) {
   const spots = withEauObs(withTerrainOverrides(allSpots(), p.terrain), p.eau);
   const tideFor = makeTideFor(dateISO, reconcileCoefs(dateISO, d?.coef_shom).override);
   const now = offset === 0 ? Math.floor(nowMs / 6e4) * 6e4 : null;
-  const scored = scoreDay(dateISO, d, { calib, hours: p.hours, tideFor, orient: p.orient, spots, now });
+  // Phase 7 : même classement que le guide (moteur choisi sur l'appareil, v2 par défaut).
+  const engine = engineMode();
+  const scored = rankDay(dateISO, d, { calib, hours: p.hours, tideFor, orient: p.orient, spots, now, engine, journal: journal.entries, dayOffset: offset, clock: nowMs, ...loadV2Prefs() });
   return {
-    key: __SITE_KEY__, siteId: SITE.id, dateISO, wxAt: d?._wxAt || null, stale, wxError, hasWx: !!d,
+    key: __SITE_KEY__, siteId: SITE.id, dateISO, wxAt: d?._wxAt || null, stale, wxError, hasWx: !!d, engine,
     spots: scored.map((s) => {
       const c = spotLatLon(s), w = (s.windows || []).find((x) => x.id === s.bestWindowId);
-      return { id: s.id, name: s.name, mine: !!s.custom, lat: c?.lat ?? null, lon: c?.lon ?? null, eligible: !!s.eligible, score: s.score, verify: (s.verify || []).map((v) => v.t),
+      return { id: s.id, name: s.name, mine: !!s.custom, lat: c?.lat ?? null, lon: c?.lon ?? null, eligible: !!s.eligible, score: s.score, verify: (s.verify || []).map((v) => v.t), engine: s.engine || engine, conf: s.v2?.conf?.level || null,
                best: w ? `${w.startFmt} → ${w.endFmt}` : null, reason: s.eligible ? (s.wxReason || "") : (s.reason || ""), danger: s.dangerLevel };
     }),
   };

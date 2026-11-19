@@ -673,7 +673,7 @@ export const SPOTS = [
     ],
     access:"D770 vers Le Faou puis D791 rive droite de l'Aulne direction Landévennec, fléchage Térénez. Parking en bord de grève. Traversée à pied à marée basse (vérifier le coef !). Retour obligatoire avant le flot.",
     // Sécurité : consignes affichées dans le verdict et l'onglet Accès (« when » = active selon le jour).
-    securite:[{ t:"Coefficient supérieur à 85 : l'île n'est plus accessible en permanence, on peut y rester bloqué à marée haute. Prendre la montre.", s:"peche-poissons.com (julien, 2022) : « accessible à marée basse et en permanence si le coefficient de marée est inférieur à 85 »", when: { coefAbove:85}},
+    securite:[{ t:"Coefficient supérieur à 85 : l'île n'est plus accessible en permanence, on peut y rester bloqué à marée haute. Prendre la montre.", s:"peche-poissons.com (julien, 2022) : « accessible à marée basse et en permanence si le coefficient de marée est inférieur à 85 »", when: { coefAbove:85}, isolement:true },
       { t:"Traversée à pied à marée basse : retour obligatoire avant le flot.", s:"fiche du spot (accès)"}],
   },
 

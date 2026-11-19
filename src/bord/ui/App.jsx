@@ -6,7 +6,9 @@ import { solarTimes } from "../../core/core.js";
 import { calibrate, loadJournal, saveJournal, sessionConditions, sessionHour } from "../engine/journal.js";
 import { lureAdvice } from "../engine/lures.js";
 import { BOX_KEY } from "../engine/tackle.js";
-import { bestDaytime, countGood, DEFAULT_HOURS, keyFactors, loadOrient, pressureStrategy, pressureZone, saveOrient, scoreDay, selectTop3, terrainOf, thermalPresence, tieGroup, withEauObs } from "../engine/model.js";
+import { bestDaytime, countGood, DEFAULT_HOURS, keyFactors, loadOrient, pressureStrategy, pressureZone, saveOrient, selectTop3, terrainOf, thermalPresence, tieGroup, withEauObs } from "../engine/model.js";
+import { loadV2Prefs, rankDay } from "../engine/v2.js";
+import { engineMode } from "../../core/scale.js";
 import { regulationFor, regZonesOf, securityFor } from "../../core/rules.js";
 import { safetyOf } from "../engine/safety.js";
 import { confidenceOf } from "../engine/confidence.js";
@@ -115,6 +117,11 @@ export default function FishingGuide() {
   // Ta boîte corrigée dans l'application (poids pesés, balsa, bavettes) : commune à tous les guides.
   const [boxOv, setBoxOvState] = useState(() => lsGet(BOX_KEY) || {});
   const setBoxOv = useCallback((v) => { lsSet(BOX_KEY, v); setBoxOvState(v); }, []);
+  // Phase 7 — Moteur de notes (v2 par défaut, v1 possible tant que la v2 n'est pas validée), boîte complète ou non
+  // (la pertinence ne filtre le classement que si ta boîte est l'inventaire complet), temps de trajet maximal.
+  // Réglés dans Réglages → Moteur de notes (src/app/EnginePanel.jsx), appliqués au rechargement.
+  const engine = useMemo(() => engineMode(), []);
+  const v2prefs = useMemo(() => loadV2Prefs(), []);
   // Les fiches telles que tu les as corrigées : de nouveaux objets, les fiches d'origine ne changent jamais.
   const spotsView = useMemo(() => withEauObs(withTerrainOverrides(allSpots(), terrainOverrides), eauObs), [terrainOverrides, eauObs, myBuilt]);   // eslint-disable-line react-hooks/exhaustive-deps
   // Analyse photo : elle vit hors de l'onglet ; l'en-tête la signale depuis les autres onglets.
@@ -228,7 +235,13 @@ export default function FishingGuide() {
   // ── Classement : chaque spot noté sur la météo de ses coordonnées et sa meilleure fenêtre ──
   // Aujourd'hui : l'heure courante, arrondie à la minute, écarte les créneaux déjà finis.
   const nowForDay = selectedDate === todayISO ? Math.floor(nowMs / 6e4) * 6e4 : null;
-  const allScored = useMemo(() => scoreDay(selectedDate, d, { calib, hours, tideFor, orient, spots: spotsView, now: nowForDay }), [selectedDate, d, calib, hours, tideFor, orient, spotsView, nowForDay]);
+  // Phase 7 : rankDay calcule les deux moteurs sur la même journée et classe selon le moteur choisi.
+  // Âge de la prévision (confiance v2) : à 10 minutes près, pour ne pas tout recalculer chaque minute.
+  const clockMs = Math.floor(nowMs / 6e5) * 6e5;
+  const dayOffSel = Math.round((new Date(selectedDate + "T12:00") - new Date(todayISO + "T12:00")) / 86400000);
+  const v2opts = useMemo(() => ({ engine, journal, boxOv, boxComplete: v2prefs.boxComplete, trajetMax: v2prefs.trajetMax }), [engine, journal, boxOv, v2prefs]);
+  const allScored = useMemo(() => rankDay(selectedDate, d, { calib, hours, tideFor, orient, spots: spotsView, now: nowForDay, dayOffset: dayOffSel, clock: clockMs, ...v2opts }),
+    [selectedDate, d, calib, hours, tideFor, orient, spotsView, nowForDay, dayOffSel, clockMs, v2opts]);
   const top3 = useMemo(() => selectTop3(allScored), [allScored]);
   const localForced = useMemo(() => {
     const pure3ids = allScored.filter((s) => s.eligible).slice(0, 3).map((s) => s.id);
@@ -250,7 +263,9 @@ export default function FishingGuide() {
       const sc = allScored.find((s) => s.id === e.spotId);
       backfilled.current.add(e.id);
       let out = e;
-      if (e.predicted == null && sc?.score != null) out = { ...out, predicted: parseFloat(sc.score.toFixed(2)), backfilled: true };
+      // La note prédite du journal reste la note sur 10 de la v1 (calibrate) : avec la v2, elle est gardée à côté (s.v1).
+      const pred = sc?.v1 ? sc.v1.score : sc?.score;
+      if (e.predicted == null && pred != null && sc?.eligible) out = { ...out, predicted: parseFloat(pred.toFixed(2)), backfilled: true };
       const sp = spotsView.find((s) => s.id === e.spotId);
       if (needCond(e) && sp) { const c = sessionConditions(selectedDate, d, sp, sessionHour(e, selectedDate), tideFor); if (c) out = { ...out, cond: c, condEstimee: !e.heure }; }
       return out;
@@ -305,12 +320,13 @@ export default function FishingGuide() {
   }, [loading, d, week.days, week.loading]);   // eslint-disable-line react-hooks/exhaustive-deps
   const weekRows = useMemo(() => (week.days ? week.days.map(({ date, live: lv, error: err }) => {
     if (!lv) return { date, err: err || "Météo indisponible" };
-    const all = scoreDay(date, lv, { calib, hours, orient, spots: spotsView, now: date === todayISO ? nowForDay : null });
+    const off = Math.round((new Date(date + "T12:00") - new Date(todayISO + "T12:00")) / 86400000);
+    const all = rankDay(date, lv, { calib, hours, orient, spots: spotsView, now: date === todayISO ? nowForDay : null, dayOffset: off, clock: clockMs, ...v2opts });
     const best = selectTop3(all).find((s) => s.eligible);
     return { date, s: best || null, w: best ? (best.windows || []).find((x) => x.id === best.bestWindowId) : null, tied: best ? tieGroup(all) : [],
-             nGood: countGood(all), nSpots: all.length, factors: best ? keyFactors(best.bestParts) : null,
+             nGood: countGood(all), nSpots: all.length, factors: best ? keyFactors(best.v2?.f && best.engine === "v2" ? best.v2.f : best.bestParts) : null,
              noKill: regulationFor(date, (best && spotLatLon(best)?.lat) ?? SITE.lat).noKill };
-  }) : null), [week.days, calib, hours, orient, spotsView, todayISO, nowForDay]);
+  }) : null), [week.days, calib, hours, orient, spotsView, todayISO, nowForDay, clockMs, v2opts]);
 
   // ── Navigation vers un spot ──
   const goToSpot = useCallback((id) => { setSpotId(id); goTab("spots"); setFocus((x) => x + 1); }, [goTab]);
@@ -377,6 +393,7 @@ export default function FishingGuide() {
     journal, setJournal, jStatus, setJStatus, jReason, jError, setJError, calib, preset,
     session, startSession, endSession, addFish, terrainOverrides, setTerrainOverride, nowMs: nowForDay,
     lureCtx, eauObs, setEauObs, boxOv, setBoxOv, spotsView, myRecords, saveMySpot, deleteMySpot,
+    engine, v2prefs,
   };
 
   // Très petit écran (< 350 px) : jour de la semaine abrégé, pour que la date tienne sur une ligne.

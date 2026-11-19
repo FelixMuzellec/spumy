@@ -17,3 +17,5 @@ export * from "./bateau/offshore.js";
 export * from "./bord/engine/safety.js";
 export * from "./bord/engine/confidence.js";
 export * from "./bord/engine/factors.js";
+export * from "./bord/engine/v2.js";
+export { engineMode, setEngineMode, scaleOf, fmtScore, SCALES, ENGINE_KEY } from "./core/scale.js";

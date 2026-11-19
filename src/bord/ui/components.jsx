@@ -4,8 +4,10 @@ import { ENCOMBREMENT, GRATTER, terrainOf } from "../engine/model.js";
 import { msAtLocal, parisParts } from "../../core/tide.js";
 import { beaufortOf, idxAt } from "../engine/weather.js";
 import { BOITE, CATALOGUE as BASE_CATALOGUE } from "../engine/tackle.js";
-import { C, num, scoreColor } from "../../design/kit.jsx";
+import { C, num } from "../../design/kit.jsx";
 import { Pill } from "../../design/components.jsx";
+import { fmtScore } from "../../core/scale.js";
+import { noteFill, noteText } from "./note.jsx";
 
 export function ConfidenceBadge({ level }) {
   const cfg = {
@@ -15,6 +17,13 @@ export function ConfidenceBadge({ level }) {
   };
   const c = cfg[level] || cfg.inference;
   return <Pill color={c.color} title={c.title}>{c.label}</Pill>;
+}
+// Phase 7 — Niveau de preuve d'une rubrique (phase 5, data/knowledge/preuves-spots.json) : 1 scientifique ou
+// institutionnel, 2 observation documentée, 3 retour local identifiable, 4 hypothèse, 5 heuristique.
+const NIVEAU_MOT = { 1: "scientifique ou institutionnel", 2: "observation documentée", 3: "retour local identifiable", 4: "hypothèse", 5: "heuristique" };
+export function EvidenceBadge({ niveau }) {
+  if (!Number.isInteger(niveau)) return null;
+  return <Pill color={niveau <= 2 ? C.accent : niveau === 3 ? C.violet : C.muted} title={`Niveau de preuve ${niveau} sur l'échelle de 1 (le plus sûr) à 5`}>Preuve {niveau} · {NIVEAU_MOT[niveau]}</Pill>;
 }
 export function TideChart({ tideData, windows, nowDec }) {
   // v8.9 : viewBox à l'échelle d'un écran de téléphone (340) : les chiffres s'affichent à leur taille réelle.
@@ -81,7 +90,10 @@ export function DayStrip({ spot, date, live, tide, sun, hours, nowDec }) {
   }
   const wins = (spot.windows || []).filter((w) => Number.isFinite(w.startDecimal) && Math.abs(w.offsetBefore) < 50);
   const restricted = hours && (hours.from > 0 || hours.to < 24);
-  const col = (w) => (!w.eligible ? "#64748b" : w.score >= 7 ? "#22c55e" : w.score >= 5 ? "#f59e0b" : "#94a3b8");
+  // Phase 7 : couleur du créneau dans l'échelle du moteur du spot (v1 : vert, orange, gris ; v2 : bleu de son palier).
+  const v2 = spot.engine === "v2";
+  const col = (w) => (v2 ? noteFill({ ...w, engine: "v2" }) : !w.eligible ? "#64748b" : w.score >= 7 ? "#22c55e" : w.score >= 5 ? "#f59e0b" : "#94a3b8");
+  const tcol = (w) => (v2 ? C.strong : col(w));
   const fCol = (f) => (f >= 6 ? "#f87171" : f >= 4 ? "#f59e0b" : "#7dd3fc");
   return (
     <svg width="100%" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Journée sur ${spot.name} : lumière, marée, créneaux et vent`} style={{display:"block"}}>
@@ -98,7 +110,7 @@ export function DayStrip({ spot, date, live, tide, sun, hours, nowDec }) {
           <g key={i} opacity={w.outOfHours ? 0.35 : 1}>
             <rect x={x1} y={yTide} width={x2 - x1} height={hTide} fill={col(w)} opacity="0.16" />
             <rect x={x1} y={yTide} width={x2 - x1} height="3" fill={col(w)} />
-            {w.eligible && x2 - x1 > 24 && <text x={(x1 + x2) / 2} y={yTide + 17} textAnchor="middle" fontSize="14" fontWeight="800" fill={col(w)} fontFamily="system-ui,sans-serif">{w.score.toFixed(1).replace(".", ",")}</text>}
+            {w.eligible && w.score != null && x2 - x1 > 24 && <text x={(x1 + x2) / 2} y={yTide + 17} textAnchor="middle" fontSize="14" fontWeight="800" fill={tcol(w)} fontFamily="system-ui,sans-serif">{fmtScore(w.score, v2 ? "v2" : "v1")}{v2 && w.verify?.length ? "?" : ""}</text>}
           </g>
         );
       })}
@@ -175,7 +187,9 @@ export function JournalForm({ spots, date, onAdd, onExport, onImport, hasEntries
     if (preset.fish != null) setFish(preset.fish);
   },[preset?.nonce]);   // eslint-disable-line react-hooks/exhaustive-deps
   const [saved, setSaved] = useState(false);
-  const predicted = spots.find(s=>s.id===spotId)?.score ?? null;
+  // La note prédite gardée dans le journal reste la note sur 10 de la v1 (recalibrage) : avec la v2, elle est à côté (s.v1).
+  const sp0 = spots.find(s=>s.id===spotId);
+  const predicted = sp0?.eligible ? ((sp0.v1 ? sp0.v1.score : sp0.score) ?? null) : null;
   const submit = async () => {
     const h = parseFloat(String(duree).replace(",","."));
     const ch = choices.find((c)=>c.key===lureKey);
@@ -257,7 +271,7 @@ const PHASE = { descendant:"↘ descendant", montant:"↗ montant", renversement
 /** Durée restante lisible : « 1 h 20 », « 45 min ». */
 export const fmtLeft = (h) => { const m = Math.max(0, Math.round((h || 0) * 60)); return m >= 60 ? `${Math.floor(m / 60)} h ${String(m % 60).padStart(2, "0")}` : `${m} min`; };
 /** Un créneau de marée noté. */
-export function WindowRow({ w, lure }) {
+export function WindowRow({ w, lure, engine = "v1" }) {
   const [open, setOpen] = useState(false);
   const prime = w.priority === "prime";
   return (
@@ -267,8 +281,8 @@ export function WindowRow({ w, lure }) {
       <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",gap:10}}>
         <span style={{fontSize:17,fontWeight:800,color:w.past ? C.muted : C.strong,...num,textDecoration:w.past ? "line-through" : "none"}}>{w.startFmt} → {w.endFmt}</span>
         {w.eligible && w.score!=null
-          ? <span title="Note de ce créneau : marée, lumière, vent et pression ensemble" style={{fontSize:18,fontWeight:800,color:scoreColor(w.score, true, w.verify?.length),...num}}>{w.score.toFixed(1).replace(".", ",")}</span>
-          : <span style={{fontSize:13,color:C.faint}}>non praticable</span>}
+          ? <span title={engine === "v2" ? "Favorabilité de ce créneau sur 100 : marée, lumière, vent et mer, présence du bar" : "Note de ce créneau : marée, lumière, vent et pression ensemble"} style={{fontSize:18,fontWeight:800,color:noteText({ ...w, eligible: true, engine }),...num}}>{fmtScore(w.score, engine)}{engine === "v2" && w.verify?.length ? "?" : ""}</span>
+          : w.eligible ? <span style={{fontSize:13,color:C.faint}}>pas de note</span> : <span style={{fontSize:13,color:C.faint}}>non praticable</span>}
       </div>
       <div style={{fontSize:14,color:C.text,marginTop:3}}>{w.label}{w.clipped ? <span style={{color:C.muted}}> · dans tes heures (créneau de marée {w.tideStartFmt} → {w.tideEndFmt})</span> : null}</div>
       <div style={{display:"flex",gap:6,flexWrap:"wrap",marginTop:6}}>
@@ -322,14 +336,14 @@ function correctionTrace(c) {
     .filter(([ks]) => ks.length).map(([ks, label]) => `(${ks.map((k) => FIELD_NAME[k] || k).join(", ")}), ${label}`);
   return `Corrigé le ${new Date(latest).toLocaleDateString("fr-FR", { timeZone: "Europe/Paris" })} ${groups.join(" ; ")}.`;
 }
-export function TerrainBlock({ spot, compact = false }) {
+export function TerrainBlock({ spot, compact = false, niveau = null }) {
   const t = terrainOf(spot);
   const g = GRATTER[t.gratter] || GRATTER.texan;
   return (
     <div style={{padding:"12px 13px",background:C.card2,border:`1px solid ${g.color}55`,borderRadius:12}}>
       <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6,flexWrap:"wrap",gap:6}}>
         <span style={{fontSize:15,fontWeight:700,color:C.strong}}>Terrain · encombrement {t.encombrement}/3</span>
-        <ConfidenceBadge level={t.confidence} />
+        {Number.isInteger(niveau) ? <EvidenceBadge niveau={niveau}/> : <ConfidenceBadge level={t.confidence} />}
       </div>
       <div style={{fontSize:14,color:g.color,fontWeight:700,marginBottom:6}}>{g.label}</div>
       {t.corrige && <div style={{fontSize:13,color:C.good,marginBottom:6}}>{correctionTrace(t.corrige)}</div>}
@@ -355,13 +369,13 @@ export function TerrainBlock({ spot, compact = false }) {
     </div>
   );
 }
-export function TopoBlock({ title, data }) {
+export function TopoBlock({ title, data, niveau = null }) {
   if (!data?.text) return null;
   return (
     <div style={{padding:"12px 13px",background:C.card2,border:`1px solid ${C.line}`,borderRadius:12}}>
       <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:5,flexWrap:"wrap",gap:6}}>
         <span style={{fontSize:14,fontWeight:700,color:C.strong}}>{title}</span>
-        <ConfidenceBadge level={data.confidence} />
+        {Number.isInteger(niveau) ? <EvidenceBadge niveau={niveau}/> : <ConfidenceBadge level={data.confidence} />}
       </div>
       <p style={{margin:0,fontSize:14,color:C.text,lineHeight:1.6}}>{data.text}</p>
     </div>

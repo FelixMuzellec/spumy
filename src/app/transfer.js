@@ -1,8 +1,8 @@
-// Transfert de toutes les données de cet appareil vers une autre adresse ou un autre téléphone.
+// Transfert de toutes les données de cet appareil vers un autre téléphone.
 //
-// Le navigateur range le stockage par adresse : ce qui est enregistré à une adresse (journal, tes spots, ta boîte,
-// réglages, analyses photo) n'est pas visible à une autre. Ce fichier fait passer ces données d'une adresse à
-// l'autre, une fois (passage à spumy.github.io, 13 nov. 2026) ou à chaque changement de téléphone.
+// Le navigateur range le stockage par téléphone (et par origine) : ce qui est enregistré sur un téléphone (journal,
+// tes spots, ta boîte, réglages, analyses photo) n'est pas visible sur un autre. Ce fichier fait passer ces données
+// de l'un à l'autre, à chaque changement de téléphone.
 //
 // Ne voyagent jamais dans le fichier : le jeton GitHub, la clé API Claude, l'état de la sauvegarde, la météo en cache.
 // À l'import, rien n'est écrasé : les sessions du journal, tes spots, tes sorties en bateau et tes analyses photo

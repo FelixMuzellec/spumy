@@ -44,6 +44,9 @@ export function zoneWeather(live, spot) {
     houle: parseFloat(live?.houle) || 0,
     // v8.9 : sans météo (ou sans modèle de vagues), la houle est inconnue — pas 0 m.
     houleKnown: live?.houle != null && Number.isFinite(parseFloat(live.houle)),
+    // Phase 7 : rafales et vent moyen en km/h quand la météo du jour les donne (sinon inconnues, donc « à vérifier »).
+    ...(Number.isFinite(parseFloat(live?.gust_kmh)) ? { gust_kmh: Math.round(parseFloat(live.gust_kmh)) } : {}),
+    ...(Number.isFinite(parseFloat(live?.wind_kmh)) ? { wind_kmh: Math.round(parseFloat(live.wind_kmh)) } : {}),
     fromZone: false,
   };
   const z = live?.zones?.[spotZone(spot)];
@@ -285,7 +288,10 @@ export function pressureTrendOf(delta) {
  * zones, pression, tendance, SST, résumé) enrichie des séries horaires.
  */
 /** Réseau : séries horaires fusionnées pour tous les points, sur [startISO, endISO]. */
-export async function fetchRaw(startISO, endISO, refISO) {
+// marineArchive (phase 8, épreuve du moteur) : demander aussi la houle et l'eau des dates anciennes. Le modèle de
+// vagues de Météo-France (MFWAM) est archivé depuis octobre 2021, la température de surface depuis janvier 2022
+// (documentation Open-Meteo Marine) ; l'application, elle, ne le fait pas (date ancienne : facteurs neutralisés).
+export async function fetchRaw(startISO, endISO, refISO, { marineArchive = false } = {}) {
   const pts = wxPoints();
   const lat = pts.map((p) => p.lat), lon = pts.map((p) => p.lon);
   const todayISO = localTodayISO();
@@ -326,7 +332,7 @@ export async function fetchRaw(startISO, endISO, refISO) {
 
   // 2. Mer : houle et température de surface (non bloquant).
   let marine = null; const marineFail = [];
-  if (ageDays <= 80 && marineEnd >= startISO) {
+  if ((ageDays <= 80 || marineArchive) && marineEnd >= startISO) {
     for (const vars of [WX.marineFull, WX.marineMin]) {
       try { marine = await omFetch(omUrl(WX.marine, { latitude: lat, longitude: lon, start_date: startISO, end_date: marineEnd, timeformat: "unixtime", hourly: vars })); break; }
       catch (e) { if (e.isRateLimit) throw e; marineFail.push(e.message); }

@@ -63,7 +63,8 @@ function summarize(rows, title) {
   const nowx = rows.filter((r) => r.nowx), all = rows; rows = rows.filter((r) => !r.nowx);
   const n = all.length;
   const danger = rows.filter((r) => r.f >= 8 || r.gust >= 90);
-  const doubt = rows.filter((r) => !(r.f >= 8 || r.gust >= 90) && (r.f === 7 || r.gust === 75 || r.gust == null || (r.h == null && r.sea !== "rade")));
+  // Phase 7 : seuils de doute choisis par Félix (force 6, rafales de 60 km/h).
+  const doubt = rows.filter((r) => !(r.f >= 8 || r.gust >= 90) && (r.f === 6 || r.f === 7 || r.gust === 60 || r.gust === 75 || r.gust == null || (r.h == null && r.sea !== "rade")));
   const calm = rows.filter((r) => r.f <= 4 && r.gust === 45 && r.h === 0.5);
   const pct = (a, b) => (b ? `${((100 * a) / b).toFixed(1)} %` : "–");
   const line = (label, set) => {
@@ -72,7 +73,7 @@ function summarize(rows, title) {
   };
   console.log(`\n${title} : ${n} cas (${new Set(rows.map((r) => r.g + "/" + r.id)).size} spots)`);
   line("Danger annoncé (vent moyen ≥ force 8 ou rafales ≥ 90 km/h)", danger);
-  line("Doute (force 7, rafales ≥ 75 km/h ou inconnues, houle inconnue en côte ouverte)", doubt);
+  line("Doute (force 6 ou 7, rafales 60 à 89 km/h ou inconnues, houle inconnue en côte ouverte)", doubt);
   line("Calme et connu (force ≤ 4, rafales 45 km/h, houle 0,5 m)", calm);
   line("Sans aucune météo (Open-Meteo injoignable, rien en cache)", nowx);
   line("  dont spots de rade", nowx.filter((r) => r.sea === "rade"));
@@ -98,12 +99,12 @@ function compare(a, b) {
   }
   console.log(`\nIdentiques : ${same} / ${A.length}`);
   for (const [k, v] of Object.entries(cls).sort((p, q) => q[1] - p[1])) console.log(`  ${String(v).padStart(6)}  ${k}`);
-  const calmChanged = A.filter((x, i) => !x.nowx && x.f <= 4 && x.gust != null && x.gust < 75 && x.h != null && (x.el !== B[i].el || x.sc !== B[i].sc || x.ver !== B[i].ver)).length;
-  console.log(`Changements par temps calme, rafales et houle connues (force ≤ 4, rafales < 75 km/h) : ${calmChanged}`);
-  const sureIdx = A.map((x, i) => (!x.nowx && !(x.f >= 7) && x.gust != null && x.gust < 75 && (x.h != null || x.sea === "rade") ? i : -1)).filter((i) => i >= 0);
+  const calmChanged = A.filter((x, i) => !x.nowx && x.f <= 4 && x.gust != null && x.gust < 60 && x.h != null && (x.el !== B[i].el || x.sc !== B[i].sc || x.ver !== B[i].ver)).length;
+  console.log(`Changements par temps calme, rafales et houle connues (force ≤ 4, rafales < 60 km/h) : ${calmChanged}`);
+  const sureIdx = A.map((x, i) => (!x.nowx && !(x.f >= 6) && x.gust != null && x.gust < 60 && (x.h != null || x.sea === "rade") ? i : -1)).filter((i) => i >= 0);
   const sure = sureIdx.map((i) => A[i]);
   const sureSame = sureIdx.filter((i) => A[i].el === B[i].el && A[i].sc === B[i].sc && A[i].ver === B[i].ver && A[i].safe === B[i].safe).length;
-  console.log(`Cas sans aucun doute (force ≤ 6, rafales connues < 75 km/h, houle connue ou rade) : ${sureSame} identiques sur ${sure.length}`);
+  console.log(`Cas sans aucun doute de vent (force ≤ 5, rafales connues < 60 km/h, houle connue ou rade) : ${sureSame} identiques sur ${sure.length}`);
 }
 
 const args = process.argv.slice(2);

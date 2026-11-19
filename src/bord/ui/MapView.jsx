@@ -5,7 +5,9 @@ import { useEffect, useRef, useState } from "react";
 import L from "leaflet";
 import { SITE } from "SITE_CONFIG";
 import { spotLatLon } from "../engine/weather.js";
-import { scoreColor } from "../../design/kit.jsx";
+import { pastilleSvg } from "../../design/components.jsx";
+import { color, pastille } from "../../design/tokens.js";
+import { fmtNote, isV2, noteFill, noteState } from "./note.jsx";
 
 export function MapView({ spots, activeId, onPick }) {
   const box = useRef(null), map = useRef(null), marks = useRef(new Map()), pick = useRef(onPick);
@@ -58,13 +60,13 @@ export function MapView({ spots, activeId, onPick }) {
     const pts = [];
     // v8.11 : un spot supprimé (tes spots) disparaît de la carte ; un spot déplacé suit sa nouvelle position.
     const ids = new Set(spots.map((s) => s.id));
-    for (const [id, x] of marks.current) if (!ids.has(id)) { try { x.remove(); x._hit?.remove(); } catch { /* déjà retiré */ } marks.current.delete(id); }
+    for (const [id, x] of marks.current) if (!ids.has(id)) { try { x.remove(); x._hit?.remove(); x._glyph?.remove(); } catch { /* déjà retiré */ } marks.current.delete(id); }
     spots.forEach((s, rank) => {
       const c = spotLatLon(s);
       if (!c) return;
       pts.push([c.lat, c.lon]);
-      const col = scoreColor(s.score, s.eligible, s.verify?.length), on = s.id === activeId;
-      const label = `${s.name} · ${s.eligible ? s.score.toFixed(1).replace(".", ",") : "–"}`;
+      const col = noteFill(s), on = s.id === activeId, v2 = isV2(s), st = noteState(s);
+      const label = `${s.name} · ${fmtNote(s)}${v2 && st.kind === "verify" ? " · à vérifier" : v2 && st.kind === "nr" ? " · non recommandé" : v2 && st.kind === "none" ? " · pas de note" : ""}`;
       let mk = marks.current.get(s.id);
       if (!mk) {
         // v8.9 : disque de 12 px de rayon, et une zone de toucher invisible de 24 px autour (gants, doigts mouillés).
@@ -86,7 +88,19 @@ export function MapView({ spots, activeId, onPick }) {
         const p0 = mk.getLatLng();
         if (Math.abs(p0.lat - c.lat) > 1e-7 || Math.abs(p0.lng - c.lon) > 1e-7) { mk.setLatLng([c.lat, c.lon]); mk._hit?.setLatLng([c.lat, c.lon]); }
       }
-      mk.setStyle({ color: on ? "#f8fafc" : "#020617", fillColor: col, fillOpacity: s.eligible ? 0.95 : 0.5, weight: on ? 3 : 2 });
+      // Phase 7 — moteur v2 : remplissage = palier de favorabilité ; à vérifier : contour pointillé orange et « ? » ;
+      // non recommandé : gris barré ; pas de note : disque vide.
+      if (v2) mk.setStyle({ color: on ? color.strong : st.kind === "verify" ? pastille.verify : st.kind === "none" ? pastille.none : pastille.ring, fillColor: col,
+                            fillOpacity: st.kind === "none" ? 0 : st.kind === "nr" ? 0.6 : 0.95, weight: on || st.kind === "verify" ? 3 : 2, dashArray: st.kind === "verify" || st.kind === "none" ? "4 3" : null });
+      else mk.setStyle({ color: on ? "#f8fafc" : "#020617", fillColor: col, fillOpacity: s.eligible ? 0.95 : 0.5, weight: on ? 3 : 2 });
+      // Le signe de l'état (« ? », barre) posé sur le disque, sans capter l'appui.
+      const glyph = v2 && (st.kind === "verify" || st.kind === "nr") ? st.kind : null;
+      if (glyph !== mk._glyphKind) {
+        if (mk._glyph) { try { mk._glyph.remove(); } catch { /* déjà retiré */ } mk._glyph = null; }
+        if (glyph) mk._glyph = L.marker([c.lat, c.lon], { interactive: false, keyboard: false,
+          icon: L.divIcon({ className: `spot-glyph spot-glyph-${glyph}`, html: pastilleSvg(glyph, st.band, 24), iconSize: [24, 24], iconAnchor: [12, 12] }) }).addTo(m);
+        mk._glyphKind = glyph;
+      } else if (mk._glyph) mk._glyph.setLatLng([c.lat, c.lon]);
       // Étiquette permanente pour le TOP 3 et le spot affiché ; les autres au survol (11 spots se chevaucheraient).
       mk.unbindTooltip();
       mk.bindTooltip(label, { permanent: on || (rank < 3 && s.eligible), direction: "auto", offset: [0, 0], className: "spot-tip" });
@@ -100,7 +114,8 @@ export function MapView({ spots, activeId, onPick }) {
       {/* isolation : les calques de Leaflet (z-index jusqu'à 1000) restent sous la barre d'onglets collante. */}
       <div ref={box} role="region" aria-label="Carte des spots" style={{position:"relative",zIndex:0,isolation:"isolate",height:340,borderRadius:10,border:"1px solid #1e293b",overflow:"hidden",background:"#0b1626"}}/>
       <div style={{fontSize:13,color:"#94a3b8",marginTop:8,lineHeight:1.5}}>
-        Disque vert ≥ 7, orange ≥ 5, gris en dessous ou impraticable. Touche un spot pour ouvrir sa fiche.
+        {spots.some(isV2) ? "Bleu : favorabilité (du plus clair, 75 et plus, au plus sombre, moins de 45) · contour pointillé et « ? » : à vérifier · gris barré : non recommandé · disque vide : pas de note."
+          : "Disque vert ≥ 7, orange ≥ 5, gris en dessous ou impraticable."} Touche un spot pour ouvrir sa fiche.
         {tilesFailed && <span style={{color:"#fbbf24"}}> Fond de carte indisponible (hors ligne ?) : les spots restent placés.</span>}
       </div>
     </div>

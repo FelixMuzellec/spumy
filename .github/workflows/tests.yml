@@ -40,6 +40,10 @@ jobs:
         run: npm run -s test:layers
       - name: Fiches des sites (schéma, données pures, empreinte de chaque spot)
         run: npm run -s test:data
+      - name: Connaissances halieutiques (niveaux de preuve, sources, rubriques des spots)
+        run: npm run -s test:knowledge
+      - name: Moteur v2 (16 scénarios de la spécification, trois scores)
+        run: npm run -s test:v2
       - name: Tests unitaires (7 guides + fuseau Auckland)
         run: npm run -s test:unit
       - name: Parcours complets (Chromium)
