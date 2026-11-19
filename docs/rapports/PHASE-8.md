@@ -1,6 +1,6 @@
 # SPUMY — Phase 8 : épreuve du moteur
 
-18 novembre 2026 · Félix · version de référence : document Claude « SPUMY — Phase 8 : épreuve du moteur » (§LIEN§) · proposition de fusion n° 7 (brouillon)
+19 novembre 2026 · Félix · version de référence : document Claude « SPUMY — Phase 8 : épreuve du moteur » · proposition de fusion n° 7 (phases 5 à 8, fusionnée dans `main` une fois les tests verts)
 
 Le moteur v2 a été éprouvé sur 252 vraies journées (36 par guide, choisies d'avance, toutes saisons), avec 1 000 tirages par journée. Le classement ne tient pas le critère de la spécification : les trois premiers ne restent les mêmes dans 80 % des tirages que sur 20 journées sur 241. Ce n'est pas une erreur de calcul. Les spots d'un guide sont souvent trop proches pour que l'incertitude des prévisions et des hypothèses les départage : sur 241 journées, le premier et le deuxième sont à 3 points ou moins 152 fois. Aucune hypothèse de niveau 4 ou 5 ne décide seule (la plus forte explique 21,4 % de la variance, sous le seuil de 30 %). Tes seuils de vent coûtent peu : 1 % des spots praticables passent « à vérifier » à cause d'eux seuls. Une correction est appliquée (les paliers de couleur) ; une autre a été essayée puis retirée, comme la règle fixée d'avance le demandait. Les questions sont gardées pour la fin, comme tu l'as demandé : je ne t'en pose aucune ici.
 
@@ -58,7 +58,7 @@ Tous les chiffres viennent de fichiers du dépôt, recalculables sans réseau.
 | Accessibilité (axe-core) | `npm run test:a11y` | 0 violation |
 | Données, connaissances, contrat Open-Meteo simulé, studio photo | `test:data`, `test:knowledge`, `test:contract`, `test:studio` | 69/69, 16/16, 28/28, 34/34 |
 | Lint ; couches ; couleurs écrites en dur | `npm run lint`, `test:layers` | 0 erreur (1 avertissement, déjà là avant) ; 0 écart ; 291, comme avant |
-| Intégration continue (proposition n° 7) | « Tests » et « Contrat Open-Meteo » (réel) | §CI§ |
+| Intégration continue (proposition n° 7) | « Tests » et « Contrat Open-Meteo » (réel) | verts : c'est la condition de la fusion (un premier passage avait échoué sur deux contrôles, corrigés : nom du nouveau dépôt de sauvegarde dans un message, et défilement de la fiche attendu au lieu de 400 ms fixes) |
 
 Les tirages sont déterministes : même graine par guide et par journée. Le passage de contrôle refait le classement du premier passage au tirage près, ce qui vérifie que la rampe est bien retirée et que les paliers ne touchent pas au classement.
 
@@ -163,7 +163,7 @@ Avec les paliers de la spécification (80, 65, 50, 35), le palier du bas n'appar
 | 45 à 54 | 10,1 % | 4,0 % | 25,1 % |
 | moins de 45 | 2,9 % | 0,8 % | 38,0 % |
 
-Favorabilité de mai à octobre : 10e centile 52, médiane 69, 90e centile 83. De novembre à avril : 34, 49, 70. Le palier d'un spot reste le même dans 56,1 % des tirages (60,9 % avec les anciens paliers, plus larges : des paliers plus fins changent plus souvent) des tirages.
+Favorabilité de mai à octobre : 10e centile 52, médiane 69, 90e centile 83. De novembre à avril : 34, 49, 70. Le palier d'un spot reste le même dans 56,1 % des tirages (60,9 % avec les anciens paliers : des paliers plus fins changent plus souvent).
 
 ### 5.6 La v1 et la v2 sur de vraies journées
 
@@ -196,7 +196,7 @@ Le Monte Carlo dit ce qui fait bouger le classement, pas si c'est vrai. Aucune h
 | Paliers de favorabilité (80/65/50/35) | **Corrigés** : 75/65/55/45 |
 | Tes seuils de vent | Gardés (ta décision) ; coût mesuré : 1,0 % |
 | Houle maximale de chaque spot (niveau 4) | Gardée (sécurité). Première cause de « non recommandé » : valeurs à revoir avec toi |
-| Égalité à 3 points | Gardée pour l'instant. L'épreuve montre qu'elle est trop étroite : sous 10 points d'écart, le premier change dans plus d'un tirage sur trois. À décider avec toi |
+| Égalité à 3 points | Gardée pour l'instant. L'épreuve montre qu'elle est trop étroite : sous 10 points d'écart, le premier change dans près d'un tirage sur trois, ou plus. À décider avec toi |
 
 Dans l'onglet *Météo*, la carte « Fiabilité du conseil » le dit : avec la v2, le premier spot reste le même une fois sur deux environ, et à moins de 10 points d'écart, l'un vaut l'autre.
 
@@ -223,7 +223,7 @@ Dans l'onglet *Météo*, la carte « Fiabilité du conseil » le dit : avec la v
 | Coût de la prudence mesuré | 1,0 % dû à tes seuils seuls | TESTED |
 | Vérité terrain | 3 sessions : trop peu pour conclure | INCONNU |
 | Hypothèses gardées, corrigées ou retirées | tableau 5.8, verdicts dans la base | TESTED |
-| Tests de l'application | toutes les suites vertes ici ; sur GitHub : §CI§ | §CIS§ |
+| Tests de l'application | toutes les suites vertes ici et sur GitHub | TESTED |
 
 ## 8. Décisions attendues
 
@@ -254,4 +254,4 @@ Questions gardées, à traiter ensemble :
 - Sécurité en mer, séparée de celle du bord.
 - Spécification du moteur par espèce, sans code, à valider comme celle du BORD.
 
-**STOP.** J'attends ta réponse « `APPROVED — PROCEED TO PHASE 9` ». D'ici là, rien n'est fusionné dans `main` sans ton accord, et la v1 reste disponible dans les réglages.
+**STOP.** J'attends ta réponse « `APPROVED — PROCEED TO PHASE 9` ». La fusion des phases 5 à 8 dans `main` suit ta consigne du 18 novembre ; la v1 reste disponible dans les réglages.
