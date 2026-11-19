@@ -1,6 +1,6 @@
 # SPUMY — Phase 8 : épreuve du moteur
 
-19 novembre 2026 · Félix · version de référence : document Claude « SPUMY — Phase 8 : épreuve du moteur » · proposition de fusion n° 7 (phases 5 à 8, fusionnée dans `main` une fois les tests verts)
+19 novembre 2026 · Félix · version de référence : document Claude « SPUMY — Phase 8 : épreuve du moteur » (https://claude.ai/artifact/WcWRqYiDoNWaJWUtfmFKLY) · proposition de fusion n° 7 (phases 5 à 8, fusionnée dans `main` une fois les tests verts)
 
 Le moteur v2 a été éprouvé sur 252 vraies journées (36 par guide, choisies d'avance, toutes saisons), avec 1 000 tirages par journée. Le classement ne tient pas le critère de la spécification : les trois premiers ne restent les mêmes dans 80 % des tirages que sur 20 journées sur 241. Ce n'est pas une erreur de calcul. Les spots d'un guide sont souvent trop proches pour que l'incertitude des prévisions et des hypothèses les départage : sur 241 journées, le premier et le deuxième sont à 3 points ou moins 152 fois. Aucune hypothèse de niveau 4 ou 5 ne décide seule (la plus forte explique 21,4 % de la variance, sous le seuil de 30 %). Tes seuils de vent coûtent peu : 1 % des spots praticables passent « à vérifier » à cause d'eux seuls. Une correction est appliquée (les paliers de couleur) ; une autre a été essayée puis retirée, comme la règle fixée d'avance le demandait. Les questions sont gardées pour la fin, comme tu l'as demandé : je ne t'en pose aucune ici.
 
