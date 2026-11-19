@@ -133,8 +133,8 @@ const MATRICE = [
   ["Iconographie", "Conforme", "Pictogrammes au trait d'un seul jeu (Lucide + SPUMY), deux pictogrammes de mode distincts. Plus d'émojis."],
   ["Photographies", "Partiellement conforme", "Tes photos donnent l'ambiance, choisies selon la lumière, le ciel, la mer et le lieu. Écart voulu : jamais présentées comme la photo d'un spot ou d'une prise (images générées), donc pas de « photo du Minou » ni de vignette de prise dans le journal ; leurres dessinés, pas photographiés."],
   ["Carte", "Partiellement conforme", "Trait de côte OpenStreetMap, pastilles du moteur, carte flottante du spot. Écart : pas de fond bathymétrique coloré, faute de donnée de profondeur ; la carte ne montre que ce qui est mesuré."],
-  ["Interactions", "Conforme", "États prévus (chargement, hors ligne, obsolète, erreur, vide, permission refusée, succès, impossible), retour au toucher, mouvement réduit si l'appareil le demande."],
-  ["Application globale", "Conforme dans le prototype", "Même langage sur les 18 écrans BORD et BATEAU et l'accueil. Reste à l'appliquer au code de l'application (phases 12 et 13)."],
+  ["Interactions", "Conforme", "États prévus (chargement, hors ligne, obsolète, erreur, vide, permission refusée, succès, impossible), boutons et cartes qui s'enfoncent au toucher, focus visible, mouvement coupé si l'appareil le demande. Les animations de la référence ne sont pas vérifiables (image fixe)."],
+  ["Application globale", "Partiellement conforme", "Même langage sur l'accueil et les 17 écrans BORD et BATEAU du prototype. L'application publiée garde l'ancien design tant que le système n'y est pas appliqué (phases 12 et 13)."],
 ];
 
 export function ConformiteBoard({ Mini }) {

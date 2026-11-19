@@ -21,7 +21,7 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 8bis. Revue de qualité avant la phase 9 | Faite le 19 nov. 2026 ; fusionnée dans `main` (40ba84f, proposition n° 9) | `CHANGELOG.md` |
 | 9. BATEAU — conception | VALIDATED (19 nov. 2026, 18 h 14, « APPROVED — PROCEED TO PHASE 11 ») | Branche `claude/phase-9-bateau`, proposition de fusion n° 10 en brouillon (pas fusionnée sans accord) ; `docs/SPEC-MOTEUR-BATEAU.md`, `data/knowledge/bateau.json` ; rapport « SPUMY — Phase 9 : BATEAU, conception » https://claude.ai/artifact/UziTDraLFrMrgTDQYtmgjz (copie : `docs/rapports/PHASE-9.md`) |
 | 10. Moteur BATEAU par espèce | NOT STARTED (mise de côté « pour le moment » par Félix le 19 nov., 18 h 14) | — |
-| 11. Direction artistique et UX/UI | IN PROGRESS (depuis le 19 nov. 2026, 18 h 14) | Branche `claude/phase-11-design` (partie de `claude/phase-9-bateau`) |
+| 11. Direction artistique et UX/UI | TESTED (remise le 19 nov. 2026 ; en attente de « APPROVED — PROCEED TO PHASE 12 ») | Branche `claude/phase-11-design` (partie de `claude/phase-9-bateau`), proposition de fusion en brouillon (pas fusionnée sans accord) ; `docs/DIRECTION-ARTISTIQUE.md` ; prototype https://claude.ai/artifact/BBDcujdvLQxMft99DxqCuP (aussi dans `prototype/`) ; rapport `docs/rapports/PHASE-11.md` |
 | 12 à 17 | NOT STARTED | — |
 
 ### Phase 4, lots
@@ -55,6 +55,20 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 9.3 Sécurité en mer | TESTED | 12 règles `SEC_*` ; 14 connaissances (sécurité, données) ; une règle sans source n'est jamais « VÉRIFIÉ » (contrôlé) |
 | 9.4 Spécification | IMPLEMENTED | `docs/SPEC-MOTEUR-BATEAU.md` : circuit, profil, sécurité, trois scores par espèce, 16 scénarios, plan d'épreuve ; aucun fichier de `src/` ni de `scripts/` modifié |
 | 9.5 Rapport, arrêt | IMPLEMENTED | `docs/rapports/PHASE-9.md` ; `test:knowledge` 27/27, `test:v2` 56/56, unitaires 3 390, `test:data` 69/69, couches 0 écart, lint 0 problème |
+
+### Phase 11, lots
+
+| Lot | Statut | Preuve |
+| --- | --- | --- |
+| 11.0 Départ | IMPLEMENTED | Branche `claude/phase-11-design` partie de `claude/phase-9-bateau` ; maquette de référence et 39 photos retrouvées dans les pièces jointes |
+| 11.1 Analyse de la référence | IMPLEMENTED | `docs/DIRECTION-ARTISTIQUE.md` § 2 : couleurs mesurées sur les pixels, observable et interprété séparés, animations non vérifiables |
+| 11.2 Photos | TESTED | `data/photos/catalogue.json` (32 retenues, 6 écartées avec leur raison), `assets/photos/` (WebP 1600 et 720), `src/design/ds/ambiance.js` (choix déterministe, jamais une image reconnaissable sur un spot nommé) |
+| 11.3 Système de design | TESTED | `src/design/ds/` ; `test:design` 41/41 (contrastes WCAG, deux thèmes) |
+| 11.4 Données du prototype | IMPLEMENTED | `scripts/prototype-data.mjs` (journée réelle du 16 mai 2026, moteur v2), `scripts/carte-prototype.py` (OSM), `src/prototype/data/bateau.js` (exemple, réglementation 2026 réelle) |
+| 11.5 et 11.6 Écrans BORD (9) et BATEAU (8) | TESTED | `test:prototype` 244/244 : 23 écrans × 390 et 320 px × deux thèmes, interactions, pastilles jamais masquées, axe-core sans violation ; chaque écran relu en capture |
+| 11.7 Planches | TESTED | États, Système, BORD/BATEAU, Avant/après (`scripts/avant-prototype.mjs`, v9.2), Conformité (§ 20) |
+| 11.8 Couches et non-régression | TESTED | `test:layers` : couche `prototype` (design et data seulement), 0 écart, couleurs en dur 291 (inchangé) ; lint 0 ; `test:data` 69/69, `test:knowledge` 27/27, `test:v2` 56/56, unitaires 3 390 ; application publiée inchangée |
+| 11.9 Rapport, arrêt | IMPLEMENTED | `docs/rapports/PHASE-11.md` |
 
 ### Phase 8, lots
 
@@ -222,7 +236,13 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 23. Raz : liste des zones « raz » et source des heures de renverse (atlas de courants du SHOM, ou marques de Félix).
 24. BMS : source lisible par l'application, ou rester à l'écran.
 25. Fusion de la phase 9 dans `main` : proposition n° 10 en brouillon, pas fusionnée sans accord.
+26. Direction artistique de la phase 11 (prototype) : la valider telle quelle, ou dire ce qui ne va pas (thème Nuit marine par défaut, Plein soleil, Roboto Condensed, pastilles bleues, photos d'ambiance).
+27. Logo : garder le dessin actuel (bar et écume), ou le redessiner dans la nouvelle direction ?
+28. Photos générées (Gemini) : origine et droits pour une application publiée ; garder la marque « Illustration » partout ?
+29. Application du système à l'application réelle : en phase 13 élargie (décision ouverte n° 5), ou le BORD plus tôt ?
+30. Écarts voulus à la référence : pastilles bleues, pas de photo de spot ni de prise, leurres dessinés sans étoiles, pas de bathymétrie, texte secondaire éclairci. Les accepter ?
+31. Fusion de la phase 11 dans `main` (le prototype serait alors à https://felixmuzellec.github.io/spumy/prototype/ une fois Pages activé) : pas fusionnée sans accord.
 
 ## Prochaine action
 
-**STOP** : phase 9 remise (rapport `docs/rapports/PHASE-9.md`). Attendre « APPROVED — PROCEED TO PHASE 10 ». Phase 10 proposée : moteur BATEAU par espèce (code de la spécification, `src/bateau/engine/`, visibilité, orage et courant dans `wx.js`, profil du bateau, les 16 scénarios en tests, coût de la prudence sur des journées archivées). Les questions 1 à 25 restent à traiter ensemble quand Félix le voudra. Site hors ligne tant que GitHub Pages n'est pas activé par Félix.
+**STOP** : phase 11 remise (rapport `docs/rapports/PHASE-11.md`, prototype https://claude.ai/artifact/BBDcujdvLQxMft99DxqCuP). Attendre « APPROVED — PROCEED TO PHASE 12 ». Phase 12 proposée : spécifications fonctionnelles et techniques (écrans, composants, états, actions, données, règles métier, API, comportements, critères d'acceptation) à partir du prototype. La phase 10 (moteur BATEAU) reste mise de côté. Les questions 1 à 31 restent à traiter ensemble quand Félix le voudra. Site hors ligne tant que GitHub Pages n'est pas activé par Félix.

@@ -80,6 +80,16 @@ src/                  les sources (lot 3.4 : une couche par dossier, règles vé
     components.jsx        jauge de note, pastille, chargement, style de bouton
     icons.jsx             pictogrammes
     theme.js              affichage « plein soleil » (Réglages), commun aux guides et à l'accueil
+    ds/                   phase 11 : le système de design de la direction artistique (docs/DIRECTION-ARTISTIQUE.md),
+                          utilisé par le prototype ; l'application ne l'emploie pas encore (phase 13)
+      tokens.css            jetons des thèmes Nuit marine et Plein soleil, polices Roboto Condensed et Roboto auto-hébergées
+      components.css, ui.jsx  22 composants (préfixe s-) : boutons, cartes, anneaux de score, pastilles, barre du bas…
+      lucide.js, glyphs.js  96 icônes Lucide (licence ISC) et 8 pictogrammes SPUMY (modes BORD et BATEAU, marée…)
+      ambiance.js           choix déterministe de la photo d'ambiance (lumière, ciel, mer, lieu ; règles d'honnêteté)
+      illustrations.js      couleurs des dessins (robes des leurres, fond de carte)
+  prototype/            phase 11 : la maquette interactive (23 écrans BORD et BATEAU, planches), construite dans prototype/ ;
+                        n'importe que design/ et data/ (données figées : data/bord.json par scripts/prototype-data.mjs,
+                        data/bateau.js d'exemple, cartes OSM par scripts/carte-prototype.py)
   engine.js             tout le moteur sans interface, pour les tests
   studio/               la page « Analyse photo du bar » publiée sur claude.ai (abonnement, sans clé API)
 data/
@@ -97,6 +107,8 @@ data/
     bateau.json         phase 9 : connaissances du mode BATEAU (six espèces, réglementation 2026, sécurité en mer),
                         chacune avec son espèce, son niveau de preuve, ses sources, ses limites et la règle de
                         docs/SPEC-MOTEUR-BATEAU.md qui l'utilise (SEC_*, ESP_*)
+  photos/catalogue.json  phase 11 : les 32 photos d'ambiance fournies par Félix (images générées), décrites (lumière, ciel,
+                        mer, lieu, « reconnaissable ») ; les fichiers WebP sont dans assets/photos/ (scripts/photos.py)
   epreuve/              phase 8 : dates des journées de référence (journees.json), journées archivées d'Open-Meteo
                         (archives/<guide>.json.gz), résultats des tirages et de l'analyse (resultats/)
   schema/knowledge.schema.json, knowledge-bateau.schema.json  les schémas des fichiers de connaissances BORD et BATEAU
@@ -115,6 +127,8 @@ tests/
   data.mjs              fiches des sites : schéma, données pures, règles croisées, empreinte de chaque spot (ref/sites.json)
   upgrade.mjs           mise à jour d'un téléphone : données saisies avec la version publiée conservées, hors ligne ensuite
   visual.mjs            captures de 22 vues, figées (date, météo simulée, carte), et comparaison pixel par pixel
+  design.mjs            phase 11 : contrastes WCAG des jetons dans les deux thèmes
+  prototype.mjs         phase 11 : les 23 écrans du prototype à 390 et 320 px, deux thèmes, interactions, axe-core
   ref/                  tables de référence (marée de Pirou, octobre 2026 ; Aber Wrac'h, Brignogan, Lanildut,
                         Le Conquet, Audierne, Saint-Guénolé, Roscoff, château du Taureau, Primel, Locquirec, Concarneau,
                         Bénodet, Port-Manec'h, Le Pouldu, Morgat, Douarnenez, novembre 2026)
@@ -123,6 +137,8 @@ scripts/build.mjs     construit les 22 fichiers du site, à la racine, depuis sr
 scripts/site-data.mjs contrôle d'une fiche (schéma, données pures, règles croisées), export JSON, empreintes
 scripts/build-studio.mjs  construit la page d'analyse (studio-build/analyse-photo.html, non publiée par GitHub Pages)
 scripts/brand.mjs     la marque SPUMY (dessin vectoriel du bar et de l'écume, couleurs des guides)
+scripts/build-prototype.mjs  phase 11 : construit le prototype dans prototype/ (index.html, app.js, app.css, polices)
+scripts/prototype-data.mjs, carte-prototype.py, photos.py, avant-prototype.mjs  données, cartes, photos et captures « avant » du prototype
 scripts/epreuve-*.mjs épreuve du moteur (phase 8) : téléchargement des journées (fetch, dans l'intégration continue),
                       lecture des archives (journees), tirages Monte Carlo (mc, params), synthèse, analyse telle quelle
 scripts/icons.mjs     dessine toutes les icônes depuis brand.mjs (assets/brand/*.svg → assets/*.png)

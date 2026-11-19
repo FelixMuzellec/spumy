@@ -56,9 +56,8 @@ if (revue) {
   fs.mkdirSync(path.join(revue, "ref"), { recursive: true });
   for (const f of fs.readdirSync(path.join(root, "docs/reference")).filter((f) => /^(ref|avant)-.*\.webp$/.test(f))) fs.copyFileSync(path.join(root, "docs/reference", f), path.join(revue, "ref", f));
   fs.writeFileSync(path.join(revue, "index.html"), `${head}
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="app.css">
-<style>:root{background:#040b16}body{background:#040b16}</style>
+<style>:root{background:#040b16;color-scheme:dark}body{background:#040b16}</style>
 <div id="root"></div>
 <script src="app.js"></script>
 `);
