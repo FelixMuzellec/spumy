@@ -48,7 +48,7 @@ npm test                  # contrôle du code, règles de couches, fiches des si
 npm run test:a11y         # accessibilité (axe-core) sur toutes les pages
 npm run test:studio       # page d'analyse photo par l'abonnement Claude, avec un Claude simulé
 npm run test:upgrade      # mise à jour d'un téléphone : version publiée (main) → cette version, données et hors ligne
-npm run test:knowledge    # connaissances halieutiques : niveaux de preuve, sources, rubriques des 66 spots
+npm run test:knowledge    # connaissances BORD et BATEAU : niveaux de preuve, sources, rubriques des 66 spots
 npm run test:contract     # contrat avec le vrai Open-Meteo (réseau)
 npm run test:v2           # moteur v2 : les 16 scénarios de la spécification et les règles des trois scores
 ```
@@ -68,7 +68,7 @@ scripts/   construction du site, icônes, studio, épreuve du moteur (epreuve-*.
 tests/     tests unitaires, moteur v2, parcours, contrat Open-Meteo, accessibilité, studio, mise à jour
 assets/    images sources (logos, icônes)
 audit/     audit de la v9.1, note UX de la v9.2
-docs/      architecture, fonctionnalités détaillées, spécification du moteur v2, rapports de phase (rapports/)
+docs/      architecture, fonctionnalités détaillées, spécifications des moteurs BORD v2 et BATEAU, rapports de phase (rapports/)
 racine     site compilé (*.html, app.js, fiches *.json, sw.js, manifest.json, icônes), publié tel quel par GitHub Pages
 ```
 

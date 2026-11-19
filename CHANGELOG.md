@@ -1,5 +1,19 @@
 # Journal des versions
 
+## Non publié — phase 9, BATEAU : conception (sans code)
+
+Branche `claude/phase-9-bateau`. Aucun fichier de l'application n'est modifié.
+
+- **Audit du mode BATEAU** (onglet Offshore) : un carnet de spots et de sorties, et une note apprise de tes prises après 8 sorties ; ni sécurité en mer, ni logique par espèce, ni réglementation des espèces du bateau.
+- **Spécification du moteur BATEAU**, à valider (`docs/SPEC-MOTEUR-BATEAU.md`) :
+    - profil du bateau ;
+    - 12 règles de sécurité en mer (`SEC_*`), séparées du bord, jugées sur tout le créneau et au pire moment : armement et distance d'un abri, catégorie de conception, vent, mer, BMS, visibilité, orage, nuit, raz, âge des données, seul à bord, rappels ;
+    - trois scores par zone et par espèce (`ESP_*`) : lieu jaune, lieu noir, maquereau, bar, vieille, saint-pierre ;
+    - apprentissage personnel gardé (±10 au plus, jamais sur la sécurité) ;
+    - 16 scénarios et un plan d'épreuve.
+- **Connaissances du mode BATEAU** (`data/knowledge/bateau.json`, schéma `data/schema/knowledge-bateau.schema.json`) : 35 connaissances (21 de niveau 1), 22 sources. Elles couvrent la réglementation 2026 (fermeture du lieu jaune du 1er janvier au 30 avril, tailles, quotas, marquage, RecFishing, hameçons) ; la vieille et le saint-pierre y sont marqués inconnus.
+- **Tests** : `test:knowledge` 27/27 contrôle aussi le fichier BATEAU et son lien avec la spécification (chaque règle `SEC_*` et `ESP_*` portée par une connaissance), avec six cas d'erreur refusés.
+
 ## Non publié — revue de qualité avant la phase 9 (19 novembre)
 
 Branche `claude/qualite-avant-phase-9`. Demandée par Félix : « tout est-il optimisé, précis et propre ? ».

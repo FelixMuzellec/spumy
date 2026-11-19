@@ -94,9 +94,12 @@ data/
                         limites, code qui l'utilise ; et le niveau des 82 règles du moteur de leurres
     preuves-spots.json  le niveau de preuve (1 à 5) de chacune des 396 rubriques des 66 spots, avec son motif
     preuves-niveaux.json  extrait lu par le moteur v2 (niveau des rubriques de chaque spot), contrôlé par test:knowledge
+    bateau.json         phase 9 : connaissances du mode BATEAU (six espèces, réglementation 2026, sécurité en mer),
+                        chacune avec son espèce, son niveau de preuve, ses sources, ses limites et la règle de
+                        docs/SPEC-MOTEUR-BATEAU.md qui l'utilise (SEC_*, ESP_*)
   epreuve/              phase 8 : dates des journées de référence (journees.json), journées archivées d'Open-Meteo
                         (archives/<guide>.json.gz), résultats des tirages et de l'analyse (resultats/)
-  schema/knowledge.schema.json  le schéma du fichier de connaissances
+  schema/knowledge.schema.json, knowledge-bateau.schema.json  les schémas des fichiers de connaissances BORD et BATEAU
 tests/
   unit.mjs              moteur + schéma des fiches + contrôle de la marée (Pirou, ports du Finistère)
   v2.mjs                moteur v2 : les 16 scénarios de la spécification et les règles des trois scores
@@ -105,7 +108,7 @@ tests/
   e2e.mjs               parcours complet dans Chromium (téléphone simulé), servi sous /spumy/ comme sur GitHub Pages
   studio.mjs            page d'analyse par l'abonnement, avec un Claude simulé
   contract.mjs          contrat avec le vrai service Open-Meteo
-  knowledge.mjs         connaissances halieutiques : schéma, niveaux, sources, code utilisé, rubriques des spots
+  knowledge.mjs         connaissances BORD et BATEAU : schéma, niveaux, sources, code ou règle utilisés, rubriques des spots
   om_mock.mjs           simulateur d'Open-Meteo
   a11y.mjs              accessibilité (axe-core) sur toutes les pages et tous les onglets
   layers.mjs            règles de couches : qui a le droit d'importer quoi ; couleurs en dur hors de src/design/ (compte qui ne peut que baisser)

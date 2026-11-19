@@ -19,7 +19,7 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 7. Moteur BORD v2 | VALIDATED (18 nov. 2026, « APPROVED — PROCEED TO PHASE 8 ») ; fusionnée dans `main` le 19 nov. 2026 (f9f39e7, proposition n° 7) | Branche `claude/phase-7-moteur-v2`, proposition de fusion n° 6 (brouillon, contient les phases 5 et 6) ; rapport « SPUMY — Phase 7 : moteur BORD v2 » https://claude.ai/artifact/5VVWp9Z3HfSvn72Uy3Ztwo (copie : `docs/rapports/PHASE-7.md`) |
 | 8. Épreuve du moteur (Monte Carlo, journées archivées) | VALIDATED (19 nov. 2026, 14 h 27, « APPROVED — PROCEED TO PHASE 9 ») ; critère de stabilité FAILED, dit dans le rapport ; fusionnée dans `main` le 19 nov. 2026 (f9f39e7) | Branche `claude/phase-8-epreuve`, proposition de fusion n° 7 (phases 5 à 8) ; rapport « SPUMY — Phase 8 : épreuve du moteur » https://claude.ai/artifact/WcWRqYiDoNWaJWUtfmFKLY (copie : `docs/rapports/PHASE-8.md`) |
 | 8bis. Revue de qualité avant la phase 9 | Faite le 19 nov. 2026 ; fusionnée dans `main` (40ba84f, proposition n° 9) | `CHANGELOG.md` |
-| 9. BATEAU — conception | IN PROGRESS (depuis le 19 nov. 2026, 14 h 27, « APPROVED — PROCEED TO PHASE 9 ») | Branche `claude/phase-9-bateau` |
+| 9. BATEAU — conception | IMPLEMENTED (rapport remis le 19 nov. 2026 ; en attente de « APPROVED — PROCEED TO PHASE 10 ») | Branche `claude/phase-9-bateau`, proposition de fusion en brouillon (pas fusionnée sans accord) ; `docs/SPEC-MOTEUR-BATEAU.md`, `data/knowledge/bateau.json` ; rapport `docs/rapports/PHASE-9.md` et document Claude « SPUMY — Phase 9 : BATEAU, conception » |
 | 10 à 17 | NOT STARTED | — |
 
 ### Phase 4, lots
@@ -42,6 +42,17 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 7.3 Pastilles, preuves, conseil de la boîte | TESTED | `note.jsx`, `Scores.jsx`, `Pastille` ; parcours e2e ; captures v1 et v2 relues |
 | 7.4 Tests | TESTED | e2e 843/843 ; unitaires 7 guides verts ; axe 0 violation ; mise à jour 11/11 ; GitHub : « Tests » et contrat réel verts (commit 9337732, proposition n° 6) |
 | 7.5 Rapport, questions | VALIDATED | `docs/rapports/PHASE-7.md` ; questions 1 à 3 sans préférence, la 4e a reçu l'approbation de la phase 8 |
+
+### Phase 9, lots
+
+| Lot | Statut | Preuve |
+| --- | --- | --- |
+| 9.0 Départ | IMPLEMENTED | Branche `claude/phase-9-bateau` partie de `main` (40ba84f) |
+| 9.1 Audit du BATEAU | IMPLEMENTED | `docs/SPEC-MOTEUR-BATEAU.md` §0, rapport 5.1 : aucune sécurité en mer, aucune logique par espèce, aucune réglementation des espèces du bateau ; tests actuels : 20 unitaires, 26 de parcours |
+| 9.2 Espèces et réglementation | TESTED | `data/knowledge/bateau.json` : 21 connaissances d'espèces et de réglementation ; vieille et saint-pierre : réglementation INCONNU |
+| 9.3 Sécurité en mer | TESTED | 12 règles `SEC_*` ; 14 connaissances (sécurité, données) ; une règle sans source n'est jamais « VÉRIFIÉ » (contrôlé) |
+| 9.4 Spécification | IMPLEMENTED | `docs/SPEC-MOTEUR-BATEAU.md` : circuit, profil, sécurité, trois scores par espèce, 16 scénarios, plan d'épreuve ; aucun fichier de `src/` ni de `scripts/` modifié |
+| 9.5 Rapport, arrêt | IMPLEMENTED | `docs/rapports/PHASE-9.md` ; `test:knowledge` 27/27, `test:v2` 56/56, unitaires 3 390, `test:data` 69/69, couches 0 écart, lint 0 problème |
 
 ### Phase 8, lots
 
@@ -193,7 +204,17 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 13. Égalité à 3 points : la garder, ou annoncer l'égalité jusqu'à 10 points (le premier ne tient dans 80 % des tirages qu'à 10 points d'avance).
 14. Rampe de lumière : retirée selon la règle fixée d'avance ; la reprendre si le gain « à égalité près » (+3,5 points) suffit.
 15. Dépôt de sauvegarde par défaut du journal : `FelixMuzellec/spumy-journal`.
+16. Seuils en bateau (SEC_VENT, SEC_MER) : à vérifier dès la force 5 ou 50 km/h de rafales, non recommandé dès la force 6 ou 60 km/h ; mer « agitée » à vérifier.
+17. Profil du bateau : catégorie de conception, armement, port d'attache et abris, vitesse de route, matériel.
+18. Seul à bord : seuils serrés d'un cran ?
+19. Retour après le coucher du soleil : « à vérifier » ?
+20. Lieu noir : proposé seulement s'il a déjà été pris, ou toujours avec une confiance faible ?
+21. Vieille : conseiller de relâcher les gros sujets ?
+22. Saint-pierre : saison en côte (source ou expérience de Félix).
+23. Raz : liste des zones « raz » et source des heures de renverse (atlas de courants du SHOM, ou marques de Félix).
+24. BMS : source lisible par l'application, ou rester à l'écran.
+25. Fusion de la phase 9 dans `main` : proposition en brouillon, pas fusionnée sans accord.
 
 ## Prochaine action
 
-Phase 9 (BATEAU, conception) : audit du mode tel qu'il est, connaissances par espèce et réglementation sourcées, sécurité en mer, spécification du moteur par espèce (sans code), rapport, **STOP** en attendant « APPROVED — PROCEED TO PHASE 10 ». Reprendre seul en cas d'interruption (consigne du 19 nov., 14 h 27) ; ne pas s'arrêter pour poser des questions, les ajouter à la liste ci-dessus. Site hors ligne tant que GitHub Pages n'est pas activé par Félix. Ne poser aucune question avant la fin de toutes les étapes ; les ajouter à la liste ci-dessus.
+**STOP** : phase 9 remise (rapport `docs/rapports/PHASE-9.md`). Attendre « APPROVED — PROCEED TO PHASE 10 ». Phase 10 proposée : moteur BATEAU par espèce (code de la spécification, `src/bateau/engine/`, visibilité, orage et courant dans `wx.js`, profil du bateau, les 16 scénarios en tests, coût de la prudence sur des journées archivées). Les questions 1 à 25 restent à traiter ensemble quand Félix le voudra. Site hors ligne tant que GitHub Pages n'est pas activé par Félix.
