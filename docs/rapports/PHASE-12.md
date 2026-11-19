@@ -1,6 +1,6 @@
 # SPUMY — Phase 12 : spécifications, et la charte dans l'application (v10)
 
-19–20 novembre 2026 · Félix · branche `claude/phase-12`
+19 novembre 2026 · Félix · version de référence : document Claude « SPUMY — Phase 12 : spécifications et charte dans l'application » (https://claude.ai/artifact/Rg4Dj3svg8JgLfspxESA1g) · branche `claude/phase-12` · validée le 19 novembre à 23 h 36 (« APPROVED — PROCEED TO PHASE 13 »)
 
 La charte de la phase 11 est dans l'application que tu ouvres, en version 10. On y trouve :
 - tes trois logos : SPUMY, Inshore et Offshore ;
@@ -43,18 +43,25 @@ La phase 12 couvre donc :
 
 ## 4. Preuves
 
-Résultats des contrôles : voir le suivi (`SPUMY_AUDIT_CONTINUITY.md`, lots 12.A à 12.E) et les tests GitHub de la proposition de fusion.
+Toutes les suites, jouées sur le site reconstruit en v10 :
 
-Les suites jouées :
-- lint ;
-- couches ;
-- données, connaissances, moteur v2, unitaires ;
-- accessibilité ;
-- parcours complets ;
-- mise à jour d'un téléphone ;
-- studio ;
-- design ;
-- prototype.
+| Contrôle | Résultat |
+|---|---|
+| `lint` | 0 problème |
+| `test:layers` | 0 écart ; couleurs en dur hors de `src/design/` 291 → 253 |
+| `test:data`, `test:knowledge`, `test:v2` | 69/69, 27/27, 56/56 |
+| `test:design` | 41/41 |
+| `test:unit` (sept guides et Auckland) | tous verts |
+| `test:a11y` (Nuit et Plein soleil) | 0 violation |
+| `test:e2e` | 850/850 |
+| `test:upgrade` | 12/12 |
+| `test:studio` | 34/34 |
+| `test:prototype` | 244/244 |
+
+Trois contrôles des parcours ont été mis à jour pour la v10, sans être affaiblis :
+- la version est lue dans `package.json` ;
+- les photos d'ambiance sont servies comme sur GitHub Pages ;
+- le contour « à vérifier » est en ambre (#ffc53d).
 
 ## 5. Résultats
 

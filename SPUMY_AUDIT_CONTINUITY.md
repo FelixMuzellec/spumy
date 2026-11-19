@@ -22,8 +22,9 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | 9. BATEAU — conception | VALIDATED (19 nov. 2026, 18 h 14, « APPROVED — PROCEED TO PHASE 11 ») ; fusionnée dans `main` le 19 nov. 2026 avec la phase 11 (e7ad6ba, proposition n° 11) | Branche `claude/phase-9-bateau`, proposition de fusion n° 10 (marquée fusionnée par GitHub avec la n° 11) ; `docs/SPEC-MOTEUR-BATEAU.md`, `data/knowledge/bateau.json` ; rapport « SPUMY — Phase 9 : BATEAU, conception » https://claude.ai/artifact/UziTDraLFrMrgTDQYtmgjz (copie : `docs/rapports/PHASE-9.md`) |
 | 10. Moteur BATEAU par espèce | NOT STARTED (mise de côté « pour le moment » par Félix le 19 nov., 18 h 14) | — |
 | 11. Direction artistique et UX/UI | VALIDATED (19 nov. 2026, 23 h 11, « APPROVED — PROCEED TO PHASE 12 ») ; fusionnée dans `main` le 19 nov. 2026 à la demande de Félix (e7ad6ba, proposition n° 11 ; tests et contrat verts sur cf1c2c3), publiée par GitHub Pages (voir « Publication ») | Branche `claude/phase-11-design` (partie de `claude/phase-9-bateau`), proposition de fusion n° 11 ; `docs/DIRECTION-ARTISTIQUE.md` ; prototype https://claude.ai/artifact/BBDcujdvLQxMft99DxqCuP (aussi dans `prototype/`) ; rapport « SPUMY — Phase 11 : direction artistique et écrans » https://claude.ai/artifact/SCaJaTS7YAcLTe4242KAQr (copie : `docs/rapports/PHASE-11.md`) |
-| 12. Spécifications fonctionnelles et techniques (+ charte dans l'application, v10) | IN PROGRESS (depuis le 19 nov. 2026, 23 h 11) | Branche `claude/phase-12` ; `docs/SPECIFICATIONS.md` ; rapport `docs/rapports/PHASE-12.md` |
-| 13 à 17 | NOT STARTED | — |
+| 12. Spécifications fonctionnelles et techniques (+ charte dans l'application, v10) | VALIDATED (19 nov. 2026, 23 h 36, « APPROVED — PROCEED TO PHASE 13 ») | Branche `claude/phase-12` ; `docs/SPECIFICATIONS.md` ; rapport « SPUMY — Phase 12 » https://claude.ai/artifact/Rg4Dj3svg8JgLfspxESA1g (copie : `docs/rapports/PHASE-12.md`) ; fusion dans `main` (proposition n° 14) |
+| 13. Développement BATEAU | IN PROGRESS (depuis le 19 nov. 2026, 23 h 36) | Branche `claude/phase-13-bateau` ; commence par le moteur de la phase 10 |
+| 14 à 17 | NOT STARTED | — |
 
 ### Phase 4, lots
 
@@ -63,9 +64,9 @@ Audit et refonte de SPUMY en 17 phases validées une à une par Félix (`APPROVE
 | --- | --- | --- |
 | 12.A Logos et accueil | TESTED | f55822f : logos de Félix (`assets/brand/`, `scripts/logos.py`), icônes, accueil Inshore / Offshore, Roboto Condensed auto-hébergée, service worker sans `prototype/`, `assets/`, `docs/` ; lint, couches, unitaires, accessibilité, e2e 850/850, mise à jour 12/12 |
 | 12.B Charte dans les guides | TESTED | bc533f6 : jetons Nuit marine, palette remplacée (couleurs en dur 291 → 253), titres condensés, photo d'ambiance sur Décision et dans la fiche ; accessibilité 0 violation |
-| 12.C Finitions, prototype, v10 | TESTED | Anneaux en dégradé, chiffres condensés ; logos dans le prototype ; version 10.0.0 |
+| 12.C Finitions, prototype, v10 | TESTED | 5ae129f : anneaux en dégradé, chiffres condensés ; logos dans le prototype ; version 10.0.0 ; lint 0, couches 0 écart (253), données 69/69, connaissances 27/27, design 41/41, v2 56/56, unitaires tous verts, accessibilité 0 violation, e2e 850/850, mise à jour 12/12, studio 34/34, prototype 244/244 |
 | 12.D Spécifications | IMPLEMENTED | `docs/SPECIFICATIONS.md` |
-| 12.E Documents et fusion | IN PROGRESS | Direction artistique § 5 bis, rapport, suivi, journal des versions ; proposition de fusion puis `main` |
+| 12.E Documents et fusion | IMPLEMENTED | Direction artistique § 5 bis, rapport, suivi, journal des versions ; proposition de fusion n° 14 puis `main` |
 
 ### Phase 11, lots
 
@@ -235,6 +236,11 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 - Même message, plus : « APPROVED — PROCEED TO PHASE 12. Fais en sorte que la phase 11 et 12 soient transférées sur github et que tout fonctionne, ce qui inclue le nouveau design, l'inclusion des nouvelles photos, photos et fonctionnalités etc etc. Si tu as des questions pour que cela fonctionne, ne me les pose pas et réponds y de façon indépendante et top tier. »
 - Lu comme : phase 11 validée ; phase 12 = spécifications + charte appliquée à l'application (v10), logos et photos compris ; fusion dans `main` quand les tests GitHub sont verts ; questions 26 à 31 réglées par Claude (ci-dessous, et rapport de la phase 12, § 8). Rappel de reprise programmé (20 nov., 4 h 30).
 
+## Consignes de Félix (19 nov. 2026, 23 h 36)
+
+- « APPROVED — PROCEED TO PHASE 13 et planifie une tâche de reprise » (depuis le rapport de la phase 12).
+- Lu comme : phase 12 validée ; fusion de la phase 12 dans `main` comme demandé à 23 h 11 ; phase 13 (Développement BATEAU) commencée par le moteur de la phase 10 ; tâche de reprise programmée.
+
 ## Questions retenues pour Félix (à traiter ensemble)
 
 1. Adresse — réglée le 18 nov. : https://felixmuzellec.github.io/spumy/ seule. GitHub Pages actif depuis le 19 nov. 2026 : la tâche « pages build and deployment » de GitHub a publié e7ad6ba à 18 h 43 UTC sur https://felixmuzellec.github.io/spumy/ (« Reported success ») ; Claude ne peut pas ouvrir l'adresse depuis son espace (hors de sa liste autorisée), à vérifier par Félix (application à la racine, prototype dans `prototype/`).
@@ -271,4 +277,4 @@ Seuils de vent posés (à valider par Félix en phase 6) : force 8 et rafales 90
 
 ## Prochaine action
 
-Phase 12 en cours (lot 12.E) : tests complets, proposition de fusion, tests GitHub verts, fusion dans `main` (consigne du 19 nov., 23 h 11), puis **STOP** et attendre « APPROVED — PROCEED TO PHASE 13 » (Développement BATEAU, avec le moteur de la phase 10). Rapport : `docs/rapports/PHASE-12.md`. GitHub Pages publie `main`.
+Phase 13 en cours (Développement BATEAU) sur `claude/phase-13-bateau`, lots poussés un à un ; d'abord la fusion de la phase 12 (proposition n° 14) une fois les tests GitHub verts. Seuils de sécurité BATEAU : « à vérifier » tant que Félix ne les a pas validés (questions 16 à 25). À la fin : rapport en neuf parties, **STOP**, attendre « APPROVED — PROCEED TO PHASE 14 ». GitHub Pages publie `main`.
