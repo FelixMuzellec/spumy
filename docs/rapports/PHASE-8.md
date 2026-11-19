@@ -2,7 +2,7 @@
 
 18 novembre 2026 · Félix · version de référence : document Claude « SPUMY — Phase 8 : épreuve du moteur » (§LIEN§) · proposition de fusion n° 7 (brouillon)
 
-Le moteur v2 a été éprouvé sur 252 vraies journées (36 par guide, choisies d'avance, toutes saisons), avec 1 000 tirages par journée. Le classement ne tient pas le critère de la spécification : les trois premiers ne restent les mêmes dans 80 % des tirages que sur 20 journées sur 241. Ce n'est pas une erreur de calcul. Les spots d'un guide sont souvent trop proches pour que l'incertitude des prévisions et des hypothèses les départage : sur 241 journées, le premier et le deuxième sont à 3 points ou moins 152 fois. Aucune hypothèse de niveau 4 ou 5 ne décide seule (la plus forte explique 21,4 % de la variance, sous le seuil de 30 %). Tes seuils de vent coûtent peu : 1 % des spots praticables passent « à vérifier » à cause d'eux seuls. Une correction est appliquée (les paliers de couleur) ; une autre a été essayée puis retirée, comme la règle fixée d'avance le demandait. Tu poses les questions à la fin, comme tu l'as demandé : je ne t'en pose aucune ici.
+Le moteur v2 a été éprouvé sur 252 vraies journées (36 par guide, choisies d'avance, toutes saisons), avec 1 000 tirages par journée. Le classement ne tient pas le critère de la spécification : les trois premiers ne restent les mêmes dans 80 % des tirages que sur 20 journées sur 241. Ce n'est pas une erreur de calcul. Les spots d'un guide sont souvent trop proches pour que l'incertitude des prévisions et des hypothèses les départage : sur 241 journées, le premier et le deuxième sont à 3 points ou moins 152 fois. Aucune hypothèse de niveau 4 ou 5 ne décide seule (la plus forte explique 21,4 % de la variance, sous le seuil de 30 %). Tes seuils de vent coûtent peu : 1 % des spots praticables passent « à vérifier » à cause d'eux seuls. Une correction est appliquée (les paliers de couleur) ; une autre a été essayée puis retirée, comme la règle fixée d'avance le demandait. Les questions sont gardées pour la fin, comme tu l'as demandé : je ne t'en pose aucune ici.
 
 ## 1. Objectif
 
@@ -46,7 +46,7 @@ Tous les chiffres viennent de fichiers du dépôt, recalculables sans réseau.
 
 | Preuve | Commande ou passage | Résultat |
 | --- | --- | --- |
-| Journées archivées | intégration continue, « Épreuve du moteur », passage 44330704552 (1 h 12) | 7 guides × 39 journées ; `data/epreuve/archives/RESUME.txt` |
+| Journées archivées | intégration continue, « Épreuve du moteur », passage 44330704552 (1 h 12) | 36 journées par guide, 39 pour Logonna (les 3 sessions du journal) ; 0 en échec ; `data/epreuve/archives/RESUME.txt` |
 | Monte Carlo, moteur livré | `node scripts/epreuve-mc.mjs <journées> 1000 tout …` puis `scripts/epreuve-synthese.mjs` | `resultats/mc-v2-livre-1000-*.json` : identique au premier passage (`mc-v2-tout-1000-*`) pour les 252 journées-guides, 0 écart sur le premier, les trois premiers, les égalités, Spearman et l'écart au deuxième |
 | Entrées seules, hypothèses seules | même script, modes `entrees` et `hypotheses`, 300 tirages | `resultats/mc-v2-entrees-300.json`, `mc-v2-hypotheses-300.json` |
 | Rampe de lumière | même script, 1 000 tirages, moteur avec la rampe | `resultats/mc-v2-rampe-1000-*.json` |
@@ -68,7 +68,7 @@ Les tirages sont déterministes : même graine par guide et par journée. Le pas
 
 | | Journées-guides | Part |
 | --- | --- | --- |
-| En tout (36 dates + 3 sessions du journal, 7 guides) | 252 | — |
+| En tout (36 dates × 7 guides ; les 3 sessions du journal, à Logonna, à part) | 252 | — |
 | AROME (1,3 km) présent ; sinon ECMWF seul | 179 | 71,0 % |
 | Vagues connues | 225 | 89,3 % |
 | Température de l'eau connue | 178 | 70,6 % |
