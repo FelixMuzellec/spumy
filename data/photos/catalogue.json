@@ -657,8 +657,8 @@
     },
     {
       "id": "bar-eau-claire",
-      "source": "felix-20nov-bar-eau-claire.jpg",
-      "alt": "Bar tenu à deux mains au-dessus de l'eau claire, un leurre souple à la gueule",
+      "source": "felix-20nov-bar-europeen.jpg",
+      "alt": "Bar tenu à deux mains au-dessus de l'eau claire, un leurre souple à la gueule (version corrigée)",
       "mode": "espece",
       "sujet": "poisson",
       "espece": "bar",
@@ -670,15 +670,15 @@
         48,
         50
       ],
-      "resolution": "provisoire : copie de 1 024 px reçue dans la conversation ; original en pleine résolution attendu",
-      "w": 765,
-      "h": 1024,
+      "resolution": "original du générateur, reçu en fichier le 20 nov. ; grand côté sous 1 600 px, jamais agrandi",
+      "w": 896,
+      "h": 1200,
       "orientation": "portrait",
-      "lqip": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAAAQBQCdASoSABgAPtFcqE4oJSQiKAqpABoJYwCuHBDcXI1ANbXsmJeyVv8f6zMgO8AAAP7X+3bRKhZXOoru+NYwOQob0OUmI8nNiyTNbzYQgVx3hvofrnfAS6HlaYhjhvNH1u+YYTZocfvRKWZfpakPllihY0m7ITsiZD5sdAjdKY0y5wtRtSVv70hQq4Oaky6zN5GVBhonj9iB6xy1c4DPynnY0+43egnbTQAA"
+      "lqip": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAADQBACdASoSABgAPtFWpUwoJKOiKA1RABoJZQDBzBDcxd0fsuvSlmA5f4nM8/58AAD+1/t20SoWVzqKOH/26E2OHtkVF9ZJPownBWROJQ7Q5zgcgNMxqsAXpNWfNnM4gtpqs2tLjtinuRguD1kcX8UUm9htNyCK0uC7ZNuw4HTOfbfsE93Y2Ls093P1lzt7n1QIVqnr9CwAAAAA"
     },
     {
       "id": "lieu-noir-pont-jig",
-      "source": "felix-20nov-lieu-noir-pont-jig.jpg",
+      "source": "felix-20nov-lieu-noir-pont-jig-original.jpg",
       "alt": "Lieu noir posé sur le pont d'un bateau, un jig à côté de la gueule",
       "mode": "espece",
       "sujet": "poisson",
@@ -691,15 +691,15 @@
         50,
         62
       ],
-      "resolution": "provisoire : copie de 1 024 px reçue dans la conversation ; original en pleine résolution attendu",
-      "w": 765,
-      "h": 1024,
+      "resolution": "original du générateur, reçu en fichier le 20 nov. ; grand côté sous 1 600 px, jamais agrandi",
+      "w": 896,
+      "h": 1200,
       "orientation": "portrait",
-      "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAADQBACdASoSABgAPtFWpkwoJKOiKA1RABoJYwCdABEhX77Bp+Hj19WeCYfshsKdAAD9+/fppJTlT0ZItIVnFAn7xUNeHtHOCd8/6Ak62u05FpV0LZa/bo2Ov3lREtZ57dXyJk1RpxZ+ZXdI1nY7OYRzSAijbeeDjYdl7RLDQAA="
+      "lqip": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAAAQBQCdASoSABgAPtFWpkuoJKOhqA1RABoJYwCw7BEAlsrCPX6a1+rXtPDW3b9piuIAAP379+3l59hUWadk/6zsBIVCVUyQecvIvNzRm+yTgbu+MoRc0l/T/bZTVD/HDRBnoKP66oKffKDaa/JSFyoOu0RJ6JmQMWRwN73ap68AAA=="
     },
     {
       "id": "platier-aube-frontale",
-      "source": "felix-20nov-platier-aube-frontale.jpg",
+      "source": "felix-20nov-platier-aube-frontale-original.jpg",
       "alt": "Pêcheur sur un platier découvert avant l'aube, frontale rouge allumée",
       "mode": "bord",
       "sujet": "pecheur",
@@ -711,15 +711,15 @@
         72,
         45
       ],
-      "resolution": "provisoire : copie de 1 024 px reçue dans la conversation ; original en pleine résolution attendu",
-      "w": 765,
-      "h": 1024,
+      "resolution": "original du générateur, reçu en fichier le 20 nov. ; grand côté sous 1 600 px, jamais agrandi",
+      "w": 896,
+      "h": 1200,
       "orientation": "portrait",
-      "lqip": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAACwBACdASoSABgAPslSoUunpKMht/VYAPAZCWMAAC333yOX758yIGIHNhM5PDYAAP7xDa6a4TjLGRWYg/DhhBWyCspiuJnh7+CWlPuTk6Tg5fYjVi9ccR3Y6HsiSwZddpS/cEfbs7Ruy+UPZqUJpq1gwrJAAA=="
+      "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADQBACdASoSABgAPslQoUunpKMht/VYAPAZCWMAuwAQ8LTX/3LvlsmSglljFJFWAAD+8Q2umuE4yxmN3vvev/RthlA0jfgJvbZFkEXM092Mb5KbkbHs/yNQgdJriGLkMiUBw3rE1/PAAA=="
     },
     {
       "id": "jigging-console-sondeur",
-      "source": "felix-20nov-jigging-console-sondeur.jpg",
+      "source": "felix-20nov-jigging-console-sondeur-original.jpg",
       "alt": "Pêcheur en jigging vertical vu depuis la console d'un semi-rigide, sondeur à 70 m",
       "mode": "bateau",
       "sujet": "bateau",
@@ -731,11 +731,11 @@
         42,
         45
       ],
-      "resolution": "provisoire : copie de 1 024 px reçue dans la conversation ; original en pleine résolution attendu",
-      "w": 1024,
-      "h": 572,
+      "resolution": "original du générateur, reçu en fichier le 20 nov. ; grand côté sous 1 600 px, jamais agrandi",
+      "w": 1376,
+      "h": 768,
       "orientation": "paysage",
-      "lqip": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAQBACdASoYAA0APtFWpEuoJKOhsAgBABoJZQCdACFf18z0g2zmEniRgAD+1oVBad2fHPY0ZOLFhW885bKct61N3APL+RAsI7b5uOuz0C3NTdcioEqDjY/4/wuJ50sXqFKOYkYH9YqGhxjyQtuRH+DAsHkqcLnwUP63nwAA"
+      "lqip": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAQBACdASoYAA0APtFYpEwoJSOiMAgBABoJYwCdACFf67KOGK6gurgAAAD+1oSOstl9eiDaScWKvpZE+wCymxCtRdTOFQ2mZdOM+K3ZO/aKDNpCCNTyQ6RR5lmUN6HbfucNXAFLh0AvJe/9dI5LzNjCkJ/wggvgAAA="
     }
   ]
 }

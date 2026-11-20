@@ -38,10 +38,10 @@
 
 | Photo | Diagnostic | Remplacement demandé | Statut |
 | --- | --- | --- | --- |
-| `lieu-noir-boudin` | même cadrage que `lieu-jaune-boudin` et `bar-boudin` : cartes d'espèces indistinctes | lieu noir de jigging sur le pont, de côté, jig accroché, 3:4 | REÇUE le 20 nov. → `lieu-noir-pont-jig` ; résolution provisoire (765 × 1 024) |
-| `bar-boudin` | idem | bar tenu au-dessus de l'eau claire, leurre souple, lumière rasante, 3:4 | REÇUE le 20 nov. → `bar-eau-claire` ; résolution provisoire (765 × 1 024) |
-| `silhouette-aube-rose` | presque identique à `silhouette-couchant` | platier découvert à marée basse avant l'aube, frontale rouge, 3:4 | REÇUE le 20 nov. → `platier-aube-frontale` ; résolution provisoire (765 × 1 024) |
-| `semi-rigide-gilets` | 4 vues en surplomb du semi-rigide, quasi identiques | jigging vertical vu de la console, sondeur à 60–80 m, 16:9 | REÇUE le 20 nov. → `jigging-console-sondeur` ; résolution provisoire (1 024 × 572) |
+| `lieu-noir-boudin` | même cadrage que `lieu-jaune-boudin` et `bar-boudin` : cartes d'espèces indistinctes | lieu noir de jigging sur le pont, de côté, jig accroché, 3:4 | REÇUE le 20 nov. → `lieu-noir-pont-jig` ; original 896 × 1 200 |
+| `bar-boudin` | idem | bar tenu au-dessus de l'eau claire, leurre souple, lumière rasante, 3:4 | REÇUE le 20 nov. → `bar-eau-claire` (version corrigée) ; original 896 × 1 200 |
+| `silhouette-aube-rose` | presque identique à `silhouette-couchant` | platier découvert à marée basse avant l'aube, frontale rouge, 3:4 | REÇUE le 20 nov. → `platier-aube-frontale` ; original 896 × 1 200 |
+| `semi-rigide-gilets` | 4 vues en surplomb du semi-rigide, quasi identiques | jigging vertical vu de la console, sondeur à 60–80 m, 16:9 | REÇUE le 20 nov. → `jigging-console-sondeur` ; original 1 376 × 768 |
 
 Prompts de génération détaillés, demandés par Félix le 20 nov. : `docs/design/PROMPTS-PHOTOS.md`.
 
@@ -57,6 +57,7 @@ Prompts de génération détaillés, demandés par Félix le 20 nov. : `docs/des
 - Les 4 rompent la répétition du cadrage « boudin » et des silhouettes. Les anciennes restent dans le catalogue, avec un champ `remplacee_par` : l'application V2 en ligne s'en sert encore. La V3 n'emploie que les nouvelles.
 - **Résolution** : les copies reçues dans la conversation font 1 024 px sur le grand côté, au lieu des 1 600 px demandés. Elles sont intégrées à titre provisoire (`resolution` dans le catalogue). Les originaux en pleine résolution, ou une version agrandie par le générateur, sont demandés à Félix. Un original plus petit n'est jamais agrandi par le script.
 - **2ᵉ envoi (20 nov., 6 h 18)** : une version corrigée du bar (nouvelle image) ; les trois autres sont identiques au premier envoi. Les quatre copies ne font que 512 px : la conversation réduit les images collées. Rien n'est remplacé ; le bar corrigé sera intégré dès que son original arrivera (demandé par Google Drive).
+- **3ᵉ envoi (20 nov., 13 h 46), en fichiers** : les originaux du générateur, 896 × 1 200 px (3:4) et 1 376 × 768 px (16:9), dont le bar corrigé. Ils remplacent les copies réduites. C'est la résolution native du générateur : le grand côté reste sous 1 600 px, et le fichier « -1600 » garde la taille d'origine, sans agrandissement.
 
 
 **Restriction d'usage, sans remplacement** : `phare-pointe-aube`, `abbaye-crepuscule`, `phare-tempete`, `granit-crique` et `port-crepuscule` ressemblent à des lieux réels reconnaissables. Ce sont des images générées : elles ne sont jamais montrées sur la fiche d'un spot, même avec la mention « Illustration », et servent seulement aux écrans généraux (lancement, états vides, BATEAU). En V2, la règle « jamais une image reconnaissable sur un spot nommé » les écartait déjà de la plupart des fiches.
