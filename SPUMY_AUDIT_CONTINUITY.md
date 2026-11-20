@@ -21,9 +21,9 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 
 | Sous-tâche | Statut | Fichiers |
 | --- | --- | --- |
-| 2.0 Branche, continuité, `CLAUDE.md`, référentiel maître | IN PROGRESS | ce fichier, `CLAUDE.md`, `docs/SPUMY_MASTER_PROMPT.md`, `docs/historique/CONTINUITE-V2.md`, `docs/rapports/v3/PHASE-1.md` |
-| 2.1 Journal des décisions | NOT STARTED | `docs/DECISIONS_LOG.md` |
-| 2.2 Services externes, licences | NOT STARTED | `docs/DATA_SOURCES.md` |
+| 2.0 Branche, continuité, `CLAUDE.md`, référentiel maître | IMPLEMENTED (a228e7a ; proposition n° 16 en brouillon) | ce fichier, `CLAUDE.md`, `docs/SPUMY_MASTER_PROMPT.md`, `docs/historique/CONTINUITE-V2.md`, `docs/rapports/v3/PHASE-1.md` |
+| 2.1 Journal des décisions | IMPLEMENTED (20 ADR : 8 validées, 7 proposées, 5 à décider) | `docs/DECISIONS_LOG.md` |
+| 2.2 Services externes, licences | IMPLEMENTED (pages officielles lues le 20 nov.) | `docs/DATA_SOURCES.md` |
 | 2.3 Vision, découverte produit, exigences | NOT STARTED | `docs/VISION-V3.md`, `docs/design/DISCOVERY.md`, `docs/REQUIREMENTS.md` |
 | 2.4 Architecture cible, menace, migration, stratégie de test | NOT STARTED | `docs/ARCHITECTURE-V3.md`, `docs/security/THREAT_MODEL.md`, `docs/MIGRATION-V3.md`, `docs/TEST_STRATEGY.md` |
 | 2.5 Vérification, red-team, rapport, arrêt | NOT STARTED | `docs/rapports/v3/PHASE-2.md` |
@@ -43,7 +43,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 
 ## Prochaine action
 
-Terminer 2.0 (commit, push, proposition en brouillon), puis 2.1.
+2.3 : vision, découverte produit, registre d'hypothèses, exigences (`docs/REQUIREMENTS.md`, matrice BATEAU).
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
