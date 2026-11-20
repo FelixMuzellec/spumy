@@ -33,6 +33,17 @@
 
 **Version 5.1** (15 h 20) : puce de position élargie ; le nom de la commune s'affiche en entier, sur deux lignes au besoin (« Saint-Pierre-Quiberon » vérifié à 320, 375 et 390 px). Le mode se lit au pictogramme (viseur : automatique ; épingle : manuel) et en entier dans le nom accessible.
 
+**Version 5.2** (15 h 32, « les couleurs de la fenêtre de géolocalisation… ») : feuille de position refaite :
+- fond de l'application et fermeture par un bouton rond ;
+- sélecteur automatique / manuelle discret ;
+- « Me géolocaliser » en rangée ;
+- recherche avec loupe ;
+- mini-carte centrée sur la position ;
+- positions récentes en puces ;
+- un seul bouton orange ;
+- plus aucun texte orange sur l'ardoise ;
+- axe contrôle la feuille ouverte.
+
 Vraies photos de spots : abandonnées (V3-026). Le fond IGN réel arrive aux phases 4 et 10 : la page de revue bloque les tuiles, et elles ne sont pas joignables d'ici.
 
 **Statut** : à revalider au jalon 2, avec la direction visuelle et les principes du Design System. Toutes les données sont **de démonstration**, et l'écran le dit en permanence. Le prototype n'appelle aucun service : ni météo, ni route, ni géocodage, ni tuiles.

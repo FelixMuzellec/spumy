@@ -118,8 +118,8 @@ export function Sheet({ title, onClose, children }) {
     <>
       <div className="scrim" onClick={onClose} />
       <div className="modal" role="dialog" aria-modal="true" aria-label={title}>
-        <button className="grip" aria-label="Fermer" onClick={onClose} />
-        <div className="row between"><h2 tabIndex={-1} ref={ref}>{title}</h2><button className="btn ghost" onClick={onClose}>Fermer</button></div>
+        <span className="grip" aria-hidden="true" />
+        <div className="row between" style={{ flexWrap: "nowrap" }}><h2 tabIndex={-1} ref={ref}>{title}</h2><button className="iconbtn" aria-label="Fermer" onClick={onClose}><Icon name="x" size={20} /></button></div>
         {children}
       </div>
     </>

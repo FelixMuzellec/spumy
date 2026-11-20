@@ -1,7 +1,8 @@
 // SPUMY V3 — Journal, Profil, feuille de position, saisie rapide (UX-V3 § 5 et § 11).
 import { useState } from "react";
 import { Sheet, Icon, photoSrc } from "./ui.jsx";
-import { PLACES, JOURNAL, STATE_LABEL, BOATS } from "./data.js";
+import { PLACES, JOURNAL, STATE_LABEL, BOATS, REF } from "./data.js";
+import { Base } from "./map.jsx";
 
 export const TAB_LABEL = { home: "Home", carte: "Carte", meteo: "Météo", profil: "Profil", journal: "Journal" };
 
@@ -9,23 +10,34 @@ export function PositionSheet({ pos, setPos, onClose, notify }) {
   const [mode, setMode] = useState(pos.mode);
   const [q, setQ] = useState(pos.state === "ok" ? pos.label : "");
   const [typing, setTyping] = useState(false);
+  const [pin, setPin] = useState(false);
   const sugg = typing && q.length >= 2 ? PLACES.filter((p) => p.name.toLowerCase().startsWith(q.toLowerCase())) : [];
-  const locate = () => { setMode("auto"); setQ("Pirou"); setTyping(false); notify("Position du téléphone : Pirou, ±30 m"); };
+  const locate = () => { setMode("auto"); setQ("Pirou"); setTyping(false); setPin(false); notify("Position du téléphone : Pirou, ±30 m"); };
   const use = () => { setPos({ mode, label: q || "Pirou", acc: mode === "auto" ? "±30 m" : null, state: "ok" }); onClose(); };
   return (
-    <Sheet title="Position de référence" onClose={onClose}>
-      <div className="seg2" role="group" aria-label="Mode"><button aria-pressed={mode === "auto"} onClick={() => setMode("auto")}>Automatique</button><button aria-pressed={mode === "manual"} onClick={() => setMode("manual")}>Manuel</button></div>
-      <button className="btn primary" onClick={locate}><Icon name="locate" />Me géolocaliser</button>
-      <label className="field">Lieu actuel (modifiable : ville, adresse, code postal, coordonnées)
-        <input value={q} onChange={(e) => { setQ(e.target.value); setTyping(true); setMode("manual"); }} placeholder="Ville, adresse…" autoComplete="off" />
+    <Sheet title="Position" onClose={onClose}>
+      <div className="seg2" role="group" aria-label="Mode"><button aria-pressed={mode === "auto"} onClick={() => setMode("auto")}>Automatique</button><button aria-pressed={mode === "manual"} onClick={() => setMode("manual")}>Manuelle</button></div>
+      <button className="optrow" onClick={locate}>
+        <span className="optic"><Icon name="locate" size={20} /></span>
+        <span className="grow"><b>Me géolocaliser</b><br /><span className="meta">{mode === "auto" ? "Position du téléphone · ±30 m" : "Repasser en automatique"}</span></span>
+        <Icon name="right" size={18} />
+      </button>
+      <label className="searchf"><Icon name="search" size={20} /><span className="vh">Ville, adresse, code postal ou coordonnées</span>
+        <input value={q} onChange={(e) => { setQ(e.target.value); setTyping(true); setMode("manual"); }} placeholder="Ville, adresse, code postal…" autoComplete="off" />
+        {q && <button className="iconbtn small" aria-label="Effacer" onClick={() => { setQ(""); setTyping(true); }}><Icon name="x" size={16} /></button>}
       </label>
-      {sugg.length > 0 && <div className="suggest" role="listbox" aria-label="Propositions">{sugg.map((p) => <button key={p.name} role="option" aria-selected="false" onClick={() => { setQ(p.name); setTyping(false); }}>{p.name} <span className="muted">— {p.sub}</span></button>)}</div>}
-      <div className="mapwrap" style={{ height: 150, borderRadius: 12 }} data-noswipe>
-        <button className="btn small" style={{ margin: "auto" }} onClick={() => { setMode("manual"); setQ("47,62° N ; −1,59° O (épingle)"); }}><Icon name="pin" size={18} />Poser l'épingle ici (manuel)</button>
+      {sugg.length > 0 && <div className="suggest" role="listbox" aria-label="Propositions">{sugg.map((p) => (
+        <button key={p.name} role="option" aria-selected="false" onClick={() => { setQ(p.name); setTyping(false); setPin(false); }}><Icon name="pin" size={18} /><span><b>{p.name}</b> <span className="meta">{p.sub}</span></span></button>))}</div>}
+      <div className="minimap">
+        <Base compact start={{ x: REF.x, y: REF.y, k: 1.6 }} overlay={<g><circle cx={REF.x} cy={REF.y} r="70" fill="var(--accent)" fillOpacity=".16" /><circle cx={REF.x} cy={REF.y} r="16" fill="var(--accent)" stroke="var(--palette-navy)" strokeWidth="6" /></g>} />
+        <button className={`btn small pinbtn${pin ? " on" : ""}`} onClick={() => { setMode("manual"); setPin(true); setQ("47,62° N ; 1,59° O"); }}><Icon name="pin" size={18} />{pin ? "Épingle posée" : "Poser l'épingle ici"}</button>
       </div>
-      <p className="meta">Récentes, sur cet appareil : Pirou · Crozon · <button className="btn ghost" style={{ minHeight: 0 }}>effacer</button></p>
+      <div className="chips" aria-label="Positions récentes, sur cet appareil">
+        {["Pirou", "Crozon"].map((r) => <button key={r} className="chip" onClick={() => { setQ(r); setMode("manual"); setTyping(false); }}>{r}</button>)}
+        <button className="chip" aria-label="Effacer les positions récentes">Effacer</button>
+      </div>
       <button className="btn primary" onClick={use}>Utiliser cette position</button>
-      <p className="meta">Aucune géolocalisation par adresse IP. Le nom du lieu vient du géocodage inverse (service à vérifier en Phase 4).</p>
+      <p className="meta" style={{ margin: 0 }}>Jamais de géolocalisation par adresse IP. La position reste sur cet appareil.</p>
     </Sheet>
   );
 }

@@ -221,6 +221,8 @@ if (AXE) {
   for (const scheme of ["light", "dark"]) for (const r of ["home", "carte", "meteo", "profil", "spot-a", "comparer-c-a"]) {
     const { ctx, page } = await open({ width: 390, height: 844 }, scheme, r);
     await page.waitForTimeout(150);
+    if (r === "home") await page.locator(".poschip").click(); // feuille de position ouverte : ses couleurs passent aussi au contrôle
+    await page.waitForTimeout(100);
     await page.addScriptTag({ content: axeSrc });
     const res = await page.evaluate(async () => (await window.axe.run(document, { runOnly: ["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"] })).violations.map((v) => ({ id: v.id, impact: v.impact, n: v.nodes.length })));
     const grave = res.filter((v) => v.impact === "serious" || v.impact === "critical");

@@ -21,7 +21,7 @@ const DEPTHS = [60, 130, 210].map((o) => smooth(COAST.map(([x, y]) => [Math.max(
  * Fond de carte déplaçable et zoomable : glisser (doigt ou souris), molette, pincement, double-clic, boutons + et −.
  * Les pastilles gardent leur taille à l'écran (--k). Un glissement n'ouvre pas la pastille sous le doigt.
  */
-function Base({ children, overlay, items, renderItem }) {
+export function Base({ children, overlay, items, renderItem, compact, start }) {
   const box = useRef(null), ptrs = useRef(new Map()), g = useRef(null);
   const [v, setV] = useState({ k: 1, x: 0, y: 0 });
   // Le contenu garde les proportions de la carte (1000 × 1300) sur toute la largeur ; la fenêtre peut être plus basse.
@@ -33,7 +33,11 @@ function Base({ children, overlay, items, renderItem }) {
     const cx = cw <= w ? (w - cw) / 2 : Math.min(0, Math.max(w - cw, x)), cy = ch <= h ? (h - ch) / 2 : Math.min(0, Math.max(h - ch, y));
     return { k: kk, x: cx, y: cy };
   };
-  const fit = () => { const { kMin } = dims(); setV(clamp(kMin, 0, 0)); };
+  const fit = () => {
+    const { w, h, kMin } = dims();
+    if (start) { const sc = (w * start.k) / 1000; setV(clamp(start.k, w / 2 - start.x * sc, h / 2 - start.y * sc)); }
+    else setV(clamp(kMin, 0, 0));
+  };
   useEffect(() => { const f = () => { setWidth(box.current.getBoundingClientRect().width); fit(); }; f(); const ro = new ResizeObserver(f); ro.observe(box.current); return () => ro.disconnect(); }, []);
   // Regroupement : les pastilles à moins de 48 px l'une de l'autre à l'écran forment un groupe avec leur nombre.
   const groups = [];
@@ -93,12 +97,12 @@ function Base({ children, overlay, items, renderItem }) {
             aria-label={`Groupe de ${g.items.length} spots : ${g.items.map((i) => i.name).join(", ")} ; zoomer`} data-n={g.items.length}
             onClick={() => zoomAt(2.2, v.x + g.sx, v.y + g.sy)}>{g.items.length}</button>)) : children}</div>
       </div>
-      <div className="zoom" onPointerDown={(e) => e.stopPropagation()}>
+      {!compact && <div className="zoom" onPointerDown={(e) => e.stopPropagation()}>
         <button aria-label="Zoomer" onClick={() => zoomAt(1.5, ...center())}><Icon name="plus" size={20} /></button>
         <button aria-label="Dézoomer" onClick={() => zoomAt(1 / 1.5, ...center())}><Icon name="minus" size={20} /></button>
         <button aria-label="Vue d'ensemble" onClick={fit}><Icon name="fit" size={20} /></button>
-      </div>
-      <span className="maptag">Fond schématique · démonstration</span>
+      </div>}
+      {!compact && <span className="maptag">Fond schématique · démonstration</span>}
     </div>
   );
 }

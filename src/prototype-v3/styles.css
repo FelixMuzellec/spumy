@@ -206,15 +206,26 @@ main { flex: 1; min-height: 0; display: flex; flex-direction: column; }
 
 /* Feuilles et voiles */
 .scrim { position: fixed; inset: 0; background: var(--scrim); z-index: 40; }
-.modal { position: fixed; left: 50%; transform: translateX(-50%); bottom: 0; width: min(560px, 100%); max-height: 92dvh; overflow: auto; z-index: 41; background: var(--surface-card); border-radius: var(--r-lg) var(--r-lg) 0 0; box-shadow: var(--elev-2); padding: 8px var(--gutter) calc(var(--sp-4) + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; gap: var(--sp-3); }
+.modal { position: fixed; left: 50%; transform: translateX(-50%); bottom: 0; width: min(560px, 100%); max-height: 92dvh; overflow: auto; z-index: 41; background: var(--bg-app); border-top: 1px solid var(--border); border-radius: var(--r-lg) var(--r-lg) 0 0; box-shadow: var(--elev-2); padding: 8px var(--gutter) calc(var(--sp-4) + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; gap: var(--sp-3); }
 .modal h2 { margin: 0; font-size: var(--fs-title-s); }
-.seg2 { display: flex; border: 1.5px solid var(--border-strong); border-radius: var(--r-sm); overflow: hidden; }
-.seg2 button { flex: 1; min-height: 40px; border: 0; background: none; font-weight: var(--fw-medium); font-size: var(--fs-small); }
-.seg2 button[aria-pressed="true"], .seg2 button[aria-selected="true"] { background: var(--text-primary); color: var(--bg-app); font-weight: var(--fw-bold); }
+.seg2 { display: flex; gap: 3px; padding: 3px; border-radius: 12px; background: var(--surface-sunken); }
+.seg2 button { flex: 1; min-height: 38px; border: 0; border-radius: 9px; background: none; color: var(--text-secondary); font-weight: var(--fw-medium); font-size: var(--fs-small); }
+.seg2 button[aria-pressed="true"], .seg2 button[aria-selected="true"] { background: var(--surface-card); color: var(--text-primary); font-weight: var(--fw-bold); box-shadow: var(--elev-1); }
+.iconbtn { flex: none; width: var(--touch); height: var(--touch); border-radius: 50%; border: 0; display: grid; place-items: center; background: var(--surface-card); color: var(--text-primary); }
+.iconbtn.small { width: 32px; height: 32px; background: var(--surface-sunken); }
+.optrow { display: flex; align-items: center; gap: var(--sp-3); width: 100%; min-height: 60px; padding: var(--sp-2) var(--sp-3); border: 0; border-radius: 14px; background: var(--surface-card); color: var(--text-primary); text-align: left; }
+.optic { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--palette-navy); flex: none; }
+.searchf { display: flex; align-items: center; gap: var(--sp-2); min-height: 52px; padding: 0 var(--sp-2) 0 var(--sp-3); border-radius: 14px; background: var(--surface-card); color: var(--text-secondary); }
+.searchf:focus-within { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+.searchf input { flex: 1; min-width: 0; border: 0; background: none; color: var(--text-primary); font-size: var(--fs-body); min-height: 48px; outline: none; }
+.minimap { position: relative; border-radius: 14px; overflow: hidden; }
+.minimap .mapbox { height: 180px; }
+.pinbtn { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); z-index: 5; background: var(--surface-card); border-color: transparent; box-shadow: var(--elev-1); }
+.pinbtn.on { background: var(--accent); color: var(--palette-navy); }
 .field { display: flex; flex-direction: column; gap: 4px; font-size: var(--fs-small); color: var(--text-secondary); }
 .field input, .field select { min-height: var(--touch); border-radius: var(--r-sm); border: 1.5px solid var(--border-strong); background: var(--surface-sunken); color: var(--text-primary); padding: 0 12px; font-size: var(--fs-body); }
-.suggest { border: 1px solid var(--border); border-radius: var(--r-sm); overflow: hidden; }
-.suggest button { display: block; width: 100%; text-align: left; min-height: var(--touch); padding: 0 12px; border: 0; border-top: 1px solid var(--border); background: var(--surface-card); }
+.suggest { border-radius: 14px; overflow: hidden; background: var(--surface-card); }
+.suggest button { display: flex; align-items: center; gap: var(--sp-3); width: 100%; text-align: left; min-height: 52px; padding: 0 var(--sp-3); border: 0; border-top: 1px solid var(--border); background: none; color: var(--text-primary); }
 .suggest button:first-child { border-top: 0; }
 
 /* Marée */
