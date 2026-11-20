@@ -49,7 +49,8 @@ export const SPOTS = [
     reason: "courant de vidange du port à mi-marée", wind: { from: "NO", bft: 4, gust: 31, expo: "abrité" }, photo: "nuit-frontale", lieu: "digue" },
   { id: "f", name: "Estuaire F", kind: "estuaire", x: 700, y: 1140, fav: 64, conf: 70, level: "Moyenne", safety: "ok", win: [16.5, 18.5], route: 41, km: 36, verified: true,
     reason: "fin de jusant à la sortie du chenal", wind: { from: "NO", bft: 3, gust: 26, expo: "abrité" }, photo: "estuaire-pres-sales", lieu: "estuaire" },
-  { id: "e", name: "Pointe E", kind: "pointe", x: 330, y: 700, fav: 53, conf: 40, level: "Faible", safety: "unknown", status: "verify", verifyWhy: "Houle inconnue : sécurité à vérifier", win: [8.5, 10], route: 29, km: 22, verified: true,
+  // Pointe E reprend la fixture de référence du référentiel (§ 6.7.2) : Favorabilité 53 — À vérifier, Confiance 69 — Moyenne.
+  { id: "e", name: "Pointe E", kind: "pointe", x: 330, y: 700, fav: 53, conf: 69, level: "Moyenne", safety: "unknown", status: "verify", verifyWhy: "Houle inconnue : sécurité à vérifier", win: [8.5, 10], route: 29, km: 22, verified: true,
     reason: "houle non documentée", wind: { from: "NO", bft: 5, gust: 42, expo: "de face" }, photo: "lancer-ressac", lieu: "pointe" },
   { id: "j", name: "Anse J", kind: "anse", x: 420, y: 900, fav: 68, conf: 51, level: "Moyenne", safety: "unknown", status: "verify", verifyWhy: "Accès non confirmé depuis 2024", win: [9, 11], route: 21, km: 15, verified: true,
     reason: "accès à confirmer", wind: { from: "NO", bft: 4, gust: 34, expo: "de côté" }, photo: "roche-ciel-bleu", lieu: "crique" },

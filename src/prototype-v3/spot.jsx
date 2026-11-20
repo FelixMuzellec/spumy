@@ -24,12 +24,12 @@ function TideCurve({ s }) {
         <path d={curve} fill="none" stroke="var(--text-primary)" strokeWidth="2.5" />
         <line x1={x(0)} x2={x(24)} y1="100" y2="100" stroke="var(--border-strong)" />
         <line x1={x(NOW)} x2={x(NOW)} y1="4" y2="100" stroke="var(--gauge-index)" strokeWidth="2" strokeDasharray="4 3" />
-        <text x={x(NOW) - 4} y="12" fontSize="10" textAnchor="end" fill="var(--text-secondary)">maintenant</text>
-        <text x={x(TIDE.pm) + 6} y={y(tideHeight(TIDE.pm)) - 4} fontSize="10" fontWeight="700" fill="var(--text-primary)">PM {hhmm(TIDE.pm)}</text>
-        <text x={x(0) + 2} y="96" fontSize="10" fontWeight="700" fill="var(--text-primary)">BM {hhmm(TIDE.bm)}</text>
-        {[0, 6, 12, 18, 24].map((t) => <text key={t} x={x(t)} y="114" fontSize="10" fill="var(--text-muted)" textAnchor={t === 0 ? "start" : t === 24 ? "end" : "middle"}>{String(t).padStart(2, "0")}</text>)}
+        <text x={x(NOW) - 4} y="12" fontSize="12" textAnchor="end" fill="var(--text-secondary)">maintenant</text>
+        <text x={x(TIDE.pm) + 6} y={y(tideHeight(TIDE.pm)) - 4} fontSize="12" fontWeight="700" fill="var(--text-primary)">PM {hhmm(TIDE.pm)}</text>
+        <text x={x(0) + 2} y="96" fontSize="12" fontWeight="700" fill="var(--text-primary)">BM {hhmm(TIDE.bm)}</text>
+        {[0, 6, 12, 18, 24].map((t) => <text key={t} x={x(t)} y="115" fontSize="12" fill="var(--text-muted)" textAnchor={t === 0 ? "start" : t === 24 ? "end" : "middle"}>{String(t).padStart(2, "0")}</text>)}
         {hover !== null && <g><line x1={x(hover)} x2={x(hover)} y1="4" y2="100" stroke="var(--text-primary)" />
-          <text x={Math.min(x(hover) + 6, W - 96)} y="126" fontSize="10.5" fontWeight="700" fill="var(--text-primary)">{hhmm(hover)} · {tideHeight(hover).toFixed(1).replace(".", ",")} m</text></g>}
+          <text x={Math.min(x(hover) + 6, W - 104)} y="128" fontSize="12" fontWeight="700" fill="var(--text-primary)">{hhmm(hover)} · {tideHeight(hover).toFixed(1).replace(".", ",")} m</text></g>}
       </svg>
       <div className="row">{bands.map((b, i) => <span key={i} className="badge info"><i className="sw" style={{ background: `var(--tier-${tierOf(b.fav).id})` }} />
         <span className="num">{span(b.w)} · {b.fav} — {tierOf(b.fav).word}</span></span>)}{!bands.length && <span className="meta">Fenêtre non déterminable : {s.noWinWhy || s.nrWhy}</span>}</div>

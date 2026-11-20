@@ -215,6 +215,50 @@ for (const w of [320, 375, 390]) {
   t("manifeste : nom SPUMY, icône adaptative", man.name === "SPUMY" && man.icons.some((i) => i.purpose === "maskable"));
 }
 
+// Revues de la phase 3 (docs/design/REVUES-V3.md) : fixture § 6.7.2, Confiance sans effet sur le rang, cibles tactiles,
+// un titre h1 et un titre de page par écran, texte de 12 px au moins.
+{
+  const { ranking, SPOTS } = await import("../src/prototype-v3/data.js");
+  const ids = (r) => r.cards.map((c) => c.id).join(",");
+  const base = ids(ranking(SPOTS));
+  const variants = [SPOTS.map((s) => ({ ...s, conf: 100 - s.conf })), SPOTS.map((s, i) => ({ ...s, conf: (i * 37) % 101 })), SPOTS.map((s) => ({ ...s, conf: 0 }))];
+  t("règle : la Confiance ne change jamais le rang (3 jeux de Confiance)", variants.every((v) => ids(ranking(v)) === base), base);
+  t("règle : la Confiance ne change pas les égalités", ids(ranking(SPOTS, { tie: true })) === ids(ranking(SPOTS.map((s) => ({ ...s, conf: 100 - s.conf })), { tie: true })));
+
+  const { ctx, page } = await open({ width: 390, height: 844 }, "dark", "spot-e");
+  const fe = await page.locator("main").innerText();
+  t("fixture § 6.7.2 : Favorabilité 53 — À vérifier, Confiance 69 — Moyenne, sans effet sur le rang",
+    /53/.test(fe) && fe.includes("À vérifier") && /69/.test(fe) && fe.includes("Moyenne") && fe.includes("ne change pas le rang"));
+  const TITLES = { home: "Home", carte: "Carte", meteo: "Météo", profil: "Profil", journal: "Journal", "spot-a": "Pointe A", "spot-e": "Pointe E", "comparer-c-a": "Comparaison" };
+  for (const r of ["home", "carte", "meteo", "profil", "journal", "spot-a", "spot-e", "comparer-c-a"]) {
+    await page.evaluate((h) => { location.hash = h; }, r);
+    await page.waitForTimeout(80);
+    const m = await page.evaluate(() => {
+      const SEL = "button, a[href], input, select, textarea, [role=button], [role=tab], [role=radio], [tabindex='0']";
+      const target = (e) => {
+        let { left, top, right, bottom } = e.getBoundingClientRect();
+        for (const ps of ["::before", "::after"]) {
+          const c = getComputedStyle(e, ps); if (c.content === "none" || c.position !== "absolute") continue;
+          const host = getComputedStyle(e).position !== "static" ? e : e.offsetParent; if (!host) continue;
+          const h = host.getBoundingClientRect(), v = [c.top, c.right, c.bottom, c.left].map(parseFloat); if (v.some(Number.isNaN)) continue;
+          left = Math.min(left, h.left + v[3]); top = Math.min(top, h.top + v[0]); right = Math.max(right, h.right - v[1]); bottom = Math.max(bottom, h.bottom - v[2]);
+        }
+        const lab = e.closest("label"); if (lab) { const b = lab.getBoundingClientRect(); left = Math.min(left, b.left); top = Math.min(top, b.top); right = Math.max(right, b.right); bottom = Math.max(bottom, b.bottom); }
+        return Math.min(right - left, bottom - top);
+      };
+      const vis = [...document.querySelectorAll(SEL)].filter((e) => { const b = e.getBoundingClientRect(); return b.width > 0 && b.height > 0 && !e.closest("[aria-hidden=true]"); });
+      const small = vis.filter((e) => target(e) < 43.5).map((e) => (e.getAttribute("aria-label") || e.textContent).trim().slice(0, 30));
+      const sizes = [...document.querySelectorAll(".app *")].filter((e) => [...e.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim()) && !e.closest(".vh, [aria-hidden=true]") && e.getBoundingClientRect().width)
+        .map((e) => parseFloat(getComputedStyle(e).fontSize));
+      return { small, h1: document.querySelectorAll("h1").length, title: document.title, minText: Math.min(...sizes) };
+    });
+    t(`cibles #${r} : 44 px au moins (TOUCH.min)`, m.small.length === 0, m.small.join(" ; "));
+    t(`titres #${r} : un seul h1 et un titre de page`, m.h1 === 1 && m.title === `${TITLES[r]} · SPUMY`, `${m.h1} h1, « ${m.title} »`);
+    t(`texte #${r} : 12 px au moins`, m.minText >= 12, `${m.minText} px`);
+  }
+  await ctx.close();
+}
+
 // 4. Accessibilité (axe-core), deux thèmes.
 if (AXE) {
   const axeSrc = fs.readFileSync(path.join(root, "node_modules/axe-core/axe.min.js"), "utf8");

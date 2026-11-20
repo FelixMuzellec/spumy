@@ -152,6 +152,7 @@ export function Carte({ st, go, sel, setSel, notify }) {
   );
   return (
     <div className="screen flush split">
+      <h1 className="vh">Carte des spots</h1>
       <aside className="side" aria-label="Liste classée">
         {ranked.map((s) => <button key={s.id} className="card" style={{ textAlign: "left" }} onClick={() => setSel(s.id)} aria-pressed={sel === s.id}>{preview(s)}</button>)}
       </aside>
@@ -221,15 +222,15 @@ function Arrow({ x, y, deg, len, strength, warn, label, sub }) {
 }
 
 function Chart({ series, unit }) {
-  const W = 320, H = 90, max = Math.max(...series.flatMap((s) => s.v)) * 1.1;
+  const W = 320, H = 92, max = Math.max(...series.flatMap((s) => s.v)) * 1.1;
   const path = (v) => v.map((y, i) => `${i ? "L" : "M"}${(i / (v.length - 1)) * (W - 20) + 10},${H - 14 - (y / max) * (H - 26)}`).join(" ");
   return (
+    <figure className="chart"><figcaption className="meta">{series.map((s) => `${s.dash ? "pointillé" : "trait"} : ${s.name}`).join(" · ")} ({unit}), sur 24 h</figcaption>
     <svg viewBox={`0 0 ${W} ${H}`} width="100%" role="img" aria-label={series.map((s) => s.name).join(" et ")} data-noswipe>
       <line x1="10" x2={W - 10} y1={H - 14} y2={H - 14} stroke="var(--border-strong)" />
       {series.map((s) => <path key={s.name} d={path(s.v)} fill="none" stroke="var(--text-primary)" strokeWidth="2" strokeDasharray={s.dash ? "5 4" : undefined} />)}
-      {["maint.", "+6 h", "+12 h", "+18 h", "+24 h"].map((t, i) => <text key={t} x={10 + i * ((W - 20) / 4)} y={H - 2} fontSize="9" fill="var(--text-muted)" textAnchor={i === 0 ? "start" : i === 4 ? "end" : "middle"}>{t}</text>)}
-      <text x={W - 10} y="10" fontSize="9" fill="var(--text-muted)" textAnchor="end">{series.map((s) => `${s.dash ? "pointillé" : "trait"} : ${s.name}`).join(" · ")} ({unit})</text>
-    </svg>
+      {["maint.", "+6 h", "+12 h", "+18 h", "+24 h"].map((t, i) => <text key={t} x={10 + i * ((W - 20) / 4)} y={H - 1} fontSize="12" fill="var(--text-muted)" textAnchor={i === 0 ? "start" : i === 4 ? "end" : "middle"}>{t}</text>)}
+      </svg></figure>
   );
 }
 
@@ -242,6 +243,7 @@ export function Meteo({ st, go }) {
   const sea = bateau && layer === "mer";
   return (
     <div className="screen flush">
+      <h1 className="vh">Météo : vent heure par heure</h1>
       <div className="screen" style={{ gap: 8, paddingBottom: 8 }}>
         {bateau && <div className="seg2" role="tablist" aria-label="Couche"><button role="tab" aria-selected={layer === "vent"} onClick={() => setLayer("vent")}>Vent</button><button role="tab" aria-selected={layer === "mer"} onClick={() => setLayer("mer")}>Mer</button></div>}
         <div className="row between">

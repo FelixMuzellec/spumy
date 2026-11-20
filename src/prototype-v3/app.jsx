@@ -13,7 +13,7 @@ import { HomeBord, HomeBateau } from "./home.jsx";
 import { Carte, Meteo } from "./map.jsx";
 import { Fiche, Comparaison } from "./spot.jsx";
 import { Journal, Profil, PositionSheet, QuickAdd, TAB_LABEL } from "./misc.jsx";
-import { DEMO_NOTE, PHOTO_SET, JOURNAL } from "./data.js";
+import { DEMO_NOTE, PHOTO_SET, JOURNAL, SPOT } from "./data.js";
 
 const PHOTOS = catalogue.photos.filter((p) => PHOTO_SET.includes(p.id) && !p.remplacee_par);
 const TAB_ICON = { home: "home", carte: "map", meteo: "wind", profil: "user", journal: "book" };
@@ -79,6 +79,11 @@ function App() {
   const timer = useRef(null);
 
   useEffect(() => { const f = () => { setRoute(parse()); window.scrollTo(0, 0); }; window.addEventListener("hashchange", f); return () => window.removeEventListener("hashchange", f); }, []);
+  // Titre de la page propre à chaque écran (WCAG 2.4.2), lu par les lecteurs d'écran au changement de vue.
+  useEffect(() => {
+    const t = route.page === "spot" ? (SPOT[route.arg] || SPOT.a).name : route.page === "comparer" ? "Comparaison" : TAB_LABEL[route.page] || "Home";
+    document.title = `${t} · SPUMY`;
+  }, [route]);
   useEffect(() => { const r = document.documentElement; if (st.theme === "system") r.removeAttribute("data-theme"); else r.setAttribute("data-theme", st.theme); }, [st.theme]);
   const notify = useCallback((msg, undo) => { clearTimeout(timer.current); setToast({ msg, undo }); timer.current = setTimeout(() => setToast(null), 4500); }, []);
   const go = useCallback((page, arg) => {
