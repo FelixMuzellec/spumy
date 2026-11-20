@@ -223,6 +223,9 @@ for (const w of [320, 375, 390]) {
   const base = ids(ranking(SPOTS));
   const variants = [SPOTS.map((s) => ({ ...s, conf: 100 - s.conf })), SPOTS.map((s, i) => ({ ...s, conf: (i * 37) % 101 })), SPOTS.map((s) => ({ ...s, conf: 0 }))];
   t("règle : la Confiance ne change jamais le rang (3 jeux de Confiance)", variants.every((v) => ids(ranking(v)) === base), base);
+  const tie = ranking(SPOTS, { tie: true }), scarce = ranking(SPOTS, { scarce: true });
+  t("règle : égalité au dernier rang, 4 ou 5 cartes marquées « égalité »", tie.cards.length >= 4 && tie.cards.length <= 5 && tie.cards.slice(2).every((c) => c.tie), String(tie.cards.length));
+  t("règle : moins de 3 spots admissibles, aucune carte inventée et une raison", scarce.cards.length < 3 && !!scarce.scarceWhy, String(scarce.cards.length));
   t("règle : la Confiance ne change pas les égalités", ids(ranking(SPOTS, { tie: true })) === ids(ranking(SPOTS.map((s) => ({ ...s, conf: 100 - s.conf })), { tie: true })));
 
   {
@@ -257,11 +260,13 @@ for (const w of [320, 375, 390]) {
       const small = vis.filter((e) => target(e) < 43.5).map((e) => (e.getAttribute("aria-label") || e.textContent).trim().slice(0, 30));
       const sizes = [...document.querySelectorAll(".app *")].filter((e) => [...e.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim()) && !e.closest(".vh, [aria-hidden=true]") && e.getBoundingClientRect().width)
         .map((e) => parseFloat(getComputedStyle(e).fontSize));
-      return { small, h1: document.querySelectorAll("h1").length, title: document.title, minText: Math.min(...sizes) };
+      const txt = document.querySelector(".app").innerText;
+      return { small, h1: document.querySelectorAll("h1").length, title: document.title, minText: Math.min(...sizes), legacy: /Pertinence|\b\d{1,2}\s?\/\s?10\b|sur 10\b|\bV2\b/.test(txt) };
     });
     t(`cibles #${r} : 44 px au moins (TOUCH.min)`, m.small.length === 0, m.small.join(" ; "));
     t(`titres #${r} : un seul h1 et un titre de page`, m.h1 === 1 && m.title === `${TITLES[r]} · SPUMY`, `${m.h1} h1, « ${m.title} »`);
     t(`texte #${r} : 12 px au moins`, m.minText >= 12, `${m.minText} px`);
+    t(`héritage #${r} : ni Pertinence, ni note sur 10, ni « V2 » à l'écran`, !m.legacy);
   }
   await ctx.close();
 }
