@@ -79,6 +79,16 @@ header.doc p{margin:4px 0;color:var(--muted)}
 .nav span::before{content:"";width:18px;height:18px;border-radius:5px;border:1.5px solid var(--line)}
 .nav .on{color:var(--ink);font-weight:700}
 .nav .on::before{background:var(--ink);border-color:var(--ink)}
+.nav{overflow:hidden}
+.nav span{flex:0 0 23.5%}
+.nav .peek{opacity:.55}
+.nav .chev{position:absolute;right:0;top:0;bottom:0;width:30px;display:grid;place-items:center;font:800 16px/1 system-ui;color:var(--ink);background:linear-gradient(90deg,transparent,var(--paper) 55%)}
+.nav .chev.l{left:0;right:auto;background:linear-gradient(270deg,transparent,var(--paper) 55%)}
+.order{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.order li{display:flex;align-items:center;gap:8px;border:1px solid var(--soft2);border-radius:8px;padding:4px 8px;font-size:12px}
+.order li b{width:16px;color:var(--muted)}
+.order li i{margin-left:auto;font-style:normal;color:var(--muted)}
+.order li.off{border-style:dashed;color:var(--muted)}
 .swipe{font-size:10px;color:var(--muted);text-align:center;padding:2px 0 0;background:var(--paper)}
 hr.sep{border:0;border-top:1px solid var(--soft2);margin:2px 0;width:100%}
 .card{border:1.5px solid var(--line);border-radius:12px;padding:9px 10px;display:flex;flex-direction:column;gap:5px;min-width:0}
@@ -168,7 +178,7 @@ h2.parc{font-size:17px;margin:0 0 14px}
       <tr><td>« Décision » s'appelle « Home »</td><td>renommé partout</td><td>toutes</td></tr>
       <tr><td>Pas de grande barre « me géolocaliser » ; la puce en haut à droite, manuelle ou automatique</td><td>demande du téléphone au premier lancement ; puce en haut à droite ; modes automatique et manuel dans la feuille de position</td><td>01, 02</td></tr>
       <tr><td>Au centre, une phrase qui résume la pêche probable</td><td>phrase sur la photo de fond de Home, horaires compris</td><td>01, 03, 09</td></tr>
-      <tr><td>Glisser entre les onglets ; 4 onglets ; Météo plutôt que Journal ; barre et photo de fond modifiables dans Profil</td><td>barre par défaut <b>Home · Carte · Météo · Profil</b> ; les deux du milieu au choix ; Journal depuis Home et Profil ; glissement sauf sur les cartes et les courbes</td><td>toutes, 10, 11</td></tr>
+      <tr><td>4 onglets ; Météo plutôt que Journal ; ordre des onglets et photo de fond modifiables dans Profil ; on touche un onglet pour en changer, on fait glisser la barre pour en voir d'autres (précision de 14 h 02)</td><td>barre défilante : 4 onglets visibles, ordre par défaut <b>Home · Carte · Météo · Profil · Journal</b> ; ordre modifiable dans Profil ; chevron et fondu quand d'autres onglets sont hors champ</td><td>01, 10, 11, 13</td></tr>
       <tr><td>Feuille de position : section sous le point 2 incomprise ; la ville dans le point 2</td><td>le champ montre le lieu actuel ; les propositions n'apparaissent que pendant la frappe</td><td>02</td></tr>
       <tr><td>Home BORD : on voit mal les horaires</td><td>horaires en tête de chaque carte, en grand ; frise du jour</td><td>03, 04</td></tr>
       <tr><td>Fiche : courbe de marée avec les heures favorables coloriées</td><td>courbe du jour, heures favorables coloriées, nuit, « maintenant », indicateurs du jour</td><td>06</td></tr>
@@ -196,14 +206,14 @@ h2.parc{font-size:17px;margin:0 0 14px}
     </div>
     <div class="overlay"></div>
     <div class="osdlg"><span class="h">« SPUMY » souhaite utiliser votre position</span><span class="s">Pour calculer les spots et les temps de route autour de vous. Elle reste sur l'appareil.<i class="n">3</i></span><div class="row"><span class="btn ghost grow">Refuser</span><span class="btn pri grow">Autoriser</span></div><span class="s">(fenêtre du système)</span></div>
-    <div class="swipe">← glisser pour changer d'onglet →<i class="n">4</i></div>
-    <div class="nav"><span class="on">Home</span><span>Carte</span><span>Météo</span><span>Profil</span></div>
+    <div class="swipe">glisser la barre pour voir les autres onglets →<i class="n">4</i></div>
+    <div class="nav"><span class="on">Home</span><span>Carte</span><span>Météo</span><span>Profil</span><span class="peek">Journal</span><b class="chev">›</b></div>
   </div>
   <ol class="notes">
     <li>Puce en haut à droite : mode automatique par défaut. Refus : « Choisir une position », mise en évidence.</li>
     <li>Pas de grand bouton au centre : la phrase dit quoi faire, la puce le fait.</li>
     <li>Demande du système, une seule fois ; pas de géolocalisation par adresse IP (POS-03).</li>
-    <li>Glisser passe d'un onglet à l'autre, sauf sur une carte ou une courbe. Barre par défaut : Home · Carte · Météo · Profil.</li>
+    <li>On touche un onglet pour en changer. On fait glisser la barre pour faire apparaître les autres (Journal…) ; le chevron et le fondu montrent qu'il y en a. Ordre par défaut : Home · Carte · Météo · Profil · Journal, modifiable dans Profil.</li>
   </ol>
 </section>
 
@@ -270,7 +280,7 @@ h2.parc{font-size:17px;margin:0 0 14px}
       <div class="box dashed"><div class="row between"><span class="h">À vérifier (4)</span><span class="s">Afficher ▸</span></div></div>
       <div class="row"><span class="btn ghost grow">Comparer</span><span class="btn grow">+ Noter une sortie<i class="n">6</i></span></div>
     </div>
-    <div class="nav"><span class="on">Home</span><span>Carte</span><span>Météo</span><span>Profil</span></div>
+    <div class="nav"><span class="on">Home</span><span>Carte</span><span>Météo</span><span>Profil</span><span class="peek">Journal</span><b class="chev">›</b></div>
   </div>
   <ol class="notes">
     <li>Photo de fond automatique selon la lumière, le ciel et la mer, ou choisie dans Profil.</li>
@@ -298,7 +308,7 @@ h2.parc{font-size:17px;margin:0 0 14px}
       <div class="card"><div class="row between"><span class="time">07:40–10:00</span><span class="pill">ex æquo</span></div><div class="row"><span class="rank">3</span><span class="h">Spot G</span><span class="h mono">61/100 — Bon</span></div></div>
       <div class="btn ghost">+ 3 autres à égalité<i class="n">3</i></div>
     </div>
-    <div class="nav"><span class="on">Home</span><span>Carte</span><span>Météo</span><span>Profil</span></div>
+    <div class="nav"><span class="on">Home</span><span>Carte</span><span>Météo</span><span>Profil</span><span class="peek">Journal</span><b class="chev">›</b></div>
   </div>
   <ol class="notes">
     <li>Les places vides ne sont jamais comblées par un spot à vérifier, dangereux ou bloqué.</li>
@@ -338,7 +348,7 @@ h2.parc{font-size:17px;margin:0 0 14px}
       <div class="row"><span class="pill">Sécurité : OK</span><span class="pill">~38 min</span><span class="s mono">Confiance 81 — Haute</span></div>
       <div class="row"><span class="btn pri grow">Ouvrir la fiche</span><span class="btn ghost">Liste ▴<i class="n">4</i></span></div>
     </div>
-    <div class="nav"><span>Home</span><span class="on">Carte</span><span>Météo</span><span>Profil</span></div>
+    <div class="nav"><span>Home</span><span class="on">Carte</span><span>Météo</span><span>Profil</span><span class="peek">Journal</span><b class="chev">›</b></div>
   </div>
   <ol class="notes">
     <li>Compteurs exacts. « Favorables » = seuil validé + sécurité et vérification ; seuil À DÉCIDER.</li>
@@ -421,7 +431,7 @@ h2.parc{font-size:17px;margin:0 0 14px}
       <div class="box"><span class="h">+15 min de route (+13 km) pour +14 points de Favorabilité<i class="n">2</i></span><span class="s">Courant portant sur le platier (Spot A) ; mais vent de face sur A, abrité sur C.</span></div>
       <div class="box dashed"><span class="h">Variante : avantage non établi</span><span class="s">La météo de Spot C a 5 h : les deux scores ne sont pas comparables.</span></div>
     </div>
-    <div class="nav"><span class="on">Home</span><span>Carte</span><span>Météo</span><span>Profil</span></div>
+    <div class="nav"><span class="on">Home</span><span>Carte</span><span>Météo</span><span>Profil</span><span class="peek">Journal</span><b class="chev">›</b></div>
   </div>
   <ol class="notes">
     <li>Vent sur chaque spot pendant sa fenêtre : force, rafales, direction, exposition (jalon 1).</li>
@@ -450,7 +460,7 @@ h2.parc{font-size:17px;margin:0 0 14px}
       </div>
       <div class="btn pri">Voir si je peux sortir</div>
     </div>
-    <div class="nav"><span class="on">Home</span><span>Carte</span><span>Météo</span><span>Profil</span></div>
+    <div class="nav"><span class="on">Home</span><span>Carte</span><span>Météo</span><span>Profil</span><span class="peek">Journal</span><b class="chev">›</b></div>
   </div>
   <ol class="notes">
     <li>Sans bateau enregistré, la saisie est ouverte d'emblée. Aucun verdict sans l'un ou l'autre.</li>
@@ -479,7 +489,7 @@ h2.parc{font-size:17px;margin:0 0 14px}
       <div class="box line"><span class="s">Gilet · VHF canal 16 · BMS · itinéraire laissé à un proche</span></div>
       <div class="box dashed"><span class="h">Carte marine : épaves, hauts-fonds, balisage<i class="n">2</i></span><span class="s">Bonus à étudier : sources et licences à vérifier. Ne remplacerait jamais une carte marine officielle.</span></div>
     </div>
-    <div class="nav"><span class="on">Home</span><span>Carte</span><span>Météo</span><span>Profil</span></div>
+    <div class="nav"><span class="on">Home</span><span>Carte</span><span>Météo</span><span>Profil</span><span class="peek">Journal</span><b class="chev">›</b></div>
   </div>
   <ol class="notes">
     <li>Sécurité d'abord, jugée sur le pire moment du créneau, avec le bateau choisi.</li>
@@ -524,7 +534,7 @@ h2.parc{font-size:17px;margin:0 0 14px}
       </div>
       <div class="box line" style="height:46px"><span class="s">Courbe du jour : vent et rafales, heure par heure<i class="n">4</i></span></div>
     </div>
-    <div class="nav"><span>Home</span><span>Carte</span><span class="on">Météo</span><span>Profil</span></div>
+    <div class="nav"><span>Home</span><span>Carte</span><span class="on">Météo</span><span>Profil</span><span class="peek">Journal</span><b class="chev">›</b></div>
   </div>
   <ol class="notes">
     <li>Flèches sur une grille de points de prévision : sens du vent, force (Beaufort) et rafales (km/h) écrites. À partir de force 6, signe d'avertissement. Couleur neutre, jamais celle des paliers.</li>
@@ -558,7 +568,7 @@ h2.parc{font-size:17px;margin:0 0 14px}
       <div class="row between"><span class="h">Créneau 06:30–13:00</span><span class="s">Open-Meteo Marine, 06:00</span></div>
       <div class="box line" style="height:46px"><span class="s">Courbes : hauteur et période des vagues ; vent et rafales<i class="n">3</i></span></div>
     </div>
-    <div class="nav"><span>Home</span><span>Carte</span><span class="on">Météo</span><span>Profil</span></div>
+    <div class="nav"><span>Home</span><span>Carte</span><span class="on">Météo</span><span>Profil</span><span class="peek">Journal</span><b class="chev">›</b></div>
   </div>
   <ol class="notes">
     <li>Bascule Vent | Mer, en BATEAU seulement.</li>
@@ -569,7 +579,7 @@ h2.parc{font-size:17px;margin:0 0 14px}
 
 <!-- 10 -->
 <section class="wf" id="w10" data-file="10-journal">
-  <h2><b>10</b>Journal (barre personnalisée)<span class="new">jalon 1</span></h2>
+  <h2><b>10</b>Journal (barre défilée)<span class="new">jalon 1</span></h2>
   <div class="phone">
     <div class="top"><div class="seg"><span class="on">BORD</span><span>BATEAU</span></div><span class="h" style="margin-left:auto">Journal</span><span class="s">⋯</span></div>
     <div class="scroll">
@@ -582,10 +592,10 @@ h2.parc{font-size:17px;margin:0 0 14px}
         <li class="card"><div class="row between"><span class="h">Mar. 3 nov. · Spot D</span><span class="pill warn">Incomplète</span></div></li>
       </ul>
     </div>
-    <div class="nav"><span>Home</span><span>Carte</span><span class="on">Journal</span><span>Profil</span><i class="n" style="position:absolute;right:8px;top:-8px">1</i></div>
+    <div class="nav"><b class="chev l">‹</b><span class="peek" style="flex-basis:6%"></span><span>Carte</span><span>Météo</span><span>Profil</span><span class="on">Journal</span><i class="n" style="position:absolute;right:8px;top:-8px">1</i></div>
   </div>
   <ol class="notes">
-    <li>Exemple d'une barre modifiée dans Profil : Journal à la place de Météo. Par défaut, le Journal s'ouvre depuis Home (« + Noter une sortie ») et depuis Profil.</li>
+    <li>La barre a défilé : Journal, 5ᵉ onglet, est apparu et Home est sorti à gauche (chevron). Le Journal s'ouvre aussi depuis Home (« + Noter une sortie ») et depuis Profil.</li>
   </ol>
 </section>
 
@@ -600,8 +610,8 @@ h2.parc{font-size:17px;margin:0 0 14px}
       <div class="box line"><div class="row between"><span class="h">Mes spots et mes marques</span><span class="s">2 ▸</span></div></div>
       <div class="box line"><div class="row between"><span class="h">Mes bateaux</span><span class="s">semi-rigide 6 m (par défaut) ▸</span></div></div>
       <div class="box line"><span class="h">Affichage<i class="n">1</i></span>
-        <span class="s">Onglets de la barre :</span>
-        <div class="row"><span class="pill dark">Home</span><span class="pill">Carte ▾</span><span class="pill">Météo ▾</span><span class="pill dark">Profil</span></div>
+        <span class="s">Ordre des onglets (les 4 premiers sont visibles sans faire défiler) :</span>
+        <ol class="order"><li><b>1</b>Home<i>≡ ▲▼</i></li><li><b>2</b>Carte<i>≡ ▲▼</i></li><li><b>3</b>Météo<i>≡ ▲▼</i></li><li><b>4</b>Profil<i>≡ ▲▼</i></li><li class="off"><b>5</b>Journal · en faisant défiler<i>≡ ▲▼</i></li></ol>
         <span class="s">Photo de fond de Home :<i class="n">2</i></span>
         <div class="row"><span class="pill dark">Automatique</span><span class="pill">Choisir une photo ▸</span></div>
         <span class="s">Thème · mode terrain</span>
@@ -609,10 +619,10 @@ h2.parc{font-size:17px;margin:0 0 14px}
       <div class="box line"><span class="h">Mes données</span><span class="s">Sauvegarde · transfert · export du journal (option A) · tout effacer</span></div>
       <div class="row" style="gap:8px"><div style="width:40px;height:40px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;font-size:8px">logo</div><span class="s">Aide et règles · à propos · sources des données</span></div>
     </div>
-    <div class="nav"><span>Home</span><span>Carte</span><span>Météo</span><span class="on">Profil</span></div>
+    <div class="nav"><span>Home</span><span>Carte</span><span>Météo</span><span class="on">Profil</span><span class="peek">Journal</span><b class="chev">›</b></div>
   </div>
   <ol class="notes">
-    <li>Les deux onglets du milieu se choisissent parmi Carte, Météo, Journal (et Matériel plus tard) ; Home et Profil restent fixes.</li>
+    <li>L'ordre se change en faisant glisser les poignées, ou avec les flèches (clavier et lecteur d'écran). Matériel s'ajoutera à la liste quand l'inventaire existera.</li>
     <li>Automatique : la photo suit la lumière, le ciel et la mer du moment. Toujours marquée « Illustration ».</li>
   </ol>
 </section>
@@ -633,7 +643,7 @@ h2.parc{font-size:17px;margin:0 0 14px}
       <div class="box"><span class="h">Position refusée</span><span class="s">Touche la position en haut à droite pour saisir un lieu.</span></div>
       <div class="box"><span class="h">Carte du vent indisponible hors ligne</span><span class="s">Dernière prévision : 06:00 (il y a 3 h)</span></div>
     </div>
-    <div class="nav"><span class="on">Home</span><span>Carte</span><span>Météo</span><span>Profil</span></div>
+    <div class="nav"><span class="on">Home</span><span>Carte</span><span>Météo</span><span>Profil</span><span class="peek">Journal</span><b class="chev">›</b></div>
   </div>
   <ol class="notes">
     <li>Pas de liste vide muette ; changer de position se fait par la puce.</li>
@@ -645,7 +655,7 @@ h2.parc{font-size:17px;margin:0 0 14px}
   <h2><b>13</b>Carte (bureau)</h2>
   <div class="phone">
     <div class="deskwrap">
-      <div class="top" style="gap:10px"><div style="width:28px;height:28px;border-radius:50%;border:2px solid var(--ink)"></div><span class="h">SPUMY</span><div class="seg"><span class="on">BORD</span><span>BATEAU</span></div><span class="grow"></span><span class="s">Home</span><span class="h">Carte</span><span class="s">Météo</span><span class="s">Profil</span><span class="chip solid" style="margin-left:12px">Pirou · auto · ±30 m</span><i class="n">1</i></div>
+      <div class="top" style="gap:10px"><div style="width:28px;height:28px;border-radius:50%;border:2px solid var(--ink)"></div><span class="h">SPUMY</span><div class="seg"><span class="on">BORD</span><span>BATEAU</span></div><span class="grow"></span><span class="s">Home</span><span class="h">Carte</span><span class="s">Météo</span><span class="s">Profil</span><span class="s">Journal</span><span class="chip solid" style="margin-left:12px">Pirou · auto · ±30 m</span><i class="n">1</i></div>
       <div class="desk">
         <div class="side">
           <div class="field">Rechercher un spot</div>
@@ -666,7 +676,7 @@ h2.parc{font-size:17px;margin:0 0 14px}
     </div>
   </div>
   <ol class="notes">
-    <li>Au-delà de 1 024 px, la barre passe en haut, mêmes onglets ; la puce de position reste en haut à droite.</li>
+    <li>Au-delà de 1 024 px, la barre passe en haut et montre tous les onglets, dans l'ordre choisi ; la puce de position reste en haut à droite.</li>
   </ol>
 </section>
 
