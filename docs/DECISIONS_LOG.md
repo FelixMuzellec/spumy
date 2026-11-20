@@ -281,9 +281,9 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 - **Décisions** :
     - « Décision » s'appelle **Home** ;
     - un **onglet Météo** : carte de la force et de la direction du vent, heure par heure ; « par zone » est rendu par une grille de points de prévision, sans découpage géographique ;
-    - **4 onglets** dans la barre, par défaut **Home, Carte, Météo, Profil** ; Météo plutôt que Journal ;
-    - la barre se modifie dans Profil, comme la photo de fond de Home ; Home reste en premier et Profil en dernier (PROPOSITION de mise en œuvre) ;
-    - **glisser** pour changer d'onglet ;
+    - **4 onglets visibles** dans la barre, ordre par défaut **Home, Carte, Météo, Profil**, puis Journal ; Météo plutôt que Journal ;
+    - **l'ordre des onglets** se change dans Profil, comme la photo de fond de Home (précision du 20 nov., 14 h 02) ;
+    - on change d'onglet en le **touchant** ; on **fait glisser la barre** pour faire apparaître d'autres onglets (précision du 20 nov., 14 h 02) ;
     - **position** par la puce en haut à droite, automatique (demande du téléphone) ou manuelle ; aucune grande action au centre de Home ;
     - au centre de Home, une **phrase** qui résume la pêche probable ;
     - dans la feuille de position, le champ montre le lieu actuel ; les propositions n'apparaissent que pendant la frappe ;

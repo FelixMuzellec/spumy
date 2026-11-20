@@ -55,13 +55,13 @@ La météo devient une entrée à part entière (jalon 1). Elle sert les tâches
 ```mermaid
 flowchart TB
   APP["SPUMY"] --> BAR["En-tête : bascule BORD / BATEAU · puce de position (en haut à droite)"]
-  APP --> NAV["Barre : 4 onglets, glisser pour changer · par défaut Home · Carte · Météo · Profil"]
+  APP --> NAV["Barre défilante : 4 onglets visibles, glisser la barre fait apparaître les autres · ordre par défaut Home · Carte · Météo · Profil · Journal"]
   NAV --> HOME["Home"]
   NAV --> CAR["Carte"]
   NAV --> MET["Météo"]
   NAV --> PRO["Profil"]
-  NAV -.-> JOU["Journal (onglet au choix ; sinon depuis Home et Profil)"]
-  NAV -.-> MAT["Matériel (au choix, quand l'inventaire existe)"]
+  NAV --> JOU["Journal (5ᵉ onglet, visible en faisant défiler la barre ; aussi depuis Home et Profil)"]
+  NAV -.-> MAT["Matériel (ajouté à la barre quand l'inventaire existe)"]
   HOME --> PHRASE["Photo de fond · phrase de synthèse"]
   HOME --> CARDS["3 cartes de recommandation (4 ou 5 si égalité)"]
   HOME --> VERIF["À vérifier (zone distincte)"]
@@ -84,7 +84,7 @@ flowchart TB
   PRO --> STATS["Statistiques personnelles"]
   PRO --> MINE["Mes spots et mes marques"]
   PRO --> BOAT["Mes bateaux (BATEAU)"]
-  PRO --> DISP["Affichage : onglets de la barre, photo de fond de Home, thème, mode terrain"]
+  PRO --> DISP["Affichage : ordre des onglets, photo de fond de Home, thème, mode terrain"]
   PRO --> DATA["Mes données : sauvegarde, transfert, export, effacement"]
   PRO --> HELP["Aide et règles"]
 ```
@@ -116,16 +116,15 @@ flowchart TB
 ## 4. Navigation et contexte (jalon 1)
 
 - **En-tête permanent** : la bascule BORD / BATEAU à gauche, la puce de position en haut à droite (lieu, mode automatique ou manuel, précision ou âge).
-- **Barre de 4 onglets** :
-    - par défaut : **Home · Carte · Météo · Profil** ;
-    - Profil, Affichage, permet de choisir les deux onglets du milieu parmi Carte, Météo, Journal et, plus tard, Matériel (PROPOSITION).
-    - Home reste le premier onglet, et Profil le dernier : c'est par lui qu'on modifie la barre.
-- **Journal hors de la barre** : il reste à un geste. Home porte « + Noter une sortie » et le bandeau de la sortie en cours ; Profil ouvre le Journal complet.
-- **Glisser pour changer d'onglet** :
-    - un glissement horizontal sur le contenu passe à l'onglet voisin, dans l'ordre de la barre ;
-    - il est ignoré quand le geste part d'une carte géographique, d'une courbe, d'un curseur ou d'une liste qui défile horizontalement, ainsi qu'à moins de 20 px du bord de l'écran (le geste « retour » du téléphone) ;
-    - il ne joue que sur les écrans racines : pas dans une fiche ouverte ;
-    - les onglets restent touchables ; avec « mouvement réduit », le changement est immédiat, sans glissement animé.
+- **Barre défilante, 4 onglets visibles** (précision de Félix, 20 nov., 14 h 02) :
+    - on change d'onglet en **touchant** l'onglet ;
+    - on **fait glisser la barre** de droite à gauche ou de gauche à droite : d'autres onglets apparaissent, certains disparaissent ; elle défile par onglet entier (aimantation) ;
+    - **ordre par défaut** : Home · Carte · Météo · Profil, puis Journal (et Matériel quand l'inventaire existe), hors champ à droite ;
+    - **l'ordre se change dans Profil, Affichage** : les 4 premiers sont ceux qu'on voit sans faire défiler ;
+    - un repère montre qu'il y a d'autres onglets : bord en fondu et chevron du côté où la barre peut défiler. L'onglet actif reste toujours visible ; s'il est hors champ, la barre défile pour le montrer ;
+    - au clavier, chaque onglet reçoit le focus et la barre défile jusqu'à lui ; avec « mouvement réduit », le défilement n'est pas animé ;
+    - le contenu de l'écran ne change pas d'onglet par glissement : les cartes, courbes et curseurs gardent leurs gestes.
+- **Journal** : 5ᵉ onglet de la barre, et toujours à un geste depuis Home (« + Noter une sortie », bandeau de la sortie en cours) et depuis Profil.
 - **Bascule de mode** : elle garde la position, la date et le cadrage de la carte. Elle change les règles, les listes et le contenu des onglets, sans mélanger les données (BAT-08).
 - **Retour** : chaque onglet garde son état (défilement, filtre, heure choisie dans Météo, fiche ouverte). Une fiche ouverte depuis la Carte revient à la Carte au même cadrage.
 - **Liens profonds** :
@@ -312,7 +311,7 @@ L'ordre suit le principe « voir avant de lire » (§ 6.5.1) :
 ## 11. Journal, Profil, export (jalon 1)
 
 - **Journal** :
-    - accessible par la barre si on l'y met, sinon par Home (« + Noter une sortie », bandeau de la sortie en cours) et par Profil ;
+    - 5ᵉ onglet de la barre (en la faisant défiler, ou plus tôt si on change l'ordre), et toujours depuis Home (« + Noter une sortie », bandeau de la sortie en cours) et depuis Profil ;
     - liste des sorties, chacune avec son état (prise, sans prise, résultat inconnu, incomplète, annulée) ; un « non renseigné » n'est jamais une bredouille ;
     - « + Ajouter une prise » visible en permanence ; sortie en cours avec un chrono ;
     - ajout par photo (l'analyse V2 reprise), puis complétion plus tard.
@@ -322,7 +321,7 @@ L'ordre suit le principe « voir avant de lire » (§ 6.5.1) :
     - mes spots et mes marques ;
     - **mes bateaux** : un ou plusieurs profils, l'un marqué par défaut ;
     - **Affichage** :
-        - les deux onglets du milieu de la barre ;
+        - l'ordre des onglets de la barre (les 4 premiers sont visibles sans faire défiler) ;
         - la photo de fond de Home : automatique selon les conditions, ou une photo choisie dans le catalogue ;
         - le thème ;
         - le mode terrain ;
@@ -384,8 +383,8 @@ Dans `docs/design/wireframes/` : la source (`index.html`, ouverte telle quelle d
 | 3 | « Décision » s'appelle « Home » | renommé partout (§ 3, 4, 6, liens `#home`) |
 | 4 | 01 : pas de grande barre « me géolocaliser / saisir une ville » au centre ; la puce en haut à droite sert à cela, manuelle ou automatique | § 5 : modes automatique et manuel, demande du système au premier lancement, aucune grande action au centre |
 | 5 | 01 : au centre, une phrase qui résume la qualité probable de pêche | § 6, point 2 |
-| 6 | 01 : changer d'onglet en glissant | § 4, avec ses exceptions (cartes, courbes, curseurs, bords) |
-| 7 | 01 : 4 onglets ; Météo plutôt que Journal par défaut ; barre modifiable dans Profil, comme la photo de fond de Home | § 4 et § 11 : Home · Carte · Météo · Profil ; deux onglets du milieu au choix ; photo de fond au choix |
+| 6 | 01 : changer d'onglet en glissant ; précisé à 14 h 02 : on touche un onglet pour en changer, on fait glisser la barre pour faire apparaître d'autres onglets | § 4 : barre défilante, 4 onglets visibles, repère de suite ; le contenu ne change pas d'onglet par glissement |
+| 7 | 01 : 4 onglets ; Météo plutôt que Journal par défaut ; barre modifiable dans Profil, comme la photo de fond de Home ; précisé à 14 h 02 : c'est l'ordre des onglets qui se change | § 4 et § 11 : ordre par défaut Home · Carte · Météo · Profil · Journal ; ordre modifiable dans Profil ; photo de fond au choix |
 | 8 | 02 : section sous le point 2 incomprise ; si possible, la ville s'affiche dans le point 2 ; sinon saisie manuelle ou carte du point 3 | § 5 : le champ montre le lieu actuel (géocodage inverse) ; propositions seulement pendant la frappe |
 | 9 | 03 : on voit mal les horaires des sessions | § 6 : horaires en tête de chaque carte, en grand ; frise du jour |
 | 10 | 06 : une courbe de marée avec les heures favorables coloriées, plutôt que la fenêtre du jour ; indicateurs du jour possibles | § 9, points 4 et 5 |
