@@ -164,9 +164,9 @@ export function Meteo({ st, go }) {
       <div className="mapwrap">
         <Base overlay={<g>
           {GRID.map(([x, y]) => {
-            if (sea) { const w = waveAt(x, y, h); return <Arrow key={`${x}${y}`} x={x} y={y} deg={w.fromDeg} len={90 + w.m * 30} strength={Math.min(1, w.m / 2)} label={String(w.m).replace(".", ",")} sub={`Vagues ${w.m} m, période ${w.s} s, de ${compass(w.fromDeg)}`} />; }
+            if (sea) { const w = waveAt(x, y, h); return <Arrow key={`${x}${y}`} x={x} y={y} deg={w.fromDeg} len={70 + w.m * 25} strength={Math.min(1, w.m / 2)} label={String(w.m).replace(".", ",")} sub={`Vagues ${w.m} m, période ${w.s} s, de ${compass(w.fromDeg)}`} />; }
             const w = windAt(x, y, h);
-            return <Arrow key={`${x}${y}`} x={x} y={y} deg={w.fromDeg} len={100 + w.kmh * 1.2} strength={Math.min(1, w.bft / 7)} warn={w.bft >= 6} label={String(w.bft)} sub={`Vent de ${compass(w.fromDeg)}, force ${w.bft}, ${w.kmh} km/h, rafales ${w.gust} km/h`} />;
+            return <Arrow key={`${x}${y}`} x={x} y={y} deg={w.fromDeg} len={70 + w.kmh * 0.9} strength={Math.min(1, w.bft / 7)} warn={w.bft >= 6} label={String(w.bft)} sub={`Vent de ${compass(w.fromDeg)}, force ${w.bft}, ${w.kmh} km/h, rafales ${w.gust} km/h`} />;
           })}
           {(bateau ? MARKS : SPOTS).map((s) => <g key={s.id}><circle cx={s.x} cy={s.y} r="10" fill="var(--accent)" stroke="var(--palette-navy)" strokeWidth="4" /></g>)}
           <circle cx={REF.x} cy={REF.y} r="16" fill="none" stroke="var(--text-primary)" strokeWidth="8" />
@@ -175,7 +175,7 @@ export function Meteo({ st, go }) {
       <div className="screen">
         <div className="wlegend" aria-label="Légende">
           {sea ? <><span><b>Flèche</b> sens des vagues</span><span><b>1,4</b> hauteur en mètres</span></>
-            : <><span><b>Flèche</b> sens où souffle le vent, plus foncée s'il est plus fort</span><span><b>4</b> force Beaufort</span><span className="badge warn"><Icon name="warn" size={14} />force 6 et plus</span></>}
+            : <><span><b>Flèche</b> sens où souffle le vent, plus marquée s'il est plus fort</span><span><b>4</b> force Beaufort</span><span className="badge warn"><Icon name="warn" size={14} />force 6 et plus</span></>}
           <span><svg width="14" height="14" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="var(--accent)" stroke="var(--palette-navy)" strokeWidth="2" /></svg>{bateau ? "tes marques" : "tes spots"}</span>
           <span><svg width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--text-primary)" strokeWidth="2.5" /></svg>ta position</span>
         </div>

@@ -30,6 +30,7 @@ Format ADR. Le registre des exigences (`docs/REQUIREMENTS.md`) et la vision (`do
 | V3-022 | Design System V3 : jetons dans `src/design/v3/tokens.js`, CSS généré, repère de valeur des jauges, anneau double des pastilles | PROPOSÉE (jalon 2) |
 | V3-023 | Jalon 1 : Home (ex-Décision), onglet Météo, barre de 4 onglets modifiable, glissement entre onglets, position automatique ou manuelle, horaires mis en avant, courbe de marée dans la fiche, vent dans la comparaison, bateau enregistré ou saisi | VALIDÉE (Félix, 20 nov. 2026, 13 h 46) |
 | V3-024 | Carte marine (épaves, hauts-fonds) en couche BATEAU | BONUS À ÉTUDIER (Félix : « pas obligatoire aujourd'hui ») |
+| V3-025 | Refonte visuelle après le jalon 2 : photos en grand, cartes à photo, disque de score, pastilles-étiquettes avec score, nuit marine par défaut, barre déplaçable à la souris | PROPOSÉE (à revalider au jalon 2) |
 
 ## Décisions V2 encore en vigueur
 
@@ -301,4 +302,16 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
     - vérifier les sources possibles (cartes du SHOM, OpenSeaMap, bathymétrie EMODnet), leurs licences et leurs conditions d'usage : rien n'est VÉRIFIÉ à ce jour ;
     - la couche ne remplace jamais une carte marine officielle à jour, et l'application doit le dire.
 - **Exigence** : BAT-10 (expérimentale).
+
+## V3-025 — Refonte visuelle après le jalon 2
+
+- **Statut** : PROPOSÉE ; réponse au retour de Félix du 20 nov. 2026, 14 h 26 (jalon 2 non validé). Retour : « loin d'un graphisme top tier », pas assez de photos, photos de mauvaise qualité, interface lourde ; barre d'onglets impossible à faire défiler ; pastilles laides et incompréhensibles, sans score ; compteurs à faire correspondre ; Météo à mieux dessiner, différence BORD / Mer incomprise.
+- **Décisions proposées** :
+    - **photos** en 1 600 px dans les grandes surfaces (héros, cartes, fiches, journal), une photo par carte de recommandation, une photo par espèce en BATEAU ;
+    - **thème « nuit marine » par défaut** dans le prototype, comme la planche de référence ; « plein soleil » au choix dans Profil ;
+    - **cartes allégées** : photo, horaires et nom sur la photo, un disque de score (chiffre de 20 px gras, encre marine ou blanc cassé selon le palier, 3:1 au moins, testé), la Confiance en une ligne ;
+    - **pastilles-étiquettes** : couleur du palier et score écrit ; triangle pour « à vérifier », score barré pour « non recommandé » ; plus de carrés ni de pointillés ; aucun groupe fictif ; compteur égal aux pastilles ;
+    - **barre** : glisser au doigt, à la souris et à la molette ; chevrons cliquables ;
+    - **Météo** : flèches effilées d'une seule teinte, plus marquées quand le vent forcit, force Beaufort dans une pastille, ambre à partir de force 6 ; légende explicite ; spots et marques en points de même forme ; explication des couches Vent et Mer.
+- **Inchangé** : seuils et teintes des paliers (le vert ne peut pas être assombri sans se confondre avec le rouge en deutéranopie : ΔE 4,7) ; aucun petit texte posé sur un palier.
 

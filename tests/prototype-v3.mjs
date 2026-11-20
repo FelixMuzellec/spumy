@@ -164,8 +164,8 @@ if (AXE) {
 // 5. Captures pour la revue.
 if (CAP) {
   fs.mkdirSync(CAP, { recursive: true });
-  const shots = [["home", "light", "01-home-bord"], ["carte", "light", "02-carte"], ["meteo", "light", "03-meteo"], ["spot-a", "light", "04-fiche-spot"], ["comparer-c-a", "light", "05-comparaison"],
-    ["profil", "light", "06-profil"], ["journal", "light", "07-journal"], ["home", "dark", "08-home-bord-sombre"], ["spot-e", "dark", "09-fiche-a-verifier-sombre"]];
+  const shots = [["home", "dark", "01-home-bord"], ["carte", "dark", "02-carte"], ["meteo", "dark", "03-meteo"], ["spot-a", "dark", "04-fiche-spot"], ["comparer-c-a", "dark", "05-comparaison"],
+    ["profil", "dark", "06-profil"], ["journal", "dark", "07-journal"], ["home", "light", "08-home-bord-clair"], ["carte", "light", "09-carte-claire"]];
   for (const [r, scheme, name] of shots) {
     const { ctx, page } = await open({ width: 390, height: 844 }, scheme, r);
     await page.addStyleTag({ content: ".navwrap{position:relative!important}" }); // capture pleine page : la barre à sa place, en bas
@@ -173,14 +173,14 @@ if (CAP) {
     await page.screenshot({ path: path.join(CAP, `${name}.png`), fullPage: true });
     await ctx.close();
   }
-  const { ctx, page } = await open({ width: 390, height: 844 }, "light", "home");
+  const { ctx, page } = await open({ width: 390, height: 844 }, "dark", "home");
   await page.getByRole("radio", { name: "BATEAU" }).click();
   await page.getByRole("button", { name: "Voir si je peux sortir" }).click();
   await page.addStyleTag({ content: ".navwrap{position:relative!important}" });
   await page.waitForTimeout(250);
   await page.screenshot({ path: path.join(CAP, "10-home-bateau.png"), fullPage: true });
   await ctx.close();
-  const d = await open({ width: 1280, height: 800 }, "light", "carte");
+  const d = await open({ width: 1280, height: 800 }, "dark", "carte");
   await d.page.waitForTimeout(250);
   await d.page.screenshot({ path: path.join(CAP, "11-carte-bureau.png") });
   await d.ctx.close();

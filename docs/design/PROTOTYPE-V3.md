@@ -2,13 +2,22 @@
 
 20 novembre 2026. Prototype haute fidélité **sur la base de UX-V3 version 2** (jalon 1 validé avec remarques, V3-023) et du Design System V3 (V3-022, proposé ; V3-021 : seuil « Favorables » à 75).
 
-**Statut** : à valider au jalon 2, avec la direction visuelle et les principes du Design System. Toutes les données sont **de démonstration**, et l'écran le dit en permanence. Le prototype n'appelle aucun service : ni météo, ni route, ni géocodage, ni tuiles.
+**Version 2** (20 nov., après le retour de Félix au jalon 2, V3-025) :
+- photos en 1 600 px, une par carte, par espèce et par sortie du journal ;
+- nuit marine par défaut ;
+- cartes allégées avec disque de score ;
+- pastilles-étiquettes avec le score ;
+- compteurs égaux aux pastilles ;
+- barre déplaçable au doigt, à la souris et à la molette, avec chevrons cliquables ;
+- Météo redessinée, avec sa légende.
+
+**Statut** : à revalider au jalon 2, avec la direction visuelle et les principes du Design System. Toutes les données sont **de démonstration**, et l'écran le dit en permanence. Le prototype n'appelle aucun service : ni météo, ni route, ni géocodage, ni tuiles.
 
 ## Où le voir
 
 - **Page de revue** : artefact « Prototype SPUMY V3 » (privé), construit avec `node scripts/build-prototype-v3.mjs --revue <dossier>`.
 - **Dans le dépôt** : `prototype-v3/`, construit par `npm run build:prototype-v3`. Les photos et le logo sont lus dans `../assets`. Ce dossier sera publié avec le site seulement si Félix accepte la fusion.
-- **Captures** à 390 × 844 : `docs/design/prototype-v3/*.webp`, 11 images, thèmes clair et sombre, plus le bureau.
+- **Captures** à 390 × 844 : `docs/design/prototype-v3/*.webp`, 11 images, nuit marine (et deux en plein jour), plus le bureau.
 
 ## Ce qu'on peut faire
 
@@ -40,8 +49,8 @@ Il n'existe pas dans l'application.
 
 | Commande | Code de sortie | Résultat |
 | --- | --- | --- |
-| `npm run test:prototype-v3` (construction, puis `tests/prototype-v3.mjs --axe`) | 0 | 129/129 |
-| `npm run test:design-v3` | 0 | 172/172 |
+| `npm run test:prototype-v3` (construction, puis `tests/prototype-v3.mjs --axe`) | 0 | 134/134 |
+| `npm run test:design-v3` | 0 | 184/184 |
 | `npm run -s lint` ; `node tests/layers.mjs` | 0 ; 0 | aucun écart ; 253 couleurs en dur hors de `src/design/`, inchangé |
 
 `tests/prototype-v3.mjs` vérifie :

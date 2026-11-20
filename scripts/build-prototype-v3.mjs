@@ -58,7 +58,7 @@ console.log(`prototype-v3/ : app.js ${s1.js} Ko, app.css ${s1.css} Ko, ${s1.font
 if (revue) {
   const s2 = await bundle(revue, { PHOTO_BASE: "photos/", BRAND_BASE: "brand/" });
   fs.mkdirSync(path.join(revue, "photos"), { recursive: true });
-  for (const id of PHOTO_SET) fs.copyFileSync(path.join(root, "assets/photos", `${id}-720.webp`), path.join(revue, "photos", `${id}-720.webp`));
+  for (const id of PHOTO_SET) for (const z of [720, 1600]) fs.copyFileSync(path.join(root, "assets/photos", `${id}-${z}.webp`), path.join(revue, "photos", `${id}-${z}.webp`));
   fs.mkdirSync(path.join(revue, "brand"), { recursive: true });
   fs.copyFileSync(path.join(root, "assets/brand/v3/spumy-medaillon-128.png"), path.join(revue, "brand", "spumy-medaillon-128.png"));
   fs.writeFileSync(path.join(revue, "index.html"), `<title>${TITLE}</title>

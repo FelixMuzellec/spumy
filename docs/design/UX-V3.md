@@ -223,17 +223,17 @@ Un appui sur la puce ouvre la **feuille de position** :
     - en bas, une feuille glissante à trois hauteurs : poignée seule ; liste classée ; aperçu du spot choisi ;
     - boutons : recentrer sur ma position de référence ; « Me géolocaliser » ; couches (plan, photo aérienne ; carte marine en BATEAU, si elle est retenue).
 - **Bureau** : liste classée à gauche (environ 400 px), carte à droite ; mêmes filtres.
-- **Grammaire des pastilles** :
-    - remplissage = palier de Favorabilité (6 paliers, § 6.7.5.1) ;
-    - « À vérifier » = contour pointillé et « ? » ;
-    - « Non recommandé » = barré ;
-    - sans note = vide ;
-    - spot personnel = forme carrée ;
-    - sélectionné = anneau épais et légère mise à l'échelle.
+- **Grammaire des pastilles** (version 2, après le jalon 2 : « les puces sont vilaines et on n'y comprend rien », « il n'y a pas les scores ») :
+    - chaque pastille est une **étiquette** : une pastille de couleur au palier de Favorabilité, puis le **score écrit** (« 82 ») en marine sur blanc cassé ;
+    - « À vérifier » : contour ambre et triangle d'avertissement devant le score ;
+    - « Non recommandé » : étiquette grise, score barré ;
+    - sans note : pastille vide, « – » ;
+    - sélectionnée : agrandie, contour orange ;
+    - plus de forme carrée pour les spots personnels : le filtre « Mes spots » suffit.
 
-  La Confiance n'est jamais portée par la pastille.
-- **Regroupement** : au-delà de 8 pastilles qui se chevauchent, une bulle avec le nombre. Pas de couleur ni de moyenne. Un appui zoome sur le groupe.
-- **Légende** : une ligne de 6 pastilles avec leur borne (« 0–19 · 20–39 · … · 90–100 »), plus 3 signes ; le texte détaillé est derrière « ? ».
+  La Confiance n'est jamais portée par la pastille. Le nombre de pastilles affichées est toujours égal au compteur du filtre actif, et aucune n'est cachée sous la feuille (test).
+- **Regroupement** : au-delà de 8 pastilles qui se chevauchent, une bulle avec le nombre, comptée dans le filtre. Pas de couleur ni de moyenne. Un appui zoome sur le groupe. Le prototype n'en montre pas : avec 11 spots, aucune ne se chevauche.
+- **Légende** : une ligne de 6 couleurs avec leur borne (« 0–19 · 20–39 · … · 90–100 »), plus 3 signes : triangle (à vérifier), score barré (non recommandé), « – » (sans note).
 - **Diagnostic V2** : les pastilles existent toutes et sont bien placées par rapport aux données. Les défauts sont ailleurs :
     - la taille de la carte (340 px) ;
     - les chevauchements, sans regroupement ;
