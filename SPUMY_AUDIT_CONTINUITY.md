@@ -13,7 +13,7 @@ Suivi unique du chantier V3. Il dit où en est le travail, pourquoi il s'est arr
 | --- | --- | --- | --- |
 | 1. Audit initial V2 (lecture seule) | TESTED, avec une réserve : P1-14 (site en ligne dans un vrai navigateur) BLOCKED, aucun navigateur relié | démarrage (§ 18) | Rapport https://claude.ai/artifact/62UYfGbGKJtRvo6rAF9QrK ; copie `docs/rapports/v3/PHASE-1.md` |
 | 2. Vision produit, exigences et architecture cible | VALIDATED (jeton de phase 3) | « APPROVED — PROCEED TO PHASE 2 », 20 nov. 2026, 1 h 24 | Rapport https://claude.ai/artifact/JWzDnppc1u7Wf6SPEgceDn ; copie `docs/rapports/v3/PHASE-2.md` ; branche `claude/v3-phase-2`, proposition n° 16 (brouillon) |
-| 3. Conception UX/UI, direction artistique, Design System, prototypes | IN PROGRESS | « APPROVED — PROCEED TO PHASE 3 », 20 nov. 2026, 4 h 25 | Branche `claude/v3-phase-3` (partie de `claude/v3-phase-2`) |
+| 3. Conception UX/UI, direction artistique, Design System, prototypes | TESTED (jalons 1 et 2 validés par Félix ; jeton de phase 4 attendu) | « APPROVED — PROCEED TO PHASE 3 », 20 nov. 2026, 4 h 25 | Rapport https://claude.ai/artifact/MUeZdUAtxSDqAKQxML511A ; copie `docs/rapports/v3/PHASE-3.md` ; branche `claude/v3-phase-3` (partie de `claude/v3-phase-2`), proposition n° 17 (brouillon) |
 | 4 à 15 | NOT STARTED | — | — |
 
 Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposait de passer outre la réserve P1-14. Il vaut acceptation de cette réserve (INFÉRÉ) ; le contrôle sera refait dès qu'un navigateur sera relié.
@@ -41,7 +41,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | 3.5 Design System V3 : jetons, contrastes, composants, états, contenus | TESTED (`npm run test:design-v3` : 168/168, code 0 ; lint 0 ; couches 0 écart) ; valeurs à valider au jalon 2 | `docs/design/DESIGN-SYSTEM-V3.md`, `src/design/v3/`, `scripts/tokens-v3.mjs`, `tests/design-v3.mjs`, `docs/design/contrastes-v3.json` ; ADR V3-021 et V3-022 proposées |
 | 3.6 Prototype interactif (BORD et BATEAU) ; les wireframes sont faits en 3.4 | VALIDATED avec réserves (jalon 2, Félix, 20 nov., 15 h 40 ; V3-027) sur la version 5.2 (28b3b85 ; `test:prototype-v3` 156/156, `test:design-v3` 186/186, `tests/brand.py` 29/29) | `src/prototype-v3/`, `scripts/build-prototype-v3.mjs`, `tests/prototype-v3.mjs`, `prototype-v3/`, `docs/design/PROTOTYPE-V3.md`, `docs/design/prototype-v3/` ; artefact « Prototype SPUMY V3 » |
 | 3.7 Revues, tests, galerie AVANT/CIBLE, matrices de conformité et de traçabilité | IMPLEMENTED (revues UX, plateformes, WCAG 2.2, DA, carte, contenus, terrain ; 16 défauts dont 8 corrigés, 0 critique ou majeur ouvert ; matrices § 6.16 et de traçabilité ; 14 critères de recette ; TEST UTILISATEUR NON EFFECTUÉ, protocole prêt ; prototype 5.3 : `test:prototype-v3` 194/194) | `docs/design/REVUES-V3.md`, `docs/design/galerie-avant-cible.html` (artefact privé), `scripts/mesures-revue-v3.mjs`, `docs/design/revue-v3-mesures.json` |
-| 3.8 Rapport et arrêt | NOT STARTED | `docs/rapports/v3/PHASE-3.md` |
+| 3.8 Rapport et arrêt | TESTED (`npm ci`, `npm run build` sans écart, `npm test`, `test:a11y`, `test:upgrade`, `test:prototype` 244/244, `test:prototype-v3` 194/194, `tests/brand.py` 29/29 : tous code 0 ; CI verte sur a2b7844 ; D-16 corrigé en 76338f2) | `docs/rapports/v3/PHASE-3.md`, document Claude du rapport |
 
 ## Questions et décisions (registre)
 
@@ -64,11 +64,12 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 
 - Branche : `claude/v3-phase-3`, partie de `claude/v3-phase-2` (05cbcc0), elle-même partie de `main` (bb4f940). La phase 2 n'est pas fusionnée.
 - Dernier commit : voir `git log` ; ce fichier est mis à jour à chaque sous-tâche.
-- Tests : la phase 2 ne touche que des documents ; la suite complète est relancée avant le rapport.
+- Tests : suite complète relancée le 20 nov. 2026 (3.8), tous les codes de sortie à 0 ; voir le rapport, § 7.
+- Rien n'est fusionné ; `main` reste à bb4f940 ; V3-019 non exécuté.
 
 ## Prochaine action
 
-Jalon 2 validé avec réserves (V3-027). 3.7 faite (commits 318f28a à ce commit). En cours : 3.8, suite complète (`npm ci`, `npm run build`, `npm test`, a11y, upgrade, prototype), red-team, republication du prototype (version 5.3), rapport en 14 parties (document Claude et `docs/rapports/v3/PHASE-3.md`), arrêt. Jeton attendu : `APPROVED — PROCEED TO PHASE 4`.
+Phase 3 TESTED, rapport en 14 parties remis. ARRÊT. Attendre `APPROVED — PROCEED TO PHASE 4` (qui valide aussi les critères de recette CR-01 à CR-14, jalon 4) et la décision de Félix sur la fusion des phases 2 et 3 (recommandation : attendre la phase 4, `prototype-v3/` hors du site publié). À la reprise : première tâche de la phase 4, branche `claude/v3-phase-4` partie de `claude/v3-phase-3`.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
