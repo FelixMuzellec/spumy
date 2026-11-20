@@ -57,6 +57,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | Q8 | 20 nov. | Jalon 1 : tâches prioritaires, architecture, parcours (UX-V3, 13 wireframes) | répondu le 20 nov., 13 h 46 : tâches validées ; 11 remarques sur l'architecture et les parcours (Home, Météo, barre, position, horaires, courbe de marée, vent, bateau, carte marine en bonus) | intégrées (V3-023, V3-024) |
 | — | 20 nov., 4 h 50 | Félix demande des prompts complets pour les photos de Q7 | fournis (4 prompts) | `docs/design/PROMPTS-PHOTOS.md` |
 | Q9 | 20 nov., après 13 h 46 | Seuil du filtre « Favorables » : 60, 65 ou 75 | **75** (Félix) | V3-021 VALIDÉE ; `FAVORABLE_MIN`, `isFavorable` testés ; MAP-08 |
+| Q10 (jalon 2) | 20 nov., 14 h 26 | Retour de Félix sur le prototype : « loin d'un graphisme top tier » ; pas assez de photos, photos de mauvaise qualité, interface lourde et peu attrayante ; les informations y sont. Barre : impossible de faire défiler les onglets. Carte : pastilles laides et incompréhensibles (carrés, barrés, pointillés, « ? ») ; le nombre de pastilles doit égaler les compteurs ; couleurs appréciées, mais il manque les scores. Météo : bien, graphisme à travailler ; différence BORD / Mer (carrés, ronds) incomprise | jalon 2 NON VALIDÉ : refonte visuelle en cours (3.6, version 2) | V3-025 |
 
 ## Checkpoint
 
@@ -66,7 +67,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 
 ## Prochaine action
 
-Demander le jalon 2 à Félix (direction visuelle, principes du Design System, prototype). Puis 3.7 : revues internes structurées, galerie AVANT/CIBLE, matrice de conformité § 6.16, matrice de traçabilité, critères d'acceptation ; test utilisateur ou « TEST UTILISATEUR NON EFFECTUÉ ». Puis 3.8 : rapport en 14 parties, arrêt.
+Refonte visuelle du prototype (3.6 v2) après le retour du jalon 2 (Q10) : photos en 1 600 px et plus nombreuses (cartes, fiches, espèces, journal), interface allégée, thème nuit marine par défaut (proposition), barre d'onglets déplaçable à la souris et chevrons cliquables, pastilles avec le score et grammaire simplifiée (vert du palier 4 assombri pour un texte lisible), compteurs égaux aux pastilles, Météo redessinée (flèches à teinte unique selon la force, légende claire, pas de carrés). Puis redemander le jalon 2, puis 3.7 et 3.8.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
