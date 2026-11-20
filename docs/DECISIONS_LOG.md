@@ -27,11 +27,12 @@ Format ADR. Le registre des exigences (`docs/REQUIREMENTS.md`) et la vision (`do
 | V3-019 | Point de retour `v2-final` et nettoyage des branches fusionnées | À DÉCIDER (Félix) |
 | V3-020 | Contrats typés par JSDoc et contrôle `tsc --checkJs`, sans migration TypeScript | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) ; appliquée en Phase 4 |
 | V3-021 | Seuil du filtre « Favorables » : **75** (début de « Très bon ») | VALIDÉE (Félix, 20 nov. 2026, question 9) |
-| V3-022 | Design System V3 : jetons dans `src/design/v3/tokens.js`, CSS généré, repère de valeur des jauges, anneau double des pastilles | PROPOSÉE (jalon 2) |
+| V3-022 | Design System V3 : jetons dans `src/design/v3/tokens.js`, CSS généré, repère de valeur des jauges ; pastilles revues par V3-025 | VALIDÉE AVEC RÉSERVES (jalon 2, Félix, 20 nov. 2026, 15 h 40 ; voir V3-027) |
 | V3-023 | Jalon 1 : Home (ex-Décision), onglet Météo, barre de 4 onglets modifiable, glissement entre onglets, position automatique ou manuelle, horaires mis en avant, courbe de marée dans la fiche, vent dans la comparaison, bateau enregistré ou saisi | VALIDÉE (Félix, 20 nov. 2026, 13 h 46) |
 | V3-024 | Carte marine (épaves, hauts-fonds) en couche BATEAU | BONUS À ÉTUDIER (Félix : « pas obligatoire aujourd'hui ») |
-| V3-025 | Refonte visuelle après le jalon 2 : photos en grand, cartes à photo, disque de score, pastilles-étiquettes avec score, nuit marine par défaut, barre déplaçable à la souris | PROPOSÉE (à revalider au jalon 2) |
+| V3-025 | Refonte visuelle après le jalon 2 : photos en grand, cartes à photo, disque de score, pastilles-étiquettes avec score, nuit marine par défaut, barre déplaçable à la souris | VALIDÉE AVEC RÉSERVES (jalon 2, Félix, 20 nov. 2026, 15 h 40 ; voir V3-027) |
 | V3-026 | Pas de vraies photos de spots : photos d'illustration seulement, marquées « Illustration » | VALIDÉE (Félix, 20 nov. 2026, 15 h 02 : « trop lourd pour l'application ») |
+| V3-027 | Jalon 2 : direction visuelle, principes du Design System et prototype version 5.2 ; 6 réserves suivies | VALIDÉE AVEC RÉSERVES (Félix, 20 nov. 2026, 15 h 40) |
 
 ## Décisions V2 encore en vigueur
 
@@ -268,8 +269,8 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 
 ## V3-022 — Design System V3
 
-- **Statut** : PROPOSÉE ; à valider au jalon 2 sur le prototype.
-- **Décision proposée** :
+- **Statut** : VALIDÉE AVEC RÉSERVES au jalon 2 (Félix, 20 nov. 2026, 15 h 40 ; V3-027). Les pastilles à anneau double et à « ? » ont été remplacées par les pastilles-étiquettes de V3-025.
+- **Décision** :
     - jetons dans une source unique typée (`src/design/v3/tokens.js`), CSS généré (`scripts/tokens-v3.mjs`), contrôle `tests/design-v3.mjs` ;
     - thèmes clair et sombre ;
     - orange d'accent en remplissage avec texte marine, jamais en texte sur fond clair ;
@@ -306,8 +307,8 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 
 ## V3-025 — Refonte visuelle après le jalon 2
 
-- **Statut** : PROPOSÉE ; réponse au retour de Félix du 20 nov. 2026, 14 h 26 (jalon 2 non validé). Retour : « loin d'un graphisme top tier », pas assez de photos, photos de mauvaise qualité, interface lourde ; barre d'onglets impossible à faire défiler ; pastilles laides et incompréhensibles, sans score ; compteurs à faire correspondre ; Météo à mieux dessiner, différence BORD / Mer incomprise.
-- **Décisions proposées** :
+- **Statut** : VALIDÉE AVEC RÉSERVES au jalon 2 (Félix, 20 nov. 2026, 15 h 40 ; V3-027), après les versions 3 à 5.2 du prototype. Origine : retour de Félix du 20 nov. 2026, 14 h 26 (jalon 2 non validé). Retour : « loin d'un graphisme top tier », pas assez de photos, photos de mauvaise qualité, interface lourde ; barre d'onglets impossible à faire défiler ; pastilles laides et incompréhensibles, sans score ; compteurs à faire correspondre ; Météo à mieux dessiner, différence BORD / Mer incomprise.
+- **Décisions** :
     - **photos** en 1 600 px dans les grandes surfaces (héros, cartes, fiches, journal), une photo par carte de recommandation, une photo par espèce en BATEAU ;
     - **thème « nuit marine » par défaut** dans le prototype, comme la planche de référence ; « plein soleil » au choix dans Profil ;
     - **cartes allégées** : photo, horaires et nom sur la photo, un disque de score (chiffre de 20 px gras, encre marine ou blanc cassé selon le palier, 3:1 au moins, testé), la Confiance en une ligne ;
@@ -321,4 +322,23 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 - **Statut** : VALIDÉE par Félix (20 nov. 2026, 15 h 02) : « Oublie les vraies photos, ça serait trop lourd pour l'application. »
 - **Décision** : l'application n'embarque que les photos d'ambiance du catalogue (`data/photos/catalogue.json`), toujours marquées « Illustration ». Aucune photo n'est présentée comme celle d'un spot réel. La règle V2 reste : jamais une image reconnaissable sur un spot nommé.
 - **Conséquences** : le manque « photos réelles de spots » de `docs/design/REFERENCES.md` est clos ; la fiche spot garde une photo d'illustration choisie selon le type de lieu.
+
+## V3-027 — Jalon 2 de la phase 3 : direction visuelle, Design System, prototypes
+
+- **Statut** : VALIDÉE AVEC RÉSERVES par Félix (20 nov. 2026, 15 h 40 : « jalon 2 validé avec réserves »), sur le prototype version 5.2 (commit 28b3b85, artefact « Prototype SPUMY V3 », version 8).
+- **Ce qui est validé, statut final** (ne change plus sans gestion des changements, référentiel § 5.3) :
+    - identité : logo BRAND d'origine (écran de lancement, médaillon et mot SPUMY dans l'en-tête, icônes sur le fond crème) ;
+    - palette, six paliers et leurs teintes, thème « nuit marine » par défaut et thème clair ;
+    - typographie (Roboto, Roboto Condensed pour les chiffres, Montserrat pour la marque) ;
+    - navigation : barre de 4 onglets déplaçable, puce de position, bascule BORD / BATEAU ;
+    - grammaire des scores : disque, mot du palier, Confiance à part, pastilles-étiquettes avec score.
+- **Ce qui est validé, statut provisoire** (révisable au jalon 3, après les phases 5, 8 et 9) : densité des écrans, contenus et textes, visualisations métier (courbe de marée, Météo), états détaillés, composition secondaire des cartes de recommandation.
+- **Réserves** (suivies dans `docs/design/REVUES-V3.md`, transformées en critères de recette) :
+    1. aucun essai par un vrai utilisateur (Félix ou un proche, sur téléphone, au bord de l'eau) ;
+    2. fond de carte dessiné : la vraie carte (Plan IGN, V3-012) arrive à l'intégration ; recette cartographique à refaire sur les vraies tuiles ;
+    3. photos générées, marquées « Illustration » (V3-026) ;
+    4. taille de la mini-carte de la fenêtre position (180 px) à revoir à l'usage (question de Félix, 15 h 36) ;
+    5. Météo : dessin des flèches et densité de la grille à affiner avec les vraies prévisions ;
+    6. données de démonstration seulement (scores, fenêtres, marées) : rien n'est un résultat du moteur.
+- **Félix (15 h 36)** : les retouches visuelles restent possibles après le jalon ; elles suivent la règle ci-dessus.
 
