@@ -1,5 +1,5 @@
 // SPUMY V3 — Carte (UX-V3 § 7) et Météo (UX-V3 § 8), sur un fond schématique : le prototype n'appelle aucun service.
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { tierOf } from "../design/v3/tokens.js";
 import { Gauge, Safety, Icon } from "./ui.jsx";
 import { SPOTS, SPOT, MARKS, REF, favorable, windAt, waveAt, compass, hhmm, span, NOW } from "./data.js";
@@ -17,22 +17,73 @@ const SHORE = smooth(COAST);
 const LAND = `${SHORE} L1000,1300 L1000,0 Z`;
 const DEPTHS = [60, 130, 210].map((o) => smooth(COAST.map(([x, y]) => [Math.max(0, x - o), y])));
 
+/**
+ * Fond de carte déplaçable et zoomable : glisser (doigt ou souris), molette, pincement, double-clic, boutons + et −.
+ * Les pastilles gardent leur taille à l'écran (--k). Un glissement n'ouvre pas la pastille sous le doigt.
+ */
 function Base({ children, overlay }) {
+  const box = useRef(null), ptrs = useRef(new Map()), g = useRef(null);
+  const [v, setV] = useState({ k: 1, x: 0, y: 0 });
+  const clamp = (k, x, y) => {
+    const r = box.current.getBoundingClientRect(), kk = Math.min(4, Math.max(1, k));
+    return { k: kk, x: Math.min(0, Math.max(r.width * (1 - kk), x)), y: Math.min(0, Math.max(r.height * (1 - kk), y)) };
+  };
+  const zoomAt = (f, cx, cy, from) => { const v0 = from || v, k = Math.min(4, Math.max(1, v0.k * f)), q = k / v0.k; setV(clamp(k, cx - (cx - v0.x) * q, cy - (cy - v0.y) * q)); };
+  const local = (e) => { const r = box.current.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
+  useEffect(() => {
+    const el = box.current;
+    const wheel = (e) => { e.preventDefault(); const [cx, cy] = local(e); setV((v0) => { const k = Math.min(4, Math.max(1, v0.k * Math.exp(-e.deltaY * 0.0015))), q = k / v0.k; return clamp(k, cx - (cx - v0.x) * q, cy - (cy - v0.y) * q); }); };
+    el.addEventListener("wheel", wheel, { passive: false });
+    return () => el.removeEventListener("wheel", wheel);
+  }, []);
+  const down = (e) => {
+    ptrs.current.set(e.pointerId, local(e));
+    const pts = [...ptrs.current.values()];
+    g.current = pts.length === 1 ? { mode: "pan", s: pts[0], v0: v, moved: false } : { mode: "pinch", d0: Math.hypot(pts[0][0] - pts[1][0], pts[0][1] - pts[1][1]), c: [(pts[0][0] + pts[1][0]) / 2, (pts[0][1] + pts[1][1]) / 2], v0: v, moved: true };
+  };
+  const move = (e) => {
+    if (!ptrs.current.has(e.pointerId) || !g.current) return;
+    ptrs.current.set(e.pointerId, local(e));
+    const G = g.current, pts = [...ptrs.current.values()];
+    if (G.mode === "pan") {
+      const dx = pts[0][0] - G.s[0], dy = pts[0][1] - G.s[1];
+      if (!G.moved && Math.abs(dx) + Math.abs(dy) > 5) { G.moved = true; box.current.setPointerCapture?.(e.pointerId); box.current.classList.add("panning"); }
+      if (G.moved) setV(clamp(G.v0.k, G.v0.x + dx, G.v0.y + dy));
+    } else if (pts.length >= 2) {
+      const d = Math.hypot(pts[0][0] - pts[1][0], pts[0][1] - pts[1][1]);
+      zoomAt(d / G.d0, G.c[0], G.c[1], G.v0);
+    }
+  };
+  const up = (e) => {
+    ptrs.current.delete(e.pointerId);
+    const G = g.current;
+    if (!ptrs.current.size) { g.current = null; box.current.classList.remove("panning"); }
+    if (G?.moved) { const el = box.current, stop = (ev) => { ev.preventDefault(); ev.stopPropagation(); }; el.addEventListener("click", stop, { capture: true, once: true }); setTimeout(() => el.removeEventListener("click", stop, { capture: true }), 0); }
+  };
+  const center = () => { const r = box.current.getBoundingClientRect(); return [r.width / 2, r.height / 2]; };
   return (
-    <div className="mapbox" data-noswipe>
-      <svg className="map" viewBox="0 0 1000 1300" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-        <defs><linearGradient id="seaGrad" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stopColor="var(--map-sea)" stopOpacity="1" /><stop offset="1" stopColor="var(--map-sea)" stopOpacity=".7" /></linearGradient></defs>
-        <rect className="sea" x="0" y="0" width="1000" height="1300" />
-        {DEPTHS.map((d, i) => <path key={i} className="depth" d={d} />)}
-        <path className="land" d={LAND} strokeLinejoin="round" />
-        {overlay}
-      </svg>
-      <div className="mklayer">{children}</div>
-      <span className="maptag">Fond schématique · démonstration</span>
+    <div className="mapbox" ref={box} onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up} onDoubleClick={(e) => { const [cx, cy] = local(e); zoomAt(2, cx, cy); }}>
+      <div className="pz" style={{ transform: `translate(${v.x}px, ${v.y}px) scale(${v.k})`, "--k": v.k }}>
+        <svg className="map" viewBox="0 0 1000 1300" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <defs><linearGradient id="seaGrad" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stopColor="var(--map-sea)" stopOpacity="1" /><stop offset="1" stopColor="var(--map-sea)" stopOpacity=".7" /></linearGradient></defs>
+          <rect className="sea" x="0" y="0" width="1000" height="1300" />
+          {DEPTHS.map((d, i) => <path key={i} className="depth" d={d} />)}
+          <path className="land" d={LAND} strokeLinejoin="round" />
+          {overlay}
+        </svg>
+        <div className="mklayer">{children}</div>
+      </div>
+      <div className="zoom" onPointerDown={(e) => e.stopPropagation()}>
+        <button aria-label="Zoomer" onClick={() => zoomAt(1.5, ...center())}><Icon name="plus" size={20} /></button>
+        <button aria-label="Dézoomer" onClick={() => zoomAt(1 / 1.5, ...center())}><Icon name="minus" size={20} /></button>
+        <button aria-label="Vue d'ensemble" onClick={() => setV({ k: 1, x: 0, y: 0 })} disabled={v.k === 1}><Icon name="fit" size={20} /></button>
+      </div>
+      <span className="maptag">Fond schématique · démonstration · zoom ×{v.k.toFixed(1).replace(".", ",")}</span>
     </div>
   );
 }
 
+const PEEK = 132;
 const pos = (x, y) => ({ left: `${x / 10}%`, top: `${y / 13}%` });
 
 function Marker({ s, selected, onSelect }) {
@@ -52,6 +103,14 @@ export function Carte({ st, go, sel, setSel, notify }) {
   const bateau = st.mode === "bateau";
   const [filter, setFilter] = useState("all");
   const [list, setList] = useState(false);
+  // Feuille glissante : trois hauteurs (réduite, à moitié, ouverte), au doigt ou à la souris, puis aimantée.
+  const [snap, setSnap] = useState("peek");
+  const [drag, setDrag] = useState(null);
+  const sheet = useRef(null), sd = useRef(null);
+  const heights = () => { const H = sheet.current.parentElement.getBoundingClientRect().height; return { peek: PEEK, half: Math.round(H * 0.55), full: Math.round(H * 0.92) }; };
+  const sDown = (e) => { if (e.target.closest("button")) return; sd.current = { y: e.clientY, h: sheet.current.getBoundingClientRect().height }; e.currentTarget.setPointerCapture?.(e.pointerId); };
+  const sMove = (e) => { if (!sd.current) return; const hs = heights(); setDrag(Math.max(hs.peek, Math.min(hs.full, sd.current.h - (e.clientY - sd.current.y)))); };
+  const sUp = () => { if (!sd.current) return; sd.current = null; if (drag !== null) { const hs = heights(); const best = Object.entries(hs).sort((a, b) => Math.abs(a[1] - drag) - Math.abs(b[1] - drag))[0][0]; setSnap(best); setList(best === "full"); } setDrag(null); };
   const items = bateau ? MARKS.map((m) => ({ ...m, fav: m.status ? null : Math.max(...m.species.map((x) => x.fav)), mine: true })) : SPOTS;
   const F = bateau ? { all: items } : { all: items, fav: items.filter(favorable), verify: items.filter((s) => s.status === "verify"), mine: items.filter((s) => s.mine) };
   const shown = F[filter] || items;
@@ -78,22 +137,27 @@ export function Carte({ st, go, sel, setSel, notify }) {
             {chips.map(([k, l]) => <button key={k} className="chip" aria-pressed={filter === k} onClick={() => setFilter(k)}>{l} <span className="num">{(F[k] || []).length}</span></button>)}
           </div>
         </div>
-        <div className="mapwrap">
+        <div className="stage">
+        <div className="mapwrap" style={{ paddingBottom: PEEK }}>
           <Base overlay={<circle cx={REF.x} cy={REF.y} r="16" fill="none" stroke="var(--text-primary)" strokeWidth="7" />}>
-            {shown.map((s) => <Marker key={s.id} s={s} selected={sel === s.id} onSelect={setSel} />)}
+            {shown.map((s) => <Marker key={s.id} s={s} selected={sel === s.id} onSelect={(id) => { setSel(id); setSnap("half"); setList(false); }} />)}
           </Base>
-          <button className="fab" style={{ top: 12 }} aria-label="Recentrer sur ma position de référence" onClick={() => notify("Recentré sur Pirou")}><Icon name="pin" /></button>
-          <button className="fab" style={{ top: 64 }} aria-label="Me géolocaliser" onClick={() => notify("Position du téléphone : ±30 m")}><Icon name="locate" /></button>
-          <button className="fab" style={{ top: 116 }} aria-label="Couches" onClick={() => notify(bateau ? "Couches : plan, photo aérienne, carte marine (bonus à étudier)" : "Couches : plan, photo aérienne")}><Icon name="layers" /></button>
+          <button className="fab" style={{ top: 12 }} aria-label="Me géolocaliser" onClick={() => notify("Position du téléphone : ±30 m")}><Icon name="locate" /></button>
+          <button className="fab" style={{ top: 64 }} aria-label="Couches" onClick={() => notify(bateau ? "Couches : plan, photo aérienne, carte marine (bonus à étudier)" : "Couches : plan, photo aérienne")}><Icon name="layers" /></button>
         </div>
-        <div className="sheet">
-          <button className="grip" aria-label={list ? "Réduire la liste" : "Afficher la liste classée"} onClick={() => setList(!list)} />
-          <Legend />
-          {list ? (
+        <div className={`sheet snap-${snap}`} ref={sheet} style={drag !== null ? { height: drag } : undefined}>
+          <div className="sheet-head" onPointerDown={sDown} onPointerMove={sMove} onPointerUp={sUp} onPointerCancel={sUp}>
+            <button className="grip" aria-label={`Panneau : ${snap === "peek" ? "réduit" : snap === "half" ? "à moitié" : "ouvert"} ; toucher pour changer`} onClick={() => setSnap(snap === "peek" ? "half" : snap === "half" ? "full" : "peek")} />
+            <Legend />
+          </div>
+          <div className="sheet-body" tabIndex={0} role="region" aria-label="Spot choisi ou liste classée">
+          {list || snap === "full" ? (
             <ul className="list" aria-label="Liste classée">{ranked.map((s, i) => (
               <li key={s.id}><button className="lrow" style={{ width: "100%", background: "none", border: 0, textAlign: "left" }} onClick={() => { setSel(s.id); setList(false); }}>
                 <span><b>{i + 1}. {s.name}</b> <span className="meta num">{s.win ? span(s.win) : ""}</span></span><span className="num">{s.fav ?? "—"}</span></button></li>))}</ul>
-          ) : cur ? preview(cur) : <p className="meta">Touche une pastille pour voir le spot, ou tire la poignée pour la liste classée.</p>}
+          ) : cur ? preview(cur) : <p className="meta">Touche une pastille pour voir le spot, ou fais glisser le panneau vers le haut pour la liste classée.</p>}
+          </div>
+        </div>
         </div>
       </div>
     </div>

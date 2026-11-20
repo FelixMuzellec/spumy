@@ -115,7 +115,7 @@ function App() {
         <button className={`poschip${p.state !== "ok" ? " attn" : ""}`} onClick={() => setSheet("pos")} aria-label={`Position de référence : ${chip}`}>
           <Icon name="pin" size={18} /><span>{chip}</span></button>
       </header>
-      <main>{body}</main>
+      <main key={`${page}-${route.arg || ""}-${st.mode}`} className={page === "spot" || page === "comparer" ? "push" : "fade"}>{body}</main>
       <Nav order={st.tabs} page={page} />
       {sheet === "pos" && <PositionSheet pos={p} setPos={(v) => set({ pos: v })} onClose={() => setSheet(null)} notify={notify} />}
       {sheet === "add" && <QuickAdd onClose={() => setSheet(null)} onSave={saveTrip} />}

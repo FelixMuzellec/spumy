@@ -140,7 +140,7 @@ export function HomeBateau({ go, boat, setBoat, heroPhoto }) {
             <article key={m.id} className="rc">
               <div className="rc-body" style={{ paddingTop: 14 }}>
                 <div className="row between"><span className="row"><span className="rank">{i + 1}</span><span className="rc-name">Marque « {m.name} »</span></span><Safety s={m} short /></div>
-                <span className="rc-time" style={{ fontSize: 26 }}>{span(m.win)}</span>
+                <span className="rc-time">{span(m.win)}</span>
                 <span className="rc-meta num">{m.depth} · {m.fond} · abri à {String(m.shelter).replace(".", ",")} MN, {Math.round((m.shelter / 15) * 60)} min à 15 nds</span>
                 {m.species.map((x) => (
                   <div key={x.name} className="sp">
