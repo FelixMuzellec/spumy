@@ -225,6 +225,13 @@ for (const w of [320, 375, 390]) {
   t("règle : la Confiance ne change jamais le rang (3 jeux de Confiance)", variants.every((v) => ids(ranking(v)) === base), base);
   t("règle : la Confiance ne change pas les égalités", ids(ranking(SPOTS, { tie: true })) === ids(ranking(SPOTS.map((s) => ({ ...s, conf: 100 - s.conf })), { tie: true })));
 
+  {
+    const c = await open({ width: 390, height: 844 }, "dark", "carte");
+    await c.page.getByRole("button", { name: /^Favorables/ }).click();
+    const rule = await c.page.locator(".sheet-body").innerText();
+    t("Carte : la règle d'inclusion du filtre est affichée (§ 6.9)", rule.includes("Favorables : 75 ou plus") && (await c.page.getByRole("button", { name: /^Favorables/ }).getAttribute("title")).includes("75"));
+    await c.ctx.close();
+  }
   const { ctx, page } = await open({ width: 390, height: 844 }, "dark", "spot-e");
   const fe = await page.locator("main").innerText();
   t("fixture § 6.7.2 : Favorabilité 53 — À vérifier, Confiance 69 — Moyenne, sans effet sur le rang",

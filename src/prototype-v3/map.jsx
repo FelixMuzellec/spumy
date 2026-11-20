@@ -1,6 +1,6 @@
 // SPUMY V3 — Carte (UX-V3 § 7) et Météo (UX-V3 § 8), sur un fond schématique : le prototype n'appelle aucun service.
 import { useEffect, useRef, useState } from "react";
-import { tierOf } from "../design/v3/tokens.js";
+import { tierOf, FAVORABLE_MIN } from "../design/v3/tokens.js";
 import { Gauge, Safety, Icon } from "./ui.jsx";
 import { SPOTS, SPOT, MARKS, REF, favorable, windAt, waveAt, compass, hhmm, span, NOW } from "./data.js";
 
@@ -108,6 +108,13 @@ export function Base({ children, overlay, items, renderItem, compact, start }) {
 }
 
 const PEEK = 132;
+/** Règle d'inclusion de chaque filtre (référentiel § 6.9) : dite sous la carte et lue avec le filtre. */
+const RULE = {
+  all: "Tous : les spots à 1 h de route ou moins de ta position.",
+  fav: `Favorables : ${FAVORABLE_MIN} ou plus, sécurité OK et rien à vérifier.`,
+  verify: "À vérifier : sécurité, accès ou données à confirmer avant d'y aller ; leur score ne change pas.",
+  mine: "Mes spots : ceux que tu as ajoutés.",
+};
 const pos = (x, y) => ({ left: `${x / 10}%`, top: `${y / 13}%` });
 
 function Marker({ s, selected, onSelect }) {
@@ -161,7 +168,7 @@ export function Carte({ st, go, sel, setSel, notify }) {
           {search && <label className="field"><span className="vh">Rechercher un spot</span><input autoFocus placeholder="Rechercher un spot" /></label>}
           <div className="chips" role="group" aria-label="Filtres">
             <button className="chip" aria-pressed={search} aria-label="Rechercher un spot" onClick={() => setSearch(!search)}><Icon name="search" size={18} /></button>
-            {chips.map(([k, l]) => <button key={k} className="chip" aria-pressed={filter === k} onClick={() => setFilter(k)}>{l} <span className="num">{(F[k] || []).length}</span></button>)}
+            {chips.map(([k, l]) => <button key={k} className="chip" aria-pressed={filter === k} title={RULE[k]} aria-description={RULE[k]} onClick={() => setFilter(k)}>{l} <span className="num">{(F[k] || []).length}</span></button>)}
           </div>
         </div>
         <div className="stage">
@@ -181,7 +188,7 @@ export function Carte({ st, go, sel, setSel, notify }) {
             <ul className="list" aria-label="Liste classée">{ranked.map((s, i) => (
               <li key={s.id}><button className="lrow" style={{ width: "100%", background: "none", border: 0, textAlign: "left" }} onClick={() => { setSel(s.id); setList(false); }}>
                 <span><b>{i + 1}. {s.name}</b> <span className="meta num">{s.win ? span(s.win) : ""}</span></span><span className="num">{s.fav ?? "—"}</span></button></li>))}</ul>
-          ) : cur ? preview(cur) : <p className="meta">Touche une pastille pour voir le spot, ou fais glisser le panneau vers le haut pour la liste classée.</p>}
+          ) : cur ? preview(cur) : <p className="meta">{!bateau && <><b>{RULE[filter]}</b><br /></>}Touche une pastille pour voir le spot, ou fais glisser le panneau vers le haut pour la liste classée.</p>}
           </div>
         </div>
         </div>
