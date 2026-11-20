@@ -31,6 +31,8 @@
 - Profil, à propos : le logo complet sur son fond ;
 - carte : vue d'ensemble au départ (tous les spots visibles), regroupement des pastilles trop proches (nombre compté dans les filtres), recherche repliée derrière une loupe.
 
+**Version 5.1** (15 h 20) : puce de position élargie ; le nom de la commune s'affiche en entier, sur deux lignes au besoin (« Saint-Pierre-Quiberon » vérifié à 320, 375 et 390 px). Le mode se lit au pictogramme (viseur : automatique ; épingle : manuel) et en entier dans le nom accessible.
+
 Vraies photos de spots : abandonnées (V3-026). Le fond IGN réel arrive aux phases 4 et 10 : la page de revue bloque les tuiles, et elles ne sont pas joignables d'ici.
 
 **Statut** : à revalider au jalon 2, avec la direction visuelle et les principes du Design System. Toutes les données sont **de démonstration**, et l'écran le dit en permanence. Le prototype n'appelle aucun service : ni météo, ni route, ni géocodage, ni tuiles.
@@ -71,7 +73,7 @@ Il n'existe pas dans l'application.
 
 | Commande | Code de sortie | Résultat |
 | --- | --- | --- |
-| `npm run test:prototype-v3` (construction, puis `tests/prototype-v3.mjs --axe`) | 0 | 153/153 |
+| `npm run test:prototype-v3` (construction, puis `tests/prototype-v3.mjs --axe`) | 0 | 156/156 |
 | `npm run test:design-v3` | 0 | 184/184 |
 | `npm run -s lint` ; `node tests/layers.mjs` | 0 ; 0 | aucun écart ; 253 couleurs en dur hors de `src/design/`, inchangé |
 

@@ -91,7 +91,7 @@ function App() {
   const heroPhoto = st.hero !== "auto" ? st.hero
     : pickPhoto(PHOTOS, { usage: "hero", mode: st.mode, lumiere: bateau ? "jour" : "aube", ciel: bateau ? "nuageux" : "clair", mer: "calme", lieu: bateau ? "large" : "rochers", cle: "home" })?.id;
   const p = st.pos;
-  const chip = p.state === "ok" ? `${p.label} · ${p.mode === "auto" ? "auto" : "manuel"}`
+  const chip = p.state === "ok" ? p.label
     : p.state === "pending" ? "Position…" : p.state === "refused" ? "Position refusée · choisir" : "Choisir une position";
   const page = route.page;
   const saveTrip = (state) => {
@@ -118,8 +118,9 @@ function App() {
       <header className="hdr">
         <div className="hdr-row">
           <a className="brand" href="#home" aria-label="SPUMY, accueil"><img src={brandSrc("spumy-medaillon-128.png")} alt="" width="44" height="44" /><span className="word">SPUMY</span></a>
-          <button className={`poschip${p.state !== "ok" ? " attn" : ""}`} onClick={() => setSheet("pos")} aria-label={`Position de référence : ${chip}${p.state === "ok" && p.acc ? `, précision ${p.acc}` : ""}`}>
-            <Icon name="pin" size={18} /><span>{chip}</span></button>
+          <button className={`poschip${p.state !== "ok" ? " attn" : ""}`} onClick={() => setSheet("pos")} aria-label={`Position de référence : ${chip}${p.state === "ok" ? (p.mode === "auto" ? ", automatique" : ", manuelle") : ""}${p.state === "ok" && p.mode === "auto" && p.acc ? `, précision ${p.acc}` : ""}`}
+            title={p.state === "ok" ? `${chip} · ${p.mode === "auto" ? `automatique${p.acc ? ` · ${p.acc}` : ""}` : "manuelle"}` : chip}>
+            <Icon name={p.state === "ok" && p.mode === "auto" ? "locate" : "pin"} size={18} /><span>{chip}</span></button>
         </div>
         <div className="mode" role="radiogroup" aria-label="Mode">
           {[["bord", "BORD"], ["bateau", "BATEAU"]].map(([k, l]) => <button key={k} role="radio" aria-checked={st.mode === k} onClick={() => { set({ mode: k }); setSel(null); }}>{l}</button>)}

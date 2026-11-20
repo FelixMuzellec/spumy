@@ -183,6 +183,18 @@ for (const [vn, view] of VIEWS) for (const scheme of ["light", "dark"]) {
   await ctx.close();
 }
 
+// Puce de position : un nom de commune long reste lisible en entier, sur deux lignes au besoin (320, 375 et 390 px).
+for (const w of [320, 375, 390]) {
+  const { ctx, page } = await open({ width: w, height: 812 }, "dark", "home");
+  await page.locator(".poschip").click();
+  await page.locator(".modal input").fill("Saint-Pi");
+  await page.locator(".suggest button", { hasText: "Saint-Pierre-Quiberon" }).click();
+  await page.getByRole("button", { name: "Utiliser cette position" }).click();
+  const fit = await page.locator(".poschip span").evaluate((e) => [e.textContent, e.scrollWidth <= e.clientWidth + 1 && e.scrollHeight <= e.clientHeight + 1]);
+  t(`${w} px : « Saint-Pierre-Quiberon » entier dans la puce de position`, fit[0] === "Saint-Pierre-Quiberon" && fit[1], JSON.stringify(fit));
+  await ctx.close();
+}
+
 // Écran de lancement : le logo complet d'origine sur son fond crème, puis l'application.
 {
   const { ctx, page, errors } = await open({ width: 390, height: 844 }, "dark", "home", true);

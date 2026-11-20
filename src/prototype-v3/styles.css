@@ -21,6 +21,8 @@ button { cursor: pointer; }
 .brand { display: inline-flex; flex: none; align-items: center; gap: 10px; color: var(--text-primary); text-decoration: none; }
 .brand img { width: 44px; height: 44px; display: block; filter: drop-shadow(0 1px 3px rgba(0, 0, 0, .35)); }
 .brand .word { font: 800 21px/1 var(--font-brand); letter-spacing: .16em; }
+@media (max-width: 399px) { .brand .word { font-size: 19px; letter-spacing: .12em; } }
+@media (max-width: 359px) { .brand .word { font-size: 17px; letter-spacing: .08em; } .brand img { width: 40px; height: 40px; } }
 .launch { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; background: var(--brand-cream); animation: launch-out 320ms ease 1.2s forwards; cursor: pointer; }
 .launch img { width: min(72vw, 360px); height: auto; animation: launch-in 700ms var(--ease); }
 @keyframes launch-in { from { opacity: 0; transform: scale(.96); } }
@@ -30,8 +32,8 @@ button { cursor: pointer; }
 .mode { display: flex; border: 1.5px solid var(--text-primary); border-radius: var(--r-pill); overflow: hidden; }
 .mode button { flex: 1; border: 0; background: none; min-height: 36px; padding: 0 12px; font-size: var(--fs-label); font-weight: var(--fw-bold); letter-spacing: .04em; }
 .mode button[aria-checked="true"] { background: var(--text-primary); color: var(--bg-app); }
-.poschip { margin-left: auto; min-width: 0; display: inline-flex; align-items: center; gap: 6px; min-height: 36px; max-width: 62%; padding: 0 12px; border-radius: var(--r-pill); border: 1.5px solid var(--border-strong); background: var(--surface-card); font-size: var(--fs-label); font-weight: var(--fw-medium); }
-.poschip span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.poschip { margin-left: auto; flex: 0 1 auto; min-width: 0; display: inline-flex; align-items: center; gap: 6px; min-height: var(--touch); max-width: 100%; padding: 0 14px 0 12px; border-radius: var(--r-pill); border: 1.5px solid var(--border-strong); background: var(--surface-card); font-size: var(--fs-label); font-weight: var(--fw-medium); }
+.poschip span { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-height: 1.15; text-align: left; overflow-wrap: anywhere; }
 .poschip.attn { border: 2px solid var(--text-primary); font-weight: var(--fw-bold); }
 .poschip svg { flex: none; }
 main { flex: 1; min-height: 0; display: flex; flex-direction: column; }

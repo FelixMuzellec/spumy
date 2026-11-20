@@ -27,7 +27,8 @@ export const tideHeight = (t) => TIDE.mean + TIDE.amp * Math.cos((2 * Math.PI * 
 /** Lieux connus de la recherche de démonstration. */
 export const PLACES = [
   { name: "Pirou", sub: "Manche" }, { name: "Crozon", sub: "Finistère" }, { name: "Crozon-Morgat", sub: "plage" },
-  { name: "Carteret", sub: "Manche" }, { name: "Plouguerneau", sub: "Finistère" },
+  { name: "Carteret", sub: "Manche" }, { name: "Plouguerneau", sub: "Finistère" }, { name: "Saint-Pierre-Quiberon", sub: "Morbihan" },
+  { name: "Barneville-Carteret", sub: "Manche" },
 ];
 
 // Carte schématique : repère 0–1000 × 0–1300, mer à l'ouest. La position de référence est en REF.
