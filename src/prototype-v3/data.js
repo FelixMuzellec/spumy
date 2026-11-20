@@ -4,6 +4,10 @@ import { tierOf, isFavorable } from "../design/v3/tokens.js";
 
 export const DEMO_NOTE = "Prototype · données de démonstration";
 
+/** Photos du catalogue utilisées par le prototype (copiées à la construction de la page de revue). */
+export const PHOTO_SET = ["platier-aube-frontale", "roche-ciel-bleu", "falaises-couchant", "jigging-console-sondeur", "falaise-mer-formee", "roches-eau-turquoise",
+  "lancer-ressac", "nuit-frontale", "estuaire-pres-sales", "plage-averse", "bar-eau-claire", "lieu-noir-pont-jig"];
+
 /** Heures décimales → « HH:MM ». */
 export const hhmm = (h) => {
   const t = ((h % 24) + 24) % 24, H = Math.floor(t), M = Math.round((t - H) * 60);

@@ -64,12 +64,13 @@ main { flex: 1; min-height: 0; display: flex; flex-direction: column; }
 .badge.info { color: var(--info-ink); background: var(--info-soft); }
 .badge.dark { color: var(--bg-app); background: var(--text-primary); }
 .tag { font-size: var(--fs-caption); color: var(--text-muted); }
+.sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; box-shadow: 0 0 0 1px var(--marker-ring-inner), 0 0 0 2px var(--marker-ring-outer); }
 
 /* Jauge : piste, remplissage d'une seule couleur (palier), repère de valeur */
 .gauge { display: flex; flex-direction: column; gap: 5px; }
-.gauge .lbl { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: var(--fs-small); color: var(--text-secondary); }
-.gauge .val { color: var(--text-primary); font-family: var(--font-numeric); font-variant-numeric: tabular-nums; font-weight: var(--fw-bold); font-size: var(--fs-body-lg); white-space: nowrap; }
-.gauge.big .val { font-size: var(--fs-headline); }
+.gauge .lbl { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 8px; font-size: var(--fs-small); color: var(--text-secondary); }
+.gauge .val { margin-left: auto; color: var(--text-primary); font-family: var(--font-numeric); font-variant-numeric: tabular-nums; font-weight: var(--fw-bold); font-size: var(--fs-body-lg); white-space: nowrap; }
+.gauge.big .val { font-size: var(--fs-headline); white-space: normal; text-align: right; line-height: var(--lh-snug); }
 .gauge.thin .val { font-size: var(--fs-small); font-weight: var(--fw-medium); }
 .track { position: relative; height: 10px; border-radius: 5px; background: var(--gauge-track); }
 .gauge.thin .track { height: 6px; }

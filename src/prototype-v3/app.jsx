@@ -1,0 +1,130 @@
+// SPUMY V3 — coque du prototype : en-tête (bascule, puce de position), barre défilante de 4 onglets visibles,
+// routes par ancre (#home, #carte, #meteo, #profil, #journal, #spot-<id>, #comparer-<a>-<b>), feuilles et messages.
+import "@fontsource-variable/roboto";
+import "@fontsource-variable/roboto-condensed";
+import "@fontsource-variable/montserrat";
+import "./styles.css";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { createRoot } from "react-dom/client";
+import catalogue from "../../data/photos/catalogue.json";
+import { pickPhoto } from "../design/ds/ambiance.js";
+import { Icon, brandSrc } from "./ui.jsx";
+import { HomeBord, HomeBateau } from "./home.jsx";
+import { Carte, Meteo } from "./map.jsx";
+import { Fiche, Comparaison } from "./spot.jsx";
+import { Journal, Profil, PositionSheet, QuickAdd, TAB_LABEL } from "./misc.jsx";
+import { DEMO_NOTE, PHOTO_SET, JOURNAL } from "./data.js";
+
+const PHOTOS = catalogue.photos.filter((p) => PHOTO_SET.includes(p.id) && !p.remplacee_par);
+const TAB_ICON = { home: "home", carte: "map", meteo: "wind", profil: "user", journal: "book" };
+const TABS = ["home", "carte", "meteo", "profil", "journal"];
+const parse = () => {
+  const h = (location.hash || "#home").slice(1);
+  if (h.startsWith("spot-")) return { page: "spot", arg: h.slice(5) };
+  if (h.startsWith("comparer-")) return { page: "comparer", arg: h.slice(9) };
+  return { page: TABS.includes(h) ? h : "home", arg: null };
+};
+
+function Nav({ order, page }) {
+  const ref = useRef(null);
+  const [edge, setEdge] = useState({ l: false, r: true });
+  const measure = useCallback(() => { const n = ref.current; if (n) setEdge({ l: n.scrollLeft > 2, r: n.scrollLeft + n.clientWidth < n.scrollWidth - 2 }); }, []);
+  useLayoutEffect(() => {
+    const a = ref.current?.querySelector('[aria-current="page"]');
+    if (a && ref.current.scrollWidth > ref.current.clientWidth) a.scrollIntoView({ inline: "nearest", block: "nearest" });
+    measure();
+  }, [page, order, measure]);
+  return (
+    <div className="navwrap">
+      <nav className="nav" ref={ref} onScroll={measure} aria-label="Onglets (faire glisser la barre pour voir les autres)">
+        {order.map((t) => (
+          <a key={t} href={`#${t}`} aria-current={page === t ? "page" : undefined} onFocus={(e) => e.currentTarget.scrollIntoView({ inline: "nearest", block: "nearest" })}>
+            <Icon name={TAB_ICON[t]} size={22} />{TAB_LABEL[t]}</a>
+        ))}
+      </nav>
+      {edge.l && <span className="more l" aria-hidden="true"><Icon name="left" size={18} /></span>}
+      {edge.r && <span className="more r" aria-hidden="true"><Icon name="right" size={18} /></span>}
+    </div>
+  );
+}
+
+function App() {
+  const [route, setRoute] = useState(parse);
+  const [st, setSt] = useState({
+    mode: "bord", tabs: ["home", "carte", "meteo", "profil", "journal"], hero: "auto", theme: "system",
+    pos: { mode: "auto", label: "Pirou", acc: "±30 m", state: "ok" }, demo: {},
+  });
+  const set = (patch) => setSt((s) => ({ ...s, ...patch }));
+  const [sheet, setSheet] = useState(null);
+  const [toast, setToast] = useState(null);
+  const [sel, setSel] = useState(null);
+  const [boat, setBoat] = useState({ choice: "saved", ready: false });
+  const [journal, setJournal] = useState(JOURNAL);
+  const timer = useRef(null);
+
+  useEffect(() => { const f = () => { setRoute(parse()); window.scrollTo(0, 0); }; window.addEventListener("hashchange", f); return () => window.removeEventListener("hashchange", f); }, []);
+  useEffect(() => { const r = document.documentElement; if (st.theme === "system") r.removeAttribute("data-theme"); else r.setAttribute("data-theme", st.theme); }, [st.theme]);
+  const notify = useCallback((msg, undo) => { clearTimeout(timer.current); setToast({ msg, undo }); timer.current = setTimeout(() => setToast(null), 4500); }, []);
+  const go = useCallback((page, arg) => {
+    if (page === "carte" && arg) setSel(arg);
+    location.hash = page === "spot" ? `spot-${arg}` : page === "comparer" ? `comparer-${arg}` : page;
+  }, []);
+  const back = () => (history.length > 1 ? history.back() : go("home"));
+
+  const bateau = st.mode === "bateau";
+  const heroPhoto = st.hero !== "auto" ? st.hero
+    : pickPhoto(PHOTOS, { usage: "hero", mode: st.mode, lumiere: bateau ? "jour" : "aube", ciel: bateau ? "nuageux" : "clair", mer: "calme", lieu: bateau ? "large" : "rochers", cle: "home" })?.id;
+  const p = st.pos;
+  const chip = p.state === "ok" ? `${p.label} · ${p.mode === "auto" ? "auto" : "manuel"}${p.mode === "auto" && p.acc ? ` · ${p.acc}` : ""}`
+    : p.state === "pending" ? "Position…" : p.state === "refused" ? "Position refusée · choisir" : "Choisir une position";
+  const page = route.page;
+  const saveTrip = (state) => {
+    const item = { id: `n${Date.now()}`, date: "Aujourd'hui", spot: "Pointe A", state, catches: state === "capture" ? "bar 44 cm" : null };
+    setJournal((j) => [item, ...j]); setSheet(null);
+    notify("Sortie enregistrée sur cet appareil", () => setJournal((j) => j.filter((x) => x.id !== item.id)));
+  };
+
+  let body;
+  if (page === "spot") body = <Fiche id={route.arg} go={go} back={back} />;
+  else if (page === "comparer") body = <Comparaison ids={route.arg} back={back} />;
+  else if (page === "carte") body = <Carte st={st} go={go} sel={sel} setSel={setSel} notify={notify} />;
+  else if (page === "meteo") body = <Meteo st={st} go={go} />;
+  else if (page === "journal") body = <Journal items={journal} openAdd={() => setSheet("add")} />;
+  else if (page === "profil") body = <Profil st={st} set={set} go={go} />;
+  else body = bateau ? <HomeBateau st={st} go={go} boat={boat} setBoat={setBoat} heroPhoto={heroPhoto} />
+    : <HomeBord st={st} go={go} heroPhoto={heroPhoto} openPos={() => setSheet("pos")} openJournal={() => setSheet("add")} />;
+
+  return (
+    <div className="app">
+      <div className="demo-bar">{DEMO_NOTE}</div>
+      {st.demo.offline && <div className="banner" role="status"><Icon name="offline" size={18} />Hors ligne · données de 06:10 ; temps de route en estimation</div>}
+      <header className="hdr">
+        <span className="brand"><img src={brandSrc("spumy-medaillon-128.png")} alt="" />SPUMY</span>
+        <div className="mode" role="radiogroup" aria-label="Mode">
+          {[["bord", "BORD"], ["bateau", "BATEAU"]].map(([k, l]) => <button key={k} role="radio" aria-checked={st.mode === k} onClick={() => { set({ mode: k }); setSel(null); }}>{l}</button>)}
+        </div>
+        <button className={`poschip${p.state !== "ok" ? " attn" : ""}`} onClick={() => setSheet("pos")} aria-label={`Position de référence : ${chip}`}>
+          <Icon name="pin" size={18} /><span>{chip}</span></button>
+      </header>
+      <main>{body}</main>
+      <Nav order={st.tabs} page={page} />
+      {sheet === "pos" && <PositionSheet pos={p} setPos={(v) => set({ pos: v })} onClose={() => setSheet(null)} notify={notify} />}
+      {sheet === "add" && <QuickAdd onClose={() => setSheet(null)} onSave={saveTrip} />}
+      {p.state === "pending" && (
+        <>
+          <div className="scrim" />
+          <div className="modal" role="alertdialog" aria-label="Autorisation de position" style={{ bottom: "auto", top: "28%", borderRadius: 16, width: "min(340px, 90%)", textAlign: "center" }}>
+            <b>« SPUMY » souhaite utiliser votre position</b>
+            <span className="sec">Pour calculer les spots et les temps de route autour de vous. Elle reste sur l'appareil.</span>
+            <div className="row"><button className="btn grow" onClick={() => set({ pos: { mode: "manual", label: "", state: "refused" } })}>Refuser</button>
+              <button className="btn primary grow" onClick={() => set({ pos: { mode: "auto", label: "Pirou", acc: "±30 m", state: "ok" } })}>Autoriser</button></div>
+            <span className="tag">Fenêtre du système, simulée pour le prototype</span>
+          </div>
+        </>
+      )}
+      {toast && <div className="toast" role="status">{toast.msg}{toast.undo && <button onClick={() => { toast.undo(); setToast(null); }}>Annuler</button>}</div>}
+    </div>
+  );
+}
+
+createRoot(document.getElementById("root")).render(<App />);

@@ -1,0 +1,174 @@
+// Phase 3 V3 — parcours du prototype interactif (prototype-v3/, construit par scripts/build-prototype-v3.mjs).
+// Chaque écran s'ouvre sans erreur à 320, 375, 390 px et sur bureau, dans les deux thèmes, sans défilement horizontal ;
+// règles vérifiées : place réservée « Le plus proche », zone « À vérifier » séparée, filtre « Favorables » (75, V3-021)
+// égal au nombre de pastilles, barre défilante de 4 onglets visibles (V3-023), ordre des onglets modifiable, choix du bateau.
+// Options : --axe (axe-core, échec sur les violations graves ou critiques), --captures <dossier> (images WebP 390 × 844).
+// Usage : node scripts/build-prototype-v3.mjs && node tests/prototype-v3.mjs [--axe] [--captures docs/design/prototype-v3]
+import http from "node:http";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { chromium } from "playwright";
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const args = process.argv.slice(2);
+const AXE = args.includes("--axe");
+const CAP = args.includes("--captures") ? path.resolve(args[args.indexOf("--captures") + 1]) : null;
+const TYPES = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".woff2": "font/woff2", ".webp": "image/webp", ".png": "image/png", ".json": "application/json" };
+const server = http.createServer((req, res) => {
+  const p = path.join(root, decodeURIComponent(new URL(req.url, "http://x").pathname));
+  if (!p.startsWith(root) || !fs.existsSync(p) || fs.statSync(p).isDirectory()) { res.writeHead(404); return res.end(); }
+  res.writeHead(200, { "content-type": TYPES[path.extname(p)] || "application/octet-stream" }); fs.createReadStream(p).pipe(res);
+}).listen(0);
+const BASE = `http://127.0.0.1:${server.address().port}/prototype-v3/index.html`;
+
+let ok = 0, fail = 0;
+const t = (name, cond, info = "") => { if (cond) ok++; else { fail++; console.log(`   ÉCHEC · ${name}${info ? " — " + info : ""}`); } };
+const browser = await chromium.launch();
+const ROUTES = ["home", "carte", "meteo", "profil", "journal", "spot-a", "spot-e", "spot-g", "comparer-c-a", "comparer-c-e"];
+const VIEWS = [["320", { width: 320, height: 640 }], ["375", { width: 375, height: 812 }], ["390", { width: 390, height: 844 }], ["bureau", { width: 1280, height: 800 }]];
+
+async function open(view, scheme, hash) {
+  const ctx = await browser.newContext({ viewport: view, colorScheme: scheme, reducedMotion: "reduce" });
+  const page = await ctx.newPage();
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
+  await page.goto(`${BASE}#${hash}`);
+  await page.waitForSelector(".app");
+  return { ctx, page, errors };
+}
+
+// 1. Chaque écran, chaque largeur, chaque thème : aucune erreur, aucun défilement horizontal.
+for (const [vn, view] of VIEWS) for (const scheme of ["light", "dark"]) {
+  const { ctx, page, errors } = await open(view, scheme, "home");
+  for (const r of ROUTES) {
+    await page.evaluate((h) => { location.hash = h; }, r);
+    await page.waitForTimeout(60);
+    const sw = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
+    t(`${vn} ${scheme} #${r} : pas de défilement horizontal`, sw <= 0, `${sw} px`);
+  }
+  t(`${vn} ${scheme} : aucune erreur de page`, errors.length === 0, errors.join(" | "));
+  await ctx.close();
+}
+
+// 2. Règles de Home, de la Carte et de la fiche (390 px).
+{
+  const { ctx, page, errors } = await open({ width: 390, height: 844 }, "light", "home");
+  const txt = await page.textContent("main");
+  t("Home : phrase de synthèse avec horaires", /bonne matinée pour le bar : \d\d:\d\d–\d\d:\d\d/i.test(txt));
+  t("Home : place réservée « Le plus proche » (V3-016)", txt.includes("Le plus proche"));
+  t("Home : 3 cartes de recommandation", (await page.locator("article.rec").count()) === 3);
+  t("Home : spots « à vérifier » hors des cartes", !(await page.locator("article.rec", { hasText: "Pointe E" }).count()) && txt.includes("À vérifier (2)"));
+  t("Home : horaires en tête de chaque carte", (await page.locator("article.rec .time-big").count()) === 3);
+  await page.evaluate(() => { location.hash = "carte"; });
+  await page.waitForSelector(".mk");
+  const favChip = page.locator(".chip", { hasText: "Favorables" });
+  const n = Number((await favChip.locator(".num").textContent()).trim());
+  await favChip.click();
+  t("Carte : « Favorables » = 3 (seuil 75, sécurité, pas à vérifier)", n === 3, String(n));
+  t("Carte : compteur égal aux pastilles affichées", (await page.locator(".mklayer .mk:not(.cluster)").count()) === n);
+  await page.locator(".chip", { hasText: "Tous" }).click();
+  t("Carte : pastille « à vérifier » avec « ? »", (await page.locator(".mk.verify .q").count()) === 2);
+  t("Carte : pastille barrée pour « non recommandé »", (await page.locator(".mk.nr").count()) === 1);
+  t("Carte : pastille vide sans note", (await page.locator(".mk.empty").count()) === 1);
+  await page.evaluate(() => { location.hash = "spot-a"; });
+  await page.waitForSelector(".tide svg");
+  const ft = await page.textContent("main");
+  t("Fiche : courbe de marée et horaires favorables coloriés", ft.includes("Marée et heures favorables") && /07:30–11:00 · 82/.test(ft));
+  t("Fiche : danger avant la marée", ft.indexOf("Accès coupé") < ft.indexOf("Marée et heures favorables"));
+  t("Fiche : Confiance ne change pas le rang", ft.includes("ne change pas le rang"));
+  await page.evaluate(() => { location.hash = "spot-e"; });
+  await page.waitForTimeout(80);
+  t("Fiche : fixture « 53/100 — À vérifier »", (await page.textContent("main")).includes("53/100 — À vérifier"));
+  await page.evaluate(() => { location.hash = "comparer-c-a"; });
+  await page.waitForTimeout(80);
+  const ct = await page.textContent("main");
+  t("Comparaison : ligne Vent", ct.includes("Vent") && ct.includes("abrité") && ct.includes("de face"));
+  t("Comparaison : écart chiffré", /\+15 min de route \(\+13 km\) pour \+24 points/.test(ct), ct.match(/\+\d+ min[^.]*/)?.[0]);
+  await page.evaluate(() => { location.hash = "comparer-c-e"; });
+  await page.waitForTimeout(80);
+  t("Comparaison : « avantage non établi » si un spot est à vérifier", (await page.textContent("main")).includes("Avantage non établi"));
+  t("parcours 390 : aucune erreur", errors.length === 0, errors.join(" | "));
+  await ctx.close();
+}
+
+// 3. Barre défilante, ordre des onglets, Météo, BATEAU.
+{
+  const { ctx, page, errors } = await open({ width: 390, height: 844 }, "light", "home");
+  const vis = await page.evaluate(() => { const n = document.querySelector(".nav"); const r = n.getBoundingClientRect();
+    return [...n.querySelectorAll("a")].map((a) => { const b = a.getBoundingClientRect(); return [a.textContent, b.left >= r.left - 1 && b.right <= r.right + 1]; }); });
+  t("barre : 4 onglets visibles, Journal hors champ", vis.filter((v) => v[1]).length === 4 && vis.find((v) => v[0] === "Journal")?.[1] === false, JSON.stringify(vis));
+  t("barre : chevron de suite à droite", (await page.locator(".navwrap .more.r").count()) === 1);
+  await page.locator(".nav").evaluate((n) => { n.scrollLeft = n.scrollWidth; });
+  await page.waitForTimeout(100);
+  t("barre : en glissant, Journal apparaît et le chevron gauche aussi", (await page.locator(".navwrap .more.l").count()) === 1);
+  await page.locator(".nav a", { hasText: "Journal" }).click();
+  await page.waitForTimeout(80);
+  t("barre : Journal ouvert au toucher", (await page.textContent("main")).includes("Sortie en cours"));
+  await page.evaluate(() => { location.hash = "profil"; });
+  await page.waitForTimeout(80);
+  await page.getByRole("button", { name: "Monter Journal" }).click();
+  const order = await page.locator(".nav a").allTextContents();
+  t("Profil : ordre des onglets modifié", order.join(",") === "Home,Carte,Météo,Journal,Profil", order.join(","));
+  await page.evaluate(() => { location.hash = "meteo"; });
+  await page.waitForTimeout(80);
+  t("Météo : grille de flèches de vent", (await page.locator(".mapbox polygon").count()) >= 20);
+  await page.locator('input[type="range"]').fill("5");
+  t("Météo : le curseur change l'heure", (await page.textContent("main")).includes("Pirou, 14:00"));
+  await page.getByRole("radio", { name: "BATEAU" }).click();
+  await page.evaluate(() => { location.hash = "home"; });
+  await page.waitForTimeout(80);
+  t("BATEAU : choix du bateau avant tout verdict", (await page.textContent("main")).includes("Avec quel bateau ?"));
+  await page.getByRole("button", { name: "Voir si je peux sortir" }).click();
+  t("BATEAU : verdict de sortie après le choix", (await page.textContent("main")).includes("Sortie possible : 07:00–12:00"));
+  await page.evaluate(() => { location.hash = "meteo"; });
+  await page.waitForTimeout(80);
+  await page.getByRole("tab", { name: "Mer" }).click();
+  t("Météo BATEAU : couche Mer", (await page.textContent("main")).includes("Open-Meteo Marine"));
+  t("parcours barre, Météo, BATEAU : aucune erreur", errors.length === 0, errors.join(" | "));
+  await ctx.close();
+}
+
+// 4. Accessibilité (axe-core), deux thèmes.
+if (AXE) {
+  const axeSrc = fs.readFileSync(path.join(root, "node_modules/axe-core/axe.min.js"), "utf8");
+  for (const scheme of ["light", "dark"]) for (const r of ["home", "carte", "meteo", "profil", "spot-a", "comparer-c-a"]) {
+    const { ctx, page } = await open({ width: 390, height: 844 }, scheme, r);
+    await page.waitForTimeout(150);
+    await page.addScriptTag({ content: axeSrc });
+    const res = await page.evaluate(async () => (await window.axe.run(document, { runOnly: ["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"] })).violations.map((v) => ({ id: v.id, impact: v.impact, n: v.nodes.length })));
+    const grave = res.filter((v) => v.impact === "serious" || v.impact === "critical");
+    t(`axe ${scheme} #${r} : aucune violation grave`, grave.length === 0, JSON.stringify(grave));
+    if (res.length > grave.length) console.log(`   (axe ${scheme} #${r} : ${JSON.stringify(res.filter((v) => !grave.includes(v)))})`);
+    await ctx.close();
+  }
+}
+
+// 5. Captures pour la revue.
+if (CAP) {
+  fs.mkdirSync(CAP, { recursive: true });
+  const shots = [["home", "light", "01-home-bord"], ["carte", "light", "02-carte"], ["meteo", "light", "03-meteo"], ["spot-a", "light", "04-fiche-spot"], ["comparer-c-a", "light", "05-comparaison"],
+    ["profil", "light", "06-profil"], ["journal", "light", "07-journal"], ["home", "dark", "08-home-bord-sombre"], ["spot-e", "dark", "09-fiche-a-verifier-sombre"]];
+  for (const [r, scheme, name] of shots) {
+    const { ctx, page } = await open({ width: 390, height: 844 }, scheme, r);
+    await page.waitForTimeout(250);
+    await page.screenshot({ path: path.join(CAP, `${name}.png`), fullPage: true });
+    await ctx.close();
+  }
+  const { ctx, page } = await open({ width: 390, height: 844 }, "light", "home");
+  await page.getByRole("radio", { name: "BATEAU" }).click();
+  await page.getByRole("button", { name: "Voir si je peux sortir" }).click();
+  await page.waitForTimeout(250);
+  await page.screenshot({ path: path.join(CAP, "10-home-bateau.png"), fullPage: true });
+  await ctx.close();
+  const d = await open({ width: 1280, height: 800 }, "light", "carte");
+  await d.page.waitForTimeout(250);
+  await d.page.screenshot({ path: path.join(CAP, "11-carte-bureau.png") });
+  await d.ctx.close();
+}
+
+await browser.close();
+server.close();
+console.log(`[prototype v3] parcours, règles et largeurs : ${ok}/${ok + fail}`);
+process.exit(fail ? 1 : 0);
