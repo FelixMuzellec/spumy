@@ -37,9 +37,9 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | 3.1 Audit AVANT : captures de toutes les routes et de tous les états, registre priorisé des écarts | IMPLEMENTED (31 captures, 22 écarts ; site en ligne non vérifiable) | `docs/design/AUDIT-UX-AVANT.md`, `docs/design/avant/` |
 | 3.2 Logos : manifeste, matrice des usages, exports V3 sans altération du poisson, test de la zone protégée | TESTED (`python3 tests/brand.py` 23/23, code 0) | `docs/design/BRAND-MANIFEST.md`, `scripts/logos-v3.py`, `assets/brand/v3/`, `tests/brand.py` |
 | 3.3 Planche UI Showcase écran par écran ; revue des photos et demandes de remplacement | IMPLEMENTED (8 écrans revus ; 4 photos demandées à Félix le 20 nov., `BLOCKED — PHOTO UTILISATEUR ATTENDUE`) | `docs/design/REFERENCES.md` |
-| 3.4 Usages, scénarios, architecture de l'information, parcours, carte, cartes de recommandation (jalon 1) | NOT STARTED | `docs/design/UX-V3.md` |
+| 3.4 Usages, scénarios, architecture de l'information, parcours, carte, cartes de recommandation (jalon 1) | IMPLEMENTED (spécification et 13 wireframes ; jalon 1 demandé à Félix le 20 nov., en attente) | `docs/design/UX-V3.md`, `docs/design/wireframes/` (page de revue publiée en artefact privé) |
 | 3.5 Design System V3 : jetons, contrastes, composants, états, contenus | NOT STARTED | `docs/design/DESIGN-SYSTEM-V3.md`, `src/design/v3/`, `tests/design-v3.mjs` |
-| 3.6 Wireframes, puis prototype interactif (BORD et BATEAU) | NOT STARTED | `src/prototype-v3/`, `prototype-v3/` |
+| 3.6 Prototype interactif (BORD et BATEAU) ; les wireframes sont faits en 3.4 | NOT STARTED (haute fidélité : attend le jalon 1) | `src/prototype-v3/`, `prototype-v3/` |
 | 3.7 Revues, tests, galerie AVANT/CIBLE, matrices de conformité et de traçabilité | NOT STARTED | `docs/design/REVUES-V3.md` |
 | 3.8 Rapport et arrêt | NOT STARTED | `docs/rapports/v3/PHASE-3.md` |
 
@@ -54,6 +54,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | Q5 | 20 nov., 4 h 18 | Place réservée dans le Top 3 | Oui, 15 min ou moins | ADR-V3-016, REC-06 |
 | Q6 | 20 nov., 4 h 18 | Ancienne note sur 10 | La retirer | ADR-V3-015, REC-12 |
 | Q7 | 20 nov., 5 h 05 | 4 photos à remplacer (2 espèces BATEAU, 1 silhouette, 1 semi-rigide), avec briefs | en attente | `docs/design/REFERENCES.md` |
+| Q8 | 20 nov. | Jalon 1 : tâches prioritaires, architecture, parcours (UX-V3, 13 wireframes) | en attente | bloque la haute fidélité (3.6), pas le Design System (3.5) |
 
 ## Checkpoint
 
@@ -63,7 +64,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 
 ## Prochaine action
 
-3.4 : usages, scénarios, architecture de l'information, parcours, carte, cartes de recommandation ; wireframes ; jalon 1.
+3.5 : Design System V3 (jetons, contrastes calculés, jauges à 6 paliers et leurs bornes, composants, états, contenus ; `tests/design-v3.mjs`). Puis 3.6 seulement après la réponse au jalon 1 (Q8).
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
