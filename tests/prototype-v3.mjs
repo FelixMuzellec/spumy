@@ -58,7 +58,7 @@ for (const [vn, view] of VIEWS) for (const scheme of ["light", "dark"]) {
 {
   const { ctx, page, errors } = await open({ width: 390, height: 844 }, "light", "home");
   const txt = await page.textContent("main");
-  t("Home : phrase de synthèse avec horaires", /bonne matinée pour le bar : \d\d:\d\d–\d\d:\d\d/i.test(txt));
+  t("Home : phrase de synthèse avec horaires", /bonne matinée pour le bar\s:\s\d\d:\d\d–\d\d:\d\d/i.test(txt));
   t("Home : place réservée « Le plus proche » (V3-016)", txt.includes("Le plus proche"));
   t("Home : 3 cartes de recommandation", (await page.locator("article.rc").count()) === 3);
   t("Home : spots « à vérifier » hors des cartes", !(await page.locator("article.rc", { hasText: "Pointe E" }).count()) && txt.includes("À vérifier (2)"));
@@ -165,7 +165,7 @@ for (const [vn, view] of VIEWS) for (const scheme of ["light", "dark"]) {
   await page.waitForTimeout(80);
   t("BATEAU : choix du bateau avant tout verdict", (await page.textContent("main")).includes("Avec quel bateau ?"));
   await page.getByRole("button", { name: "Voir si je peux sortir" }).click();
-  t("BATEAU : verdict de sortie après le choix", (await page.textContent("main")).includes("Sortie possible : 07:00–12:00"));
+  t("BATEAU : verdict de sortie après le choix", /Sortie possible\s: 07:00–12:00/.test(await page.textContent("main")));
   await page.evaluate(() => { location.hash = "meteo"; });
   await page.waitForTimeout(80);
   await page.getByRole("tab", { name: "Mer" }).click();

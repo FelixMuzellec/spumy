@@ -11,6 +11,15 @@
 - barre déplaçable au doigt, à la souris et à la molette, avec chevrons cliquables ;
 - Météo redessinée, avec sa légende.
 
+**Version 3** (20 nov., 14 h 46, demande de Félix) :
+- carte déplaçable et zoomable (glisser, molette, pincement, double-clic, boutons + et − et « vue d'ensemble »), pastilles de taille constante ;
+- feuille glissante à trois hauteurs, aimantée ;
+- transitions entre écrans, désactivées si le mouvement est réduit ;
+- rythme de 16 px dans les écrans et de 40 px entre les sections ;
+- au plus trois tailles de texte par carte (30, 19 et 14 px), vérifié par test.
+
+Les vraies photos de spots ne peuvent pas venir du prototype : il faut de vraies prises de vue (celles de Félix, ou des photos sous licence libre), rattachées au vrai catalogue à l'intégration. Le fond IGN réel arrive aux phases 4 et 10 : la page de revue bloque les tuiles, et elles ne sont pas joignables d'ici.
+
 **Statut** : à revalider au jalon 2, avec la direction visuelle et les principes du Design System. Toutes les données sont **de démonstration**, et l'écran le dit en permanence. Le prototype n'appelle aucun service : ni météo, ni route, ni géocodage, ni tuiles.
 
 ## Où le voir
@@ -49,7 +58,7 @@ Il n'existe pas dans l'application.
 
 | Commande | Code de sortie | Résultat |
 | --- | --- | --- |
-| `npm run test:prototype-v3` (construction, puis `tests/prototype-v3.mjs --axe`) | 0 | 134/134 |
+| `npm run test:prototype-v3` (construction, puis `tests/prototype-v3.mjs --axe`) | 0 | 144/144 |
 | `npm run test:design-v3` | 0 | 184/184 |
 | `npm run -s lint` ; `node tests/layers.mjs` | 0 ; 0 | aucun écart ; 253 couleurs en dur hors de `src/design/`, inchangé |
 

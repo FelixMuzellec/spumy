@@ -67,7 +67,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 
 ## Prochaine action
 
-Refonte visuelle faite (3.6 v2, V3-025, `test:prototype-v3` 134/134, `test:design-v3` 184/184, artefact « Prototype SPUMY V3 » version 2) : redemander le jalon 2 à Félix. Ensuite 3.7 (revues, galerie AVANT/CIBLE, matrices § 6.16 et de traçabilité, critères ; test utilisateur ou « NON EFFECTUÉ »), puis 3.8 (rapport en 14 parties, arrêt). CI : le job « contrat » a échoué une fois parce qu'Open-Meteo n'a pas répondu (réseau externe), à revérifier.
+Prototype version 3 fait (demande de Félix à 14 h 46 : carte déplaçable et zoomable, feuille glissante, transitions, rythme et trois tailles de texte par carte ; `test:prototype-v3` 144/144). Félix propose de valider le prototype et de revenir sur le livrable ensuite ; avis donné (6,5/10, valider avec réserves écrites). Attendre « jalon 2 validé avec réserves ». Ensuite 3.7 (revue heuristique Nielsen, guides Apple et Material 3, WCAG 2.2 ; galerie AVANT/CIBLE ; matrices § 6.16 et de traçabilité ; réserves transformées en critères d'acceptation des phases 10 à 12 ; test utilisateur ou « NON EFFECTUÉ »), puis 3.8 (rapport en 14 parties, arrêt). Photos réelles des spots : à fournir par Félix ou à choisir sous licence libre (liste à préparer).
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 

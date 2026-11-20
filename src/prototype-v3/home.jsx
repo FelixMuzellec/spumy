@@ -131,7 +131,7 @@ export function HomeBateau({ go, boat, setBoat, heroPhoto }) {
   const verif = MARKS.filter((m) => m.status === "verify");
   return (
     <div className="screen flush">
-      <Hero photo={heroPhoto} title="Sortie possible : 07:00–12:00" sub={`pire moment 12:40 : vent 4 Bft, rafales 22 nds, houle 1,1 m · ${boat.choice === "custom" ? "bateau saisi" : BOATS[0].name}`} />
+      <Hero photo={heroPhoto} title={"Sortie possible\u00a0: 07:00–12:00"} sub={`pire moment 12:40 : vent 4 Bft, rafales 22 nds, houle 1,1 m · ${boat.choice === "custom" ? "bateau saisi" : BOATS[0].name}`} />
       <div className="screen home">
         <section className="sect" aria-labelledby="h-zones">
         <div><h2 className="sect-h" id="h-zones">Où aller</h2><p className="sect-sub">Tes marques, classées par la meilleure espèce ouverte</p></div>

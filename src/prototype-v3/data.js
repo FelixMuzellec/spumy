@@ -93,7 +93,7 @@ export function homePhrase(cards, { scarce } = {}) {
   if (!cards.length || scarce) return { text: "Peu favorable aujourd'hui", sub: "vent de force 7 sur les côtes exposées" };
   const best = cards[0], t = tierOf(best.fav);
   const lead = best.fav >= 90 ? "Très bonne matinée pour le bar" : best.fav >= 75 ? "Bonne matinée pour le bar" : best.fav >= 60 ? "Matinée correcte pour le bar" : "Pêche difficile aujourd'hui";
-  return { text: `${lead} : ${span(best.win)}`, sub: `à moins d'1 h d'ici · ${best.name} · ${t.word.toLowerCase()}` };
+  return { text: `${lead}\u00a0: ${span(best.win)}`, sub: `à moins d'1 h d'ici · ${best.name} · ${t.word.toLowerCase()}` };
 }
 
 /** Marques BATEAU de démonstration. */
