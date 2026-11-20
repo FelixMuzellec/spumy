@@ -57,6 +57,12 @@ function Nav({ order, page }) {
   );
 }
 
+/** Écran de lancement : le logo complet d'origine sur son fond crème, puis l'application (1,5 s ; un appui le passe). */
+function Launch({ onDone }) {
+  useEffect(() => { const t = setTimeout(onDone, 1500); return () => clearTimeout(t); }, [onDone]);
+  return <div className="launch" role="img" aria-label="SPUMY" onClick={onDone}><img src={brandSrc("spumy-logo-960.webp")} alt="" /></div>;
+}
+
 function App() {
   const [route, setRoute] = useState(parse);
   const [st, setSt] = useState({
@@ -69,6 +75,7 @@ function App() {
   const [sel, setSel] = useState(null);
   const [boat, setBoat] = useState({ choice: "saved", ready: false });
   const [journal, setJournal] = useState(JOURNAL);
+  const [launch, setLaunch] = useState(() => !window.__NO_LAUNCH__);
   const timer = useRef(null);
 
   useEffect(() => { const f = () => { setRoute(parse()); window.scrollTo(0, 0); }; window.addEventListener("hashchange", f); return () => window.removeEventListener("hashchange", f); }, []);
@@ -84,7 +91,7 @@ function App() {
   const heroPhoto = st.hero !== "auto" ? st.hero
     : pickPhoto(PHOTOS, { usage: "hero", mode: st.mode, lumiere: bateau ? "jour" : "aube", ciel: bateau ? "nuageux" : "clair", mer: "calme", lieu: bateau ? "large" : "rochers", cle: "home" })?.id;
   const p = st.pos;
-  const chip = p.state === "ok" ? `${p.label} · ${p.mode === "auto" ? "auto" : "manuel"}${p.mode === "auto" && p.acc ? ` · ${p.acc}` : ""}`
+  const chip = p.state === "ok" ? `${p.label} · ${p.mode === "auto" ? "auto" : "manuel"}`
     : p.state === "pending" ? "Position…" : p.state === "refused" ? "Position refusée · choisir" : "Choisir une position";
   const page = route.page;
   const saveTrip = (state) => {
@@ -105,15 +112,18 @@ function App() {
 
   return (
     <div className="app">
+      {launch && <Launch onDone={() => setLaunch(false)} />}
       <div className="demo-bar">{DEMO_NOTE}</div>
       {st.demo.offline && <div className="banner" role="status"><Icon name="offline" size={18} />Hors ligne · données de 06:10 ; temps de route en estimation</div>}
       <header className="hdr">
-        <a className="brand" href="#home"><img src={brandSrc("spumy-medaillon-128.png")} alt="SPUMY" width="40" height="40" /><span className="word" aria-hidden="true">SPUMY</span></a>
+        <div className="hdr-row">
+          <a className="brand" href="#home" aria-label="SPUMY, accueil"><img src={brandSrc("spumy-medaillon-128.png")} alt="" width="44" height="44" /><span className="word">SPUMY</span></a>
+          <button className={`poschip${p.state !== "ok" ? " attn" : ""}`} onClick={() => setSheet("pos")} aria-label={`Position de référence : ${chip}${p.state === "ok" && p.acc ? `, précision ${p.acc}` : ""}`}>
+            <Icon name="pin" size={18} /><span>{chip}</span></button>
+        </div>
         <div className="mode" role="radiogroup" aria-label="Mode">
           {[["bord", "BORD"], ["bateau", "BATEAU"]].map(([k, l]) => <button key={k} role="radio" aria-checked={st.mode === k} onClick={() => { set({ mode: k }); setSel(null); }}>{l}</button>)}
         </div>
-        <button className={`poschip${p.state !== "ok" ? " attn" : ""}`} onClick={() => setSheet("pos")} aria-label={`Position de référence : ${chip}`}>
-          <Icon name="pin" size={18} /><span>{chip}</span></button>
       </header>
       <main key={`${page}-${route.arg || ""}-${st.mode}`} className={page === "spot" || page === "comparer" ? "push" : "fade"}>{body}</main>
       <Nav order={st.tabs} page={page} />

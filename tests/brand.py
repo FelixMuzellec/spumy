@@ -80,6 +80,18 @@ for name in ("icon-512.png", "icon-192.png", "icon-maskable-512.png", "apple-tou
     o, n = orange_of(e)
     t(f"{name} : orange de l'aplat conservé (±3)", n > 0 and np.abs(o - o_src).max() <= 3, "#%02X%02X%02X" % tuple(o))
 
+# Logo complet : recadrage et réduction de la source, orange et silhouette conservés.
+srcfull = np.asarray(Image.open(L.SRC).convert("RGB").crop(L.LOCKUP_BOX))
+for name, w in (("spumy-logo-960.webp", 960), ("spumy-logo-480.png", 480)):
+    e = np.asarray(Image.open(L.OUT / name).convert("RGB")).astype(int)
+    ref = np.asarray(Image.fromarray(srcfull.astype(np.uint8)).resize((e.shape[1], e.shape[0]), Image.LANCZOS)).astype(int)
+    o, n = orange_of(e)
+    t(f"{name} : orange de l'aplat conservé (±3)", n > 0 and np.abs(o - o_src).max() <= 3, "#%02X%02X%02X" % tuple(o))
+    de, dr = e.mean(axis=2) < 110, ref.mean(axis=2) < 110
+    iou = (de & dr).sum() / max((de | dr).sum(), 1)
+    t(f"{name} : poisson et mot conservés (≥ 97 %)", iou >= 0.97, f"{iou:.3f}")
+    t(f"{name} : largeur {w} px, proportions de la source", e.shape[1] == w and abs(e.shape[0] / e.shape[1] - srcfull.shape[0] / srcfull.shape[1]) < 0.01)
+
 # Contrôle négatif : une recoloration de type V2 (marine → crème hors du disque) est bien détectée.
 mut = med[..., :3].copy()
 outside_disc = d > L.DISC_R - 2

@@ -41,6 +41,8 @@ t("palette : ardoise #344B5A", T.PALETTE.slate === "#344B5A");
 t("palette : blanc cassé #F3F1EB", T.PALETTE.offWhite === "#F3F1EB");
 t("marque : brand-logo-orange = #C76A31 (mesuré sur la source)", T.BRAND.brandLogoOrange === "#C76A31");
 t("marque : brand-logo-orange distinct de l'accent d'interface", T.BRAND.brandLogoOrange !== T.PALETTE.accentOrange);
+t("marque : fond crème d'origine du logo #E9E2D2 (mesuré)", T.BRAND.brandCream === "#E9E2D2");
+t("marque : texte marine lisible sur le fond crème (4,5:1)", ratio(T.PALETTE.navy, T.BRAND.brandCream) >= 4.5);
 for (const [name, th] of Object.entries(T.THEMES)) {
   t(`thème ${name} : ne redéfinit aucun jeton de marque`, !Object.keys(th).some((k) => /brand/i.test(k)));
   t(`thème ${name} : n'emploie pas l'orange du logo`, !Object.values(th).includes(T.BRAND.brandLogoOrange));

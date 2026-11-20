@@ -60,7 +60,7 @@ fs.writeFileSync(path.join(pub, "index.html"), `<!doctype html>
 // Icônes de l'application installée : exports V3 du logo BRAND (scripts/logos-v3.py, tests/brand.py).
 fs.writeFileSync(path.join(pub, "manifest.webmanifest"), JSON.stringify({
   name: "SPUMY", short_name: "SPUMY", lang: "fr", start_url: "./index.html", scope: "./", display: "standalone",
-  background_color: "#172B3A", theme_color: "#172B3A",
+  background_color: "#E9E2D2", theme_color: "#172B3A",
   icons: [
     { src: "../assets/brand/v3/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
     { src: "../assets/brand/v3/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
@@ -74,7 +74,7 @@ if (revue) {
   fs.mkdirSync(path.join(revue, "photos"), { recursive: true });
   for (const id of PHOTO_SET) for (const z of [720, 1600]) fs.copyFileSync(path.join(root, "assets/photos", `${id}-${z}.webp`), path.join(revue, "photos", `${id}-${z}.webp`));
   fs.mkdirSync(path.join(revue, "brand"), { recursive: true });
-  for (const f of ["spumy-medaillon-128.png", "favicon-32.png", "apple-touch-icon-180.png"]) fs.copyFileSync(path.join(root, "assets/brand/v3", f), path.join(revue, "brand", f));
+  for (const f of ["spumy-medaillon-128.png", "spumy-logo-960.webp", "favicon-32.png", "apple-touch-icon-180.png"]) fs.copyFileSync(path.join(root, "assets/brand/v3", f), path.join(revue, "brand", f));
   fs.writeFileSync(path.join(revue, "index.html"), `<title>${TITLE}</title>
 <link rel="icon" type="image/png" sizes="32x32" href="brand/favicon-32.png">
 <link rel="apple-touch-icon" href="brand/apple-touch-icon-180.png">

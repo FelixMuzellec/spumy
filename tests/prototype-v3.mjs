@@ -28,8 +28,9 @@ const browser = await chromium.launch();
 const ROUTES = ["home", "carte", "meteo", "profil", "journal", "spot-a", "spot-e", "spot-g", "comparer-c-a", "comparer-c-e"];
 const VIEWS = [["320", { width: 320, height: 640 }], ["375", { width: 375, height: 812 }], ["390", { width: 390, height: 844 }], ["bureau", { width: 1280, height: 800 }]];
 
-async function open(view, scheme, hash) {
+async function open(view, scheme, hash, launch = false) {
   const ctx = await browser.newContext({ viewport: view, colorScheme: scheme, reducedMotion: "reduce" });
+  if (!launch) await ctx.addInitScript(() => { window.__NO_LAUNCH__ = true; });
   const page = await ctx.newPage();
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
@@ -76,45 +77,47 @@ for (const [vn, view] of VIEWS) for (const scheme of ["light", "dark"]) {
   const bodies = await page.locator("article.rc .rc-body").evaluateAll((els) => els.map((e) => Math.round(e.getBoundingClientRect().height)));
   t("Home : partie sous la photo compacte (≤ 110 px)", bodies.every((h) => h <= 110), bodies.join(","));
   t("Home : score posé sur la photo", (await page.locator("article.rc .rc-media .disc").count()) === 3);
-  const logo = await page.locator("header .brand img").evaluate((e) => [e.alt, e.getBoundingClientRect().width, e.complete && e.naturalWidth > 0]);
-  t("logo SPUMY visible dans l'en-tête (40 px, chargé)", logo[0] === "SPUMY" && logo[1] >= 40 && logo[2], JSON.stringify(logo));
+  const logo = await page.locator("header .brand").evaluate((e) => { const i = e.querySelector("img"); return [e.textContent.trim(), i.getBoundingClientRect().width, i.complete && i.naturalWidth > 0, e.getAttribute("aria-label")]; });
+  t("logo SPUMY dans l'en-tête : médaillon de 44 px et mot SPUMY", logo[0] === "SPUMY" && logo[1] >= 44 && logo[2] && /SPUMY/.test(logo[3]), JSON.stringify(logo));
   await page.evaluate(() => { location.hash = "carte"; });
   await page.waitForSelector(".mk");
   const favChip = page.locator(".chip", { hasText: "Favorables" });
   const n = Number((await favChip.locator(".num").textContent()).trim());
   await favChip.click();
   t("Carte : « Favorables » = 3 (seuil 75, sécurité, pas à vérifier)", n === 3, String(n));
-  t("Carte : compteur égal aux pastilles affichées", (await page.locator(".mklayer .mk").count()) === n);
-  t("Carte : chaque pastille porte son score", (await page.locator(".mklayer .mk .lbl").allTextContents()).every((x) => /^\d+$|^–$/.test(x)));
+  t("Carte : compteur égal aux pastilles affichées (groupes comptés)", (await page.locator(".mklayer .mk:not(.cluster)").count()) + (await page.locator(".mklayer .mk.cluster").evaluateAll((els) => els.reduce((m, e) => m + Number(e.dataset.n), 0))) === n);
+  t("Carte : chaque pastille porte son score", (await page.locator(".mklayer .mk:not(.cluster) .lbl").allTextContents()).every((x) => /^\d+$|^–$/.test(x)));
   await page.locator(".chip", { hasText: "Tous" }).click();
   const all = Number((await page.locator(".chip", { hasText: "Tous" }).locator(".num").textContent()).trim());
-  t("Carte : « Tous » égal aux pastilles affichées", (await page.locator(".mklayer .mk").count()) === all, String(all));
+  t("Carte : « Tous » égal aux pastilles affichées (groupes comptés)", (await page.locator(".mklayer .mk:not(.cluster)").count()) + (await page.locator(".mklayer .mk.cluster").evaluateAll((els) => els.reduce((m, e) => m + Number(e.dataset.n), 0))) === all, String(all));
   const box = await page.locator(".mapbox").boundingBox(), sheet = await page.locator(".sheet").boundingBox();
   const hidden = await page.locator(".mklayer .mk").evaluateAll((els, lim) => els.filter((e) => e.getBoundingClientRect().bottom > lim).length, Math.min(box.y + box.height, sheet.y));
   t("Carte : aucune pastille cachée sous la feuille", hidden === 0, String(hidden));
-  t("Carte : pastilles « à vérifier » avec le signe d'avertissement", (await page.locator(".mk.verify .ic").count()) === 2);
+  t("Carte : pastilles « à vérifier » avec le signe d'avertissement (hors groupes)", (await page.locator(".mk.verify .ic").count()) + (await page.locator(".mk.cluster", { hasText: /./ }).evaluateAll((els) => els.filter((e) => /Pointe E|Anse J/.test(e.getAttribute("aria-label"))).length)) >= 2);
   const mb = await page.locator(".mapbox").boundingBox();
   const scaleOf = () => page.locator(".pz").evaluate((e) => new DOMMatrix(getComputedStyle(e).transform).a);
+  const kInit = await scaleOf();
   await page.mouse.move(mb.x + mb.width / 2, mb.y + mb.height / 2); await page.mouse.wheel(0, -400); await page.waitForTimeout(150);
   const k1 = await scaleOf();
-  t("Carte : la molette zoome", k1 > 1.2, String(k1));
+  t("Carte : la molette zoome", k1 > 1.2 * kInit, `${kInit} → ${k1}`);
   const tx0 = await page.locator(".pz").evaluate((e) => new DOMMatrix(getComputedStyle(e).transform).e);
   await page.mouse.down(); await page.mouse.move(mb.x + mb.width / 2 + 90, mb.y + mb.height / 2 + 40, { steps: 6 }); await page.mouse.up(); await page.waitForTimeout(100);
   const tx1 = await page.locator(".pz").evaluate((e) => new DOMMatrix(getComputedStyle(e).transform).e);
   t("Carte : glisser déplace la carte", Math.abs(tx1 - tx0) > 40, `${tx0} → ${tx1}`);
-  t("Carte : le zoom ne change pas le nombre de pastilles", (await page.locator(".mklayer .mk").count()) === all);
-  const pw = await page.locator(".mk").first().evaluate((e) => e.getBoundingClientRect().width);
+  t("Carte : le zoom ne change pas le nombre de spots", (await page.locator(".mklayer .mk:not(.cluster)").count()) + (await page.locator(".mklayer .mk.cluster").evaluateAll((els) => els.reduce((m, e) => m + Number(e.dataset.n), 0))) === all);
+  const pw = await page.locator(".mk:not(.cluster)").first().evaluate((e) => e.getBoundingClientRect().width);
   t("Carte : les pastilles gardent leur taille à l'écran", pw < 80, String(pw));
   await page.getByRole("button", { name: "Vue d'ensemble" }).click(); await page.waitForTimeout(100);
-  t("Carte : « Vue d'ensemble » ramène le zoom à 1", (await scaleOf()) === 1);
+  const kFit = await scaleOf();
+  t("Carte : « Vue d'ensemble » montre toute la carte, groupes compris", kFit <= 1 && (await page.locator(".mklayer .mk").evaluateAll((els, r) => els.every((e) => { const b = e.getBoundingClientRect(); return b.top >= r.y - 1 && b.bottom <= r.y + r.height + 1; }), mb)), String(kFit));
   const hb = await page.locator(".sheet-head").boundingBox();
   await page.mouse.move(hb.x + hb.width / 2, hb.y + hb.height - 6); await page.mouse.down();
   await page.mouse.move(hb.x + hb.width / 2, hb.y - 420, { steps: 8 }); await page.mouse.up(); await page.waitForTimeout(350);
   t("Carte : la feuille se tire vers le haut et s'aimante (liste classée)", (await page.locator(".sheet.snap-full").count()) === 1 && (await page.locator(".sheet-body .list").count()) === 1);
   await page.locator(".sheet .grip").click(); await page.waitForTimeout(350);
   t("Carte : la poignée referme la feuille", (await page.locator(".sheet.snap-peek").count()) === 1);
-  t("Carte : pastille barrée pour « non recommandé »", (await page.locator(".mk.nr").count()) === 1);
-  t("Carte : pastille vide sans note", (await page.locator(".mk.empty").count()) === 1);
+  t("Carte : pastille barrée pour « non recommandé » (ou dans un groupe)", (await page.locator(".mk.nr").count()) === 1 || (await page.locator(".mk.cluster").evaluateAll((els) => els.some((e) => /Roche G/.test(e.getAttribute("aria-label"))))));
+  t("Carte : pastille vide sans note (ou dans un groupe)", (await page.locator(".mk.empty").count()) === 1 || (await page.locator(".mk.cluster").evaluateAll((els) => els.some((e) => /Plage H/.test(e.getAttribute("aria-label"))))));
   await page.evaluate(() => { location.hash = "spot-a"; });
   await page.waitForSelector(".tide svg");
   const ft = await page.textContent("main");
@@ -177,6 +180,16 @@ for (const [vn, view] of VIEWS) for (const scheme of ["light", "dark"]) {
   await page.getByRole("tab", { name: "Mer" }).click();
   t("Météo BATEAU : couche Mer", (await page.textContent("main")).includes("Open-Meteo Marine"));
   t("parcours barre, Météo, BATEAU : aucune erreur", errors.length === 0, errors.join(" | "));
+  await ctx.close();
+}
+
+// Écran de lancement : le logo complet d'origine sur son fond crème, puis l'application.
+{
+  const { ctx, page, errors } = await open({ width: 390, height: 844 }, "dark", "home", true);
+  const shown = await page.locator(".launch img").evaluate((i) => i.complete && i.naturalWidth > 0 && getComputedStyle(i.parentElement).backgroundColor);
+  t("lancement : logo complet sur le fond crème d'origine", shown === "rgb(233, 226, 210)", String(shown));
+  await page.waitForSelector(".launch", { state: "detached", timeout: 4000 });
+  t("lancement : l'application suit", (await page.locator("article.rc").count()) === 3 && errors.length === 0);
   await ctx.close();
 }
 

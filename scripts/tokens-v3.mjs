@@ -20,6 +20,7 @@ export function css() {
   color-scheme: light;
   /* Marque, PROTÉGÉ : jamais redéfini par un thème, un filtre ou une transparence. */
   --brand-logo-orange: ${T.BRAND.brandLogoOrange};
+  --brand-cream: ${T.BRAND.brandCream};
   /* Palette principale, APPROUVÉ. */
 ${decl(T.PALETTE, "palette-")}
   /* Paliers des jauges et des pastilles (RÈGLE § 6.7.5.1 ; valeurs PROPOSITION À TESTER). */

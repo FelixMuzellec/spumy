@@ -55,6 +55,26 @@ def medallion():
     return Image.fromarray(rgba, "RGBA"), (x0, y0)
 
 
+def square(side):
+    """Carré de la source centré sur le symbole, sur son fond crème d'origine ; le haut des lettres qui y entre
+    reçoit la couleur du fond (hors zone protégée). Aucun pixel du disque ni du poisson n'est modifié."""
+    src = np.asarray(Image.open(SRC).convert("RGB"))
+    bg = background(src)
+    x0, y0 = int(round(CX - side / 2)), int(round(CY - side / 2))
+    crop = src[y0:y0 + side, x0:x0 + side].copy()
+    yy = np.mgrid[0:side, 0:side][0]
+    crop[(yy + y0) >= WORD_TOP] = bg
+    return Image.fromarray(crop, "RGB")
+
+
+LOCKUP_BOX = (424, 518, 1624, 1521)  # emprise de l'encre (507–1541 × 601–1438) plus 83 px de marge, fond crème d'origine
+
+
+def lockup():
+    """Logo complet d'origine (symbole et mot SPUMY) : simple recadrage de la source, sans aucune retouche."""
+    return Image.open(SRC).convert("RGB").crop(LOCKUP_BOX)
+
+
 def icon(med, size, scale, bg=NAVY, radius_ratio=0.0):
     """Icône carrée : médaillon centré, mis à l'échelle proportionnellement, sur fond marine."""
     canvas = Image.new("RGBA", (size, size), bg + (255,))
@@ -75,17 +95,23 @@ def main():
     for s in (512, 256, 128, 64):
         med.resize((s, s), Image.LANCZOS).save(OUT / f"spumy-medaillon-{s}.png", optimize=True)
     med.resize((256, 256), Image.LANCZOS).save(OUT / "spumy-medaillon-256.webp", quality=95, method=6)
-    # Icônes de l'application (fond marine plein ; « maskable » : médaillon dans la zone sûre de 80 %).
-    icon(med, 512, 0.84).save(OUT / "icon-512.png", optimize=True)
-    icon(med, 192, 0.84).save(OUT / "icon-192.png", optimize=True)
-    icon(med, 512, 0.62).save(OUT / "icon-maskable-512.png", optimize=True)
-    icon(med, 180, 0.80).convert("RGB").save(OUT / "apple-touch-icon-180.png", optimize=True)
-    icon(med, 32, 0.94).save(OUT / "favicon-32.png", optimize=True)
+    # Icônes de l'application : le symbole sur son fond crème d'origine, plein cadre (version 2, après le retour de Félix).
+    # Côté du carré source : l'encre (rayon 358,7 px) tient dans 84 % (icônes), 80 % (iOS) et la zone sûre de 80 % (adaptative).
+    square(880).resize((512, 512), Image.LANCZOS).save(OUT / "icon-512.png", optimize=True)
+    square(880).resize((192, 192), Image.LANCZOS).save(OUT / "icon-192.png", optimize=True)
+    square(1000).resize((512, 512), Image.LANCZOS).save(OUT / "icon-maskable-512.png", optimize=True)
+    square(900).resize((180, 180), Image.LANCZOS).save(OUT / "apple-touch-icon-180.png", optimize=True)
+    square(760).resize((32, 32), Image.LANCZOS).save(OUT / "favicon-32.png", optimize=True)
+    # Logo complet (écran de lancement, à propos) : recadrage puis réduction proportionnelle.
+    full = lockup()
+    full.resize((960, round(960 * full.height / full.width)), Image.LANCZOS).save(OUT / "spumy-logo-960.webp", quality=92, method=6)
+    full.resize((480, round(480 * full.height / full.width)), Image.LANCZOS).save(OUT / "spumy-logo-480.png", optimize=True)
     (OUT / "ORIGINE.txt").write_text(
         "Dérivés de assets/brand/sources/spumy.jpg par scripts/logos-v3.py.\n"
         f"Médaillon : recadrage circulaire de rayon {MEDAL_R} px centré en ({CX}, {CY}), origine {origin} ; "
         "pixels du disque orange, du poisson et du fond crème inchangés.\n"
-        "Icônes : médaillon redimensionné proportionnellement sur fond #172B3A.\n", encoding="utf-8")
+        "Icônes : carré de la source centré sur le symbole (fond crème d'origine), réduit proportionnellement.\n"
+        f"Logo complet (spumy-logo-960.webp, spumy-logo-480.png) : recadrage {LOCKUP_BOX} de la source, puis réduction proportionnelle ; aucune retouche.\n", encoding="utf-8")
     print("exports V3 :", ", ".join(sorted(p.name for p in OUT.iterdir())))
 
 

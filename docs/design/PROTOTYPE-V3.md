@@ -24,6 +24,13 @@
 - cartes de spot compactes : score posé sur la photo, une ligne de faits (sécurité, route, Confiance) et la raison ; partie sous la photo de 110 px au plus ;
 - 32 px entre deux spots.
 
+**Version 5** (20 nov., 15 h 08, « pas top tier ce que tu as fait avec le logo ») :
+- **écran de lancement** : le logo complet d'origine (symbole et mot SPUMY) sur son fond crème, en plein écran pendant 1,5 s (un appui le passe) ;
+- **en-tête de marque** : médaillon de 44 px et mot SPUMY en Montserrat ; la bascule BORD / BATEAU passe sur une seconde ligne, pleine largeur ;
+- **icônes** de l'application refaites sur le fond crème d'origine (symbole plein cadre), comme le logo ;
+- Profil, à propos : le logo complet sur son fond ;
+- carte : vue d'ensemble au départ (tous les spots visibles), regroupement des pastilles trop proches (nombre compté dans les filtres), recherche repliée derrière une loupe.
+
 Vraies photos de spots : abandonnées (V3-026). Le fond IGN réel arrive aux phases 4 et 10 : la page de revue bloque les tuiles, et elles ne sont pas joignables d'ici.
 
 **Statut** : à revalider au jalon 2, avec la direction visuelle et les principes du Design System. Toutes les données sont **de démonstration**, et l'écran le dit en permanence. Le prototype n'appelle aucun service : ni météo, ni route, ni géocodage, ni tuiles.
@@ -64,7 +71,7 @@ Il n'existe pas dans l'application.
 
 | Commande | Code de sortie | Résultat |
 | --- | --- | --- |
-| `npm run test:prototype-v3` (construction, puis `tests/prototype-v3.mjs --axe`) | 0 | 151/151 |
+| `npm run test:prototype-v3` (construction, puis `tests/prototype-v3.mjs --axe`) | 0 | 153/153 |
 | `npm run test:design-v3` | 0 | 184/184 |
 | `npm run -s lint` ; `node tests/layers.mjs` | 0 ; 0 | aucun écart ; 253 couleurs en dur hors de `src/design/`, inchangé |
 

@@ -35,12 +35,13 @@ Le **médaillon** est un recadrage circulaire de la source, de 372 px de rayon. 
 | --- | --- | --- | --- |
 | `spumy-medaillon-744.png` | 744 px, taille native | recadrage et masque circulaire ; les hauts de lettres entrés dans le cercle reçoivent la couleur du fond, hors zone protégée | référence dérivée ; grands formats |
 | `spumy-medaillon-512.png`, `-256.png`, `-256.webp`, `-128.png`, `-64.png` | 512 à 64 px | réduction proportionnelle (Lanczos) du médaillon | en-têtes, écran de lancement, accueil |
-| `icon-512.png`, `icon-192.png` | 512, 192 px | médaillon à 84 % sur fond marine #172B3A | icônes de l'application installée |
-| `icon-maskable-512.png` | 512 px | médaillon à 62 %, dans la zone sûre | icône adaptative (Android) |
-| `apple-touch-icon-180.png` | 180 px | médaillon à 80 % sur marine | iOS |
-| `favicon-32.png` | 32 px | médaillon à 94 % sur marine | onglet du navigateur (silhouette seulement à cette taille) |
+| `spumy-logo-960.webp`, `spumy-logo-480.png` | 960, 480 px de large | **logo complet d'origine** (symbole et mot SPUMY) : recadrage de la source autour de l'encre (424–1624 × 518–1521), puis réduction proportionnelle ; aucune retouche | écran de lancement, à propos |
+| `icon-512.png`, `icon-192.png` | 512, 192 px | **version 2** (20 nov., après le retour de Félix) : carré de la source centré sur le symbole, sur son fond crème d'origine, plein cadre (le symbole occupe 82 % du côté) | icônes de l'application installée |
+| `icon-maskable-512.png` | 512 px | même carré, symbole à 72 % : il tient dans la zone sûre de 80 % | icône adaptative (Android) |
+| `apple-touch-icon-180.png` | 180 px | même carré, symbole à 80 % | iOS |
+| `favicon-32.png` | 32 px | même carré, symbole à 94 % | onglet du navigateur (silhouette seulement à cette taille) |
 
-**Preuve de conservation** (`python3 tests/brand.py`, 23/23, code de sortie 0) :
+**Preuve de conservation** (`python3 tests/brand.py`, 29/29, code de sortie 0) :
 1. Le médaillon natif est identique à la source, pixel pour pixel, dans toute la zone protégée, qui y est entièrement opaque.
 2. Chaque export réduit garde l'orange à ±2 par canal, et la silhouette du poisson à 97 % au moins (comparée à la source réduite de la même façon).
 3. Aucun pixel sombre du poisson ne devient clair.
@@ -73,5 +74,7 @@ Félix les rend facultatifs (ADR-V3-002). Proposition de la Phase 3, à valider 
 | --- | --- | --- | --- | --- | --- |
 | Médaillon BRAND | marque | écran de lancement, en-tête de Décision, Profil (à propos), écran d'erreur générale | 40 px dans l'interface ; 32 px pour le favicon | tous : son fond crème le détache du marine comme du blanc cassé | proportions conservées ; marge de 8 % ; ni recadrage dans le cercle, ni ombre, ni filtre, ni transparence, ni effet ; jamais sur une photo sans fond uni |
 | Mot SPUMY (texte) | marque | à côté du médaillon | 16 px | marine : crème #F3F1EB ; clair : marine #172B3A | typographie de la marque ; écrit `SPUMY` ; jamais de slogan à côté |
-| Icônes V3 | application installée | icône d'écran d'accueil, favicon | — | marine | produites par le script seulement |
+| Logo complet d'origine | marque | écran de lancement (fond crème d'origine, plein écran, 1,5 s), Profil (à propos) | 240 px de large | crème d'origine #E9E2D2 seulement | jamais sur une photo ni sur le marine ; aucun slogan |
+| Médaillon et mot SPUMY | marque | en-tête de tous les écrans : médaillon de 44 px, mot SPUMY en Montserrat 800, interlettrage 0,16 em | 44 px | marine, ardoise | le mot est du texte, jamais une image recolorée |
+| Icônes V3 | application installée | icône d'écran d'accueil, favicon | — | crème d'origine | produites par le script seulement |
 | INSHORE, OFFSHORE | modes (facultatif) | écran d'entrée de mode, au choix | 96 px | leur fond d'origine | jamais dans la navigation ni sur les cartes |

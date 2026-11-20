@@ -67,7 +67,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 
 ## Prochaine action
 
-Prototype version 4 fait (Félix, 15 h 02 : logo SPUMY dans l'en-tête et icônes de l'application, cartes de spot compactes, 32 px entre les spots ; vraies photos abandonnées, V3-026 ; `test:prototype-v3` 151/151). Attendre « jalon 2 validé avec réserves ». Ensuite 3.7 (revue heuristique Nielsen, guides Apple et Material 3, WCAG 2.2 ; galerie AVANT/CIBLE ; matrices § 6.16 et de traçabilité ; réserves en critères d'acceptation des phases 10 à 12 ; test utilisateur ou « NON EFFECTUÉ »), puis 3.8 (rapport en 14 parties, arrêt). Proposé à Félix : poser dès maintenant les icônes V3 sur le site (sur la branche, publiées seulement à la fusion).
+Prototype version 5 fait (Félix, 15 h 08 : logo pas « top tier » ; écran de lancement avec le logo complet d'origine, en-tête médaillon + mot SPUMY, icônes sur le fond crème d'origine, regroupement des pastilles ; `tests/brand.py` 29/29, `test:prototype-v3` 153/153, `test:design-v3` 186/186). Attendre le retour de Félix et « jalon 2 validé avec réserves ». Ensuite 3.7 puis 3.8.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 

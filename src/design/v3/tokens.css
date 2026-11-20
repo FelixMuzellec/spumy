@@ -5,6 +5,7 @@
   color-scheme: light;
   /* Marque, PROTÉGÉ : jamais redéfini par un thème, un filtre ou une transparence. */
   --brand-logo-orange: #C76A31;
+  --brand-cream: #E9E2D2;
   /* Palette principale, APPROUVÉ. */
   --palette-accent-orange: #F07824;
   --palette-navy: #172B3A;

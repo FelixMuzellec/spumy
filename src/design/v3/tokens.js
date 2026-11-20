@@ -24,6 +24,8 @@ export const PALETTE = Object.freeze({
 export const BRAND = Object.freeze({
   brandLogoOrange: /** @type {Hex} */ ("#C76A31"),
   brandFishMark: "assets/brand/v3/spumy-medaillon-*.png",
+  // Fond crème d'origine du logo (médiane mesurée sur la source) : écran de lancement, icônes. Jamais derrière autre chose que le logo.
+  brandCream: /** @type {Hex} */ ("#E9E2D2"),
 });
 
 /**

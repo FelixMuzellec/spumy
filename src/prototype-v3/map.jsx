@@ -21,18 +21,35 @@ const DEPTHS = [60, 130, 210].map((o) => smooth(COAST.map(([x, y]) => [Math.max(
  * Fond de carte déplaçable et zoomable : glisser (doigt ou souris), molette, pincement, double-clic, boutons + et −.
  * Les pastilles gardent leur taille à l'écran (--k). Un glissement n'ouvre pas la pastille sous le doigt.
  */
-function Base({ children, overlay }) {
+function Base({ children, overlay, items, renderItem }) {
   const box = useRef(null), ptrs = useRef(new Map()), g = useRef(null);
   const [v, setV] = useState({ k: 1, x: 0, y: 0 });
+  // Le contenu garde les proportions de la carte (1000 × 1300) sur toute la largeur ; la fenêtre peut être plus basse.
+  // Zoom minimal = vue d'ensemble (toute la carte visible) ; au-delà, la carte se déplace dans ses limites.
+  const dims = () => { const r = box.current.getBoundingClientRect(); return { w: r.width, h: r.height, kMin: Math.min(1, r.height / (r.width * 1.3)) }; };
+  const [width, setWidth] = useState(0);
   const clamp = (k, x, y) => {
-    const r = box.current.getBoundingClientRect(), kk = Math.min(4, Math.max(1, k));
-    return { k: kk, x: Math.min(0, Math.max(r.width * (1 - kk), x)), y: Math.min(0, Math.max(r.height * (1 - kk), y)) };
+    const { w, h, kMin } = dims(), kk = Math.min(4, Math.max(kMin, k)), cw = w * kk, ch = w * 1.3 * kk;
+    const cx = cw <= w ? (w - cw) / 2 : Math.min(0, Math.max(w - cw, x)), cy = ch <= h ? (h - ch) / 2 : Math.min(0, Math.max(h - ch, y));
+    return { k: kk, x: cx, y: cy };
   };
-  const zoomAt = (f, cx, cy, from) => { const v0 = from || v, k = Math.min(4, Math.max(1, v0.k * f)), q = k / v0.k; setV(clamp(k, cx - (cx - v0.x) * q, cy - (cy - v0.y) * q)); };
+  const fit = () => { const { kMin } = dims(); setV(clamp(kMin, 0, 0)); };
+  useEffect(() => { const f = () => { setWidth(box.current.getBoundingClientRect().width); fit(); }; f(); const ro = new ResizeObserver(f); ro.observe(box.current); return () => ro.disconnect(); }, []);
+  // Regroupement : les pastilles à moins de 48 px l'une de l'autre à l'écran forment un groupe avec leur nombre.
+  const groups = [];
+  if (items && width) {
+    const sc = (width * v.k) / 1000;
+    for (const it of [...items].sort((a, b) => (b.fav ?? -1) - (a.fav ?? -1))) {
+      const g = groups.find((q) => Math.hypot(q.sx - it.x * sc, q.sy - it.y * sc) < 48);
+      if (g) { g.items.push(it); g.sx = g.items.reduce((m, i) => m + i.x * sc, 0) / g.items.length; g.sy = g.items.reduce((m, i) => m + i.y * sc, 0) / g.items.length; }
+      else groups.push({ items: [it], sx: it.x * sc, sy: it.y * sc });
+    }
+  }
+  const zoomAt = (f, cx, cy, from) => { const v0 = from || v, { kMin } = dims(), k = Math.min(4, Math.max(kMin, v0.k * f)), q = k / v0.k; setV(clamp(k, cx - (cx - v0.x) * q, cy - (cy - v0.y) * q)); };
   const local = (e) => { const r = box.current.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
   useEffect(() => {
     const el = box.current;
-    const wheel = (e) => { e.preventDefault(); const [cx, cy] = local(e); setV((v0) => { const k = Math.min(4, Math.max(1, v0.k * Math.exp(-e.deltaY * 0.0015))), q = k / v0.k; return clamp(k, cx - (cx - v0.x) * q, cy - (cy - v0.y) * q); }); };
+    const wheel = (e) => { e.preventDefault(); const [cx, cy] = local(e); setV((v0) => { const k = Math.min(4, Math.max(dims().kMin, v0.k * Math.exp(-e.deltaY * 0.0015))), q = k / v0.k; return clamp(k, cx - (cx - v0.x) * q, cy - (cy - v0.y) * q); }); };
     el.addEventListener("wheel", wheel, { passive: false });
     return () => el.removeEventListener("wheel", wheel);
   }, []);
@@ -71,14 +88,17 @@ function Base({ children, overlay }) {
           <path className="land" d={LAND} strokeLinejoin="round" />
           {overlay}
         </svg>
-        <div className="mklayer">{children}</div>
+        <div className="mklayer">{items ? groups.map((g) => g.items.length === 1 ? renderItem(g.items[0]) : (
+          <button key={g.items.map((i) => i.id).join("-")} className="mk cluster" style={pos(g.sx / ((width * v.k) / 1000), g.sy / ((width * v.k) / 1000))}
+            aria-label={`Groupe de ${g.items.length} spots : ${g.items.map((i) => i.name).join(", ")} ; zoomer`} data-n={g.items.length}
+            onClick={() => zoomAt(2.2, v.x + g.sx, v.y + g.sy)}>{g.items.length}</button>)) : children}</div>
       </div>
       <div className="zoom" onPointerDown={(e) => e.stopPropagation()}>
         <button aria-label="Zoomer" onClick={() => zoomAt(1.5, ...center())}><Icon name="plus" size={20} /></button>
         <button aria-label="Dézoomer" onClick={() => zoomAt(1 / 1.5, ...center())}><Icon name="minus" size={20} /></button>
-        <button aria-label="Vue d'ensemble" onClick={() => setV({ k: 1, x: 0, y: 0 })} disabled={v.k === 1}><Icon name="fit" size={20} /></button>
+        <button aria-label="Vue d'ensemble" onClick={fit}><Icon name="fit" size={20} /></button>
       </div>
-      <span className="maptag">Fond schématique · démonstration · zoom ×{v.k.toFixed(1).replace(".", ",")}</span>
+      <span className="maptag">Fond schématique · démonstration</span>
     </div>
   );
 }
@@ -103,6 +123,7 @@ export function Carte({ st, go, sel, setSel, notify }) {
   const bateau = st.mode === "bateau";
   const [filter, setFilter] = useState("all");
   const [list, setList] = useState(false);
+  const [search, setSearch] = useState(false);
   // Feuille glissante : trois hauteurs (réduite, à moitié, ouverte), au doigt ou à la souris, puis aimantée.
   const [snap, setSnap] = useState("peek");
   const [drag, setDrag] = useState(null);
@@ -132,16 +153,16 @@ export function Carte({ st, go, sel, setSel, notify }) {
       </aside>
       <div style={{ display: "flex", flexDirection: "column", minWidth: 0 }}>
         <div className="screen" style={{ gap: 8, paddingBottom: 8, flex: "none" }}>
-          <label className="field"><span className="vh">Rechercher un spot</span><input placeholder="Rechercher un spot" /></label>
+          {search && <label className="field"><span className="vh">Rechercher un spot</span><input autoFocus placeholder="Rechercher un spot" /></label>}
           <div className="chips" role="group" aria-label="Filtres">
+            <button className="chip" aria-pressed={search} aria-label="Rechercher un spot" onClick={() => setSearch(!search)}><Icon name="search" size={18} /></button>
             {chips.map(([k, l]) => <button key={k} className="chip" aria-pressed={filter === k} onClick={() => setFilter(k)}>{l} <span className="num">{(F[k] || []).length}</span></button>)}
           </div>
         </div>
         <div className="stage">
         <div className="mapwrap" style={{ paddingBottom: PEEK }}>
-          <Base overlay={<circle cx={REF.x} cy={REF.y} r="16" fill="none" stroke="var(--text-primary)" strokeWidth="7" />}>
-            {shown.map((s) => <Marker key={s.id} s={s} selected={sel === s.id} onSelect={(id) => { setSel(id); setSnap("half"); setList(false); }} />)}
-          </Base>
+          <Base overlay={<circle cx={REF.x} cy={REF.y} r="16" fill="none" stroke="var(--text-primary)" strokeWidth="7" />}
+            items={shown} renderItem={(s) => <Marker key={s.id} s={s} selected={sel === s.id} onSelect={(id) => { setSel(id); setSnap("half"); setList(false); }} />} />
           <button className="fab" style={{ top: 12 }} aria-label="Me géolocaliser" onClick={() => notify("Position du téléphone : ±30 m")}><Icon name="locate" /></button>
           <button className="fab" style={{ top: 64 }} aria-label="Couches" onClick={() => notify(bateau ? "Couches : plan, photo aérienne, carte marine (bonus à étudier)" : "Couches : plan, photo aérienne")}><Icon name="layers" /></button>
         </div>
@@ -225,7 +246,7 @@ export function Meteo({ st, go }) {
         </div>
         <label className="field" data-noswipe><span className="vh">Heure</span><input className="slider" type="range" min="0" max="47" value={off} onChange={(e) => setOff(+e.target.value)} aria-valuetext={hhmm(h)} /></label>
       </div>
-      <div className="mapwrap">
+      <div className="mapwrap meteo-map">
         <Base overlay={<g>
           {GRID.map(([x, y]) => {
             if (sea) { const w = waveAt(x, y, h); return <Arrow key={`${x}${y}`} x={x} y={y} deg={w.fromDeg} len={70 + w.m * 25} strength={Math.min(1, w.m / 2)} label={String(w.m).replace(".", ",")} sub={`Vagues ${w.m} m, période ${w.s} s, de ${compass(w.fromDeg)}`} />; }

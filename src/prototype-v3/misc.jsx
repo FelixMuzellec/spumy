@@ -100,7 +100,8 @@ export function Profil({ st, set, go }) {
         <div className="row"><button className="btn grow" onClick={() => set({ pos: { mode: "auto", label: "", state: "pending" } })}>Simuler : premier lancement</button>
           <button className="btn grow" onClick={() => set({ pos: { ...st.pos, state: "refused" } })}>Simuler : position refusée</button></div>
       </details>
-      <div className="row" style={{ gap: 12 }}><img src={`${typeof BRAND_BASE === "string" ? BRAND_BASE : "brand/"}spumy-medaillon-128.png`} alt="Logo SPUMY" width="48" height="48" /><span className="meta">Aide et règles · à propos · sources des données</span></div>
+      <section className="card" aria-label="À propos"><div className="about-logo"><img src={`${typeof BRAND_BASE === "string" ? BRAND_BASE : "brand/"}spumy-logo-960.webp`} alt="SPUMY" /></div>
+        <span className="meta">Aide et règles · à propos · sources des données · version de démonstration</span></section>
     </div>
   );
 }
