@@ -64,28 +64,35 @@ export function HomeBord({ st, go, heroPhoto, openPos, openJournal }) {
       <Hero photo={heroPhoto} title={st.demo.loading ? "Calcul des spots autour de Pirou…" : phrase.text} sub={st.demo.loading ? null : `${phrase.sub} · vigilance : aucune (Météo-France, 06:00)`}>
         {!st.demo.loading && <div style={{ width: "100%", maxWidth: 420, marginTop: 10 }}><DayStrip bands={cards.filter((c) => c.win).map((c) => ({ w: c.win, fav: c.fav }))} /></div>}
       </Hero>
-      <div className="screen">
+      <div className="screen home">
         <div className="chips" role="group" aria-label="Jour">
           {[["today", "Aujourd'hui"], ["tomorrow", "Demain"], ["week", "7 jours"]].map(([k, l]) => <button key={k} className="chip" aria-pressed={day === k} onClick={() => setDay(k)}>{l}</button>)}
-          <span className="tag" style={{ alignSelf: "center" }}>≤ 60 min de route</span>
         </div>
         {day !== "today" && <p className="badge info">Démonstration : seule la journée d'aujourd'hui est remplie.</p>}
         {st.demo.loading ? <Skeletons /> : (
           <>
-            {scarceWhy && <p className="why"><Icon name="info" size={16} /> {scarceWhy}</p>}
-            <div className="cards2">{cards.map((s, i) => <RecCard key={s.id} s={s} rank={s.tie ? 3 : i + 1} go={go} />)}</div>
-            {extra > 0 && <button className="btn">+ {extra} autres à égalité</button>}
-            <details className="card zone-verify">
-              <summary><span>À vérifier ({verif.length})</span><Icon name="down" /></summary>
-              <ul className="list">{verif.map((s) => (
-                <li key={s.id} className="lrow"><span><b>{s.name}</b><br /><span className="meta">{s.verifyWhy}</span></span>
-                  <a className="btn small" href={`#spot-${s.id}`} onClick={() => go("spot", s.id)}>Fiche</a></li>))}</ul>
-              <p className="meta">Ces spots ne sont jamais promus parmi les recommandations.</p>
-            </details>
-            <div className="row">
-              <button className="btn grow" onClick={() => go("comparer", `${cards[2]?.id || "c"}-${cards[1]?.id || "a"}`)}>Comparer</button>
-              <button className="btn primary grow" onClick={openJournal}><Icon name="plus" size={18} />Noter une sortie</button>
-            </div>
+            <section className="sect" aria-labelledby="h-reco">
+              <div><h2 className="sect-h" id="h-reco">Où pêcher</h2><p className="sect-sub">{cards.length} spot{cards.length > 1 ? "s" : ""} à moins d'1 h de route, classés par Favorabilité</p></div>
+              {scarceWhy && <p className="why"><Icon name="info" size={16} /> {scarceWhy}</p>}
+              <div className="cards2">{cards.map((s, i) => <RecCard key={s.id} s={s} rank={s.tie ? 3 : i + 1} go={go} />)}</div>
+              {extra > 0 && <button className="btn">+ {extra} autres à égalité</button>}
+            </section>
+            <section className="sect" aria-labelledby="h-verif">
+              <div><h2 className="sect-h" id="h-verif">À vérifier avant d'y aller</h2><p className="sect-sub">Jamais promus parmi les recommandations</p></div>
+              <details className="card zone-verify">
+                <summary><span>À vérifier ({verif.length})</span><Icon name="down" /></summary>
+                <ul className="list">{verif.map((s) => (
+                  <li key={s.id} className="lrow"><span><b>{s.name}</b><br /><span className="meta">{s.verifyWhy}</span></span>
+                    <a className="btn small" href={`#spot-${s.id}`} onClick={() => go("spot", s.id)}>Fiche</a></li>))}</ul>
+              </details>
+            </section>
+            <section className="sect" aria-labelledby="h-next">
+              <h2 className="sect-h" id="h-next">Et ensuite</h2>
+              <div className="row">
+                <button className="btn grow" onClick={() => go("comparer", `${cards[2]?.id || "c"}-${cards[1]?.id || "a"}`)}>Comparer deux spots</button>
+                <button className="btn primary grow" onClick={openJournal}><Icon name="plus" size={18} />Noter une sortie</button>
+              </div>
+            </section>
           </>
         )}
       </div>
@@ -125,7 +132,9 @@ export function HomeBateau({ go, boat, setBoat, heroPhoto }) {
   return (
     <div className="screen flush">
       <Hero photo={heroPhoto} title="Sortie possible : 07:00–12:00" sub={`pire moment 12:40 : vent 4 Bft, rafales 22 nds, houle 1,1 m · ${boat.choice === "custom" ? "bateau saisi" : BOATS[0].name}`} />
-      <div className="screen">
+      <div className="screen home">
+        <section className="sect" aria-labelledby="h-zones">
+        <div><h2 className="sect-h" id="h-zones">Où aller</h2><p className="sect-sub">Tes marques, classées par la meilleure espèce ouverte</p></div>
         <div className="cards2">
           {ok.slice(0, 3).map((m, i) => (
             <article key={m.id} className="rc">
@@ -147,12 +156,17 @@ export function HomeBateau({ go, boat, setBoat, heroPhoto }) {
             </article>
           ))}
         </div>
+        </section>
+        <section className="sect" aria-labelledby="h-bverif"><h2 className="sect-h" id="h-bverif">À vérifier avant de partir</h2>
         <details className="card zone-verify"><summary><span>À vérifier ({verif.length})</span><Icon name="down" /></summary>
           <ul className="list">{verif.map((m) => <li key={m.id} className="lrow"><span><b>{m.name}</b><br /><span className="meta">{m.verifyWhy}</span></span></li>)}</ul></details>
+        </section>
+        <section className="sect" aria-labelledby="h-secu"><h2 className="sect-h" id="h-secu">Avant de larguer</h2>
         <div className="card"><span className="meta">Gilet · VHF canal 16 · BMS · itinéraire laissé à un proche</span></div>
         <div className="card zone-verify"><b>Carte marine : épaves, hauts-fonds, balisage</b><span className="meta">Bonus à étudier (V3-024) : sources et licences à vérifier. Ne remplacerait jamais une carte marine officielle.</span></div>
         <button className="btn" onClick={() => setBoat({ ...boat, ready: false })}>Changer de bateau</button>
         <button className="btn ghost" onClick={() => go("meteo")}>Voir la mer heure par heure</button>
+        </section>
       </div>
     </div>
   );

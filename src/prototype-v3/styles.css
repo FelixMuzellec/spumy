@@ -152,7 +152,13 @@ main { flex: 1; min-height: 0; display: flex; flex-direction: column; }
 .mk.empty .cap { background: transparent; box-shadow: inset 0 0 0 2px #8A949B; }
 .mk.sel { z-index: 3; transform: translate(-50%, -50%) scale(1.18); box-shadow: 0 2px 8px rgba(0, 0, 0, .4), 0 0 0 3px var(--accent); }
 .mk .ic { display: inline-flex; }
-.cards2 { display: flex; flex-direction: column; gap: var(--sp-3); }
+.cards2 { display: flex; flex-direction: column; gap: var(--sp-5); }
+/* Home aérée (jalon 2) : sections titrées, rythme vertical de 40 px entre sections, 16 px dedans */
+.screen.home { gap: var(--sp-4); padding-top: var(--sp-4); padding-bottom: var(--sp-10); }
+.sect { display: flex; flex-direction: column; gap: var(--sp-4); }
+.sect + .sect { margin-top: var(--sp-6); padding-top: var(--sp-6); border-top: 1px solid var(--border); }
+.sect-h { font: var(--fw-bold) 21px/1.2 var(--font-brand); margin: 0; }
+.sect-sub { margin: 4px 0 0; font-size: var(--fs-small); color: var(--text-secondary); }
 .land { fill: var(--map-land); stroke: var(--border-strong); stroke-width: 2; }
 .sea { fill: url(#seaGrad); }
 .depth { fill: none; stroke: var(--text-primary); stroke-opacity: .08; stroke-width: 2; }
