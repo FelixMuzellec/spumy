@@ -246,16 +246,22 @@ Chaque composant est spécifié ici, puis prototypé en 3.6. Le critère d'accep
 | --- | --- | --- | --- | --- | --- |
 | Bascule de mode | deux segments BORD / BATEAU dans l'en-tête | — | repos, actif, focus, pressé | `role="radiogroup"`, libellés texte, 44 px de haut | le mode actif se lit sans la couleur (fond plein et texte gras) |
 | Puce de position | lieu, source (appareil, saisie), précision ou âge | appareil, saisie, imprécise, ancienne, aucune | repos, focus, pressé, chargement | bouton nommé « Position de référence : … » | source et précision toujours écrites |
-| Barre de navigation | 4 entrées (5 avec Matériel), pictogramme et libellé | mobile en bas ; bureau en haut | repos, actif (repère orange et libellé gras), focus | `nav`, `aria-current="page"` | entrée active lisible sans couleur |
+| Barre de navigation | 4 onglets, pictogramme et libellé ; par défaut Home, Carte, Météo, Profil ; les deux du milieu au choix (V3-023) ; glisser sur le contenu pour changer d'onglet | mobile en bas ; bureau en haut | repos, actif (repère orange et libellé gras), focus | `nav`, `aria-current="page"` ; le glissement double les onglets, ne les remplace pas | entrée active lisible sans couleur ; glissement ignoré sur une carte, une courbe ou un curseur |
 | Bouton | libellé, pictogramme facultatif | principal (orange, texte marine), secondaire (contour), discret, danger | repos, survol, focus, pressé, désactivé, chargement | 44 px au moins ; le chargement garde le libellé (« Calcul… ») | une seule action principale par écran |
 | Puce de filtre | libellé et compteur exact | — | repos, actif (plein), focus, désactivé (compteur 0) | `aria-pressed`, compteur lu | le compteur est égal au nombre de pastilles affichées |
 | Jauge de score | libellé (« Favorabilité », « Confiance »), valeur et mot, piste, remplissage, repère | grande (fiche), moyenne (carte), fine (Confiance) | valeur, sans note, chargement (squelette sans valeur) | `role="meter"`, `aria-valuenow`, texte visible | bornes 0, 19, 20, 39, 40, 59, 60, 74, 75, 89, 90 et 100 justes ; aucune jauge de Pertinence |
 | Pastille de statut | pictogramme et mot | sécurité OK, prudence, danger, à vérifier, non recommandé, information | — | le mot est le nom accessible | jamais la couleur seule |
-| Carte de recommandation | rang, nom, Favorabilité, Confiance, statut, sécurité, espèce, fenêtre, route, raison ; « Fiche » et « Sur la carte » | BORD ; BATEAU (zone, espèces, abri) ; « Le plus proche » ; ex æquo | chargée, incomplète, périmée, hors ligne | carte = `article`, titre = nom, rang lu | contenu minimal du § 6.7.4.1 ; aucune valeur inventée |
+| Carte de recommandation | **horaires en tête, en grand** (V3-023), puis rang, nom, Favorabilité, Confiance, statut, sécurité, espèce, route, raison ; « Fiche » et « Sur la carte » | BORD ; BATEAU (zone, espèces, abri) ; « Le plus proche » ; ex æquo | chargée, incomplète, périmée, hors ligne | carte = `article`, titre = nom, rang lu | contenu minimal du § 6.7.4.1 ; aucune valeur inventée |
 | Zone « À vérifier » | titre et compteur, liste repliée avec la raison de chaque spot | — | repliée, ouverte | `details` / `summary` ou équivalent | ces spots n'apparaissent jamais parmi les cartes |
 | Pastille de carte | disque rempli au palier, anneau double | à vérifier (contour pointillé, « ? »), non recommandé (barrée), sans note (vide), mon spot (carrée), sélectionnée (anneau épais) | repos, sélectionnée, focus | bouton nommé « Spot A, 72/100, Bon, à 24 min » | remplissage = Favorabilité seulement |
 | Groupe de pastilles | disque blanc cassé, nombre | — | repos, focus | « 12 spots, zoomer » | nombre exact ; ni couleur ni moyenne |
 | Légende | 6 paliers et 4 signes, sur une ligne | repliée, détaillée | — | texte lisible | les bornes sont écrites |
+| En-tête de Home | photo de fond (automatique ou choisie), voile, phrase de synthèse, ligne de contexte | BORD, BATEAU, sans position | chargement (phrase neutre), hors ligne | la phrase est un titre lisible ; la photo est décorative et marquée « Illustration » | contraste de la phrase mesuré sur le voile (4,5:1 au moins) ; aucune promesse |
+| Frise du jour | 00:00–24:00, heures favorables coloriées au palier, nuit grisée, repère « maintenant » | Home | — | horaires écrits à côté | mêmes horaires que les cartes |
+| Courbe de marée | hauteur d'eau du jour, basse et pleine mer, coefficient, heures favorables coloriées au palier, nuit, « maintenant » | fiche spot | appui : heure, hauteur, conditions | description textuelle des horaires favorables | courbe conforme au calcul de marée ; glisser dessus ne change pas d'onglet |
+| Flèche de vent | flèche orientée dans le sens du vent ; longueur et épaisseur selon la force ; force et rafales écrites | vent ; mer (hauteur, période) en BATEAU | normale ; avertissement à partir de force 6 (contour pointillé et signe) | chaque point a un nom accessible (« 4 Beaufort, rafales 35 km/h, de nord-ouest ») | couleur neutre, jamais celle des paliers ; aucune zone nommée |
+| Curseur horaire | heure choisie, de maintenant à +48 h ; puces Aujourd'hui, Demain, 7 jours | Météo | repos, glissement, focus | `input type=range` étiqueté, flèches du clavier | l'heure choisie est gardée entre les onglets |
+| Choix du bateau | « Mon bateau » enregistré (par défaut) ou « Saisir pour cette sortie » | BATEAU | — | groupe de boutons radio | aucun verdict sans l'un ou l'autre |
 | Feuille glissante | poignée, contenu | 3 hauteurs (poignée, liste, aperçu) | ouverte, fermée, glissement | bouton de poignée, Échap ferme, focus piégé seulement en plein écran | ne cache jamais la navigation |
 | Tableau de comparaison | colonnes alignées par critère | 2 ou 3 colonnes | comparable, avantage non établi | `table` avec en-têtes | aucun score composite ni trophée |
 | Champ et recherche | libellé persistant, aide, erreur sous le champ | texte, recherche avec suggestions, coordonnées | repos, focus, rempli, erreur, désactivé | `label` lié, erreur annoncée | la saisie est conservée après une erreur |
@@ -304,6 +310,7 @@ Chaque composant est spécifié ici, puis prototypé en 3.6. Le critère d'accep
 3. Police du mot SPUMY et des grands titres.
 4. Seuil du filtre « Favorables » (§ 3.4).
 5. Disposition des cartes de recommandation sur bureau.
+6. Rendu de la carte du vent (épaisseur des flèches, densité de la grille) et de la courbe de marée.
 
 ## 11. Preuves
 
