@@ -2,7 +2,7 @@
 
 Phase 2 V3, 20 novembre 2026. Format du référentiel, § 5.2.
 
-**Version 2** (20 nov. 2026, jalon 1 de la phase 3) : 94 exigences ; MET-01 à MET-04, UX-08, UX-09, PRO-03, SPOT-09, BAT-09 et BAT-10 ajoutées, UX-05 modifiée (V3-023).
+**Version 2** (20 nov. 2026, jalon 1 de la phase 3) : 95 exigences ; MET-01 à MET-04, UX-08, UX-09, PRO-03, SPOT-09, BAT-09, BAT-10 et MAP-08 ajoutées, UX-05 modifiée (V3-023).
 
 **Colonnes**
 - **Prio.** : `IND` indispensable, `IMP` importante, `SEC` secondaire, `EXP` expérimentale.
@@ -78,6 +78,7 @@ Validation : registre validé par le jeton de la phase 3 (20 nov. 2026, 4 h 25).
 | MAP-05 | Fond de carte attribué ; hors ligne, un message clair ; aucun préchargement interdit | IND | § 8.5 ; V3-012 | attribution visible ; aucune requête de tuile hors de la vue | E, R | Conforme | 3, 10 |
 | MAP-06 | Chaque spot a une position en décimales, sourcée ; une position imprécise est signalée tant qu'elle n'est pas corrigée | IND | § 7.4 ; D8 | 66 spots sur 66 en décimales, ou signalés | R | Non conforme (7 spots) | 5, 7 |
 | MAP-07 | Carte utilisable sur téléphone et sur ordinateur (taille adaptée à l'écran) | IMP | § 6.11 ; D11 | captures 320, 390, 1 280 px | V | Non conforme | 3 |
+| MAP-08 | Filtre « Favorables » : Favorabilité affichée de 75 ou plus, sécurité permise, pas « à vérifier » ; jamais « sans danger » | IND | V3-021 | bornes 74 et 75 testées ; compteur égal aux pastilles | U, E | Partiel (seuil 65) | 3, 10 |
 
 ## SPOT — Fiches, données et spots personnels
 

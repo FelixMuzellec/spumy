@@ -42,6 +42,20 @@ export const TIERS = Object.freeze([
   { id: 5, min: 90, max: 100, family: "bleu", word: "Excellent", hex: /** @type {Hex} */ ("#2C60C2") },
 ]);
 
+/** Seuil du filtre « Favorables » (V3-021, décision de Félix du 20 nov. 2026) : début du palier « Très bon ». */
+export const FAVORABLE_MIN = 75;
+
+/**
+ * Un spot entre-t-il dans le filtre « Favorables » ? Valeur affichée ≥ 75, sécurité permise, pas « à vérifier ».
+ * Ne veut jamais dire « sans danger » (§ 6.7.4).
+ * @param {unknown} v
+ * @param {{ safetyOk?: boolean, status?: "verify" | "nr" | null }} [o]
+ */
+export function isFavorable(v, o = {}) {
+  const d = displayValue(v);
+  return d !== null && d >= FAVORABLE_MIN && o.safetyOk === true && !o.status;
+}
+
 /**
  * Valeur affichée d'un score sur 100 : entier de 0 à 100, ou null (sans note).
  * Le chiffre, la longueur remplie et la couleur viennent tous de cette valeur (§ 6.7.5.1).

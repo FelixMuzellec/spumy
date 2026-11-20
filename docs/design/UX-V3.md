@@ -220,7 +220,7 @@ Un appui sur la puce ouvre la **feuille de position** :
 
 - **Mobile** :
     - carte plein écran ; en haut, la recherche de spot et les filtres en puces avec compteur exact (« Tous 42 », « Favorables 6 », « À vérifier 4 », « Mes spots 2 ») ;
-    - « Favorables » applique exactement le seuil validé et les conditions de sécurité et de vérification, et ne veut jamais dire « sans danger » (§ 6.7.4). Le seuil est À DÉCIDER (V3-021) ;
+    - « Favorables » applique exactement le seuil validé et les conditions de sécurité et de vérification, et ne veut jamais dire « sans danger » (§ 6.7.4). Seuil : 75, décidé par Félix (V3-021) ;
     - en bas, une feuille glissante à trois hauteurs : poignée seule ; liste classée ; aperçu du spot choisi ;
     - boutons : recentrer sur ma position de référence ; « Me géolocaliser » ; couches (plan, photo aérienne ; carte marine en BATEAU, si elle est retenue).
 - **Bureau** : liste classée à gauche (environ 400 px), carte à droite ; mêmes filtres.
@@ -393,4 +393,4 @@ Dans `docs/design/wireframes/` : la source (`index.html`, ouverte telle quelle d
 | 12 | 08 : utiliser le bateau enregistré dans les paramètres, ou remplir les champs | § 6 BATEAU, point 1 ; « Mes bateaux » dans Profil |
 | 13 | 09 : carte marine (épaves, hauts-fonds…) ; bonus, pas obligatoire aujourd'hui | § 6 BATEAU, point 5 : À ÉTUDIER (V3-024), hors du périmètre obligatoire |
 
-Hors du jalon 1 : l'apparence (jalon 2), le seuil du filtre « Favorables » (V3-021), l'emplacement de l'export (test), les statistiques du Profil (étude).
+Hors du jalon 1 : l'apparence (jalon 2), l'emplacement de l'export (test), les statistiques du Profil (étude).

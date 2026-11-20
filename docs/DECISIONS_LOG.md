@@ -26,7 +26,7 @@ Format ADR. Le registre des exigences (`docs/REQUIREMENTS.md`) et la vision (`do
 | V3-018 | Identifiants de spot V2 gardés comme identifiants V3 | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) |
 | V3-019 | Point de retour `v2-final` et nettoyage des branches fusionnées | À DÉCIDER (Félix) |
 | V3-020 | Contrats typés par JSDoc et contrôle `tsc --checkJs`, sans migration TypeScript | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) ; appliquée en Phase 4 |
-| V3-021 | Seuil du filtre « Favorables » avec les 6 paliers de couleur (60, 65 ou 75) | PROPOSÉE (question à Félix après le jalon 1) |
+| V3-021 | Seuil du filtre « Favorables » : **75** (début de « Très bon ») | VALIDÉE (Félix, 20 nov. 2026, question 9) |
 | V3-022 | Design System V3 : jetons dans `src/design/v3/tokens.js`, CSS généré, repère de valeur des jauges, anneau double des pastilles | PROPOSÉE (jalon 2) |
 | V3-023 | Jalon 1 : Home (ex-Décision), onglet Météo, barre de 4 onglets modifiable, glissement entre onglets, position automatique ou manuelle, horaires mis en avant, courbe de marée dans la fiche, vent dans la comparaison, bateau enregistré ou saisi | VALIDÉE (Félix, 20 nov. 2026, 13 h 46) |
 | V3-024 | Carte marine (épaves, hauts-fonds) en couche BATEAU | BONUS À ÉTUDIER (Félix : « pas obligatoire aujourd'hui ») |
@@ -258,10 +258,11 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 
 ## V3-021 — Seuil du filtre « Favorables »
 
-- **Statut** : PROPOSÉE ; question à poser à Félix après sa réponse au jalon 1 (une question à la fois).
+- **Statut** : VALIDÉE par Félix le 20 nov. 2026 (question 9) : **75**, option (C), contre la recommandation (A).
 - **Contexte** : en V2, « favorable » commence à 65 (`src/core/scale.js`). Les six paliers du référentiel (§ 6.7.5.1) placent 65 au milieu du jaune (60–74) : deux pastilles de même couleur pourraient être l'une favorable, l'autre non.
 - **Options** : (A) 60, début de « Bon », cohérent avec la couleur ; (B) 65, continuité avec la V2 ; (C) 75, début de « Très bon », plus strict. Dans tous les cas, le filtre exige aussi la sécurité et l'absence de statut « À vérifier » (§ 6.7.4).
 - **Recommandation** : (A), révisable à la recalibration du moteur (Phase 8).
+- **Décision** : un spot est « favorable » si sa Favorabilité affichée est de 75 ou plus (vert et bleu), si sa sécurité le permet et s'il n'est pas « à vérifier ». Le seuil V2 de 65 (`src/core/scale.js`) reste en vigueur dans l'application en ligne jusqu'à l'intégration ; la recalibration (Phase 8) pourra le revoir avec Félix.
 
 ## V3-022 — Design System V3
 

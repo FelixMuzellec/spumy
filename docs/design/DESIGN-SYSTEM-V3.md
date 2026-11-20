@@ -23,7 +23,8 @@ Les jetons V2 (`src/design/ds/tokens.css`) restent en place tant que l'applicati
 | **APPROUVÉ** | palette principale : `accent-orange` #F07824, marine #172B3A, ardoise #344B5A, blanc cassé #F3F1EB (§ 6.2) | Félix |
 | **RÈGLE** | seuils des 6 paliers (0–19, 20–39, 40–59, 60–74, 75–89, 90–100) et leurs familles de teintes (§ 6.7.5.1) | Félix, par validation explicite |
 | **PROPOSITION À TESTER** | valeurs exactes des paliers, couleurs fonctionnelles, neutres dérivés, typographie, espacements, rayons, élévations, mouvement | jalon 2, puis tests |
-| **À DÉCIDER** | seuil du filtre « Favorables » (§ 3.4) ; police du mot SPUMY (§ 4) | Félix |
+| **DÉCIDÉ** | seuil du filtre « Favorables » : 75 (§ 3.4, V3-021) | Félix |
+| **À DÉCIDER** | police du mot SPUMY (§ 4) | Félix |
 
 ## 2. Couleurs
 
@@ -64,7 +65,7 @@ Deux thèmes : clair (plein jour, défaut sans préférence du système) et somb
 
 ### 2.3 Contrastes calculés (WCAG 2.2)
 
-Ratios calculés par `tests/design-v3.mjs`, à partir des luminances relatives WCAG. Seuils : 4,5:1 pour le texte courant ; 3:1 pour le grand texte, les icônes, les contours et les repères (critère 1.4.11). Toutes les associations déclarées passent (162 contrôles sur 162). Ce sont des calculs sur des couleurs pleines : la lisibilité en plein soleil reste à observer sur le prototype, sur un vrai téléphone.
+Ratios calculés par `tests/design-v3.mjs`, à partir des luminances relatives WCAG. Seuils : 4,5:1 pour le texte courant ; 3:1 pour le grand texte, les icônes, les contours et les repères (critère 1.4.11). Toutes les associations déclarées passent (168 contrôles sur 168, seuil « Favorables » compris). Ce sont des calculs sur des couleurs pleines : la lisibilité en plein soleil reste à observer sur le prototype, sur un vrai téléphone.
 
 **Thème clair**
 
@@ -188,7 +189,7 @@ Mesures prises pour que l'information ne dépende jamais de ce contraste :
 2. **Pastille** : un anneau double, intérieur blanc cassé et extérieur marine. Les deux anneaux ont entre eux un rapport de 12,9:1 ; sur n'importe quel fond de carte, l'un des deux atteint donc au moins √12,9 = 3,6:1 (vérifié aussi sur 18 gris de 0 à 255).
 3. **« ? » d'une pastille à vérifier** : dans une petite pastille marine sur blanc cassé (12,9:1), accrochée en haut à droite, et non dans le remplissage : un « ? » sur le vert du palier 4 n'atteindrait que 3,6:1.
 
-### 3.4 Filtre « Favorables » : seuil À DÉCIDER
+### 3.4 Filtre « Favorables » : seuil de 75 (décidé)
 
 En V2, « favorable » commence à 65 (`scale.js`, les deux bandes du haut). Avec six paliers, 65 tombe au milieu du jaune : deux pastilles jaunes pourraient être l'une favorable, l'autre non. Trois options :
 - **(A) 60**, début de « Bon » : tous les jaunes, verts et bleus sont favorables. Cohérent avec la couleur.
@@ -197,7 +198,7 @@ En V2, « favorable » commence à 65 (`scale.js`, les deux bandes du haut). Ave
 
 Dans tous les cas, le filtre exige aussi la sécurité et l'absence de statut « À vérifier » ; il ne veut jamais dire « sans danger ».
 
-La recalibration du moteur (Phase 8) pourra revoir ce seuil. La question sera posée à Félix après le jalon 1 (ADR V3-021, proposé).
+**Décision de Félix (20 nov. 2026, V3-021) : 75.** Favorables = vert et bleu, avec la sécurité et sans « à vérifier ». Constante `FAVORABLE_MIN` de `src/design/v3/tokens.js`, testée. La recalibration du moteur (Phase 8) pourra revoir ce seuil avec lui.
 
 ## 4. Typographie
 
@@ -308,7 +309,6 @@ Chaque composant est spécifié ici, puis prototypé en 3.6. Le critère d'accep
 1. Thème par défaut et rendu en plein soleil (prototype sur téléphone).
 2. Valeurs des 6 paliers et des couleurs fonctionnelles.
 3. Police du mot SPUMY et des grands titres.
-4. Seuil du filtre « Favorables » (§ 3.4).
 5. Disposition des cartes de recommandation sur bureau.
 6. Rendu de la carte du vent (épaisseur des flèches, densité de la grille) et de la courbe de marée.
 
@@ -317,7 +317,7 @@ Chaque composant est spécifié ici, puis prototypé en 3.6. Le critère d'accep
 | Commande | Code de sortie | Résultat |
 | --- | --- | --- |
 | `node scripts/tokens-v3.mjs --check` | 0 | `tokens.css` à jour |
-| `node tests/design-v3.mjs` | 0 | 162/162 |
+| `node tests/design-v3.mjs` | 0 | 168/168 |
 | `npx eslint -c .eslintrc.json src/design/v3 scripts/tokens-v3.mjs tests/design-v3.mjs` | 0 | aucun écart |
 | `node tests/layers.mjs` | 0 | 0 écart aux règles de couches ; 253 couleurs en dur hors de `src/design/`, inchangé |
 | `validate_palette.js` (6 paliers, fond clair et fond marine, toutes paires) | 1 (échec attendu de la bande de luminosité) | voir § 3.2 |

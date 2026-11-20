@@ -76,6 +76,12 @@ t("fixture : « 69/100 — Moyenne »", T.confidenceLabel(69, "Moyenne") === "69
 t("libellé : 72 → « 72/100 — Bon »", T.favorabilityLabel(72) === "72/100 — Bon");
 t("libellé : sans note", T.favorabilityLabel(null) === "Sans note");
 t("le statut « À vérifier » ne change pas la couleur du palier", T.tierOf(53)?.id === 2);
+t("Favorables : seuil 75 (V3-021)", T.FAVORABLE_MIN === 75 && T.FAVORABLE_MIN === T.TIERS[4].min);
+t("Favorables : 74 non, 75 oui", !T.isFavorable(74, { safetyOk: true }) && T.isFavorable(75, { safetyOk: true }));
+t("Favorables : 74,5 s'affiche 75, donc oui", T.isFavorable(74.5, { safetyOk: true }));
+t("Favorables : jamais sans sécurité permise", !T.isFavorable(90, {}) && !T.isFavorable(90, { safetyOk: false }));
+t("Favorables : jamais « à vérifier » ni « non recommandé »", !T.isFavorable(90, { safetyOk: true, status: "verify" }) && !T.isFavorable(90, { safetyOk: true, status: "nr" }));
+t("Favorables : sans note, non", !T.isFavorable(null, { safetyOk: true }));
 
 // 4. Contrastes. [premier plan, fond, seuil, rôle]
 const PAIRS = {
