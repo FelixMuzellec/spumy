@@ -110,7 +110,7 @@ export const BOATS = [{ id: "sr6", name: "Semi-rigide 6 m", cat: "C", speed: 25,
 export function windAt(x, y, h) {
   const daily = Math.sin(((h - 6) / 24) * 2 * Math.PI);
   const offshore = (1000 - x) / 1000;
-  const kmh = Math.max(6, Math.round(14 + 10 * offshore + 7 * daily + ((y * 7) % 5)));
+  const kmh = Math.max(6, Math.round(20 + 16 * offshore + 7 * daily + ((y * 7) % 5)));
   const fromDeg = Math.round(305 + 15 * offshore + 8 * Math.sin(h / 4) + ((x + y) % 7));
   return { fromDeg, kmh, gust: Math.round(kmh * 1.55), bft: beaufort(kmh) };
 }

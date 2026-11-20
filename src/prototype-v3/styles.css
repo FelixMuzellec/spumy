@@ -96,6 +96,7 @@ main { flex: 1; min-height: 0; display: flex; flex-direction: column; }
 .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15, 30, 41, .25) 0%, rgba(15, 30, 41, .45) 45%, rgba(15, 30, 41, .86) 100%); }
 .hero > * { position: relative; z-index: 1; }
+.photo-tag { position: absolute; left: 12px; bottom: 10px; background: rgba(15, 30, 41, .72); color: #fff; }
 .hero .illus { position: absolute; top: 10px; left: 12px; z-index: 2; font-size: var(--fs-caption); background: rgba(15, 30, 41, .65); padding: 2px 8px; border-radius: 6px; }
 .hero .inner { padding: var(--sp-6) var(--gutter) var(--sp-4); display: flex; flex-direction: column; gap: 6px; text-align: center; align-items: center; }
 .hero h1 { font: var(--fw-bold) 23px/1.2 var(--font-brand); margin: 0; text-wrap: balance; text-shadow: 0 1px 2px rgba(0, 0, 0, .35); }
@@ -109,7 +110,7 @@ main { flex: 1; min-height: 0; display: flex; flex-direction: column; }
 .ticks { display: flex; justify-content: space-between; font-size: var(--fs-caption); color: var(--text-muted); }
 
 /* Carte schématique, pastilles */
-.mapwrap { position: relative; display: flex; justify-content: center; background: var(--surface-sunken); overflow: hidden; }
+.mapwrap { position: relative; display: flex; justify-content: center; background: var(--map-sea); overflow: hidden; }
 .mapbox { position: relative; width: min(100%, calc(68dvh * 1000 / 1300)); aspect-ratio: 1000 / 1300; }
 .mapbox svg.map { position: absolute; inset: 0; width: 100%; height: 100%; }
 .mklayer { position: absolute; inset: 0; }
@@ -123,8 +124,8 @@ main { flex: 1; min-height: 0; display: flex; flex-direction: column; }
 .mk.sel { width: 30px; height: 30px; margin: -15px 0 0 -15px; box-shadow: 0 0 0 3px var(--marker-ring-inner), 0 0 0 6px var(--marker-ring-outer); z-index: 2; }
 .mk.cluster { width: 38px; height: 38px; margin: -19px 0 0 -19px; background: var(--palette-off-white); color: var(--palette-navy); font: 800 14px/1 var(--font-numeric); }
 .cards2 { display: flex; flex-direction: column; gap: var(--sp-3); }
-.land { fill: var(--surface-card); stroke: var(--border-strong); stroke-width: 2; }
-.sea { fill: var(--surface-sunken); }
+.land { fill: var(--map-land); stroke: var(--border-strong); stroke-width: 2; }
+.sea { fill: var(--map-sea); }
 .maptag { position: absolute; left: 8px; bottom: 8px; font-size: var(--fs-caption); color: var(--text-muted); background: var(--surface-card); padding: 2px 8px; border-radius: 6px; }
 .fab { position: absolute; right: 12px; width: var(--touch); height: var(--touch); border-radius: 12px; background: var(--surface-card); border: 1.5px solid var(--border-strong); display: grid; place-items: center; box-shadow: var(--elev-1); }
 .sheet { position: relative; z-index: 5; margin-top: -16px; background: var(--surface-card); border-radius: var(--r-lg) var(--r-lg) 0 0; box-shadow: var(--elev-2); padding: 6px var(--gutter) var(--sp-3); display: flex; flex-direction: column; gap: var(--sp-2); }

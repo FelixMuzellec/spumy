@@ -49,7 +49,7 @@ export function Fiche({ id, go, back }) {
       </div>
       <div style={{ position: "relative", height: 190, overflow: "hidden" }}>
         <img src={photoSrc(s.photo, 720)} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-        <span className="badge" style={{ position: "absolute", left: 12, bottom: 10, background: "rgba(15,30,41,.7)", color: "#fff" }}>Illustration : ce n'est pas le lieu</span>
+        <span className="badge photo-tag">Illustration : ce n'est pas le lieu</span>
       </div>
       <div className="screen">
         <h1>{s.name}</h1>

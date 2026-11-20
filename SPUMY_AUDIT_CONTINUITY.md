@@ -39,7 +39,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | 3.3 Planche UI Showcase écran par écran ; revue des photos et demandes de remplacement | IMPLEMENTED (8 écrans revus ; 4 photos demandées à Félix le 20 nov., `BLOCKED — PHOTO UTILISATEUR ATTENDUE`) | `docs/design/REFERENCES.md` |
 | 3.4 Usages, scénarios, architecture de l'information, parcours, carte, cartes de recommandation (jalon 1) | VALIDATED avec remarques (Félix, 20 nov., 13 h 46) ; remarques intégrées : UX-V3 version 2, 15 wireframes, ADR V3-023 et V3-024, 94 exigences | `docs/design/UX-V3.md`, `docs/design/wireframes/` (page de revue publiée en artefact privé) |
 | 3.5 Design System V3 : jetons, contrastes, composants, états, contenus | TESTED (`npm run test:design-v3` : 168/168, code 0 ; lint 0 ; couches 0 écart) ; valeurs à valider au jalon 2 | `docs/design/DESIGN-SYSTEM-V3.md`, `src/design/v3/`, `scripts/tokens-v3.mjs`, `tests/design-v3.mjs`, `docs/design/contrastes-v3.json` ; ADR V3-021 et V3-022 proposées |
-| 3.6 Prototype interactif (BORD et BATEAU) ; les wireframes sont faits en 3.4 | NOT STARTED (haute fidélité : attend le jalon 1) | `src/prototype-v3/`, `prototype-v3/` |
+| 3.6 Prototype interactif (BORD et BATEAU) ; les wireframes sont faits en 3.4 | TESTED (`npm run test:prototype-v3` : 129/129 avec axe, code 0 ; `test:design-v3` 172/172) ; jalon 2 à demander | `src/prototype-v3/`, `scripts/build-prototype-v3.mjs`, `tests/prototype-v3.mjs`, `prototype-v3/`, `docs/design/PROTOTYPE-V3.md`, `docs/design/prototype-v3/` ; artefact « Prototype SPUMY V3 » |
 | 3.7 Revues, tests, galerie AVANT/CIBLE, matrices de conformité et de traçabilité | NOT STARTED | `docs/design/REVUES-V3.md` |
 | 3.8 Rapport et arrêt | NOT STARTED | `docs/rapports/v3/PHASE-3.md` |
 
@@ -66,7 +66,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 
 ## Prochaine action
 
-3.6 : prototype interactif BORD et BATEAU sur la base de UX-V3 version 2 (Home, Carte, Météo, Profil ; Journal ; fiche avec courbe de marée ; comparaison avec le vent ; choix du bateau), planche de validation du Design System, captures 320, 375 × 812, 390 × 844 et bureau.
+Demander le jalon 2 à Félix (direction visuelle, principes du Design System, prototype). Puis 3.7 : revues internes structurées, galerie AVANT/CIBLE, matrice de conformité § 6.16, matrice de traçabilité, critères d'acceptation ; test utilisateur ou « TEST UTILISATEUR NON EFFECTUÉ ». Puis 3.8 : rapport en 14 parties, arrêt.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 

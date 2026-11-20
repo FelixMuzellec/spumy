@@ -86,6 +86,8 @@
   --marker-ring-inner: #F3F1EB;
   --marker-ring-outer: #172B3A;
   --marker-empty: #FBFAF7;
+  --map-sea: #D9E1E6;
+  --map-land: #F7F5F0;
   --scrim: rgba(23, 43, 58, 0.45);
 }
 @media (prefers-color-scheme: dark) {
@@ -118,6 +120,8 @@
     --marker-ring-inner: #F3F1EB;
     --marker-ring-outer: #172B3A;
     --marker-empty: #FBFAF7;
+    --map-sea: #132634;
+    --map-land: #2B4252;
     --scrim: rgba(8, 16, 22, 0.6);
   }
 }
@@ -150,6 +154,8 @@
   --marker-ring-inner: #F3F1EB;
   --marker-ring-outer: #172B3A;
   --marker-empty: #FBFAF7;
+  --map-sea: #132634;
+  --map-land: #2B4252;
   --scrim: rgba(8, 16, 22, 0.6);
 }
 @media (prefers-reduced-motion: reduce) {

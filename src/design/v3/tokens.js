@@ -141,6 +141,8 @@ const LIGHT = {
   infoInk: PALETTE.slate, infoSoft: "#E2E6E8",
   markerRingInner: PALETTE.offWhite, markerRingOuter: PALETTE.navy,
   markerEmpty: "#FBFAF7",
+  mapSea: "#D9E1E6", // mer du fond schématique : ardoise très claire, jamais cyan
+  mapLand: "#F7F5F0",
   scrim: "rgba(23, 43, 58, 0.45)",
 };
 
@@ -167,6 +169,8 @@ const DARK = {
   infoInk: "#CBD5DB", infoSoft: "#2B4353",
   markerRingInner: PALETTE.offWhite, markerRingOuter: PALETTE.navy,
   markerEmpty: "#FBFAF7",
+  mapSea: "#132634",
+  mapLand: "#2B4252",
   scrim: "rgba(8, 16, 22, 0.6)",
 };
 

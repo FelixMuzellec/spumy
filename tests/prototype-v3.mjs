@@ -152,6 +152,7 @@ if (CAP) {
     ["profil", "light", "06-profil"], ["journal", "light", "07-journal"], ["home", "dark", "08-home-bord-sombre"], ["spot-e", "dark", "09-fiche-a-verifier-sombre"]];
   for (const [r, scheme, name] of shots) {
     const { ctx, page } = await open({ width: 390, height: 844 }, scheme, r);
+    await page.addStyleTag({ content: ".navwrap{position:relative!important}" }); // capture pleine page : la barre à sa place, en bas
     await page.waitForTimeout(250);
     await page.screenshot({ path: path.join(CAP, `${name}.png`), fullPage: true });
     await ctx.close();
@@ -159,6 +160,7 @@ if (CAP) {
   const { ctx, page } = await open({ width: 390, height: 844 }, "light", "home");
   await page.getByRole("radio", { name: "BATEAU" }).click();
   await page.getByRole("button", { name: "Voir si je peux sortir" }).click();
+  await page.addStyleTag({ content: ".navwrap{position:relative!important}" });
   await page.waitForTimeout(250);
   await page.screenshot({ path: path.join(CAP, "10-home-bateau.png"), fullPage: true });
   await ctx.close();

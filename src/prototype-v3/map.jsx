@@ -67,7 +67,7 @@ export function Carte({ st, go, sel, setSel, notify }) {
         <div className="mapwrap">
           <Base overlay={<circle cx={REF.x} cy={REF.y} r="16" fill="none" stroke="var(--text-primary)" strokeWidth="7" />}>
             {shown.map((s) => <Marker key={s.id} s={s} selected={sel === s.id} onSelect={setSel} square={bateau} />)}
-            {!bateau && <button className="mk cluster" style={pos(560, 90)} aria-label="Groupe de 3 spots, zoomer" onClick={() => notify("Zoom sur le groupe de 3 spots (démonstration)")}>3</button>}
+            {!bateau && <button className="mk cluster" style={pos(330, 80)} aria-label="Groupe de 3 spots, zoomer" onClick={() => notify("Zoom sur le groupe de 3 spots (démonstration)")}>3</button>}
           </Base>
           <button className="fab" style={{ top: 12 }} aria-label="Recentrer sur ma position de référence" onClick={() => notify("Recentré sur Pirou")}><Icon name="pin" /></button>
           <button className="fab" style={{ top: 64 }} aria-label="Me géolocaliser" onClick={() => notify("Position du téléphone : ±30 m")}><Icon name="locate" /></button>
