@@ -1,0 +1,3 @@
+Dérivés de assets/brand/sources/spumy.jpg par scripts/logos-v3.py.
+Médaillon : recadrage circulaire de rayon 372 px centré en (1023.5, 902.0), origine (652, 530) ; pixels du disque orange, du poisson et du fond crème inchangés.
+Icônes : médaillon redimensionné proportionnellement sur fond #172B3A.
