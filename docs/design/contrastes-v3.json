@@ -1,0 +1,625 @@
+{
+ "genere": "tests/design-v3.mjs",
+ "themes": {
+  "light": [
+   {
+    "role": "texte principal sur le fond",
+    "fg": "textPrimary",
+    "bg": "bgApp",
+    "fgHex": "#172B3A",
+    "bgHex": "#F3F1EB",
+    "ratio": 12.88,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "texte principal sur carte",
+    "fg": "textPrimary",
+    "bg": "surfaceCard",
+    "fgHex": "#172B3A",
+    "bgHex": "#FBFAF7",
+    "ratio": 13.94,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "texte dans un champ",
+    "fg": "textPrimary",
+    "bg": "surfaceSunken",
+    "fgHex": "#172B3A",
+    "bgHex": "#E9E5DC",
+    "ratio": 11.58,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "texte secondaire sur le fond",
+    "fg": "textSecondary",
+    "bg": "bgApp",
+    "fgHex": "#344B5A",
+    "bgHex": "#F3F1EB",
+    "ratio": 8.08,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "texte secondaire sur carte",
+    "fg": "textSecondary",
+    "bg": "surfaceCard",
+    "fgHex": "#344B5A",
+    "bgHex": "#FBFAF7",
+    "ratio": 8.75,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "texte discret sur le fond",
+    "fg": "textMuted",
+    "bg": "bgApp",
+    "fgHex": "#56656F",
+    "bgHex": "#F3F1EB",
+    "ratio": 5.33,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "texte discret sur carte",
+    "fg": "textMuted",
+    "bg": "surfaceCard",
+    "fgHex": "#56656F",
+    "bgHex": "#FBFAF7",
+    "ratio": 5.77,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "aide de champ",
+    "fg": "textMuted",
+    "bg": "surfaceSunken",
+    "fgHex": "#56656F",
+    "bgHex": "#E9E5DC",
+    "ratio": 4.79,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "navigation : libellés",
+    "fg": "textOnInverse",
+    "bg": "surfaceInverse",
+    "fgHex": "#F3F1EB",
+    "bgHex": "#172B3A",
+    "ratio": 12.88,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "navigation : repère actif orange",
+    "fg": "accent",
+    "bg": "surfaceInverse",
+    "fgHex": "#F07824",
+    "bgHex": "#172B3A",
+    "ratio": 5.14,
+    "seuil": 3,
+    "ok": true
+   },
+   {
+    "role": "bouton principal : texte marine sur orange",
+    "fg": "textOnAccent",
+    "bg": "accent",
+    "fgHex": "#172B3A",
+    "bgHex": "#F07824",
+    "ratio": 5.14,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "lien et icône active sur carte",
+    "fg": "accentInk",
+    "bg": "surfaceCard",
+    "fgHex": "#172B3A",
+    "bgHex": "#FBFAF7",
+    "ratio": 13.94,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "lien sur le fond",
+    "fg": "accentInk",
+    "bg": "bgApp",
+    "fgHex": "#172B3A",
+    "bgHex": "#F3F1EB",
+    "ratio": 12.88,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "anneau de focus sur le fond",
+    "fg": "focusRing",
+    "bg": "bgApp",
+    "fgHex": "#172B3A",
+    "bgHex": "#F3F1EB",
+    "ratio": 12.88,
+    "seuil": 3,
+    "ok": true
+   },
+   {
+    "role": "anneau de focus sur carte",
+    "fg": "focusRing",
+    "bg": "surfaceCard",
+    "fgHex": "#172B3A",
+    "bgHex": "#FBFAF7",
+    "ratio": 13.94,
+    "seuil": 3,
+    "ok": true
+   },
+   {
+    "role": "contour de champ et de bouton secondaire",
+    "fg": "borderStrong",
+    "bg": "surfaceCard",
+    "fgHex": "#7A848B",
+    "bgHex": "#FBFAF7",
+    "ratio": 3.66,
+    "seuil": 3,
+    "ok": true
+   },
+   {
+    "role": "contour sur le fond",
+    "fg": "borderStrong",
+    "bg": "bgApp",
+    "fgHex": "#7A848B",
+    "bgHex": "#F3F1EB",
+    "ratio": 3.38,
+    "seuil": 3,
+    "ok": true
+   },
+   {
+    "role": "succès sur sa pastille",
+    "fg": "successInk",
+    "bg": "successSoft",
+    "fgHex": "#2F6B45",
+    "bgHex": "#E1ECE2",
+    "ratio": 5.23,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "succès sur carte",
+    "fg": "successInk",
+    "bg": "surfaceCard",
+    "fgHex": "#2F6B45",
+    "bgHex": "#FBFAF7",
+    "ratio": 6.08,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "avertissement sur sa pastille",
+    "fg": "warningInk",
+    "bg": "warningSoft",
+    "fgHex": "#7F5300",
+    "bgHex": "#F5E7C4",
+    "ratio": 5.45,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "avertissement sur carte",
+    "fg": "warningInk",
+    "bg": "surfaceCard",
+    "fgHex": "#7F5300",
+    "bgHex": "#FBFAF7",
+    "ratio": 6.41,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "danger sur sa pastille",
+    "fg": "dangerInk",
+    "bg": "dangerSoft",
+    "fgHex": "#A12C26",
+    "bgHex": "#F5DDD9",
+    "ratio": 5.59,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "danger sur carte",
+    "fg": "dangerInk",
+    "bg": "surfaceCard",
+    "fgHex": "#A12C26",
+    "bgHex": "#FBFAF7",
+    "ratio": 6.93,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "information sur sa pastille",
+    "fg": "infoInk",
+    "bg": "infoSoft",
+    "fgHex": "#344B5A",
+    "bgHex": "#E2E6E8",
+    "ratio": 7.27,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "information sur carte",
+    "fg": "infoInk",
+    "bg": "surfaceCard",
+    "fgHex": "#344B5A",
+    "bgHex": "#FBFAF7",
+    "ratio": 8.75,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "repère de valeur de la jauge sur sa piste",
+    "fg": "gaugeIndex",
+    "bg": "gaugeTrack",
+    "fgHex": "#172B3A",
+    "bgHex": "#DDD8CE",
+    "ratio": 10.25,
+    "seuil": 3,
+    "ok": true
+   }
+  ],
+  "dark": [
+   {
+    "role": "texte principal sur le fond",
+    "fg": "textPrimary",
+    "bg": "bgApp",
+    "fgHex": "#F3F1EB",
+    "bgHex": "#172B3A",
+    "ratio": 12.88,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "texte principal sur carte",
+    "fg": "textPrimary",
+    "bg": "surfaceCard",
+    "fgHex": "#F3F1EB",
+    "bgHex": "#344B5A",
+    "ratio": 8.08,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "texte dans un champ",
+    "fg": "textPrimary",
+    "bg": "surfaceSunken",
+    "fgHex": "#F3F1EB",
+    "bgHex": "#203545",
+    "ratio": 11.22,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "texte secondaire sur le fond",
+    "fg": "textSecondary",
+    "bg": "bgApp",
+    "fgHex": "#D5DADD",
+    "bgHex": "#172B3A",
+    "ratio": 10.33,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "texte secondaire sur carte",
+    "fg": "textSecondary",
+    "bg": "surfaceCard",
+    "fgHex": "#D5DADD",
+    "bgHex": "#344B5A",
+    "ratio": 6.48,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "texte discret sur le fond",
+    "fg": "textMuted",
+    "bg": "bgApp",
+    "fgHex": "#B4BEC4",
+    "bgHex": "#172B3A",
+    "ratio": 7.69,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "texte discret sur carte",
+    "fg": "textMuted",
+    "bg": "surfaceCard",
+    "fgHex": "#B4BEC4",
+    "bgHex": "#344B5A",
+    "ratio": 4.83,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "aide de champ",
+    "fg": "textMuted",
+    "bg": "surfaceSunken",
+    "fgHex": "#B4BEC4",
+    "bgHex": "#203545",
+    "ratio": 6.7,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "navigation : libellés",
+    "fg": "textOnInverse",
+    "bg": "surfaceInverse",
+    "fgHex": "#F3F1EB",
+    "bgHex": "#0F1E29",
+    "ratio": 15.02,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "navigation : repère actif orange",
+    "fg": "accent",
+    "bg": "surfaceInverse",
+    "fgHex": "#F07824",
+    "bgHex": "#0F1E29",
+    "ratio": 5.99,
+    "seuil": 3,
+    "ok": true
+   },
+   {
+    "role": "bouton principal : texte marine sur orange",
+    "fg": "textOnAccent",
+    "bg": "accent",
+    "fgHex": "#172B3A",
+    "bgHex": "#F07824",
+    "ratio": 5.14,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "lien orange sur le fond marine",
+    "fg": "accentInk",
+    "bg": "bgApp",
+    "fgHex": "#F07824",
+    "bgHex": "#172B3A",
+    "ratio": 5.14,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "icône active orange sur carte (pas de petit texte)",
+    "fg": "accentInk",
+    "bg": "surfaceCard",
+    "fgHex": "#F07824",
+    "bgHex": "#344B5A",
+    "ratio": 3.22,
+    "seuil": 3,
+    "ok": true
+   },
+   {
+    "role": "anneau de focus sur le fond",
+    "fg": "focusRing",
+    "bg": "bgApp",
+    "fgHex": "#F07824",
+    "bgHex": "#172B3A",
+    "ratio": 5.14,
+    "seuil": 3,
+    "ok": true
+   },
+   {
+    "role": "anneau de focus sur carte",
+    "fg": "focusRing",
+    "bg": "surfaceCard",
+    "fgHex": "#F07824",
+    "bgHex": "#344B5A",
+    "ratio": 3.22,
+    "seuil": 3,
+    "ok": true
+   },
+   {
+    "role": "contour de champ sur carte",
+    "fg": "borderStrong",
+    "bg": "surfaceCard",
+    "fgHex": "#8597A3",
+    "bgHex": "#344B5A",
+    "ratio": 3.02,
+    "seuil": 3,
+    "ok": true
+   },
+   {
+    "role": "contour sur le fond",
+    "fg": "borderStrong",
+    "bg": "bgApp",
+    "fgHex": "#8597A3",
+    "bgHex": "#172B3A",
+    "ratio": 4.82,
+    "seuil": 3,
+    "ok": true
+   },
+   {
+    "role": "succès sur sa pastille",
+    "fg": "successInk",
+    "bg": "successSoft",
+    "fgHex": "#9BD3AC",
+    "bgHex": "#2C4A3C",
+    "ratio": 5.72,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "succès sur carte",
+    "fg": "successInk",
+    "bg": "surfaceCard",
+    "fgHex": "#9BD3AC",
+    "bgHex": "#344B5A",
+    "ratio": 5.35,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "avertissement sur sa pastille",
+    "fg": "warningInk",
+    "bg": "warningSoft",
+    "fgHex": "#F2C772",
+    "bgHex": "#4B3F22",
+    "ratio": 6.49,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "avertissement sur carte",
+    "fg": "warningInk",
+    "bg": "surfaceCard",
+    "fgHex": "#F2C772",
+    "bgHex": "#344B5A",
+    "ratio": 5.73,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "danger sur sa pastille",
+    "fg": "dangerInk",
+    "bg": "dangerSoft",
+    "fgHex": "#F3A79E",
+    "bgHex": "#4F2E2E",
+    "ratio": 6.15,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "danger sur carte",
+    "fg": "dangerInk",
+    "bg": "surfaceCard",
+    "fgHex": "#F3A79E",
+    "bgHex": "#344B5A",
+    "ratio": 4.71,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "information sur sa pastille",
+    "fg": "infoInk",
+    "bg": "infoSoft",
+    "fgHex": "#CBD5DB",
+    "bgHex": "#2B4353",
+    "ratio": 6.93,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "information sur carte",
+    "fg": "infoInk",
+    "bg": "surfaceCard",
+    "fgHex": "#CBD5DB",
+    "bgHex": "#344B5A",
+    "ratio": 6.12,
+    "seuil": 4.5,
+    "ok": true
+   },
+   {
+    "role": "repère de valeur de la jauge sur sa piste",
+    "fg": "gaugeIndex",
+    "bg": "gaugeTrack",
+    "fgHex": "#F3F1EB",
+    "bgHex": "#1E3342",
+    "ratio": 11.57,
+    "seuil": 3,
+    "ok": true
+   }
+  ]
+ },
+ "paliers": {
+  "light": [
+   {
+    "palier": 0,
+    "hex": "#2B3034",
+    "surFond": 11.8,
+    "surCarte": 12.77,
+    "surPiste": 9.39
+   },
+   {
+    "palier": 1,
+    "hex": "#A82E2A",
+    "surFond": 6.02,
+    "surCarte": 6.51,
+    "surPiste": 4.79
+   },
+   {
+    "palier": 2,
+    "hex": "#F5962A",
+    "surFond": 2,
+    "surCarte": 2.17,
+    "surPiste": 1.59
+   },
+   {
+    "palier": 3,
+    "hex": "#F8D757",
+    "surFond": 1.25,
+    "surCarte": 1.35,
+    "surPiste": 1
+   },
+   {
+    "palier": 4,
+    "hex": "#21915A",
+    "surFond": 3.53,
+    "surCarte": 3.82,
+    "surPiste": 2.81
+   },
+   {
+    "palier": 5,
+    "hex": "#2C60C2",
+    "surFond": 5.22,
+    "surCarte": 5.65,
+    "surPiste": 4.15
+   }
+  ],
+  "dark": [
+   {
+    "palier": 0,
+    "hex": "#2B3034",
+    "surFond": 1.09,
+    "surCarte": 1.46,
+    "surPiste": 1.02
+   },
+   {
+    "palier": 1,
+    "hex": "#A82E2A",
+    "surFond": 2.14,
+    "surCarte": 1.34,
+    "surPiste": 1.92
+   },
+   {
+    "palier": 2,
+    "hex": "#F5962A",
+    "surFond": 6.43,
+    "surCarte": 4.03,
+    "surPiste": 5.77
+   },
+   {
+    "palier": 3,
+    "hex": "#F8D757",
+    "surFond": 10.29,
+    "surCarte": 6.46,
+    "surPiste": 9.24
+   },
+   {
+    "palier": 4,
+    "hex": "#21915A",
+    "surFond": 3.65,
+    "surCarte": 2.29,
+    "surPiste": 3.27
+   },
+   {
+    "palier": 5,
+    "hex": "#2C60C2",
+    "surFond": 2.47,
+    "surCarte": 1.55,
+    "surPiste": 2.21
+   }
+  ]
+ },
+ "anneau": {
+  "interieur": "#F3F1EB",
+  "exterieur": "#172B3A",
+  "rapport": 12.88,
+  "minimumGaranti": 3.59
+ }
+}

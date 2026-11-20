@@ -1,6 +1,6 @@
 # Journal des décisions — SPUMY V3
 
-Format ADR. Une décision « validée » vient de Félix (date et heure) ou du référentiel maître (`docs/SPUMY_MASTER_PROMPT.md`). Une décision « proposée » attend Félix et ne s'applique pas encore. Ce journal passe avant le référentiel en cas de contradiction, sauf en matière de sécurité, de protection et de préservation des données (référentiel, ordre de priorité).
+Format ADR. Le registre des exigences (`docs/REQUIREMENTS.md`) et la vision (`docs/VISION-V3.md`) sont validés par le même jeton (20 nov. 2026, 4 h 25). Une décision « validée » vient de Félix (date et heure) ou du référentiel maître (`docs/SPUMY_MASTER_PROMPT.md`). Une décision « proposée » attend Félix et ne s'applique pas encore. Ce journal passe avant le référentiel en cas de contradiction, sauf en matière de sécurité, de protection et de préservation des données (référentiel, ordre de priorité).
 
 ## Index
 
@@ -13,19 +13,26 @@ Format ADR. Une décision « validée » vient de Félix (date et heure) ou du r
 | V3-005 | Usage : Félix et quelques proches, gratuit, non commercial | VALIDÉE (Félix, 20 nov. 2026, 1 h 30) |
 | V3-006 | Deux scores : Favorabilité et Confiance ; Pertinence dépréciée | VALIDÉE (référentiel § 9.1) |
 | V3-007 | Aucun secteur ; position de référence dynamique ; 60 min de route au plus en BORD | VALIDÉE (référentiel § 0.2, § 8.1) |
-| V3-008 | Une seule application à deux modes, catalogue de spots unique, hébergement statique, stack conservée | PROPOSÉE |
-| V3-009 | Temps de route BORD par la Géoplateforme IGN (isochrone, puis itinéraire) | PROPOSÉE |
-| V3-010 | Position : « Me géolocaliser » et « Saisir une position » ; pas de localisation par l'adresse IP | PROPOSÉE |
+| V3-008 | Une seule application à deux modes, catalogue de spots unique, hébergement statique, stack conservée | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) |
+| V3-009 | Temps de route BORD par la Géoplateforme IGN (isochrone, puis itinéraire) | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) |
+| V3-010 | Position : « Me géolocaliser » et « Saisir une position » ; pas de localisation par l'adresse IP | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) |
 | V3-011 | Vigilance Météo-France lue par un petit relais gratuit qui garde la clé | VALIDÉE (Félix, 20 nov. 2026, 4 h 18) |
-| V3-012 | Fond de carte : Plan IGN, OpenStreetMap en secours ; aucun préchargement hors ligne | PROPOSÉE |
-| V3-013 | Données de l'utilisateur sur l'appareil, sans compte ; sauvegarde GitHub et export gardés | PROPOSÉE |
+| V3-012 | Fond de carte : Plan IGN, OpenStreetMap en secours ; aucun préchargement hors ligne | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) |
+| V3-013 | Données de l'utilisateur sur l'appareil, sans compte ; sauvegarde GitHub et export gardés | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) |
 | V3-014 | Branche BATEAU de la phase 13 reprise en V3 (Pertinence retirée, seuils à valider) | VALIDÉE (Félix, 20 nov. 2026, 4 h 18) |
 | V3-015 | Ancienne note sur 10 retirée ; modèle BATEAU présenté « d'après tes sorties » | VALIDÉE (Félix, 20 nov. 2026, 4 h 18) |
 | V3-016 | Une place du Top 3 réservée à un spot admissible à 15 min ou moins de ta position | VALIDÉE (Félix, 20 nov. 2026, 4 h 18) |
-| V3-017 | Navigation : Décision, Carte, Journal, Profil, Matériel ; bascule BORD / BATEAU | VALIDÉE (référentiel § 6.4) ; bascule à concevoir en Phase 3 |
-| V3-018 | Identifiants de spot V2 gardés comme identifiants V3 | PROPOSÉE |
+| V3-017 | Navigation : Décision, Carte, Journal, Profil, Matériel ; bascule BORD / BATEAU | VALIDÉE (référentiel § 6.4) ; **remplacée en partie par V3-023** (jalon 1) |
+| V3-018 | Identifiants de spot V2 gardés comme identifiants V3 | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) |
 | V3-019 | Point de retour `v2-final` et nettoyage des branches fusionnées | À DÉCIDER (Félix) |
-| V3-020 | Contrats typés par JSDoc et contrôle `tsc --checkJs`, sans migration TypeScript | PROPOSÉE (pour la Phase 4) |
+| V3-020 | Contrats typés par JSDoc et contrôle `tsc --checkJs`, sans migration TypeScript | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) ; appliquée en Phase 4 |
+| V3-021 | Seuil du filtre « Favorables » : **75** (début de « Très bon ») | VALIDÉE (Félix, 20 nov. 2026, question 9) |
+| V3-022 | Design System V3 : jetons dans `src/design/v3/tokens.js`, CSS généré, repère de valeur des jauges ; pastilles revues par V3-025 | VALIDÉE AVEC RÉSERVES (jalon 2, Félix, 20 nov. 2026, 15 h 40 ; voir V3-027) |
+| V3-023 | Jalon 1 : Home (ex-Décision), onglet Météo, barre de 4 onglets modifiable, glissement entre onglets, position automatique ou manuelle, horaires mis en avant, courbe de marée dans la fiche, vent dans la comparaison, bateau enregistré ou saisi | VALIDÉE (Félix, 20 nov. 2026, 13 h 46) |
+| V3-024 | Carte marine (épaves, hauts-fonds) en couche BATEAU | BONUS À ÉTUDIER (Félix : « pas obligatoire aujourd'hui ») |
+| V3-025 | Refonte visuelle après le jalon 2 : photos en grand, cartes à photo, disque de score, pastilles-étiquettes avec score, nuit marine par défaut, barre déplaçable à la souris | VALIDÉE AVEC RÉSERVES (jalon 2, Félix, 20 nov. 2026, 15 h 40 ; voir V3-027) |
+| V3-026 | Pas de vraies photos de spots : photos d'illustration seulement, marquées « Illustration » | VALIDÉE (Félix, 20 nov. 2026, 15 h 02 : « trop lourd pour l'application ») |
+| V3-027 | Jalon 2 : direction visuelle, principes du Design System et prototype version 5.2 ; 6 réserves suivies | VALIDÉE AVEC RÉSERVES (Félix, 20 nov. 2026, 15 h 40) |
 
 ## Décisions V2 encore en vigueur
 
@@ -103,7 +110,7 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 
 ## V3-008 — Une application, deux modes, un catalogue
 
-- **Statut** : PROPOSÉE.
+- **Statut** : VALIDÉE par le jeton de la phase 3 (20 nov. 2026, 4 h 25), qui validait les propositions listées dans le rapport de phase 2 (§ 12).
 - **Problème** : la V2 publie sept pages (une par guide), chacune avec ses spots, sa météo et son classement. La V3 exige un classement depuis n'importe quelle position, sur tous les spots.
 - **Options** :
 
@@ -127,7 +134,7 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 
 ## V3-009 — Temps de route BORD
 
-- **Statut** : PROPOSÉE.
+- **Statut** : VALIDÉE par le jeton de la phase 3 (20 nov. 2026, 4 h 25), qui validait les propositions listées dans le rapport de phase 2 (§ 12).
 - **Options** :
 
 | Option | Pour | Contre |
@@ -146,7 +153,7 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 
 ## V3-010 — Méthodes de position
 
-- **Statut** : PROPOSÉE.
+- **Statut** : VALIDÉE par le jeton de la phase 3 (20 nov. 2026, 4 h 25), qui validait les propositions listées dans le rapport de phase 2 (§ 12).
 - **Décision** : deux actions, « Me géolocaliser » (sur demande, avec la permission du système) et « Saisir une position » (recherche avec suggestions, puis épingle déplaçable). Pas de localisation par l'adresse IP : elle enverrait l'adresse IP à un tiers pour une précision à la ville, ce qui est inutile pour un petit groupe. Le § 8.1 la rend facultative (« uniquement si … réellement disponibles »).
 - **Contrat de position** : `{lat, lon, precisionM, source: DEVICE|MANUAL, at, validUntil, permission, explicit}`. Aucun historique des positions.
 
@@ -172,7 +179,7 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 
 ## V3-012 — Fond de carte
 
-- **Statut** : PROPOSÉE (aspect visuel validé en Phase 3).
+- **Statut** : VALIDÉE par le jeton de la phase 3 (20 nov. 2026, 4 h 25), qui validait les propositions listées dans le rapport de phase 2 (§ 12).
 - **Décision** :
     - Plan IGN (WMTS de la Géoplateforme) en fond principal : sans clé, détaillé sur le littoral français ;
     - photos aériennes IGN en option, utiles pour lire l'estran ;
@@ -181,7 +188,7 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 
 ## V3-013 — Données de l'utilisateur sur l'appareil
 
-- **Statut** : PROPOSÉE.
+- **Statut** : VALIDÉE par le jeton de la phase 3 (20 nov. 2026, 4 h 25), qui validait les propositions listées dans le rapport de phase 2 (§ 12).
 - **Décision** :
     - le journal, les spots personnels, le profil et les préférences restent sur l'appareil (`localStorage`, IndexedDB), avec un schéma versionné et des migrations testées ;
     - pas de compte ;
@@ -230,10 +237,11 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
     - la bascule BORD / BATEAU est commune, et ses règles restent séparées.
 
   La V2 a déjà Décision, Carte, Journal et Matériel. « Plus » (marée, météo, saison, règles, photos) sera redistribué en Phase 3.
+- **Remplacée en partie** par V3-023 (jalon 1, 20 nov. 2026) : Home au lieu de Décision, onglet Météo, barre de 4 onglets modifiable. Restent en vigueur : Matériel affiché seulement quand son contenu existe ; le Profil remplace toute page de statistiques ; bascule commune, règles séparées.
 
 ## V3-018 — Identifiants de spot
 
-- **Statut** : PROPOSÉE.
+- **Statut** : VALIDÉE par le jeton de la phase 3 (20 nov. 2026, 4 h 25), qui validait les propositions listées dans le rapport de phase 2 (§ 12).
 - **Constat** : les 66 identifiants V2 sont uniques dans tout le catalogue (VÉRIFIÉ, par exemple `goury`, `moulinmer`). Le journal, les favoris et les spots personnels s'y réfèrent.
 - **Décision** : les garder tels quels comme identifiants V3, et ajouter un champ de provenance `legacy: {guide}`. Un nouveau spot reçoit un identifiant qui n'entre jamais en collision.
 
@@ -248,5 +256,89 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 
 ## V3-020 — Contrats typés
 
-- **Statut** : PROPOSÉE, pour la Phase 4.
+- **Statut** : VALIDÉE par le jeton de la phase 3 (20 nov. 2026, 4 h 25), qui validait les propositions listées dans le rapport de phase 2 (§ 12).
 - **Décision** : contrats typés (position, spot, scores, sécurité, journal) en JSDoc, vérifiés par `tsc --checkJs` dans l'intégration continue, sans réécrire le code en TypeScript. Le § 10.2 demande des « types stricts selon la stack » ; c'est le moyen le moins coûteux pour une base JavaScript testée.
+
+## V3-021 — Seuil du filtre « Favorables »
+
+- **Statut** : VALIDÉE par Félix le 20 nov. 2026 (question 9) : **75**, option (C), contre la recommandation (A).
+- **Contexte** : en V2, « favorable » commence à 65 (`src/core/scale.js`). Les six paliers du référentiel (§ 6.7.5.1) placent 65 au milieu du jaune (60–74) : deux pastilles de même couleur pourraient être l'une favorable, l'autre non.
+- **Options** : (A) 60, début de « Bon », cohérent avec la couleur ; (B) 65, continuité avec la V2 ; (C) 75, début de « Très bon », plus strict. Dans tous les cas, le filtre exige aussi la sécurité et l'absence de statut « À vérifier » (§ 6.7.4).
+- **Recommandation** : (A), révisable à la recalibration du moteur (Phase 8).
+- **Décision** : un spot est « favorable » si sa Favorabilité affichée est de 75 ou plus (vert et bleu), si sa sécurité le permet et s'il n'est pas « à vérifier ». Le seuil V2 de 65 (`src/core/scale.js`) reste en vigueur dans l'application en ligne jusqu'à l'intégration ; la recalibration (Phase 8) pourra le revoir avec Félix.
+
+## V3-022 — Design System V3
+
+- **Statut** : VALIDÉE AVEC RÉSERVES au jalon 2 (Félix, 20 nov. 2026, 15 h 40 ; V3-027). Les pastilles à anneau double et à « ? » ont été remplacées par les pastilles-étiquettes de V3-025.
+- **Décision** :
+    - jetons dans une source unique typée (`src/design/v3/tokens.js`), CSS généré (`scripts/tokens-v3.mjs`), contrôle `tests/design-v3.mjs` ;
+    - thèmes clair et sombre ;
+    - orange d'accent en remplissage avec texte marine, jamais en texte sur fond clair ;
+    - repère de valeur sur les jauges, anneau double sur les pastilles, « ? » des pastilles à vérifier dans une pastille marine.
+- **Raisons** : les six teintes imposées ne peuvent pas toutes contraster avec une même piste ou un même fond (jaune sur piste claire 1,0:1). Le repère, l'anneau et le texte rendent la lecture indépendante de ce contraste, sans découper le remplissage.
+- **Détails** : `docs/design/DESIGN-SYSTEM-V3.md`.
+
+## V3-023 — Jalon 1 de la phase 3 : architecture et parcours
+
+- **Statut** : VALIDÉE par Félix (20 nov. 2026, 13 h 46), en réponse aux wireframes du jalon 1. Elle remplace en partie V3-017.
+- **Décisions** :
+    - « Décision » s'appelle **Home** ;
+    - un **onglet Météo** : carte de la force et de la direction du vent, heure par heure ; « par zone » est rendu par une grille de points de prévision, sans découpage géographique ;
+    - **4 onglets visibles** dans la barre, ordre par défaut **Home, Carte, Météo, Profil**, puis Journal ; Météo plutôt que Journal ;
+    - **l'ordre des onglets** se change dans Profil, comme la photo de fond de Home (précision du 20 nov., 14 h 02) ;
+    - on change d'onglet en le **touchant** ; on **fait glisser la barre** pour faire apparaître d'autres onglets (précision du 20 nov., 14 h 02) ;
+    - **position** par la puce en haut à droite, automatique (demande du téléphone) ou manuelle ; aucune grande action au centre de Home ;
+    - au centre de Home, une **phrase** qui résume la pêche probable ;
+    - dans la feuille de position, le champ montre le lieu actuel ; les propositions n'apparaissent que pendant la frappe ;
+    - **horaires** des sessions bien visibles ;
+    - fiche spot : **courbe de marée** avec les heures favorables coloriées, au lieu du bloc « fenêtre du jour » ; indicateurs du jour ;
+    - comparaison : **force du vent** ;
+    - BATEAU : **bateau enregistré** dans Profil, ou champs remplis pour la sortie.
+- **Conséquences** : `docs/design/UX-V3.md` (version 2), wireframes (version 2), exigences MET-01 à MET-04, UX-05, UX-08, UX-09, PRO-03, SPOT-09, BAT-09.
+
+## V3-024 — Carte marine en BATEAU
+
+- **Statut** : BONUS À ÉTUDIER. Félix : « Ça ne serait qu'un bonus. Pas obligatoire aujourd'hui. »
+- **Idée** : une couche montrant épaves, hauts-fonds et balisage sur la Carte BATEAU.
+- **Avant toute promesse** :
+    - vérifier les sources possibles (cartes du SHOM, OpenSeaMap, bathymétrie EMODnet), leurs licences et leurs conditions d'usage : rien n'est VÉRIFIÉ à ce jour ;
+    - la couche ne remplace jamais une carte marine officielle à jour, et l'application doit le dire.
+- **Exigence** : BAT-10 (expérimentale).
+
+## V3-025 — Refonte visuelle après le jalon 2
+
+- **Statut** : VALIDÉE AVEC RÉSERVES au jalon 2 (Félix, 20 nov. 2026, 15 h 40 ; V3-027), après les versions 3 à 5.2 du prototype. Origine : retour de Félix du 20 nov. 2026, 14 h 26 (jalon 2 non validé). Retour : « loin d'un graphisme top tier », pas assez de photos, photos de mauvaise qualité, interface lourde ; barre d'onglets impossible à faire défiler ; pastilles laides et incompréhensibles, sans score ; compteurs à faire correspondre ; Météo à mieux dessiner, différence BORD / Mer incomprise.
+- **Décisions** :
+    - **photos** en 1 600 px dans les grandes surfaces (héros, cartes, fiches, journal), une photo par carte de recommandation, une photo par espèce en BATEAU ;
+    - **thème « nuit marine » par défaut** dans le prototype, comme la planche de référence ; « plein soleil » au choix dans Profil ;
+    - **cartes allégées** : photo, horaires et nom sur la photo, un disque de score (chiffre de 20 px gras, encre marine ou blanc cassé selon le palier, 3:1 au moins, testé), la Confiance en une ligne ;
+    - **pastilles-étiquettes** : couleur du palier et score écrit ; triangle pour « à vérifier », score barré pour « non recommandé » ; plus de carrés ni de pointillés ; aucun groupe fictif ; compteur égal aux pastilles ;
+    - **barre** : glisser au doigt, à la souris et à la molette ; chevrons cliquables ;
+    - **Météo** : flèches effilées d'une seule teinte, plus marquées quand le vent forcit, force Beaufort dans une pastille, ambre à partir de force 6 ; légende explicite ; spots et marques en points de même forme ; explication des couches Vent et Mer.
+- **Inchangé** : seuils et teintes des paliers (le vert ne peut pas être assombri sans se confondre avec le rouge en deutéranopie : ΔE 4,7) ; aucun petit texte posé sur un palier.
+
+## V3-026 — Pas de vraies photos de spots
+
+- **Statut** : VALIDÉE par Félix (20 nov. 2026, 15 h 02) : « Oublie les vraies photos, ça serait trop lourd pour l'application. »
+- **Décision** : l'application n'embarque que les photos d'ambiance du catalogue (`data/photos/catalogue.json`), toujours marquées « Illustration ». Aucune photo n'est présentée comme celle d'un spot réel. La règle V2 reste : jamais une image reconnaissable sur un spot nommé.
+- **Conséquences** : le manque « photos réelles de spots » de `docs/design/REFERENCES.md` est clos ; la fiche spot garde une photo d'illustration choisie selon le type de lieu.
+
+## V3-027 — Jalon 2 de la phase 3 : direction visuelle, Design System, prototypes
+
+- **Statut** : VALIDÉE AVEC RÉSERVES par Félix (20 nov. 2026, 15 h 40 : « jalon 2 validé avec réserves »), sur le prototype version 5.2 (commit 28b3b85, artefact « Prototype SPUMY V3 », version 8).
+- **Ce qui est validé, statut final** (ne change plus sans gestion des changements, référentiel § 5.3) :
+    - identité : logo BRAND d'origine (écran de lancement, médaillon et mot SPUMY dans l'en-tête, icônes sur le fond crème) ;
+    - palette, six paliers et leurs teintes, thème « nuit marine » par défaut et thème clair ;
+    - typographie (Roboto, Roboto Condensed pour les chiffres, Montserrat pour la marque) ;
+    - navigation : barre de 4 onglets déplaçable, puce de position, bascule BORD / BATEAU ;
+    - grammaire des scores : disque, mot du palier, Confiance à part, pastilles-étiquettes avec score.
+- **Ce qui est validé, statut provisoire** (révisable au jalon 3, après les phases 5, 8 et 9) : densité des écrans, contenus et textes, visualisations métier (courbe de marée, Météo), états détaillés, composition secondaire des cartes de recommandation.
+- **Réserves** (suivies dans `docs/design/REVUES-V3.md`, transformées en critères de recette) :
+    1. aucun essai par un vrai utilisateur (Félix ou un proche, sur téléphone, au bord de l'eau) ;
+    2. fond de carte dessiné : la vraie carte (Plan IGN, V3-012) arrive à l'intégration ; recette cartographique à refaire sur les vraies tuiles ;
+    3. photos générées, marquées « Illustration » (V3-026) ;
+    4. taille de la mini-carte de la fenêtre position (180 px) à revoir à l'usage (question de Félix, 15 h 36) ;
+    5. Météo : dessin des flèches et densité de la grille à affiner avec les vraies prévisions ;
+    6. données de démonstration seulement (scores, fenêtres, marées) : rien n'est un résultat du moteur.
+- **Félix (15 h 36)** : les retouches visuelles restent possibles après le jalon ; elles suivent la règle ci-dessus.
+

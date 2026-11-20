@@ -44,6 +44,8 @@ jobs:
         run: npm run -s test:knowledge
       - name: Système de design (contrastes WCAG des deux thèmes)
         run: npm run -s test:design
+      - name: Design System V3 (jetons, paliers 0–100, contrastes, CSS généré à jour)
+        run: npm run -s test:design-v3
       - name: Moteur v2 (16 scénarios de la spécification, trois scores)
         run: npm run -s test:v2
       - name: Tests unitaires (7 guides + fuseau Auckland)
@@ -62,6 +64,8 @@ jobs:
         run: npm run -s test:a11y
       - name: Prototype de la phase 11 (23 écrans, deux largeurs, deux thèmes, axe-core)
         run: npm run -s test:prototype
+      - name: Prototype V3 (parcours, règles, 4 largeurs, deux thèmes, axe)
+        run: npm run -s test:prototype-v3
       - if: failure()
         uses: actions/upload-artifact@v4
         with:

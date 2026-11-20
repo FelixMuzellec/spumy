@@ -9,6 +9,7 @@
 //   studio  → bord, core, design          page d'analyse photo (non publiée)
 //   prototype → prototype, design, data   maquette de la phase 11 (non publiée dans l'application) : données figées
 //                                         produites par scripts/prototype-data.mjs, aucun moteur importé
+//   prototype-v3 → prototype-v3, design, data   prototype de la phase 3 V3 : données de démonstration, aucun moteur importé
 //
 // Le bord et le bateau ne s'importent jamais l'un l'autre : deux moteurs séparés.
 // Usage : node tests/layers.mjs
@@ -21,6 +22,7 @@ const ALLOWED = {
   design: ["design"], core: ["core", "design"], bord: ["bord", "core", "design", "data"], bateau: ["bateau", "core", "design"],
   app: ["app", "core", "bord", "bateau", "design", "data"], studio: ["studio", "bord", "core", "design", "data"],
   prototype: ["prototype", "design", "data"],
+  "prototype-v3": ["prototype-v3", "design", "data"],
 };
 const layerOf = (abs) => {
   const rel = path.relative(root, abs).split(path.sep);
