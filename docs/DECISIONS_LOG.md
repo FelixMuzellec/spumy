@@ -22,12 +22,14 @@ Format ADR. Le registre des exigences (`docs/REQUIREMENTS.md`) et la vision (`do
 | V3-014 | Branche BATEAU de la phase 13 reprise en V3 (Pertinence retirée, seuils à valider) | VALIDÉE (Félix, 20 nov. 2026, 4 h 18) |
 | V3-015 | Ancienne note sur 10 retirée ; modèle BATEAU présenté « d'après tes sorties » | VALIDÉE (Félix, 20 nov. 2026, 4 h 18) |
 | V3-016 | Une place du Top 3 réservée à un spot admissible à 15 min ou moins de ta position | VALIDÉE (Félix, 20 nov. 2026, 4 h 18) |
-| V3-017 | Navigation : Décision, Carte, Journal, Profil, Matériel ; bascule BORD / BATEAU | VALIDÉE (référentiel § 6.4) ; bascule à concevoir en Phase 3 |
+| V3-017 | Navigation : Décision, Carte, Journal, Profil, Matériel ; bascule BORD / BATEAU | VALIDÉE (référentiel § 6.4) ; **remplacée en partie par V3-023** (jalon 1) |
 | V3-018 | Identifiants de spot V2 gardés comme identifiants V3 | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) |
 | V3-019 | Point de retour `v2-final` et nettoyage des branches fusionnées | À DÉCIDER (Félix) |
 | V3-020 | Contrats typés par JSDoc et contrôle `tsc --checkJs`, sans migration TypeScript | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) ; appliquée en Phase 4 |
 | V3-021 | Seuil du filtre « Favorables » avec les 6 paliers de couleur (60, 65 ou 75) | PROPOSÉE (question à Félix après le jalon 1) |
 | V3-022 | Design System V3 : jetons dans `src/design/v3/tokens.js`, CSS généré, repère de valeur des jauges, anneau double des pastilles | PROPOSÉE (jalon 2) |
+| V3-023 | Jalon 1 : Home (ex-Décision), onglet Météo, barre de 4 onglets modifiable, glissement entre onglets, position automatique ou manuelle, horaires mis en avant, courbe de marée dans la fiche, vent dans la comparaison, bateau enregistré ou saisi | VALIDÉE (Félix, 20 nov. 2026, 13 h 46) |
+| V3-024 | Carte marine (épaves, hauts-fonds) en couche BATEAU | BONUS À ÉTUDIER (Félix : « pas obligatoire aujourd'hui ») |
 
 ## Décisions V2 encore en vigueur
 
@@ -232,6 +234,7 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
     - la bascule BORD / BATEAU est commune, et ses règles restent séparées.
 
   La V2 a déjà Décision, Carte, Journal et Matériel. « Plus » (marée, météo, saison, règles, photos) sera redistribué en Phase 3.
+- **Remplacée en partie** par V3-023 (jalon 1, 20 nov. 2026) : Home au lieu de Décision, onglet Météo, barre de 4 onglets modifiable. Restent en vigueur : Matériel affiché seulement quand son contenu existe ; le Profil remplace toute page de statistiques ; bascule commune, règles séparées.
 
 ## V3-018 — Identifiants de spot
 
@@ -270,4 +273,31 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
     - repère de valeur sur les jauges, anneau double sur les pastilles, « ? » des pastilles à vérifier dans une pastille marine.
 - **Raisons** : les six teintes imposées ne peuvent pas toutes contraster avec une même piste ou un même fond (jaune sur piste claire 1,0:1). Le repère, l'anneau et le texte rendent la lecture indépendante de ce contraste, sans découper le remplissage.
 - **Détails** : `docs/design/DESIGN-SYSTEM-V3.md`.
+
+## V3-023 — Jalon 1 de la phase 3 : architecture et parcours
+
+- **Statut** : VALIDÉE par Félix (20 nov. 2026, 13 h 46), en réponse aux wireframes du jalon 1. Elle remplace en partie V3-017.
+- **Décisions** :
+    - « Décision » s'appelle **Home** ;
+    - un **onglet Météo** : carte de la force et de la direction du vent, heure par heure ; « par zone » est rendu par une grille de points de prévision, sans découpage géographique ;
+    - **4 onglets** dans la barre, par défaut **Home, Carte, Météo, Profil** ; Météo plutôt que Journal ;
+    - la barre se modifie dans Profil, comme la photo de fond de Home ; Home reste en premier et Profil en dernier (PROPOSITION de mise en œuvre) ;
+    - **glisser** pour changer d'onglet ;
+    - **position** par la puce en haut à droite, automatique (demande du téléphone) ou manuelle ; aucune grande action au centre de Home ;
+    - au centre de Home, une **phrase** qui résume la pêche probable ;
+    - dans la feuille de position, le champ montre le lieu actuel ; les propositions n'apparaissent que pendant la frappe ;
+    - **horaires** des sessions bien visibles ;
+    - fiche spot : **courbe de marée** avec les heures favorables coloriées, au lieu du bloc « fenêtre du jour » ; indicateurs du jour ;
+    - comparaison : **force du vent** ;
+    - BATEAU : **bateau enregistré** dans Profil, ou champs remplis pour la sortie.
+- **Conséquences** : `docs/design/UX-V3.md` (version 2), wireframes (version 2), exigences MET-01 à MET-04, UX-05, UX-08, UX-09, PRO-03, SPOT-09, BAT-09.
+
+## V3-024 — Carte marine en BATEAU
+
+- **Statut** : BONUS À ÉTUDIER. Félix : « Ça ne serait qu'un bonus. Pas obligatoire aujourd'hui. »
+- **Idée** : une couche montrant épaves, hauts-fonds et balisage sur la Carte BATEAU.
+- **Avant toute promesse** :
+    - vérifier les sources possibles (cartes du SHOM, OpenSeaMap, bathymétrie EMODnet), leurs licences et leurs conditions d'usage : rien n'est VÉRIFIÉ à ce jour ;
+    - la couche ne remplace jamais une carte marine officielle à jour, et l'application doit le dire.
+- **Exigence** : BAT-10 (expérimentale).
 
