@@ -204,6 +204,7 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 - **Statut** : À DÉCIDER par Félix.
 - **Constat** : la V2 réserve une place à un spot de la zone « local » du guide (un secteur). Le référentiel (§ 9.1.7) garde une place pour un spot à 15 min ou moins de la position, « si elle est toujours validée ». Cette place ne donne aucun bonus de Favorabilité.
 - **Options** : (a) place réservée à un spot admissible à 15 min ou moins de ta position ; (b) aucune place réservée.
+- **Élément connu** : pour le guide du Cotentin, Félix voulait toujours au moins un spot proche (25 min ou moins) dans le Top 3. La V3 demande de confirmer cette règle sous sa forme nouvelle : depuis ta position, et non plus depuis la zone d'un guide.
 
 ## V3-017 — Navigation
 
