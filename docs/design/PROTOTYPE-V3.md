@@ -44,9 +44,16 @@
 - plus aucun texte orange sur l'ardoise ;
 - axe contrôle la feuille ouverte.
 
+**Version 5.3** (revues de la sous-tâche 3.7, après le jalon 2 ; `docs/design/REVUES-V3.md`) :
+- cibles tactiles de 44 px au moins partout, par une zone invisible quand le dessin reste petit (puces, pastilles, petits boutons) ; bascule BORD / BATEAU à 44 px ; poignée du panneau de 56 × 44 px ;
+- texte de 12 px au moins dans la courbe de marée et le graphique Météo, dont la légende passe en texte ;
+- un h1 et un titre de page par écran ;
+- règle d'inclusion de chaque filtre de la carte, affichée et lue avec le filtre ;
+- Pointe E reprend la fixture du référentiel (§ 6.7.2) : 53 — À vérifier, Confiance 69 — Moyenne.
+
 Vraies photos de spots : abandonnées (V3-026). Le fond IGN réel arrive aux phases 4 et 10 : la page de revue bloque les tuiles, et elles ne sont pas joignables d'ici.
 
-**Statut** : à revalider au jalon 2, avec la direction visuelle et les principes du Design System. Toutes les données sont **de démonstration**, et l'écran le dit en permanence. Le prototype n'appelle aucun service : ni météo, ni route, ni géocodage, ni tuiles.
+**Statut** : jalon 2 VALIDÉ AVEC RÉSERVES (Félix, 20 nov., 15 h 40 ; V3-027) sur la version 5.2 ; la version 5.3 n'apporte que les corrections des revues. Toutes les données sont **de démonstration**, et l'écran le dit en permanence. Le prototype n'appelle aucun service : ni météo, ni route, ni géocodage, ni tuiles.
 
 ## Où le voir
 
@@ -62,7 +69,7 @@ Vraies photos de spots : abandonnées (V3-026). Le fond IGN réel arrive aux pha
 | Barre | 4 onglets visibles (Home, Carte, Météo, Profil) ; on la fait glisser pour voir Journal ; fondu et chevron du côté où elle peut défiler ; sur bureau, tous les onglets en haut |
 | Home BORD | photo de fond (automatique selon la lumière, ou choisie dans Profil), phrase de synthèse, jours, frise du jour, 3 cartes avec les horaires en tête, place réservée « Le plus proche », zone « À vérifier », Comparer, Noter une sortie |
 | Home BATEAU | choix du bateau (enregistré, ou saisi pour la sortie), verdict sur le pire moment, 3 marques avec leurs espèces, rappels, carte marine notée comme bonus à étudier |
-| Carte | filtres avec compteurs exacts (Favorables = 75 ou plus, sécurité permise, pas à vérifier), pastilles à 6 paliers (anneau double, « ? », barrée, vide, carrée, sélectionnée), groupe, légende, feuille à aperçu ou liste ; sur bureau, liste à gauche |
+| Carte | carte qui se déplace et zoome ; filtres avec compteurs exacts et règle affichée (Favorables = 75 ou plus, sécurité permise, pas à vérifier) ; pastilles-étiquettes avec score (⚠ et contour pour « à vérifier », score barré, vide, sélectionnée), groupes numérotés, légende, panneau à trois hauteurs avec aperçu ou liste ; sur bureau, liste à gauche |
 | Météo | flèches de vent sur une grille de points, force et rafales écrites, avertissement à partir de force 6, curseur horaire sur 48 h, résumé, courbe vent et rafales ; en BATEAU, couche Mer |
 | Fiche spot | photo marquée « Illustration », Favorabilité et Confiance, sécurité, courbe de marée avec heures favorables coloriées au palier (appui : heure et hauteur), indicateurs du jour, approche, stratégie, leurres conseillés, « Pourquoi ? » |
 | Comparaison | sécurité, **vent** (force, rafales, exposition), Favorabilité, Confiance, horaires, route, règles, raison ; écart chiffré ou « avantage non établi » |
@@ -84,8 +91,8 @@ Il n'existe pas dans l'application.
 
 | Commande | Code de sortie | Résultat |
 | --- | --- | --- |
-| `npm run test:prototype-v3` (construction, puis `tests/prototype-v3.mjs --axe`) | 0 | 156/156 |
-| `npm run test:design-v3` | 0 | 184/184 |
+| `npm run test:prototype-v3` (construction, puis `tests/prototype-v3.mjs --axe`) | 0 | 194/194 |
+| `npm run test:design-v3` | 0 | 186/186 |
 | `npm run -s lint` ; `node tests/layers.mjs` | 0 ; 0 | aucun écart ; 253 couleurs en dur hors de `src/design/`, inchangé |
 
 `tests/prototype-v3.mjs` vérifie :
@@ -97,6 +104,7 @@ Il n'existe pas dans l'application.
 - la barre : 4 onglets visibles, Journal hors champ, chevrons, ordre modifié ;
 - la Météo : grille de flèches, curseur, couche Mer ;
 - BATEAU : choix du bateau avant le verdict ;
+- les revues (3.7) : Confiance sans effet sur le rang ni sur les égalités (3 jeux), pénurie sans carte inventée, fixture § 6.7.2, règle des filtres, cibles de 44 px, un h1 et un titre par écran, 12 px au moins, ni Pertinence, ni note sur 10, ni « V2 » à l'écran ;
 - axe-core (WCAG 2.2 A et AA) sur 6 écrans dans les deux thèmes : aucune violation grave ni critique.
 
 ## Limites connues
@@ -105,4 +113,4 @@ Il n'existe pas dans l'application.
 - Glisser-déposer des onglets : seules les flèches fonctionnent ; les poignées sont dessinées.
 - Demain et 7 jours : seule la journée d'aujourd'hui est remplie.
 - Les composantes de « Pourquoi ? », la réglementation et les sources sont des textes d'exemple.
-- Test utilisateur : **NON EFFECTUÉ** (à faire avec les proches de Félix, § 3.7).
+- Test utilisateur : **NON EFFECTUÉ** ; protocole prêt dans `docs/design/REVUES-V3.md` § 9.

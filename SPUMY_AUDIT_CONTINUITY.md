@@ -40,7 +40,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | 3.4 Usages, scénarios, architecture de l'information, parcours, carte, cartes de recommandation (jalon 1) | VALIDATED avec remarques (Félix, 20 nov., 13 h 46) ; remarques intégrées : UX-V3 version 2, 15 wireframes, ADR V3-023 et V3-024, 94 exigences | `docs/design/UX-V3.md`, `docs/design/wireframes/` (page de revue publiée en artefact privé) |
 | 3.5 Design System V3 : jetons, contrastes, composants, états, contenus | TESTED (`npm run test:design-v3` : 168/168, code 0 ; lint 0 ; couches 0 écart) ; valeurs à valider au jalon 2 | `docs/design/DESIGN-SYSTEM-V3.md`, `src/design/v3/`, `scripts/tokens-v3.mjs`, `tests/design-v3.mjs`, `docs/design/contrastes-v3.json` ; ADR V3-021 et V3-022 proposées |
 | 3.6 Prototype interactif (BORD et BATEAU) ; les wireframes sont faits en 3.4 | VALIDATED avec réserves (jalon 2, Félix, 20 nov., 15 h 40 ; V3-027) sur la version 5.2 (28b3b85 ; `test:prototype-v3` 156/156, `test:design-v3` 186/186, `tests/brand.py` 29/29) | `src/prototype-v3/`, `scripts/build-prototype-v3.mjs`, `tests/prototype-v3.mjs`, `prototype-v3/`, `docs/design/PROTOTYPE-V3.md`, `docs/design/prototype-v3/` ; artefact « Prototype SPUMY V3 » |
-| 3.7 Revues, tests, galerie AVANT/CIBLE, matrices de conformité et de traçabilité | IN PROGRESS | `docs/design/REVUES-V3.md` |
+| 3.7 Revues, tests, galerie AVANT/CIBLE, matrices de conformité et de traçabilité | IMPLEMENTED (revues UX, plateformes, WCAG 2.2, DA, carte, contenus, terrain ; 15 défauts dont 7 corrigés, 0 critique ou majeur ouvert ; matrices § 6.16 et de traçabilité ; 14 critères de recette ; TEST UTILISATEUR NON EFFECTUÉ, protocole prêt ; prototype 5.3 : `test:prototype-v3` 194/194) | `docs/design/REVUES-V3.md`, `docs/design/galerie-avant-cible.html` (artefact privé), `scripts/mesures-revue-v3.mjs`, `docs/design/revue-v3-mesures.json` |
 | 3.8 Rapport et arrêt | NOT STARTED | `docs/rapports/v3/PHASE-3.md` |
 
 ## Questions et décisions (registre)
@@ -68,7 +68,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 
 ## Prochaine action
 
-Jalon 2 validé avec réserves (Félix, 15 h 40 ; V3-027). En cours : 3.7, revues structurées, galerie AVANT/CIBLE, matrices de conformité (§ 6.16) et de traçabilité, réserves en critères de recette, statut du test utilisateur, dans `docs/design/REVUES-V3.md`. Puis 3.8 : suite complète, red-team, rapport en 14 parties, arrêt (jeton attendu : `APPROVED — PROCEED TO PHASE 4`).
+Jalon 2 validé avec réserves (V3-027). 3.7 faite (commits 318f28a à ce commit). En cours : 3.8, suite complète (`npm ci`, `npm run build`, `npm test`, a11y, upgrade, prototype), red-team, republication du prototype (version 5.3), rapport en 14 parties (document Claude et `docs/rapports/v3/PHASE-3.md`), arrêt. Jeton attendu : `APPROVED — PROCEED TO PHASE 4`.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
