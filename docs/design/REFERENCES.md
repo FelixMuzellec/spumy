@@ -43,6 +43,8 @@
 | `silhouette-aube-rose` | presque identique à `silhouette-couchant` | platier découvert à marée basse avant l'aube, frontale rouge, 3:4 | `BLOCKED — PHOTO UTILISATEUR ATTENDUE` |
 | `semi-rigide-gilets` | 4 vues en surplomb du semi-rigide, quasi identiques | jigging vertical vu de la console, sondeur à 60–80 m, 16:9 | `BLOCKED — PHOTO UTILISATEUR ATTENDUE` |
 
+Prompts de génération détaillés, demandés par Félix le 20 nov. : `docs/design/PROMPTS-PHOTOS.md`.
+
 **Restriction d'usage, sans remplacement** : `phare-pointe-aube`, `abbaye-crepuscule`, `phare-tempete`, `granit-crique` et `port-crepuscule` ressemblent à des lieux réels reconnaissables. Ce sont des images générées : elles ne sont jamais montrées sur la fiche d'un spot, même avec la mention « Illustration », et servent seulement aux écrans généraux (lancement, états vides, BATEAU). En V2, la règle « jamais une image reconnaissable sur un spot nommé » les écartait déjà de la plupart des fiches.
 
 **Manques de couverture** (à demander le moment venu, dans la phase qui en aura besoin) :
