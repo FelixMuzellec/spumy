@@ -1,0 +1,515 @@
+<title>Wireframes SPUMY V3</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta charset="utf-8">
+<style>
+:root{
+  --bg:#efefec; --paper:#ffffff; --ink:#1f2224; --muted:#666b70; --line:#a9adb1; --soft:#e4e5e6; --soft2:#cdd0d3; --dark:#4a4f54; --note:#8a4b14;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#16191b; --paper:#22262a; --ink:#e9eaeb; --muted:#a1a6ab; --line:#5d636a; --soft:#2f3438; --soft2:#40464c; --dark:#b8bdc2; --note:#e0a46b; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#16191b; --paper:#22262a; --ink:#e9eaeb; --muted:#a1a6ab; --line:#5d636a; --soft:#2f3438; --soft2:#40464c; --dark:#b8bdc2; --note:#e0a46b; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;margin:0;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px}
+header.doc{max-width:70ch;margin-bottom:28px}
+header.doc h1{font-size:22px;margin:0 0 6px;text-wrap:balance}
+header.doc p{margin:4px 0;color:var(--muted)}
+.tag{display:inline-block;border:1px dashed var(--note);color:var(--note);border-radius:4px;padding:0 6px;font-size:12px;letter-spacing:.02em}
+.grid{display:flex;flex-wrap:wrap;gap:40px 32px;align-items:flex-start}
+.wf{width:320px;max-width:100%;min-width:0}
+.wf.wide{width:980px}
+.wf h2{font-size:14px;margin:0 0 8px;letter-spacing:.02em}
+.wf h2 b{color:var(--muted);font-weight:600;margin-right:6px}
+.phone{background:var(--paper);border:2px solid var(--ink);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;min-height:640px;position:relative}
+.wide .phone{border-radius:10px;min-height:560px}
+.scroll{flex:1;padding:10px 12px 12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.notes{margin:10px 0 0;padding-left:20px;color:var(--muted);font-size:12.5px;display:flex;flex-direction:column;gap:3px}
+.notes li::marker{font-weight:700;color:var(--note)}
+.n{display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;background:var(--note);color:var(--paper);font:700 10px/1 system-ui;font-style:normal;vertical-align:middle;margin-left:4px;flex:none}
+/* en-tête */
+.top{display:flex;align-items:center;gap:6px;padding:10px 12px 8px;border-bottom:1px solid var(--soft2)}
+.seg{display:flex;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden;font-size:11px;font-weight:700;flex:none}
+.seg span{padding:3px 8px}
+.seg .on{background:var(--ink);color:var(--paper)}
+.chip{border:1.5px solid var(--line);border-radius:999px;padding:3px 9px;font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.chip.solid{background:var(--soft)}
+.chip.dash{border-style:dashed}
+.row{display:flex;gap:6px;align-items:center;flex-wrap:wrap;min-width:0}
+.between{justify-content:space-between}
+.box{background:var(--soft);border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.box.line{background:none;border:1.5px solid var(--line)}
+.box.dashed{background:none;border:1.5px dashed var(--line)}
+.h{font-weight:700;font-size:13px}
+.big{font-weight:800;font-size:17px}
+.s{font-size:11.5px;color:var(--muted)}
+.mono{font-variant-numeric:tabular-nums}
+.bar{height:8px;border-radius:4px;background:var(--soft2);position:relative;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;background:var(--dark);border-radius:4px}
+.bar.thin{height:5px}
+.btn{border:1.5px solid var(--ink);border-radius:8px;padding:5px 10px;font-size:12px;font-weight:600;text-align:center}
+.btn.pri{background:var(--ink);color:var(--paper)}
+.btn.ghost{border-color:var(--line);font-weight:500}
+.grow{flex:1;min-width:0}
+.field{border:1.5px solid var(--line);border-radius:8px;padding:7px 10px;font-size:12px;color:var(--muted)}
+.ph{height:120px;border-radius:10px;background:
+  linear-gradient(to top right,transparent calc(50% - 1px),var(--soft2) 50%,transparent calc(50% + 1px)),
+  linear-gradient(to bottom right,transparent calc(50% - 1px),var(--soft2) 50%,transparent calc(50% + 1px)),var(--soft);
+  position:relative;flex:none}
+.ph em{position:absolute;left:8px;bottom:8px;font-size:10.5px;font-style:normal;background:var(--paper);padding:1px 6px;border-radius:4px}
+.nav{display:flex;border-top:1.5px solid var(--soft2);padding:6px 4px 10px;margin-top:auto;background:var(--paper)}
+.nav span{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10.5px;color:var(--muted)}
+.nav span::before{content:"";width:18px;height:18px;border-radius:5px;border:1.5px solid var(--line)}
+.nav .on{color:var(--ink);font-weight:700}
+.nav .on::before{background:var(--ink);border-color:var(--ink)}
+hr.sep{border:0;border-top:1px solid var(--soft2);margin:2px 0;width:100%}
+.card{border:1.5px solid var(--line);border-radius:12px;padding:9px 10px;display:flex;flex-direction:column;gap:5px;min-width:0}
+.card.first{border-width:2.5px;border-color:var(--ink)}
+.rank{display:inline-grid;place-items:center;min-width:20px;height:20px;border-radius:6px;background:var(--ink);color:var(--paper);font-weight:800;font-size:11px;padding:0 4px}
+.pill{border:1px solid var(--line);border-radius:999px;padding:0 7px;font-size:10.5px;white-space:nowrap}
+.pill.warn{border-style:dashed}
+.pill.dark{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:2px 8px;font-size:11.5px}
+.kv dt{color:var(--muted)} .kv dd{margin:0}
+/* carte */
+.map{position:relative;background:
+  repeating-linear-gradient(35deg,transparent 0 22px,var(--soft) 22px 23px),
+  repeating-linear-gradient(-55deg,transparent 0 30px,var(--soft) 30px 31px),var(--paper);flex:1;min-height:0;overflow:hidden}
+.map .coast{position:absolute;inset:0 0 0 62%;background:var(--soft);border-left:2px solid var(--line);border-radius:40% 0 0 30%/50% 0 0 40%}
+.pin{position:absolute;width:20px;height:20px;border-radius:50%;border:2px solid var(--ink);background:var(--dark);display:grid;place-items:center;font:800 10px/1 system-ui;color:var(--paper)}
+.pin.l1{background:var(--soft2)} .pin.l2{background:var(--line)}
+.pin.dash{background:var(--paper);border-style:dashed;color:var(--ink)}
+.pin.strike{background:var(--paper)} .pin.strike::after{content:"";position:absolute;width:26px;height:2px;background:var(--ink);transform:rotate(-45deg)}
+.pin.empty{background:var(--paper)}
+.pin.sq{border-radius:4px}
+.pin.sel{outline:3px solid var(--ink);outline-offset:2px;transform:scale(1.15)}
+.pin.cl{width:28px;height:28px;background:var(--paper);color:var(--ink);font-size:11px}
+.fab{position:absolute;right:10px;width:32px;height:32px;border-radius:10px;background:var(--paper);border:1.5px solid var(--ink);display:grid;place-items:center;font-size:11px;font-weight:700}
+.sheet{background:var(--paper);border-top:1.5px solid var(--ink);border-radius:16px 16px 0 0;padding:6px 12px 10px;display:flex;flex-direction:column;gap:6px;margin-top:-14px;position:relative;z-index:2}
+.grip{width:36px;height:4px;border-radius:2px;background:var(--line);align-self:center}
+.legend{display:flex;gap:4px;flex-wrap:wrap;font-size:10px;color:var(--muted)}
+.legend span{display:flex;align-items:center;gap:3px}
+.legend span i{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--ink);display:inline-block}
+.overlay{position:absolute;inset:0;background:rgba(0,0,0,.28);z-index:3}
+.modal{position:absolute;left:0;right:0;bottom:0;z-index:4;background:var(--paper);border-top:2px solid var(--ink);border-radius:18px 18px 0 0;padding:8px 12px 14px;display:flex;flex-direction:column;gap:8px}
+.mini{height:110px;border-radius:10px;border:1.5px solid var(--line);position:relative;background:repeating-linear-gradient(35deg,transparent 0 14px,var(--soft) 14px 15px)}
+.cmp{display:grid;grid-template-columns:78px 1fr 1fr;font-size:11.5px;border:1.5px solid var(--line);border-radius:10px;overflow:hidden}
+.cmp > div{padding:5px 6px;border-top:1px solid var(--soft2);min-width:0}
+.cmp > div:nth-child(-n+3){border-top:0;font-weight:700;background:var(--soft)}
+.cmp .k{color:var(--muted)}
+.tide{height:40px;border-bottom:1.5px solid var(--line);position:relative;overflow:hidden}
+.tide::before{content:"";position:absolute;left:-10%;right:-10%;top:6px;height:60px;border:2px solid var(--dark);border-radius:50%;clip-path:inset(0 0 50% 0)}
+.tide b{position:absolute;top:0;bottom:0;left:30%;width:28%;background:var(--soft2);opacity:.7}
+.tabs{display:flex;border:1.5px solid var(--line);border-radius:8px;overflow:hidden;font-size:11px}
+.tabs span{flex:1;text-align:center;padding:4px 0}
+.tabs .on{background:var(--ink);color:var(--paper);font-weight:700}
+.banner{background:var(--ink);color:var(--paper);font-size:11.5px;padding:5px 12px}
+.list li{list-style:none}
+.desk{display:grid;grid-template-columns:400px 1fr;flex:1;min-height:0}
+.desk .side{border-right:1.5px solid var(--soft2);padding:10px 12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.desk .top{grid-column:1/-1}
+.deskwrap{display:flex;flex-direction:column;flex:1}
+@media (max-width:1040px){.wf.wide{width:100%}.wf.wide .phone{overflow-x:auto}.desk{min-width:900px}}
+</style>
+
+<header class="doc">
+  <h1>SPUMY V3 — wireframes basse fidélité</h1>
+  <p>Phase 3, jalon 1 : structure et hiérarchie des écrans, à valider avant la haute fidélité. Gris seulement : aucune couleur, typographie ni photo n'est arrêtée ici.</p>
+  <p><span class="tag">Données fictives</span> Les noms (Spot A, B, C…), les scores, les heures et les temps de route sont des exemples, pas des calculs.</p>
+  <p>Spécification : <code>docs/design/UX-V3.md</code>. Les pastilles numérotées renvoient aux notes sous chaque écran.</p>
+</header>
+
+<div class="grid">
+
+<!-- 01 -->
+<section class="wf" id="w01" data-file="01-premier-lancement">
+  <h2><b>01</b>Premier lancement, sans position</h2>
+  <div class="phone">
+    <div class="top"><div class="seg"><span class="on">BORD</span><span>BATEAU</span></div><span class="chip dash grow">Aucune position</span></div>
+    <div class="scroll" style="justify-content:center;gap:12px">
+      <div class="row" style="justify-content:center"><div style="width:64px;height:64px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;font-size:10px">médaillon</div></div>
+      <div class="big" style="text-align:center">D'où pars-tu ?<i class="n">1</i></div>
+      <div class="s" style="text-align:center">Les spots et les temps de route se calculent depuis cette position. Elle reste sur ton appareil.</div>
+      <div class="btn pri">Me géolocaliser<i class="n">2</i></div>
+      <div class="btn">Saisir une ville, une adresse…</div>
+      <div class="mini" style="height:150px"><span class="s" style="position:absolute;left:8px;bottom:6px">Carte du littoral couvert, sans position</span></div>
+      <div class="s" style="text-align:center">Aucune position n'est devinée.<i class="n">3</i></div>
+    </div>
+    <div class="nav"><span class="on">Décision</span><span>Carte</span><span>Journal</span><span>Profil</span></div>
+  </div>
+  <ol class="notes">
+    <li>Question unique ; pas de liste de guides ni de départements.</li>
+    <li>Refus ou échec : la saisie s'ouvre, avec l'aide pour autoriser (UX-V3 § 5).</li>
+    <li>Pas de géolocalisation par adresse IP (POS-03).</li>
+  </ol>
+</section>
+
+<!-- 02 -->
+<section class="wf" id="w02" data-file="02-position">
+  <h2><b>02</b>Feuille de position</h2>
+  <div class="phone">
+    <div class="top"><div class="seg"><span class="on">BORD</span><span>BATEAU</span></div><span class="chip solid grow">Pirou-Plage · appareil · ±30 m</span></div>
+    <div class="scroll"><div class="box" style="height:90px"></div><div class="box" style="height:120px"></div></div>
+    <div class="overlay"></div>
+    <div class="modal">
+      <div class="grip"></div>
+      <div class="row between"><span class="h">Position de référence</span><span class="s">Fermer</span></div>
+      <div class="btn pri">Me géolocaliser<i class="n">1</i></div>
+      <div class="field">Ville, adresse, code postal, lieu ou coordonnées<i class="n">2</i></div>
+      <div class="box line" style="padding:4px 8px">
+        <span style="font-size:12px">Crozon <span class="s">— Finistère</span></span><hr class="sep">
+        <span style="font-size:12px">Crozon-Morgat <span class="s">— plage</span></span>
+      </div>
+      <div class="mini"><div class="pin" style="left:46%;top:36%;border-radius:50% 50% 50% 0;transform:rotate(-45deg)"></div><span class="s" style="position:absolute;left:8px;bottom:6px">Déplacer l'épingle pour préciser<i class="n">3</i></span></div>
+      <div class="row between"><span class="s">Récentes, sur cet appareil<i class="n">4</i></span><span class="s"><u>Effacer</u></span></div>
+      <div class="row"><span class="pill">Pirou-Plage</span><span class="pill">Crozon</span></div>
+      <div class="btn pri">Utiliser cette position</div>
+    </div>
+  </div>
+  <ol class="notes">
+    <li>Source et précision affichées dans la puce de l'en-tête après coup.</li>
+    <li>Sans résultat, ou service injoignable : message sous le champ ; les coordonnées collées marchent toujours.</li>
+    <li>Hors ligne : épingle sur la carte en cache, si elle existe.</li>
+    <li>Historique local seulement, effaçable (PRV).</li>
+  </ol>
+</section>
+
+<!-- 03 -->
+<section class="wf" id="w03" data-file="03-decision-bord">
+  <h2><b>03</b>Décision BORD</h2>
+  <div class="phone">
+    <div class="top"><div class="seg"><span class="on">BORD</span><span>BATEAU</span></div><span class="chip solid grow">Pirou-Plage · appareil · ±30 m</span></div>
+    <div class="scroll">
+      <div class="row"><span class="pill dark">Aujourd'hui</span><span class="pill">Demain</span><span class="pill">7 jours</span><span class="s">≤ 60 min de route<i class="n">1</i></span></div>
+      <div class="box"><span class="big">Bonne matinée : 07:30–11:00</span><span class="s">Bar · vigilance : aucune (Météo-France, 06:00)<i class="n">2</i></span></div>
+      <div class="card first">
+        <div class="row between"><span class="row"><span class="rank">1</span><span class="h">Spot A</span></span><span class="pill">Sécurité : OK</span></div>
+        <div class="row between"><span class="s">Favorabilité</span><span class="h mono">72/100 — Bon</span></div><div class="bar"><i style="width:72%"></i></div>
+        <div class="row between"><span class="s">Confiance · ne change pas le rang</span><span class="mono" style="font-size:12px">69/100 — Moyenne</span></div><div class="bar thin"><i style="width:69%"></i></div>
+        <div class="row"><span class="pill">07:30–11:00</span><span class="pill">24 min</span><span class="pill">bar</span></div>
+        <span class="s">Courant portant sur le platier à mi-marée montante.<i class="n">3</i></span>
+        <div class="row"><span class="btn grow">Fiche</span><span class="btn ghost grow">Sur la carte</span></div>
+      </div>
+      <div class="card">
+        <div class="row between"><span class="row"><span class="rank">2</span><span class="h">Spot B</span></span><span class="pill">Sécurité : OK</span></div>
+        <div class="row between"><span class="s">Favorabilité</span><span class="h mono">66/100 — Bon</span></div><div class="bar"><i style="width:66%"></i></div>
+        <div class="row"><span class="s mono">Confiance 81/100 — Haute</span></div>
+        <div class="row"><span class="pill">06:50–09:40</span><span class="pill">~38 min, estimation</span></div>
+      </div>
+      <div class="card">
+        <div class="row between"><span class="row"><span class="rank">3</span><span class="h">Spot C</span><span class="pill dark">Le plus proche<i class="n">4</i></span></span></div>
+        <div class="row between"><span class="s">Favorabilité</span><span class="h mono">58/100 — Moyen</span></div><div class="bar"><i style="width:58%"></i></div>
+        <div class="row"><span class="s mono">Confiance 62/100 — Moyenne</span></div>
+        <div class="row"><span class="pill">08:00–10:30</span><span class="pill">9 min</span></div>
+      </div>
+      <div class="box dashed"><div class="row between"><span class="h">À vérifier (4)<i class="n">5</i></span><span class="s">Afficher ▸</span></div><span class="s">Houle inconnue, accès non confirmé…</span></div>
+      <div class="btn ghost">Comparer deux spots<i class="n">6</i></div>
+    </div>
+    <div class="nav"><span class="on">Décision</span><span>Carte</span><span>Journal</span><span>Profil</span></div>
+  </div>
+  <ol class="notes">
+    <li>Contexte de recherche commun aux 3 cartes : mode, espèce, date, fenêtre.</li>
+    <li>Verdict en une ligne ; vigilance seulement si elle est connue, avec sa source et son heure.</li>
+    <li>Raison principale du rang, en une phrase.</li>
+    <li>Place réservée (V3-016) : meilleur spot admissible à ≤ 15 min, jamais « à vérifier » ni bloqué.</li>
+    <li>Zone distincte et repliée ; ces spots ne sont jamais promus.</li>
+    <li>Comparaison factuelle, sans verdict automatique (UX-V3 § 9).</li>
+  </ol>
+</section>
+
+<!-- 04 -->
+<section class="wf" id="w04" data-file="04-decision-bord-cas">
+  <h2><b>04</b>Décision BORD : pénurie et égalité</h2>
+  <div class="phone">
+    <div class="top"><div class="seg"><span class="on">BORD</span><span>BATEAU</span></div><span class="chip solid grow">Pirou-Plage · appareil · ±30 m</span></div>
+    <div class="scroll">
+      <span class="s">Cas 1 — moins de 3 spots admissibles</span>
+      <div class="box"><span class="h">Peu favorable aujourd'hui</span><span class="s">2 spots seulement : vent de force 7 sur les côtes exposées.<i class="n">1</i></span></div>
+      <div class="card"><div class="row"><span class="rank">1</span><span class="h">Spot D</span><span class="pill warn">Prudence : rafales<i class="n">2</i></span></div><div class="row between"><span class="s">Favorabilité</span><span class="h mono">44/100 — Moyen</span></div><div class="bar"><i style="width:44%"></i></div></div>
+      <div class="card"><div class="row"><span class="rank">2</span><span class="h">Spot E</span></div><div class="row between"><span class="s">Favorabilité</span><span class="h mono">41/100 — Moyen</span></div><div class="bar"><i style="width:41%"></i></div><span class="pill" style="align-self:flex-start">Fenêtre non déterminable : coefficient trop faible</span></div>
+      <hr class="sep">
+      <span class="s">Cas 2 — égalité stricte au dernier rang</span>
+      <div class="card"><div class="row"><span class="rank">3</span><span class="h">Spot F</span><span class="pill">ex æquo</span></div><span class="h mono">61/100 — Bon</span></div>
+      <div class="card"><div class="row"><span class="rank">3</span><span class="h">Spot G</span><span class="pill">ex æquo</span></div><span class="h mono">61/100 — Bon</span></div>
+      <div class="card"><div class="row"><span class="rank">3</span><span class="h">Spot H</span><span class="pill">ex æquo</span></div><span class="h mono">61/100 — Bon</span></div>
+      <div class="btn ghost">+ 3 autres à égalité<i class="n">3</i></div>
+    </div>
+    <div class="nav"><span class="on">Décision</span><span>Carte</span><span>Journal</span><span>Profil</span></div>
+  </div>
+  <ol class="notes">
+    <li>Les places vides ne sont jamais comblées par un spot à vérifier, dangereux ou bloqué.</li>
+    <li>« Prudence » seulement si la règle de sécurité validée l'autorise, avertissement visible.</li>
+    <li>4 ou 5 cartes si l'égalité le veut ; au-delà de 5, un accès explicite aux autres. Pas de départage caché.</li>
+  </ol>
+</section>
+
+<!-- 05 -->
+<section class="wf" id="w05" data-file="05-carte">
+  <h2><b>05</b>Carte (mobile)</h2>
+  <div class="phone">
+    <div class="top"><div class="seg"><span class="on">BORD</span><span>BATEAU</span></div><span class="chip solid grow">Pirou-Plage · appareil</span></div>
+    <div style="padding:6px 12px;display:flex;flex-direction:column;gap:6px;border-bottom:1px solid var(--soft2)">
+      <div class="field">Rechercher un spot</div>
+      <div class="row" style="flex-wrap:nowrap;overflow:hidden"><span class="pill dark">Tous 42</span><span class="pill">Favorables 6<i class="n">1</i></span><span class="pill">À vérifier 4</span><span class="pill">Mes spots 2</span></div>
+    </div>
+    <div class="map">
+      <div class="coast"></div>
+      <div class="pin" style="left:44%;top:18%"></div>
+      <div class="pin l2 sel" style="left:52%;top:34%"></div>
+      <div class="pin dash" style="left:36%;top:44%">?</div>
+      <div class="pin strike" style="left:48%;top:58%"></div>
+      <div class="pin empty" style="left:30%;top:66%"></div>
+      <div class="pin sq l1" style="left:56%;top:72%"></div>
+      <div class="pin cl" style="left:22%;top:24%">12</div>
+      <div class="pin" style="left:8%;top:52%;width:14px;height:14px;background:var(--paper);border-radius:50%;border:3px solid var(--ink)"></div>
+      <div class="fab" style="top:10px">◎</div><div class="fab" style="top:48px">⌖</div><div class="fab" style="top:86px">▤</div>
+      <span class="n" style="position:absolute;left:62%;top:36%">2</span>
+      <span class="n" style="position:absolute;left:30%;top:20%">3</span>
+    </div>
+    <div class="sheet">
+      <div class="grip"></div>
+      <div class="legend"><span><i style="background:var(--soft2)"></i>0–19</span><span><i style="background:var(--soft2)"></i>20–39</span><span><i style="background:var(--line)"></i>40–59</span><span><i style="background:var(--line)"></i>60–74</span><span><i style="background:var(--dark)"></i>75–89</span><span><i style="background:var(--dark)"></i>90–100</span><span><i style="border-style:dashed"></i>à vérifier</span><span>barré : non recommandé</span><span>vide : sans note</span><span>carré : mon spot</span><i class="n">4</i></div>
+      <div class="row between"><span class="row"><span class="h">Spot B</span><span class="pill">2ᵉ</span></span><span class="s">~38 min</span></div>
+      <div class="row between"><span class="s">Favorabilité</span><span class="h mono">66/100 — Bon</span></div>
+      <div class="row"><span class="pill">Sécurité : OK</span><span class="pill">06:50–09:40</span><span class="s mono">Confiance 81 — Haute</span></div>
+      <div class="row"><span class="btn pri grow">Ouvrir la fiche</span><span class="btn ghost">Liste ▴<i class="n">5</i></span></div>
+    </div>
+    <div class="nav"><span>Décision</span><span class="on">Carte</span><span>Journal</span><span>Profil</span></div>
+  </div>
+  <ol class="notes">
+    <li>Compteurs exacts. « Favorables » = seuil validé + sécurité et vérification ; seuil À DÉCIDER (3.5).</li>
+    <li>Sélectionné : anneau épais et légère mise à l'échelle ; le remplissage reste le palier.</li>
+    <li>Groupe : un nombre, sans couleur ni moyenne ; un appui zoome.</li>
+    <li>Légende sur une ligne ; ici en gris, les 6 couleurs viennent avec le Design System.</li>
+    <li>Feuille à trois hauteurs : poignée, liste classée, aperçu du spot.</li>
+  </ol>
+</section>
+
+<!-- 06 -->
+<section class="wf" id="w06" data-file="06-fiche-spot">
+  <h2><b>06</b>Fiche spot (écran défilé en entier)</h2>
+  <div class="phone">
+    <div class="top"><span class="btn ghost" style="padding:3px 8px">← Carte</span><span class="h grow">Spot A</span><span class="s">Comparer</span></div>
+    <div class="scroll">
+      <div class="ph"><em>Illustration<i class="n">1</i></em></div>
+      <div class="row"><span class="pill">24 min de route</span><span class="pill">10 min à pied</span><span class="pill">bar</span></div>
+      <div class="box line">
+        <div class="row between"><span class="s">Favorabilité</span><span class="big mono">72/100 — Bon</span></div><div class="bar"><i style="width:72%"></i></div>
+        <div class="row between"><span class="s">Confiance</span><span class="mono" style="font-size:12px">69/100 — Moyenne</span></div><div class="bar thin"><i style="width:69%"></i></div>
+        <span class="s">Qualité des données et des preuves · ne change pas le rang<i class="n">2</i></span>
+      </div>
+      <div class="box" style="border-left:4px solid var(--ink)"><span class="h">Sécurité : accès coupé à marée haute après 11:40<i class="n">3</i></span><span class="s">Remonter par l'escalier nord avant 11:20.</span></div>
+      <div class="box line"><div class="row between"><span class="h">Fenêtre du jour</span><span class="h mono">07:30–11:00</span></div><div class="tide"><b></b></div><span class="s">BM 06:12 · PM 12:31 · coef. 78 · par phase : approche ▸</span></div>
+      <div class="box line"><span class="h">Approche</span><span class="s">Synthèse : se garer au parking du phare, sentier côtier vers le sud, poste sur la pointe rocheuse, prospecter vers le large.</span><span class="s"><u>Détail : départ, cheminement, repères, poste, variantes selon la marée ▾</u></span></div>
+      <div class="box line"><span class="h">Stratégie</span><div class="tabs"><span class="on">Vue rapide</span><span>Détails</span><span>Expert</span></div><span class="s">Leurre souple 12 cm, récupération lente dans le courant.</span></div>
+      <div class="box line"><span class="h">Leurres conseillés<i class="n">4</i></span><span class="s">Conseil générique · ta sélection viendra avec Matériel.</span></div>
+      <div class="box line"><div class="row between"><span class="h">Pourquoi ?</span><span class="s">▸</span></div><span class="s">Composantes calculées, couverture, données manquantes, provenance et âge.<i class="n">5</i></span></div>
+      <div class="row"><span class="btn ghost grow">Réglementation ▸</span><span class="btn ghost grow">Sources ▸</span></div>
+    </div>
+  </div>
+  <ol class="notes">
+    <li>« Illustration » si ce n'est pas le lieu ; jamais une image reconnaissable sur un spot nommé.</li>
+    <li>Libellé de la Confiance : Haute, Moyenne, Faible ; jamais lu comme une chance de prise.</li>
+    <li>Ce qui change la décision n'est jamais replié.</li>
+    <li>Leurres dans la fiche ; ils ne filtrent ni ne déclassent le spot.</li>
+    <li>Aucune décomposition chiffrée inventée (§ 6.7.3).</li>
+  </ol>
+</section>
+
+<!-- 07 -->
+<section class="wf" id="w07" data-file="07-comparaison">
+  <h2><b>07</b>Comparaison</h2>
+  <div class="phone">
+    <div class="top"><span class="btn ghost" style="padding:3px 8px">← Décision</span><span class="h grow">Comparer</span></div>
+    <div class="scroll">
+      <span class="s">Référence : Spot C · alternative : Spot A · aujourd'hui, même fenêtre de comparaison<i class="n">1</i></span>
+      <div class="cmp">
+        <div></div><div>Spot C</div><div>Spot A</div>
+        <div class="k">Sécurité</div><div>OK</div><div>Accès coupé après 11:40</div>
+        <div class="k">Favorabilité</div><div class="mono">58 — Moyen</div><div class="mono">72 — Bon</div>
+        <div class="k">Confiance</div><div class="mono">62 — Moyenne · météo 06:00</div><div class="mono">69 — Moyenne · météo 06:00</div>
+        <div class="k">Espèce</div><div>bar</div><div>bar</div>
+        <div class="k">Fenêtre</div><div class="mono">08:00–10:30</div><div class="mono">07:30–11:00</div>
+        <div class="k">Route</div><div class="mono">9 min · 6 km</div><div class="mono">24 min · 19 km</div>
+        <div class="k">Règles</div><div>—</div><div>—</div>
+        <div class="k">Raison du rang</div><div>le plus proche</div><div>courant portant</div>
+      </div>
+      <div class="box"><span class="h">+15 min de route (+13 km) pour +14 points de Favorabilité<i class="n">2</i></span><span class="s">Écart dû au courant portant sur le platier (Spot A) ; même fenêtre, données de même âge.</span></div>
+      <div class="box dashed"><span class="h">Variante : avantage non établi</span><span class="s">La météo de Spot C a 5 h : les deux scores ne sont pas comparables.<i class="n">3</i></span></div>
+      <div class="row"><span class="btn grow">Fiche Spot C</span><span class="btn grow">Fiche Spot A</span></div>
+    </div>
+    <div class="nav"><span class="on">Décision</span><span>Carte</span><span>Journal</span><span>Profil</span></div>
+  </div>
+  <ol class="notes">
+    <li>Deux à trois colonnes ; lignes dans l'ordre de UX-V3 § 9.</li>
+    <li>Formulation permise seulement si les scores sont comparables ; aucun verdict, aucun trophée.</li>
+    <li>Sécurité, réglementation et accès ne se compensent jamais.</li>
+  </ol>
+</section>
+
+<!-- 08 -->
+<section class="wf" id="w08" data-file="08-bateau-profil">
+  <h2><b>08</b>BATEAU : profil du bateau (une fois)</h2>
+  <div class="phone">
+    <div class="top"><div class="seg"><span>BORD</span><span class="on">BATEAU</span></div><span class="chip solid grow">Pirou-Plage · appareil</span></div>
+    <div class="scroll">
+      <span class="big">Décris ton bateau<i class="n">1</i></span>
+      <span class="s">Aucun verdict de sortie sans ces informations. Elles restent sur ton appareil.</span>
+      <div class="field">Catégorie de conception (C, D…)</div>
+      <div class="field">Longueur · motorisation</div>
+      <div class="field">Armement de sécurité</div>
+      <div class="field">Vitesse de croisière (nœuds)</div>
+      <div class="row"><span class="pill">Seul à bord</span><span class="pill dark">À plusieurs</span></div>
+      <div class="field">Port ou cale de départ</div>
+      <div class="btn pri">Enregistrer</div>
+      <span class="s">Modifiable ensuite dans Profil, Mon bateau.<i class="n">2</i></span>
+    </div>
+    <div class="nav"><span class="on">Décision</span><span>Carte</span><span>Journal</span><span>Profil</span></div>
+  </div>
+  <ol class="notes">
+    <li>Champs exacts à fixer avec la Phase 9 (BAT) ; ici, la place du parcours.</li>
+    <li>Même navigation à 4 entrées dans les deux modes.</li>
+  </ol>
+</section>
+
+<!-- 09 -->
+<section class="wf" id="w09" data-file="09-decision-bateau">
+  <h2><b>09</b>Décision BATEAU</h2>
+  <div class="phone">
+    <div class="top"><div class="seg"><span>BORD</span><span class="on">BATEAU</span></div><span class="chip solid grow">Pirou-Plage · appareil</span></div>
+    <div class="scroll">
+      <div class="row"><span class="pill dark">Aujourd'hui</span><span class="pill">Demain</span><span class="s">créneau 06:30–13:00</span></div>
+      <div class="box" style="border-left:4px solid var(--ink)"><span class="big">Sortie possible : 07:00–12:00<i class="n">1</i></span><span class="s">Pire moment du créneau : 12:40, vent 4 Bft, rafales 22 nds, houle 1,1 m.</span></div>
+      <div class="card first">
+        <div class="row between"><span class="row"><span class="rank">1</span><span class="h">Marque « Roche nord »</span></span><span class="pill">Sécurité : OK</span></div>
+        <div class="kv"><dt>Lieu jaune</dt><dd class="mono">Fav. 74 — Bon · Conf. 58 — Faible</dd><dt>Bar</dt><dd class="mono">Fav. 61 — Bon · Conf. 64 — Moyenne</dd></div>
+        <div class="row"><span class="pill">abri à 4,2 MN · 17 min à 15 nds</span><span class="pill">40–55 m</span></div>
+        <span class="s">Taille minimale et quotas : bar 42 cm · règle du jour ▸<i class="n">2</i></span>
+        <div class="row"><span class="btn grow">Fiche</span><span class="btn ghost grow">Sur la carte</span></div>
+      </div>
+      <div class="card"><div class="row between"><span class="row"><span class="rank">2</span><span class="h">Marque « Épave »</span></span><span class="pill">Sécurité : OK</span></div><div class="kv"><dt>Lieu noir</dt><dd class="mono">Fav. 68 — Bon · Conf. 52 — Faible</dd></div></div>
+      <div class="card"><div class="row between"><span class="row"><span class="rank">3</span><span class="h">Marque « Banc »</span></span><span class="pill warn">À vérifier : houle</span></div><span class="s">(exemple refusé : un spot à vérifier ne prend jamais cette place)<i class="n">3</i></span></div>
+      <div class="box line"><span class="s">Gilet · VHF canal 16 · BMS · itinéraire laissé à un proche<i class="n">4</i></span></div>
+    </div>
+    <div class="nav"><span class="on">Décision</span><span>Carte</span><span>Journal</span><span>Profil</span></div>
+  </div>
+  <ol class="notes">
+    <li>Sécurité d'abord, jugée sur le pire moment du créneau, avec ses raisons.</li>
+    <li>Réglementation de l'espèce avec sa source et sa date.</li>
+    <li>Contre-exemple volontaire : la 3ᵉ place irait à la zone admissible suivante, ou resterait vide avec sa raison.</li>
+    <li>Rappels sobres, sans alerte décorative.</li>
+  </ol>
+</section>
+
+<!-- 10 -->
+<section class="wf" id="w10" data-file="10-journal">
+  <h2><b>10</b>Journal</h2>
+  <div class="phone">
+    <div class="top"><div class="seg"><span class="on">BORD</span><span>BATEAU</span></div><span class="h grow">Journal</span><span class="s">⋯<i class="n">1</i></span></div>
+    <div class="scroll">
+      <div class="box" style="border-left:4px solid var(--ink)"><div class="row between"><span class="h">Sortie en cours · Spot A</span><span class="mono h">01:12</span></div><div class="row"><span class="btn pri grow">+ Ajouter une prise</span><span class="btn">Terminer</span></div></div>
+      <div class="row"><span class="btn grow">+ Noter une sortie</span><span class="btn ghost">Par photo<i class="n">2</i></span></div>
+      <ul class="list" style="padding:0;margin:0;display:flex;flex-direction:column;gap:6px">
+        <li class="card"><div class="row between"><span class="h">Sam. 14 nov. · Spot B</span><span class="pill dark">2 prises</span></div><span class="s">bar 46 cm, bar 39 cm · 06:40–09:10</span></li>
+        <li class="card"><div class="row between"><span class="h">Jeu. 12 nov. · Spot C</span><span class="pill">Sans prise</span></div><span class="s">07:00–08:30</span></li>
+        <li class="card"><div class="row between"><span class="h">Dim. 8 nov. · Spot A</span><span class="pill warn">Résultat non renseigné<i class="n">3</i></span></div><span class="s">Compléter ▸</span></li>
+        <li class="card"><div class="row between"><span class="h">Mar. 3 nov. · Spot D</span><span class="pill warn">Incomplète</span></div><span class="s">Photo à rattacher ▸</span></li>
+        <li class="card"><div class="row between"><span class="h">Ven. 30 oct. · Spot E</span><span class="pill">Annulée</span></div></li>
+      </ul>
+      <span class="s">2 sorties à sauvegarder · Profil, Mes données ▸<i class="n">4</i></span>
+    </div>
+    <div class="nav"><span>Décision</span><span>Carte</span><span class="on">Journal</span><span>Profil</span></div>
+  </div>
+  <ol class="notes">
+    <li>Option B de l'export (menu du Journal) : à tester contre l'option A (Profil).</li>
+    <li>Ajout par photo : l'analyse V2 est reprise, la sortie se complète plus tard.</li>
+    <li>« Non renseigné » n'est jamais une bredouille : chaque état a son libellé.</li>
+    <li>État de la sauvegarde visible, sans bloquer la saisie.</li>
+  </ol>
+</section>
+
+<!-- 11 -->
+<section class="wf" id="w11" data-file="11-profil">
+  <h2><b>11</b>Profil</h2>
+  <div class="phone">
+    <div class="top"><div class="seg"><span class="on">BORD</span><span>BATEAU</span></div><span class="h grow">Profil</span></div>
+    <div class="scroll">
+      <div class="box dashed"><span class="h">Statistiques personnelles<i class="n">1</i></span><span class="s">Contenu à définir après étude (PRO-02).</span><div class="row"><div class="box" style="flex:1;height:44px"></div><div class="box" style="flex:1;height:44px"></div><div class="box" style="flex:1;height:44px"></div></div></div>
+      <div class="box line"><div class="row between"><span class="h">Mes spots et mes marques</span><span class="s">2 ▸</span></div></div>
+      <div class="box line"><div class="row between"><span class="h">Mon bateau</span><span class="s">▸</span></div></div>
+      <div class="box line"><span class="h">Mes données<i class="n">2</i></span><span class="s">Sauvegarde · transfert vers un autre appareil · export du journal (option A) · tout effacer</span></div>
+      <div class="box line"><span class="h">Réglages</span><span class="s">Thème · mode terrain</span></div>
+      <div class="box line"><span class="h">Aide et règles</span><span class="s">Scores, statuts, règles de pêche complètes</span></div>
+      <div class="row" style="gap:8px"><div style="width:40px;height:40px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;font-size:8px">logo</div><span class="s">À propos · sources des données · version<i class="n">3</i></span></div>
+    </div>
+    <div class="nav"><span>Décision</span><span>Carte</span><span>Journal</span><span class="on">Profil</span></div>
+  </div>
+  <ol class="notes">
+    <li>Place réservée ; aucune statistique fixée avant l'étude.</li>
+    <li>« Tout effacer » demandera une confirmation dans la page.</li>
+    <li>Médaillon BRAND à 40 px au moins ; aucun slogan.</li>
+  </ol>
+</section>
+
+<!-- 12 -->
+<section class="wf" id="w12" data-file="12-etats">
+  <h2><b>12</b>Hors ligne, aucun spot à ≤ 1 h</h2>
+  <div class="phone">
+    <div class="banner">Hors ligne · données de 06:10<i class="n">1</i></div>
+    <div class="top"><div class="seg"><span class="on">BORD</span><span>BATEAU</span></div><span class="chip solid grow">Clermont-Ferrand · saisie</span></div>
+    <div class="scroll">
+      <div class="box line"><span class="big">Aucun spot BORD à moins d'1 h de route d'ici<i class="n">2</i></span><span class="s">Le plus proche est à environ 3 h 40 (estimation).</span>
+        <div class="row"><span class="btn pri grow">Changer de position</span></div><span class="s"><u>Voir les plus proches au-delà d'1 h ▸</u><i class="n">3</i></span></div>
+      <hr class="sep">
+      <span class="s">Autres états (même grammaire : quoi, pourquoi, que faire)</span>
+      <div class="box"><span class="h">Météo injoignable</span><span class="s">Marée et lumière seulement · Réessayer</span></div>
+      <div class="box"><span class="h">Calcul des spots autour de Pirou-Plage…</span><div class="bar thin"><i style="width:35%"></i></div><span class="s">Squelettes, sans statut provisoire<i class="n">4</i></span></div>
+      <div class="box"><span class="h">Position refusée</span><span class="s">Saisis une position, ou autorise la localisation dans les réglages du téléphone.</span></div>
+      <div class="box"><span class="h">Danger non documenté</span><span class="s">À vérifier sur place · jamais affiché « au vert »</span></div>
+    </div>
+    <div class="nav"><span class="on">Décision</span><span>Carte</span><span>Journal</span><span>Profil</span></div>
+  </div>
+  <ol class="notes">
+    <li>Bandeau d'âge des données ; route marquée « estimation ».</li>
+    <li>Pas de liste vide muette.</li>
+    <li>Liste à part, marquée « au-delà d'1 h », jamais mélangée aux cartes.</li>
+    <li>A12 corrigé : aucun statut provisoire pendant le calcul.</li>
+  </ol>
+</section>
+
+<!-- 13 -->
+<section class="wf wide" id="w13" data-file="13-carte-bureau">
+  <h2><b>13</b>Carte (bureau)</h2>
+  <div class="phone">
+    <div class="deskwrap">
+      <div class="top" style="gap:10px"><div style="width:28px;height:28px;border-radius:50%;border:2px solid var(--ink)"></div><span class="h">SPUMY</span><div class="seg"><span class="on">BORD</span><span>BATEAU</span></div><span class="chip solid">Pirou-Plage · appareil · ±30 m</span><span class="grow"></span><span class="s">Décision</span><span class="h">Carte</span><span class="s">Journal</span><span class="s">Profil</span><i class="n">1</i></div>
+      <div class="desk">
+        <div class="side">
+          <div class="field">Rechercher un spot</div>
+          <div class="row"><span class="pill dark">Tous 42</span><span class="pill">Favorables 6</span><span class="pill">À vérifier 4</span><span class="pill">Mes spots 2</span></div>
+          <span class="s">Classés par rang · aujourd'hui · ≤ 60 min de route<i class="n">2</i></span>
+          <div class="card first"><div class="row between"><span class="row"><span class="rank">1</span><span class="h">Spot A</span></span><span class="h mono">72/100 — Bon</span></div><div class="row"><span class="pill">OK</span><span class="pill">07:30–11:00</span><span class="pill">24 min</span><span class="s mono">Conf. 69 — Moyenne</span></div></div>
+          <div class="card"><div class="row between"><span class="row"><span class="rank">2</span><span class="h">Spot B</span></span><span class="h mono">66/100 — Bon</span></div><div class="row"><span class="pill">OK</span><span class="pill">06:50–09:40</span><span class="pill">~38 min</span></div></div>
+          <div class="card"><div class="row between"><span class="row"><span class="rank">3</span><span class="h">Spot C</span><span class="pill dark">Le plus proche</span></span><span class="h mono">58/100</span></div></div>
+          <div class="card"><div class="row between"><span class="row"><span class="rank">4</span><span class="h">Spot I</span></span><span class="h mono">55/100</span></div></div>
+          <div class="box dashed"><span class="h">À vérifier (4) ▸</span></div>
+        </div>
+        <div class="map" style="min-height:480px">
+          <div class="coast"></div>
+          <div class="pin" style="left:44%;top:18%"></div><div class="pin l2 sel" style="left:52%;top:34%"></div><div class="pin dash" style="left:36%;top:44%">?</div><div class="pin strike" style="left:48%;top:58%"></div><div class="pin empty" style="left:30%;top:66%"></div><div class="pin sq l1" style="left:56%;top:72%"></div><div class="pin cl" style="left:22%;top:24%">12</div>
+          <div class="fab" style="top:10px">◎</div><div class="fab" style="top:48px">⌖</div><div class="fab" style="top:86px">▤</div>
+          <div class="box line" style="position:absolute;left:12px;bottom:12px;background:var(--paper);width:300px"><span class="h">Spot B · 66/100 — Bon</span><span class="s">Sécurité OK · 06:50–09:40 · ~38 min · Conf. 81 — Haute</span><div class="row"><span class="btn pri">Ouvrir la fiche</span><span class="btn ghost">Comparer</span></div><i class="n">3</i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ol class="notes">
+    <li>Au-delà de 1 024 px, la navigation passe en haut ; mêmes 4 entrées.</li>
+    <li>Liste d'environ 400 px, synchronisée avec la carte (survol, sélection).</li>
+    <li>Aperçu flottant au lieu de la feuille glissante.</li>
+  </ol>
+</section>
+
+</div>
