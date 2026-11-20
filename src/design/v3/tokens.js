@@ -42,6 +42,14 @@ export const TIERS = Object.freeze([
   { id: 5, min: 90, max: 100, family: "bleu", word: "Excellent", hex: /** @type {Hex} */ ("#2C60C2") },
 ]);
 
+/**
+ * Encre d'un chiffre posé SUR le remplissage d'un palier (disque de score) : marine ou blanc cassé, le plus contrasté.
+ * Contraste de 3:1 au moins : réservé aux chiffres de 19 px gras ou plus (grand texte WCAG). Un petit texte ne se pose
+ * jamais sur un palier ; sur la carte, le score est écrit sur une étiquette blanc cassé (DS § 3.3).
+ * @param {number} id
+ */
+export const TIER_INK = Object.freeze({ 0: "offWhite", 1: "offWhite", 2: "navy", 3: "navy", 4: "navy", 5: "offWhite" });
+
 /** Seuil du filtre « Favorables » (V3-021, décision de Félix du 20 nov. 2026) : début du palier « Très bon ». */
 export const FAVORABLE_MIN = 75;
 

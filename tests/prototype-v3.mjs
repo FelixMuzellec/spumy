@@ -36,6 +36,8 @@ async function open(view, scheme, hash) {
   page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
   await page.goto(`${BASE}#${hash}`);
   await page.waitForSelector(".app");
+  // Le prototype s'ouvre en « nuit marine » ; le thème clair est imposé comme le ferait Profil, Affichage.
+  await page.evaluate((s) => document.documentElement.setAttribute("data-theme", s), scheme);
   return { ctx, page, errors };
 }
 
@@ -58,18 +60,25 @@ for (const [vn, view] of VIEWS) for (const scheme of ["light", "dark"]) {
   const txt = await page.textContent("main");
   t("Home : phrase de synthèse avec horaires", /bonne matinée pour le bar : \d\d:\d\d–\d\d:\d\d/i.test(txt));
   t("Home : place réservée « Le plus proche » (V3-016)", txt.includes("Le plus proche"));
-  t("Home : 3 cartes de recommandation", (await page.locator("article.rec").count()) === 3);
-  t("Home : spots « à vérifier » hors des cartes", !(await page.locator("article.rec", { hasText: "Pointe E" }).count()) && txt.includes("À vérifier (2)"));
-  t("Home : horaires en tête de chaque carte", (await page.locator("article.rec .time-big").count()) === 3);
+  t("Home : 3 cartes de recommandation", (await page.locator("article.rc").count()) === 3);
+  t("Home : spots « à vérifier » hors des cartes", !(await page.locator("article.rc", { hasText: "Pointe E" }).count()) && txt.includes("À vérifier (2)"));
+  t("Home : horaires en tête de chaque carte", (await page.locator("article.rc .rc-time").count()) === 3);
+  t("Home : une photo par carte", (await page.locator("article.rc .rc-media img").count()) === 3);
   await page.evaluate(() => { location.hash = "carte"; });
   await page.waitForSelector(".mk");
   const favChip = page.locator(".chip", { hasText: "Favorables" });
   const n = Number((await favChip.locator(".num").textContent()).trim());
   await favChip.click();
   t("Carte : « Favorables » = 3 (seuil 75, sécurité, pas à vérifier)", n === 3, String(n));
-  t("Carte : compteur égal aux pastilles affichées", (await page.locator(".mklayer .mk:not(.cluster)").count()) === n);
+  t("Carte : compteur égal aux pastilles affichées", (await page.locator(".mklayer .mk").count()) === n);
+  t("Carte : chaque pastille porte son score", (await page.locator(".mklayer .mk .lbl").allTextContents()).every((x) => /^\d+$|^–$/.test(x)));
   await page.locator(".chip", { hasText: "Tous" }).click();
-  t("Carte : pastille « à vérifier » avec « ? »", (await page.locator(".mk.verify .q").count()) === 2);
+  const all = Number((await page.locator(".chip", { hasText: "Tous" }).locator(".num").textContent()).trim());
+  t("Carte : « Tous » égal aux pastilles affichées", (await page.locator(".mklayer .mk").count()) === all, String(all));
+  const box = await page.locator(".mapbox").boundingBox(), sheet = await page.locator(".sheet").boundingBox();
+  const hidden = await page.locator(".mklayer .mk").evaluateAll((els, lim) => els.filter((e) => e.getBoundingClientRect().bottom > lim).length, Math.min(box.y + box.height, sheet.y));
+  t("Carte : aucune pastille cachée sous la feuille", hidden === 0, String(hidden));
+  t("Carte : pastilles « à vérifier » avec le signe d'avertissement", (await page.locator(".mk.verify .ic").count()) === 2);
   t("Carte : pastille barrée pour « non recommandé »", (await page.locator(".mk.nr").count()) === 1);
   t("Carte : pastille vide sans note", (await page.locator(".mk.empty").count()) === 1);
   await page.evaluate(() => { location.hash = "spot-a"; });
@@ -100,9 +109,16 @@ for (const [vn, view] of VIEWS) for (const scheme of ["light", "dark"]) {
     return [...n.querySelectorAll("a")].map((a) => { const b = a.getBoundingClientRect(); return [a.textContent, b.left >= r.left - 1 && b.right <= r.right + 1]; }); });
   t("barre : 4 onglets visibles, Journal hors champ", vis.filter((v) => v[1]).length === 4 && vis.find((v) => v[0] === "Journal")?.[1] === false, JSON.stringify(vis));
   t("barre : chevron de suite à droite", (await page.locator(".navwrap .more.r").count()) === 1);
-  await page.locator(".nav").evaluate((n) => { n.scrollLeft = n.scrollWidth; });
-  await page.waitForTimeout(100);
-  t("barre : en glissant, Journal apparaît et le chevron gauche aussi", (await page.locator(".navwrap .more.l").count()) === 1);
+  const nb = await page.locator(".nav").boundingBox();
+  await page.mouse.move(nb.x + nb.width - 20, nb.y + nb.height / 2); await page.mouse.down();
+  await page.mouse.move(nb.x + 40, nb.y + nb.height / 2, { steps: 8 }); await page.mouse.up();
+  await page.waitForTimeout(250);
+  t("barre : glissée à la souris, elle défile (Journal visible, chevron gauche)", (await page.locator(".navwrap .more.l").count()) === 1);
+  await page.locator(".navwrap .more.l").click();
+  await page.waitForTimeout(400);
+  t("barre : le chevron gauche ramène le début", (await page.locator(".nav").evaluate((n) => n.scrollLeft)) < 5);
+  await page.locator(".navwrap .more.r").click();
+  await page.waitForTimeout(400);
   await page.locator(".nav a", { hasText: "Journal" }).click();
   await page.waitForTimeout(80);
   t("barre : Journal ouvert au toucher", (await page.textContent("main")).includes("Sortie en cours"));

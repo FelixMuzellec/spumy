@@ -6,7 +6,11 @@ export const DEMO_NOTE = "Prototype · données de démonstration";
 
 /** Photos du catalogue utilisées par le prototype (copiées à la construction de la page de revue). */
 export const PHOTO_SET = ["platier-aube-frontale", "roche-ciel-bleu", "falaises-couchant", "jigging-console-sondeur", "falaise-mer-formee", "roches-eau-turquoise",
-  "lancer-ressac", "nuit-frontale", "estuaire-pres-sales", "plage-averse", "bar-eau-claire", "lieu-noir-pont-jig"];
+  "lancer-ressac", "nuit-frontale", "estuaire-pres-sales", "plage-averse", "bar-eau-claire", "lieu-noir-pont-jig", "lieu-jaune-goemon", "maquereau-roche",
+  "mesure-bar", "silhouette-couchant", "bar-roche"];
+
+/** Photo d'illustration de chaque espèce (fiches et cartes BATEAU). */
+export const SPECIES_PHOTO = { Bar: "bar-eau-claire", "Lieu jaune": "lieu-jaune-goemon", "Lieu noir": "lieu-noir-pont-jig", Maquereau: "maquereau-roche" };
 
 /** Heures décimales → « HH:MM ». */
 export const hhmm = (h) => {
@@ -126,8 +130,8 @@ export function beaufort(kmh) {
 export const compass = (deg) => ["N", "NE", "E", "SE", "S", "SO", "O", "NO"][Math.round((((deg % 360) + 360) % 360) / 45) % 8];
 
 export const JOURNAL = [
-  { id: "j1", date: "Sam. 14 nov.", spot: "Platier B", state: "capture", catches: "bar 46 cm, bar 39 cm", hours: "06:40–09:10" },
-  { id: "j2", date: "Jeu. 12 nov.", spot: "Crique C", state: "sans_capture", hours: "07:00–08:30" },
+  { id: "j1", date: "Sam. 14 nov.", spot: "Platier B", state: "capture", catches: "bar 46 cm, bar 39 cm", hours: "06:40–09:10", photo: "mesure-bar" },
+  { id: "j2", date: "Jeu. 12 nov.", spot: "Crique C", state: "sans_capture", hours: "07:00–08:30", photo: "silhouette-couchant" },
   { id: "j3", date: "Dim. 8 nov.", spot: "Pointe A", state: "resultat_inconnu" },
   { id: "j4", date: "Mar. 3 nov.", spot: "Digue D", state: "incomplete" },
   { id: "j5", date: "Ven. 30 oct.", spot: "Estuaire F", state: "annulee" },

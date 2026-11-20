@@ -76,6 +76,11 @@ t("fixture : « 69/100 — Moyenne »", T.confidenceLabel(69, "Moyenne") === "69
 t("libellé : 72 → « 72/100 — Bon »", T.favorabilityLabel(72) === "72/100 — Bon");
 t("libellé : sans note", T.favorabilityLabel(null) === "Sans note");
 t("le statut « À vérifier » ne change pas la couleur du palier", T.tierOf(53)?.id === 2);
+for (const tr of T.TIERS) {
+  const ink = T.PALETTE[T.TIER_INK[tr.id]], other = T.PALETTE[T.TIER_INK[tr.id] === "navy" ? "offWhite" : "navy"];
+  t(`palier ${tr.id} : chiffre de 19 px gras lisible sur le disque (3:1)`, ratio(ink, tr.hex) >= 3, ratio(ink, tr.hex).toFixed(2));
+  t(`palier ${tr.id} : l'encre choisie est la plus contrastée`, ratio(ink, tr.hex) >= ratio(other, tr.hex));
+}
 t("Favorables : seuil 75 (V3-021)", T.FAVORABLE_MIN === 75 && T.FAVORABLE_MIN === T.TIERS[4].min);
 t("Favorables : 74 non, 75 oui", !T.isFavorable(74, { safetyOk: true }) && T.isFavorable(75, { safetyOk: true }));
 t("Favorables : 74,5 s'affiche 75, donc oui", T.isFavorable(74.5, { safetyOk: true }));

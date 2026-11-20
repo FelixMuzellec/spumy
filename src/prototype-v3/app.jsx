@@ -27,6 +27,8 @@ const parse = () => {
 
 function Nav({ order, page }) {
   const ref = useRef(null);
+  const wrap = useRef(null);
+  const drag = useRef(null);
   const [edge, setEdge] = useState({ l: false, r: true });
   const measure = useCallback(() => { const n = ref.current; if (n) setEdge({ l: n.scrollLeft > 2, r: n.scrollLeft + n.clientWidth < n.scrollWidth - 2 }); }, []);
   useLayoutEffect(() => {
@@ -34,16 +36,23 @@ function Nav({ order, page }) {
     if (a && ref.current.scrollWidth > ref.current.clientWidth) a.scrollIntoView({ inline: "nearest", block: "nearest" });
     measure();
   }, [page, order, measure]);
+  // Faire glisser la barre : au doigt (défilement natif), à la souris (glisser-déposer) et à la molette ; chevrons cliquables.
+  const step = (d) => { const n = ref.current; n.scrollBy({ left: d * n.clientWidth / 4, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); };
+  const down = (e) => { if (e.pointerType !== "mouse") return; drag.current = { x: e.clientX, left: ref.current.scrollLeft, moved: false }; };
+  const move = (e) => { const d = drag.current; if (!d) return; const dx = e.clientX - d.x; if (Math.abs(dx) > 4) { d.moved = true; ref.current.classList.add("dragging"); } ref.current.scrollLeft = d.left - dx; };
+  const up = () => { const d = drag.current; drag.current = null; if (!d) return; ref.current.classList.remove("dragging");
+    const n = ref.current, w = n.clientWidth / 4; n.scrollTo({ left: Math.round(n.scrollLeft / w) * w }); if (d.moved) { const stop = (ev) => { ev.preventDefault(); ev.stopPropagation(); }; const w = wrap.current; w.addEventListener("click", stop, { capture: true, once: true }); setTimeout(() => w.removeEventListener("click", stop, { capture: true }), 0); } };
+  const wheel = (e) => { if (Math.abs(e.deltaY) > Math.abs(e.deltaX) && ref.current.scrollWidth > ref.current.clientWidth) { ref.current.scrollLeft += e.deltaY; } };
   return (
-    <div className="navwrap">
+    <div className="navwrap" ref={wrap} onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerLeave={up} onWheel={wheel}>
       <nav className="nav" ref={ref} onScroll={measure} aria-label="Onglets (faire glisser la barre pour voir les autres)">
         {order.map((t) => (
-          <a key={t} href={`#${t}`} aria-current={page === t ? "page" : undefined} onFocus={(e) => e.currentTarget.scrollIntoView({ inline: "nearest", block: "nearest" })}>
+          <a key={t} href={`#${t}`} draggable="false" aria-current={page === t ? "page" : undefined} onFocus={(e) => e.currentTarget.scrollIntoView({ inline: "nearest", block: "nearest" })}>
             <Icon name={TAB_ICON[t]} size={22} />{TAB_LABEL[t]}</a>
         ))}
       </nav>
-      {edge.l && <span className="more l" aria-hidden="true"><Icon name="left" size={18} /></span>}
-      {edge.r && <span className="more r" aria-hidden="true"><Icon name="right" size={18} /></span>}
+      {edge.l && <button className="more l" tabIndex={-1} aria-hidden="true" onClick={() => step(-1)}><Icon name="left" size={20} /></button>}
+      {edge.r && <button className="more r" tabIndex={-1} aria-hidden="true" onClick={() => step(1)}><Icon name="right" size={20} /></button>}
     </div>
   );
 }
@@ -51,7 +60,7 @@ function Nav({ order, page }) {
 function App() {
   const [route, setRoute] = useState(parse);
   const [st, setSt] = useState({
-    mode: "bord", tabs: ["home", "carte", "meteo", "profil", "journal"], hero: "auto", theme: "system",
+    mode: "bord", tabs: ["home", "carte", "meteo", "profil", "journal"], hero: "auto", theme: "dark",
     pos: { mode: "auto", label: "Pirou", acc: "±30 m", state: "ok" }, demo: {},
   });
   const set = (patch) => setSt((s) => ({ ...s, ...patch }));

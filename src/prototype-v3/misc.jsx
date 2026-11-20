@@ -54,7 +54,7 @@ export function Journal({ items, openAdd }) {
       </div>
       <div className="row"><button className="btn grow" onClick={openAdd}>Noter une sortie</button><button className="btn">Par photo</button></div>
       <ul className="list">{items.map((j) => (
-        <li key={j.id} className="card"><div className="row between"><b>{j.date} · {j.spot}</b>
+        <li key={j.id} className="card">{j.photo && <img src={photoSrc(j.photo, 1600)} alt="" style={{ width: "100%", height: 150, objectFit: "cover", borderRadius: 12 }} />}<div className="row between"><b>{j.date} · {j.spot}</b>
           <span className={`badge ${j.state === "capture" ? "dark" : j.state === "resultat_inconnu" || j.state === "incomplete" ? "verify" : "info"}`}>{STATE_LABEL[j.state]}</span></div>
           {(j.catches || j.hours) && <span className="meta num">{[j.catches, j.hours].filter(Boolean).join(" · ")}</span>}
           {(j.state === "resultat_inconnu" || j.state === "incomplete") && <button className="btn ghost" style={{ alignSelf: "flex-start" }}>Compléter</button>}</li>))}</ul>

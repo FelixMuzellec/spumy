@@ -1,10 +1,10 @@
 // SPUMY V3 — composants de base du prototype (Design System V3, § 7).
 import { useEffect, useRef } from "react";
-import { tierOf, displayValue, gaugeWidth } from "../design/v3/tokens.js";
+import { tierOf, displayValue, gaugeWidth, TIER_INK } from "../design/v3/tokens.js";
 import { SUN, NOW, span } from "./data.js";
 
 /* global PHOTO_BASE, BRAND_BASE */
-export const photoSrc = (id, size = 720) => `${typeof PHOTO_BASE === "string" ? PHOTO_BASE : "photos/"}${id}-${size}.webp`;
+export const photoSrc = (id, size = 1600) => `${typeof PHOTO_BASE === "string" ? PHOTO_BASE : "photos/"}${id}-${size}.webp`;
 export const brandSrc = (f) => `${typeof BRAND_BASE === "string" ? BRAND_BASE : "brand/"}${f}`;
 
 // Pictogrammes au trait (famille Lucide, licence ISC), 24 px, épaisseur 1,75.
@@ -56,6 +56,18 @@ export function Gauge({ label, value, word, size = "", note }) {
   );
 }
 
+/** Disque de score : chiffre de 20 px gras (grand texte) sur le palier, mot et Confiance à côté. */
+export function Score({ value, word, conf, level }) {
+  const d = displayValue(value), t = tierOf(value);
+  return (
+    <div className="score">
+      <span className="disc" style={t ? { background: `var(--tier-${t.id})`, color: `var(--palette-${TIER_INK[t.id] === "navy" ? "navy" : "off-white"})` } : { background: "var(--surface-sunken)" }}
+        role="img" aria-label={`Favorabilité ${d ?? "sans note"}${d !== null ? " sur 100" : ""}`}>{d ?? "–"}</span>
+      <span className="txt"><b>{word || (t ? t.word : "Sans note")}</b>{conf !== undefined && <span>Confiance {String(level).toLowerCase()} ({conf}) · ne change pas le rang</span>}</span>
+    </div>
+  );
+}
+
 /** Pastille de statut : toujours un pictogramme et un mot. */
 export function Safety({ s, short }) {
   if (s.status === "verify") return <span className="badge verify"><Icon name="help" size={16} dashed />À vérifier</span>;
@@ -69,7 +81,7 @@ export function Safety({ s, short }) {
 export function Hero({ photo, title, sub, children, min }) {
   return (
     <section className="hero" style={min ? { minHeight: min } : undefined}>
-      {photo && <img src={photoSrc(photo, 720)} alt="" loading="eager" />}
+      {photo && <img src={photoSrc(photo, 1600)} alt="" loading="eager" />}
       <span className="illus">Illustration</span>
       <div className="inner"><h1>{title}</h1>{sub && <p>{sub}</p>}{children}</div>
     </section>
