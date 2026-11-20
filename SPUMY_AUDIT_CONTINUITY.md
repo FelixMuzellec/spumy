@@ -36,7 +36,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | 3.0 Branche, validations de la phase 2, suivi | IMPLEMENTED (proposition n° 17) | `docs/DECISIONS_LOG.md`, ce fichier |
 | 3.1 Audit AVANT : captures de toutes les routes et de tous les états, registre priorisé des écarts | IMPLEMENTED (31 captures, 22 écarts ; site en ligne non vérifiable) | `docs/design/AUDIT-UX-AVANT.md`, `docs/design/avant/` |
 | 3.2 Logos : manifeste, matrice des usages, exports V3 sans altération du poisson, test de la zone protégée | TESTED (`python3 tests/brand.py` 23/23, code 0) | `docs/design/BRAND-MANIFEST.md`, `scripts/logos-v3.py`, `assets/brand/v3/`, `tests/brand.py` |
-| 3.3 Planche UI Showcase écran par écran ; revue des photos et demandes de remplacement | NOT STARTED | `docs/design/REFERENCES.md` |
+| 3.3 Planche UI Showcase écran par écran ; revue des photos et demandes de remplacement | IMPLEMENTED (8 écrans revus ; 4 photos demandées à Félix le 20 nov., `BLOCKED — PHOTO UTILISATEUR ATTENDUE`) | `docs/design/REFERENCES.md` |
 | 3.4 Usages, scénarios, architecture de l'information, parcours, carte, cartes de recommandation (jalon 1) | NOT STARTED | `docs/design/UX-V3.md` |
 | 3.5 Design System V3 : jetons, contrastes, composants, états, contenus | NOT STARTED | `docs/design/DESIGN-SYSTEM-V3.md`, `src/design/v3/`, `tests/design-v3.mjs` |
 | 3.6 Wireframes, puis prototype interactif (BORD et BATEAU) | NOT STARTED | `src/prototype-v3/`, `prototype-v3/` |
@@ -53,6 +53,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | Q4 | 20 nov., 4 h 18 | Vigilance Météo-France | Petit relais gratuit | ADR-V3-011 ; comptes Météo-France et Cloudflare à fournir par Félix plus tard |
 | Q5 | 20 nov., 4 h 18 | Place réservée dans le Top 3 | Oui, 15 min ou moins | ADR-V3-016, REC-06 |
 | Q6 | 20 nov., 4 h 18 | Ancienne note sur 10 | La retirer | ADR-V3-015, REC-12 |
+| Q7 | 20 nov., 5 h 05 | 4 photos à remplacer (2 espèces BATEAU, 1 silhouette, 1 semi-rigide), avec briefs | en attente | `docs/design/REFERENCES.md` |
 
 ## Checkpoint
 
@@ -62,7 +63,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 
 ## Prochaine action
 
-3.3 : planche UI Showcase écran par écran ; revue des photos.
+3.4 : usages, scénarios, architecture de l'information, parcours, carte, cartes de recommandation ; wireframes ; jalon 1.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
