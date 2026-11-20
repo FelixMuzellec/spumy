@@ -170,7 +170,7 @@ La galerie AVANT/CIBLE est dans `docs/design/galerie-avant-cible.html`, publiée
 ## 7. Revue des contenus et revue terrain
 
 **Contenus**
-- Pas de slogan, pas de « V2 », pas de note sur 10, pas de « Pertinence » à l'écran (testé sur 8 écrans).
+- Pas de slogan, pas de « V2 » ni de « phase », pas de note sur 10, pas de « Pertinence » à l'écran (testé sur 8 écrans ; « Phase 9 » retiré du choix du bateau, D-16).
 - Heures au format `HH:MM–HH:MM`.
 - Espace insécable avant « : ».
 - Chaque photo est marquée « Illustration » (V3-026).
@@ -203,6 +203,7 @@ La galerie AVANT/CIBLE est dans `docs/design/galerie-avant-cible.html`, publiée
 | D-13 | Marqueur « à vérifier » : ⚠ et contour plein au lieu du pointillé et du « ? » du § 6.9 | OBSERVATION | Retour de Félix (14 h 26 : pointillés et « ? » incompris), V3-025 validée au jalon 2 | Arbitré ; écart au référentiel consigné |
 | D-14 | Aide et « mode terrain » non détaillés | MINEURE | Prototyper avant l'intégration | Ouvert : CR-09 |
 | D-15 | Emplacement de l'export du journal non décidé (A22) | MINEURE | Options A, B, C (UX-V3 § 11) | À DÉCIDER après test |
+| D-16 | « Phase 9 » écrit à l'écran dans le choix du bateau (UX-03), trouvé au contrôle des exigences de la sous-tâche 3.8 | MINEURE | Mention retirée ; le test d'héritage cherche aussi « phase » | Corrigé, testé |
 
 Aucun défaut critique ou majeur ne reste ouvert. Les défauts de l'audit AVANT (A01 à A22) sont suivis au § 10.
 

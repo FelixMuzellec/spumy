@@ -261,12 +261,12 @@ for (const w of [320, 375, 390]) {
       const sizes = [...document.querySelectorAll(".app *")].filter((e) => [...e.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim()) && !e.closest(".vh, [aria-hidden=true]") && e.getBoundingClientRect().width)
         .map((e) => parseFloat(getComputedStyle(e).fontSize));
       const txt = document.querySelector(".app").innerText;
-      return { small, h1: document.querySelectorAll("h1").length, title: document.title, minText: Math.min(...sizes), legacy: /Pertinence|\b\d{1,2}\s?\/\s?10\b|sur 10\b|\bV2\b/.test(txt) };
+      return { small, h1: document.querySelectorAll("h1").length, title: document.title, minText: Math.min(...sizes), legacy: /Pertinence|\b\d{1,2}\s?\/\s?10\b|sur 10\b|\bV2\b|\bphase\b/i.test(txt) };
     });
     t(`cibles #${r} : 44 px au moins (TOUCH.min)`, m.small.length === 0, m.small.join(" ; "));
     t(`titres #${r} : un seul h1 et un titre de page`, m.h1 === 1 && m.title === `${TITLES[r]} · SPUMY`, `${m.h1} h1, « ${m.title} »`);
     t(`texte #${r} : 12 px au moins`, m.minText >= 12, `${m.minText} px`);
-    t(`héritage #${r} : ni Pertinence, ni note sur 10, ni « V2 » à l'écran`, !m.legacy);
+    t(`héritage #${r} : ni Pertinence, ni note sur 10, ni « V2 » ni « phase » à l'écran`, !m.legacy);
   }
   await ctx.close();
 }

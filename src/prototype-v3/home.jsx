@@ -124,7 +124,7 @@ function BoatChooser({ boat, setBoat, heroPhoto }) {
           </div>
         )}
         <button className="btn primary" onClick={() => setBoat({ choice, ready: true })}>Voir si je peux sortir</button>
-        <p className="meta">Champs exacts à fixer avec le moteur BATEAU (Phase 9).</p>
+        <p className="meta">Champs exacts à fixer avec le moteur BATEAU.</p>
       </div>
     </div>
   );
