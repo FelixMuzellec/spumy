@@ -67,7 +67,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 
 ## Prochaine action
 
-Prototype version 5 fait (Félix, 15 h 08 : logo pas « top tier » ; écran de lancement avec le logo complet d'origine, en-tête médaillon + mot SPUMY, icônes sur le fond crème d'origine, regroupement des pastilles ; `tests/brand.py` 29/29, `test:prototype-v3` 153/153, `test:design-v3` 186/186). Attendre le retour de Félix et « jalon 2 validé avec réserves ». Ensuite 3.7 puis 3.8.
+Prototype version 5.2 fait. 5 (15 h 08) : logo refait (écran de lancement, en-tête, icônes crème). 5.1 (15 h 20, ee76fff) : puce de position élargie, nom de commune entier sur deux lignes au besoin. 5.2 (15 h 32, 28b3b85) : feuille de position refaite (sélecteur discret, rangée « Me géolocaliser », recherche à loupe, mini-carte centrée de 180 px, un seul bouton orange). Tests : `tests/brand.py` 29/29, `test:prototype-v3` 156/156, `test:design-v3` 186/186. Félix (15 h 36) demande si l'on pourra encore modifier ensuite (ex. taille de la mini-carte) : oui, réponse donnée ; puis (15 h 37) « Je pense que l'on est pas mal ? » : avis donné, confirmation explicite du jalon 2 demandée. Attendre « jalon 2 validé avec réserves ». Ensuite 3.7 puis 3.8.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
