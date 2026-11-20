@@ -25,7 +25,8 @@ Phase 2 V3, 20 novembre 2026. Référentiel § 11. Contexte : site statique publ
 | Téléphone perdu | lecture du journal et des spots | aucun | export et effacement (PRV-04) ; pas de chiffrement local (hors périmètre, à revoir si demandé) |
 | Dépendance npm malveillante | code injecté dans `app.js` | `package-lock.json`, 3 dépendances d'exécution, `npm audit` à 0 | audit dans la CI ; aucune nouvelle dépendance pour la position ni le routage |
 | Compte GitHub de Félix compromis | publication d'une application piégée | protection de `main` par la règle « pas de push direct » (convention) | proposer une protection de branche et une double authentification (à faire par Félix) |
-| Clé Météo-France publiée par erreur | abus du compte | — | jamais dans le dépôt ; selon V3-011, relais ou clé de l'utilisateur |
+| Clé Météo-France publiée par erreur | abus du compte | — | jamais dans le dépôt : secret du relais (V3-011), saisi par Félix |
+| Relais de vigilance détourné (appelé par d'autres sites, surchargé) | quota Météo-France épuisé, vigilance indisponible | — | origine du site seule acceptée ; une seule route (vigilance d'un département) ; aucun stockage ni journal de position ; en panne, « vigilance inconnue » |
 | Données de spot erronées (danger absent, coordonnées fausses) | mise en danger | sources et niveaux de preuve | revue indépendante (Phase 8) ; positions imprécises signalées (MAP-06) |
 
 ## 3. Données personnelles (RGPD)
@@ -44,4 +45,5 @@ Destinataires : Open-Meteo (coordonnées des spots), IGN (position arrondie et c
 
 - **Pas de chiffrement des données sur l'appareil** : accepté, proposé à Félix.
 - **Disponibilité des services gratuits** : sans garantie contractuelle. Repli prévu (`docs/ARCHITECTURE-V3.md`, § 5).
-- **CORS des services IGN** : non vérifié. S'il bloque, un relais serait un nouveau composant à protéger.
+- **CORS des services IGN** : non vérifié. S'il bloque, le relais de vigilance pourrait aussi servir l'IGN, mais il faudrait alors le protéger contre les abus.
+- **Relais de vigilance** : nouveau composant hors de GitHub, dépendant d'un compte Cloudflare de Félix.

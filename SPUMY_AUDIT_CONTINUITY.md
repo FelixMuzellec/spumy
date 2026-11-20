@@ -24,7 +24,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | 2.0 Branche, continuité, `CLAUDE.md`, référentiel maître | IMPLEMENTED (a228e7a ; proposition n° 16 en brouillon) | ce fichier, `CLAUDE.md`, `docs/SPUMY_MASTER_PROMPT.md`, `docs/historique/CONTINUITE-V2.md`, `docs/rapports/v3/PHASE-1.md` |
 | 2.1 Journal des décisions | IMPLEMENTED (20 ADR : 8 validées, 7 proposées, 5 à décider) | `docs/DECISIONS_LOG.md` |
 | 2.2 Services externes, licences | IMPLEMENTED (pages officielles lues le 20 nov.) | `docs/DATA_SOURCES.md` |
-| 2.3 Vision, découverte produit, exigences | IMPLEMENTED (83 exigences, 10 hypothèses, matrice BATEAU) | `docs/VISION-V3.md`, `docs/design/DISCOVERY.md`, `docs/REQUIREMENTS.md` |
+| 2.3 Vision, découverte produit, exigences | IMPLEMENTED (84 exigences, 10 hypothèses, matrice BATEAU) | `docs/VISION-V3.md`, `docs/design/DISCOVERY.md`, `docs/REQUIREMENTS.md` |
 | 2.4 Architecture cible, menace, migration, stratégie de test | IMPLEMENTED | `docs/ARCHITECTURE-V3.md`, `docs/security/THREAT_MODEL.md`, `docs/MIGRATION-V3.md`, `docs/TEST_STRATEGY.md` |
 | 2.5 Vérification, red-team, rapport, arrêt | NOT STARTED | `docs/rapports/v3/PHASE-2.md` |
 
@@ -34,6 +34,10 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | --- | --- | --- | --- | --- |
 | Q1 | 20 nov., 1 h 05 | Relier un navigateur pour auditer le site en ligne | sans réponse ; jeton de phase 2 donné ensuite | P1-14 BLOCKED, réserve acceptée (INFÉRÉ) |
 | Q2 | 20 nov., 1 h 30 | Qui utilisera SPUMY V3 ? | « Moi et quelques proches » | Usage privé, gratuit, non commercial : hébergement statique, sans compte ; ADR-V3-005 |
+| Q3 | 20 nov., 4 h 18 | Branche BATEAU de la phase 13 | La reprendre en V3 | ADR-V3-014 ; proposition n° 15 gardée en brouillon |
+| Q4 | 20 nov., 4 h 18 | Vigilance Météo-France | Petit relais gratuit | ADR-V3-011 ; comptes Météo-France et Cloudflare à fournir par Félix plus tard |
+| Q5 | 20 nov., 4 h 18 | Place réservée dans le Top 3 | Oui, 15 min ou moins | ADR-V3-016, REC-06 |
+| Q6 | 20 nov., 4 h 18 | Ancienne note sur 10 | La retirer | ADR-V3-015, REC-12 |
 
 ## Checkpoint
 

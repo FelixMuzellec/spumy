@@ -16,12 +16,12 @@ Format ADR. Une décision « validée » vient de Félix (date et heure) ou du r
 | V3-008 | Une seule application à deux modes, catalogue de spots unique, hébergement statique, stack conservée | PROPOSÉE |
 | V3-009 | Temps de route BORD par la Géoplateforme IGN (isochrone, puis itinéraire) | PROPOSÉE |
 | V3-010 | Position : « Me géolocaliser » et « Saisir une position » ; pas de localisation par l'adresse IP | PROPOSÉE |
-| V3-011 | Vigilance Météo-France : comment la lire sans exposer de clé | À DÉCIDER (Félix) |
+| V3-011 | Vigilance Météo-France lue par un petit relais gratuit qui garde la clé | VALIDÉE (Félix, 20 nov. 2026, 4 h 18) |
 | V3-012 | Fond de carte : Plan IGN, OpenStreetMap en secours ; aucun préchargement hors ligne | PROPOSÉE |
 | V3-013 | Données de l'utilisateur sur l'appareil, sans compte ; sauvegarde GitHub et export gardés | PROPOSÉE |
-| V3-014 | Branche BATEAU de la phase 13 (proposition n° 15) | À DÉCIDER (Félix) |
-| V3-015 | Ancienne note sur 10 | À DÉCIDER (Félix) |
-| V3-016 | Place réservée dans le Top 3 | À DÉCIDER (Félix) |
+| V3-014 | Branche BATEAU de la phase 13 reprise en V3 (Pertinence retirée, seuils à valider) | VALIDÉE (Félix, 20 nov. 2026, 4 h 18) |
+| V3-015 | Ancienne note sur 10 retirée ; modèle BATEAU présenté « d'après tes sorties » | VALIDÉE (Félix, 20 nov. 2026, 4 h 18) |
+| V3-016 | Une place du Top 3 réservée à un spot admissible à 15 min ou moins de ta position | VALIDÉE (Félix, 20 nov. 2026, 4 h 18) |
 | V3-017 | Navigation : Décision, Carte, Journal, Profil, Matériel ; bascule BORD / BATEAU | VALIDÉE (référentiel § 6.4) ; bascule à concevoir en Phase 3 |
 | V3-018 | Identifiants de spot V2 gardés comme identifiants V3 | PROPOSÉE |
 | V3-019 | Point de retour `v2-final` et nettoyage des branches fusionnées | À DÉCIDER (Félix) |
@@ -152,7 +152,7 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 
 ## V3-011 — Vigilance Météo-France
 
-- **Statut** : À DÉCIDER par Félix.
+- **Statut** : VALIDÉE par Félix le 20 nov. 2026 à 4 h 18 : option B, un petit relais gratuit.
 - **Contexte** : la V2 ne lit pas la vigilance (défaut D10). L'API officielle exige un compte et une clé (VÉRIFIÉ). Or une clé ne peut pas être publiée dans un dépôt public.
 
 | Option | Pour | Contre |
@@ -161,7 +161,14 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 | B. Un petit relais gratuit (Cloudflare Worker) qui garde la clé de Félix et ne renvoie que la vigilance | transparent pour tous | un service à maintenir ; compte Cloudflare |
 | C. Ne pas la lire : rappel et lien vers vigilance.meteofrance.fr (comportement V2) | rien à faire | la sécurité dépend du réflexe de l'utilisateur |
 
-- **Recommandation** : B si Félix accepte un relais, sinon C en attendant. Dans tous les cas, une vigilance inconnue ne vaut jamais « pas de vigilance ».
+- **Décision** : B.
+- **Ce que fait le relais** :
+    - il garde la clé de Félix hors du dépôt, comme secret du service ;
+    - il ne renvoie que la vigilance du département demandé ;
+    - il ne stocke rien et ne journalise aucune position ;
+    - il n'accepte que l'origine du site.
+- **À fournir par Félix, au moment de la phase qui l'implante (Phase 9 ou 10)** : un compte Météo-France (portail API) et un compte Cloudflare. Claude préparera le code et la marche à suivre ; Félix saisira lui-même la clé.
+- **En attendant**, et en cas de panne, comportement C (rappel et lien). Une vigilance inconnue ne vaut jamais « pas de vigilance ».
 
 ## V3-012 — Fond de carte
 
@@ -185,26 +192,33 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 
 ## V3-014 — Branche BATEAU de la phase 13
 
-- **Statut** : À DÉCIDER par Félix.
+- **Statut** : VALIDÉE par Félix le 20 nov. 2026 à 4 h 18 : option (a).
 - **Contenu de la branche** : profil du bateau, « Sortir aujourd'hui ? », règles de sécurité SEC_* sur le pire moment du créneau, espèces avec réglementation, trois scores (dont une Pertinence), seuils de vent et de mer « à valider ». Tests verts ; rien n'est en ligne.
 - **Options** :
     - (a) la garder en brouillon et la reprendre en V3 : retirer la Pertinence, faire valider les seuils, l'intégrer au mode BATEAU de la nouvelle navigation ;
     - (b) la fermer et repartir de la spécification BATEAU ;
     - (c) la fusionner telle quelle.
-- **Recommandation** : (a). (c) est exclue : elle publierait une Pertinence supprimée par V3-006 et des seuils de sécurité non validés.
+- **Décision** : (a). La proposition n° 15 reste en brouillon, sans fusion. Son contenu est repris dans le mode BATEAU de la V3 (Phases 9 et 10) :
+    - Pertinence retirée ;
+    - seuils de vent et de mer (questions 16 à 25) validés par Félix avant toute mise en ligne ;
+    - intégration dans la nouvelle navigation.
 
 ## V3-015 — Ancienne note sur 10
 
-- **Statut** : À DÉCIDER par Félix.
+- **Statut** : VALIDÉE par Félix le 20 nov. 2026 à 4 h 18.
 - **Constat** : en BORD, la note v1 sur 10 est encore un réglage. En BATEAU, la seule note en ligne est sur 10 (modèle appris sur les sorties).
-- **Recommandation** : supprimer l'option v1 en BORD. En BATEAU, présenter le modèle appris comme une information personnelle (« d'après tes sorties »), pas comme une note concurrente de la Favorabilité.
+- **Décision** : l'option v1 disparaît en BORD ; la clé `bar:moteur` est ignorée après migration. En BATEAU, le modèle appris devient une information personnelle (« d'après tes sorties »), jamais une note concurrente de la Favorabilité. Le code v1 qui sert encore aux fenêtres et aux créneaux (`model.js`) reste, sans note affichée.
 
 ## V3-016 — Place réservée dans le Top 3
 
-- **Statut** : À DÉCIDER par Félix.
+- **Statut** : VALIDÉE par Félix le 20 nov. 2026 à 4 h 18 : option (a), 15 min ou moins.
 - **Constat** : la V2 réserve une place à un spot de la zone « local » du guide (un secteur). Le référentiel (§ 9.1.7) garde une place pour un spot à 15 min ou moins de la position, « si elle est toujours validée ». Cette place ne donne aucun bonus de Favorabilité.
 - **Options** : (a) place réservée à un spot admissible à 15 min ou moins de ta position ; (b) aucune place réservée.
-- **Élément connu** : pour le guide du Cotentin, Félix voulait toujours au moins un spot proche (25 min ou moins) dans le Top 3. La V3 demande de confirmer cette règle sous sa forme nouvelle : depuis ta position, et non plus depuis la zone d'un guide.
+- **Élément connu** : pour le guide du Cotentin, Félix voulait toujours au moins un spot proche (25 min ou moins) dans le Top 3. Félix a choisi 15 min (et non 25) sous la forme V3 : depuis ta position, et non plus depuis la zone d'un guide.
+- **Règle** :
+    - si aucun spot à 15 min ou moins de route vérifiée n'est dans les trois premiers, le meilleur spot admissible à 15 min ou moins prend la 3ᵉ place, sans bonus de Favorabilité, avec la mention « le plus proche » ;
+    - s'il n'y en a aucun d'admissible, rien n'est réservé ;
+    - la place ne va jamais à un spot « à vérifier » ou bloqué.
 
 ## V3-017 — Navigation
 

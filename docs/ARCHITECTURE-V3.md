@@ -2,7 +2,7 @@
 
 Phase 2 V3, 20 novembre 2026. Statut : **PROPOSÉE** (ADR-V3-008 à V3-013 et V3-018, V3-020), à valider par Félix. `docs/ARCHITECTURE.md` décrit l'architecture réellement en place (V2) ; il sera mis à jour lot par lot, à mesure que cette cible est atteinte.
 
-**En bref** : une seule application statique à deux modes. Un catalogue unique de spots est classé depuis une position de référence. Les moteurs V2 sont gardés sans la Pertinence, et chaque service externe passe par un adaptateur. Pas de serveur, pas de compte, coût nul (ADR-V3-005).
+**En bref** : une seule application statique à deux modes. Un catalogue unique de spots est classé depuis une position de référence. Les moteurs V2 sont gardés sans la Pertinence, et chaque service externe passe par un adaptateur. Pas de serveur à soi, sauf un petit relais gratuit pour la vigilance (V3-011) ; pas de compte ; coût nul (ADR-V3-005).
 
 ## 1. Vue d'ensemble
 
@@ -22,7 +22,7 @@ flowchart LR
     OM["Open-Meteo : prévision, marine"]
     IGN["Géoplateforme IGN : géocodage, isochrone, itinéraire, fonds de carte"]
     OSM["Tuiles OpenStreetMap (secours)"]
-    MF["Vigilance Météo-France (V3-011)"]
+    MF["Vigilance Météo-France, par un relais gratuit qui garde la clé (V3-011)"]
     GH["GitHub : sauvegarde du journal (facultative)"]
   end
   UI --> POS --> ADP
@@ -99,7 +99,7 @@ En BATEAU, aucun appel routier (RTE-03). Le temps de navigation n'est calculé q
 | Isochrone IGN | par position arrondie à 100 m | 24 h | mode dégradé (section 4) |
 | Itinéraire IGN | par couple (position arrondie, spot) | 24 h | « temps estimé » |
 | Fond de carte IGN | cache HTTP du navigateur seulement | — | OpenStreetMap ; hors ligne, « carte indisponible hors ligne » |
-| Vigilance | par département, 1 h | selon V3-011 | « vigilance inconnue », jamais « aucune » |
+| Vigilance (par le relais, V3-011) | par département, 1 h | 1 h | « vigilance inconnue », jamais « aucune » ; rappel et lien |
 
 **Contrôle des services en continu.** Le contrat Open-Meteo réel tourne chaque jour sur GitHub (V2). On y ajoute un contrat IGN : géocodage, isochrone, itinéraire et en-têtes CORS. C'est la seule surveillance possible sans serveur.
 
@@ -125,7 +125,7 @@ Les budgets chiffrés seront fixés en Phase 4, après mesure AVANT (QA-01) : te
 
 Le modèle de menace est dans `docs/security/THREAT_MODEL.md`. En résumé :
 - site statique ;
-- CSP stricte, étendue aux seuls hôtes `data.geopf.fr` (et vigilance selon V3-011) ;
+- CSP stricte, étendue aux seuls hôtes `data.geopf.fr` et au relais de vigilance ;
 - aucun secret ;
 - jetons de l'utilisateur sur l'appareil ;
 - position de l'utilisateur jamais stockée hors du cache arrondi ;

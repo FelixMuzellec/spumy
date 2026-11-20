@@ -15,7 +15,7 @@ Phase 2 V3, 20 novembre 2026. Format du référentiel, § 5.2.
     - `T` test utilisateur ;
     - `R` revue de données ou de documents.
 
-Validation : le registre entier attend la validation de Félix (fin de la Phase 2). Les exigences liées à une décision « à décider » restent `À DÉCIDER`.
+Validation : le registre entier attend la validation de Félix (fin de la Phase 2). Les exigences liées à une décision « à décider » restent `À DÉCIDER` ; les décisions du 20 nov. à 4 h 18 (V3-011, V3-014, V3-015, V3-016) sont appliquées.
 
 ## POS — Position de référence (BORD et BATEAU)
 
@@ -33,7 +33,7 @@ Validation : le registre entier attend la validation de Félix (fin de la Phase 
 
 | Id | Exigence | Prio. | Origine | Critère d'acceptation | Vérif. | V2 | Phase |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| RTE-01 | Seuls les spots à 60 min ou moins de route réelle, depuis la position active jusqu'à l'accès du spot, sont proposés en BORD ; seuil réglable selon les décisions | IND | § 0.5, § 8.1 ; V3-007 | spot à 59 min gardé, spot à 61 min écarté (service simulé) | U, E | Non conforme (temps fixes depuis le pôle du guide, 45 min dans la Pertinence) | 10 |
+| RTE-01 | Seuls les spots à 60 min ou moins de route réelle, depuis la position active jusqu'à l'accès du spot, sont proposés en BORD ; seuil réglable selon les décisions | IND | § 0.5, § 8.1 ; V3-007 ; D3 | spot à 59 min gardé, spot à 61 min écarté (service simulé) | U, E | Non conforme (temps fixes depuis le pôle du guide, 45 min dans la Pertinence) | 10 |
 | RTE-02 | Un temps vérifié porte son fournisseur, son heure et sa validité ; hors ligne ou en échec, une estimation est marquée « estimation » et n'est jamais présentée comme vérifiée | IND | § 8.1 ; V3-009 | rendu distinct des deux états ; aucun « vérifié » sans réponse du service | E, V | Absent | 10 |
 | RTE-03 | Aucun seuil routier en BATEAU | IND | § 8.1 | le mode BATEAU n'appelle jamais le routage | U | Conforme | 10 |
 | RTE-04 | Point d'accès du spot (stationnement ou départ du sentier) distinct du poste ; tant qu'il manque, la position du poste sert et le temps le signale | IMP | § 7.4, § 8.1 | champ `access` dans le schéma ; mention « jusqu'au poste » si l'accès manque | R, V | Absent | 5, 7 |
@@ -47,12 +47,13 @@ Validation : le registre entier attend la validation de Félix (fin de la Phase 
 | REC-03 | La Confiance ne modifie jamais la Favorabilité ni le rang ; elle peut imposer une fourchette, un « — » ou « à vérifier » | IND | § 9.1.5 | test d'invariance du rang (§ 13.2) | U | Conforme (rang) ; Absent (précision affichée) | 6 |
 | REC-04 | Ordre : sécurité ; puis « à vérifier » séparé ; filtres opérationnels validés ; Favorabilité décroissante ; départage validé (temps de route) | IND | § 9.1.6 | ordre de la liste conforme sur 10 cas de test | U, E | Partiel (Pertinence et temps fixe dans l'ordre) | 6, 10 |
 | REC-05 | 3 cartes par défaut ; 4 ou 5 en cas d'égalité stricte au dernier rang ; plus de 5 ex æquo : 5 et un accès aux autres ; jamais complétées par un spot bloqué ou « à vérifier » | IND | § 9.1.7, § 6.6 ; D4 | cas d'égalité et de pénurie testés | U, E | Non conforme | 6, 10 |
-| REC-06 | Place réservée à un spot admissible à 15 min ou moins, sans bonus de Favorabilité | À DÉCIDER | § 9.1.7 ; V3-016 ; H8 | selon la décision | U | Non conforme (zone « local ») | 6 |
+| REC-06 | Place réservée à un spot admissible à 15 min ou moins de route vérifiée, sans bonus de Favorabilité, jamais à un spot « à vérifier » ou bloqué | IND | § 9.1.7 ; V3-016 ; H8 | cas : spot proche hors des 3 premiers → 3ᵉ place ; aucun spot proche admissible → rien de réservé | U | Non conforme (zone « local ») | 6 |
 | REC-07 | « À vérifier » ne dépend jamais du seul chiffre et reste visible dans la liste, sur la carte et dans la fiche | IND | § 6.7.2, § 9.1.5 | même spot, même statut sur les trois vues | E, V | Conforme | 3, 10 |
 | REC-08 | Une donnée absente n'est jamais remplacée par zéro ni par une valeur neutre ; la couverture est affichée ; pas de note si les données critiques manquent | IND | § 9.1.5 | « calculée sur N % des critères » ; « — » sous le seuil | U, V | Conforme | 6 |
 | REC-09 | Fenêtre horaire `HH:MM–HH:MM`, ou « Fenêtre non déterminable » avec sa raison ; la comparaison signale des fenêtres différentes | IND | § 9.1.7, § 6.7.4 | format testé ; message de fenêtres différentes | U, V | Partiel (format « 08h30 → 12h30 ») | 3, 10 |
 | REC-10 | La boîte à leurres n'agit sur aucun indicateur ni sur le rang ; le conseil générique est identique, quelle que soit la boîte | IND | § 9.1.6, § 13.2 | test d'invariance avec 3 boîtes | U | Non conforme (Pertinence) | 6, 10 |
 | REC-11 | Favorabilité BORD refondée sur la biologie du bar ; paramètres tracés, calibrés et éprouvés | IND | § 9.1.1 à 9.1.9, § 9.2, § 9.3 | spécification validée (Phase 6) ; épreuve (Phase 8) | R, U | Partiel (moteur v2 éprouvé ; stabilité FAILED en phase 8 V2) | 5 à 8 |
+| REC-12 | Aucune note sur 10 : option v1 retirée en BORD ; modèle BATEAU présenté « d'après tes sorties » | IND | V3-015 ; D9 | aucun « /10 » ni « sur 10 » dans le build ; clé `bar:moteur` ignorée | U, V | Non conforme | 6, 9 |
 
 ## SEC — Sécurité
 
@@ -60,7 +61,7 @@ Validation : le registre entier attend la validation de Félix (fin de la Phase 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | SEC-01 | Sécurité indépendante, prioritaire, jamais compensée ; règles propres à BORD et à BATEAU | IND | § 9.5 | aucun « non recommandé » ne remonte, quelle que soit la Favorabilité | U | Conforme | 6, 10 |
 | SEC-02 | Une donnée de sécurité inconnue (vent, rafales, houle, visibilité) n'est jamais « au vert » | IND | § 9.5 | tests par donnée manquante | U | Conforme | 6 |
-| SEC-03 | Vigilance Météo-France lue (ou, à défaut, rappel explicite et lien) ; une vigilance inconnue ne vaut jamais « aucune vigilance » | IND | § 9.5 ; V3-011 ; D10 | selon V3-011 ; jamais de vert sur une vigilance inconnue si elle est lue | U, E | Partiel (rappel seulement) | 9, 10 |
+| SEC-03 | Vigilance Météo-France lue par un relais qui garde la clé hors du dépôt ; en panne ou en attente, rappel explicite et lien ; une vigilance inconnue ne vaut jamais « aucune vigilance » | IND | § 9.5 ; V3-011 ; D10 | selon V3-011 ; jamais de vert sur une vigilance inconnue si elle est lue | U, E | Partiel (rappel seulement) | 9, 10 |
 | SEC-04 | Danger d'un spot engagé visible au premier niveau ; nuit sur un spot engagé « non recommandé » | IND | § 9.5 ; décision V2 | visible sans ouvrir de détail | V, U | Conforme | 3 |
 | SEC-05 | Seuils de sécurité validés par Félix avant toute mise en ligne (BORD : validés le 13 nov. 2026 ; BATEAU : questions 16 à 25 ouvertes) | IND | § 0.2 ; V3-014 | décision consignée dans `DECISIONS_LOG` | R | Partiel | 6, 9 |
 
@@ -108,7 +109,7 @@ Validation : le registre entier attend la validation de Félix (fin de la Phase 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | BAT-01 | Aucune fonction BATEAU en ligne perdue : spots bateau personnels (GPS ou carte), conditions sur 7 jours, sorties et prises, modèle appris | IND | § 4.1 ; Gate A | parcours e2e V2 du mode BATEAU repris et verts | E | Conforme | toutes |
 | BAT-02 | Données BATEAU V2 (spots, sorties) migrées sans perte | IND | § 0.2 | test de mise à jour | U | — | 4 |
-| BAT-03 | « Sortir aujourd'hui ? » : profil du bateau, règles de sécurité sur le pire moment du créneau, zone par zone, avant les espèces | À DÉCIDER | V3-014 ; branche phase 13 | 16 scénarios de la spécification BATEAU | U, E | Absent en ligne (branche) | 9, 10 |
+| BAT-03 | « Sortir aujourd'hui ? » : profil du bateau, règles de sécurité sur le pire moment du créneau, zone par zone, avant les espèces | IND | V3-014 ; branche phase 13 | 16 scénarios de la spécification BATEAU | U, E | Absent en ligne (branche) | 9, 10 |
 | BAT-04 | Seuils BATEAU (vent, mer, marges, nuit, seul à bord) validés par Félix avant mise en ligne | IND | SEC-05 ; questions 16 à 25 | décisions consignées | R | — | 9 |
 | BAT-05 | Espèces proposées avec leur réglementation, sourcée et datée (fermeture du lieu jaune, tailles) | IND | § 8.3 | sources et dates présentes | R, U | Absent en ligne (branche) | 9 |
 | BAT-06 | Aucune Pertinence en BATEAU | IND | V3-006 | — | U | Non conforme (branche) | 9 |
@@ -167,14 +168,14 @@ Validation : le registre entier attend la validation de Félix (fin de la Phase 
 | Spots bateau personnels (GPS, carte) | oui | — | — |
 | Conditions sur 7 jours (vent, vagues, houle, eau, pression, marée du port le plus proche) | oui | + visibilité, orage, CAPE (branche) | — |
 | Sorties et prises (prises et capots) | oui | — | — |
-| Modèle appris (régression de Poisson, note sur 10 dès 8 sorties) | oui | ajustement personnel ±10 dès 8 sorties (spécification) | V3-015 : sa forme en V3 |
-| Profil du bateau (catégorie, armement, abris, vitesse, seul à bord, canne) | non | oui (branche) | V3-014 |
-| Sécurité de sortie (SEC_*, pire moment, zone par zone) | non | oui (branche) | V3-014 ; seuils : questions 16 à 25 |
-| Espèces (lieu jaune, maquereau, bar, vieille, saint-pierre ; lieu noir si pris) et réglementation | non | oui (branche) | V3-014 |
+| Modèle appris (régression de Poisson, note sur 10 dès 8 sorties) | oui | ajustement personnel ±10 dès 8 sorties (spécification) | V3-015 : présenté « d'après tes sorties », sans note sur 10 |
+| Profil du bateau (catégorie, armement, abris, vitesse, seul à bord, canne) | non | oui (branche) | repris (V3-014) |
+| Sécurité de sortie (SEC_*, pire moment, zone par zone) | non | oui (branche) | reprise (V3-014) ; seuils : questions 16 à 25 |
+| Espèces (lieu jaune, maquereau, bar, vieille, saint-pierre ; lieu noir si pris) et réglementation | non | oui (branche) | reprises (V3-014) |
 | Pertinence BATEAU | non | oui (branche) | **supprimée** (V3-006) |
 | Temps de navigation, ports de mise à l'eau | non | temps de route à la vitesse du bateau depuis le port (branche) | à confirmer (§ 8.1 : aucun calcul nautique sans données suffisantes) |
 | Carte des zones avec les cercles des abris | non | prévu (rapport de la phase 13, « pas encore fait ») | oui |
-| Bulletins météo marine spéciaux (BMS) | non | rappel seulement | V3-011 (même logique que la vigilance) |
+| Bulletins météo marine spéciaux (BMS) | non | rappel seulement | oui : source à trouver, même relais que la vigilance si possible |
 
 ## Frontières héritées de la V2
 
@@ -187,7 +188,7 @@ Validation : le registre entier attend la validation de Félix (fin de la Phase 
 | Journal, spots personnels, sauvegarde GitHub, transfert | **conservés**, migrés | V3-013 |
 | Analyse de photos (clé de l'utilisateur) | **conservée** | utile, déjà sûre |
 | Mode BATEAU en ligne | **conservé** | Gate A |
-| Note sur 10 (BORD v1, BATEAU) | proposée à l'évolution | V3-015 |
+| Note sur 10 (BORD v1, BATEAU) | **retirée** ; modèle BATEAU gardé comme information | V3-015 |
 | Thème Plein soleil, mode terrain | **conservés**, refaits avec la nouvelle palette | § 6.10 |
 | Prototype de la phase 11 V2 | référence, remplacé par les prototypes de la Phase 3 | § 6.13 |
 
