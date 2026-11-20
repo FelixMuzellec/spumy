@@ -37,7 +37,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | 3.1 Audit AVANT : captures de toutes les routes et de tous les états, registre priorisé des écarts | IMPLEMENTED (31 captures, 22 écarts ; site en ligne non vérifiable) | `docs/design/AUDIT-UX-AVANT.md`, `docs/design/avant/` |
 | 3.2 Logos : manifeste, matrice des usages, exports V3 sans altération du poisson, test de la zone protégée | TESTED (`python3 tests/brand.py` 23/23, code 0) | `docs/design/BRAND-MANIFEST.md`, `scripts/logos-v3.py`, `assets/brand/v3/`, `tests/brand.py` |
 | 3.3 Planche UI Showcase écran par écran ; revue des photos et demandes de remplacement | IMPLEMENTED (8 écrans revus ; 4 photos demandées à Félix le 20 nov., `BLOCKED — PHOTO UTILISATEUR ATTENDUE`) | `docs/design/REFERENCES.md` |
-| 3.4 Usages, scénarios, architecture de l'information, parcours, carte, cartes de recommandation (jalon 1) | IMPLEMENTED (spécification et 13 wireframes ; jalon 1 demandé à Félix le 20 nov., en attente) | `docs/design/UX-V3.md`, `docs/design/wireframes/` (page de revue publiée en artefact privé) |
+| 3.4 Usages, scénarios, architecture de l'information, parcours, carte, cartes de recommandation (jalon 1) | VALIDATED avec remarques (Félix, 20 nov., 13 h 46) ; remarques intégrées : UX-V3 version 2, 15 wireframes, ADR V3-023 et V3-024, 94 exigences | `docs/design/UX-V3.md`, `docs/design/wireframes/` (page de revue publiée en artefact privé) |
 | 3.5 Design System V3 : jetons, contrastes, composants, états, contenus | TESTED (`npm run test:design-v3` : 162/162, code 0 ; lint 0 ; couches 0 écart) ; valeurs à valider au jalon 2 | `docs/design/DESIGN-SYSTEM-V3.md`, `src/design/v3/`, `scripts/tokens-v3.mjs`, `tests/design-v3.mjs`, `docs/design/contrastes-v3.json` ; ADR V3-021 et V3-022 proposées |
 | 3.6 Prototype interactif (BORD et BATEAU) ; les wireframes sont faits en 3.4 | NOT STARTED (haute fidélité : attend le jalon 1) | `src/prototype-v3/`, `prototype-v3/` |
 | 3.7 Revues, tests, galerie AVANT/CIBLE, matrices de conformité et de traçabilité | NOT STARTED | `docs/design/REVUES-V3.md` |
@@ -54,7 +54,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | Q5 | 20 nov., 4 h 18 | Place réservée dans le Top 3 | Oui, 15 min ou moins | ADR-V3-016, REC-06 |
 | Q6 | 20 nov., 4 h 18 | Ancienne note sur 10 | La retirer | ADR-V3-015, REC-12 |
 | Q7 | 20 nov., 5 h 05 | 4 photos à remplacer (2 espèces BATEAU, 1 silhouette, 1 semi-rigide), avec briefs | reçues le 20 nov., 4 h 56 (heure de Paris), conformes ; copies à 1 024 px seulement | intégrées à titre provisoire (`bar-eau-claire`, `lieu-noir-pont-jig`, `platier-aube-frontale`, `jigging-console-sondeur`) ; 2ᵉ envoi à 6 h 18 : bar corrigé (contenu nouveau), les 3 autres identiques ; mais seulement 512 px (la conversation réduit les images) : rien n'est remplacé ; originaux demandés par Google Drive |
-| Q8 | 20 nov. | Jalon 1 : tâches prioritaires, architecture, parcours (UX-V3, 13 wireframes) | en attente | bloque la haute fidélité (3.6), pas le Design System (3.5) |
+| Q8 | 20 nov. | Jalon 1 : tâches prioritaires, architecture, parcours (UX-V3, 13 wireframes) | répondu le 20 nov., 13 h 46 : tâches validées ; 11 remarques sur l'architecture et les parcours (Home, Météo, barre, position, horaires, courbe de marée, vent, bateau, carte marine en bonus) | intégrées (V3-023, V3-024) |
 | — | 20 nov., 4 h 50 | Félix demande des prompts complets pour les photos de Q7 | fournis (4 prompts) | `docs/design/PROMPTS-PHOTOS.md` |
 | Q9 (à poser après Q8) | — | Seuil du filtre « Favorables » : 60, 65 ou 75 | — | ADR V3-021 |
 
@@ -66,7 +66,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 
 ## Prochaine action
 
-Attendre la réponse de Félix au jalon 1 (Q8). Ensuite : poser Q9 (seuil « Favorables »), intégrer ses remarques dans UX-V3 et les wireframes, puis 3.6 (prototype interactif BORD et BATEAU, planche de validation du Design System, captures 320, 375 × 812, 390 × 844 et bureau).
+Poser Q9 (seuil « Favorables »), puis 3.6 : prototype interactif BORD et BATEAU sur la base de UX-V3 version 2 (Home, Carte, Météo, Profil ; Journal ; fiche avec courbe de marée ; comparaison avec le vent ; choix du bateau), planche de validation du Design System, captures 320, 375 × 812, 390 × 844 et bureau.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
