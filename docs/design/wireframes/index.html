@@ -111,6 +111,19 @@ hr.sep{border:0;border-top:1px solid var(--soft2);margin:2px 0;width:100%}
 .desk .side{border-right:1.5px solid var(--soft2);padding:10px 12px;display:flex;flex-direction:column;gap:8px;min-width:0}
 .desk .top{grid-column:1/-1}
 .deskwrap{display:flex;flex-direction:column;flex:1}
+.j1{max-width:1100px;background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:32px}
+.j1 h2{font-size:17px;margin:0 0 10px}
+.j1 h3{font-size:13.5px;margin:12px 0 6px}
+.j1grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:8px 28px}
+.j1grid > div{min-width:0}
+.tw{overflow-x:auto}
+.j1 table{border-collapse:collapse;width:100%;font-size:12.5px}
+.j1 th,.j1 td{text-align:left;padding:4px 8px;border-bottom:1px solid var(--soft2);vertical-align:top}
+.j1 th{color:var(--muted);font-weight:600}
+.tree{margin:0;padding-left:18px;font-size:12.5px;display:flex;flex-direction:column;gap:3px}
+.tree .off{color:var(--muted)}
+.j1 p.s{margin:12px 0 0;max-width:90ch}
+h2.parc{font-size:17px;margin:0 0 14px}
 @media (max-width:1040px){.wf.wide{width:100%}.wf.wide .phone{overflow-x:auto}.desk{min-width:900px}}
 </style>
 
@@ -120,6 +133,51 @@ hr.sep{border:0;border-top:1px solid var(--soft2);margin:2px 0;width:100%}
   <p><span class="tag">Données fictives</span> Les noms (Spot A, B, C…), les scores, les heures et les temps de route sont des exemples, pas des calculs.</p>
   <p>Spécification : <code>docs/design/UX-V3.md</code>. Les pastilles numérotées renvoient aux notes sous chaque écran.</p>
 </header>
+
+<section class="j1">
+  <h2>Jalon 1 — ce qui est à valider</h2>
+  <div class="j1grid">
+    <div>
+      <h3>1. Tâches prioritaires <span class="tag">hypothèses à confirmer</span></h3>
+      <div class="tw"><table>
+        <thead><tr><th>#</th><th>Tâche</th><th>Mode</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Où et quand pêcher aujourd'hui ou demain, depuis là où je suis</td><td>BORD</td></tr>
+          <tr><td>2</td><td>Puis-je sortir en mer, où, pour quelles espèces</td><td>BATEAU</td></tr>
+          <tr><td>3</td><td>Vérifier un spot avant de partir : danger, accès, marée, approche, leurres</td><td>BORD</td></tr>
+          <tr><td>4</td><td>Changer de point de départ (vacances, autre maison)</td><td>les deux</td></tr>
+          <tr><td>5</td><td>Noter une sortie et ses prises, vite</td><td>les deux</td></tr>
+          <tr><td>6</td><td>Comparer deux spots ; un détour vaut-il la peine</td><td>BORD</td></tr>
+          <tr><td>7</td><td>Revoir mes sorties et mes statistiques</td><td>les deux</td></tr>
+          <tr><td>8</td><td>Gérer mes spots et mes marques privés</td><td>les deux</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div>
+      <h3>2. Architecture</h3>
+      <ul class="tree">
+        <li><b>En-tête</b> : bascule BORD / BATEAU · puce de position (lieu, source, précision)</li>
+        <li><b>Décision</b> : verdict · 3 cartes (4 ou 5 si égalité) · « À vérifier » à part · comparer</li>
+        <li><b>Carte</b> : filtres avec compteurs · pastilles · aperçu → fiche spot</li>
+        <li><b>Fiche spot</b> : scores · sécurité · fenêtre et marée · approche · stratégie · leurres conseillés · pourquoi ? · règles · sources</li>
+        <li><b>Journal</b> : sortie en cours · + ajouter une prise · sorties typées</li>
+        <li><b>Profil</b> : statistiques · mes spots et marques · mon bateau · mes données · réglages · aide</li>
+        <li class="off"><b>Matériel</b> : n'apparaît qu'avec l'inventaire (dernier lot)</li>
+      </ul>
+      <h3>Ce que deviennent les écrans V2</h3>
+      <ul class="tree">
+        <li>7 guides par département → <b>supprimés</b>, remplacés par la position et le catalogue unique</li>
+        <li>Plus : Marée, Météo, Saison, Règles → dans la <b>fiche spot</b> et Décision</li>
+        <li>Plus : Photos → <b>Journal</b>, ajout par photo</li>
+        <li>Réglages moteur, boîte complète, trajet maximal → <b>supprimés</b> (V3-015, V3-006, V3-007)</li>
+        <li>Onglet Offshore → mode <b>BATEAU</b>, mêmes 4 entrées</li>
+      </ul>
+    </div>
+  </div>
+  <p class="s"><b>3. Parcours</b> : les 13 écrans ci-dessous, de la position (01, 02) à la décision (03, 04, 09), la carte (05, 13), la fiche (06), la comparaison (07), le profil du bateau (08), le journal et le profil (10, 11) et les états (12). Hors jalon 1 : l'apparence, le seuil du filtre « Favorables », l'emplacement de l'export, les statistiques du Profil.</p>
+</section>
+
+<h2 class="parc">Parcours</h2>
 
 <div class="grid">
 

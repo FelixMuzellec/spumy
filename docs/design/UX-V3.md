@@ -90,7 +90,7 @@ flowchart TB
 | Plus : Saison | Décision (contexte du moment de l'année) et fiche (« Pourquoi ? ») |
 | Plus : Règles | fiche spot (règles du lieu) et Profil, Aide (règles complètes) |
 | Plus : Photos (analyse d'une photo) | Journal, « + Ajouter une prise » par photo |
-| Plus : Réglages (thème, moteur, boîte complète, trajet maximal) | Profil, Réglages : thème et mode terrain ; moteur, boîte complète et trajet maximal **supprimés** (V3-006, V3-015, V3-007) |
+| Plus : Réglages (thème, moteur, boîte complète, trajet maximal) | Profil, Réglages : thème et mode terrain ; moteur, boîte complète et trajet maximal **supprimés** (moteur : V3-015 ; boîte complète : V3-006 ; trajet maximal : V3-007) |
 | Plus : sauvegarde GitHub, transfert | Profil, Mes données |
 | Plus : Changer de guide | supprimé (position) |
 | Offshore : spots bateau, conditions 7 jours | Carte BATEAU (marques) ; fiche de zone (conditions) |
