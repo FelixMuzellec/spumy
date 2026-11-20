@@ -56,6 +56,7 @@ Prompts de génération détaillés, demandés par Félix le 20 nov. : `docs/des
 
 - Les 4 rompent la répétition du cadrage « boudin » et des silhouettes. Les anciennes restent dans le catalogue, avec un champ `remplacee_par` : l'application V2 en ligne s'en sert encore. La V3 n'emploie que les nouvelles.
 - **Résolution** : les copies reçues dans la conversation font 1 024 px sur le grand côté, au lieu des 1 600 px demandés. Elles sont intégrées à titre provisoire (`resolution` dans le catalogue). Les originaux en pleine résolution, ou une version agrandie par le générateur, sont demandés à Félix. Un original plus petit n'est jamais agrandi par le script.
+- **2ᵉ envoi (20 nov., 6 h 18)** : une version corrigée du bar (nouvelle image) ; les trois autres sont identiques au premier envoi. Les quatre copies ne font que 512 px : la conversation réduit les images collées. Rien n'est remplacé ; le bar corrigé sera intégré dès que son original arrivera (demandé par Google Drive).
 
 
 **Restriction d'usage, sans remplacement** : `phare-pointe-aube`, `abbaye-crepuscule`, `phare-tempete`, `granit-crique` et `port-crepuscule` ressemblent à des lieux réels reconnaissables. Ce sont des images générées : elles ne sont jamais montrées sur la fiche d'un spot, même avec la mention « Illustration », et servent seulement aux écrans généraux (lancement, états vides, BATEAU). En V2, la règle « jamais une image reconnaissable sur un spot nommé » les écartait déjà de la plupart des fiches.

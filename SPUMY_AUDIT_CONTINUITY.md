@@ -53,7 +53,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | Q4 | 20 nov., 4 h 18 | Vigilance Météo-France | Petit relais gratuit | ADR-V3-011 ; comptes Météo-France et Cloudflare à fournir par Félix plus tard |
 | Q5 | 20 nov., 4 h 18 | Place réservée dans le Top 3 | Oui, 15 min ou moins | ADR-V3-016, REC-06 |
 | Q6 | 20 nov., 4 h 18 | Ancienne note sur 10 | La retirer | ADR-V3-015, REC-12 |
-| Q7 | 20 nov., 5 h 05 | 4 photos à remplacer (2 espèces BATEAU, 1 silhouette, 1 semi-rigide), avec briefs | reçues le 20 nov., 4 h 56 (heure de Paris), conformes ; copies à 1 024 px seulement | intégrées à titre provisoire (`bar-eau-claire`, `lieu-noir-pont-jig`, `platier-aube-frontale`, `jigging-console-sondeur`) ; originaux en pleine résolution demandés |
+| Q7 | 20 nov., 5 h 05 | 4 photos à remplacer (2 espèces BATEAU, 1 silhouette, 1 semi-rigide), avec briefs | reçues le 20 nov., 4 h 56 (heure de Paris), conformes ; copies à 1 024 px seulement | intégrées à titre provisoire (`bar-eau-claire`, `lieu-noir-pont-jig`, `platier-aube-frontale`, `jigging-console-sondeur`) ; 2ᵉ envoi à 6 h 18 : bar corrigé (contenu nouveau), les 3 autres identiques ; mais seulement 512 px (la conversation réduit les images) : rien n'est remplacé ; originaux demandés par Google Drive |
 | Q8 | 20 nov. | Jalon 1 : tâches prioritaires, architecture, parcours (UX-V3, 13 wireframes) | en attente | bloque la haute fidélité (3.6), pas le Design System (3.5) |
 | — | 20 nov., 4 h 50 | Félix demande des prompts complets pour les photos de Q7 | fournis (4 prompts) | `docs/design/PROMPTS-PHOTOS.md` |
 | Q9 (à poser après Q8) | — | Seuil du filtre « Favorables » : 60, 65 ou 75 | — | ADR V3-021 |
