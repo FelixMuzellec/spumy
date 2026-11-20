@@ -15,7 +15,7 @@ Phase 2 V3, 20 novembre 2026. Format du référentiel, § 5.2.
     - `T` test utilisateur ;
     - `R` revue de données ou de documents.
 
-Validation : le registre entier attend la validation de Félix (fin de la Phase 2). Les exigences liées à une décision « à décider » restent `À DÉCIDER` ; les décisions du 20 nov. à 4 h 18 (V3-011, V3-014, V3-015, V3-016) sont appliquées.
+Validation : registre validé par le jeton de la phase 3 (20 nov. 2026, 4 h 25). Les exigences liées à une décision « à décider » restent `À DÉCIDER` ; les décisions du 20 nov. à 4 h 18 (V3-011, V3-014, V3-015, V3-016) sont appliquées.
 
 ## POS — Position de référence (BORD et BATEAU)
 

@@ -1,6 +1,6 @@
 # Journal des décisions — SPUMY V3
 
-Format ADR. Une décision « validée » vient de Félix (date et heure) ou du référentiel maître (`docs/SPUMY_MASTER_PROMPT.md`). Une décision « proposée » attend Félix et ne s'applique pas encore. Ce journal passe avant le référentiel en cas de contradiction, sauf en matière de sécurité, de protection et de préservation des données (référentiel, ordre de priorité).
+Format ADR. Le registre des exigences (`docs/REQUIREMENTS.md`) et la vision (`docs/VISION-V3.md`) sont validés par le même jeton (20 nov. 2026, 4 h 25). Une décision « validée » vient de Félix (date et heure) ou du référentiel maître (`docs/SPUMY_MASTER_PROMPT.md`). Une décision « proposée » attend Félix et ne s'applique pas encore. Ce journal passe avant le référentiel en cas de contradiction, sauf en matière de sécurité, de protection et de préservation des données (référentiel, ordre de priorité).
 
 ## Index
 
@@ -13,19 +13,19 @@ Format ADR. Une décision « validée » vient de Félix (date et heure) ou du r
 | V3-005 | Usage : Félix et quelques proches, gratuit, non commercial | VALIDÉE (Félix, 20 nov. 2026, 1 h 30) |
 | V3-006 | Deux scores : Favorabilité et Confiance ; Pertinence dépréciée | VALIDÉE (référentiel § 9.1) |
 | V3-007 | Aucun secteur ; position de référence dynamique ; 60 min de route au plus en BORD | VALIDÉE (référentiel § 0.2, § 8.1) |
-| V3-008 | Une seule application à deux modes, catalogue de spots unique, hébergement statique, stack conservée | PROPOSÉE |
-| V3-009 | Temps de route BORD par la Géoplateforme IGN (isochrone, puis itinéraire) | PROPOSÉE |
-| V3-010 | Position : « Me géolocaliser » et « Saisir une position » ; pas de localisation par l'adresse IP | PROPOSÉE |
+| V3-008 | Une seule application à deux modes, catalogue de spots unique, hébergement statique, stack conservée | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) |
+| V3-009 | Temps de route BORD par la Géoplateforme IGN (isochrone, puis itinéraire) | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) |
+| V3-010 | Position : « Me géolocaliser » et « Saisir une position » ; pas de localisation par l'adresse IP | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) |
 | V3-011 | Vigilance Météo-France lue par un petit relais gratuit qui garde la clé | VALIDÉE (Félix, 20 nov. 2026, 4 h 18) |
-| V3-012 | Fond de carte : Plan IGN, OpenStreetMap en secours ; aucun préchargement hors ligne | PROPOSÉE |
-| V3-013 | Données de l'utilisateur sur l'appareil, sans compte ; sauvegarde GitHub et export gardés | PROPOSÉE |
+| V3-012 | Fond de carte : Plan IGN, OpenStreetMap en secours ; aucun préchargement hors ligne | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) |
+| V3-013 | Données de l'utilisateur sur l'appareil, sans compte ; sauvegarde GitHub et export gardés | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) |
 | V3-014 | Branche BATEAU de la phase 13 reprise en V3 (Pertinence retirée, seuils à valider) | VALIDÉE (Félix, 20 nov. 2026, 4 h 18) |
 | V3-015 | Ancienne note sur 10 retirée ; modèle BATEAU présenté « d'après tes sorties » | VALIDÉE (Félix, 20 nov. 2026, 4 h 18) |
 | V3-016 | Une place du Top 3 réservée à un spot admissible à 15 min ou moins de ta position | VALIDÉE (Félix, 20 nov. 2026, 4 h 18) |
 | V3-017 | Navigation : Décision, Carte, Journal, Profil, Matériel ; bascule BORD / BATEAU | VALIDÉE (référentiel § 6.4) ; bascule à concevoir en Phase 3 |
-| V3-018 | Identifiants de spot V2 gardés comme identifiants V3 | PROPOSÉE |
+| V3-018 | Identifiants de spot V2 gardés comme identifiants V3 | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) |
 | V3-019 | Point de retour `v2-final` et nettoyage des branches fusionnées | À DÉCIDER (Félix) |
-| V3-020 | Contrats typés par JSDoc et contrôle `tsc --checkJs`, sans migration TypeScript | PROPOSÉE (pour la Phase 4) |
+| V3-020 | Contrats typés par JSDoc et contrôle `tsc --checkJs`, sans migration TypeScript | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) ; appliquée en Phase 4 |
 
 ## Décisions V2 encore en vigueur
 
@@ -103,7 +103,7 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 
 ## V3-008 — Une application, deux modes, un catalogue
 
-- **Statut** : PROPOSÉE.
+- **Statut** : VALIDÉE par le jeton de la phase 3 (20 nov. 2026, 4 h 25), qui validait les propositions listées dans le rapport de phase 2 (§ 12).
 - **Problème** : la V2 publie sept pages (une par guide), chacune avec ses spots, sa météo et son classement. La V3 exige un classement depuis n'importe quelle position, sur tous les spots.
 - **Options** :
 
@@ -127,7 +127,7 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 
 ## V3-009 — Temps de route BORD
 
-- **Statut** : PROPOSÉE.
+- **Statut** : VALIDÉE par le jeton de la phase 3 (20 nov. 2026, 4 h 25), qui validait les propositions listées dans le rapport de phase 2 (§ 12).
 - **Options** :
 
 | Option | Pour | Contre |
@@ -146,7 +146,7 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 
 ## V3-010 — Méthodes de position
 
-- **Statut** : PROPOSÉE.
+- **Statut** : VALIDÉE par le jeton de la phase 3 (20 nov. 2026, 4 h 25), qui validait les propositions listées dans le rapport de phase 2 (§ 12).
 - **Décision** : deux actions, « Me géolocaliser » (sur demande, avec la permission du système) et « Saisir une position » (recherche avec suggestions, puis épingle déplaçable). Pas de localisation par l'adresse IP : elle enverrait l'adresse IP à un tiers pour une précision à la ville, ce qui est inutile pour un petit groupe. Le § 8.1 la rend facultative (« uniquement si … réellement disponibles »).
 - **Contrat de position** : `{lat, lon, precisionM, source: DEVICE|MANUAL, at, validUntil, permission, explicit}`. Aucun historique des positions.
 
@@ -172,7 +172,7 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 
 ## V3-012 — Fond de carte
 
-- **Statut** : PROPOSÉE (aspect visuel validé en Phase 3).
+- **Statut** : VALIDÉE par le jeton de la phase 3 (20 nov. 2026, 4 h 25), qui validait les propositions listées dans le rapport de phase 2 (§ 12).
 - **Décision** :
     - Plan IGN (WMTS de la Géoplateforme) en fond principal : sans clé, détaillé sur le littoral français ;
     - photos aériennes IGN en option, utiles pour lire l'estran ;
@@ -181,7 +181,7 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 
 ## V3-013 — Données de l'utilisateur sur l'appareil
 
-- **Statut** : PROPOSÉE.
+- **Statut** : VALIDÉE par le jeton de la phase 3 (20 nov. 2026, 4 h 25), qui validait les propositions listées dans le rapport de phase 2 (§ 12).
 - **Décision** :
     - le journal, les spots personnels, le profil et les préférences restent sur l'appareil (`localStorage`, IndexedDB), avec un schéma versionné et des migrations testées ;
     - pas de compte ;
@@ -233,7 +233,7 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 
 ## V3-018 — Identifiants de spot
 
-- **Statut** : PROPOSÉE.
+- **Statut** : VALIDÉE par le jeton de la phase 3 (20 nov. 2026, 4 h 25), qui validait les propositions listées dans le rapport de phase 2 (§ 12).
 - **Constat** : les 66 identifiants V2 sont uniques dans tout le catalogue (VÉRIFIÉ, par exemple `goury`, `moulinmer`). Le journal, les favoris et les spots personnels s'y réfèrent.
 - **Décision** : les garder tels quels comme identifiants V3, et ajouter un champ de provenance `legacy: {guide}`. Un nouveau spot reçoit un identifiant qui n'entre jamais en collision.
 
@@ -248,5 +248,5 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 
 ## V3-020 — Contrats typés
 
-- **Statut** : PROPOSÉE, pour la Phase 4.
+- **Statut** : VALIDÉE par le jeton de la phase 3 (20 nov. 2026, 4 h 25), qui validait les propositions listées dans le rapport de phase 2 (§ 12).
 - **Décision** : contrats typés (position, spot, scores, sécurité, journal) en JSDoc, vérifiés par `tsc --checkJs` dans l'intégration continue, sans réécrire le code en TypeScript. Le § 10.2 demande des « types stricts selon la stack » ; c'est le moyen le moins coûteux pour une base JavaScript testée.

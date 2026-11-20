@@ -12,8 +12,9 @@ Suivi unique du chantier V3. Il dit où en est le travail, pourquoi il s'est arr
 | Phase | Statut | Jeton | Livrables |
 | --- | --- | --- | --- |
 | 1. Audit initial V2 (lecture seule) | TESTED, avec une réserve : P1-14 (site en ligne dans un vrai navigateur) BLOCKED, aucun navigateur relié | démarrage (§ 18) | Rapport https://claude.ai/artifact/62UYfGbGKJtRvo6rAF9QrK ; copie `docs/rapports/v3/PHASE-1.md` |
-| 2. Vision produit, exigences et architecture cible | TESTED, en attente de validation | « APPROVED — PROCEED TO PHASE 2 », 20 nov. 2026, 1 h 24 | Rapport https://claude.ai/artifact/JWzDnppc1u7Wf6SPEgceDn ; copie `docs/rapports/v3/PHASE-2.md` ; branche `claude/v3-phase-2`, proposition n° 16 (brouillon) |
-| 3 à 15 | NOT STARTED | — | — |
+| 2. Vision produit, exigences et architecture cible | VALIDATED (jeton de phase 3) | « APPROVED — PROCEED TO PHASE 2 », 20 nov. 2026, 1 h 24 | Rapport https://claude.ai/artifact/JWzDnppc1u7Wf6SPEgceDn ; copie `docs/rapports/v3/PHASE-2.md` ; branche `claude/v3-phase-2`, proposition n° 16 (brouillon) |
+| 3. Conception UX/UI, direction artistique, Design System, prototypes | IN PROGRESS | « APPROVED — PROCEED TO PHASE 3 », 20 nov. 2026, 4 h 25 | Branche `claude/v3-phase-3` (partie de `claude/v3-phase-2`) |
+| 4 à 15 | NOT STARTED | — | — |
 
 Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposait de passer outre la réserve P1-14. Il vaut acceptation de cette réserve (INFÉRÉ) ; le contrôle sera refait dès qu'un navigateur sera relié.
 
@@ -28,6 +29,20 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | 2.4 Architecture cible, menace, migration, stratégie de test | IMPLEMENTED | `docs/ARCHITECTURE-V3.md`, `docs/security/THREAT_MODEL.md`, `docs/MIGRATION-V3.md`, `docs/TEST_STRATEGY.md` |
 | 2.5 Vérification, red-team, rapport, arrêt | TESTED (npm test 0 ; e2e 849/849 ; build identique à main) | `docs/rapports/v3/PHASE-2.md` |
 
+## Phase 3 — sous-tâches
+
+| Sous-tâche | Statut | Fichiers |
+| --- | --- | --- |
+| 3.0 Branche, validations de la phase 2, suivi | IN PROGRESS | `docs/DECISIONS_LOG.md`, ce fichier |
+| 3.1 Audit AVANT : captures de toutes les routes et de tous les états, registre priorisé des écarts | NOT STARTED | `docs/design/AUDIT-UX-AVANT.md`, `docs/design/avant/` |
+| 3.2 Logos : manifeste, matrice des usages, exports V3 sans altération du poisson, test de la zone protégée | NOT STARTED | `docs/design/BRAND-MANIFEST.md`, `scripts/logos-v3.py`, `assets/brand/v3/`, `tests/brand.mjs` |
+| 3.3 Planche UI Showcase écran par écran ; revue des photos et demandes de remplacement | NOT STARTED | `docs/design/REFERENCES.md` |
+| 3.4 Usages, scénarios, architecture de l'information, parcours, carte, cartes de recommandation (jalon 1) | NOT STARTED | `docs/design/UX-V3.md` |
+| 3.5 Design System V3 : jetons, contrastes, composants, états, contenus | NOT STARTED | `docs/design/DESIGN-SYSTEM-V3.md`, `src/design/v3/`, `tests/design-v3.mjs` |
+| 3.6 Wireframes, puis prototype interactif (BORD et BATEAU) | NOT STARTED | `src/prototype-v3/`, `prototype-v3/` |
+| 3.7 Revues, tests, galerie AVANT/CIBLE, matrices de conformité et de traçabilité | NOT STARTED | `docs/design/REVUES-V3.md` |
+| 3.8 Rapport et arrêt | NOT STARTED | `docs/rapports/v3/PHASE-3.md` |
+
 ## Questions et décisions (registre)
 
 | N° | Date | Question | Réponse | Effet |
@@ -41,13 +56,13 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 
 ## Checkpoint
 
-- Branche : `claude/v3-phase-2`, partie de `main` (bb4f940).
+- Branche : `claude/v3-phase-3`, partie de `claude/v3-phase-2` (05cbcc0), elle-même partie de `main` (bb4f940). La phase 2 n'est pas fusionnée.
 - Dernier commit : voir `git log` ; ce fichier est mis à jour à chaque sous-tâche.
 - Tests : la phase 2 ne touche que des documents ; la suite complète est relancée avant le rapport.
 
 ## Prochaine action
 
-STOP. Attendre « APPROVED — PROCEED TO PHASE 3 », la réponse de Félix sur V3-019 et ses éventuels changements aux propositions V3-008, 009, 010, 012, 013, 018, 020. Ne rien fusionner.
+3.1 : captures AVANT et registre des écarts.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
