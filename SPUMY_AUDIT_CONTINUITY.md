@@ -25,7 +25,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | 2.1 Journal des décisions | IMPLEMENTED (20 ADR : 8 validées, 7 proposées, 5 à décider) | `docs/DECISIONS_LOG.md` |
 | 2.2 Services externes, licences | IMPLEMENTED (pages officielles lues le 20 nov.) | `docs/DATA_SOURCES.md` |
 | 2.3 Vision, découverte produit, exigences | IMPLEMENTED (83 exigences, 10 hypothèses, matrice BATEAU) | `docs/VISION-V3.md`, `docs/design/DISCOVERY.md`, `docs/REQUIREMENTS.md` |
-| 2.4 Architecture cible, menace, migration, stratégie de test | NOT STARTED | `docs/ARCHITECTURE-V3.md`, `docs/security/THREAT_MODEL.md`, `docs/MIGRATION-V3.md`, `docs/TEST_STRATEGY.md` |
+| 2.4 Architecture cible, menace, migration, stratégie de test | IMPLEMENTED | `docs/ARCHITECTURE-V3.md`, `docs/security/THREAT_MODEL.md`, `docs/MIGRATION-V3.md`, `docs/TEST_STRATEGY.md` |
 | 2.5 Vérification, red-team, rapport, arrêt | NOT STARTED | `docs/rapports/v3/PHASE-2.md` |
 
 ## Questions et décisions (registre)
@@ -43,7 +43,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 
 ## Prochaine action
 
-2.4 : architecture cible, modèle de menace, migration, stratégie de test.
+2.5 : décisions groupées à Félix, vérification croisée des documents, tests, rapport de phase 2, arrêt.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 

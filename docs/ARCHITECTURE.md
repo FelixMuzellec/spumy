@@ -1,5 +1,7 @@
 # Architecture de SPUMY
 
+> **V3** : l'architecture cible de la V3 (une application, deux modes, catalogue unique, position de référence, routage IGN) est proposée dans `docs/ARCHITECTURE-V3.md` (phase 2 V3, 20 nov. 2026). Ce document-ci décrit le code réellement en place ; sa section « architecture cible » date de la phase 2 V2.
+
 État au 19 novembre 2026 : fin de la phase 8 (moteur BORD v2 en place et éprouvé). La première partie décrit le code tel qu'il est ; la seconde, l'architecture cible décidée en phase 2, atteinte lot par lot. Ce document est mis à jour à chaque lot qui change l'organisation.
 
 ## Aujourd'hui
