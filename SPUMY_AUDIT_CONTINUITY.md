@@ -12,7 +12,7 @@ Suivi unique du chantier V3. Il dit où en est le travail, pourquoi il s'est arr
 | Phase | Statut | Jeton | Livrables |
 | --- | --- | --- | --- |
 | 1. Audit initial V2 (lecture seule) | TESTED, avec une réserve : P1-14 (site en ligne dans un vrai navigateur) BLOCKED, aucun navigateur relié | démarrage (§ 18) | Rapport https://claude.ai/artifact/62UYfGbGKJtRvo6rAF9QrK ; copie `docs/rapports/v3/PHASE-1.md` |
-| 2. Vision produit, exigences et architecture cible | IN PROGRESS | « APPROVED — PROCEED TO PHASE 2 », 20 nov. 2026, 1 h 24 | Branche `claude/v3-phase-2` |
+| 2. Vision produit, exigences et architecture cible | TESTED, en attente de validation | « APPROVED — PROCEED TO PHASE 2 », 20 nov. 2026, 1 h 24 | Rapport https://claude.ai/artifact/JWzDnppc1u7Wf6SPEgceDn ; copie `docs/rapports/v3/PHASE-2.md` ; branche `claude/v3-phase-2`, proposition n° 16 (brouillon) |
 | 3 à 15 | NOT STARTED | — | — |
 
 Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposait de passer outre la réserve P1-14. Il vaut acceptation de cette réserve (INFÉRÉ) ; le contrôle sera refait dès qu'un navigateur sera relié.
@@ -26,7 +26,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | 2.2 Services externes, licences | IMPLEMENTED (pages officielles lues le 20 nov.) | `docs/DATA_SOURCES.md` |
 | 2.3 Vision, découverte produit, exigences | IMPLEMENTED (84 exigences, 10 hypothèses, matrice BATEAU) | `docs/VISION-V3.md`, `docs/design/DISCOVERY.md`, `docs/REQUIREMENTS.md` |
 | 2.4 Architecture cible, menace, migration, stratégie de test | IMPLEMENTED | `docs/ARCHITECTURE-V3.md`, `docs/security/THREAT_MODEL.md`, `docs/MIGRATION-V3.md`, `docs/TEST_STRATEGY.md` |
-| 2.5 Vérification, red-team, rapport, arrêt | NOT STARTED | `docs/rapports/v3/PHASE-2.md` |
+| 2.5 Vérification, red-team, rapport, arrêt | TESTED (npm test 0 ; e2e 849/849 ; build identique à main) | `docs/rapports/v3/PHASE-2.md` |
 
 ## Questions et décisions (registre)
 
@@ -47,7 +47,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 
 ## Prochaine action
 
-2.5 : décisions groupées à Félix, vérification croisée des documents, tests, rapport de phase 2, arrêt.
+STOP. Attendre « APPROVED — PROCEED TO PHASE 3 », la réponse de Félix sur V3-019 et ses éventuels changements aux propositions V3-008, 009, 010, 012, 013, 018, 020. Ne rien fusionner.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 

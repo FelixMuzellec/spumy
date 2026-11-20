@@ -79,6 +79,8 @@ Les champs V2 dépréciés (`v2.pert`, `V2.pert`, `bar:boite-complete`, `bar:tra
 1. **Position** : l'utilisateur choisit « Me géolocaliser » ou « Saisir une position » (géocodage IGN, suggestions, épingle). On garde la précision et la source.
 2. **Isochrone** : un appel IGN, voiture, 60 min, depuis la position arrondie à 100 m. Le polygone est gardé en cache 24 h par position arrondie.
 3. **Filtre** : un spot est admissible si son accès est dans le polygone, avec la mention « temps vérifié par l'IGN ».
+    - **Point ouvert (red-team de la phase 2)** : l'isochrone suit le réseau routier. Un poste sur une pointe, loin de la route, peut tomber hors du polygone alors que son stationnement y est. Le test d'appartenance se fait donc sur le point d'accès (RTE-04). Tant qu'il manque, il se fait sur le point routier le plus proche, donné par l'itinéraire.
+    - **Étalonnage en Phase 4** sur les 66 spots, en comparant isochrone et itinéraire. Aucun spot n'est écarté sur le seul polygone sans ce contrôle.
 4. **Temps exact** : un appel « itinéraire » pour chaque spot montré (Top 3 à 5, fiche ouverte), au rythme de 5 appels par seconde au plus ; gardé en cache 24 h.
 5. **Dégradé** :
     - hors ligne ou service en échec : estimation par la distance à vol d'oiseau × 1,4, sur 60 km/h, pour lister des spots plausibles ;
