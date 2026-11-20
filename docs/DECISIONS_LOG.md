@@ -26,6 +26,8 @@ Format ADR. Le registre des exigences (`docs/REQUIREMENTS.md`) et la vision (`do
 | V3-018 | Identifiants de spot V2 gardés comme identifiants V3 | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) |
 | V3-019 | Point de retour `v2-final` et nettoyage des branches fusionnées | À DÉCIDER (Félix) |
 | V3-020 | Contrats typés par JSDoc et contrôle `tsc --checkJs`, sans migration TypeScript | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) ; appliquée en Phase 4 |
+| V3-021 | Seuil du filtre « Favorables » avec les 6 paliers de couleur (60, 65 ou 75) | PROPOSÉE (question à Félix après le jalon 1) |
+| V3-022 | Design System V3 : jetons dans `src/design/v3/tokens.js`, CSS généré, repère de valeur des jauges, anneau double des pastilles | PROPOSÉE (jalon 2) |
 
 ## Décisions V2 encore en vigueur
 
@@ -250,3 +252,22 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 
 - **Statut** : VALIDÉE par le jeton de la phase 3 (20 nov. 2026, 4 h 25), qui validait les propositions listées dans le rapport de phase 2 (§ 12).
 - **Décision** : contrats typés (position, spot, scores, sécurité, journal) en JSDoc, vérifiés par `tsc --checkJs` dans l'intégration continue, sans réécrire le code en TypeScript. Le § 10.2 demande des « types stricts selon la stack » ; c'est le moyen le moins coûteux pour une base JavaScript testée.
+
+## V3-021 — Seuil du filtre « Favorables »
+
+- **Statut** : PROPOSÉE ; question à poser à Félix après sa réponse au jalon 1 (une question à la fois).
+- **Contexte** : en V2, « favorable » commence à 65 (`src/core/scale.js`). Les six paliers du référentiel (§ 6.7.5.1) placent 65 au milieu du jaune (60–74) : deux pastilles de même couleur pourraient être l'une favorable, l'autre non.
+- **Options** : (A) 60, début de « Bon », cohérent avec la couleur ; (B) 65, continuité avec la V2 ; (C) 75, début de « Très bon », plus strict. Dans tous les cas, le filtre exige aussi la sécurité et l'absence de statut « À vérifier » (§ 6.7.4).
+- **Recommandation** : (A), révisable à la recalibration du moteur (Phase 8).
+
+## V3-022 — Design System V3
+
+- **Statut** : PROPOSÉE ; à valider au jalon 2 sur le prototype.
+- **Décision proposée** :
+    - jetons dans une source unique typée (`src/design/v3/tokens.js`), CSS généré (`scripts/tokens-v3.mjs`), contrôle `tests/design-v3.mjs` ;
+    - thèmes clair et sombre ;
+    - orange d'accent en remplissage avec texte marine, jamais en texte sur fond clair ;
+    - repère de valeur sur les jauges, anneau double sur les pastilles, « ? » des pastilles à vérifier dans une pastille marine.
+- **Raisons** : les six teintes imposées ne peuvent pas toutes contraster avec une même piste ou un même fond (jaune sur piste claire 1,0:1). Le repère, l'anneau et le texte rendent la lecture indépendante de ce contraste, sans découper le remplissage.
+- **Détails** : `docs/design/DESIGN-SYSTEM-V3.md`.
+

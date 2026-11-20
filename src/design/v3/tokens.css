@@ -1,0 +1,157 @@
+/* SPUMY V3 — jetons de design. FICHIER GÉNÉRÉ par scripts/tokens-v3.mjs depuis src/design/v3/tokens.js : ne pas modifier à la main.
+ * Statuts et règles : docs/design/DESIGN-SYSTEM-V3.md. Thème : celui du système par défaut ; [data-theme] l'impose.
+ */
+:root {
+  color-scheme: light;
+  /* Marque, PROTÉGÉ : jamais redéfini par un thème, un filtre ou une transparence. */
+  --brand-logo-orange: #C76A31;
+  /* Palette principale, APPROUVÉ. */
+  --palette-accent-orange: #F07824;
+  --palette-navy: #172B3A;
+  --palette-slate: #344B5A;
+  --palette-off-white: #F3F1EB;
+  /* Paliers des jauges et des pastilles (RÈGLE § 6.7.5.1 ; valeurs PROPOSITION À TESTER). */
+  --tier-0: #2B3034; /* 0–19 · Très faible */
+  --tier-1: #A82E2A; /* 20–39 · Faible */
+  --tier-2: #F5962A; /* 40–59 · Moyen */
+  --tier-3: #F8D757; /* 60–74 · Bon */
+  --tier-4: #21915A; /* 75–89 · Très bon */
+  --tier-5: #2C60C2; /* 90–100 · Excellent */
+  /* Typographie, espacements, rayons, élévations, mouvement, cibles (PROPOSITION À TESTER). */
+  --font-text: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-numeric: "Roboto Condensed", "Arial Narrow", system-ui, sans-serif;
+  --font-brand: "Montserrat", "Roboto", system-ui, sans-serif;
+  --brand-tracking: 0.12em;
+  --fs-caption: 12px;
+  --fs-label: 13px;
+  --fs-small: 14px;
+  --fs-body: 16px;
+  --fs-body-lg: 18px;
+  --fs-title-s: 18px;
+  --fs-title: 22px;
+  --fs-headline: 28px;
+  --fs-score: 34px;
+  --lh-tight: 1.1;
+  --lh-snug: 1.25;
+  --lh-body: 1.5;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --fw-black: 800;
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 20px;
+  --r-pill: 999px;
+  --elev-0: none;
+  --elev-1: 0 1px 2px rgba(15, 30, 41, 0.12), 0 2px 8px rgba(15, 30, 41, 0.10);
+  --elev-2: 0 2px 6px rgba(15, 30, 41, 0.16), 0 12px 32px rgba(15, 30, 41, 0.22);
+  --t-fast: 120ms; --t-base: 200ms; --t-slow: 280ms; --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --touch: 44px; --touch-main: 52px;
+  --gutter: 16px; --reading-max: 680px; --desktop-list: 400px; --nav-height: 64px;
+  /* Thème clair (défaut). */
+  --bg-app: #F3F1EB;
+  --surface-card: #FBFAF7;
+  --surface-sunken: #E9E5DC;
+  --surface-inverse: #172B3A;
+  --text-primary: #172B3A;
+  --text-secondary: #344B5A;
+  --text-muted: #56656F;
+  --text-on-inverse: #F3F1EB;
+  --text-on-accent: #172B3A;
+  --border: #D3CEC3;
+  --border-strong: #7A848B;
+  --accent: #F07824;
+  --accent-ink: #172B3A;
+  --focus-ring: #172B3A;
+  --gauge-track: #DDD8CE;
+  --gauge-index: #172B3A;
+  --success-ink: #2F6B45;
+  --success-soft: #E1ECE2;
+  --warning-ink: #7F5300;
+  --warning-soft: #F5E7C4;
+  --danger-ink: #A12C26;
+  --danger-soft: #F5DDD9;
+  --info-ink: #344B5A;
+  --info-soft: #E2E6E8;
+  --marker-ring-inner: #F3F1EB;
+  --marker-ring-outer: #172B3A;
+  --marker-empty: #FBFAF7;
+  --scrim: rgba(23, 43, 58, 0.45);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg-app: #172B3A;
+    --surface-card: #344B5A;
+    --surface-sunken: #203545;
+    --surface-inverse: #0F1E29;
+    --text-primary: #F3F1EB;
+    --text-secondary: #D5DADD;
+    --text-muted: #B4BEC4;
+    --text-on-inverse: #F3F1EB;
+    --text-on-accent: #172B3A;
+    --border: #4C6372;
+    --border-strong: #8597A3;
+    --accent: #F07824;
+    --accent-ink: #F07824;
+    --focus-ring: #F07824;
+    --gauge-track: #1E3342;
+    --gauge-index: #F3F1EB;
+    --success-ink: #9BD3AC;
+    --success-soft: #2C4A3C;
+    --warning-ink: #F2C772;
+    --warning-soft: #4B3F22;
+    --danger-ink: #F3A79E;
+    --danger-soft: #4F2E2E;
+    --info-ink: #CBD5DB;
+    --info-soft: #2B4353;
+    --marker-ring-inner: #F3F1EB;
+    --marker-ring-outer: #172B3A;
+    --marker-empty: #FBFAF7;
+    --scrim: rgba(8, 16, 22, 0.6);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-app: #172B3A;
+  --surface-card: #344B5A;
+  --surface-sunken: #203545;
+  --surface-inverse: #0F1E29;
+  --text-primary: #F3F1EB;
+  --text-secondary: #D5DADD;
+  --text-muted: #B4BEC4;
+  --text-on-inverse: #F3F1EB;
+  --text-on-accent: #172B3A;
+  --border: #4C6372;
+  --border-strong: #8597A3;
+  --accent: #F07824;
+  --accent-ink: #F07824;
+  --focus-ring: #F07824;
+  --gauge-track: #1E3342;
+  --gauge-index: #F3F1EB;
+  --success-ink: #9BD3AC;
+  --success-soft: #2C4A3C;
+  --warning-ink: #F2C772;
+  --warning-soft: #4B3F22;
+  --danger-ink: #F3A79E;
+  --danger-soft: #4F2E2E;
+  --info-ink: #CBD5DB;
+  --info-soft: #2B4353;
+  --marker-ring-inner: #F3F1EB;
+  --marker-ring-outer: #172B3A;
+  --marker-empty: #FBFAF7;
+  --scrim: rgba(8, 16, 22, 0.6);
+}
+@media (prefers-reduced-motion: reduce) {
+  :root { --t-fast: 0ms; --t-base: 0ms; --t-slow: 0ms; }
+}

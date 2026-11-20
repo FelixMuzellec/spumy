@@ -44,6 +44,8 @@ jobs:
         run: npm run -s test:knowledge
       - name: Système de design (contrastes WCAG des deux thèmes)
         run: npm run -s test:design
+      - name: Design System V3 (jetons, paliers 0–100, contrastes, CSS généré à jour)
+        run: npm run -s test:design-v3
       - name: Moteur v2 (16 scénarios de la spécification, trois scores)
         run: npm run -s test:v2
       - name: Tests unitaires (7 guides + fuseau Auckland)
