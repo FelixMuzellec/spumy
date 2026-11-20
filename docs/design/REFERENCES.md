@@ -66,7 +66,7 @@ Prompts de génération détaillés, demandés par Félix le 20 nov. : `docs/des
 - vieille et saint-pierre (cartes d'espèces BATEAU, Phase 9) ;
 - approche d'un poste : sentier, descente vers l'estran, repères (fiche spot, Phase 7) ;
 - jigging profond (demandé ci-dessus) ;
-- photos réelles de spots, avec lieu et provenance vérifiés : aucune à ce jour.
+- ~~photos réelles de spots~~ : abandonnées par Félix le 20 nov. 2026 (V3-026), trop lourdes pour l'application ; illustrations seulement.
 
 **Matrice de couverture**
 

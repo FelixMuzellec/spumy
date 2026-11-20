@@ -2,27 +2,32 @@
 import { useState } from "react";
 import { Score, Safety, Hero, DayStrip, Icon, photoSrc } from "./ui.jsx";
 import { SPOTS, MARKS, BOATS, SPECIES_PHOTO, ranking, verifyList, homePhrase, span } from "./data.js";
+import { tierOf } from "../design/v3/tokens.js";
 
 export function RecCard({ s, rank, go }) {
+  const t = tierOf(s.fav);
   return (
     <article className="rc" aria-label={`${rank}. ${s.name}`}>
       <div className="rc-media">
         <img src={photoSrc(s.photo, 1600)} alt="" loading="lazy" />
-        <span className={`rc-rank${s.nearest ? " near" : ""}`}>{s.nearest ? `${rank} · Le plus proche` : s.tie ? `${rank} · ex æquo` : rank}</span>
-        <span className="rc-illus">Illustration</span>
+        <div className="rc-tags"><span className={`rc-rank${s.nearest ? " near" : ""}`}>{s.nearest ? `${rank} · Le plus proche` : s.tie ? `${rank} · ex æquo` : rank}</span>
+          <span className="rc-illus">Illustration</span></div>
+        <button className="rc-map" aria-label={`${s.name} sur la carte`} onClick={() => go("carte", s.id)}><Icon name="map" size={20} /></button>
         <div className="rc-over">
-          <span className="rc-time">{s.win ? span(s.win) : "Fenêtre non déterminable"}</span>
-          <span className="rc-name"><a href={`#spot-${s.id}`} onClick={() => go("spot", s.id)}>{s.name}</a></span>
+          <div className="rc-id">
+            <span className="rc-time">{s.win ? span(s.win) : "Fenêtre non déterminable"}</span>
+            <span className="rc-name"><a href={`#spot-${s.id}`} onClick={() => go("spot", s.id)}>{s.name}</a></span>
+          </div>
+          <div className="rc-score"><Score value={s.fav} compact /><span className="rc-word">{t ? t.word : "Sans note"}</span></div>
         </div>
       </div>
       <div className="rc-body">
-        <div className="row between" style={{ flexWrap: "nowrap" }}>
-          <Score value={s.fav} conf={s.conf} level={s.level} />
-          <button className="btn small rc-map" aria-label={`${s.name} sur la carte`} onClick={() => go("carte", s.id)}><Icon name="map" size={18} /></button>
+        <div className="rc-facts num">
+          <Safety s={s} short />
+          <span>{s.verified ? `${s.route} min` : `~${s.route} min, estim.`}</span>
+          <span>Confiance {String(s.level).toLowerCase()} ({s.conf})</span>
         </div>
-        <div className="row"><Safety s={s} /><span className="rc-meta num">{s.verified ? `${s.route} min de route` : `~${s.route} min, estimation`} · bar</span></div>
-        {!s.win && <span className="rc-meta">Raison : {s.noWinWhy}</span>}
-        <span className="rc-meta">{s.reason[0].toUpperCase() + s.reason.slice(1)}.</span>
+        <span className="rc-meta">{s.win ? s.reason[0].toUpperCase() + s.reason.slice(1) : `Raison : ${s.noWinWhy}`}.</span>
       </div>
     </article>
   );

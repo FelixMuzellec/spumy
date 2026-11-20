@@ -67,7 +67,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 
 ## Prochaine action
 
-Prototype version 3 fait (demande de Félix à 14 h 46 : carte déplaçable et zoomable, feuille glissante, transitions, rythme et trois tailles de texte par carte ; `test:prototype-v3` 144/144). Félix propose de valider le prototype et de revenir sur le livrable ensuite ; avis donné (6,5/10, valider avec réserves écrites). Attendre « jalon 2 validé avec réserves ». Ensuite 3.7 (revue heuristique Nielsen, guides Apple et Material 3, WCAG 2.2 ; galerie AVANT/CIBLE ; matrices § 6.16 et de traçabilité ; réserves transformées en critères d'acceptation des phases 10 à 12 ; test utilisateur ou « NON EFFECTUÉ »), puis 3.8 (rapport en 14 parties, arrêt). Photos réelles des spots : à fournir par Félix ou à choisir sous licence libre (liste à préparer).
+Prototype version 4 fait (Félix, 15 h 02 : logo SPUMY dans l'en-tête et icônes de l'application, cartes de spot compactes, 32 px entre les spots ; vraies photos abandonnées, V3-026 ; `test:prototype-v3` 151/151). Attendre « jalon 2 validé avec réserves ». Ensuite 3.7 (revue heuristique Nielsen, guides Apple et Material 3, WCAG 2.2 ; galerie AVANT/CIBLE ; matrices § 6.16 et de traçabilité ; réserves en critères d'acceptation des phases 10 à 12 ; test utilisateur ou « NON EFFECTUÉ »), puis 3.8 (rapport en 14 parties, arrêt). Proposé à Félix : poser dès maintenant les icônes V3 sur le site (sur la branche, publiées seulement à la fusion).
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 

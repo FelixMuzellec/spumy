@@ -72,6 +72,12 @@ for (const [vn, view] of VIEWS) for (const scheme of ["light", "dark"]) {
   t("Home : au plus trois tailles de texte par carte", levels.every((l) => l.length <= 3), JSON.stringify(levels));
   t("Home : rythme de 16 px dans l'écran, sections séparées", (await page.locator(".screen.home").evaluate((e) => getComputedStyle(e).rowGap)) === "16px" && (await page.locator(".sect").count()) === 3);
   t("transition d'écran présente (fondu)", (await page.locator("main.fade").count()) === 1);
+  t("Home : 32 px entre deux spots", (await page.locator(".cards2").first().evaluate((e) => getComputedStyle(e).rowGap)) === "32px");
+  const bodies = await page.locator("article.rc .rc-body").evaluateAll((els) => els.map((e) => Math.round(e.getBoundingClientRect().height)));
+  t("Home : partie sous la photo compacte (≤ 110 px)", bodies.every((h) => h <= 110), bodies.join(","));
+  t("Home : score posé sur la photo", (await page.locator("article.rc .rc-media .disc").count()) === 3);
+  const logo = await page.locator("header .brand img").evaluate((e) => [e.alt, e.getBoundingClientRect().width, e.complete && e.naturalWidth > 0]);
+  t("logo SPUMY visible dans l'en-tête (40 px, chargé)", logo[0] === "SPUMY" && logo[1] >= 40 && logo[2], JSON.stringify(logo));
   await page.evaluate(() => { location.hash = "carte"; });
   await page.waitForSelector(".mk");
   const favChip = page.locator(".chip", { hasText: "Favorables" });
@@ -172,6 +178,16 @@ for (const [vn, view] of VIEWS) for (const scheme of ["light", "dark"]) {
   t("Météo BATEAU : couche Mer", (await page.textContent("main")).includes("Open-Meteo Marine"));
   t("parcours barre, Météo, BATEAU : aucune erreur", errors.length === 0, errors.join(" | "));
   await ctx.close();
+}
+
+// Icônes de l'application : favicon, icône iOS et manifeste pointent vers les exports V3 du logo, qui existent.
+{
+  const html = fs.readFileSync(path.join(root, "prototype-v3/index.html"), "utf8");
+  const man = JSON.parse(fs.readFileSync(path.join(root, "prototype-v3/manifest.webmanifest"), "utf8"));
+  const refs = [...html.matchAll(/<link rel="(icon|apple-touch-icon)"[^>]*href="([^"]+)"/g)].map((m) => m[2]);
+  t("icônes : favicon et icône iOS déclarés", refs.length === 2 && html.includes('rel="manifest"'));
+  t("icônes : fichiers présents", [...refs, ...man.icons.map((i) => i.src)].every((r) => fs.existsSync(path.join(root, "prototype-v3", r))));
+  t("manifeste : nom SPUMY, icône adaptative", man.name === "SPUMY" && man.icons.some((i) => i.purpose === "maskable"));
 }
 
 // 4. Accessibilité (axe-core), deux thèmes.

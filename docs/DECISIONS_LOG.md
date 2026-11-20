@@ -31,6 +31,7 @@ Format ADR. Le registre des exigences (`docs/REQUIREMENTS.md`) et la vision (`do
 | V3-023 | Jalon 1 : Home (ex-Décision), onglet Météo, barre de 4 onglets modifiable, glissement entre onglets, position automatique ou manuelle, horaires mis en avant, courbe de marée dans la fiche, vent dans la comparaison, bateau enregistré ou saisi | VALIDÉE (Félix, 20 nov. 2026, 13 h 46) |
 | V3-024 | Carte marine (épaves, hauts-fonds) en couche BATEAU | BONUS À ÉTUDIER (Félix : « pas obligatoire aujourd'hui ») |
 | V3-025 | Refonte visuelle après le jalon 2 : photos en grand, cartes à photo, disque de score, pastilles-étiquettes avec score, nuit marine par défaut, barre déplaçable à la souris | PROPOSÉE (à revalider au jalon 2) |
+| V3-026 | Pas de vraies photos de spots : photos d'illustration seulement, marquées « Illustration » | VALIDÉE (Félix, 20 nov. 2026, 15 h 02 : « trop lourd pour l'application ») |
 
 ## Décisions V2 encore en vigueur
 
@@ -314,4 +315,10 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
     - **barre** : glisser au doigt, à la souris et à la molette ; chevrons cliquables ;
     - **Météo** : flèches effilées d'une seule teinte, plus marquées quand le vent forcit, force Beaufort dans une pastille, ambre à partir de force 6 ; légende explicite ; spots et marques en points de même forme ; explication des couches Vent et Mer.
 - **Inchangé** : seuils et teintes des paliers (le vert ne peut pas être assombri sans se confondre avec le rouge en deutéranopie : ΔE 4,7) ; aucun petit texte posé sur un palier.
+
+## V3-026 — Pas de vraies photos de spots
+
+- **Statut** : VALIDÉE par Félix (20 nov. 2026, 15 h 02) : « Oublie les vraies photos, ça serait trop lourd pour l'application. »
+- **Décision** : l'application n'embarque que les photos d'ambiance du catalogue (`data/photos/catalogue.json`), toujours marquées « Illustration ». Aucune photo n'est présentée comme celle d'un spot réel. La règle V2 reste : jamais une image reconnaissable sur un spot nommé.
+- **Conséquences** : le manque « photos réelles de spots » de `docs/design/REFERENCES.md` est clos ; la fiche spot garde une photo d'illustration choisie selon le type de lieu.
 

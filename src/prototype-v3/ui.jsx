@@ -58,13 +58,13 @@ export function Gauge({ label, value, word, size = "", note }) {
 }
 
 /** Disque de score : chiffre de 20 px gras (grand texte) sur le palier, mot et Confiance à côté. */
-export function Score({ value, word, conf, level }) {
+export function Score({ value, word, conf, level, compact }) {
   const d = displayValue(value), t = tierOf(value);
   return (
     <div className="score">
       <span className="disc" style={t ? { background: `var(--tier-${t.id})`, color: `var(--palette-${TIER_INK[t.id] === "navy" ? "navy" : "off-white"})` } : { background: "var(--surface-sunken)" }}
         role="img" aria-label={`Favorabilité ${d ?? "sans note"}${d !== null ? " sur 100" : ""}`}>{d ?? "–"}</span>
-      <span className="txt"><b>{word || (t ? t.word : "Sans note")}</b>{conf !== undefined && <span>Confiance {String(level).toLowerCase()} ({conf}) · ne change pas le rang</span>}</span>
+      {!compact && <span className="txt"><b>{word || (t ? t.word : "Sans note")}</b>{conf !== undefined && <span>Confiance {String(level).toLowerCase()} ({conf}) · ne change pas le rang</span>}</span>}
     </div>
   );
 }

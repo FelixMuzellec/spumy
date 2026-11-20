@@ -108,7 +108,7 @@ function App() {
       <div className="demo-bar">{DEMO_NOTE}</div>
       {st.demo.offline && <div className="banner" role="status"><Icon name="offline" size={18} />Hors ligne · données de 06:10 ; temps de route en estimation</div>}
       <header className="hdr">
-        <span className="brand"><img src={brandSrc("spumy-medaillon-128.png")} alt="" />SPUMY</span>
+        <a className="brand" href="#home"><img src={brandSrc("spumy-medaillon-128.png")} alt="SPUMY" width="40" height="40" /><span className="word" aria-hidden="true">SPUMY</span></a>
         <div className="mode" role="radiogroup" aria-label="Mode">
           {[["bord", "BORD"], ["bateau", "BATEAU"]].map(([k, l]) => <button key={k} role="radio" aria-checked={st.mode === k} onClick={() => { set({ mode: k }); setSel(null); }}>{l}</button>)}
         </div>
