@@ -33,8 +33,8 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 
 | Sous-tâche | Statut | Fichiers |
 | --- | --- | --- |
-| 3.0 Branche, validations de la phase 2, suivi | IN PROGRESS | `docs/DECISIONS_LOG.md`, ce fichier |
-| 3.1 Audit AVANT : captures de toutes les routes et de tous les états, registre priorisé des écarts | NOT STARTED | `docs/design/AUDIT-UX-AVANT.md`, `docs/design/avant/` |
+| 3.0 Branche, validations de la phase 2, suivi | IMPLEMENTED (proposition n° 17) | `docs/DECISIONS_LOG.md`, ce fichier |
+| 3.1 Audit AVANT : captures de toutes les routes et de tous les états, registre priorisé des écarts | IMPLEMENTED (31 captures, 22 écarts ; site en ligne non vérifiable) | `docs/design/AUDIT-UX-AVANT.md`, `docs/design/avant/` |
 | 3.2 Logos : manifeste, matrice des usages, exports V3 sans altération du poisson, test de la zone protégée | NOT STARTED | `docs/design/BRAND-MANIFEST.md`, `scripts/logos-v3.py`, `assets/brand/v3/`, `tests/brand.mjs` |
 | 3.3 Planche UI Showcase écran par écran ; revue des photos et demandes de remplacement | NOT STARTED | `docs/design/REFERENCES.md` |
 | 3.4 Usages, scénarios, architecture de l'information, parcours, carte, cartes de recommandation (jalon 1) | NOT STARTED | `docs/design/UX-V3.md` |
@@ -62,7 +62,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 
 ## Prochaine action
 
-3.1 : captures AVANT et registre des écarts.
+3.2 : logos (manifeste, exports V3, test de la zone protégée).
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
