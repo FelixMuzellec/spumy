@@ -38,12 +38,25 @@
 
 | Photo | Diagnostic | Remplacement demandé | Statut |
 | --- | --- | --- | --- |
-| `lieu-noir-boudin` | même cadrage que `lieu-jaune-boudin` et `bar-boudin` : cartes d'espèces indistinctes | lieu noir de jigging sur le pont, de côté, jig accroché, 3:4 | `BLOCKED — PHOTO UTILISATEUR ATTENDUE` |
-| `bar-boudin` | idem | bar tenu au-dessus de l'eau claire, leurre souple, lumière rasante, 3:4 | `BLOCKED — PHOTO UTILISATEUR ATTENDUE` |
-| `silhouette-aube-rose` | presque identique à `silhouette-couchant` | platier découvert à marée basse avant l'aube, frontale rouge, 3:4 | `BLOCKED — PHOTO UTILISATEUR ATTENDUE` |
-| `semi-rigide-gilets` | 4 vues en surplomb du semi-rigide, quasi identiques | jigging vertical vu de la console, sondeur à 60–80 m, 16:9 | `BLOCKED — PHOTO UTILISATEUR ATTENDUE` |
+| `lieu-noir-boudin` | même cadrage que `lieu-jaune-boudin` et `bar-boudin` : cartes d'espèces indistinctes | lieu noir de jigging sur le pont, de côté, jig accroché, 3:4 | REÇUE le 20 nov. → `lieu-noir-pont-jig` ; résolution provisoire (765 × 1 024) |
+| `bar-boudin` | idem | bar tenu au-dessus de l'eau claire, leurre souple, lumière rasante, 3:4 | REÇUE le 20 nov. → `bar-eau-claire` ; résolution provisoire (765 × 1 024) |
+| `silhouette-aube-rose` | presque identique à `silhouette-couchant` | platier découvert à marée basse avant l'aube, frontale rouge, 3:4 | REÇUE le 20 nov. → `platier-aube-frontale` ; résolution provisoire (765 × 1 024) |
+| `semi-rigide-gilets` | 4 vues en surplomb du semi-rigide, quasi identiques | jigging vertical vu de la console, sondeur à 60–80 m, 16:9 | REÇUE le 20 nov. → `jigging-console-sondeur` ; résolution provisoire (1 024 × 572) |
 
 Prompts de génération détaillés, demandés par Félix le 20 nov. : `docs/design/PROMPTS-PHOTOS.md`.
+
+**Revue des 4 photos reçues le 20 nov.** (images générées par Félix avec ces prompts ; toujours marquées « Illustration ») :
+
+| Nouvelle photo | Conforme au brief | Écarts | Usage |
+| --- | --- | --- | --- |
+| `bar-eau-claire` | bar exact : deux dorsales, la première épineuse ; tache sur l'opercule ; aucune rayure. Tenu à deux mains au-dessus d'une eau claire (galets, laminaires) ; leurre souple à la gueule ; lumière rasante ; aucun visage ; roche sans repère | des laminaires dans le quart bas, où va le texte : voile d'interface nécessaire | carte d'espèce « bar » ; illustration BORD |
+| `lieu-noir-pont-jig` | lieu noir exact : ligne latérale droite et claire, trois dorsales, dos sombre. Sur le pont ; gilet jaune, cordage, canne ; mer sans terre | le jig est posé à côté de la gueule, pas accroché (sans conséquence pour l'usage) | carte d'espèce « lieu noir » (BATEAU) |
+| `platier-aube-frontale` | platier découvert, flaques, goémon ; heure bleue ; faisceau rouge sur la roche ; pêcheur de dos, petit, au tiers droit ; aucun repère reconnaissable | bande orange de l'horizon un peu marquée, sans ciel rose | illustration BORD : écran d'entrée, états vides |
+| `jigging-console-sondeur` | vue depuis la console ; sondeur « 70m » cohérent ; pêcheur de dos, gilet orange, canne pliée ; mer ouverte | la tresse verticale se devine à peine ; petits chiffres illisibles en bas de l'écran du sondeur | illustration BATEAU : en-tête, écran d'entrée |
+
+- Les 4 rompent la répétition du cadrage « boudin » et des silhouettes. Les anciennes restent dans le catalogue, avec un champ `remplacee_par` : l'application V2 en ligne s'en sert encore. La V3 n'emploie que les nouvelles.
+- **Résolution** : les copies reçues dans la conversation font 1 024 px sur le grand côté, au lieu des 1 600 px demandés. Elles sont intégrées à titre provisoire (`resolution` dans le catalogue). Les originaux en pleine résolution, ou une version agrandie par le générateur, sont demandés à Félix. Un original plus petit n'est jamais agrandi par le script.
+
 
 **Restriction d'usage, sans remplacement** : `phare-pointe-aube`, `abbaye-crepuscule`, `phare-tempete`, `granit-crique` et `port-crepuscule` ressemblent à des lieux réels reconnaissables. Ce sont des images générées : elles ne sont jamais montrées sur la fiche d'un spot, même avec la mention « Illustration », et servent seulement aux écrans généraux (lancement, états vides, BATEAU). En V2, la règle « jamais une image reconnaissable sur un spot nommé » les écartait déjà de la plupart des fiches.
 

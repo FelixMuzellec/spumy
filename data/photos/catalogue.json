@@ -1,6 +1,6 @@
 {
   "titre": "Photos d'ambiance de SPUMY",
-  "origine": "Images générées par Gemini, fournies par Félix dans la conversation de travail (novembre 2026). 32 retenues sur 38 distinctes.",
+  "origine": "Images générées par Gemini, fournies par Félix dans la conversation de travail (novembre 2026). 32 retenues sur 38 distinctes. Quatre remplacements générés par Félix le 20 nov. 2026 d'après les prompts de docs/design/PROMPTS-PHOTOS.md.",
   "regle": "Ambiance et illustration seulement : jamais présentées comme la photo réelle d'un spot, d'une prise ou d'une sortie. Une image reconnaissable (phare, port, granit) ne va jamais sur la fiche d'un spot. L'interface les marque « Illustration ».",
   "ecartees": [
     {
@@ -494,7 +494,8 @@
       "w": 1438,
       "h": 2576,
       "orientation": "portrait",
-      "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAADwAwCdASoNABgAPtFUpEuoJKOhsAgBABoJYgCdACH3ocDDIBmFqU48AP6vFIdQF5UxXa3c++xrrlew77FCSUzCm/0yr8zQ/k10gUgfYNwjZNhVnwYNf5GCjMc3WLOQl9XVZURfD7pSd9PxK7sZ03Yr0I7IAAAA"
+      "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAADwAwCdASoNABgAPtFUpEuoJKOhsAgBABoJYgCdACH3ocDDIBmFqU48AP6vFIdQF5UxXa3c++xrrlew77FCSUzCm/0yr8zQ/k10gUgfYNwjZNhVnwYNf5GCjMc3WLOQl9XVZURfD7pSd9PxK7sZ03Yr0I7IAAAA",
+      "remplacee_par": "lieu-noir-pont-jig"
     },
     {
       "id": "semi-rigide-aube-port",
@@ -533,7 +534,8 @@
       "w": 1438,
       "h": 2576,
       "orientation": "portrait",
-      "lqip": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQBACdASoNABgAPtFUpEuoJKOhsAgBABoJYgCdACHfsV/MPYsV/3G8AAD+1Klwiav/qGJjRm1eGw34ycG4V4fIs7ot5QSTCNzvybJPgo7fFbdB/QRhjyp9hwMkFAAA"
+      "lqip": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQBACdASoNABgAPtFUpEuoJKOhsAgBABoJYgCdACHfsV/MPYsV/3G8AAD+1Klwiav/qGJjRm1eGw34ycG4V4fIs7ot5QSTCNzvybJPgo7fFbdB/QRhjyp9hwMkFAAA",
+      "remplacee_par": "platier-aube-frontale"
     },
     {
       "id": "semi-rigide-gilets",
@@ -552,7 +554,8 @@
       "w": 1438,
       "h": 2576,
       "orientation": "portrait",
-      "lqip": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAwBACdASoNABgAPtFapkuoJaOhsAgBABoJZQCdACP/97bO6PtaCWk+zkAA/t+umqXiBqmWJppGN0GFBYjqcMduf4Ze8O8BvJxoRNBMfCE+m51cz0rQKn30hORkAA=="
+      "lqip": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAwBACdASoNABgAPtFapkuoJaOhsAgBABoJZQCdACP/97bO6PtaCWk+zkAA/t+umqXiBqmWJppGN0GFBYjqcMduf4Ze8O8BvJxoRNBMfCE+m51cz0rQKn30hORkAA==",
+      "remplacee_par": "jigging-console-sondeur"
     },
     {
       "id": "bar-boudin",
@@ -572,7 +575,8 @@
       "w": 1438,
       "h": 2576,
       "orientation": "portrait",
-      "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADQAwCdASoNABgAPtFUo0uoJKMhsAgBABoJYwCdACEVTZE/2dtwHgAA/ug3Z0bQPguBOq7IIUPDj+UtpVg8GaIx1T6aDN278j0yHfAZ4Su+mwagar8FXdnUjMuxH/NEpkbJcBHEk7gAAA=="
+      "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADQAwCdASoNABgAPtFUo0uoJKMhsAgBABoJYwCdACEVTZE/2dtwHgAA/ug3Z0bQPguBOq7IIUPDj+UtpVg8GaIx1T6aDN278j0yHfAZ4Su+mwagar8FXdnUjMuxH/NEpkbJcBHEk7gAAA==",
+      "remplacee_par": "bar-eau-claire"
     },
     {
       "id": "maquereau-banquette",
@@ -650,6 +654,88 @@
       "h": 2576,
       "orientation": "portrait",
       "lqip": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACQAgCdASoNABgAAsBMJQBYdhuj6arr33mZ8JZ+AAD+kJlRwWawrnC3I1qrbZ0ZcW2VsuU8B5tD7ENP4JRcT9+6FKU4YEpnjH5x/H8pF101geogcAA="
+    },
+    {
+      "id": "bar-eau-claire",
+      "source": "felix-20nov-bar-eau-claire.jpg",
+      "alt": "Bar tenu à deux mains au-dessus de l'eau claire, un leurre souple à la gueule",
+      "mode": "espece",
+      "sujet": "poisson",
+      "espece": "bar",
+      "lumiere": "aube",
+      "ciel": "clair",
+      "mer": "calme",
+      "lieu": "rochers",
+      "focus": [
+        48,
+        50
+      ],
+      "resolution": "provisoire : copie de 1 024 px reçue dans la conversation ; original en pleine résolution attendu",
+      "w": 765,
+      "h": 1024,
+      "orientation": "portrait",
+      "lqip": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAAAQBQCdASoSABgAPtFcqE4oJSQiKAqpABoJYwCuHBDcXI1ANbXsmJeyVv8f6zMgO8AAAP7X+3bRKhZXOoru+NYwOQob0OUmI8nNiyTNbzYQgVx3hvofrnfAS6HlaYhjhvNH1u+YYTZocfvRKWZfpakPllihY0m7ITsiZD5sdAjdKY0y5wtRtSVv70hQq4Oaky6zN5GVBhonj9iB6xy1c4DPynnY0+43egnbTQAA"
+    },
+    {
+      "id": "lieu-noir-pont-jig",
+      "source": "felix-20nov-lieu-noir-pont-jig.jpg",
+      "alt": "Lieu noir posé sur le pont d'un bateau, un jig à côté de la gueule",
+      "mode": "espece",
+      "sujet": "poisson",
+      "espece": "lieu-noir",
+      "lumiere": "jour",
+      "ciel": "nuageux",
+      "mer": "calme",
+      "lieu": "large",
+      "focus": [
+        50,
+        62
+      ],
+      "resolution": "provisoire : copie de 1 024 px reçue dans la conversation ; original en pleine résolution attendu",
+      "w": 765,
+      "h": 1024,
+      "orientation": "portrait",
+      "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAADQBACdASoSABgAPtFWpkwoJKOiKA1RABoJYwCdABEhX77Bp+Hj19WeCYfshsKdAAD9+/fppJTlT0ZItIVnFAn7xUNeHtHOCd8/6Ak62u05FpV0LZa/bo2Ov3lREtZ57dXyJk1RpxZ+ZXdI1nY7OYRzSAijbeeDjYdl7RLDQAA="
+    },
+    {
+      "id": "platier-aube-frontale",
+      "source": "felix-20nov-platier-aube-frontale.jpg",
+      "alt": "Pêcheur sur un platier découvert avant l'aube, frontale rouge allumée",
+      "mode": "bord",
+      "sujet": "pecheur",
+      "lumiere": "aube",
+      "ciel": "clair",
+      "mer": "calme",
+      "lieu": "rochers",
+      "focus": [
+        72,
+        45
+      ],
+      "resolution": "provisoire : copie de 1 024 px reçue dans la conversation ; original en pleine résolution attendu",
+      "w": 765,
+      "h": 1024,
+      "orientation": "portrait",
+      "lqip": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAACwBACdASoSABgAPslSoUunpKMht/VYAPAZCWMAAC333yOX758yIGIHNhM5PDYAAP7xDa6a4TjLGRWYg/DhhBWyCspiuJnh7+CWlPuTk6Tg5fYjVi9ccR3Y6HsiSwZddpS/cEfbs7Ruy+UPZqUJpq1gwrJAAA=="
+    },
+    {
+      "id": "jigging-console-sondeur",
+      "source": "felix-20nov-jigging-console-sondeur.jpg",
+      "alt": "Pêcheur en jigging vertical vu depuis la console d'un semi-rigide, sondeur à 70 m",
+      "mode": "bateau",
+      "sujet": "bateau",
+      "lumiere": "jour",
+      "ciel": "nuageux",
+      "mer": "calme",
+      "lieu": "large",
+      "focus": [
+        42,
+        45
+      ],
+      "resolution": "provisoire : copie de 1 024 px reçue dans la conversation ; original en pleine résolution attendu",
+      "w": 1024,
+      "h": 572,
+      "orientation": "paysage",
+      "lqip": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAQBACdASoYAA0APtFWpEuoJKOhsAgBABoJZQCdACFf18z0g2zmEniRgAD+1oVBad2fHPY0ZOLFhW885bKct61N3APL+RAsI7b5uOuz0C3NTdcioEqDjY/4/wuJ50sXqFKOYkYH9YqGhxjyQtuRH+DAsHkqcLnwUP63nwAA"
     }
   ]
 }
