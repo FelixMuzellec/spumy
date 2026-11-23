@@ -1,0 +1,38 @@
+{
+ "//": "Candidats de la recherche de spots (phase 5, 5.6, première passe du 23 nov. 2026). Un candidat n'est pas une fiche : il devient une fiche (origine v3_researched, statut « candidate ») quand son existence, sa position et l'intérêt pour le bar du bord sont établis (§ 7.2). Sources : texte exact de l'affirmation, adresse, date de consultation. Aucune source ne compte double (§ 7.1).",
+ "date": "2026-11-23",
+ "candidats": [
+  { "id": "cand-ecalgrain", "nom": "Baie d'Écalgrain", "commune": "La Hague (Manche)", "mode": "bord", "etat": "candidat",
+    "sources": [{ "url": "https://figaronautisme.meteoconsult.fr/actus-nautisme-loisirs/2026-10-09/92758-peche-les-secrets-pour-prendre-du-poisson-sans-bateau", "editeur": "Figaro Nautisme", "date": "2026-10-09", "consulte_le": "2026-11-23", "famille": 4, "affirmation": "La baie d'Écalgrain, dans la Hague, permet de combiner pêche sur plage et prospection des zones rocheuses." }],
+    "lacunes": ["une seule source, de presse généraliste ; le bar n'est pas nommé", "poste, accès, marée et sécurité non documentés"] },
+  { "id": "cand-cap-hague", "nom": "Cap de la Hague (pêche du bord)", "commune": "La Hague (Manche)", "mode": "bord", "etat": "doublon probable",
+    "doublon_de": "goury",
+    "sources": [{ "url": "https://www.peche.com/article/37002/peche-du-bar-depuis-le-bord-de-mer-comment-cibler-les-gros-poissons", "editeur": "peche.com", "date": null, "consulte_le": "2026-11-23", "famille": 4, "affirmation": "Photo et légende : prendre de la hauteur pour lire les zones de pêche, ici au cap de la Hague, dans le nord Cotentin (pêche du bar du bord)." }],
+    "lacunes": ["même secteur que le spot V2 « goury » : à rattacher comme source de goury plutôt qu'à créer (§ 7.3 : pas de fusion sans preuve)"] },
+  { "id": "cand-jobourg", "nom": "Falaises de Jobourg", "commune": "La Hague (Manche)", "mode": "bateau", "etat": "hors BORD",
+    "sources": [{ "url": "https://www.peche.com/article/37356/embarquez-et-decouvrez-le-cap-de-la-hague-a-l-extremite-ouest-du-cotentin", "editeur": "peche.com", "date": null, "consulte_le": "2026-11-23", "famille": 4, "affirmation": "En bateau : vers le Nez de Jobourg, à l'abri des falaises, zones sablonneuses ; au printemps, avec les lançons, les bars sont rarement loin ; abri par vent d'est." }],
+    "lacunes": ["source de pêche en bateau : ne prouve rien pour le bord"] },
+  { "id": "cand-barfleur", "nom": "Pointe de Barfleur", "commune": "Gatteville-le-Phare (Manche)", "mode": "bateau", "etat": "hors BORD",
+    "sources": [{ "url": "https://www.normandiefraicheurmer.fr/media/bardeligne__013148100_1714_10062013.pdf", "editeur": "Normandie Fraîcheur Mer", "date": "2013-06-10", "consulte_le": "2026-11-23", "famille": 3, "affirmation": "Ligneurs professionnels : le bar affectionne les zones de forts courants ; la pointe de Barfleur est un lieu privilégié (pêche à la traîne, bateaux de 6 à 8 m)." }],
+    "lacunes": ["pêche professionnelle en bateau ; aucun poste du bord documenté"] },
+  { "id": "cand-perros-tregastel", "nom": "Côte de granit rose, de Perros-Guirec à Trégastel", "commune": "Perros-Guirec, Trégastel (Côtes-d'Armor)", "mode": "bord", "etat": "zone à explorer",
+    "sources": [
+      { "url": "https://figaronautisme.meteoconsult.fr/actus-nautisme-loisirs/2026-03-23/86935-les-spots-de-peche-en-mer-les-plus-reputes-de-bretagne", "editeur": "Figaro Nautisme", "date": "2026-03-23", "consulte_le": "2026-11-23", "famille": 4, "affirmation": "De Perros-Guirec à Trégastel, autour des chaos granitiques, des pointes et des zones rocheuses, le littoral offre une multitude de postes pour les pêcheurs du bord." },
+      { "url": "https://www.peche.com/article/41092/ou-pecher-le-bar-a-la-mouche-en-bretagne", "editeur": "peche.com", "date": null, "consulte_le": "2026-11-23", "famille": 4, "affirmation": "Côtes-d'Armor : la côte de granit rose près de Perros-Guirec, puis les îles comme Bréhat et le secteur de Paimpol (pêche du bar à la mouche)." } ],
+    "lacunes": ["une zone, pas un poste ; deux éditeurs différents, mais sans poste nommé"] },
+  { "id": "cand-goelo", "nom": "Côte du Goëlo et baie de Saint-Brieuc (Saint-Quay-Portrieux, Binic, Erquy, Pléneuf-Val-André, Paimpol)", "commune": "Côtes-d'Armor", "mode": "bord et bateau", "etat": "zone à explorer",
+    "sources": [{ "url": "https://figaronautisme.meteoconsult.fr/actus-nautisme-loisirs/2026-03-23/86935-les-spots-de-peche-en-mer-les-plus-reputes-de-bretagne", "editeur": "Figaro Nautisme", "date": "2026-03-23", "consulte_le": "2026-11-23", "famille": 4, "affirmation": "Une succession de secteurs connus pour le maquereau en saison, le bar, et plus largement pour la pêche côtière." }],
+    "lacunes": ["zone ; aucun poste nommé ; mode non précisé"] },
+  { "id": "cand-pointe-chaine", "nom": "Pointe de la Chaîne et parcs à huîtres", "commune": "Cancale (Ille-et-Vilaine)", "mode": "bord", "etat": "candidat",
+    "sources": [{ "url": "https://fluxdeconnaissances.com/information/page/read/244241-ou-pecher-cancale", "editeur": "fluxdeconnaissances.com", "date": null, "consulte_le": "2026-11-23", "famille": 6, "affirmation": "Parmi les meilleurs coins de pêche du bord en Ille-et-Vilaine : la pointe de la Chaîne près de Cancale, ainsi que les parcs à huîtres." }],
+    "lacunes": ["site agrégateur sans auteur : source très faible", "le bar n'est pas nommé", "parcs à huîtres : concessions, accès et règles à vérifier"] },
+  { "id": "cand-lorient-rive-gauche", "nom": "Rade de Lorient et Gâvres (fort du Loch, Basse Candec, pointe du Courégant, anse du Stole, plateau de Kerpape)", "commune": "Gâvres, Larmor-Plage, Ploemeur (Morbihan)", "mode": "bord", "etat": "candidat",
+    "sources": [{ "url": "https://fluxdeconnaissances.com/information/page/read/258818-ou-pecher-en-bord-de-mer-dans-le-morbihan", "editeur": "fluxdeconnaissances.com", "date": null, "consulte_le": "2026-11-23", "famille": 6, "affirmation": "Meilleurs spots du bord dans le Morbihan : la Laïta autour de Saint-Julien, sous le fort du Loch et alentours, Basse Candec, pointe du Courégant, digue de l'anse du Stole, plateau de Kerpape." }],
+    "lacunes": ["site agrégateur sans auteur : source très faible", "la Laïta est déjà un spot V2 (« laita ») : pas de doublon", "cinq lieux à séparer en candidats distincts après vérification"] },
+  { "id": "cand-quiberon-cote-sauvage", "nom": "Côte sauvage de Quiberon (Port Bara, Port Blanc, pointe du Percho)", "commune": "Saint-Pierre-Quiberon (Morbihan)", "mode": "bord", "etat": "candidat, accès restreint",
+    "sources": [
+      { "url": "https://figaronautisme.meteoconsult.fr/actus-nautisme-loisirs/2025-08-11/80343-road-trip-peche-sur-la-cote-atlantique-de-la-bretagne-au-pays-basque-les-spots-a-ne-pas-rater", "editeur": "Figaro Nautisme", "date": "2025-08-11", "consulte_le": "2026-11-23", "famille": 4, "affirmation": "Les pêcheurs en kayak longent les falaises de Port Bara pour traquer le bar à vue (kayak, pas le bord)." },
+      { "url": "https://www.baiedequiberon.bzh/listing/21/print", "editeur": "Office de tourisme de la Baie de Quiberon", "date": null, "consulte_le": "2026-11-23", "famille": 2, "affirmation": "Plage de Port Bara : accès interdit, risques d'éboulement au niveau de l'arche de Port Blanc ; baignade interdite." } ],
+    "lacunes": ["le bar est cité en kayak, pas du bord", "accès interdit à Port Bara : sécurité et restriction à documenter avant toute fiche"] }
+ ]
+}

@@ -80,13 +80,13 @@ Référentiel § 15 (phase 5), § 7 (sources, pipeline, préservation V2, schém
 | 5.1 Inventaire exhaustif et sauvegarde logique des spots V2, empreintes, comparaison avant/après | TESTED (32a36a3 : 66 spots, 7 guides, 66 identifiants uniques ; 7 spots du guide Pirou sans coordonnées numériques (texte à la minute près) ; `--verifier` 0, dans `npm test` et la CI) | `scripts/inventaire-spots-v2.mjs`, `data/spots/` |
 | 5.2 Audit fonctionnel V2, BORD et BATEAU (parcours, moteurs, espèces, spots, données, sécurité, matériel, localisation, UX) — livrable 1 | IMPLEMENTED (espèces réelles : bar en BORD ; lieu jaune, lieu noir, maquereau, bar, vieille, saint-pierre en BATEAU ; aucun point d'accès dans les fiches ; 8 écarts pour la phase 5) | `docs/audit/` |
 | 5.3 Registre central des spots au schéma § 7.4 (66 fiches `v2_preserved`, identifiants V3-018, statut, provenance, preuve, dernière vérification, lacunes) | TESTED (schéma `data/schema/spot-v3.schema.json` ; 66 fiches `data/spots/fiches/`, toutes « à vérifier », 0 stationnement connu ; registre `data/spots/registre.json` généré ; `tests/spots-v3.mjs` 404/404, dans `npm test` et la CI ; 28 fiches V2 citent le journal personnel : anomalie à revoir) | `data/schema/`, `data/spots/`, tests |
-| 5.4 Registre de sources (évaluation § 7.1, indépendance, droits, CGU) — livrable 4 | IN PROGRESS (inventaire fait : 284 sources, 95 éditeurs, 66 fiches reliées, test d'intégrité ; droits et indépendance par éditeur décrits ; **évaluation § 7.1 de chaque source : 0/284**, à faire avec 5.7 ; Google Maps à re-sourcer sur IGN ou OSM) | `data/sources/` |
-| 5.5 Référentiel biologique par espèce, région et saison (espèces réelles de la V2), fiches de preuve, lacunes et contradictions | IN PROGRESS (bar : version 1, `docs/halieutique/REFERENTIEL-BIOLOGIQUE.md` ; deux stocks séparés au 48ᵉ parallèle ; frai Gascogne janvier à mars ; aucune étude d'activité jour et nuit en milieu naturel ni de régime côtier des adultes ; à lire : thèse Fritsch 2005, mois des frayères Manche ; **reste : lieu jaune, lieu noir, maquereau, vieille, saint-pierre**) | `docs/halieutique/`, `data/knowledge/` |
-| 5.6 Recherche systématique des spots, Bretagne → Cherbourg, première passe | NOT STARTED | `data/spots/` |
-| 5.7 Vérification par spot : coordonnées, accès et stationnement, marche, milieu, marée en quatre phases, conditions, sécurité, réglementation, fenêtres, photos | NOT STARTED | `data/spots/` |
+| 5.4 Registre de sources (évaluation § 7.1, indépendance, droits, CGU) — livrable 4 | IN PROGRESS (292 sources ; 8 évaluées à la main : textes officiels 2026, IGN, OpenStreetMap ; 284 sources V2 encore « à évaluer ») | `data/sources/`, `docs/halieutique/REGISTRE-SOURCES.md` |
+| 5.5 Référentiel biologique par espèce, région et saison (espèces réelles de la V2), fiches de preuve, lacunes et contradictions | IMPLEMENTED, version 1 (bar : deux stocks, cycle d'après Fritsch 2005, juvéniles, marée, rythme, température, régime ; lieu jaune, maquereau, vieille, saint-pierre ; lieu noir en lacune ; réglementation BATEAU ; à lire : atlas des frayères de l'Ifremer 2024, mois des frayères Manche) | `docs/halieutique/REFERENTIEL-BIOLOGIQUE.md` |
+| 5.6 Recherche systématique des spots, Bretagne → Cherbourg, première passe | IMPLEMENTED (9 candidats : 3 candidats, 1 doublon probable de goury, 2 hors BORD, 2 zones, 1 à accès restreint ; aucun au niveau d'une fiche ; lacunes : Manche nord et est, Ille-et-Vilaine, Côtes-d'Armor, Morbihan) | `data/spots/candidats.json` |
+| 5.7 Vérification par spot : coordonnées, accès et stationnement, marche, milieu, marée en quatre phases, conditions, sécurité, réglementation, fenêtres, photos | IN PROGRESS (collecte IGN par la CI : stationnement et marche 59/66, positions contrôlées 60, corrigées 3 (+ Régnéville en cours) ; réglementation du bar 2026 vérifiée 66/66 ; marée : 133 phases sur 264 depuis les fenêtres V2 ; reste : poste réel de pirou, gouville, surtainville, écarts > 1,5 km, sécurité et fenêtres V3, photos, sources § 7.1) | `scripts/collecte-acces.mjs`, `scripts/integrer-acces.mjs`, `scripts/reglementation-fiches.mjs`, `scripts/marees-fiches.mjs`, `data/spots/collecte/` |
 | 5.8 Deuxième passe : spots oubliés, déséquilibres de couverture | NOT STARTED | `data/spots/` |
 | 5.9 Qualification des fiches (critères explicites) et facteurs complémentaires documentés | NOT STARTED | `data/spots/`, `docs/halieutique/` |
-| 5.10 Rapport de couverture, limites, contradictions et anomalies — livrable 5 | NOT STARTED | `docs/halieutique/` |
+| 5.10 Rapport de couverture, limites, contradictions et anomalies — livrable 5 | IN PROGRESS (version intermédiaire) | `docs/halieutique/COUVERTURE.md` |
 | 5.11 Red-team, rapport en 14 parties, arrêt | NOT STARTED | `docs/rapports/v3/PHASE-5.md` |
 
 ## Questions et décisions (registre)
@@ -122,10 +122,11 @@ Référentiel § 15 (phase 5), § 7 (sources, pipeline, préservation V2, schém
 
 ## Prochaine action
 
-Phase 5 IN PROGRESS sur `claude/v3-phase-5` (proposition n° 19). Fait : 5.0 à 5.3 ; 5.4 et 5.5 commencés. Prochaines actions, dans l'ordre :
-1. 5.5 : lire la thèse Fritsch 2005 (régime côtier, saisons) et les mois des frayères Manche (Sextant) ; puis les cinq espèces BATEAU, à partir de `data/knowledge/bateau.json` ;
-2. 5.7, en commençant par les 7 spots du guide Pirou sans coordonnées numériques : coordonnées (IGN ou OSM, pas Google Maps), stationnement, marche, quatre phases de marée, sécurité, réglementation datée ; évaluation § 7.1 des sources lues au passage (5.4) ;
-3. 5.6 et 5.8 : recherche de nouveaux spots, Bretagne → Cherbourg.
+Phase 5 IN PROGRESS sur `claude/v3-phase-5` (proposition n° 19). Ordre de reprise :
+1. Intégrer la collecte de Régnéville (`data/spots/collecte/demande.json`, passage « Collecte des accès des spots » sur la proposition), avec `node scripts/integrer-acces.mjs <fichier>` après avoir enregistré le résultat IGN dans `data/spots/collecte/` ;
+2. 5.8, deuxième passe de recherche sur les lacunes (Manche nord et est, Ille-et-Vilaine, Côtes-d'Armor, Morbihan) : clubs, guides professionnels, comptes rendus datés ; promouvoir en fiches `v3_researched` les candidats établis ;
+3. 5.7 : sécurité et fenêtres V3 par spot, évaluation § 7.1 des sources V2 les plus citées, photos ;
+4. 5.9 qualification, puis 5.11 red-team et rapport en 14 parties.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
