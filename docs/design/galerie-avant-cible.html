@@ -1,0 +1,211 @@
+<title>Galerie AVANT/CIBLE SPUMY</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Condensed:wght@600;800&display=swap">
+<style>
+/* Mise en page : une rangée par écran, AVANT (site V2 en ligne) à gauche, CIBLE (prototype V3) à droite, critères APRÈS dessous.
+   Couleurs : celles du Design System V3 (nuit marine, orange de marque en accent). */
+:root {
+  --bg: #F4F6F7; --surface: #FFFFFF; --sunken: #E6EBEE; --fg: #172B3A; --muted: #4B5A64; --line: #7A848B;
+  --accent: #C76A31; --avant: #6B5B4E; --cible: #1E6B4A;
+  --font-text: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-num: "Roboto Condensed", "Arial Narrow", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0F1E29; --surface: #172B3A; --sunken: #132634; --fg: #F2EEE6; --muted: #B4BEC5; --line: #5B6B76;
+  --accent: #E08A50; --avant: #C9B8A8; --cible: #6FCF9A; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0F1E29; --surface: #172B3A; --sunken: #132634; --fg: #F2EEE6; --muted: #B4BEC5; --line: #5B6B76;
+  --accent: #E08A50; --avant: #C9B8A8; --cible: #6FCF9A; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font: 400 15px/1.5 var(--font-text); }
+.wrap { max-width: 1040px; margin: 0 auto; padding-block: 28px 64px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 28px; }
+header { display: grid; gap: 8px; }
+.eyebrow { font: 600 13px/1 var(--font-num); letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+h1 { font: 800 clamp(26px, 5vw, 36px)/1.1 var(--font-num); margin: 0; text-wrap: balance; }
+h2 { font: 800 22px/1.2 var(--font-num); margin: 0; }
+p { margin: 0; max-width: 68ch; }
+.meta { color: var(--muted); font-size: 14px; }
+nav.toc { display: flex; flex-wrap: wrap; gap: 8px; }
+nav.toc a { color: var(--fg); text-decoration: none; border: 1.5px solid var(--line); border-radius: 999px; padding: 8px 14px; min-height: 44px; display: inline-flex; align-items: center; font-weight: 500; font-size: 14px; }
+nav.toc a:focus-visible, .frame:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+section.pair { background: var(--surface); border-radius: 16px; padding: 20px; display: grid; gap: 16px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.wide .cols { grid-template-columns: 1fr; }
+figure { margin: 0; display: grid; gap: 8px; min-width: 0; }
+figcaption { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; font-size: 14px; }
+.tag { font: 800 12px/1 var(--font-num); letter-spacing: .08em; padding: 5px 8px; border-radius: 6px; border: 1.5px solid currentColor; }
+.tag.avant { color: var(--avant); } .tag.cible { color: var(--cible); }
+.frame { height: 560px; overflow: auto; border-radius: 12px; background: var(--sunken); border: 1px solid var(--line); }
+.wide .frame { height: auto; }
+.frame img { display: block; width: 100%; max-width: 100%; height: auto; }
+.none { height: 560px; display: grid; place-items: center; text-align: center; padding: 24px; border-radius: 12px; border: 1.5px dashed var(--line); color: var(--muted); }
+ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+.apres { border-top: 1px solid var(--line); padding-top: 12px; display: grid; gap: 6px; }
+.apres b { font: 800 14px/1 var(--font-num); letter-spacing: .06em; text-transform: uppercase; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.tablebox { overflow-x: auto; background: var(--surface); border-radius: 16px; padding: 8px 12px; }
+@media (max-width: 640px) { .cols { grid-template-columns: 1fr; } .frame, .none { height: 420px; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Phase 3 · 20 novembre 2026</span>
+    <h1>Galerie AVANT/CIBLE</h1>
+    <p>À gauche, le site V2 en ligne, capturé à l'audit AVANT (phase 3.1, 780 px de large pour un écran de 390 px). À droite, le prototype V3 validé au jalon 2 avec réserves (version 5.3, 390 × 844 px, nuit marine sauf mention). Les captures hautes défilent dans leur cadre. Toutes les données du prototype sont de démonstration.</p>
+    <p class="meta">Sous chaque paire, les critères APRÈS : ce que la capture de l'application intégrée (phases 10 à 12) devra montrer, au même écran et à la même largeur, pour être acceptée.</p>
+  </header>
+
+  <nav class="toc" aria-label="Écrans">
+    <a href="#home">Home</a><a href="#carte">Carte</a><a href="#meteo">Météo</a><a href="#fiche">Fiche spot</a><a href="#comparaison">Comparaison</a>
+    <a href="#journal">Journal</a><a href="#profil">Profil</a><a href="#bateau">BATEAU</a><a href="#soleil">Plein soleil</a><a href="#bureau">Bureau</a><a href="#entree">Entrée</a><a href="#criteres">Critères communs</a>
+  </nav>
+
+  <section class="pair" id="home">
+    <h2>Home (ex-Décision)</h2>
+    <div class="cols">
+      <figure><figcaption><span class="tag avant">AVANT</span>Décision, Pirou (08)</figcaption><div class="frame" tabindex="0" role="region" aria-label="AVANT Décision"><img src="avant/08-pirou-decision.webp" alt="Capture AVANT : écran Décision du site V2 (Pirou)"></div></figure>
+      <figure><figcaption><span class="tag cible">CIBLE</span>Home BORD (01)</figcaption><div class="frame" tabindex="0" role="region" aria-label="CIBLE Home"><img src="prototype-v3/01-home-bord.webp" alt="Home V3 : phrase de synthèse, trois cartes à photo avec horaires et score, section À vérifier"></div></figure>
+    </div>
+    <div class="apres"><b>Critères APRÈS</b><ul>
+      <li>Phrase de synthèse au centre, avec les horaires ; jamais une promesse de prise.</li>
+      <li>Trois cartes : horaires en tête, score sur la photo, sécurité, route, Confiance en une ligne ; place « Le plus proche » si aucun des trois n'est à 15 min.</li>
+      <li>Spots à vérifier hors des cartes ; égalités et pénurie comme dans le prototype.</li>
+      <li>Aucune Pertinence, aucune note sur 10, aucun « V2 » ; trois tailles de texte au plus par carte ; 12 px au moins.</li>
+    </ul></div>
+  </section>
+
+  <section class="pair" id="carte">
+    <h2>Carte</h2>
+    <div class="cols">
+      <figure><figcaption><span class="tag avant">AVANT</span>Spots, Pirou (01)</figcaption><div class="frame" tabindex="0" role="region" aria-label="AVANT Carte"><img src="avant/01-pirou-spots-mobile.webp" alt="Capture AVANT : carte des spots du site V2 (Pirou)"></div></figure>
+      <figure><figcaption><span class="tag cible">CIBLE</span>Carte (02)</figcaption><div class="frame" tabindex="0" role="region" aria-label="CIBLE Carte"><img src="prototype-v3/02-carte.webp" alt="Carte V3 : pastilles avec score, groupes numérotés, filtres avec compteurs, panneau du bas"></div></figure>
+    </div>
+    <div class="apres"><b>Critères APRÈS</b><ul>
+      <li>Vrai fond (Plan IGN, OpenStreetMap en secours), centré sur la position de référence, cadrant les spots à 60 min ou moins.</li>
+      <li>Chaque pastille porte son score ; groupes avec le nombre exact ; compteur de chaque filtre égal aux pastilles, règle affichée.</li>
+      <li>Panneau du bas à trois hauteurs, poignée de 44 px ; aucune pastille sous le panneau.</li>
+      <li>Déplacement au clavier et sans glisser ; recentrage sur la position de référence.</li>
+    </ul></div>
+  </section>
+
+  <section class="pair" id="meteo">
+    <h2>Météo</h2>
+    <div class="cols">
+      <figure><figcaption><span class="tag avant">AVANT</span>Météo, Pirou (13)</figcaption><div class="frame" tabindex="0" role="region" aria-label="AVANT Météo"><img src="avant/13-pirou-meteo.webp" alt="Capture AVANT : écran Météo du site V2 (Pirou)"></div></figure>
+      <figure><figcaption><span class="tag cible">CIBLE</span>Météo (03)</figcaption><div class="frame" tabindex="0" role="region" aria-label="CIBLE Météo"><img src="prototype-v3/03-meteo.webp" alt="Météo V3 : grille de flèches de vent, force Beaufort, curseur d'heure, graphique vent et rafales"></div></figure>
+    </div>
+    <div class="apres"><b>Critères APRÈS</b><ul>
+      <li>Grille de flèches sur les vraies prévisions, sans zone nommée ; force Beaufort lisible à 320 px ; ambre à partir de force 6.</li>
+      <li>Source et heure des données ; rafales visibles ; couche Mer en BATEAU.</li>
+    </ul></div>
+  </section>
+
+  <section class="pair" id="fiche">
+    <h2>Fiche spot</h2>
+    <div class="cols">
+      <figure><figcaption><span class="tag avant">AVANT</span>Fiche Goury (17)</figcaption><div class="frame" tabindex="0" role="region" aria-label="AVANT Fiche"><img src="avant/17-pirou-fiche-spot.webp" alt="Capture AVANT : fiche spot du site V2 (Goury)"></div></figure>
+      <figure><figcaption><span class="tag cible">CIBLE</span>Fiche Pointe A (04)</figcaption><div class="frame" tabindex="0" role="region" aria-label="CIBLE Fiche"><img src="prototype-v3/04-fiche-spot.webp" alt="Fiche V3 : Favorabilité et Confiance empilées, danger, courbe de marée coloriée"></div></figure>
+    </div>
+    <div class="apres"><b>Critères APRÈS</b><ul>
+      <li>Favorabilité en grand, Confiance dessous, « ne change pas le rang » ; sécurité et danger avant le reste.</li>
+      <li>Courbe de marée avec les heures favorables dans la couleur de leur palier, nuit grisée, « maintenant ».</li>
+      <li>Fixture du référentiel (53 — À vérifier, Confiance 69 — Moyenne) comprise au test T7.</li>
+    </ul></div>
+  </section>
+
+  <section class="pair" id="comparaison">
+    <h2>Comparaison</h2>
+    <div class="cols">
+      <figure><figcaption><span class="tag avant">AVANT</span>Pas d'écran dédié</figcaption><div class="none">La V2 n'a pas d'écran de comparaison dédié : une comparaison figure dans l'écran Décision (capture 08, paire Home).</div></figure>
+      <figure><figcaption><span class="tag cible">CIBLE</span>Crique C et Pointe A (05)</figcaption><div class="frame" tabindex="0" role="region" aria-label="CIBLE Comparaison"><img src="prototype-v3/05-comparaison.webp" alt="Comparaison V3 : deux colonnes, ligne de vent, écart chiffré"></div></figure>
+    </div>
+    <div class="apres"><b>Critères APRÈS</b><ul>
+      <li>Ligne Vent ; écart chiffré seulement s'il est significatif, sinon « Avantage non établi » ; aucune note composite.</li>
+    </ul></div>
+  </section>
+
+  <section class="pair" id="journal">
+    <h2>Journal</h2>
+    <div class="cols">
+      <figure><figcaption><span class="tag avant">AVANT</span>Journal vide (09)</figcaption><div class="frame" tabindex="0" role="region" aria-label="AVANT Journal"><img src="avant/09-pirou-journal.webp" alt="Capture AVANT : journal vide du site V2"></div></figure>
+      <figure><figcaption><span class="tag cible">CIBLE</span>Journal (07)</figcaption><div class="frame" tabindex="0" role="region" aria-label="CIBLE Journal"><img src="prototype-v3/07-journal.webp" alt="Journal V3 : sortie en cours, sorties passées avec photos"></div></figure>
+    </div>
+    <div class="apres"><b>Critères APRÈS</b><ul>
+      <li>Noter une sortie en moins de 30 s depuis Home ; « Annuler » juste après ; données sur l'appareil.</li>
+    </ul></div>
+  </section>
+
+  <section class="pair" id="profil">
+    <h2>Profil (ex-Réglages)</h2>
+    <div class="cols">
+      <figure><figcaption><span class="tag avant">AVANT</span>Réglages (25)</figcaption><div class="frame" tabindex="0" role="region" aria-label="AVANT Réglages"><img src="avant/25-pirou-reglages.webp" alt="Capture AVANT : réglages du site V2"></div></figure>
+      <figure><figcaption><span class="tag cible">CIBLE</span>Profil (06)</figcaption><div class="frame" tabindex="0" role="region" aria-label="CIBLE Profil"><img src="prototype-v3/06-profil.webp" alt="Profil V3 : ordre des onglets, photo de Home, thème, mes données"></div></figure>
+    </div>
+    <div class="apres"><b>Critères APRÈS</b><ul>
+      <li>Ordre des onglets et photo de Home réglables ; bateau enregistré ; aucun choix de guide ni de département.</li>
+      <li>Emplacement de l'export décidé après le test T6.</li>
+    </ul></div>
+  </section>
+
+  <section class="pair" id="bateau">
+    <h2>BATEAU</h2>
+    <div class="cols">
+      <figure><figcaption><span class="tag avant">AVANT</span>Offshore avec un spot (24)</figcaption><div class="frame" tabindex="0" role="region" aria-label="AVANT BATEAU"><img src="avant/24-offshore-avec-spot.webp" alt="Capture AVANT : mode Offshore du site V2 avec un spot"></div></figure>
+      <figure><figcaption><span class="tag cible">CIBLE</span>Home BATEAU (10)</figcaption><div class="frame" tabindex="0" role="region" aria-label="CIBLE BATEAU"><img src="prototype-v3/10-home-bateau.webp" alt="Home BATEAU V3 : verdict de sortie, trois marques classées par espèce, photos d'espèces"></div></figure>
+    </div>
+    <div class="apres"><b>Critères APRÈS</b><ul>
+      <li>Verdict de sortie d'après le bateau ; trois marques classées par la meilleure espèce ouverte ; règles de pêche réelles.</li>
+      <li>Aucune fonction BATEAU de la V2 perdue (BAT-01 à BAT-10).</li>
+    </ul></div>
+  </section>
+
+  <section class="pair" id="soleil">
+    <h2>Plein soleil (thème clair)</h2>
+    <div class="cols">
+      <figure><figcaption><span class="tag avant">AVANT</span>Spots, Plein soleil (07)</figcaption><div class="frame" tabindex="0" role="region" aria-label="AVANT Plein soleil"><img src="avant/07-pirou-spots-soleil.webp" alt="Capture AVANT : spots en mode Plein soleil du site V2"></div></figure>
+      <figure><figcaption><span class="tag cible">CIBLE</span>Home, thème clair (08)</figcaption><div class="frame" tabindex="0" role="region" aria-label="CIBLE Plein soleil"><img src="prototype-v3/08-home-bord-clair.webp" alt="Home V3 en thème clair"></div></figure>
+    </div>
+    <div class="apres"><b>Critères APRÈS</b><ul>
+      <li>Essai dehors au soleil : tout se lit sans plisser les yeux (CR-05) ; contrastes mesurés dans les deux thèmes.</li>
+    </ul></div>
+  </section>
+
+  <section class="pair wide" id="bureau">
+    <h2>Bureau (1 280 × 800 px)</h2>
+    <div class="cols">
+      <figure><figcaption><span class="tag avant">AVANT</span>Spots, bureau (03)</figcaption><div class="frame" tabindex="0" role="region" aria-label="AVANT Bureau"><img src="avant/03-pirou-spots-desktop.webp" alt="Capture AVANT : site V2 sur bureau"></div></figure>
+      <figure><figcaption><span class="tag cible">CIBLE</span>Carte, bureau (11)</figcaption><div class="frame" tabindex="0" role="region" aria-label="CIBLE Bureau"><img src="prototype-v3/11-carte-bureau.webp" alt="Carte V3 sur bureau : liste classée à gauche, carte à droite"></div></figure>
+    </div>
+    <div class="apres"><b>Critères APRÈS</b><ul>
+      <li>Deux panneaux, liste classée et carte, synchronisés ; aucun grand vide.</li>
+    </ul></div>
+  </section>
+
+  <section class="pair" id="entree">
+    <h2>Entrée dans l'application</h2>
+    <div class="cols">
+      <figure><figcaption><span class="tag avant">AVANT</span>Accueil Inshore (18)</figcaption><div class="frame" tabindex="0" role="region" aria-label="AVANT Accueil"><img src="avant/18-accueil-inshore.webp" alt="Capture AVANT : accueil Inshore du site V2"></div></figure>
+      <figure><figcaption><span class="tag cible">CIBLE</span>Lancement (00)</figcaption><div class="frame" tabindex="0" role="region" aria-label="CIBLE Lancement"><img src="prototype-v3/00-lancement.webp" alt="Écran de lancement V3 : logo SPUMY d'origine sur fond crème"></div></figure>
+    </div>
+    <div class="apres"><b>Critères APRÈS</b><ul>
+      <li>Logo BRAND d'origine, poisson et orange #C76A31 intacts (tests/brand.py) ; un seul slogan, « Read the sea. Fish the moment. », en tête de Home (V3-028) ; on arrive sur Home, sans choisir de guide.</li>
+    </ul></div>
+  </section>
+
+  <section id="criteres" style="display:grid;gap:12px">
+    <h2>Critères communs de comparaison APRÈS</h2>
+    <div class="tablebox"><table>
+      <thead><tr><th>Critère</th><th>Comment le vérifier</th></tr></thead>
+      <tbody>
+        <tr><td>Mêmes écrans, mêmes conditions</td><td>Capture APRÈS à 390 × 844 px (et 320, 375, 1 280), nuit marine et clair, même route que la CIBLE.</td></tr>
+        <tr><td>Structure identique à la CIBLE</td><td>Mêmes sections, même ordre, mêmes composants ; tout écart passe par la gestion des changements.</td></tr>
+        <tr><td>Vraies données</td><td>Scores issus du moteur validé, sources et heures réelles ; aucune donnée de démonstration.</td></tr>
+        <tr><td>Accessibilité</td><td>axe-core sans violation grave ; cibles de 44 px ; 12 px au moins ; un h1 et un titre par écran.</td></tr>
+        <tr><td>Règles</td><td>Tests de traçabilité verts : Favorables, Confiance sans effet sur le rang, À vérifier, égalités, pénurie.</td></tr>
+        <tr><td>Marque</td><td>tests/brand.py vert ; un seul slogan, en tête de Home (V3-028) ; aucun « V2 » à l'écran.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+</div>

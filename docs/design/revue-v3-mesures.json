@@ -1,0 +1,246 @@
+{
+  "date": "2026-11-20T14:48:15.403Z",
+  "viewport": "390 × 844",
+  "routes": {
+    "home": {
+      "interactifs": 22,
+      "sous24": [],
+      "sous44": [],
+      "h1": 1,
+      "h2": 3,
+      "main": true,
+      "nav": true,
+      "header": true,
+      "lang": "fr",
+      "titre": "Home · SPUMY",
+      "taillesTexte": {
+        "12": 7,
+        "13": 3,
+        "14": 49,
+        "16": 7,
+        "18": 3,
+        "19": 7,
+        "27": 1,
+        "30": 3
+      },
+      "octetsCharges": 492283
+    },
+    "carte": {
+      "interactifs": 30,
+      "sous24": [],
+      "sous44": [],
+      "h1": 1,
+      "h2": 0,
+      "main": true,
+      "nav": true,
+      "header": true,
+      "lang": "fr",
+      "titre": "Carte · SPUMY",
+      "taillesTexte": {
+        "12": 17,
+        "13": 3,
+        "14": 16,
+        "15": 2,
+        "19": 1,
+        "22": 1
+      },
+      "octetsCharges": 300452
+    },
+    "meteo": {
+      "interactifs": 17,
+      "sous24": [],
+      "sous44": [],
+      "h1": 1,
+      "h2": 0,
+      "main": true,
+      "nav": true,
+      "header": true,
+      "lang": "fr",
+      "titre": "Météo · SPUMY",
+      "taillesTexte": {
+        "12": 31,
+        "13": 4,
+        "14": 22,
+        "16": 4,
+        "19": 1,
+        "20": 1,
+        "22": 1
+      },
+      "octetsCharges": 299839
+    },
+    "profil": {
+      "interactifs": 35,
+      "sous24": [],
+      "sous44": [],
+      "h1": 1,
+      "h2": 0,
+      "main": true,
+      "nav": true,
+      "header": true,
+      "lang": "fr",
+      "titre": "Profil · SPUMY",
+      "taillesTexte": {
+        "12": 7,
+        "13": 3,
+        "14": 13,
+        "16": 27,
+        "19": 1,
+        "22": 1
+      },
+      "octetsCharges": 309208
+    },
+    "journal": {
+      "interactifs": 15,
+      "sous24": [],
+      "sous44": [],
+      "h1": 1,
+      "h2": 0,
+      "main": true,
+      "nav": true,
+      "header": true,
+      "lang": "fr",
+      "titre": "Journal · SPUMY",
+      "taillesTexte": {
+        "12": 6,
+        "13": 8,
+        "14": 3,
+        "16": 23,
+        "19": 1,
+        "22": 1
+      },
+      "octetsCharges": 310886
+    },
+    "spot-a": {
+      "interactifs": 16,
+      "sous24": [],
+      "sous44": [],
+      "h1": 1,
+      "h2": 0,
+      "main": true,
+      "nav": true,
+      "header": true,
+      "lang": "fr",
+      "titre": "Pointe A · SPUMY",
+      "taillesTexte": {
+        "12": 29,
+        "13": 21,
+        "14": 27,
+        "16": 14,
+        "19": 1,
+        "22": 1,
+        "28": 1
+      },
+      "octetsCharges": 330883
+    },
+    "spot-e": {
+      "interactifs": 16,
+      "sous24": [],
+      "sous44": [],
+      "h1": 1,
+      "h2": 0,
+      "main": true,
+      "nav": true,
+      "header": true,
+      "lang": "fr",
+      "titre": "Pointe E · SPUMY",
+      "taillesTexte": {
+        "12": 29,
+        "13": 16,
+        "14": 27,
+        "16": 13,
+        "19": 1,
+        "22": 1,
+        "28": 1
+      },
+      "octetsCharges": 324478
+    },
+    "comparer-c-a": {
+      "interactifs": 10,
+      "sous24": [],
+      "sous44": [],
+      "h1": 1,
+      "h2": 0,
+      "main": true,
+      "nav": true,
+      "header": true,
+      "lang": "fr",
+      "titre": "Comparaison · SPUMY",
+      "taillesTexte": {
+        "12": 6,
+        "13": 5,
+        "14": 53,
+        "16": 24,
+        "19": 1,
+        "22": 1
+      },
+      "octetsCharges": 299839
+    }
+  },
+  "clavierHome": {
+    "pas": 38,
+    "sansFocusVisible": [],
+    "caches": [],
+    "ordre": [
+      "Carte",
+      "Météo",
+      "Profil",
+      "Journal",
+      "SPUMY, accueil",
+      "Position de référence : Pirou, autom",
+      "BORD",
+      "BATEAU",
+      "Aujourd'hui",
+      "Demain",
+      "7 jours",
+      "Pointe I sur la carte",
+      "Pointe I",
+      "Pointe A sur la carte",
+      "Pointe A",
+      "Crique C sur la carte",
+      "Crique C",
+      "À vérifier (2)",
+      "Comparer deux spots",
+      "Noter une sortie",
+      "Home",
+      "Carte",
+      "Météo",
+      "Profil",
+      "Journal",
+      "SPUMY, accueil",
+      "Position de référence : Pirou, autom",
+      "BORD",
+      "BATEAU",
+      "Aujourd'hui",
+      "Demain",
+      "7 jours",
+      "Pointe I sur la carte",
+      "Pointe I",
+      "Pointe A sur la carte",
+      "Pointe A",
+      "Crique C sur la carte",
+      "Crique C"
+    ]
+  },
+  "espacementTexte": {
+    "home": {
+      "defilementHorizontal": false,
+      "textesCoupes": []
+    },
+    "carte": {
+      "defilementHorizontal": false,
+      "textesCoupes": []
+    },
+    "spot-a": {
+      "defilementHorizontal": false,
+      "textesCoupes": []
+    },
+    "profil": {
+      "defilementHorizontal": false,
+      "textesCoupes": []
+    }
+  },
+  "mouvement": {
+    "no-preference": ".2s",
+    "reduce": "0ms"
+  }
+}

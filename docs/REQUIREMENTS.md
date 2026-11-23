@@ -2,6 +2,10 @@
 
 Phase 2 V3, 20 novembre 2026. Format du référentiel, § 5.2.
 
+**Version 3** (23 nov. 2026, V3-029 et V3-030) : 98 exigences ; MAP-09, MET-05 et JRN-06 ajoutées, UX-03 modifiée (V3-028) ; MAP-02, MET-01, UX-05 et UX-09 précisées pour le prototype V6 (V3-028). MET-05 : le prototype explique la note par le calcul du moteur v2 (précision de V3-028, 12 h 45).
+
+**Version 2** (20 nov. 2026, jalon 1 de la phase 3) : 95 exigences ; MET-01 à MET-04, UX-08, UX-09, PRO-03, SPOT-09, BAT-09, BAT-10 et MAP-08 ajoutées, UX-05 modifiée (V3-023).
+
 **Colonnes**
 - **Prio.** : `IND` indispensable, `IMP` importante, `SEC` secondaire, `EXP` expérimentale.
 - **Origine** : référentiel (§), décision (ADR, `docs/DECISIONS_LOG.md`), audit de la phase 1 (D1 à D14) ou hypothèse (H, `docs/design/DISCOVERY.md`).
@@ -15,7 +19,7 @@ Phase 2 V3, 20 novembre 2026. Format du référentiel, § 5.2.
     - `T` test utilisateur ;
     - `R` revue de données ou de documents.
 
-Validation : le registre entier attend la validation de Félix (fin de la Phase 2). Les exigences liées à une décision « à décider » restent `À DÉCIDER` ; les décisions du 20 nov. à 4 h 18 (V3-011, V3-014, V3-015, V3-016) sont appliquées.
+Validation : registre validé par le jeton de la phase 3 (20 nov. 2026, 4 h 25). Les exigences liées à une décision « à décider » restent `À DÉCIDER` ; les décisions du 20 nov. à 4 h 18 (V3-011, V3-014, V3-015, V3-016) sont appliquées.
 
 ## POS — Position de référence (BORD et BATEAU)
 
@@ -70,12 +74,14 @@ Validation : le registre entier attend la validation de Félix (fin de la Phase 
 | Id | Exigence | Prio. | Origine | Critère d'acceptation | Vérif. | V2 | Phase |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | MAP-01 | Carte centrée sur la position active, cadrée sur les spots retenus | IND | § 6.9 ; D11 | position et spots visibles sans geste, aux 4 largeurs | E, V | Non conforme | 3, 10 |
-| MAP-02 | Remplissage du marqueur = palier de Favorabilité seulement ; « à vérifier », « non recommandé » et « pas de note » par des signes distincts | IND | § 6.7.4 | légende et rendu conformes | V | Conforme | 3 |
+| MAP-02 | Marqueur = palier de Favorabilité seulement (V6 : anneau de la couleur du palier autour du score, V3-028) ; « à vérifier » (⚠), « non recommandé » (score barré) et « pas de note » (–) par des signes distincts ; sous 44 px d'écart, un groupe porte le meilleur score et « +N » | IND | § 6.7.4 ; V3-028 | légende et rendu conformes ; spots d'un groupe comptés dans les filtres | V | Conforme | 3 |
 | MAP-03 | Pas de chevauchement illisible (regroupement ou décalage) ; zone tactile de 44 px au moins | IND | § 6.9, § 6.10 ; D11 | capture de la côte de Carteret sans chevauchement | V, E | Non conforme | 3, 10 |
 | MAP-04 | Accord exact entre liste, marqueurs et compteurs de filtres | IND | § 13.2 | test croisé sur 3 positions | E | Conforme (par guide) | 10 |
 | MAP-05 | Fond de carte attribué ; hors ligne, un message clair ; aucun préchargement interdit | IND | § 8.5 ; V3-012 | attribution visible ; aucune requête de tuile hors de la vue | E, R | Conforme | 3, 10 |
 | MAP-06 | Chaque spot a une position en décimales, sourcée ; une position imprécise est signalée tant qu'elle n'est pas corrigée | IND | § 7.4 ; D8 | 66 spots sur 66 en décimales, ou signalés | R | Non conforme (7 spots) | 5, 7 |
 | MAP-07 | Carte utilisable sur téléphone et sur ordinateur (taille adaptée à l'écran) | IMP | § 6.11 ; D11 | captures 320, 390, 1 280 px | V | Non conforme | 3 |
+| MAP-08 | Filtre « Favorables » : Favorabilité affichée de 75 ou plus, sécurité permise, pas « à vérifier » ; jamais « sans danger » | IND | V3-021 | bornes 74 et 75 testées ; compteur égal aux pastilles | U, E | Partiel (seuil 65) | 3, 10 |
+| MAP-09 | Carte = typologie du terrain, du général (la carte) au spécifique (pourquoi ce spot est bon aujourd'hui) : pour chaque spot, fond, terrain, structure, exposition et courant, avec leur effet favorable ou défavorable sur la pêche du bar, l'explication, la source et le niveau de preuve (1 à 5) ; couches de terrain (natures de fonds, profondeurs, estran, courants) seulement d'après des données réelles | IND | V3-029 | chaque effet affiché renvoie à une source et à un niveau ; aucune couche sans source | U, E | Partiel (rubriques des spots, sans effet affiché) | 3, 5, 10 |
 
 ## SPOT — Fiches, données et spots personnels
 
@@ -89,6 +95,7 @@ Validation : le registre entier attend la validation de Félix (fin de la Phase 
 | SPOT-06 | Ajout manuel d'un spot, privé par défaut, sans rattachement à un guide | IND | § 4.1 ; V3-007 | le spot ajouté est classé depuis la position, comme les autres | E | Partiel (rattaché au guide le plus proche) | 10 |
 | SPOT-07 | Couverture BORD étendue de la Bretagne à Cherbourg, sans fabrication, chaque ajout sourcé | IMP | § 0.5, § 7.2 | revue indépendante (Phase 8) | R | — | 5, 7, 8 |
 | SPOT-08 | Une photo de spot n'est montrée que si le lieu et la provenance sont vérifiés ; sinon, elle est marquée « Illustration » | IND | § 6.12 | aucune photo d'ambiance sans mention | V | Conforme | 3 |
+| SPOT-09 | Fiche : courbe de marée du jour (basse et pleine mer, coefficient, nuit, « maintenant »), heures favorables coloriées au palier de leur Favorabilité et horaires écrits ; indicateurs du jour (vent et exposition, vagues, eau, pression, ciel, lune) avec source et heure | IND | V3-023 (jalon 1) | courbe juste contre le calcul de marée ; horaires identiques à ceux de Home | U, V | Partiel (Marée, frise) | 3, 7 |
 
 ## JRN, PRO, MAT — Journal, Profil, Matériel
 
@@ -99,8 +106,10 @@ Validation : le registre entier attend la validation de Félix (fin de la Phase 
 | JRN-03 | Journal V2 (BORD et BATEAU) migré sans perte | IND | § 0.2 ; Gate C | test de mise à jour avec un journal V2 réel anonymisé | U | — | 4, 13 |
 | JRN-04 | Export du journal ; point d'entrée à décider | IMP | § 4.3 | format et emplacement décidés, puis testés | E | Partiel (Transfert, dans les réglages) | 13 |
 | JRN-05 | Apprentissage personnel : aucune conclusion sur trop peu de sorties ; séparé par mode et par espèce | IND | § 9.1.9 | seuils de sessions testés | U | Conforme (BORD : 5 sessions dont 2 avec prise ; BATEAU : 8 sorties) | 6, 13 |
+| JRN-06 | Les notes de SPUMY face au journal : chaque sortie garde la note affichée au moment de la sortie (Favorabilité, Confiance, version du modèle) ; une vue compare notes et résultats (prises par heure de pêche, bredouilles déclarées, résultats inconnus à part) ; aucune conclusion sous le seuil de sorties ; le modèle s'affine par la boucle contrôlée du § 9.3.1 (calcul automatique, validation hors échantillon, approbation, version, retour arrière) | IND | V3-030 ; § 9.3.1 ; phase 8 | instantané de la note testé ; vue de comparaison avec et sans assez de sorties | U, E | Absent | 3, 6, 8, 13 |
 | PRO-01 | Profil : informations facultatives, préférences, statistiques personnelles ; aucun onglet Statistiques | IMP | § 4.3, § 6.4 | onglet Profil présent, sans page de statistiques séparée | V | Absent | 13 |
 | PRO-02 | Indicateurs du Profil choisis après étude et validation, pas figés d'avance | IMP | § 4.3 | liste validée par Félix | R | — | 13 |
+| PRO-03 | Profil, Affichage : ordre des onglets de la barre, photo de fond de Home, thème, mode terrain ; Profil, Mes bateaux : un ou plusieurs profils, l'un par défaut | IMP | V3-023 | réglages enregistrés sur l'appareil et rétablis | E | Absent | 3, 13 |
 | MAT-01 | Onglet Matériel affiché seulement quand son contenu existe ; inventaire des leurres au dernier lot ; boîte V2 migrée | SEC | § 4.3, § 6.4 | aucun onglet vide ; boîte V2 retrouvée | E | Partiel (onglet présent) | 12 |
 
 ## BAT — Mode BATEAU
@@ -115,6 +124,18 @@ Validation : le registre entier attend la validation de Félix (fin de la Phase 
 | BAT-06 | Aucune Pertinence en BATEAU | IND | V3-006 | — | U | Non conforme (branche) | 9 |
 | BAT-07 | Aucun temps ni faisabilité nautique sans données suffisantes ; aucun seuil routier | IND | § 8.1 | — | U | Conforme | 9 |
 | BAT-08 | Passage d'un mode à l'autre clair, sans perte de contexte ni mélange de règles | IND | § 6.3, § 6.4 | test de tâche 6 ; aucune donnée BORD dans BATEAU | E, T | Partiel (onglets de l'accueil) | 3 |
+| BAT-09 | Bateau de la sortie : profil enregistré dans Profil, ou saisie pour cette sortie (avec enregistrement possible) ; aucun verdict sans l'un ou l'autre | IND | V3-023 (jalon 1) | les deux chemins mènent au verdict | E | Absent | 3, 9 |
+| BAT-10 | Carte marine (épaves, hauts-fonds, balisage) en couche facultative de la Carte BATEAU, seulement après vérification des sources et des licences ; jamais présentée comme une carte officielle | EXP | V3-024 | sources et licences vérifiées, avertissement affiché | R | Absent | à décider |
+
+## MET — Onglet Météo
+
+| Id | Exigence | Prio. | Origine | Critère d'acceptation | Vérif. | V2 | Phase |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| MET-01 | Carte du vent autour de la position de référence : vent animé en couleurs (nappe de force et traînées dans le sens du vent, V3-028 ; flèches fixes si le mouvement est réduit), force et rafales écrites en nœuds, direction, heure par heure sur 48 h, puis 7 jours (Aujourd'hui, Demain, 7 jours) | IND | V3-023 (jalon 1) ; V3-028 | couleurs et traînées justes contre les données reçues ; heure choisie gardée ; animation en pause onglet caché | U, V | Absent (onglet Météo V2 sans carte) | 3, 6 |
+| MET-02 | BATEAU : couche Mer (hauteur, période, direction des vagues) aux mêmes points | IMP | V3-023 | couche testée en BATEAU seulement | U, V | Absent | 3, 9 |
+| MET-03 | Aucun découpage géographique (grille de points, aucune zone nommée) ; couleur neutre, distincte des paliers de Favorabilité ; avertissement écrit à partir de force 6 | IND | § 0.2 ; V3-023 | aucune couleur de palier ni nom de zone dans la couche | U, V | — | 3 |
+| MET-04 | Résumé du lieu de référence (vent, mer, eau, pression, pluie, vigilance, soleil) et courbes du jour ; source, modèle et âge toujours écrits ; hors ligne : dernière prévision avec son âge | IND | § 6.11 ; DATA_SOURCES | source et âge visibles dans tous les états | E, V | Partiel | 3, 6 |
+| MET-05 | Météo = explication scientifique, du général (la carte du vent) au spécifique (comment chaque élément a pesé dans la note du spot, en sens et en poids, sans décomposition inventée) : pour chaque élément (vent et son orientation à la côte, rafales, houle, pression, température de l'eau, ciel et lumière, pluie, marée, coefficient, courant), l'effet favorable ou défavorable sur la pêche du bar, pourquoi, la source et le niveau de preuve ; sans connaissance sourcée, la valeur s'affiche sans effet annoncé | IND | V3-029 | chaque effet renvoie à une connaissance sourcée (`data/knowledge/bar-bord.json`) | U, E | Absent | 3, 5, 6 |
 
 ## UX — Identité, interface, accessibilité
 
@@ -122,11 +143,13 @@ Validation : le registre entier attend la validation de Félix (fin de la Phase 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | UX-01 | Logo BRAND : poisson et orange #C76A31 intacts dans tous les exports ; contrôle automatique de la zone protégée | IND | § 6.1.1 ; V3-002 ; D1 | test pixel à pixel de la zone protégée de chaque export contre la source | U, V | Non conforme (variante sombre) | 3 |
 | UX-02 | Palette #F07824, #172B3A, #344B5A, #F3F1EB ; aucun cyan structurant ; jetons sémantiques ; `brand-logo-orange` distinct de `accent-orange` | IND | § 6.2 ; D6, D7 | jetons et contrastes mesurés (WCAG 2.2 AA) | U, V | Non conforme | 3 |
-| UX-03 | Aucun slogan ; aucune mention de « V2 » ni de « phase » à l'écran | IND | § 6.2.2 ; D5, D13 | recherche de texte dans le build | U | Non conforme | 3 |
+| UX-03 | Aucun slogan sauf « Read the sea. Fish the moment. » en tête de Home (V3-028) ; aucune mention de « V2 » ni de « phase » à l'écran | IND | § 6.2.2 ; D5, D13 | recherche de texte dans le build | U | Non conforme | 3 |
 | UX-04 | Deux scores dans une disposition lisible, pas une grille à trois colonnes ; la fixture « 53/100, à vérifier » et « 69/100, moyenne » est comprise | IND | § 6.7.1, § 6.7.2 ; H4, H5 | 4 personnes sur 5 l'expliquent (test) | T, V | Non conforme | 3 |
-| UX-05 | Navigation en 5 entrées (V3-017) ; bascule BORD / BATEAU | IND | § 6.4 | navigation testée au clavier et au toucher | E | Partiel | 3 |
+| UX-05 | Barre défilante : 4 onglets visibles, ordre par défaut Home, Carte, Météo, Profil, puis Journal ; ordre modifiable dans Profil ; Journal aussi depuis Home et Profil ; bascule BORD / BATEAU, écrite « Shore » / « Offshore » (cartes à logos sur Home, bascule dans l'en-tête des autres onglets, V3-028) (V3-023, qui remplace en partie V3-017) | IND | § 6.4 ; V3-023 ; V3-028 | navigation testée au clavier et au toucher ; ordre enregistré et rétabli | E | Partiel | 3, 10 |
 | UX-06 | WCAG 2.2 AA mesuré ; largeurs 320, 375, 390 px et ordinateur ; thème Plein soleil ; mouvement réduit | IND | § 6.10, § 6.14 | 0 violation axe et ratios consignés | U, V | Partiel | 3, 14 |
 | UX-07 | Le chargement n'affiche pas de statut provisoire comme s'il était réel | IMP | D12 | capture au chargement sans « à vérifier » provisoire | V | Non conforme | 3 |
+| UX-08 | On change d'onglet en le touchant ; glisser la barre fait apparaître les autres onglets (défilement par onglet entier, repère de suite, onglet actif toujours visible) ; le contenu ne change pas d'onglet par glissement ; sans animation si le mouvement est réduit | IMP | V3-023 (précision du 20 nov., 14 h 02) | barre défilée au doigt et au clavier ; Journal atteint en faisant défiler | E | Absent | 3, 10 |
+| UX-09 | Home : photo de fond (automatique selon les conditions, ou choisie dans Profil), marquée « Illustration », et phrase de synthèse de la pêche probable, horaires compris ; bande de 24 h colorée heure par heure selon le score réel ; partie haute (marque, Shore / Offshore, lieu, jours) fixe en faisant défiler, resserrée (V3-028) | IND | V3-023 ; V3-028 | phrase lisible sur chaque photo (voile, contraste mesuré) ; aucune promesse ; haut fixe testé au défilement | V, T | Partiel | 3, 10 |
 
 ## OFF — Hors ligne et synchronisation
 
