@@ -10,7 +10,8 @@
    "isLocal": "rattachement au guide V2",
    "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
    "distMin": "idem",
-   "color": "couleur d'affichage V2"
+   "color": "couleur d'affichage V2",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
   }
  },
  "coordinates": {
@@ -305,7 +306,7 @@
   {
    "statut": "INFÉRÉ",
    "origine": "v2",
-   "texte": "Sinking pencil et leurres lourds comptés, dans la limite de ta canne (42 g).",
+   "texte": "Sinking pencil et leurres lourds comptés, dans la limite de puissance de la canne.",
    "verifie_le": null
   },
   {
@@ -328,8 +329,8 @@
    "valeur": {
     "color": "Ghost / Iwashi / Sardine",
     "name": "Stickbait coulant lourd (sinking pencil)",
-    "technique": "Travail dans le courant résiduel en renverse. Dérive naturelle. Dans ta boîte : Mr Joe 120 (35 g, coulant).",
-    "weight": "30-40 g (limite de ta canne : 42 g)"
+    "technique": "Travail dans le courant résiduel en renverse. Dérive naturelle.",
+    "weight": "30-40 g (selon la puissance de la canne)"
    },
    "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
    "verifie_le": null

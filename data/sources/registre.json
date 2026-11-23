@@ -1,17 +1,17 @@
 {
  "//": "Registre des sources (phase 5, 5.4 ; § 7.1). Généré par scripts/sources-registre.mjs ; les champs « evaluation » se complètent à la main et ne sont jamais écrasés.",
  "totaux": {
-  "sources": 297,
-  "aEvaluer": 280,
+  "sources": 296,
+  "aEvaluer": 279,
   "avecUrl": 53,
-  "editeurs": 102,
-  "editeurClasse": 297,
-  "groupes": 87,
+  "editeurs": 101,
+  "editeurClasse": 296,
+  "groupes": 86,
   "parFamille": {
    "1": 21,
    "2": 40,
    "3": 8,
-   "4": 166,
+   "4": 165,
    "6": 19,
    "non fixée": 43
   },
@@ -24,7 +24,6 @@
    "encyclopédie collaborative": 12,
    "cartographie": 4,
    "cartographie ouverte": 2,
-   "journal personnel (Félix)": 1,
    "communautaire": 1
   }
  },
@@ -9490,40 +9489,6 @@
     "limites": "actualité datée, pas de connaissance halieutique",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
     "famille_inferee": 4,
-    "classe_le": "2026-11-23"
-   }
-  },
-  {
-   "id": "src-ton-journal-ae3fad",
-   "texte": "Ton journal : 3 sessions (27/12/2025, 07/08/2026, 08/08/2026)",
-   "editeur": "Ton journal",
-   "url": null,
-   "type": "journal personnel (Félix)",
-   "famille": 4,
-   "prive": true,
-   "niveau_v2": null,
-   "utilise_par": [
-    "spot:moulinmer"
-   ],
-   "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
-   },
-   "groupe": "prive-felix",
-   "editeur_classe": {
-    "nature": "journal personnel de Félix",
-    "domaines": [
-     "observations personnelles"
-    ],
-    "limites": "donnée privée : hors des fiches publiques V3",
-    "droits": "privé",
     "classe_le": "2026-11-23"
    }
   },

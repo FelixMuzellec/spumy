@@ -10,7 +10,8 @@
    "isLocal": "rattachement au guide V2",
    "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
    "distMin": "idem",
-   "color": "couleur d'affichage V2"
+   "color": "couleur d'affichage V2",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
   }
  },
  "coordinates": {
@@ -202,7 +203,7 @@
   },
   "v2": {
    "description": "Pointe sans source sur la marée : créneaux de la règle générale.",
-   "lifeHack": "Note dans ton journal la phase de tes touches : c'est la seule façon de recaler ce poste.",
+   "lifeHack": "Noter dans le journal de pêche la phase des touches : c'est la seule façon de recaler ce poste.",
    "montantOuDescendant": "Aucune source locale : règle générale du bar en Bretagne (Vidal).",
    "typeHeure": "RÈGLE GÉNÉRALE (À RECALER)",
    "windows": [
@@ -301,7 +302,7 @@
   {
    "statut": "INFÉRÉ",
    "origine": "v2",
-   "texte": "Note dans ton journal la phase de tes touches : c'est la seule façon de recaler ce poste.",
+   "texte": "Noter dans le journal de pêche la phase des touches : c'est la seule façon de recaler ce poste.",
    "verifie_le": null
   }
  ],

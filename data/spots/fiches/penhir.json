@@ -10,7 +10,8 @@
    "isLocal": "rattachement au guide V2",
    "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
    "distMin": "idem",
-   "color": "couleur d'affichage V2"
+   "color": "couleur d'affichage V2",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
   }
  },
  "coordinates": {
@@ -206,7 +207,7 @@
   "v2": {
    "description": "Côte océanique classique : courant + houle résiduelle + éclairage faible = déclencheurs majeurs. Les basses du récif sont les postes, chacune à tester selon le courant du jour.",
    "lifeHack": "Spot dangereux par houle : au-delà de 1,5 m, le guide ne le propose plus (spot engagé). Vérifier le bulletin mer d'Iroise. Jamais seul, gilet obligatoire. Stickbaits de grande taille au lancer long (Patchinko 165).",
-   "montantOuDescendant": "Descendant dominant sur les basses (savoir de terrain de ton guide d'origine). La lumière basse est prise en compte à part par le guide.",
+   "montantOuDescendant": "Descendant dominant sur les basses (savoir de terrain des guides V2 d'origine). La lumière basse est prise en compte à part par le guide.",
    "typeHeure": "DESCENDANT + LEVER/COUCHER (principe côte océanique)",
    "windows": [
     {
@@ -307,7 +308,7 @@
   {
    "statut": "INFÉRÉ",
    "origine": "v2",
-   "texte": "Aucune source du bord : brestfishing décrit les basses de Pen-Hir pour la pêche en bateau. Spot de ton guide d'origine.",
+   "texte": "Aucune source du bord : brestfishing décrit les basses de Pen-Hir pour la pêche en bateau. Spot des guides V2 d'origine.",
    "verifie_le": null
   },
   {
@@ -336,8 +337,8 @@
    "valeur": {
     "color": "Yellow Bone / Ayu / Ghost",
     "name": "Stickbait coulant lourd (sinking pencil)",
-    "technique": "Travail en dérive dans le courant sur les basses. Dans ta boîte : Mr Joe 120 (35 g, coulant) ; l'Asturie 150 (32 g, flottant) est présenté par sa fiche produit comme le spécialiste des grosses houles.",
-    "weight": "30-40 g (limite de ta canne : 42 g)"
+    "technique": "Travail en dérive dans le courant sur les basses.",
+    "weight": "30-40 g (selon la puissance de la canne)"
    },
    "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
    "verifie_le": null

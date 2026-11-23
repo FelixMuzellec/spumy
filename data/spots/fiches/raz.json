@@ -10,7 +10,8 @@
    "isLocal": "rattachement au guide V2",
    "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
    "distMin": "idem",
-   "color": "couleur d'affichage V2"
+   "color": "couleur d'affichage V2",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
   }
  },
  "coordinates": {
@@ -308,7 +309,7 @@
    "valeur": {
     "color": "Argent / sardine",
     "name": "Jig de lancer",
-    "technique": "Source : jigs de lancer cités pour ce poste (peche-poissons.com). Dans ta boîte : Drag Metal Cast 30-40 g ; vérifier la plage de la canne.",
+    "technique": "Source : jigs de lancer cités pour ce poste (peche-poissons.com).",
     "weight": "30-40 g"
    },
    "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",

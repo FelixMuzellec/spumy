@@ -10,7 +10,8 @@
    "isLocal": "rattachement au guide V2",
    "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
    "distMin": "idem",
-   "color": "couleur d'affichage V2"
+   "color": "couleur d'affichage V2",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
   }
  },
  "coordinates": {
@@ -306,7 +307,7 @@
   {
    "statut": "INFÉRÉ",
    "origine": "v2",
-   "texte": "Spot de ton guide d'origine : la seule source le cite pour son courant, pas pour le bar (vérifié le 29/10/2026).",
+   "texte": "Spot des guides V2 d'origine : la seule source le cite pour son courant, pas pour le bar (vérifié le 29/10/2026).",
    "verifie_le": null
   },
   {
@@ -323,7 +324,7 @@
    "valeur": {
     "color": "Ayu / Ghost / Bar naturel",
     "name": "Stickbait coulant (sinking pencil)",
-    "technique": "Lancer contre le courant, dérive lente en aval (déduit). Dans ta boîte : Mr Joe 120 (35 g, coulant). L'Asturie est un stickbait flottant (110 : 15 g, 130 : 27 g), pas un sinking pencil.",
+    "technique": "Lancer contre le courant, dérive lente en aval (déduit). L'Asturie est un stickbait flottant (110 : 15 g, 130 : 27 g), pas un sinking pencil.",
     "weight": "25-40g"
    },
    "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",

@@ -10,7 +10,8 @@
    "isLocal": "rattachement au guide V2",
    "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
    "distMin": "idem",
-   "color": "couleur d'affichage V2"
+   "color": "couleur d'affichage V2",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
   }
  },
  "coordinates": {
@@ -314,7 +315,7 @@
   {
    "statut": "INFÉRÉ",
    "origine": "v2",
-   "texte": "Spot de ton guide d'origine : aucune source publiée vérifiée ne le cite pour le bar (29/10/2026) ; ton journal fera foi.",
+   "texte": "Spot des guides V2 d'origine : aucune source publiée vérifiée ne le cite pour le bar (29/10/2026) ; à confirmer par le journal de pêche.",
    "verifie_le": null
   },
   {

@@ -10,7 +10,8 @@
    "isLocal": "rattachement au guide V2",
    "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
    "distMin": "idem",
-   "color": "couleur d'affichage V2"
+   "color": "couleur d'affichage V2",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
   }
  },
  "coordinates": {
@@ -324,8 +325,8 @@
    "valeur": {
     "color": "Ghost / Iwashi / Sardine",
     "name": "Stickbait coulant (sinking pencil)",
-    "technique": "Pêche dans le courant du Goulet, dérive contre courant. Dans ta boîte : Mr Joe 120 (35 g, coulant) ; l'Asturie 130 (27 g) est flottant.",
-    "weight": "30-40 g (limite de ta canne : 42 g)"
+    "technique": "Pêche dans le courant du Goulet, dérive contre courant.",
+    "weight": "30-40 g (selon la puissance de la canne)"
    },
    "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
    "verifie_le": null
@@ -337,7 +338,7 @@
     "color": "Pearl / White / UV",
     "name": "Shad lourd",
     "technique": "Le long du tombant, compté, sans le toucher.",
-    "weight": "25-40 g (limite de ta canne : 42 g)"
+    "weight": "25-40 g (selon la puissance de la canne)"
    },
    "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
    "verifie_le": null

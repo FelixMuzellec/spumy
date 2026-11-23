@@ -10,7 +10,8 @@
    "isLocal": "rattachement au guide V2",
    "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
    "distMin": "idem",
-   "color": "couleur d'affichage V2"
+   "color": "couleur d'affichage V2",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
   }
  },
  "coordinates": {
@@ -196,7 +197,7 @@
   "v2": {
    "description": "Les parcs se pêchent au flot en suivant l'eau ; au jusant, les roches affleurantes proches du bord (déduit). Jamais vers le Sénéquet.",
    "lifeHack": "Les parcs coupent : semelles épaisses obligatoires. Et le flot remonte entre les tables plus vite qu'il n'y paraît — garder toujours une ligne de retraite dégagée.",
-   "montantOuDescendant": "Montant dominant pour les parcs et l'estran (ton guide d'origine).",
+   "montantOuDescendant": "Montant dominant pour les parcs et l'estran (guides V2 d'origine).",
    "typeHeure": "MONTANT SUR LES PARCS",
    "windows": [
     {
@@ -275,7 +276,7 @@
    "presence": {
     "statut": "OBSERVATION LOCALE",
     "origine": "v2",
-    "texte": "Spot de ton guide d'origine, cité comme apprécié des pêcheurs locaux (sylco, non revérifié). Le bar longe les rangées de tables au flot comme il longerait une bordure rocheuse (déduit).",
+    "texte": "Spot des guides V2 d'origine, cité comme apprécié des pêcheurs locaux (sylco, non revérifié). Le bar longe les rangées de tables au flot comme il longerait une bordure rocheuse (déduit).",
     "verifie_le": null
    }
   }

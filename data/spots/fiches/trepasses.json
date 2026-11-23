@@ -10,7 +10,8 @@
    "isLocal": "rattachement au guide V2",
    "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
    "distMin": "idem",
-   "color": "couleur d'affichage V2"
+   "color": "couleur d'affichage V2",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
   }
  },
  "coordinates": {
@@ -204,7 +205,7 @@
   "v2": {
    "description": "Plage battue : l'écume et les bords de baïne concentrent les proies.",
    "lifeHack": "Le créneau du lever du jour pèse plus que la marée selon le guide du cap : la lumière est déjà dans le score du jour.",
-   "montantOuDescendant": "La source donne le moment de la journée (tôt le matin), pas la marée : le guide part du flot, à recaler avec ton journal.",
+   "montantOuDescendant": "La source donne le moment de la journée (tôt le matin), pas la marée : le guide part du flot, à recaler avec le journal de pêche.",
    "typeHeure": "MATIN TÔT + FLOT",
    "windows": [
     {
@@ -301,7 +302,7 @@
   {
    "statut": "INFÉRÉ",
    "origine": "v2",
-   "texte": "Une seule source pêche, celle d'un guide de pêche local (Pêche-Rando Bar) : son jugement de terrain est retenu, à confirmer par ton journal.",
+   "texte": "Une seule source pêche, celle d'un guide de pêche local (Pêche-Rando Bar) : son jugement de terrain est retenu, à confirmer par le journal de pêche.",
    "verifie_le": null
   },
   {

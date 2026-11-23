@@ -10,7 +10,8 @@
    "isLocal": "rattachement au guide V2",
    "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
    "distMin": "idem",
-   "color": "couleur d'affichage V2"
+   "color": "couleur d'affichage V2",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
   }
  },
  "coordinates": {
@@ -204,7 +205,7 @@
   "v2": {
    "description": "Grande plage de baie : l'écume et le bord du platier sont les postes.",
    "lifeHack": "Penhors est au sud du 48e parallèle : 2 bars par jour toute l'année (zone CIEM 8).",
-   "montantOuDescendant": "Le bon moment s'apprend plage par plage (Vidal) : le guide part du flot, à recaler avec ton journal.",
+   "montantOuDescendant": "Le bon moment s'apprend plage par plage (Vidal) : le guide part du flot, à recaler avec le journal de pêche.",
    "typeHeure": "FLOT",
    "windows": [
     {

@@ -22,7 +22,7 @@ Sources locales recherchées sur les quatre zones vides : guides professionnels,
 - La seule étude institutionnelle trouvée est celle de l'Ifremer sur le golfe du Morbihan (2003). Elle ne nomme qu'un site du bord, la jetée de Larmor-Baden, et y range le bar parmi les espèces des plages et des côtes rocheuses, pas des jetées.
 - Les pages qui nomment des pointes, à Cancale, Dinard ou Lorient, sont des agrégateurs sans auteur.
 
-**Conclusion** : avec les sources publiques et citables, le catalogue ne peut pas s'étendre honnêtement à ces quatre zones pour l'instant. Trois pistes restent possibles :
+**Conclusion, corrigée le 23 nov. (22 h 40)** : avec les recherches faites (une dizaine de requêtes et une page lue), le catalogue ne s'étend pas honnêtement à ces quatre zones. Ce n'est **pas** une recherche exhaustive : la liste par département de mieuxpecher.com, qui a servi à construire la V2, n'a pas pu être lue (absente du moteur de recherche, et l'outil de lecture n'ouvre que les adresses trouvées par une recherche ou envoyées par Félix). Trois pistes restent possibles :
 - des sources de terrain identifiables : clubs, associations, comptes rendus datés et nominatifs ;
 - la connaissance de Félix, pour les spots publics qu'il accepte de verser au catalogue ;
 - une étape ultérieure (phase 7, deuxième passe d'enrichissement du référentiel). Elle pourrait partir d'hypothèses d'habitat (pointes exposées au courant, embouchures), mais elles resteraient marquées HYPOTHÈSE et ne seraient jamais présentées comme des spots corroborés.

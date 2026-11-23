@@ -6,6 +6,7 @@ import Ajv2020 from "ajv/dist/2020.js";
 import { lireFiches, texteRegistre, F_REGISTRE } from "../scripts/registre-spots.mjs";
 import { CLASSEMENT } from "../scripts/securite-maree.mjs";
 import { qualifier, sourcesParSpot } from "../scripts/qualifier-fiches.mjs";
+import { PRIVE } from "../scripts/retirer-texte-prive.mjs";
 import { qualite } from "../scripts/fiches-v3-depuis-v2.mjs";
 import { construire, F_SOURCES } from "../scripts/sources-registre.mjs";
 
@@ -101,6 +102,13 @@ for (const { fiche: f } of fiches) {
     const pos = structuredClone(ref); pos.quality.anomalies.push("Position V2 à 3,0 km du toponyme officiel « X » : à vérifier.");
     t("qualification : une anomalie de position bloque la corroboration", qualifier(pos, deux).statut === "a_verifier");
   }
+}
+// Texte privé (décision de Félix, 23 nov. 2026) : aucune fiche publique ne s'adresse à lui ni ne cite ses sessions ou
+// son matériel, hors citations entre guillemets d'une source ; la sauvegarde V2 garde le texte intégral.
+for (const { fiche: f } of fiches) {
+  const { legacy, ...publique } = f;
+  const texte = JSON.stringify(publique).replace(/«[^»]*»/g, "");
+  t(`${f.id} : aucun texte privé dans la fiche publique`, !PRIVE.test(texte) && !(parSpot.get(f.id) || []).some((s) => s.prive), (texte.match(new RegExp(`.{0,40}(${PRIVE.source}).{0,30}`, "i")) || [""])[0]);
 }
 t("registre central à jour (node scripts/fiches-v3-depuis-v2.mjs le régénère)", fs.readFileSync(F_REGISTRE, "utf8") === texteRegistre());
 

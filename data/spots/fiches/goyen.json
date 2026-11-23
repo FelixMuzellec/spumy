@@ -11,7 +11,8 @@
    "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
    "distMin": "idem",
    "color": "couleur d'affichage V2",
-   "riviere": "indicateur V2 repris dans environment.milieu si utile ; valeur gardée dans la sauvegarde"
+   "riviere": "indicateur V2 repris dans environment.milieu si utile ; valeur gardée dans la sauvegarde",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
   }
  },
  "coordinates": {
@@ -205,7 +206,7 @@
   "v2": {
    "description": "Embouchure de port : le flot fait entrer le poisson le long des digues, le jusant le fait ressortir par le chenal.",
    "lifeHack": "Le marégraphe de référence est dans le port même : l'heure de marée est celle du poste.",
-   "montantOuDescendant": "Règle générale de la source pour le bar (« souvent » les 3 premières heures de montante et les 3 dernières de descendante ; « les phases de marée […] vont dépendre de chaque coin ») : Vidal, 2026. Non propre à ce poste : à recaler avec ton journal.",
+   "montantOuDescendant": "Règle générale de la source pour le bar (« souvent » les 3 premières heures de montante et les 3 dernières de descendante ; « les phases de marée […] vont dépendre de chaque coin ») : Vidal, 2026. Non propre à ce poste : à recaler avec le journal de pêche.",
    "typeHeure": "3 PREMIÈRES HEURES DE MONTANTE · 3 DERNIÈRES DE DESCENDANTE (RÈGLE GÉNÉRALE)",
    "windows": [
     {

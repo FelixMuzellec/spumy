@@ -10,7 +10,8 @@
    "isLocal": "rattachement au guide V2",
    "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
    "distMin": "idem",
-   "color": "couleur d'affichage V2"
+   "color": "couleur d'affichage V2",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
   }
  },
  "coordinates": {
@@ -336,7 +337,7 @@
    "valeur": {
     "color": "Argent",
     "name": "Jig 20-30 g",
-    "technique": "Dans le gros ressac : le jig est le choix d'un guide du cap Sizun par grosse houle (Pêche-Rando Bar) ; poids de ta boîte (Drag Metal Cast).",
+    "technique": "Dans le gros ressac : le jig est le choix d'un guide du cap Sizun par grosse houle (Pêche-Rando Bar).",
     "weight": "20-30 g"
    },
    "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",

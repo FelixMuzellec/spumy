@@ -10,7 +10,8 @@
    "isLocal": "rattachement au guide V2",
    "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
    "distMin": "idem",
-   "color": "couleur d'affichage V2"
+   "color": "couleur d'affichage V2",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
   }
  },
  "coordinates": {
@@ -296,7 +297,7 @@
   {
    "statut": "INFÉRÉ",
    "origine": "v2",
-   "texte": "Spot de ton guide d'origine : aucune source publiée vérifiée ne le cite pour le bar ; le poste voisin cité est « Cap de Rozel à la montante » (mieuxpecher).",
+   "texte": "Spot des guides V2 d'origine : aucune source publiée vérifiée ne le cite pour le bar ; le poste voisin cité est « Cap de Rozel à la montante » (mieuxpecher).",
    "verifie_le": null
   },
   {
