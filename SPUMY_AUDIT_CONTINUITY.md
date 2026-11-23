@@ -13,8 +13,9 @@ Suivi unique du chantier V3. Il dit où en est le travail, pourquoi il s'est arr
 | --- | --- | --- | --- |
 | 1. Audit initial V2 (lecture seule) | TESTED, avec une réserve : P1-14 (site en ligne dans un vrai navigateur) BLOCKED, aucun navigateur relié | démarrage (§ 18) | Rapport https://claude.ai/artifact/62UYfGbGKJtRvo6rAF9QrK ; copie `docs/rapports/v3/PHASE-1.md` |
 | 2. Vision produit, exigences et architecture cible | VALIDATED (jeton de phase 3) | « APPROVED — PROCEED TO PHASE 2 », 20 nov. 2026, 1 h 24 | Rapport https://claude.ai/artifact/JWzDnppc1u7Wf6SPEgceDn ; copie `docs/rapports/v3/PHASE-2.md` ; branche `claude/v3-phase-2`, proposition n° 16 (brouillon) |
-| 3. Conception UX/UI, direction artistique, Design System, prototypes | TESTED (jalons 1 et 2 validés par Félix ; jeton de phase 4 attendu) | « APPROVED — PROCEED TO PHASE 3 », 20 nov. 2026, 4 h 25 | Rapport https://claude.ai/artifact/MUeZdUAtxSDqAKQxML511A ; copie `docs/rapports/v3/PHASE-3.md` ; branche `claude/v3-phase-3` (partie de `claude/v3-phase-2`), proposition n° 17 (brouillon) |
-| 4 à 15 | NOT STARTED | — | — |
+| 3. Conception UX/UI, direction artistique, Design System, prototypes | VALIDATED (jeton de phase 4 ; version 6.2 du prototype acceptée par la demande du jeton, INFÉRÉ) | « APPROVED — PROCEED TO PHASE 3 », 20 nov. 2026, 4 h 25 | Rapport https://claude.ai/artifact/MUeZdUAtxSDqAKQxML511A ; copie `docs/rapports/v3/PHASE-3.md` ; branche `claude/v3-phase-3` (partie de `claude/v3-phase-2`), proposition n° 17 (brouillon) |
+| 4. Architecture détaillée, socle technique et assainissement contrôlé | IN PROGRESS | « APPROVED — PROCEED TO PHASE 4 », 23 nov. 2026, 13 h 50 | branche `claude/v3-phase-4` (depuis `claude/v3-phase-3`, 080d5e3) |
+| 5 à 15 | NOT STARTED | — | — |
 
 Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposait de passer outre la réserve P1-14. Il vaut acceptation de cette réserve (INFÉRÉ) ; le contrôle sera refait dès qu'un navigateur sera relié.
 
@@ -43,6 +44,25 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | 3.7 Revues, tests, galerie AVANT/CIBLE, matrices de conformité et de traçabilité | IMPLEMENTED (revues UX, plateformes, WCAG 2.2, DA, carte, contenus, terrain ; 16 défauts dont 8 corrigés, 0 critique ou majeur ouvert ; matrices § 6.16 et de traçabilité ; 14 critères de recette ; TEST UTILISATEUR NON EFFECTUÉ, protocole prêt ; prototype 5.3 : `test:prototype-v3` 194/194) | `docs/design/REVUES-V3.md`, `docs/design/galerie-avant-cible.html` (artefact privé), `scripts/mesures-revue-v3.mjs`, `docs/design/revue-v3-mesures.json` |
 | 3.8 Rapport et arrêt | TESTED (`npm ci`, `npm run build` sans écart, `npm test`, `test:a11y`, `test:upgrade`, `test:prototype` 244/244, `test:prototype-v3` 194/194, `tests/brand.py` 29/29 : tous code 0 ; CI verte sur a2b7844 ; D-16 corrigé en 76338f2) | `docs/rapports/v3/PHASE-3.md`, document Claude du rapport |
 | 3.9 Prototype V6 (maquettes de Félix, V3-028 à V3-030 ; feu vert du 23 nov., 8 h 47 ; version 6.1 recalée sur les maquettes après la remarque de 12 h 07 ; version 6.2 après les remarques de 12 h 45) | TESTED (version 6.2 : `prototype-v3 --axe` 224/224, `npm test` 0, `tests/brand.py` 35/35 ; `npm test` 0, `test:a11y` 0, `test:upgrade` 12/12, `test:prototype` 244/244, `prototype-v3 --axe` 216/216, `connaissances-v6 --check` 0) ; revalidation par Félix attendue | `docs/design/PROTOTYPE-V6.md`, `src/prototype-v3/` (geo, connaissances, data, effets, geomap, carte6, home, v6.css), `scripts/geo-v6.mjs`, `scripts/connaissances-v6.mjs`, `scripts/logos-modes-v6.py`, `tests/prototype-v3.mjs`, captures `docs/design/prototype-v3/`, planches `docs/design/comparaison-v6/`, documents DESIGN-SYSTEM-V3 § 11, UX-V3 § 15, PROTOTYPE-V3, REVUES-V3 § 14, REQUIREMENTS (MAP-02, MET-01, UX-05, UX-09) |
+
+## Phase 4 — sous-tâches
+
+Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ; V3-020 (contrats JSDoc et `tsc --checkJs`). Rien n'est supprimé sans audit de dépendances et stratégie de restauration ; V3-019 n'est pas exécuté.
+
+| Sous-tâche | Statut | Fichiers |
+| --- | --- | --- |
+| 4.0 Jeton, branche, suivi, plan | IMPLEMENTED | ce fichier, `docs/DECISIONS_LOG.md` |
+| 4.1 Audit du socle (stack réelle, dépendances, sécurité des dépendances, CI, reproductibilité, inventaire de nettoyage) | NOT STARTED | `docs/socle/AUDIT-SOCLE.md` |
+| 4.2 Architecture détaillée (modules, frontières V3 / services communs / héritage V2, flux, erreurs, migration) | NOT STARTED | `docs/ARCHITECTURE-V3.md` |
+| 4.3 Contrats typés (JSDoc) et `tsc --checkJs` ; erreurs typées ; validation des entrées | NOT STARTED | `src/core/contracts/`, `tsconfig.json`, `npm run typecheck` |
+| 4.4 Tests et CI : fixtures déterministes (heure, fuseau, polices), contrôles manquants en CI (typecheck, marque) | NOT STARTED | `.github/workflows/`, `tests/` |
+| 4.5 Configuration reproductible et secrets (`.env.example`, détection de secrets, `.gitignore`) | NOT STARTED | `.env.example`, `tests/secrets.mjs` |
+| 4.6 Conventions et qualité de code | NOT STARTED | `CONTRIBUTING.md`, `.eslintrc.json` |
+| 4.7 Nettoyage autorisé (registre, suppressions sûres seulement, restauration) | NOT STARTED | `docs/socle/NETTOYAGE.md` |
+| 4.8 Protection de `main` (réglage du dépôt : accord explicite de Félix requis) | NOT STARTED | — |
+| 4.9 Documentation opérationnelle, README et fichiers de pilotage | NOT STARTED | `README.md`, `docs/socle/EXPLOITATION.md`, `CHANGELOG.md` |
+| 4.10 Installation et lancement reproductibles (clone neuf) | NOT STARTED | — |
+| 4.11 Red-team, rapport en 14 parties, arrêt | NOT STARTED | `docs/rapports/v3/PHASE-4.md` |
 
 ## Questions et décisions (registre)
 
@@ -76,7 +96,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 
 ## Prochaine action
 
-Phase 3 TESTED, version 6.2 du prototype comprise ; complément au rapport de phase 3 remis (`docs/rapports/v3/PHASE-3.md`, section « Complément du 23 novembre 2026 », et document Claude du rapport). Félix a demandé le jeton de phase 4 le 23 nov. à 13 h 25 (lu comme l'accord sur la version 6.2, INFÉRÉ). ATTENDRE le jeton exact « APPROVED — PROCEED TO PHASE 4 » : aucune tâche de la phase 4 avant. Ne pas revenir sur ce qui est validé. V3-019 non exécuté ; D-11 et D-15 toujours à décider ; fusion non demandée.
+Phase 4 IN PROGRESS sur `claude/v3-phase-4`. Prochaine sous-tâche : 4.1, audit du socle (lecture et mesures, sans modification du code applicatif).
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
