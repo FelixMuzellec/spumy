@@ -74,7 +74,7 @@ if (revue) {
   fs.mkdirSync(path.join(revue, "photos"), { recursive: true });
   for (const id of PHOTO_SET) for (const z of [720, 1600]) fs.copyFileSync(path.join(root, "assets/photos", `${id}-${z}.webp`), path.join(revue, "photos", `${id}-${z}.webp`));
   fs.mkdirSync(path.join(revue, "brand"), { recursive: true });
-  for (const f of ["spumy-medaillon-128.png", "spumy-logo-960.webp", "favicon-32.png", "apple-touch-icon-180.png"]) fs.copyFileSync(path.join(root, "assets/brand/v3", f), path.join(revue, "brand", f));
+  for (const f of ["spumy-medaillon-128.png", "spumy-logo-960.webp", "favicon-32.png", "apple-touch-icon-180.png", "inshore-256.webp", "offshore-256.webp", "inshore-128.webp", "offshore-128.webp"]) fs.copyFileSync(path.join(root, "assets/brand/v3", f), path.join(revue, "brand", f));
   fs.writeFileSync(path.join(revue, "index.html"), `<title>${TITLE}</title>
 <link rel="icon" type="image/png" sizes="32x32" href="brand/favicon-32.png">
 <link rel="apple-touch-icon" href="brand/apple-touch-icon-180.png">

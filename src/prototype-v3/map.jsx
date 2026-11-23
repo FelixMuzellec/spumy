@@ -1,4 +1,5 @@
-// SPUMY V3 — Carte (UX-V3 § 7) et Météo (UX-V3 § 8), sur un fond schématique : le prototype n'appelle aucun service.
+// SPUMY V3 — Carte et Météo de la version 5 (fond schématique). REMPLACÉ en version 6 par carte6.jsx et geomap.jsx (V3-028) :
+// plus importé, gardé pour mémoire jusqu'à la revalidation de la version 6.
 import { useEffect, useRef, useState } from "react";
 import { tierOf, FAVORABLE_MIN } from "../design/v3/tokens.js";
 import { Gauge, Safety, Icon } from "./ui.jsx";

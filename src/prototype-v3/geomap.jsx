@@ -55,7 +55,7 @@ export function Legend({ wind }) {
  * popover(item, pos) : bulle ancrée au spot choisi ; panelW : largeur réservée à droite (panneau Météo) ;
  * Layer : calque dessiné sous les pastilles (vent), reçoit la vue courante ; legend : nœud en bas à gauche.
  */
-export function GeoMap({ items, selected, onSelect, popover, panel, panelW = 0, Layer, legend, onLocate, onLayers, tag, cx = 0.5 }) {
+export function GeoMap({ items, selected, onSelect, popover, panel, panelW = 0, Layer, legend, onLocate, onLayers, tag, cx = 0.5, compact }) {
   const box = useRef(null), ptrs = useRef(new Map()), g = useRef(null);
   const [size, setSize] = useState({ w: 0, h: 0 });
   const [v, setV] = useState({ k: 1, x: 0, y: 0 });
@@ -73,6 +73,7 @@ export function GeoMap({ items, selected, onSelect, popover, panel, panelW = 0, 
   // Vue d'ensemble : centrée sur la position de référence, cadrée sur les spots retenus (CR-02).
   const fit = useCallback((w = size.w, h = size.h) => {
     if (!w || !h) return;
+    if (compact) { const k = 2.2; setV(clamp(k, w / 2 - REF.x * k, h / 2 - REF.y * k, w, h)); return; } // mini-carte de la position
     const pts = [...items, REF];
     // Marges d'écran : noms à gauche, boutons à droite, légende et début des détails en bas.
     const dx = Math.max(...pts.map((p) => Math.abs(p.x - REF.x))), dy = Math.max(...pts.map((p) => Math.abs(p.y - REF.y)));
@@ -188,7 +189,7 @@ export function GeoMap({ items, selected, onSelect, popover, panel, panelW = 0, 
       </div>
       {sel && popover && popover(sel, { ...scr(sel), w: size.w, h: size.h })}
       {panel}
-      <div className="ctl ctl-main">
+      {!compact && <><div className="ctl ctl-main">
         <button aria-label="Me localiser" onClick={onLocate}><Icon name="locate" size={22} /></button>
         <button aria-label="Couches" onClick={onLayers}><Icon name="layers" size={22} /></button>
         <button aria-label="Vue d'ensemble" onClick={() => fit()}><Icon name="fit" size={22} /></button>
@@ -197,7 +198,7 @@ export function GeoMap({ items, selected, onSelect, popover, panel, panelW = 0, 
         <button aria-label="Zoomer" onClick={() => zoomAt(1.5, size.w / 2, size.h / 2)}><Icon name="plus" size={18} /></button>
         <button aria-label="Dézoomer" onClick={() => zoomAt(1 / 1.5, size.w / 2, size.h / 2)}><Icon name="minus" size={18} /></button>
       </div>
-      {legend}
+      {legend}</>}
       <span className="attrib">{tag || "Côte © IGN Admin Express"}</span>
     </div>
   );

@@ -72,13 +72,17 @@ const DEMO = [
   { id: "surtainville", fav: 45, conf: 66, level: "Moyenne", safety: "danger", status: "nr", swell: 2.4, photo: "plage-averse", lieu: "plage", trips: 0, fish: 0, reason: "houle au-delà de la limite du spot" },
 ];
 
+// Exposition au vent du jour, comme dans effets.js : vent qui entre (± 22,5°), vent de terre, ou vent qui longe la côte.
+const gap = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
+const expo = (v2, from) => ((v2.exposedAngles || []).some((a) => gap(a, from) <= 22.5) ? "de face" : (v2.shelteredAngles || []).some((a) => gap(a, from) <= 22.5) ? "abrité" : "de côté");
+
 export const SPOTS = DEMO.map((d) => {
   const v2 = V2.find((x) => x.id === d.id), c = at(d.id), pt = project(c.lat, c.lon), w = firstPrime(v2);
   const s = {
     ...d, name: v2.name, kind: String(v2.type || "").toLowerCase(), sub: v2.subtitle, v2, lat: c.lat, lon: c.lon, x: pt.x, y: pt.y,
     route: v2.distMin, km: Math.round(km(HOME, c)), verified: true,
     win: d.status === "nr" ? null : w ? [w.from, w.to] : null, winLabel: w?.label, evidence: NIVEAUX[d.id] || {},
-    wind: { from: "NO", bft: 4, gust: 34, expo: (v2.exposedAngles || []).some((a) => Math.abs(a - 315) <= 22.5) ? "de face" : "de côté" },
+    wind: { from: "NO", bft: 4, gust: 34, expo: expo(v2, windAt(pt.x, pt.y, NOW).fromDeg) },
   };
   if (d.status === "nr") s.nrWhy = `Non recommandé : houle de ${String(d.swell).replace(".", ",")} m prévue, au-delà de la limite de ${String(v2.houleMax).replace(".", ",")} m du spot`;
   if (d.id === "agon" && v2.securite?.[0]) s.danger = `${v2.securite[0].t} (${v2.securite[0].s})`;

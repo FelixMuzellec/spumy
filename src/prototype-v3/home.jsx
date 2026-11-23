@@ -1,8 +1,79 @@
 // SPUMY V3 — Home BORD et BATEAU (UX-V3 § 6), refonte visuelle après le jalon 2 : cartes à photo, disque de score.
-import { useState } from "react";
-import { Score, Safety, Hero, DayStrip, Icon, photoSrc } from "./ui.jsx";
-import { SPOTS, MARKS, BOATS, SPECIES_PHOTO, ranking, verifyList, homePhrase, span } from "./data.js";
+import { useEffect, useRef, useState } from "react";
+import { Score, Safety, Hero, Icon, photoSrc, brandSrc } from "./ui.jsx";
+import { SPOTS, MARKS, BOATS, SPECIES_PHOTO, ranking, verifyList, homePhrase, span, hhmm, SUN, NOW } from "./data.js";
 import { tierOf } from "../design/v3/tokens.js";
+import { PlaceField } from "./carte6.jsx";
+
+const DAYS = [["today", "Aujourd'hui"], ["tomorrow", "Demain"], ["week", "7 jours"]];
+const MODES = [["bord", "Shore", "Du bord · Bar", "inshore"], ["bateau", "Offshore", "En bateau · Toutes espèces", "offshore"]];
+
+/**
+ * Haut de Home (maquette de Félix, V3-028) : logo, SPUMY et slogan, cartes Shore et Offshore, lieu, jours.
+ * En faisant défiler, il se resserre en une bande fixe (mode, lieu, jour) et reprend sa taille en remontant.
+ */
+export function HomeTop({ st, setMode, openPos, day, setDay, notify }) {
+  const end = useRef(null);
+  const [compact, setCompact] = useState(false);
+  useEffect(() => {
+    const io = new IntersectionObserver(([e]) => setCompact(!e.isIntersecting && e.boundingClientRect.top < 0));
+    if (end.current) io.observe(end.current);
+    return () => io.disconnect();
+  }, []);
+  const pick = (k) => { setDay(k); if (k !== "today") notify?.("Démonstration : seule la journée d'aujourd'hui est remplie"); };
+  return (
+    <>
+      <div className="htop6">
+        <div className="hbrand6">
+          <img src={brandSrc("spumy-medaillon-128.png")} alt="" width="64" height="64" />
+          <span className="word6">SPUMY</span><span className="sep6" aria-hidden="true" />
+          <p className="slogan6"><span>Read the sea.</span><span className="o">Fish the moment.</span></p>
+        </div>
+        <div className="modes6" role="radiogroup" aria-label="Mode">
+          {MODES.map(([k, l, sub, logo]) => (
+            <button key={k} className="modecard6" role="radio" aria-checked={st.mode === k} onClick={() => setMode(k)}>
+              <img src={brandSrc(`${logo}-256.webp`)} alt="" width="96" height="96" /><b>{l}</b><span>{sub}</span>
+            </button>
+          ))}
+        </div>
+        <PlaceField pos={st.pos} openPos={openPos} />
+        <div className="chips6 days6" role="group" aria-label="Jour">
+          {DAYS.map(([k, l]) => <button key={k} className="chip6 day" aria-pressed={day === k} onClick={() => pick(k)}>{l}</button>)}
+        </div>
+        <span ref={end} className="htop6-end" aria-hidden="true" />
+      </div>
+      <div className={`hbar6${compact ? " on" : ""}`} aria-hidden={!compact} inert={compact ? undefined : ""}>
+        <div className="mode6 sm" role="radiogroup" aria-label="Mode">
+          {MODES.map(([k, l, , logo]) => <button key={k} role="radio" aria-checked={st.mode === k} onClick={() => setMode(k)}><img src={brandSrc(`${logo}-128.webp`)} alt="" width="22" height="22" />{l}</button>)}
+        </div>
+        <button className="hbar6-place" onClick={openPos}><Icon name="pin" size={18} /><span>{st.pos.state === "ok" ? st.pos.label : "Position"}</span></button>
+        <button className="hbar6-day" onClick={() => pick(DAYS[(DAYS.findIndex(([k]) => k === day) + 1) % 3][0])}>{DAYS.find(([k]) => k === day)[1]}</button>
+      </div>
+    </>
+  );
+}
+
+/** Bande de 24 h : chaque quart d'heure prend la couleur du meilleur score de spot à cette heure ; nuit grisée ; « maintenant ». */
+export function DayBand({ cards }) {
+  const pct = (h) => `${(h / 24) * 100}%`;
+  const segs = [];
+  for (let q = 0; q < 96; q++) {
+    const h = q / 4, best = cards.filter((c) => c.win && h >= c.win[0] && h < c.win[1]).sort((a, b) => b.fav - a.fav)[0];
+    const tier = best ? tierOf(best.fav).id : null, last = segs.at(-1);
+    if (last && last.tier === tier) last.to = h + 0.25; else segs.push({ from: h, to: h + 0.25, tier, name: best?.name });
+  }
+  const favs = segs.filter((s) => s.tier != null);
+  return (
+    <div className="band6">
+      <div className="band6-bar" role="img" aria-label={`Heures favorables : ${favs.map((s) => `${hhmm(s.from)}–${hhmm(s.to)} (${s.name})`).join(", ")}`}>
+        <span className="nt" style={{ left: 0, width: pct(SUN.rise) }} /><span className="nt" style={{ left: pct(SUN.set), right: 0 }} />
+        {favs.map((s, i) => <span key={i} className="fv" style={{ left: pct(s.from), width: pct(s.to - s.from), background: `var(--tier-${s.tier})` }} />)}
+        <span className="nw" style={{ left: pct(NOW) }} />
+      </div>
+      <div className="band6-h num" aria-hidden="true"><span>00</span><span>06</span><span>12</span><span>18</span><span>24</span></div>
+    </div>
+  );
+}
 
 export function RecCard({ s, rank, go }) {
   const t = tierOf(s.fav);
@@ -24,7 +95,7 @@ export function RecCard({ s, rank, go }) {
       <div className="rc-body">
         <div className="rc-facts num">
           <Safety s={s} short />
-          <span>{s.verified ? `${s.route} min` : `~${s.route} min, estim.`}</span>
+          <span>{s.route === 0 ? "sur place" : s.verified ? `${s.route} min` : `~${s.route} min, estim.`}</span>
           <span>Confiance {String(s.level).toLowerCase()} ({s.conf})</span>
         </div>
         <span className="rc-meta">{s.win ? s.reason[0].toUpperCase() + s.reason.slice(1) : `Raison : ${s.noWinWhy}`}.</span>
@@ -37,8 +108,9 @@ function Skeletons() {
   return (<div className="cards2" aria-busy="true" aria-label="Calcul en cours">{[0, 1, 2].map((i) => <div key={i} className="skel" style={{ height: 290 }} />)}</div>);
 }
 
-export function HomeBord({ st, go, heroPhoto, openPos, openJournal }) {
+export function HomeBord({ st, go, heroPhoto, openPos, openJournal, setMode, notify }) {
   const [day, setDay] = useState("today");
+  const top = <HomeTop st={st} setMode={setMode} openPos={openPos} day={day} setDay={setDay} notify={notify} />;
   if (st.pos.state !== "ok") {
     return (
       <div className="screen flush">
@@ -65,14 +137,17 @@ export function HomeBord({ st, go, heroPhoto, openPos, openJournal }) {
   const phrase = homePhrase(cards, { scarce: st.demo.scarce });
   const verif = verifyList();
   return (
-    <div className="screen flush">
-      <Hero photo={heroPhoto} title={st.demo.loading ? "Calcul des spots autour de Pirou…" : phrase.text} sub={st.demo.loading ? null : `${phrase.sub} · vigilance : aucune (Météo-France, 06:00)`}>
-        {!st.demo.loading && <div style={{ width: "100%", maxWidth: 420, marginTop: 10 }}><DayStrip bands={cards.filter((c) => c.win).map((c) => ({ w: c.win, fav: c.fav }))} /></div>}
-      </Hero>
-      <div className="screen home">
-        <div className="chips" role="group" aria-label="Jour">
-          {[["today", "Aujourd'hui"], ["tomorrow", "Demain"], ["week", "7 jours"]].map(([k, l]) => <button key={k} className="chip" aria-pressed={day === k} onClick={() => setDay(k)}>{l}</button>)}
+    <div className="screen flush home6">
+      {top}
+      <section className="heroc6" aria-label="Synthèse du jour">
+        {heroPhoto && <img src={photoSrc(heroPhoto, 1600)} alt="" />}
+        <span className="illus6">Illustration</span>
+        <div className="heroc6-in">
+          <h1>{st.demo.loading ? "Calcul des spots autour de Pirou…" : phrase.text}</h1>
+          {!st.demo.loading && <><p className="heroc6-sub">{phrase.sub}</p><p className="heroc6-sub">vigilance : aucune (Météo-France, 06:00)</p><DayBand cards={cards} /></>}
         </div>
+      </section>
+      <div className="screen home">
         {day !== "today" && <p className="badge info">Démonstration : seule la journée d'aujourd'hui est remplie.</p>}
         {st.demo.loading ? <Skeletons /> : (
           <>
@@ -130,12 +205,15 @@ function BoatChooser({ boat, setBoat, heroPhoto }) {
   );
 }
 
-export function HomeBateau({ go, boat, setBoat, heroPhoto }) {
-  if (!boat.ready) return <BoatChooser boat={boat} setBoat={setBoat} heroPhoto={heroPhoto} />;
+export function HomeBateau({ st, go, boat, setBoat, heroPhoto, setMode, openPos, notify }) {
+  const [day, setDay] = useState("today");
+  const top = <HomeTop st={st} setMode={setMode} openPos={openPos} day={day} setDay={setDay} notify={notify} />;
+  if (!boat.ready) return <div className="home6">{top}<BoatChooser boat={boat} setBoat={setBoat} heroPhoto={heroPhoto} /></div>;
   const ok = MARKS.filter((m) => !m.status).map((m) => ({ ...m, best: Math.max(...m.species.map((x) => x.fav)) })).sort((a, b) => b.best - a.best);
   const verif = MARKS.filter((m) => m.status === "verify");
   return (
-    <div className="screen flush">
+    <div className="screen flush home6">
+      {top}
       <Hero photo={heroPhoto} title={"Sortie possible\u00a0: 07:00–12:00"} sub={`pire moment 12:40 : vent 4 Bft, rafales 22 nds, houle 1,1 m · ${boat.choice === "custom" ? "bateau saisi" : BOATS[0].name}`} />
       <div className="screen home">
         <section className="sect" aria-labelledby="h-zones">

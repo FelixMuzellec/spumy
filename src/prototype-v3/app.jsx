@@ -120,8 +120,8 @@ function App() {
   else if (page === "meteo") body = <Meteo st={st} go={go} notify={notify} openPos={() => setSheet("pos")} />;
   else if (page === "journal") body = <Journal items={journal} openAdd={() => setSheet("add")} />;
   else if (page === "profil") body = <Profil st={st} set={set} go={go} />;
-  else body = bateau ? <HomeBateau st={st} go={go} boat={boat} setBoat={setBoat} heroPhoto={heroPhoto} />
-    : <HomeBord st={st} go={go} heroPhoto={heroPhoto} openPos={() => setSheet("pos")} openJournal={() => setSheet("add")} />;
+  else body = bateau ? <HomeBateau st={st} go={go} boat={boat} setBoat={setBoat} heroPhoto={heroPhoto} setMode={(k) => { set({ mode: k }); setSel(null); }} openPos={() => setSheet("pos")} notify={notify} />
+    : <HomeBord st={st} go={go} heroPhoto={heroPhoto} openPos={() => setSheet("pos")} openJournal={() => setSheet("add")} setMode={(k) => { set({ mode: k }); setSel(null); }} notify={notify} />;
 
   return (
     <div className="app">

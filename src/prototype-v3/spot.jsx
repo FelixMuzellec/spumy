@@ -2,7 +2,8 @@
 import { useState } from "react";
 import { tierOf } from "../design/v3/tokens.js";
 import { Gauge, Safety, Icon, photoSrc } from "./ui.jsx";
-import { SPOT, TIDE, SUN, NOW, tideHeight, hhmm, span } from "./data.js";
+import { SPOT, TIDE, SUN, NOW, tideHeight, hhmm, span, compass } from "./data.js";
+import { conditions, KN } from "./effets.js";
 
 /** Courbe de marée du jour : heures favorables coloriées au palier de leur Favorabilité, nuit, « maintenant ». */
 function TideCurve({ s }) {
@@ -67,7 +68,7 @@ export function Fiche({ id, go, back }) {
         )}
         <div className="card"><b>Marée et heures favorables</b><TideCurve s={s} /></div>
         <div className="ind" aria-label="Indicateurs du jour">
-          <div>Vent<b>{s.wind.from} {s.wind.bft} Bft</b>rafales {s.wind.gust} km/h · {s.wind.expo}</div>
+          <div>Vent<b>{conditions(s).windKn} nds {compass(conditions(s).windFrom)}</b>rafales {KN(conditions(s).gustKmh)} nds · {s.wind.expo}</div>
           <div>Vagues<b>1,1 m · 9 s</b>houle O</div>
           <div>Eau<b>13 °C</b></div>
           <div>Pression<b>1 018 hPa ↗</b></div>
@@ -94,7 +95,7 @@ export function Comparaison({ ids, back }) {
   const comparable = a.win && b.win && a.fav !== null && b.fav !== null && !a.status && !b.status;
   const rows = [
     ["Sécurité", (s) => <Safety s={s} />],
-    ["Vent", (s) => <span className="num">{s.wind.from} {s.wind.bft} Bft · r. {s.wind.gust} km/h · <b>{s.wind.expo}</b></span>],
+    ["Vent", (s) => { const c = conditions(s); return <span className="num">{c.windKn} nds {compass(c.windFrom)} · rafales {KN(c.gustKmh)} nds · <b>{s.wind.expo}</b></span>; }],
     ["Favorabilité", (s) => <span className="num">{s.fav ?? "—"}{tierOf(s.fav) ? ` — ${tierOf(s.fav).word}` : ""}</span>],
     ["Confiance", (s) => <span className="num">{s.conf} — {s.level} · météo 06:00</span>],
     ["Horaires", (s) => <span className="num">{span(s.win) || "non déterminable"}</span>],

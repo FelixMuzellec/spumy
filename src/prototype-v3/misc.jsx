@@ -1,8 +1,9 @@
 // SPUMY V3 — Journal, Profil, feuille de position, saisie rapide (UX-V3 § 5 et § 11).
 import { useState } from "react";
 import { Sheet, Icon, photoSrc } from "./ui.jsx";
-import { PLACES, JOURNAL, STATE_LABEL, BOATS, REF } from "./data.js";
-import { Base } from "./map.jsx";
+import { PLACES, JOURNAL, JOURNAL_MIN, STATE_LABEL, BOATS } from "./data.js";
+import { GeoMap } from "./geomap.jsx";
+import { tierOf } from "../design/v3/tokens.js";
 
 export const TAB_LABEL = { home: "Home", carte: "Carte", meteo: "Météo", profil: "Profil", journal: "Journal" };
 
@@ -29,7 +30,7 @@ export function PositionSheet({ pos, setPos, onClose, notify }) {
       {sugg.length > 0 && <div className="suggest" role="listbox" aria-label="Propositions">{sugg.map((p) => (
         <button key={p.name} role="option" aria-selected="false" onClick={() => { setQ(p.name); setTyping(false); setPin(false); }}><Icon name="pin" size={18} /><span><b>{p.name}</b> <span className="meta">{p.sub}</span></span></button>))}</div>}
       <div className="minimap">
-        <Base compact start={{ x: REF.x, y: REF.y, k: 1.6 }} overlay={<g><circle cx={REF.x} cy={REF.y} r="70" fill="var(--accent)" fillOpacity=".16" /><circle cx={REF.x} cy={REF.y} r="16" fill="var(--accent)" stroke="var(--palette-navy)" strokeWidth="6" /></g>} />
+        <GeoMap items={[]} compact />
         <button className={`btn small pinbtn${pin ? " on" : ""}`} onClick={() => { setMode("manual"); setPin(true); setQ("47,62° N ; 1,59° O"); }}><Icon name="pin" size={18} />{pin ? "Épingle posée" : "Poser l'épingle ici"}</button>
       </div>
       <div className="chips" aria-label="Positions récentes, sur cet appareil">
@@ -47,7 +48,7 @@ export function QuickAdd({ onClose, onSave }) {
   return (
     <Sheet title="Noter une sortie" onClose={onClose}>
       <div className="seg2" role="group" aria-label="Résultat">{["capture", "sans_capture", "resultat_inconnu"].map((k) => <button key={k} aria-pressed={state === k} onClick={() => setState(k)}>{STATE_LABEL[k]}</button>)}</div>
-      <label className="field">Spot<select defaultValue="Pointe A"><option>Pointe A</option><option>Platier B</option><option>Crique C</option></select></label>
+      <label className="field">Spot<select defaultValue="Pointe d'Agon"><option>Pointe d'Agon</option><option>Gouville-sur-Mer</option><option>Pirou Plage</option><option>Cap de Carteret</option></select></label>
       {state === "capture" && <label className="field">Prises<input defaultValue="bar 44 cm" /></label>}
       <button className="btn">Ajouter une photo</button>
       <button className="btn primary" onClick={() => onSave(state)}>Enregistrer sur cet appareil</button>
@@ -61,17 +62,42 @@ export function Journal({ items, openAdd }) {
     <div className="screen">
       <h1>Journal</h1>
       <div className="card" style={{ borderLeft: "5px solid var(--accent)" }}>
-        <div className="row between"><b>Sortie en cours · Pointe A</b><span className="num" style={{ fontWeight: 800 }}>01:12</span></div>
+        <div className="row between"><b>Sortie en cours · Pointe d'Agon</b><span className="num" style={{ fontWeight: 800 }}>01:12</span></div>
         <div className="row"><button className="btn primary grow" onClick={openAdd}><Icon name="plus" size={18} />Ajouter une prise</button><button className="btn">Terminer</button></div>
       </div>
       <div className="row"><button className="btn grow" onClick={openAdd}>Noter une sortie</button><button className="btn">Par photo</button></div>
+      <NotesVsSorties items={items} />
       <ul className="list">{items.map((j) => (
         <li key={j.id} className="card">{j.photo && <img src={photoSrc(j.photo, 1600)} alt="" style={{ width: "100%", height: 150, objectFit: "cover", borderRadius: 12 }} />}<div className="row between"><b>{j.date} · {j.spot}</b>
           <span className={`badge ${j.state === "capture" ? "dark" : j.state === "resultat_inconnu" || j.state === "incomplete" ? "verify" : "info"}`}>{STATE_LABEL[j.state]}</span></div>
           {(j.catches || j.hours) && <span className="meta num">{[j.catches, j.hours].filter(Boolean).join(" · ")}</span>}
+          {j.note != null && <span className="meta">Note de SPUMY ce jour-là : <b className="num">{j.note}/100</b> · {tierOf(j.note).word.toLowerCase()}</span>}
           {(j.state === "resultat_inconnu" || j.state === "incomplete") && <button className="btn ghost" style={{ alignSelf: "flex-start" }}>Compléter</button>}</li>))}</ul>
       <p className="meta">Export du journal : emplacement à tester (menu du Journal ou Profil, Mes données).</p>
     </div>
+  );
+}
+
+/**
+ * Les notes de SPUMY face à tes sorties (V3-030, JRN-06) : la note affichée au moment de la sortie, face au résultat.
+ * Seules comptent les sorties complètes au résultat déclaré (prise ou zéro) ; aucune conclusion sous le seuil (JRN-05).
+ */
+function NotesVsSorties({ items }) {
+  const done = items.filter((j) => (j.state === "capture" || j.state === "sans_capture") && j.note != null && j.h);
+  const withCatch = done.filter((j) => j.n > 0).length;
+  const missS = Math.max(0, JOURNAL_MIN.sessions - done.length), missC = Math.max(0, JOURNAL_MIN.withCatch - withCatch);
+  return (
+    <section className="card nvs6" aria-labelledby="h-nvs">
+      <h2 id="h-nvs" className="sect-h">Les notes de SPUMY face à tes sorties</h2>
+      <p className="meta">Les journées bien notées étaient-elles vraiment les bonnes ? On compare la note affichée ce jour-là à ce que tu as pris par heure de pêche.</p>
+      <ul className="nvs6-list">{done.map((j) => (
+        <li key={j.id}><span className="nvs6-n num" style={{ "--tier": `var(--tier-${tierOf(j.note).id})` }}>{j.note}</span>
+          <span><b>{j.spot}</b><br /><span className="meta num">{j.date} · {j.n} prise{j.n > 1 ? "s" : ""} en {String(j.h).replace(".", ",")} h · {(j.n / j.h).toFixed(1).replace(".", ",")} par heure</span></span></li>))}</ul>
+      {missS + missC > 0
+        ? <p className="why"><Icon name="info" size={16} /> Pas encore de conclusion : il manque {missS} sortie{missS > 1 ? "s" : ""} complète{missS > 1 ? "s" : ""}{missC ? ` (dont ${missC} avec prise)` : ""}. Les sorties sans bilan ne comptent pas, et une bredouille ne compte que si tu la déclares.</p>
+        : <p className="why">Assez de sorties pour une première comparaison.</p>}
+      <p className="meta">Le modèle s'affine sous contrôle : il propose une amélioration testée sur des sorties qu'il n'a pas vues, tu la valides, et elle reste réversible. Données de démonstration.</p>
+    </section>
   );
 }
 
