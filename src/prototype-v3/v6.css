@@ -5,15 +5,15 @@
   --v6-sea: #D3E0E8; --v6-sea-2: #E4ECF1; --v6-land: #F7F4EC; --v6-coast: rgba(22, 40, 58, .55); --v6-land-glow: rgba(22, 40, 58, .12);
   --v6-glass: rgba(255, 255, 255, .86); --v6-glass-2: rgba(255, 255, 255, .94); --v6-line: rgba(22, 40, 58, .14); --v6-line-2: rgba(22, 40, 58, .26);
   --v6-pill-on: #16283A; --v6-pill-on-ink: #F4EFE4; --v6-disc: #FFFFFF; --v6-disc-ink: #16283A; --v6-ring-muted: #8E9AA4; --v6-track: rgba(22, 40, 58, .14);
-  --v6-orange: #B85E26; --v6-shadow: 0 10px 30px rgba(18, 32, 46, .16), 0 2px 6px rgba(18, 32, 46, .08);
-  --v6-fav: #1E7F4F; --v6-defav: #B23B30; --v6-neutral: #5E6E7C; --v6-unk: #8A6A12;
+  --v6-orange: #9E4E1C; --v6-on-orange: #FFFFFF; --v6-shadow: 0 10px 30px rgba(18, 32, 46, .16), 0 2px 6px rgba(18, 32, 46, .08);
+  --v6-fav: #17683F; --v6-defav: #B23B30; --v6-neutral: #5E6E7C; --v6-unk: #8A6A12;
 }
 :root[data-theme="dark"] {
   --v6-bg: #0D1A25; --v6-ink: #F2EEE6; --v6-ink-2: #BAC6CE; --v6-ink-3: #93A2AD;
   --v6-sea: #0B1823; --v6-sea-2: #11273A; --v6-land: #22394C; --v6-coast: rgba(205, 220, 230, .42); --v6-land-glow: rgba(120, 160, 190, .18);
   --v6-glass: rgba(20, 37, 51, .80); --v6-glass-2: rgba(21, 39, 54, .94); --v6-line: rgba(255, 255, 255, .09); --v6-line-2: rgba(255, 255, 255, .18);
   --v6-pill-on: #EFE8DA; --v6-pill-on-ink: #12212D; --v6-disc: #0F1B25; --v6-disc-ink: #F4EFE4; --v6-ring-muted: #5B6B76; --v6-track: rgba(255, 255, 255, .12);
-  --v6-orange: #E58A4C; --v6-shadow: 0 14px 36px rgba(0, 0, 0, .45), 0 2px 8px rgba(0, 0, 0, .3);
+  --v6-orange: #E58A4C; --v6-on-orange: #14202A; --v6-shadow: 0 14px 36px rgba(0, 0, 0, .45), 0 2px 8px rgba(0, 0, 0, .3);
   --v6-fav: #5CCB8E; --v6-defav: #F08A7E; --v6-neutral: #A7B4BD; --v6-unk: #E8C25A;
 }
 body, .app { background: var(--v6-bg); color: var(--v6-ink); }
@@ -263,11 +263,12 @@ body, .app { background: var(--v6-bg); color: var(--v6-ink); }
 .rc-body { background: var(--v6-glass-2); }
 .sect-h { font: 800 22px/1.2 var(--font-text); }
 .btn { border-radius: 999px; min-height: 48px; }
-.btn.primary { background: var(--v6-orange); color: #14202A; border-color: transparent; }
-:root[data-theme="dark"] .btn.primary { color: #14202A; }
+.btn.primary { background: var(--v6-orange); color: var(--v6-on-orange); border-color: transparent; }
 .hero { border-radius: 0 0 26px 26px; }
 .nvs6 { gap: 10px; display: grid; }
 .nvs6-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .nvs6-list li { display: flex; align-items: center; gap: 12px; }
 .nvs6-n { flex: none; width: 46px; height: 46px; display: grid; place-items: center; border-radius: 50%; background: var(--v6-disc); color: var(--v6-disc-ink); box-shadow: inset 0 0 0 4px var(--tier); font: 800 18px/1 var(--font-numeric); }
 .minimap .map6 { border-radius: 16px; }
+.srcs6 a { display: inline-block; min-height: 44px; padding: 12px 0; }
+@media (max-width: 360px) { .place6-f { font-size: 17px; gap: 10px; padding-left: 14px; } .place6-loc { width: 46px; } }

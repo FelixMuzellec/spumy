@@ -10,13 +10,16 @@ import { Icon } from "./ui.jsx";
 const K_MAX = 7;
 
 /** Pastille à anneau : disque sombre, score crème, anneau de la couleur du palier ; nom à côté (V3-028). */
-export function Ring({ s, selected, onSelect, showLabel, labelSide, ripple }) {
+export function Ring({ s, selected, onSelect, showLabel, labelSide, ripple, decor }) {
   const t = tierOf(s.fav), nr = s.status === "nr", verify = s.status === "verify";
   const label = `${s.name}, ${s.fav ?? "sans note"}${t ? `/100, ${t.word}` : ""}${verify ? ", à vérifier" : nr ? ", non recommandé" : ""}`;
+  // decor : pastille d'illustration (titre des détails, panneau), sans rôle de bouton ; le texte voisin dit la note.
+  const Tag = decor ? "span" : "button";
+  const act = decor ? { "aria-hidden": true } : { "aria-label": label, "aria-pressed": selected, onClick: () => onSelect(s.id) };
   return (
-    <button className={`ring${selected ? " sel" : ""}${nr ? " nr" : ""}${verify ? " verify" : ""}${!t ? " empty" : ""}`}
+    <Tag className={`ring${selected ? " sel" : ""}${nr ? " nr" : ""}${verify ? " verify" : ""}${!t ? " empty" : ""}`}
       style={{ "--tier": t && !nr ? `var(--tier-${t.id})` : "var(--v6-ring-muted)", "--fill": t ? (s.fav || 0) / 100 : 0 }}
-      aria-label={label} aria-pressed={selected} onClick={() => onSelect(s.id)}>
+      {...act}>
       {ripple && <span className="ripple" aria-hidden="true" key={ripple} />}
       <svg className="arc" viewBox="0 0 48 48" aria-hidden="true">
         <circle cx="24" cy="24" r="21" className="track" />
@@ -25,7 +28,7 @@ export function Ring({ s, selected, onSelect, showLabel, labelSide, ripple }) {
       <span className="v num">{s.fav ?? "–"}</span>
       {verify && <span className="badge-warn" aria-hidden="true"><Icon name="warn" size={13} /></span>}
       {showLabel && <span className={`nm ${labelSide}`} aria-hidden="true">{s.name}</span>}
-    </button>
+    </Tag>
   );
 }
 

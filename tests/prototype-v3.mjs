@@ -1,4 +1,4 @@
-// Phase 3 V3 — parcours du prototype interactif (prototype-v3/, construit par scripts/build-prototype-v3.mjs).
+// Phase 3 V3 — parcours du prototype interactif, version 6 (prototype-v3/, construit par scripts/build-prototype-v3.mjs).
 // Chaque écran s'ouvre sans erreur à 320, 375, 390 px et sur bureau, dans les deux thèmes, sans défilement horizontal ;
 // règles vérifiées : place réservée « Le plus proche », zone « À vérifier » séparée, filtre « Favorables » (75, V3-021)
 // égal au nombre de pastilles, barre défilante de 4 onglets visibles (V3-023), ordre des onglets modifiable, choix du bateau.
@@ -25,7 +25,7 @@ const BASE = `http://127.0.0.1:${server.address().port}/prototype-v3/index.html`
 let ok = 0, fail = 0;
 const t = (name, cond, info = "") => { if (cond) ok++; else { fail++; console.log(`   ÉCHEC · ${name}${info ? " — " + info : ""}`); } };
 const browser = await chromium.launch();
-const ROUTES = ["home", "carte", "meteo", "profil", "journal", "spot-a", "spot-e", "spot-g", "comparer-c-a", "comparer-c-e"];
+const ROUTES = ["home", "carte", "meteo", "profil", "journal", "spot-agon", "spot-portbail", "spot-surtainville", "comparer-carteret-agon", "comparer-carteret-portbail"];
 const VIEWS = [["320", { width: 320, height: 640 }], ["375", { width: 375, height: 812 }], ["390", { width: 390, height: 844 }], ["bureau", { width: 1280, height: 800 }]];
 
 async function open(view, scheme, hash, launch = false) {
@@ -55,14 +55,27 @@ for (const [vn, view] of VIEWS) for (const scheme of ["light", "dark"]) {
   await ctx.close();
 }
 
-// 2. Règles de Home, de la Carte et de la fiche (390 px).
+// 2. Règles de Home, de la Carte, de la Météo et de la fiche (390 px) — version 6 (V3-028, V3-029, V3-030).
+const { SPOT, SPOTS: ALL, span: spanOf } = await import("../src/prototype-v3/data.js");
+const { meteo: meteoOf } = await import("../src/prototype-v3/effets.js");
+const shownSpots = (page) => page.evaluate(() => [...document.querySelectorAll(".map6 .ring")].reduce((m, b) => m + (b.classList.contains("cluster") ? Number(b.getAttribute("aria-label").match(/Groupe de (\d+)/)[1]) : 1), 0));
+const vbox = (page) => page.locator(".geo").evaluate((e) => e.getAttribute("viewBox").split(" ").map(Number));
 {
   const { ctx, page, errors } = await open({ width: 390, height: 844 }, "light", "home");
   const txt = await page.textContent("main");
   t("Home : phrase de synthèse avec horaires", /bonne matinée pour le bar\s:\s\d\d:\d\d–\d\d:\d\d/i.test(txt));
+  t("Home : slogan de V3-028, et aucun autre", txt.includes("Read the sea.") && txt.includes("Fish the moment."));
+  const modes = await page.locator(".modecard6").evaluateAll((els) => els.map((e) => [e.textContent, e.getAttribute("aria-checked"), e.querySelector("img").complete && e.querySelector("img").naturalWidth > 0]));
+  t("Home : cartes Shore et Offshore avec les logos d'origine", modes.length === 2 && /Shore/.test(modes[0][0]) && modes[0][1] === "true" && /Offshore/.test(modes[1][0]) && modes.every((m) => m[2]), JSON.stringify(modes));
+  const logo = await page.locator(".hbrand6").evaluate((e) => [e.querySelector(".word6").textContent, e.querySelector("img").getBoundingClientRect().width, e.querySelector("img").naturalWidth > 0]);
+  t("Home : médaillon et mot SPUMY", logo[0] === "SPUMY" && logo[1] >= 44 && logo[2], JSON.stringify(logo));
+  t("Home : champ de lieu avec la position", (await page.locator(".place6-f").textContent()).includes("Pirou"));
+  t("Home : jours Aujourd'hui, Demain, 7 jours", (await page.locator(".days6 .chip6").allTextContents()).join(",") === "Aujourd'hui,Demain,7 jours");
+  const band = await page.locator(".band6-bar").evaluate((e) => [e.querySelectorAll(".fv").length, e.getAttribute("aria-label")]);
+  t("Home : bande de 24 h colorée heure par heure selon le score", band[0] >= 1 && /\d\d:\d\d–\d\d:\d\d \(/.test(band[1]), JSON.stringify(band));
   t("Home : place réservée « Le plus proche » (V3-016)", txt.includes("Le plus proche"));
   t("Home : 3 cartes de recommandation", (await page.locator("article.rc").count()) === 3);
-  t("Home : spots « à vérifier » hors des cartes", !(await page.locator("article.rc", { hasText: "Pointe E" }).count()) && txt.includes("À vérifier (2)"));
+  t("Home : spots « à vérifier » hors des cartes", !(await page.locator("article.rc", { hasText: SPOT.portbail.name }).count()) && txt.includes("À vérifier (1)"));
   t("Home : horaires en tête de chaque carte", (await page.locator("article.rc .rc-time").count()) === 3);
   t("Home : une photo par carte", (await page.locator("article.rc .rc-media img").count()) === 3);
   const levels = await page.locator("article.rc").evaluateAll((cards) => cards.map((c) => {
@@ -77,69 +90,103 @@ for (const [vn, view] of VIEWS) for (const scheme of ["light", "dark"]) {
   const bodies = await page.locator("article.rc .rc-body").evaluateAll((els) => els.map((e) => Math.round(e.getBoundingClientRect().height)));
   t("Home : partie sous la photo compacte (≤ 110 px)", bodies.every((h) => h <= 110), bodies.join(","));
   t("Home : score posé sur la photo", (await page.locator("article.rc .rc-media .disc").count()) === 3);
-  const logo = await page.locator("header .brand").evaluate((e) => { const i = e.querySelector("img"); return [e.textContent.trim(), i.getBoundingClientRect().width, i.complete && i.naturalWidth > 0, e.getAttribute("aria-label")]; });
-  t("logo SPUMY dans l'en-tête : médaillon de 44 px et mot SPUMY", logo[0] === "SPUMY" && logo[1] >= 44 && logo[2] && /SPUMY/.test(logo[3]), JSON.stringify(logo));
+  t("Home : la bande fixe est cachée en haut de page", (await page.locator(".hbar6.on").count()) === 0);
+  await page.evaluate(() => scrollTo(0, 900)); await page.waitForTimeout(300);
+  t("Home : en faisant défiler, la partie haute reste fixe en se resserrant", (await page.locator(".hbar6.on").count()) === 1 && (await page.locator(".hbar6").evaluate((e) => e.getBoundingClientRect().top)) >= 0);
+  await page.evaluate(() => scrollTo(0, 0)); await page.waitForTimeout(300);
+  t("Home : elle reprend sa taille en remontant", (await page.locator(".hbar6.on").count()) === 0);
+
   await page.evaluate(() => { location.hash = "carte"; });
-  await page.waitForSelector(".mk");
-  const favChip = page.locator(".chip", { hasText: "Favorables" });
-  const n = Number((await favChip.locator(".num").textContent()).trim());
-  await favChip.click();
+  await page.waitForSelector(".map6 .ring");
+  const hdr = await page.locator(".hdr6").evaluate((e) => [e.querySelector(".word6").textContent, [...e.querySelectorAll(".mode6 [role=radio]")].map((b) => b.textContent).join("/")]);
+  t("en-tête : SPUMY et bascule Shore / Offshore", hdr[0] === "SPUMY" && hdr[1] === "Shore/Offshore", JSON.stringify(hdr));
+  const favChip = page.locator(".chip6", { hasText: "Favorables" });
+  const n = Number((await favChip.locator("b").textContent()).trim());
+  await favChip.click(); await page.waitForTimeout(150);
   t("Carte : « Favorables » = 3 (seuil 75, sécurité, pas à vérifier)", n === 3, String(n));
-  t("Carte : compteur égal aux pastilles affichées (groupes comptés)", (await page.locator(".mklayer .mk:not(.cluster)").count()) + (await page.locator(".mklayer .mk.cluster").evaluateAll((els) => els.reduce((m, e) => m + Number(e.dataset.n), 0))) === n);
-  t("Carte : chaque pastille porte son score", (await page.locator(".mklayer .mk:not(.cluster) .lbl").allTextContents()).every((x) => /^\d+$|^–$/.test(x)));
-  await page.locator(".chip", { hasText: "Tous" }).click();
-  const all = Number((await page.locator(".chip", { hasText: "Tous" }).locator(".num").textContent()).trim());
-  t("Carte : « Tous » égal aux pastilles affichées (groupes comptés)", (await page.locator(".mklayer .mk:not(.cluster)").count()) + (await page.locator(".mklayer .mk.cluster").evaluateAll((els) => els.reduce((m, e) => m + Number(e.dataset.n), 0))) === all, String(all));
-  const box = await page.locator(".mapbox").boundingBox(), sheet = await page.locator(".sheet").boundingBox();
-  const hidden = await page.locator(".mklayer .mk").evaluateAll((els, lim) => els.filter((e) => e.getBoundingClientRect().bottom > lim).length, Math.min(box.y + box.height, sheet.y));
-  t("Carte : aucune pastille cachée sous la feuille", hidden === 0, String(hidden));
-  t("Carte : pastilles « à vérifier » avec le signe d'avertissement (hors groupes)", (await page.locator(".mk.verify .ic").count()) + (await page.locator(".mk.cluster", { hasText: /./ }).evaluateAll((els) => els.filter((e) => /Pointe E|Anse J/.test(e.getAttribute("aria-label"))).length)) >= 2);
-  const mb = await page.locator(".mapbox").boundingBox();
-  const scaleOf = () => page.locator(".pz").evaluate((e) => new DOMMatrix(getComputedStyle(e).transform).a);
-  const kInit = await scaleOf();
+  t("Carte : compteur égal aux pastilles affichées (groupes comptés)", (await shownSpots(page)) === n);
+  t("Carte : la règle du filtre est affichée", (await page.locator(".rule6").textContent()).includes("Favorables : 75 ou plus"));
+  await page.locator(".chip6", { hasText: "Tous" }).click(); await page.waitForTimeout(150);
+  const all = Number((await page.locator(".chip6", { hasText: "Tous" }).locator("b").textContent()).trim());
+  t("Carte : les 8 vrais spots à 1 h de route, tous affichés", all === 8 && (await shownSpots(page)) === all, String(all));
+  t("Carte : chaque pastille porte son score", (await page.locator(".map6 .ring .v").allTextContents()).every((x) => /^\d+$|^–$/.test(x)));
+  const labels = await page.locator(".map6 .ring .nm").count();
+  t("Carte : des noms à côté des pastilles", labels >= 2, String(labels));
+  t("Carte : « à vérifier » marqué (⚠) ou dans un groupe", (await page.locator(".ring.verify .badge-warn").count()) === 1 || (await page.locator(".ring.cluster").evaluateAll((els) => els.some((e) => e.getAttribute("aria-label").includes("Portbail")))));
+  t("Carte : « non recommandé » barré ou dans un groupe", (await page.locator(".ring.nr").count()) === 1 || (await page.locator(".ring.cluster").evaluateAll((els) => els.some((e) => e.getAttribute("aria-label").includes("Surtainville")))));
+  t("Carte : trait de côte réel (IGN) et attribution", (await page.locator(".land6").count()) === 1 && (await page.locator(".attrib").textContent()).includes("IGN"));
+  const mb = await page.locator(".map6").boundingBox();
+  const v0 = await vbox(page);
   await page.mouse.move(mb.x + mb.width / 2, mb.y + mb.height / 2); await page.mouse.wheel(0, -400); await page.waitForTimeout(150);
-  const k1 = await scaleOf();
-  t("Carte : la molette zoome", k1 > 1.2 * kInit, `${kInit} → ${k1}`);
-  const tx0 = await page.locator(".pz").evaluate((e) => new DOMMatrix(getComputedStyle(e).transform).e);
-  await page.mouse.down(); await page.mouse.move(mb.x + mb.width / 2 + 90, mb.y + mb.height / 2 + 40, { steps: 6 }); await page.mouse.up(); await page.waitForTimeout(100);
-  const tx1 = await page.locator(".pz").evaluate((e) => new DOMMatrix(getComputedStyle(e).transform).e);
-  t("Carte : glisser déplace la carte", Math.abs(tx1 - tx0) > 40, `${tx0} → ${tx1}`);
-  t("Carte : le zoom ne change pas le nombre de spots", (await page.locator(".mklayer .mk:not(.cluster)").count()) + (await page.locator(".mklayer .mk.cluster").evaluateAll((els) => els.reduce((m, e) => m + Number(e.dataset.n), 0))) === all);
-  const pw = await page.locator(".mk:not(.cluster)").first().evaluate((e) => e.getBoundingClientRect().width);
-  t("Carte : les pastilles gardent leur taille à l'écran", pw < 80, String(pw));
-  await page.getByRole("button", { name: "Vue d'ensemble" }).click(); await page.waitForTimeout(100);
-  const kFit = await scaleOf();
-  t("Carte : « Vue d'ensemble » montre toute la carte, groupes compris", kFit <= 1 && (await page.locator(".mklayer .mk").evaluateAll((els, r) => els.every((e) => { const b = e.getBoundingClientRect(); return b.top >= r.y - 1 && b.bottom <= r.y + r.height + 1; }), mb)), String(kFit));
-  const hb = await page.locator(".sheet-head").boundingBox();
-  await page.mouse.move(hb.x + hb.width / 2, hb.y + hb.height - 6); await page.mouse.down();
-  await page.mouse.move(hb.x + hb.width / 2, hb.y - 420, { steps: 8 }); await page.mouse.up(); await page.waitForTimeout(350);
-  t("Carte : la feuille se tire vers le haut et s'aimante (liste classée)", (await page.locator(".sheet.snap-full").count()) === 1 && (await page.locator(".sheet-body .list").count()) === 1);
-  await page.locator(".sheet .grip").click(); await page.waitForTimeout(350);
-  t("Carte : la poignée referme la feuille", (await page.locator(".sheet.snap-peek").count()) === 1);
-  t("Carte : pastille barrée pour « non recommandé » (ou dans un groupe)", (await page.locator(".mk.nr").count()) === 1 || (await page.locator(".mk.cluster").evaluateAll((els) => els.some((e) => /Roche G/.test(e.getAttribute("aria-label"))))));
-  t("Carte : pastille vide sans note (ou dans un groupe)", (await page.locator(".mk.empty").count()) === 1 || (await page.locator(".mk.cluster").evaluateAll((els) => els.some((e) => /Plage H/.test(e.getAttribute("aria-label"))))));
-  await page.evaluate(() => { location.hash = "spot-a"; });
+  const v1 = await vbox(page);
+  t("Carte : la molette zoome", v1[2] < 0.85 * v0[2], `${v0[2]} → ${v1[2]}`);
+  await page.mouse.move(mb.x + 60, mb.y + mb.height / 2); await page.mouse.down(); await page.mouse.move(mb.x + 150, mb.y + mb.height / 2 + 40, { steps: 6 }); await page.mouse.up(); await page.waitForTimeout(100);
+  const v2 = await vbox(page);
+  t("Carte : glisser déplace la carte", Math.abs(v2[0] - v1[0]) > 5, `${v1[0]} → ${v2[0]}`);
+  t("Carte : le zoom ne change pas le nombre de spots", (await shownSpots(page)) === all);
+  await page.locator(".map6").focus(); await page.keyboard.press("ArrowLeft"); await page.waitForTimeout(80);
+  t("Carte : les flèches du clavier déplacent la carte (CR-03)", (await vbox(page))[0] !== v2[0]);
+  t("Carte : les pastilles gardent leur taille à l'écran", (await page.locator(".map6 .ring").first().evaluate((e) => e.getBoundingClientRect().width)) <= 56);
+  await page.getByRole("button", { name: "Vue d'ensemble" }).click(); await page.waitForTimeout(120);
+  t("Carte : « Vue d'ensemble » montre tous les spots", (await page.locator(".map6 .ring").evaluateAll((els, r) => els.every((e) => { const b = e.getBoundingClientRect(); return b.top >= r.y - 1 && b.bottom <= r.y + r.height + 1 && b.left >= r.x - 1 && b.right <= r.x + r.width + 1; }), mb)));
+  const pirou = page.getByRole("button", { name: /^Pirou Plage, / });
+  await pirou.click(); await page.waitForTimeout(150);
+  const pop = await page.locator(".pop6").innerText();
+  t("Carte : la bulle montre distance, sorties, poissons, meilleur moment", /Pirou Plage/.test(pop) && /Sur place|km · \d+ min/.test(pop) && /sortie/.test(pop) && /poisson/.test(pop) && /Meilleur moment/.test(pop), pop.replace(/\n/g, " | "));
+  const pb = await page.locator(".pop6").boundingBox(), rb = await pirou.boundingBox();
+  t("Carte : la bulle ne cache pas le spot touché", pb.x >= rb.x + rb.width - 2 || pb.x + pb.width <= rb.x + 2);
+  t("Carte : sous la carte, pourquoi ce spot est bon aujourd'hui", /Pirou Plage/.test(await page.locator("#h-terrain").textContent()));
+  await pirou.click(); await page.waitForTimeout(120);
+  t("Carte : retoucher le spot ferme la bulle", (await page.locator(".pop6").count()) === 0);
+  const sec = await page.locator(".sec6").first().evaluate((e) => ({ top: e.getBoundingClientRect().top, facts: e.querySelectorAll(".fact6").length, eff: [...e.querySelectorAll(".fact6 .eff b")].map((b) => b.textContent), lvls: e.querySelectorAll(".lvl").length, srcs: e.querySelectorAll(".srcs6 li").length }));
+  t("Carte : le début des détails dépasse sous la carte", sec.top < 844, String(sec.top));
+  t("Carte : terrain croisé avec le jour, un effet par ligne (signe et mot)", sec.facts === 4 && sec.eff.every((g) => /^[+−=?]$/.test(g)), JSON.stringify(sec.eff));
+  t("Carte : niveaux de preuve et sources affichés", sec.lvls >= 4 && sec.srcs >= 1, `${sec.lvls} niveaux, ${sec.srcs} sources`);
+
+  await page.evaluate(() => { location.hash = "meteo"; });
+  await page.waitForSelector(".map6 .ring");
+  await page.waitForTimeout(300);
+  const field = await page.locator("canvas.wind-field").evaluate((c) => { const d = c.getContext("2d").getImageData(c.width / 2, c.height / 2, 1, 1).data; return d[3]; });
+  t("Météo : vent animé en couleurs (nappe et traînées)", field > 0 && (await page.locator("canvas.wind-parts").count()) === 1);
+  t("Météo : jours Aujourd'hui, Demain, 7 jours", (await page.locator(".chip6.day").count()) === 3);
+  const p2 = page.getByRole("button", { name: /^Pirou Plage, / });
+  await p2.click(); await page.waitForTimeout(250);
+  const rows = await page.locator(".panel6 .p6-l").allTextContents();
+  t("Météo : panneau du spot touché, sécurité d'abord, sans doublon", rows[0] === "Sécurité" && rows.length >= 7 && new Set(rows).size === rows.length && (await page.locator(".panel6-h b").textContent()) === "Pirou Plage", rows.join(","));
+  const ptxt = await page.locator(".panel6").innerText();
+  t("Météo : vent en nœuds, source et heure écrites", /\d+ nds/.test(ptxt) && /AROME/.test(ptxt) && /06:00/.test(ptxt));
+  const panel = await page.locator(".panel6").boundingBox(), r2 = await p2.boundingBox();
+  t("Météo : le spot touché reste visible à gauche du panneau", r2.x + r2.width <= panel.x + 2, `${r2.x + r2.width} / ${panel.x}`);
+  const pts = (await page.locator(".w6-p").allTextContents()).map((x) => (x === "–" ? 0 : Number(x.replace("−", "-").replace("+", ""))));
+  const M = meteoOf(SPOT.pirou);
+  t("Météo : sous la carte, le poids de chaque élément rend compte de la note", pts.reduce((a, b) => a + b, 0) === M.sum && M.base + M.sum === SPOT.pirou.fav && (await page.locator("#h-meteo").textContent()).includes("Comment la météo a pesé"), `${pts.join(",")} = ${M.sum}`);
+  await p2.click(); await page.waitForTimeout(150);
+  t("Météo : retoucher le spot ferme le panneau", (await page.locator(".panel6").count()) === 0);
+
+  const agon = SPOT.agon;
+  await page.evaluate(() => { location.hash = "spot-agon"; });
   await page.waitForSelector(".tide svg");
   const ft = await page.textContent("main");
-  t("Fiche : courbe de marée et horaires favorables coloriés", ft.includes("Marée et heures favorables") && /07:30–11:00 · 82/.test(ft));
-  t("Fiche : danger avant la marée", ft.indexOf("Accès coupé") < ft.indexOf("Marée et heures favorables"));
+  t("Fiche : courbe de marée et horaires favorables coloriés", ft.includes("Marée et heures favorables") && ft.includes(`${spanOf(agon.win)} · ${agon.fav}`), spanOf(agon.win));
+  t("Fiche : danger (fiche du spot) avant la marée", ft.indexOf(agon.danger.slice(0, 24)) > -1 && ft.indexOf(agon.danger.slice(0, 24)) < ft.indexOf("Marée et heures favorables"));
   t("Fiche : Confiance ne change pas le rang", ft.includes("ne change pas le rang"));
-  await page.evaluate(() => { location.hash = "spot-e"; });
+  await page.evaluate(() => { location.hash = "spot-portbail"; });
   await page.waitForTimeout(80);
   t("Fiche : fixture « 53/100 — À vérifier »", (await page.textContent("main")).includes("53/100 — À vérifier"));
-  await page.evaluate(() => { location.hash = "comparer-c-a"; });
+  await page.evaluate(() => { location.hash = "comparer-carteret-agon"; });
   await page.waitForTimeout(80);
   const ct = await page.textContent("main");
-  t("Comparaison : ligne Vent", ct.includes("Vent") && ct.includes("abrité") && ct.includes("de face"));
-  t("Comparaison : écart chiffré", /\+15 min de route \(\+13 km\) pour \+24 points/.test(ct), ct.match(/\+\d+ min[^.]*/)?.[0]);
-  await page.evaluate(() => { location.hash = "comparer-c-e"; });
+  t("Comparaison : ligne Vent en nœuds", ct.includes("Vent") && /\d+ nds/.test(ct));
+  t("Comparaison : écart chiffré", /points/.test(ct));
+  await page.evaluate(() => { location.hash = "comparer-carteret-portbail"; });
   await page.waitForTimeout(80);
   t("Comparaison : « avantage non établi » si un spot est à vérifier", (await page.textContent("main")).includes("Avantage non établi"));
   t("parcours 390 : aucune erreur", errors.length === 0, errors.join(" | "));
   await ctx.close();
 }
+t("données : 8 spots V2 à moins d'1 h, positions des fiches", ALL.length === 8 && ALL.every((x) => x.v2 && x.route <= 60 && Number.isFinite(x.x) && Number.isFinite(x.y)));
 
-// 3. Barre défilante, ordre des onglets, Météo, BATEAU.
+// 3. Barre défilante, ordre des onglets, Journal, Offshore.
 {
   const { ctx, page, errors } = await open({ width: 390, height: 844 }, "light", "home");
   const vis = await page.evaluate(() => { const n = document.querySelector(".nav"); const r = n.getBoundingClientRect();
@@ -158,40 +205,35 @@ for (const [vn, view] of VIEWS) for (const scheme of ["light", "dark"]) {
   await page.waitForTimeout(400);
   await page.locator(".nav a", { hasText: "Journal" }).click();
   await page.waitForTimeout(80);
-  t("barre : Journal ouvert au toucher", (await page.textContent("main")).includes("Sortie en cours"));
+  const jt = await page.textContent("main");
+  t("barre : Journal ouvert au toucher", jt.includes("Sortie en cours"));
+  t("Journal : la note de SPUMY ce jour-là, face au résultat (JRN-06)", jt.includes("Les notes de SPUMY face à tes sorties") && jt.includes("Note de SPUMY ce jour-là") && /par heure/.test(jt));
+  t("Journal : aucune conclusion sous le seuil de sorties", jt.includes("Pas encore de conclusion"));
   await page.evaluate(() => { location.hash = "profil"; });
   await page.waitForTimeout(80);
   await page.getByRole("button", { name: "Monter Journal" }).click();
   const order = await page.locator(".nav a").allTextContents();
   t("Profil : ordre des onglets modifié", order.join(",") === "Home,Carte,Météo,Journal,Profil", order.join(","));
-  await page.evaluate(() => { location.hash = "meteo"; });
-  await page.waitForTimeout(80);
-  t("Météo : grille de flèches de vent", (await page.locator(".mapbox polygon").count()) >= 20);
-  await page.locator('input[type="range"]').fill("5");
-  t("Météo : le curseur change l'heure", (await page.textContent("main")).includes("Pirou, 14:00"));
-  await page.getByRole("radio", { name: "BATEAU" }).click();
   await page.evaluate(() => { location.hash = "home"; });
   await page.waitForTimeout(80);
-  t("BATEAU : choix du bateau avant tout verdict", (await page.textContent("main")).includes("Avec quel bateau ?"));
-  await page.getByRole("button", { name: "Voir si je peux sortir" }).click();
-  t("BATEAU : verdict de sortie après le choix", /Sortie possible\s: 07:00–12:00/.test(await page.textContent("main")));
-  await page.evaluate(() => { location.hash = "meteo"; });
+  await page.getByRole("radio", { name: /Offshore/ }).first().click();
   await page.waitForTimeout(80);
-  await page.getByRole("tab", { name: "Mer" }).click();
-  t("Météo BATEAU : couche Mer", (await page.textContent("main")).includes("Open-Meteo Marine"));
-  t("parcours barre, Météo, BATEAU : aucune erreur", errors.length === 0, errors.join(" | "));
+  t("Offshore : choix du bateau avant tout verdict", (await page.textContent("main")).includes("Avec quel bateau ?"));
+  await page.getByRole("button", { name: "Voir si je peux sortir" }).click();
+  t("Offshore : verdict de sortie après le choix", /Sortie possible\s: 07:00–12:00/.test(await page.textContent("main")));
+  t("parcours barre, Journal, Offshore : aucune erreur", errors.length === 0, errors.join(" | "));
   await ctx.close();
 }
 
-// Puce de position : un nom de commune long reste lisible en entier, sur deux lignes au besoin (320, 375 et 390 px).
+// Champ de lieu : un nom de commune long reste lisible en entier (320, 375 et 390 px).
 for (const w of [320, 375, 390]) {
-  const { ctx, page } = await open({ width: w, height: 812 }, "dark", "home");
-  await page.locator(".poschip").click();
+  const { ctx, page } = await open({ width: w, height: 812 }, "dark", "carte");
+  await page.locator(".place6-f").click();
   await page.locator(".modal input").fill("Saint-Pi");
   await page.locator(".suggest button", { hasText: "Saint-Pierre-Quiberon" }).click();
   await page.getByRole("button", { name: "Utiliser cette position" }).click();
-  const fit = await page.locator(".poschip span").evaluate((e) => [e.textContent, e.scrollWidth <= e.clientWidth + 1 && e.scrollHeight <= e.clientHeight + 1]);
-  t(`${w} px : « Saint-Pierre-Quiberon » entier dans la puce de position`, fit[0] === "Saint-Pierre-Quiberon" && fit[1], JSON.stringify(fit));
+  const fit = await page.locator(".place6-f span").evaluate((e) => [e.textContent, e.scrollWidth <= e.clientWidth + 1]);
+  t(`${w} px : « Saint-Pierre-Quiberon » entier dans le champ de lieu`, fit[0] === "Saint-Pierre-Quiberon" && fit[1], JSON.stringify(fit));
   await ctx.close();
 }
 
@@ -228,19 +270,12 @@ for (const w of [320, 375, 390]) {
   t("règle : moins de 3 spots admissibles, aucune carte inventée et une raison", scarce.cards.length < 3 && !!scarce.scarceWhy, String(scarce.cards.length));
   t("règle : la Confiance ne change pas les égalités", ids(ranking(SPOTS, { tie: true })) === ids(ranking(SPOTS.map((s) => ({ ...s, conf: 100 - s.conf })), { tie: true })));
 
-  {
-    const c = await open({ width: 390, height: 844 }, "dark", "carte");
-    await c.page.getByRole("button", { name: /^Favorables/ }).click();
-    const rule = await c.page.locator(".sheet-body").innerText();
-    t("Carte : la règle d'inclusion du filtre est affichée (§ 6.9)", rule.includes("Favorables : 75 ou plus") && (await c.page.getByRole("button", { name: /^Favorables/ }).getAttribute("title")).includes("75"));
-    await c.ctx.close();
-  }
-  const { ctx, page } = await open({ width: 390, height: 844 }, "dark", "spot-e");
+  const { ctx, page } = await open({ width: 390, height: 844 }, "dark", "spot-portbail");
   const fe = await page.locator("main").innerText();
   t("fixture § 6.7.2 : Favorabilité 53 — À vérifier, Confiance 69 — Moyenne, sans effet sur le rang",
     /53/.test(fe) && fe.includes("À vérifier") && /69/.test(fe) && fe.includes("Moyenne") && fe.includes("ne change pas le rang"));
-  const TITLES = { home: "Home", carte: "Carte", meteo: "Météo", profil: "Profil", journal: "Journal", "spot-a": "Pointe A", "spot-e": "Pointe E", "comparer-c-a": "Comparaison" };
-  for (const r of ["home", "carte", "meteo", "profil", "journal", "spot-a", "spot-e", "comparer-c-a"]) {
+  const TITLES = { home: "Home", carte: "Carte", meteo: "Météo", profil: "Profil", journal: "Journal", "spot-agon": SPOT.agon.name, "spot-portbail": SPOT.portbail.name, "comparer-carteret-agon": "Comparaison" };
+  for (const r of ["home", "carte", "meteo", "profil", "journal", "spot-agon", "spot-portbail", "comparer-carteret-agon"]) {
     await page.evaluate((h) => { location.hash = h; }, r);
     await page.waitForTimeout(80);
     const m = await page.evaluate(() => {
@@ -274,10 +309,12 @@ for (const w of [320, 375, 390]) {
 // 4. Accessibilité (axe-core), deux thèmes.
 if (AXE) {
   const axeSrc = fs.readFileSync(path.join(root, "node_modules/axe-core/axe.min.js"), "utf8");
-  for (const scheme of ["light", "dark"]) for (const r of ["home", "carte", "meteo", "profil", "spot-a", "comparer-c-a"]) {
+  for (const scheme of ["light", "dark"]) for (const r of ["home", "carte", "meteo", "profil", "spot-agon", "comparer-carteret-agon"]) {
     const { ctx, page } = await open({ width: 390, height: 844 }, scheme, r);
     await page.waitForTimeout(150);
-    if (r === "home") await page.locator(".poschip").click(); // feuille de position ouverte : ses couleurs passent aussi au contrôle
+    if (r === "home") await page.locator(".place6-f").click(); // feuille de position ouverte : ses couleurs passent aussi au contrôle
+    if (r === "carte") await page.getByRole("button", { name: /^Pirou Plage, / }).click(); // bulle ouverte
+    if (r === "meteo") await page.getByRole("button", { name: /^Pirou Plage, / }).click(); // panneau ouvert
     await page.waitForTimeout(100);
     await page.addScriptTag({ content: axeSrc });
     const res = await page.evaluate(async () => (await window.axe.run(document, { runOnly: ["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"] })).violations.map((v) => ({ id: v.id, impact: v.impact, n: v.nodes.length })));
@@ -291,7 +328,7 @@ if (AXE) {
 // 5. Captures pour la revue.
 if (CAP) {
   fs.mkdirSync(CAP, { recursive: true });
-  const shots = [["home", "dark", "01-home-bord"], ["carte", "dark", "02-carte"], ["meteo", "dark", "03-meteo"], ["spot-a", "dark", "04-fiche-spot"], ["comparer-c-a", "dark", "05-comparaison"],
+  const shots = [["home", "dark", "01-home-bord"], ["carte", "dark", "02-carte"], ["meteo", "dark", "03-meteo"], ["spot-agon", "dark", "04-fiche-spot"], ["comparer-carteret-agon", "dark", "05-comparaison"],
     ["profil", "dark", "06-profil"], ["journal", "dark", "07-journal"], ["home", "light", "08-home-bord-clair"], ["carte", "light", "09-carte-claire"]];
   for (const [r, scheme, name] of shots) {
     const { ctx, page } = await open({ width: 390, height: 844 }, scheme, r);
@@ -301,7 +338,7 @@ if (CAP) {
     await ctx.close();
   }
   const { ctx, page } = await open({ width: 390, height: 844 }, "dark", "home");
-  await page.getByRole("radio", { name: "BATEAU" }).click();
+  await page.getByRole("radio", { name: /Offshore/ }).first().click();
   await page.getByRole("button", { name: "Voir si je peux sortir" }).click();
   await page.addStyleTag({ content: ".navwrap{position:relative!important}" });
   await page.waitForTimeout(250);

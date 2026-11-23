@@ -2,7 +2,7 @@
 // finalité (V3-029) : la carte au premier écran, le spot et sa note au toucher, puis, en faisant défiler sous la carte,
 // la justification et le détail sourcé. Données du jour : démonstration.
 import { useEffect, useRef, useState } from "react";
-import { tierOf, FAVORABLE_MIN } from "../design/v3/tokens.js";
+import { tierOf, FAVORABLE_MIN, ILLUSTRATION as IL } from "../design/v3/tokens.js";
 import { Icon } from "./ui.jsx";
 import { GeoMap, Ring, Legend } from "./geomap.jsx";
 import { SPOTS, favorable, verifyList, ranking, windAt, compass, hhmm, span, NOW } from "./data.js";
@@ -23,7 +23,7 @@ function Level({ n, prefix }) {
 }
 function Effect({ e, small }) {
   const E = EFFECT[e];
-  return <span className={`eff eff-${e}${small ? " sm" : ""}`} aria-label={E.word}><b aria-hidden="true">{E.glyph}</b>{!small && <span>{E.word}</span>}</span>;
+  return <span className={`eff eff-${e}${small ? " sm" : ""}`} role="img" aria-label={E.word}><b aria-hidden="true">{E.glyph}</b>{!small && <span aria-hidden="true">{E.word}</span>}</span>;
 }
 
 /** Champ de lieu : position de référence ; le bouton de visée relance la localisation (automatique). */
@@ -62,6 +62,7 @@ export function Carte({ st, sel, setSel, notify, openPos }) {
         </div>
       </div>
       <div className="mapwrap6">
+        <h1 className="vh">Carte des spots : le terrain et ses effets sur la pêche</h1>
         <GeoMap items={items} selected={sel} onSelect={(id) => setSel(sel === id ? null : id)}
           onLocate={() => notify("Position : Pirou, automatique (±30 m) · démonstration")} onLayers={() => notify("Couches de terrain : aucune donnée réelle disponible pour l'instant (fonds, profondeurs, estran)")}
           popover={(s, p) => <Bubble s={s} p={p} onClose={() => setSel(null)} />} legend={<Legend />} cx={0.33} />
@@ -103,7 +104,7 @@ function TerrainSections({ s }) {
       <div className="sec6-head">
         <span className="eyebrow6">Le terrain · {s.name}</span>
         <h2 id="h-terrain">{good ? `Pourquoi ${s.name} est bon aujourd'hui` : `Le terrain de ${s.name} aujourd'hui`}</h2>
-        <div className="verdict6"><Ring s={s} selected={false} onSelect={() => {}} /><p><b>{s.fav ?? "–"}/100 · {t ? t.word : "sans note"}</b><br />{T.verdict}</p></div>
+        <div className="verdict6"><Ring s={s} decor /><p><b>{s.fav ?? "–"}/100 · {t ? t.word : "sans note"}</b><br />{T.verdict}</p></div>
       </div>
       <ol className="facts6">
         {T.rows.map((r) => (
@@ -179,7 +180,7 @@ function WindLayer({ v, w, h }) {
       return [p.x + Math.sin(dir) * px, p.y - Math.cos(dir) * px];
     };
     if (still) {
-      ctx.strokeStyle = "rgba(255,255,255,.55)"; ctx.lineWidth = 1.2;
+      ctx.strokeStyle = IL.trail; ctx.lineWidth = 1.2;
       for (let y = 18; y < h; y += 30) for (let x = 18; x < w; x += 30) {
         const V = vr.current, p = { x: (x - V.x) / V.k, y: (y - V.y) / V.k }, [nx, ny] = stepOne(p, 9);
         ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(V.x + nx * V.k, V.y + ny * V.k); ctx.stroke();
@@ -191,8 +192,8 @@ function WindLayer({ v, w, h }) {
       if (!run) return;
       if (!document.hidden) {
         const V = vr.current;
-        ctx.globalCompositeOperation = "destination-in"; ctx.fillStyle = "rgba(0,0,0,.9)"; ctx.fillRect(0, 0, w, h);
-        ctx.globalCompositeOperation = "source-over"; ctx.strokeStyle = "rgba(255,255,255,.55)"; ctx.lineWidth = 1; ctx.beginPath();
+        ctx.globalCompositeOperation = "destination-in"; ctx.fillStyle = IL.fade; ctx.fillRect(0, 0, w, h);
+        ctx.globalCompositeOperation = "source-over"; ctx.strokeStyle = IL.trail; ctx.lineWidth = 1; ctx.beginPath();
         for (const p of P.current) {
           const [nx, ny] = stepOne(p, 1), sx = V.x + p.x * V.k, sy = V.y + p.y * V.k, ex = V.x + nx * V.k, ey = V.y + ny * V.k;
           if (++p.age > 90 || ex < 0 || ey < 0 || ex > w || ey > h) Object.assign(p, seed(), { age: 0 });
@@ -243,12 +244,12 @@ export function Meteo({ st, notify, openPos }) {
 function SkyIcon() {
   return (
     <svg className="sky6" viewBox="0 0 96 72" aria-hidden="true">
-      <defs><radialGradient id="sun6" cx=".5" cy=".5" r=".5"><stop offset="0" stopColor="#FFD86B" /><stop offset="1" stopColor="#F5A623" /></radialGradient>
-        <linearGradient id="cl6" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor="#FFFFFF" /><stop offset="1" stopColor="#CBD6DE" /></linearGradient></defs>
-      <g stroke="#F5B53C" strokeWidth="3" strokeLinecap="round">{[0, 45, 90, 135, 180, 225, 270, 315].map((a) => <line key={a} x1={38 + Math.cos((a * Math.PI) / 180) * 17} y1={24 + Math.sin((a * Math.PI) / 180) * 17} x2={38 + Math.cos((a * Math.PI) / 180) * 23} y2={24 + Math.sin((a * Math.PI) / 180) * 23} />)}</g>
+      <defs><radialGradient id="sun6" cx=".5" cy=".5" r=".5"><stop offset="0" stopColor={IL.sunCore} /><stop offset="1" stopColor={IL.sunEdge} /></radialGradient>
+        <linearGradient id="cl6" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor={IL.cloudTop} /><stop offset="1" stopColor={IL.cloudBottom} /></linearGradient></defs>
+      <g stroke={IL.sunRay} strokeWidth="3" strokeLinecap="round">{[0, 45, 90, 135, 180, 225, 270, 315].map((a) => <line key={a} x1={38 + Math.cos((a * Math.PI) / 180) * 17} y1={24 + Math.sin((a * Math.PI) / 180) * 17} x2={38 + Math.cos((a * Math.PI) / 180) * 23} y2={24 + Math.sin((a * Math.PI) / 180) * 23} />)}</g>
       <circle cx="38" cy="24" r="13" fill="url(#sun6)" />
       <path d="M30 52h44a12 12 0 0 0 0-24 16 16 0 0 0-30-4 11 11 0 0 0-14 28z" fill="url(#cl6)" />
-      <g stroke="#7FB4E0" strokeWidth="2.6" strokeLinecap="round">{[40, 50, 60, 70].map((x, i) => <line key={x} x1={x} y1={58 + (i % 2) * 2} x2={x - 3} y2={66 + (i % 2) * 2} />)}</g>
+      <g stroke={IL.rain} strokeWidth="2.6" strokeLinecap="round">{[40, 50, 60, 70].map((x, i) => <line key={x} x1={x} y1={58 + (i % 2) * 2} x2={x - 3} y2={66 + (i % 2) * 2} />)}</g>
     </svg>
   );
 }
@@ -268,13 +269,13 @@ function Panel({ s, w, onClose }) {
   ];
   return (
     <aside className="panel6" style={{ width: w }} aria-label={`Conditions à ${s.name}`} onKeyDown={(e) => e.key === "Escape" && onClose()}>
-      <div className="panel6-h"><b>{s.name}</b><Ring s={s} selected={false} onSelect={() => {}} /></div>
+      <div className="panel6-h"><b>{s.name}</b><Ring s={s} decor /></div>
       <SkyIcon />
       <p className="sky6-t">{c.sky}</p>
       <p className="sky6-s num">Pluie : {c.rain} %</p>
       <ul className="p6-rows">{rows.map(([ic, l, val, e, deg]) => (
         <li key={l}><span className="p6-ic" style={deg != null ? { transform: `rotate(${deg + 180}deg)` } : undefined}><Icon name={ic} size={18} /></span>
-          <span className="p6-l">{l}</span><span className="p6-v num">{val}</span>{e ? <Effect e={e} small /> : <span className="eff-none" aria-label="Sans effet annoncé" />}</li>
+          <span className="p6-l">{l}</span><span className="p6-v num">{val}</span>{e ? <Effect e={e} small /> : <span className="eff-none" role="img" aria-label="Sans effet annoncé" />}</li>
       ))}</ul>
       <p className="p6-src">{c.source}</p>
       <button className="vh-focus" onClick={onClose}>Fermer le panneau</button>
@@ -290,7 +291,7 @@ function MeteoSections({ s }) {
       <div className="sec6-head">
         <span className="eyebrow6">La météo · {s.name}</span>
         <h2 id="h-meteo">Comment la météo a pesé dans la note</h2>
-        <div className="verdict6"><Ring s={s} selected={false} onSelect={() => {}} />
+        <div className="verdict6"><Ring s={s} decor />
           <p><b>{s.fav ?? "–"}/100 · {t ? t.word : "sans note"}</b><br />Les conditions du jour comptent pour <b className="num">{M.sum >= 0 ? "+" : "−"}{Math.abs(M.sum)}</b> points ; le reste (<span className="num">{M.base}</span>) vient du terrain et de la saison.</p></div>
         <div className="compo6" aria-hidden="true"><span className="b" style={{ width: `${M.base}%` }} /><span className={`m ${M.sum < 0 ? "neg" : ""}`} style={{ width: `${Math.abs(M.sum)}%` }} /></div>
         <div className="compo6-l num" aria-hidden="true"><span>terrain et saison {M.base}</span><span>conditions du jour {M.sum >= 0 ? "+" : "−"}{Math.abs(M.sum)}</span></div>
