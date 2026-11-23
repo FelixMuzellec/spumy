@@ -90,8 +90,10 @@
     "spot:agon",
     "spot:armorique",
     "spot:barnenez",
+    "spot:becdevir",
     "spot:begenaud",
     "spot:begmeil",
+    "spot:begnafry",
     "spot:bendy",
     "spot:bihit",
     "spot:blancssablons",
@@ -103,18 +105,22 @@
     "spot:caplevi",
     "spot:carantec",
     "spot:carteret",
+    "spot:chatsgroix",
     "spot:conguel",
     "spot:corsen",
+    "spot:decolle",
     "spot:dinan",
     "spot:dourven",
     "spot:espagnols",
     "spot:feunteunaod",
     "spot:gattemare",
+    "spot:gatteville",
     "spot:goury",
     "spot:gouville",
     "spot:goyen",
     "spot:grandbe",
     "spot:granville",
+    "spot:gwinzegal",
     "spot:ilepercee",
     "spot:kerjean",
     "spot:kerlouan",
@@ -122,12 +128,17 @@
     "spot:kernic",
     "spot:laita",
     "spot:landevennec",
+    "spot:latte",
     "spot:lauberlach",
     "spot:leyde",
     "spot:locquirec",
+    "spot:loge",
     "spot:lostmarch",
+    "spot:meinga",
+    "spot:merrien",
     "spot:minou",
     "spot:morgat",
+    "spot:mouliere",
     "spot:moulinmer",
     "spot:mousterlin",
     "spot:odet",
@@ -145,6 +156,7 @@
     "spot:plougrescant",
     "spot:portbail",
     "spot:portmanech",
+    "spot:poulains",
     "spot:primel",
     "spot:querqueville",
     "spot:raz",
@@ -159,8 +171,11 @@
     "spot:saintjean",
     "spot:sainttugen",
     "spot:saintvaast",
+    "spot:saire",
     "spot:sciotot",
+    "spot:sehar",
     "spot:surtainville",
+    "spot:tatihou",
     "spot:terenez",
     "spot:torche",
     "spot:toulhars",
@@ -168,7 +183,8 @@
     "spot:trepasses",
     "spot:trevignon",
     "spot:trezbellec",
-    "spot:van"
+    "spot:van",
+    "spot:varde"
    ],
    "groupe": "editeur:journal-officiel-de-la-republiqu"
   },
@@ -198,8 +214,10 @@
     "spot:agon",
     "spot:armorique",
     "spot:barnenez",
+    "spot:becdevir",
     "spot:begenaud",
     "spot:begmeil",
+    "spot:begnafry",
     "spot:bendy",
     "spot:bihit",
     "spot:blancssablons",
@@ -211,18 +229,22 @@
     "spot:caplevi",
     "spot:carantec",
     "spot:carteret",
+    "spot:chatsgroix",
     "spot:conguel",
     "spot:corsen",
+    "spot:decolle",
     "spot:dinan",
     "spot:dourven",
     "spot:espagnols",
     "spot:feunteunaod",
     "spot:gattemare",
+    "spot:gatteville",
     "spot:goury",
     "spot:gouville",
     "spot:goyen",
     "spot:grandbe",
     "spot:granville",
+    "spot:gwinzegal",
     "spot:ilepercee",
     "spot:kerjean",
     "spot:kerlouan",
@@ -230,12 +252,17 @@
     "spot:kernic",
     "spot:laita",
     "spot:landevennec",
+    "spot:latte",
     "spot:lauberlach",
     "spot:leyde",
     "spot:locquirec",
+    "spot:loge",
     "spot:lostmarch",
+    "spot:meinga",
+    "spot:merrien",
     "spot:minou",
     "spot:morgat",
+    "spot:mouliere",
     "spot:moulinmer",
     "spot:mousterlin",
     "spot:odet",
@@ -253,6 +280,7 @@
     "spot:plougrescant",
     "spot:portbail",
     "spot:portmanech",
+    "spot:poulains",
     "spot:primel",
     "spot:querqueville",
     "spot:raz",
@@ -267,8 +295,11 @@
     "spot:saintjean",
     "spot:sainttugen",
     "spot:saintvaast",
+    "spot:saire",
     "spot:sciotot",
+    "spot:sehar",
     "spot:surtainville",
+    "spot:tatihou",
     "spot:terenez",
     "spot:torche",
     "spot:toulhars",
@@ -276,7 +307,8 @@
     "spot:trepasses",
     "spot:trevignon",
     "spot:trezbellec",
-    "spot:van"
+    "spot:van",
+    "spot:varde"
    ],
    "groupe": "editeur:journal-officiel-de-la-republiqu"
   },
@@ -1815,7 +1847,8 @@
    "niveau_v2": null,
    "manuelle": true,
    "utilise_par": [
-    "spot:percho"
+    "spot:percho",
+    "spot:poulains"
    ],
    "groupe": "editeur:carnet-de-peche-com",
    "editeur_classe": {
@@ -1900,7 +1933,9 @@
    "utilise_par": [
     "spot:brehec",
     "spot:dourven",
-    "spot:plougrescant"
+    "spot:gwinzegal",
+    "spot:plougrescant",
+    "spot:sehar"
    ],
    "groupe": "editeur:carnet-de-peche-com",
    "editeur_classe": {
@@ -1941,7 +1976,8 @@
    "niveau_v2": null,
    "manuelle": true,
    "utilise_par": [
-    "spot:bihit"
+    "spot:bihit",
+    "spot:latte"
    ],
    "groupe": "editeur:carnet-de-peche-com",
    "editeur_classe": {
@@ -4491,8 +4527,10 @@
     "spot:agon",
     "spot:armorique",
     "spot:barnenez",
+    "spot:becdevir",
     "spot:begenaud",
     "spot:begmeil",
+    "spot:begnafry",
     "spot:bihit",
     "spot:blancssablons",
     "spot:brehec",
@@ -4502,18 +4540,22 @@
     "spot:caplevi",
     "spot:carantec",
     "spot:carteret",
+    "spot:chatsgroix",
     "spot:conguel",
     "spot:corsen",
+    "spot:decolle",
     "spot:dinan",
     "spot:dourven",
     "spot:espagnols",
     "spot:feunteunaod",
     "spot:gattemare",
+    "spot:gatteville",
     "spot:goury",
     "spot:gouville",
     "spot:goyen",
     "spot:grandbe",
     "spot:granville",
+    "spot:gwinzegal",
     "spot:ilepercee",
     "spot:kerjean",
     "spot:kerlouan",
@@ -4521,10 +4563,15 @@
     "spot:kernic",
     "spot:laita",
     "spot:landevennec",
+    "spot:latte",
     "spot:leyde",
+    "spot:loge",
     "spot:lostmarch",
+    "spot:meinga",
+    "spot:merrien",
     "spot:minou",
     "spot:morgat",
+    "spot:mouliere",
     "spot:moulinmer",
     "spot:mousterlin",
     "spot:odet",
@@ -4540,6 +4587,7 @@
     "spot:pirou",
     "spot:plougrescant",
     "spot:portbail",
+    "spot:poulains",
     "spot:primel",
     "spot:querqueville",
     "spot:raz",
@@ -4554,8 +4602,11 @@
     "spot:saintjean",
     "spot:sainttugen",
     "spot:saintvaast",
+    "spot:saire",
     "spot:sciotot",
+    "spot:sehar",
     "spot:surtainville",
+    "spot:tatihou",
     "spot:terenez",
     "spot:torche",
     "spot:toulhars",
@@ -4563,7 +4614,8 @@
     "spot:trepasses",
     "spot:trevignon",
     "spot:trezbellec",
-    "spot:van"
+    "spot:van",
+    "spot:varde"
    ],
    "groupe": "editeur:ign"
   },
@@ -4970,7 +5022,9 @@
     "bar_au_poste": true
    },
    "manuelle": true,
-   "utilise_par": [],
+   "utilise_par": [
+    "spot:gwinzegal"
+   ],
    "groupe": "editeur:lechasseursousmarin-com",
    "editeur_classe": {
     "nature": "site de chasse sous-marine",
@@ -5007,7 +5061,9 @@
     "bar_au_poste": true
    },
    "manuelle": true,
-   "utilise_par": [],
+   "utilise_par": [
+    "spot:tatihou"
+   ],
    "groupe": "editeur:lechasseursousmarin-com",
    "editeur_classe": {
     "nature": "site de chasse sous-marine",
@@ -5083,7 +5139,9 @@
     "bar_au_poste": true
    },
    "manuelle": true,
-   "utilise_par": [],
+   "utilise_par": [
+    "spot:merrien"
+   ],
    "groupe": "editeur:lechasseursousmarin-com",
    "editeur_classe": {
     "nature": "site de chasse sous-marine",
@@ -5120,7 +5178,9 @@
     "bar_au_poste": true
    },
    "manuelle": true,
-   "utilise_par": [],
+   "utilise_par": [
+    "spot:gatteville"
+   ],
    "groupe": "editeur:lechasseursousmarin-com",
    "editeur_classe": {
     "nature": "site de chasse sous-marine",
@@ -5196,7 +5256,9 @@
     "bar_au_poste": false
    },
    "manuelle": true,
-   "utilise_par": [],
+   "utilise_par": [
+    "spot:begnafry"
+   ],
    "groupe": "editeur:lechasseursousmarin-com",
    "editeur_classe": {
     "nature": "site de chasse sous-marine",
@@ -5311,7 +5373,9 @@
     "bar_au_poste": true
    },
    "manuelle": true,
-   "utilise_par": [],
+   "utilise_par": [
+    "spot:loge"
+   ],
    "groupe": "editeur:lechasseursousmarin-com",
    "editeur_classe": {
     "nature": "site de chasse sous-marine",
@@ -5348,7 +5412,9 @@
     "bar_au_poste": true
    },
    "manuelle": true,
-   "utilise_par": [],
+   "utilise_par": [
+    "spot:mouliere"
+   ],
    "groupe": "editeur:lechasseursousmarin-com",
    "editeur_classe": {
     "nature": "site de chasse sous-marine",
@@ -5385,7 +5451,9 @@
     "bar_au_poste": false
    },
    "manuelle": true,
-   "utilise_par": [],
+   "utilise_par": [
+    "spot:varde"
+   ],
    "groupe": "editeur:lechasseursousmarin-com",
    "editeur_classe": {
     "nature": "site de chasse sous-marine",
@@ -5535,7 +5603,9 @@
     "bar_au_poste": true
    },
    "manuelle": true,
-   "utilise_par": [],
+   "utilise_par": [
+    "spot:saire"
+   ],
    "groupe": "editeur:lechasseursousmarin-com",
    "editeur_classe": {
     "nature": "site de chasse sous-marine",
@@ -5572,7 +5642,9 @@
     "bar_au_poste": false
    },
    "manuelle": true,
-   "utilise_par": [],
+   "utilise_par": [
+    "spot:sehar"
+   ],
    "groupe": "editeur:lechasseursousmarin-com",
    "editeur_classe": {
     "nature": "site de chasse sous-marine",
@@ -5609,7 +5681,9 @@
     "bar_au_poste": true
    },
    "manuelle": true,
-   "utilise_par": [],
+   "utilise_par": [
+    "spot:becdevir"
+   ],
    "groupe": "editeur:lechasseursousmarin-com",
    "editeur_classe": {
     "nature": "site de chasse sous-marine",
@@ -5724,7 +5798,9 @@
     "bar_au_poste": false
    },
    "manuelle": true,
-   "utilise_par": [],
+   "utilise_par": [
+    "spot:decolle"
+   ],
    "groupe": "editeur:lechasseursousmarin-com",
    "editeur_classe": {
     "nature": "site de chasse sous-marine",
@@ -5761,7 +5837,9 @@
     "bar_au_poste": true
    },
    "manuelle": true,
-   "utilise_par": [],
+   "utilise_par": [
+    "spot:latte"
+   ],
    "groupe": "editeur:lechasseursousmarin-com",
    "editeur_classe": {
     "nature": "site de chasse sous-marine",
@@ -5798,7 +5876,9 @@
     "bar_au_poste": true
    },
    "manuelle": true,
-   "utilise_par": [],
+   "utilise_par": [
+    "spot:meinga"
+   ],
    "groupe": "editeur:lechasseursousmarin-com",
    "editeur_classe": {
     "nature": "site de chasse sous-marine",
@@ -5835,7 +5915,9 @@
     "bar_au_poste": true
    },
    "manuelle": true,
-   "utilise_par": [],
+   "utilise_par": [
+    "spot:chatsgroix"
+   ],
    "groupe": "editeur:lechasseursousmarin-com",
    "editeur_classe": {
     "nature": "site de chasse sous-marine",
@@ -5872,7 +5954,9 @@
     "bar_au_poste": false
    },
    "manuelle": true,
-   "utilise_par": [],
+   "utilise_par": [
+    "spot:poulains"
+   ],
    "groupe": "editeur:lechasseursousmarin-com",
    "editeur_classe": {
     "nature": "site de chasse sous-marine",
@@ -6087,8 +6171,10 @@
     "spot:agon",
     "spot:armorique",
     "spot:barnenez",
+    "spot:becdevir",
     "spot:begenaud",
     "spot:begmeil",
+    "spot:begnafry",
     "spot:bendy",
     "spot:bihit",
     "spot:blancssablons",
@@ -6100,18 +6186,22 @@
     "spot:caplevi",
     "spot:carantec",
     "spot:carteret",
+    "spot:chatsgroix",
     "spot:conguel",
     "spot:corsen",
+    "spot:decolle",
     "spot:dinan",
     "spot:dourven",
     "spot:espagnols",
     "spot:feunteunaod",
     "spot:gattemare",
+    "spot:gatteville",
     "spot:goury",
     "spot:gouville",
     "spot:goyen",
     "spot:grandbe",
     "spot:granville",
+    "spot:gwinzegal",
     "spot:ilepercee",
     "spot:kerjean",
     "spot:kerlouan",
@@ -6119,12 +6209,17 @@
     "spot:kernic",
     "spot:laita",
     "spot:landevennec",
+    "spot:latte",
     "spot:lauberlach",
     "spot:leyde",
     "spot:locquirec",
+    "spot:loge",
     "spot:lostmarch",
+    "spot:meinga",
+    "spot:merrien",
     "spot:minou",
     "spot:morgat",
+    "spot:mouliere",
     "spot:moulinmer",
     "spot:mousterlin",
     "spot:odet",
@@ -6142,6 +6237,7 @@
     "spot:plougrescant",
     "spot:portbail",
     "spot:portmanech",
+    "spot:poulains",
     "spot:primel",
     "spot:querqueville",
     "spot:raz",
@@ -6156,8 +6252,11 @@
     "spot:saintjean",
     "spot:sainttugen",
     "spot:saintvaast",
+    "spot:saire",
     "spot:sciotot",
+    "spot:sehar",
     "spot:surtainville",
+    "spot:tatihou",
     "spot:terenez",
     "spot:torche",
     "spot:toulhars",
@@ -6165,7 +6264,8 @@
     "spot:trepasses",
     "spot:trevignon",
     "spot:trezbellec",
-    "spot:van"
+    "spot:van",
+    "spot:varde"
    ],
    "groupe": "editeur:legifrance"
   },
@@ -8206,6 +8306,7 @@
    "niveau_v2": null,
    "manuelle": true,
    "utilise_par": [
+    "spot:becdevir",
     "spot:bihit",
     "spot:brehec",
     "spot:capfrehel",
@@ -8251,6 +8352,7 @@
    },
    "manuelle": true,
    "utilise_par": [
+    "spot:begnafry",
     "spot:perherel"
    ],
    "groupe": "editeur:mieuxpecher-com",
@@ -8291,7 +8393,8 @@
    },
    "manuelle": true,
    "utilise_par": [
-    "spot:ilepercee"
+    "spot:ilepercee",
+    "spot:merrien"
    ],
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
@@ -8331,7 +8434,11 @@
    "niveau_v2": null,
    "manuelle": true,
    "utilise_par": [
-    "spot:grandbe"
+    "spot:decolle",
+    "spot:grandbe",
+    "spot:meinga",
+    "spot:mouliere",
+    "spot:varde"
    ],
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
@@ -8371,6 +8478,7 @@
    "niveau_v2": null,
    "manuelle": true,
    "utilise_par": [
+    "spot:chatsgroix",
     "spot:conguel",
     "spot:percho",
     "spot:saintcolomban",
@@ -8416,8 +8524,12 @@
    "utilise_par": [
     "spot:caplevi",
     "spot:gattemare",
+    "spot:gatteville",
+    "spot:loge",
     "spot:querqueville",
-    "spot:saintvaast"
+    "spot:saintvaast",
+    "spot:saire",
+    "spot:tatihou"
    ],
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {

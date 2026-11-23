@@ -205,14 +205,18 @@
    "nom": "Pointe du Meinga",
    "requete": "Pointe du Meinga",
    "departement": "35",
-   "milieu": "pointe rocheuse de 900 m (Saint-Coulomb)"
+   "milieu": "pointe rocheuse de 900 m (Saint-Coulomb)",
+   "toponyme": "Pointe du Meinga",
+   "commune": "Saint-Coulomb"
   },
   {
    "id": "mouliere",
    "nom": "Pointe de la Moulière",
    "requete": "Pointe de la Moulière",
    "departement": "35",
-   "milieu": "pointe rocheuse au bord de la plage du Saussaye (Cancale)"
+   "milieu": "pointe rocheuse au bord de la plage du Saussaye (Cancale)",
+   "toponyme": "Pointe de la Moulière",
+   "commune": "Cancale"
   },
   {
    "id": "decolle",
@@ -222,14 +226,18 @@
    "milieu": "pointe rocheuse (Saint-Lunaire)",
    "autres_requetes": [
     "Pointe du Décolle"
-   ]
+   ],
+   "toponyme": "Pointe du Décollé",
+   "commune": "Saint-Lunaire"
   },
   {
    "id": "varde",
    "nom": "Pointe de la Varde",
    "requete": "Pointe de la Varde",
    "departement": "35",
-   "milieu": "pointe rocheuse (Saint-Malo, Rothéneuf)"
+   "milieu": "pointe rocheuse (Saint-Malo, Rothéneuf)",
+   "toponyme": "Pointe de la Varde",
+   "commune": "Saint-Malo"
   },
   {
    "id": "becdevir",
@@ -239,7 +247,9 @@
    "milieu": "pointe rocheuse de la côte du Goëlo (Tréveneuc)",
    "autres_requetes": [
     "Bec de Vir"
-   ]
+   ],
+   "toponyme": "Pointe du Bec de Vir",
+   "commune": "Tréveneuc"
   },
   {
    "id": "sevignes",
@@ -249,7 +259,8 @@
    "milieu": "anse au pied des falaises du cap Fréhel (Plévenon)",
    "autres_requetes": [
     "Les Sévignés"
-   ]
+   ],
+   "sans_position": "aucun toponyme IGN de ce nom ni de ses variantes dans le département (géocodage du 23 nov. 2026) : pas de fiche tant que la position n'est pas sourcée"
   },
   {
    "id": "latte",
@@ -260,7 +271,9 @@
    "autres_requetes": [
     "Fort la Latte",
     "Fort de la Latte"
-   ]
+   ],
+   "toponyme": "Pointe de la Latte",
+   "commune": "Plévenon"
   },
   {
    "id": "gwinzegal",
@@ -271,7 +284,9 @@
    "autres_requetes": [
     "Pointe de Gwin Zégal",
     "Port de Gwin Zégal"
-   ]
+   ],
+   "toponyme": "Gwin Zégal",
+   "commune": "Plouha"
   },
   {
    "id": "sehar",
@@ -281,28 +296,35 @@
    "milieu": "pointe rocheuse de la baie de Lannion (Trédrez-Locquémeau)",
    "autres_requetes": [
     "Séhar"
-   ]
+   ],
+   "toponyme": "Pointe de Séhar",
+   "commune": "Trédrez-Locquémeau"
   },
   {
    "id": "penvins",
    "nom": "Pointe de Penvins",
    "requete": "Pointe de Penvins",
    "departement": "56",
-   "milieu": "éperon rocheux entre la plage et la sortie de la rivière de Pénerf (Sarzeau)"
+   "milieu": "éperon rocheux entre la plage et la sortie de la rivière de Pénerf (Sarzeau)",
+   "sans_position": "aucun toponyme IGN de ce nom ni de ses variantes dans le département (géocodage du 23 nov. 2026) : pas de fiche tant que la position n'est pas sourcée"
   },
   {
    "id": "chatsgroix",
    "nom": "Groix : pointe des Chats",
    "requete": "Pointe des Chats",
    "departement": "56",
-   "milieu": "pointe rocheuse du sud-est de l'île de Groix"
+   "milieu": "pointe rocheuse du sud-est de l'île de Groix",
+   "toponyme": "Phare de la Pointe des Chats",
+   "commune": "Groix"
   },
   {
    "id": "poulains",
    "nom": "Belle-Île : pointe des Poulains",
    "requete": "Pointe des Poulains",
    "departement": "56",
-   "milieu": "pointe rocheuse du nord-ouest de Belle-Île (Sauzon)"
+   "milieu": "pointe rocheuse du nord-ouest de Belle-Île (Sauzon)",
+   "toponyme": "Pointe des Poulains",
+   "commune": "Sauzon"
   },
   {
    "id": "merrien",
@@ -313,7 +335,9 @@
    "autres_requetes": [
     "Port de Merrien",
     "Rivière de Merrien"
-   ]
+   ],
+   "toponyme": "Merrien",
+   "commune": "Moëlan-sur-Mer"
   },
   {
    "id": "begnafry",
@@ -323,28 +347,36 @@
    "milieu": "pointe rocheuse (Guimaëc)",
    "autres_requetes": [
     "Pointe de Beg an Fry"
-   ]
+   ],
+   "toponyme": "Beg an Fry",
+   "commune": "Guimaëc"
   },
   {
    "id": "saire",
    "nom": "Pointe de Saire",
    "requete": "Pointe de Saire",
    "departement": "50",
-   "milieu": "pointe rocheuse du Val de Saire (Réville)"
+   "milieu": "pointe rocheuse du Val de Saire (Réville)",
+   "toponyme": "Pointe de Saire",
+   "commune": "Réville"
   },
   {
    "id": "neville",
    "nom": "Pointe de Néville",
    "requete": "Pointe de Néville",
    "departement": "50",
-   "milieu": "pointe rocheuse isolée dans un cordon de plage (Néville-sur-Mer)"
+   "milieu": "pointe rocheuse isolée dans un cordon de plage (Néville-sur-Mer)",
+   "sans_position": "aucun toponyme IGN de ce nom ni de ses variantes dans le département (géocodage du 23 nov. 2026) : pas de fiche tant que la position n'est pas sourcée"
   },
   {
    "id": "loge",
    "nom": "Cosqueville : pointe de la Loge",
    "requete": "Pointe de la Loge",
    "departement": "50",
-   "milieu": "éperon rocheux du nord du Cotentin (Cosqueville)"
+   "milieu": "éperon rocheux du nord du Cotentin (Cosqueville)",
+   "toponyme": "Pointe de la Loge",
+   "commune": "Vicq-sur-Mer",
+   "note_position": "trois « Pointe de la Loge » à l'IGN dans la Manche : celle de Vicq-sur-Mer (commune nouvelle qui réunit Cosqueville) est retenue, comme l'ordre de la liste de mieuxpecher.com (entre Rethoville et le cap Lévi) et la commune de lechasseursousmarin.com"
   },
   {
    "id": "gatteville",
@@ -354,7 +386,9 @@
    "milieu": "pointe de Barfleur, au pied du phare",
    "autres_requetes": [
     "Pointe de Barfleur"
-   ]
+   ],
+   "toponyme": "Phare de Gatteville",
+   "commune": "Gatteville-le-Phare"
   },
   {
    "id": "tatihou",
@@ -364,7 +398,9 @@
    "milieu": "île reliée à la côte à basse mer",
    "autres_requetes": [
     "Tatihou"
-   ]
+   ],
+   "toponyme": "Île Tatihou",
+   "commune": "Saint-Vaast-la-Hougue"
   }
  ]
 }

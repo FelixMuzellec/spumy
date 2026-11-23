@@ -1,15 +1,15 @@
 {
  "//": "Registre central des spots V3 (phase 5). Généré par scripts/registre-spots.mjs à partir de data/spots/fiches/ ; ne pas modifier à la main.",
  "totaux": {
-  "spots": 84,
+  "spots": 100,
   "parOrigine": {
    "v2_preserved": 66,
-   "v3_researched": 18
+   "v3_researched": 34
   },
   "parStatut": {
    "a_verifier": 57,
    "corroboree": 6,
-   "candidate": 18,
+   "candidate": 34,
    "TOP_TIER": 3
   },
   "stationnementConnu": 66
@@ -121,6 +121,26 @@
    "guide_v2": "carantec"
   },
   {
+   "id": "becdevir",
+   "name": "Pointe du Bec de Vir",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 48.675799,
+   "lon": -2.859239,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
+  },
+  {
    "id": "begenaud",
    "name": "Pointe de Beg en Aud",
    "origin": "v3_researched",
@@ -160,6 +180,26 @@
    "inconnus": 8,
    "anomalies": 0,
    "guide_v2": "concarneau"
+  },
+  {
+   "id": "begnafry",
+   "name": "Pointe de Beg an Fry",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 48.704343,
+   "lon": -3.717209,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
   },
   {
    "id": "bendy",
@@ -389,6 +429,26 @@
    "guide_v2": "pirou"
   },
   {
+   "id": "chatsgroix",
+   "name": "Groix : pointe des Chats",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 47.620734,
+   "lon": -3.421505,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
+  },
+  {
    "id": "conguel",
    "name": "Pointe du Conguel",
    "origin": "v3_researched",
@@ -428,6 +488,26 @@
    "inconnus": 8,
    "anomalies": 0,
    "guide_v2": "plouguerneau"
+  },
+  {
+   "id": "decolle",
+   "name": "Pointe du Décollé",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 48.645107,
+   "lon": -2.112505,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
   },
   {
    "id": "dinan",
@@ -533,6 +613,26 @@
    "anomalies": 1
   },
   {
+   "id": "gatteville",
+   "name": "Phare de Gatteville",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 49.696435,
+   "lon": -1.265875,
+   "precision_m": 1000,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 2
+  },
+  {
    "id": "goury",
    "name": "Goury",
    "origin": "v2_preserved",
@@ -635,6 +735,26 @@
    "inconnus": 6,
    "anomalies": 0,
    "guide_v2": "pirou"
+  },
+  {
+   "id": "gwinzegal",
+   "name": "Plouha : Gwin Zégal",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 48.702328,
+   "lon": -2.89574,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
   },
   {
    "id": "ilepercee",
@@ -783,6 +903,26 @@
    "guide_v2": "logonna"
   },
   {
+   "id": "latte",
+   "name": "Plévenon : pointe de la Latte",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 48.668736,
+   "lon": -2.283985,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
+  },
+  {
    "id": "lauberlach",
    "name": "Sillon de Lauberlac'h",
    "origin": "v2_preserved",
@@ -846,6 +986,26 @@
    "guide_v2": "carantec"
   },
   {
+   "id": "loge",
+   "name": "Cosqueville : pointe de la Loge",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 49.704571,
+   "lon": -1.420798,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
+  },
+  {
    "id": "lostmarch",
    "name": "Pointe de Lostmarc'h",
    "origin": "v2_preserved",
@@ -865,6 +1025,46 @@
    "inconnus": 8,
    "anomalies": 0,
    "guide_v2": "crozon"
+  },
+  {
+   "id": "meinga",
+   "name": "Pointe du Meinga",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 48.701992,
+   "lon": -1.936368,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
+  },
+  {
+   "id": "merrien",
+   "name": "Moëlan-sur-Mer : embouchure du Merrien",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 47.781884,
+   "lon": -3.645432,
+   "precision_m": 1000,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 2
   },
   {
    "id": "minou",
@@ -907,6 +1107,26 @@
    "inconnus": 8,
    "anomalies": 0,
    "guide_v2": "crozon"
+  },
+  {
+   "id": "mouliere",
+   "name": "Pointe de la Moulière",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 48.70071,
+   "lon": -1.868704,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
   },
   {
    "id": "moulinmer",
@@ -1263,6 +1483,26 @@
    "guide_v2": "concarneau"
   },
   {
+   "id": "poulains",
+   "name": "Belle-Île : pointe des Poulains",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 47.39052,
+   "lon": -3.252388,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
+  },
+  {
    "id": "primel",
    "name": "Pointe de Primel",
    "origin": "v2_preserved",
@@ -1553,6 +1793,26 @@
    "anomalies": 1
   },
   {
+   "id": "saire",
+   "name": "Pointe de Saire",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 49.606096,
+   "lon": -1.229369,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
+  },
+  {
    "id": "sciotot",
    "name": "Anse de Sciotot",
    "origin": "v2_preserved",
@@ -1574,6 +1834,26 @@
    "guide_v2": "pirou"
   },
   {
+   "id": "sehar",
+   "name": "Pointe de Séhar",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 48.725152,
+   "lon": -3.583084,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
+  },
+  {
    "id": "surtainville",
    "name": "Surtainville",
    "origin": "v2_preserved",
@@ -1593,6 +1873,26 @@
    "inconnus": 11,
    "anomalies": 1,
    "guide_v2": "pirou"
+  },
+  {
+   "id": "tatihou",
+   "name": "Saint-Vaast-la-Hougue : île Tatihou",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 49.589279,
+   "lon": -1.244412,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
   },
   {
    "id": "terenez",
@@ -1760,6 +2060,26 @@
    "inconnus": 10,
    "anomalies": 0,
    "guide_v2": "audierne"
+  },
+  {
+   "id": "varde",
+   "name": "Pointe de la Varde",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 48.683809,
+   "lon": -1.989703,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
   }
  ]
 }
