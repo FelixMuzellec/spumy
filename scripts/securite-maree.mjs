@@ -52,6 +52,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     const c = CLASSEMENT[f.id];
     const s = f.safety;
     if (s.acces_maree?.origine === "v3" && s.acces_maree.statut === "VÉRIFIÉ") continue; // vérification de terrain : jamais écrasée
+    if (f.origin !== "v2_preserved" && !c) continue; // fiche V3 sans consigne : sa contrainte reste celle de la fiche
     if (c) {
       const [codes, extrait] = c;
       const consigne = s.consignes.find((x) => x.texte.includes(extrait));

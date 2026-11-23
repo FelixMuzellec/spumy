@@ -1,8 +1,15 @@
 {
- "//": "Demande CI (5.12) : position IGN des candidats de data/spots/candidats-v3.json.",
- "ids": [],
+ "//": "Demande CI (5.12) : accès IGN, risques Géorisques et photos Commons des six fiches candidates créées par la passe exhaustive.",
+ "ids": [
+  "percho",
+  "conguel",
+  "saintcolomban",
+  "plougrescant",
+  "querqueville",
+  "caplevi"
+ ],
  "requetes": {},
- "photos": false,
- "risques": false,
- "candidats": true
+ "photos": true,
+ "risques": true,
+ "candidats": false
 }

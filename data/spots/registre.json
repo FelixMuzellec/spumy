@@ -1,13 +1,15 @@
 {
  "//": "Registre central des spots V3 (phase 5). Généré par scripts/registre-spots.mjs à partir de data/spots/fiches/ ; ne pas modifier à la main.",
  "totaux": {
-  "spots": 66,
+  "spots": 72,
   "parOrigine": {
-   "v2_preserved": 66
+   "v2_preserved": 66,
+   "v3_researched": 6
   },
   "parStatut": {
    "a_verifier": 57,
    "corroboree": 7,
+   "candidate": 6,
    "TOP_TIER": 2
   },
   "stationnementConnu": 60
@@ -245,6 +247,26 @@
    "guide_v2": "concarneau"
   },
   {
+   "id": "caplevi",
+   "name": "Cap Lévi",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 49.695877,
+   "lon": -1.473208,
+   "precision_m": 1000,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
+  },
+  {
    "id": "carantec",
    "name": "Carantec : Penn al Lann – Cosmeur",
    "origin": "v2_preserved",
@@ -285,6 +307,26 @@
    "inconnus": 8,
    "anomalies": 0,
    "guide_v2": "pirou"
+  },
+  {
+   "id": "conguel",
+   "name": "Pointe du Conguel",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 47.469286,
+   "lon": -3.080425,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
   },
   {
    "id": "corsen",
@@ -938,6 +980,26 @@
    "guide_v2": "carantec"
   },
   {
+   "id": "percho",
+   "name": "Pointe du Percho",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 47.523535,
+   "lon": -3.159879,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
+  },
+  {
    "id": "pirou",
    "name": "Pirou Plage",
    "origin": "v2_preserved",
@@ -957,6 +1019,26 @@
    "inconnus": 11,
    "anomalies": 2,
    "guide_v2": "pirou"
+  },
+  {
+   "id": "plougrescant",
+   "name": "Pointe du Château (Plougrescant)",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 48.869558,
+   "lon": -3.22477,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
   },
   {
    "id": "portbail",
@@ -1020,6 +1102,26 @@
    "inconnus": 8,
    "anomalies": 0,
    "guide_v2": "carantec"
+  },
+  {
+   "id": "querqueville",
+   "name": "Pointe et digue de Querqueville",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 49.66929,
+   "lon": -1.679844,
+   "precision_m": 1000,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
   },
   {
    "id": "raz",
@@ -1125,6 +1227,26 @@
    "inconnus": 10,
    "anomalies": 0,
    "guide_v2": "concarneau"
+  },
+  {
+   "id": "saintcolomban",
+   "name": "Pointe de Saint-Colomban",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 47.563799,
+   "lon": -3.095855,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
   },
   {
    "id": "saintemarguerite",

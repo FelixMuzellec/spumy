@@ -1,0 +1,308 @@
+{
+ "id": "conguel",
+ "name": "Pointe du Conguel",
+ "origin": "v3_researched",
+ "coordinates": {
+  "lat": 47.469286,
+  "lon": -3.080425,
+  "precision_m": 300,
+  "info": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Position du toponyme officiel « Pointe du Conguel » (cap, élément topographique ou forestier, détail orographique, Quiberon). Le poste exact reste à confirmer sur place."
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "À collecter (BD TOPO de l'IGN) après la création de la fiche."
+  },
+  "approche": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Aucune source ne décrit l'approche du poste."
+  },
+  "marche_min": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "À calculer (itinéraire piéton de l'IGN)."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Aucune source ne décrit la difficulté de l'accès."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Restrictions d'accès non recherchées au-delà des règles de pêche."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-mieuxpecher-morbihan",
+    "src-carnet-de-peche-bar-surfcasting-morbihan"
+   ],
+   "verifie_le": "2026-11-23",
+   "texte": "pointe rocheuse au sud de la presqu'île de Quiberon"
+  },
+  "fond": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Nature du fond non décrite par les sources lues."
+  },
+  "exposition": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Exposition non documentée."
+  },
+  "profondeur": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Profondeur non documentée (aucune courbe inventée)."
+  },
+  "structures": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Structures du poste non décrites par les sources lues."
+  },
+  "courant": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Courant non documenté."
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Aucune source ne décrit la basse mer à ce poste."
+  },
+  "montante": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Aucune source ne décrit la montante à ce poste."
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Aucune source ne décrit la pleine mer à ce poste."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Aucune source ne décrit la descendante à ce poste."
+  },
+  "coefficients": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Aucun coefficient documenté pour ce poste."
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Conditions favorables non documentées."
+  },
+  "defavorables": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Conditions défavorables non documentées."
+  },
+  "dangereuses": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Conditions dangereuses non documentées : à rechercher avant tout affichage."
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v3",
+    "sources": [
+     "src-mieuxpecher-morbihan",
+     "src-carnet-de-peche-bar-surfcasting-morbihan"
+    ],
+    "verifie_le": "2026-11-23",
+    "niveau": 4,
+    "texte": "Poste nommé par deux éditeurs indépendants : « Pointe du Conguel » (presqu'île de Quiberon) ; « Pointe du Conguel POINTE ROCHEUSE · BAR · LIEU JAUNE · VIEILLE »."
+   }
+  }
+ ],
+ "strategies": [],
+ "lure_guidance": [],
+ "safety": {
+  "engagement": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Engagement de l'accès non documenté."
+  },
+  "consignes": [],
+  "houle_max_m": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Houle maximale non documentée."
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Coefficient maximal non documenté."
+  },
+  "acces_maree": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Aucune contrainte d'accès liée à la marée documentée : ce qui ne veut pas dire sans risque."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 8 : 2 bars au plus par pêcheur et par jour, toute l'année. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 8 (golfe de Gascogne, au sud du 48ᵉ parallèle)",
+    "limite_jour": 2
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Aucune fenêtre de fonctionnement documentée (§ 7.6)."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Aucune fenêtre d'accessibilité documentée (§ 7.6)."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v3",
+  "raison": "Photos non inventoriées."
+ },
+ "provenance": {
+  "sources": [
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-carnet-de-peche-bar-surfcasting-morbihan",
+   "src-ign-geocodage-poi",
+   "src-legifrance-tailles-minimales-2026",
+   "src-mieuxpecher-morbihan"
+  ]
+ },
+ "quality": {
+  "statut": "candidate",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.19,
+  "inconnus": [
+   "access.stationnement",
+   "access.approche",
+   "access.marche_min",
+   "access.difficulte",
+   "access.restrictions",
+   "environment.fond",
+   "environment.exposition",
+   "environment.profondeur",
+   "environment.structures",
+   "environment.courant",
+   "tide_approaches.basse",
+   "tide_approaches.montante",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "tide_approaches.coefficients",
+   "conditions.favorables",
+   "conditions.defavorables",
+   "conditions.dangereuses",
+   "safety.engagement",
+   "safety.houle_max_m",
+   "safety.coef_max",
+   "safety.acces_maree",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": [
+   "Fiche créée par la passe exhaustive (5.12) : sécurité, accès et conditions à documenter avant tout affichage."
+  ],
+  "criteres": {
+   "QUAL-1": {
+    "ok": true,
+    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:carnet-de-peche-com, editeur:mieuxpecher-com"
+   },
+   "QUAL-2": {
+    "ok": true,
+    "detail": "2 groupes d'indépendance parmi les sources lues page par page (2 sur 2) ; au moins une attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": true,
+    "detail": "position contrôlée par l'IGN (toponyme officiel à 1,5 km au plus) ou corrigée"
+   },
+   "QUAL-4": {
+    "ok": false,
+    "detail": "stationnement ou temps de marche inconnu"
+   },
+   "QUAL-5": {
+    "ok": false,
+    "detail": "engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": true,
+    "detail": "réglementation nationale seule, sans règle locale à vérifier"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-4 : stationnement ou temps de marche inconnu",
+   "QUAL-5 : engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0"
+  ]
+ }
+}
