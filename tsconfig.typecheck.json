@@ -1,0 +1,17 @@
+{
+  "//": "Contrôle de types JSDoc (ADR-V3-020) : `npm run typecheck`. Périmètre : les modules communs de la V3 ; il s'étend lot par lot. Nom volontairement différent de tsconfig.json : esbuild lit tsconfig.json et ajouterait « use strict » au site publié.",
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "strict": true,
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2022", "DOM"],
+    "types": [],
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/core/contracts/**/*.js", "src/core/errors.js", "src/core/validate.js", "src/core/ign/reponses.js", "src/prototype-v3/modele.js"]
+}

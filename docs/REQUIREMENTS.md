@@ -75,7 +75,7 @@ Validation : registre validé par le jeton de la phase 3 (20 nov. 2026, 4 h 25).
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | MAP-01 | Carte centrée sur la position active, cadrée sur les spots retenus | IND | § 6.9 ; D11 | position et spots visibles sans geste, aux 4 largeurs | E, V | Non conforme | 3, 10 |
 | MAP-02 | Marqueur = palier de Favorabilité seulement (V6 : anneau de la couleur du palier autour du score, V3-028) ; « à vérifier » (⚠), « non recommandé » (score barré) et « pas de note » (–) par des signes distincts ; sous 44 px d'écart, un groupe porte le meilleur score et « +N » | IND | § 6.7.4 ; V3-028 | légende et rendu conformes ; spots d'un groupe comptés dans les filtres | V | Conforme | 3 |
-| MAP-03 | Pas de chevauchement illisible (regroupement ou décalage) ; zone tactile de 44 px au moins | IND | § 6.9, § 6.10 ; D11 | capture de la côte de Carteret sans chevauchement | V, E | Non conforme | 3, 10 |
+| MAP-03 | Pas de chevauchement illisible (regroupement ou décalage) ; zone tactile de 48 px au moins (D-11, 23 nov. 2026 ; 44 px dans le prototype) | IND | § 6.9, § 6.10 ; D11 | capture de la côte de Carteret sans chevauchement | V, E | Non conforme | 3, 10 |
 | MAP-04 | Accord exact entre liste, marqueurs et compteurs de filtres | IND | § 13.2 | test croisé sur 3 positions | E | Conforme (par guide) | 10 |
 | MAP-05 | Fond de carte attribué ; hors ligne, un message clair ; aucun préchargement interdit | IND | § 8.5 ; V3-012 | attribution visible ; aucune requête de tuile hors de la vue | E, R | Conforme | 3, 10 |
 | MAP-06 | Chaque spot a une position en décimales, sourcée ; une position imprécise est signalée tant qu'elle n'est pas corrigée | IND | § 7.4 ; D8 | 66 spots sur 66 en décimales, ou signalés | R | Non conforme (7 spots) | 5, 7 |
@@ -180,7 +180,7 @@ Validation : registre validé par le jeton de la phase 3 (20 nov. 2026, 4 h 25).
 | QA-02 | Tests d'invariance du rang et parcours e2e du § 13.2 | IND | § 13.2 | suite verte dans la CI | U, E | Partiel | 4 à 14 |
 | QA-03 | Suite complète verte avant toute fusion | IND | § 12.3 | CI verte sur la proposition | I | Conforme | toutes |
 | OPS-01 | Jamais de push sur `main` ; une proposition par phase ; fusion = publication, avec l'accord de Félix | IND | § 12.1 | historique Git | R | Conforme | toutes |
-| OPS-02 | Point de retour `v2-final` | IMP | V3-019 | étiquette présente | R | Absent | 2 ou 4 |
+| OPS-02 | Point de retour `v2-final` | IMP | V3-019 | étiquette présente | R | **Conforme** : `v2-final` → bb4f940 (23 nov. 2026, vérifié) | 4 |
 | OPS-03 | Archive Drive à la clôture de la V3 (Gate I) | IND | § 0.2.1 | `ARCHIVAGE VÉRIFIÉ` | R | — | 15 |
 | OPS-04 | Les anciennes adresses `<guide>.html#…` mènent à la V3 sans erreur ni perte de contexte | IMP | migration | 7 adresses testées | E | — | 10 |
 

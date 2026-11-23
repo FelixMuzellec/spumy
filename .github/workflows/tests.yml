@@ -20,8 +20,8 @@ jobs:
     runs-on: ubuntu-24.04   # Playwright 1.56 ne prend pas en charge Ubuntu 26.04
     timeout-minutes: 40
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: .nvmrc
           cache: npm
@@ -36,8 +36,14 @@ jobs:
           test -z "$changes"
       - name: Contrôle du code
         run: npm run -s lint
+      - name: Contrôle de types (JSDoc, tsc --checkJs, ADR-V3-020)
+        run: npm run -s typecheck
+      - name: Aucun secret dans le dépôt
+        run: node tests/secrets.mjs
       - name: Règles de couches (bord, bateau, commun, design)
         run: npm run -s test:layers
+      - name: Socle commun (erreur commune, validation des entrées)
+        run: npm run -s test:socle
       - name: Fiches des sites (schéma, données pures, empreinte de chaque spot)
         run: npm run -s test:data
       - name: Connaissances halieutiques (niveaux de preuve, sources, rubriques des spots)
@@ -66,8 +72,13 @@ jobs:
         run: npm run -s test:prototype
       - name: Prototype V3 (parcours, règles, 4 largeurs, deux thèmes, axe)
         run: npm run -s test:prototype-v3
+      - name: Logo de marque (poisson et orange intacts dans tous les exports)
+        run: |
+          python3 -m venv .venv-marque
+          .venv-marque/bin/pip install --quiet -r tests/requirements-marque.txt
+          .venv-marque/bin/python tests/brand.py
       - if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: captures-e2e
           path: tests/shots/

@@ -222,7 +222,7 @@ Dans tous les cas, le filtre exige aussi la sécurité et l'absence de statut «
 - **Rayons** : 6 (étiquettes), 10 (boutons, champs), 16 (cartes), 20 (feuilles glissantes), pilule (puces, bascule).
 - **Élévations** : 0 (à plat, cas par défaut), 1 (carte posée sur la carte géographique), 2 (feuilles glissantes, menus). Pas d'effet de verre ni de lueur.
 - **Mouvement** : 120 ms (appui), 200 ms (feuilles, bascules), 280 ms (changement d'écran), courbe `cubic-bezier(0.2, 0.8, 0.2, 1)`. Tout passe à 0 si le système demande moins de mouvement. Aucune animation n'est nécessaire à la compréhension.
-- **Cibles tactiles** : 44 × 44 px au moins, 52 px pour l'action principale ; 8 px au moins entre deux cibles.
+- **Cibles tactiles** : **48 × 48 px au moins** (D-11, décision de Félix du 23 nov. 2026), par une zone invisible quand le dessin est plus petit ; 52 px pour l'action principale ; 8 px au moins entre deux cibles. La version 6.2 du prototype reste à 44 px (`TOUCH.min`) jusqu'à l'intégration (phases 10 à 12).
 
 ## 6. Iconographie et logos
 

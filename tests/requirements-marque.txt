@@ -1,0 +1,4 @@
+# Contrôle de la marque (tests/brand.py, scripts/logos-*.py) : versions épinglées, celles des mesures de la phase 3.
+pillow==12.3.0
+numpy==2.5.3
+scipy==1.18.1

@@ -13,8 +13,9 @@ Suivi unique du chantier V3. Il dit où en est le travail, pourquoi il s'est arr
 | --- | --- | --- | --- |
 | 1. Audit initial V2 (lecture seule) | TESTED, avec une réserve : P1-14 (site en ligne dans un vrai navigateur) BLOCKED, aucun navigateur relié | démarrage (§ 18) | Rapport https://claude.ai/artifact/62UYfGbGKJtRvo6rAF9QrK ; copie `docs/rapports/v3/PHASE-1.md` |
 | 2. Vision produit, exigences et architecture cible | VALIDATED (jeton de phase 3) | « APPROVED — PROCEED TO PHASE 2 », 20 nov. 2026, 1 h 24 | Rapport https://claude.ai/artifact/JWzDnppc1u7Wf6SPEgceDn ; copie `docs/rapports/v3/PHASE-2.md` ; branche `claude/v3-phase-2`, proposition n° 16 (brouillon) |
-| 3. Conception UX/UI, direction artistique, Design System, prototypes | TESTED (jalons 1 et 2 validés par Félix ; jeton de phase 4 attendu) | « APPROVED — PROCEED TO PHASE 3 », 20 nov. 2026, 4 h 25 | Rapport https://claude.ai/artifact/MUeZdUAtxSDqAKQxML511A ; copie `docs/rapports/v3/PHASE-3.md` ; branche `claude/v3-phase-3` (partie de `claude/v3-phase-2`), proposition n° 17 (brouillon) |
-| 4 à 15 | NOT STARTED | — | — |
+| 3. Conception UX/UI, direction artistique, Design System, prototypes | VALIDATED (jeton de phase 4 ; version 6.2 du prototype acceptée par la demande du jeton, INFÉRÉ) | « APPROVED — PROCEED TO PHASE 3 », 20 nov. 2026, 4 h 25 | Rapport https://claude.ai/artifact/MUeZdUAtxSDqAKQxML511A ; copie `docs/rapports/v3/PHASE-3.md` ; branche `claude/v3-phase-3` (partie de `claude/v3-phase-2`), proposition n° 17 (brouillon) |
+| 4. Architecture détaillée, socle technique et assainissement contrôlé | TESTED, hors 4.8 (BLOCKED — action de Félix) ; validation de Félix attendue | « APPROVED — PROCEED TO PHASE 4 », 23 nov. 2026, 13 h 50 | Rapport `docs/rapports/v3/PHASE-4.md` ; branche `claude/v3-phase-4` (depuis `claude/v3-phase-3`, 080d5e3), proposition n° 18 (brouillon) |
+| 5 à 15 | NOT STARTED | — | — |
 
 Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposait de passer outre la réserve P1-14. Il vaut acceptation de cette réserve (INFÉRÉ) ; le contrôle sera refait dès qu'un navigateur sera relié.
 
@@ -44,6 +45,30 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | 3.8 Rapport et arrêt | TESTED (`npm ci`, `npm run build` sans écart, `npm test`, `test:a11y`, `test:upgrade`, `test:prototype` 244/244, `test:prototype-v3` 194/194, `tests/brand.py` 29/29 : tous code 0 ; CI verte sur a2b7844 ; D-16 corrigé en 76338f2) | `docs/rapports/v3/PHASE-3.md`, document Claude du rapport |
 | 3.9 Prototype V6 (maquettes de Félix, V3-028 à V3-030 ; feu vert du 23 nov., 8 h 47 ; version 6.1 recalée sur les maquettes après la remarque de 12 h 07 ; version 6.2 après les remarques de 12 h 45) | TESTED (version 6.2 : `prototype-v3 --axe` 224/224, `npm test` 0, `tests/brand.py` 35/35 ; `npm test` 0, `test:a11y` 0, `test:upgrade` 12/12, `test:prototype` 244/244, `prototype-v3 --axe` 216/216, `connaissances-v6 --check` 0) ; revalidation par Félix attendue | `docs/design/PROTOTYPE-V6.md`, `src/prototype-v3/` (geo, connaissances, data, effets, geomap, carte6, home, v6.css), `scripts/geo-v6.mjs`, `scripts/connaissances-v6.mjs`, `scripts/logos-modes-v6.py`, `tests/prototype-v3.mjs`, captures `docs/design/prototype-v3/`, planches `docs/design/comparaison-v6/`, documents DESIGN-SYSTEM-V3 § 11, UX-V3 § 15, PROTOTYPE-V3, REVUES-V3 § 14, REQUIREMENTS (MAP-02, MET-01, UX-05, UX-09) |
 
+## Phase 4 — sous-tâches
+
+Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ; V3-020 (contrats JSDoc et `tsc --checkJs`). Rien n'est supprimé sans audit de dépendances et stratégie de restauration ; V3-019 n'est pas exécuté.
+
+| Sous-tâche | Statut | Fichiers |
+| --- | --- | --- |
+| 4.0 Jeton, branche, suivi, plan | IMPLEMENTED | ce fichier, `docs/DECISIONS_LOG.md` |
+| 4.1 Audit du socle (stack réelle, dépendances, sécurité des dépendances, CI, reproductibilité, inventaire de nettoyage) | IMPLEMENTED (`npm audit` 0 vulnérabilité ; historique sans secret ; ESLint 8 non maintenu ; CI sans typecheck ni brand.py) | `docs/socle/AUDIT-SOCLE.md` |
+| 4.2 Architecture détaillée (modules, frontières V3 / services communs / héritage V2, flux, erreurs, migration) | IMPLEMENTED (ARCHITECTURE-V3 § 11 ; mesure AVANT des performances et budgets) | `docs/ARCHITECTURE-V3.md`, `scripts/mesure-perf.mjs`, `docs/socle/perf-avant.json` |
+| 4.3 Contrats typés (JSDoc) et `tsc --checkJs` ; erreurs typées ; validation des entrées | TESTED (`npm run typecheck` 0, TypeScript 6.0.3 épinglé ; `tests/socle.mjs` 16/16 ; couches 0 écart) | `src/core/contracts/index.js`, `src/core/errors.js`, `src/core/validate.js`, `tsconfig.typecheck.json`, `tests/socle.mjs`, `src/prototype-v3/modele.js` (types), `tests/layers.mjs` |
+| 4.4 Tests et CI : fixtures déterministes (heure, fuseau, polices), contrôles manquants en CI (typecheck, marque) | TESTED (CI : typecheck, secrets, socle, marque avec versions Python épinglées ; tests du prototype V3 attendent les polices ; accessibilité à heure fixe ; `npm test` 0, prototype-v3 224/224 ; CI verte sur d32fe82 : Tests 45185341523, Contrat 45185341453) | `.github/workflows/`, `tests/` |
+| 4.5 Configuration reproductible et secrets (`.env.example`, détection de secrets, `.gitignore`) | TESTED (`tests/secrets.mjs` : 544 fichiers et 173 commits, aucun secret ; `.env.example` ; `.gitignore` complété) | `.env.example`, `tests/secrets.mjs` |
+| 4.6 Conventions et qualité de code | IMPLEMENTED (conventions V3 dans CONTRIBUTING ; ESLint 8 non maintenu : passage à ESLint 9 ou 10 proposé à Félix, pas fait d'office) | `CONTRIBUTING.md`, `.eslintrc.json` |
+| 4.7 Nettoyage autorisé (registre, suppressions sûres seulement, restauration) | TESTED (`map.jsx` supprimé après audit ; lint 0, couches 0, construction identique ; reste en registre ; branches : V3-019, rien supprimé) | `docs/socle/NETTOYAGE.md` |
+| 4.8 Protection de `main` | TESTED (posée par Félix le 23 nov., 15 h 31, ruleset 27906963 ; contrôle exigé corrigé par Félix à 19 h 47 : `tests` et `contrat`, GitHub Actions ; vérifié en lecture à 19 h 50) | `docs/socle/PROTECTION-MAIN.md`, `docs/socle/protection-main.json` |
+| 4.9 Documentation opérationnelle, README et fichiers de pilotage | IMPLEMENTED (EXPLOITATION : installer, publier, revenir en arrière, surveiller, incident, secrets, sauvegardes, coûts ; README et CHANGELOG à jour) | `README.md`, `docs/socle/EXPLOITATION.md`, `CHANGELOG.md` |
+| 4.10 Installation et lancement reproductibles (clone neuf) | TESTED (clone neuf de 8118388 : `npm ci` 0, build sans écart, `npm test` 0, upgrade 12/12, prototype 244/244, prototype-v3 224/224, marque 35/35, secrets 177 commits ; deux défauts trouvés et corrigés : esbuild lisait `tsconfig.json`, test a11y dépendant de l'heure) | — |
+| 4.11 Red-team, rapport en 14 parties, arrêt | TESTED (red-team : 2 constats majeurs ouverts, protection de `main` et étalonnage IGN, 7 mineurs ou observations ; preuves § 7 du rapport) | `docs/rapports/v3/PHASE-4.md` |
+| 4.12 ESLint 10 (réponse de Félix, 23 nov., 14 h 54) | TESTED (19f8737 : ESLint 10.15.0, configuration « flat », eslint-plugin-react retiré, mêmes 149 fichiers, 0 erreur et 0 avertissement avant et après, `tests/lint-regles.mjs` 19/19 sur ESLint 8 et 10, `npm audit` 0 ; `npm test` 0 sur 535183f, e2e 846/846 ; CI verte sur 44dc559) | `eslint.config.js`, `tests/lint-regles.mjs`, `package.json`, `package-lock.json`, `tests/upgrade.mjs`, `docs/socle/MAINTENANCE-OUTILS.md` |
+| 4.13 Actions épinglées par empreinte | TESTED (535183f : checkout 7.0.1, setup-node 7.1.0, upload-artifact 7.0.2, Node 24 ; contrat sur `ubuntu-24.04` ; `tests/actions-epinglees.mjs` OK, deux cas négatifs à 1 ; CI verte sur 44dc559 : Tests 45191466560, Contrat Open-Meteo 45191466716) | `.github/workflows/`, `tests/actions-epinglees.mjs` |
+| 4.14 Contrat IGN en CI : joignabilité et CORS depuis le site publié (promis en phase 4 par le rapport de phase 2, oublié dans le rapport de phase 4) | TESTED (e6d4aa3 ; passage 45210735483 : 8/8, CORS ouvert `Access-Control-Allow-Origin: *`, appels réussis dans Chromium depuis l'origine du site ; relais non nécessaire, V3-009 complétée) | `.github/workflows/contrat-ign.yml`, `tests/contrat-ign.mjs`, `docs/DATA_SOURCES.md`, `docs/ARCHITECTURE-V3.md`, `docs/DECISIONS_LOG.md` |
+| 4.15 Complément du rapport, CI verte, arrêt | TESTED (complément du rapport, red-team mise à jour, CHANGELOG ; test de mise à jour : échec rare de `page.reload` sur 90eaf1b, puis blocage de 34 min ; blocage corrigé, échec simulé en 8 s, code 1 ; local 12/12) | `docs/rapports/v3/PHASE-4.md`, `CHANGELOG.md`, `tests/upgrade.mjs` |
+| 4.16 Décisions du 23 nov. (19 h 07) : V3-019, D-11, D-15, Dependabot, IGN | TESTED (b125156, 648d8cc, 3e624b7 ; étiquette `v2-final` publiée par Félix à 20 h 00, vérifiée (bb4f940) ; D-11 consigné, appliqué à l'intégration ; D-15 dans le prototype, 224/224 ; `src/core/ign/reponses.js`, socle 25/25 ; contrat IGN 15/15 en CI ; `npm test` 0) | `docs/DECISIONS_LOG.md`, `docs/ARCHITECTURE-V3.md`, `src/core/ign/reponses.js`, `tests/contrat-ign.mjs`, `.github/dependabot.yml`, prototype |
+
 ## Questions et décisions (registre)
 
 | N° | Date | Question | Réponse | Effet |
@@ -66,17 +91,21 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | Q15 (justification) | 23 nov., 7 h 47 | Précision de Félix : partir de la carte de chaque onglet, puis justifier | Carte : pourquoi ce spot est bon aujourd'hui par son terrain ; Météo : comment chaque élément a pesé dans la note | V3-029 complétée ; MAP-09, MET-05 ; `CLAUDE.md` ; `PROTOTYPE-V6.md` § 0 |
 | Q16 (niveaux) | 23 nov., 7 h 52 | Précision de Félix : pas toute l'information au même niveau | La carte au premier écran ; bulle et panneau courts ; justification et détail sous la carte, en faisant défiler, avec au moins la rigueur des trois vues | V3-029 complétée ; `CLAUDE.md` ; `PROTOTYPE-V6.md` § 0, 3, 4 |
 | Q17 (journal) | 23 nov., 8 h 11 | Directive de Félix : juger les notes sur le journal et faire s'affiner le modèle | Déjà au référentiel (§ 9.3.1, phase 8) ; ajout de l'instantané de la note et de la vue de comparaison ; apprentissage contrôlé, approuvé, réversible | V3-030 VALIDÉE ; JRN-06 ; `PROTOTYPE-V6.md` § 5 |
+| Q18 (protection de main) | 23 nov., 13 h 55 | Question de la phase 4 : quelle protection pour `main` ? | Félix : « Complète » (PR obligatoire, CI `tests` et `contrat` verte, ni push forcé ni suppression, contournement administrateur par PR seulement) | Pose bloquée par le relais (403) ; à activer par Félix (`docs/socle/PROTECTION-MAIN.md`) |
 
 ## Checkpoint
 
-- Branche : `claude/v3-phase-3`, partie de `claude/v3-phase-2` (05cbcc0), elle-même partie de `main` (bb4f940). La phase 2 n'est pas fusionnée.
+- Branche : `claude/v3-phase-4`, partie de `claude/v3-phase-3` (080d5e3), elle-même partie de `claude/v3-phase-2`, partie de `main` (bb4f940). Aucune des phases 2 à 4 n'est fusionnée.
 - Dernier commit : voir `git log` ; ce fichier est mis à jour à chaque sous-tâche.
-- Tests : suite de clôture relancée le 23 nov. 2026 (version 6.2), tous les codes de sortie à 0 : `npm ci`, `npm run build` sans écart, `npm test`, `test:a11y`, `test:upgrade` 12/12, `test:prototype` 244/244, `test:prototype-v3` 224/224, `tests/brand.py` 35/35 ; CI verte sur 8844312.
-- Rien n'est fusionné ; `main` reste à bb4f940 ; V3-019 non exécuté.
+- Tests : clone neuf de 8118388 le 23 nov. 2026, tous les codes de sortie à 0 : `npm ci`, `npm run build` sans écart, `npm test` (e2e 846/846), `test:upgrade` 12/12, `test:prototype` 244/244, `test:prototype-v3` 224/224, `tests/brand.py` 35/35, secrets sur 177 commits ; `test:a11y` 0 violation sur d32fe82 ; CI verte sur d32fe82.
+- Rien n'est fusionné ; `main` reste à bb4f940 et sans protection (4.8) ; V3-019 non exécuté.
 
 ## Prochaine action
 
-Phase 3 TESTED, version 6.2 du prototype comprise ; complément au rapport de phase 3 remis (`docs/rapports/v3/PHASE-3.md`, section « Complément du 23 novembre 2026 », et document Claude du rapport). Félix a demandé le jeton de phase 4 le 23 nov. à 13 h 25 (lu comme l'accord sur la version 6.2, INFÉRÉ). ATTENDRE le jeton exact « APPROVED — PROCEED TO PHASE 4 » : aucune tâche de la phase 4 avant. Ne pas revenir sur ce qui est validé. V3-019 non exécuté ; D-11 et D-15 toujours à décider ; fusion non demandée.
+Phase 4 **TESTED** (rapport, complément et second complément remis), arrêt. Attendus de Félix :
+- donner le jeton `APPROVED — PROCEED TO PHASE 5`.
+
+Aucune tâche de la phase 5 ne démarre sans ce jeton. Branche `claude/v3-phase-4` ; `main` inchangé (bb4f940), protégé depuis le 23 nov., 15 h 31 (contrôles `tests` et `contrat`, corrigés à 19 h 47).
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 

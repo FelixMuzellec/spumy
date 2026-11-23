@@ -326,12 +326,9 @@ L'ordre suit le principe « voir avant de lire » (§ 6.5.1) :
         - le thème ;
         - le mode terrain ;
     - mes données ; aide et règles ; à propos.
-- **Export du journal** : l'emplacement n'est **pas décidé** (§ 6.4). Options à tester avec le prototype :
-    - (A) Profil, Mes données ;
-    - (B) menu du Journal ;
-    - (C) les deux, la même action.
+- **Export du journal** : **(C) les deux, la même action** : dans le Journal et dans Profil, Mes données (décision de Félix, 23 nov. 2026, 19 h 07, D-15). Options écartées : (A) Profil seulement, (B) Journal seulement.
 
-  Critère : trouvé sans aide en moins de 20 s par 4 personnes sur 5. La décision viendra après le test.
+  Le test T6 (trouvé sans aide en moins de 20 s par 4 personnes sur 5) reste à faire. Il confirmera ce choix, ou retirera l'un des deux emplacements.
 
 ## 12. États communs (§ 6.11)
 

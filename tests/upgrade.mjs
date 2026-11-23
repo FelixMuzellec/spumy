@@ -23,7 +23,7 @@ const git = (...a) => execFileSync("git", a, { cwd: root, maxBuffer: 64 << 20 })
 
 // Version publiée : les fichiers du site à la racine de la référence (pages, scripts, fiches, icônes, manifeste).
 const OLD = fs.mkdtempSync(path.join(os.tmpdir(), "spumy-publie-"));
-const NOT_SITE = new Set(["package.json", "package-lock.json", ".eslintrc.json"]);
+const NOT_SITE = new Set(["package.json", "package-lock.json", ".eslintrc.json", "eslint.config.js", "tsconfig.typecheck.json"]);
 const oldFiles = git("ls-tree", "--name-only", FROM).toString().split("\n").filter((f) => /\.(html|js|json|png)$/.test(f) && !NOT_SITE.has(f));
 for (const f of oldFiles) fs.writeFileSync(path.join(OLD, f), git("show", `${FROM}:${f}`));
 const oldBuild = (fs.readFileSync(path.join(OLD, "sw.js"), "utf8").match(/guide-bar-([0-9a-f]+)/) || [])[1];
@@ -138,10 +138,13 @@ try {
   ok(!errors.length, `aucune erreur JavaScript${errors.length ? ` — ${errors.slice(0, 3).join(" | ")}` : ""}`);
 } catch (e) {
   ok(false, `parcours interrompu : ${e.message.split("\n")[0]}`);
-  try { console.log("  page :", page.url(), "|", (await page.evaluate(() => document.body.innerText)).slice(0, 300).replace(/\n/g, " / "), "| erreurs :", errors.join(" ; ")); } catch { /* page fermée */ }
+  // Diagnostic borné à 5 s : le 23 nov. 2026, une page restée bloquée après l'échec a tenu la CI 34 min.
+  const borne = (p) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error("délai")), 5000))]);
+  try { console.log("  page :", page.url(), "|", (await borne(page.evaluate(() => document.body.innerText))).slice(0, 300).replace(/\n/g, " / "), "| erreurs :", errors.join(" ; ")); } catch { /* page fermée ou bloquée */ }
 } finally {
-  await browser.close(); server.close(); fs.rmSync(OLD, { recursive: true, force: true });
+  await Promise.race([browser.close(), new Promise((r) => setTimeout(r, 10000))]);
+  server.closeAllConnections?.(); server.close(); fs.rmSync(OLD, { recursive: true, force: true });
 }
 const pass = results.filter((r) => r[0]).length;
 console.log(`\nMISE À JOUR : ${pass}/${results.length}`);
-if (pass !== results.length) process.exitCode = 1;
+process.exit(pass !== results.length ? 1 : 0); // sortie garantie, même si une ressource du navigateur reste ouverte

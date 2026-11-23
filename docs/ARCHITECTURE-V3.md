@@ -1,6 +1,6 @@
 # Architecture cible — SPUMY V3
 
-Phase 2 V3, 20 novembre 2026. Statut : **PROPOSÉE** (ADR-V3-008 à V3-013 et V3-018, V3-020), à valider par Félix. `docs/ARCHITECTURE.md` décrit l'architecture réellement en place (V2) ; il sera mis à jour lot par lot, à mesure que cette cible est atteinte.
+Phase 2 V3, 20 novembre 2026 ; complétée en phase 4 (23 nov. 2026, § 11). Statut : **VALIDÉE** (ADR-V3-008 à V3-013, V3-018 et V3-020 validées par le jeton de phase 3 ; § 11 à valider avec le rapport de phase 4). `docs/ARCHITECTURE.md` décrit l'architecture réellement en place (V2) ; il sera mis à jour lot par lot, à mesure que cette cible est réalisée.
 
 **En bref** : une seule application statique à deux modes. Un catalogue unique de spots est classé depuis une position de référence. Les moteurs V2 sont gardés sans la Pertinence, et chaque service externe passe par un adaptateur. Pas de serveur à soi, sauf un petit relais gratuit pour la vigilance (V3-011) ; pas de compte ; coût nul (ADR-V3-005).
 
@@ -80,14 +80,23 @@ Les champs V2 dépréciés (`v2.pert`, `V2.pert`, `bar:boite-complete`, `bar:tra
 2. **Isochrone** : un appel IGN, voiture, 60 min, depuis la position arrondie à 100 m. Le polygone est gardé en cache 24 h par position arrondie.
 3. **Filtre** : un spot est admissible si son accès est dans le polygone, avec la mention « temps vérifié par l'IGN ».
     - **Point ouvert (red-team de la phase 2)** : l'isochrone suit le réseau routier. Un poste sur une pointe, loin de la route, peut tomber hors du polygone alors que son stationnement y est. Le test d'appartenance se fait donc sur le point d'accès (RTE-04). Tant qu'il manque, il se fait sur le point routier le plus proche, donné par l'itinéraire.
-    - **Étalonnage en Phase 4** sur les 66 spots, en comparant isochrone et itinéraire. Aucun spot n'est écarté sur le seul polygone sans ce contrôle.
+    - **Étalonnage** sur les 66 spots, en comparant isochrone et itinéraire, **après la phase 5** (points d'accès audités) et avec l'adaptateur IGN, par un passage de CI qui atteint l'IGN (décision de Félix, 23 nov. 2026, 14 h 54 ; prévu d'abord en phase 4). Aucun spot n'est écarté sur le seul polygone sans ce contrôle.
+    - **Marge autour de la limite** (décision de Félix, 23 nov. 2026, 19 h 07) : un spot dont l'accès est à moins de 3 km du bord du polygone, dedans ou dehors, n'est pas tranché par le polygone. Son itinéraire est demandé, et il est admissible si l'IGN donne 60 min ou moins. La largeur de 3 km est une HYPOTHÈSE, fixée par l'étalonnage.
 4. **Temps exact** : un appel « itinéraire » pour chaque spot montré (Top 3 à 5, fiche ouverte), au rythme de 5 appels par seconde au plus ; gardé en cache 24 h.
 5. **Dégradé** :
     - hors ligne ou service en échec : estimation par la distance à vol d'oiseau × 1,4, sur 60 km/h, pour lister des spots plausibles ;
     - ces spots sont marqués « temps estimé, non vérifié » et jamais présentés comme « à 60 min ».
 
-   Le coefficient de 1,4 est une HYPOTHÈSE à étalonner en Phase 4 sur les temps IGN des 66 spots.
+   Le coefficient de 1,4 est une HYPOTHÈSE à étalonner sur les temps IGN des 66 spots (même étalonnage, après la phase 5).
 6. **Changement de position** : nouvelle isochrone, puis tout est recalculé (POS-06).
+7. **Protocole d'étalonnage** (après la phase 5 ; décision de Félix, 23 nov. 2026, 19 h 07). Positions de départ : des centres-villes publics, jamais un domicile. Le passage de CI mesure :
+    - (a) l'accord du polygone et de l'itinéraire hors de la marge, attendu à 98 % au moins ; il fixe aussi la largeur de la marge ;
+    - (b) l'écart médian et l'écart au 90ᵉ centile de l'estimation dégradée (vol d'oiseau × 1,4) par rapport à l'IGN : il fixe le coefficient ;
+    - (c) l'écart de l'IGN par rapport aux temps réels de Félix, sur une dizaine de trajets qu'il note.
+
+   Si l'IGN s'écarte en moyenne de plus de 15 % des temps réels, la correction est une décision de Félix (À DÉCIDER). Elle n'est jamais appliquée en silence, et un temps corrigé n'est plus « vérifié par l'IGN ».
+
+   Premier repère, un seul trajet : Coutances → Granville (centres), 30,0 km en 48 min selon l'IGN, soit 37 km/h de moyenne.
 
 En BATEAU, aucun appel routier (RTE-03). Le temps de navigation n'est calculé que si V3-014 le retient, et seulement avec les données du bateau.
 
@@ -103,7 +112,24 @@ En BATEAU, aucun appel routier (RTE-03). Le temps de navigation n'est calculé q
 | Fond de carte IGN | cache HTTP du navigateur seulement | — | OpenStreetMap ; hors ligne, « carte indisponible hors ligne » |
 | Vigilance (par le relais, V3-011) | par département, 1 h | 1 h | « vigilance inconnue », jamais « aucune » ; rappel et lien |
 
-**Contrôle des services en continu.** Le contrat Open-Meteo réel tourne chaque jour sur GitHub (V2). On y ajoute un contrat IGN : géocodage, isochrone, itinéraire et en-têtes CORS. C'est la seule surveillance possible sans serveur.
+**Conduite face aux services IGN** (décision de Félix, 23 nov. 2026, 19 h 07 ; adaptateur des phases 9 à 12) :
+
+| Règle | Valeur |
+| --- | --- |
+| Délai par appel (abandon par `AbortController`) | géocodage 5 s ; itinéraire 8 s ; isochrone 10 s → `RESEAU_DELAI` |
+| Nouvel essai | un seul, après 1 s plus un délai aléatoire de 0 à 0,5 s, sur une erreur réseau ou une réponse 502, 503 ou 504. Après une réponse 429, on attend le délai `Retry-After` s'il est de 10 s au plus ; sinon aucun essai (`SERVICE_QUOTA`). Jamais de nouvel essai sur une autre erreur 4xx ni sur une réponse invalide |
+| Débit | une file unique, 4 appels par seconde au plus (marge sous les 5 permis). Ordre de priorité : isochrone, puis itinéraires des spots à l'écran, puis le reste |
+| Annulation | un changement de position annule tous les appels de l'ancienne position ; deux appels identiques en cours n'en font qu'un (même clé de cache) |
+| Validation des réponses | `src/core/ign/reponses.js` (testé) : durée et distance bornées, vitesse moyenne de 3 à 140 km/h, zone fermée, en France métropolitaine et contenant le départ. Une réponse refusée donne `SERVICE_REPONSE_INVALIDE`, puis le mode dégradé |
+| Valeur gardée trop ancienne | au-delà de 24 h, plus « vérifiée » ; en panne, elle peut servir d'estimation, affichée avec sa date |
+
+**Contrôle des services en continu.** Le contrat Open-Meteo réel tourne chaque jour sur GitHub (V2). Le contrat IGN (`.github/workflows/contrat-ign.yml`, phase 4) vérifie chaque jour le géocodage, l'itinéraire, l'isochrone et leur appel par un navigateur depuis l'origine du site publié (CORS). Il contrôle aussi :
+- la validité des réponses, avec les mêmes règles que l'application ;
+- leur temps de réponse, face aux délais ci-dessus ;
+- la cohérence des deux services : Granville, à 48 min par l'itinéraire, est dans la zone des 60 min depuis Coutances, et Paris n'y est pas ;
+- la stabilité du trajet de référence (±20 %).
+
+C'est la seule surveillance possible sans serveur. Premier passage : 8/8, CORS ouvert (`Access-Control-Allow-Origin: *`) ; passage 45210735483 du contrat IGN, 23 nov. 2026.
 
 ## 6. Hors ligne et synchronisation
 
@@ -150,3 +176,93 @@ Le modèle de menace est dans `docs/security/THREAT_MODEL.md`. En résumé :
 ## 10. Options comparées
 
 Voir ADR-V3-008 (forme de l'application), V3-009 (routage), V3-012 (fond de carte) et V3-013 (stockage) dans `docs/DECISIONS_LOG.md`. L'option retenue garde React 18, esbuild et Leaflet, déjà en place et testés. Aucune nouvelle dépendance n'est nécessaire pour la position ni pour le routage : ce sont des appels HTTP par les adaptateurs.
+
+## 11. Architecture détaillée (phase 4)
+
+Mesures de départ : `docs/socle/AUDIT-SOCLE.md`. Règle : pas d'abstraction avant son usage (§ 10.1). La phase 4 pose les fondations communes ; chaque module métier arrive avec la phase qui l'utilise.
+
+### 11.1 Arborescence
+
+| Dossier | Contenu | Phase |
+| --- | --- | --- |
+| `src/core/contracts/` | **types JSDoc des contrats** du § 3 (Position, Qualified, Spot, Route, Safety, Favorability, Confidence, Ranked, JournalEntry), vérifiés par `tsc --checkJs` | **4** |
+| `src/core/errors.js` | **erreur commune** `SpumyError` : code stable, message en français pour la personne, cause gardée, données de diagnostic sans donnée personnelle | **4** |
+| `src/core/validate.js` | **validation des entrées aux frontières** (coordonnées, heures, coefficients, nombres bornés), qui renvoie un résultat ou une `SpumyError` | **4** |
+| `src/core/ign/reponses.js` | **validation des réponses IGN** (itinéraire, isochrone, géocodage) et appartenance d'un point à une zone ; utilisée par le contrat IGN de la CI, puis par l'adaptateur | **4** |
+| `src/core/position/` | service de position (DEVICE, MANUAL), états, validité | 9 à 12 |
+| `src/core/adapters/` | un adaptateur par service (Open-Meteo, IGN géocodage, isochrone, itinéraire, fonds, vigilance) : requête, normalisation, cache, erreurs, attribution | 9 à 12 |
+| `data/spots/` | catalogue unique des spots (V3-018 : identifiants V2 gardés) | 5 à 7 |
+| `src/bord/engine/` | moteur BORD v2 sans la Pertinence (V3-006) | 6 à 11 |
+| `src/bateau/` | moteur BATEAU (V3-014) | 9 à 12 |
+| `src/app/` | coquille V3 : entrée unique, routes par ancre, interface du Design System V3 | 12 |
+
+Les couches de `tests/layers.mjs` ne changent pas : `contracts`, `errors` et `validate` sont dans `core`, utilisables par `bord`, `bateau` et `app`, et par le prototype V3 seulement pour ses types (aucun moteur).
+
+### 11.2 Frontières
+
+| Zone | Contenu | Règle |
+| --- | --- | --- |
+| Parcours V3 | `src/app` (à venir), `src/design/v3`, prototype V3 | n'importe un moteur que par les contrats du § 3 |
+| Services communs | `src/core` (marée, soleil, stockage, synchronisation, puis position et adaptateurs) | sans interface ni métier de mode ; erreurs en `SpumyError` |
+| Héritage V2 | sept pages de guide, `src/bord/ui`, `prototype/`, fichiers publiés à la racine | inchangés jusqu'à la migration (`docs/MIGRATION-V3.md`) ; le contrôle « site publié = sources » les protège |
+
+### 11.3 Flux d'une recommandation BORD
+
+1. Position (DEVICE ou MANUAL) → `validate.position` → `Position`.
+2. Isochrone IGN (position arrondie à 100 m, cache 24 h) → spots admissibles du catalogue ; sinon estimation dégradée, marquée.
+3. Pour chaque spot : marée calculée, prévision et mer Open-Meteo (`Qualified<T>` : valeur, unité, source, heure, âge, type).
+4. Moteur BORD : sécurité (jamais compensée), puis Favorabilité = conditions × présence, puis Confiance (sans effet sur le rang).
+5. Classement V3 (§ 9.1.6, V3-016) → `Ranked[]` → interface.
+Chaque étape renvoie une valeur ou une `SpumyError` ; une donnée inconnue reste « inconnue », jamais « au vert ».
+
+### 11.4 Modèle d'erreurs
+
+`SpumyError` porte :
+- `code` stable, par famille : `POSITION_*`, `RESEAU_*`, `SERVICE_*`, `DONNEE_*`, `STOCKAGE_*`, `VALIDATION_*` ;
+- `message` pour la personne, en français et sans jargon ;
+- `cause`, l'erreur d'origine ;
+- `details`, pour le diagnostic, sans coordonnées précises, jeton ni contenu du journal.
+
+Règles :
+- aucune erreur avalée sans trace (`catch` vide interdit hors des accès au stockage du navigateur, documentés) ;
+- une erreur de service dégrade l'affichage (« inconnue », « à vérifier », « temps estimé »), elle ne bloque jamais l'écran ;
+- les messages pour la personne disent quoi faire.
+
+### 11.5 Budgets de performance
+
+Mesure AVANT du 23 nov. 2026 (`scripts/mesure-perf.mjs`, `docs/socle/perf-avant.json`). Conditions : Chromium, processeur ralenti 4 fois, 1,6 Mbit/s, 150 ms d'aller-retour, réponses en gzip, cache vide ; médiane de 3 passages.
+
+| Page | Premier affichage | Plus grand affichage | Transfert compressé |
+| --- | --- | --- | --- |
+| Accueil V2 (en ligne) | 0,33 s | 1,74 s | 779 Ko |
+| Guide de Pirou V2 (en ligne) | 0,21 s | 3,13 s | 400 Ko |
+| Home du prototype V3 | 1,36 s | 2,82 s | 900 Ko |
+| Carte du prototype V3 | 1,31 s | 1,31 s | 212 Ko |
+
+Budgets de l'application V3 (mêmes conditions, vérifiés à chaque phase d'intégration) :
+
+| Mesure | Budget | Raison |
+| --- | --- | --- |
+| Premier affichage | ≤ 1,5 s | la carte du prototype est à 1,3 s |
+| Plus grand affichage | ≤ 2,5 s | seuil « bon » des Web Vitals ; Home et guide sont au-dessus aujourd'hui (photos en 1 600 px sur téléphone) |
+| Transfert du premier écran | ≤ 500 Ko compressés, polices comprises (CR-14) | images en 720 px sur téléphone ; moteurs et carte chargés à la demande |
+| Classement du jour (moteur) | à mesurer dans l'application intégrée (phase 10) | sans mesure, aucun chiffre n'est revendiqué |
+
+La mémoire JavaScript lue par Chromium est arrondie (9,5 Mo partout) : elle n'est pas retenue comme mesure.
+
+### 11.6 Observabilité d'un site statique
+
+- Aucune télémétrie ni journal distant (confidentialité par défaut).
+- Surveillance : la CI (tests à chaque proposition) et le contrat Open-Meteo réel, chaque jour ; un contrat IGN s'y ajoute avec les adaptateurs (§ 5).
+- Sur l'appareil : écran d'erreur qui garde le journal exportable (V2) ; âge de chaque donnée affiché.
+
+### 11.7 Environnements
+
+| Environnement | Où | Données |
+| --- | --- | --- |
+| Développement | poste local ou session Claude : `npm ci`, `npm run build`, `npm test` | démonstration, fixtures |
+| Revue | pages de revue privées (artefacts) et propositions en brouillon | démonstration, marquées « démo » |
+| Production | GitHub Pages depuis `main` ; fusion = publication, protégée (`docs/socle/PROTECTION-MAIN.md`) | réelles |
+
+Aucun secret côté serveur. La clé de la vigilance Météo-France vivra dans le relais (V3-011), hors du dépôt.
+

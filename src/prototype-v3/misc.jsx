@@ -73,7 +73,7 @@ export function Journal({ items, openAdd }) {
           {(j.catches || j.hours) && <span className="meta num">{[j.catches, j.hours].filter(Boolean).join(" · ")}</span>}
           {j.note != null && <span className="meta">Note de SPUMY ce jour-là : <b className="num">{j.note}/100</b> · {tierOf(j.note).word.toLowerCase()}</span>}
           {(j.state === "resultat_inconnu" || j.state === "incomplete") && <button className="btn ghost" style={{ alignSelf: "flex-start" }}>Compléter</button>}</li>))}</ul>
-      <p className="meta">Export du journal : emplacement à tester (menu du Journal ou Profil, Mes données).</p>
+      <div className="row"><button className="btn">Exporter le journal</button><span className="meta">La même action est dans Profil, Mes données (D-15).</span></div>
     </div>
   );
 }
@@ -130,7 +130,7 @@ export function Profil({ st, set, go }) {
         <span className="sec">Thème</span>
         <div className="seg2" role="group" aria-label="Thème">{[["system", "Système"], ["light", "Clair"], ["dark", "Sombre"]].map(([k, l]) => <button key={k} aria-pressed={st.theme === k} onClick={() => set({ theme: k })}>{l}</button>)}</div>
       </section>
-      <div className="card"><b>Mes données</b><span className="meta">Sauvegarde · transfert · export du journal · tout effacer (confirmation dans la page)</span></div>
+      <div className="card"><b>Mes données</b><span className="meta">Sauvegarde · transfert · tout effacer (confirmation dans la page)</span><button className="btn">Exporter le journal</button><span className="meta">La même action est dans le Journal (D-15).</span></div>
       <details className="card"><summary className="row between"><b>Démonstration : états</b><Icon name="down" /></summary>
         <span className="meta">Pour éprouver les écrans ; n'existe pas dans l'application.</span>
         {[["offline", "Hors ligne"], ["loading", "Chargement"], ["scarce", "Moins de 3 spots"], ["tie", "Égalité au dernier rang"], ["far", "Aucun spot à ≤ 1 h"]].map(([k, l]) => (
