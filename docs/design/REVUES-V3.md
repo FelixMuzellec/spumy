@@ -198,11 +198,11 @@ La galerie AVANT/CIBLE est dans `docs/design/galerie-avant-cible.html`, publiée
 | D-08 | La barre du bas précède l'en-tête dans l'ordre du code | MINEURE | Mettre la barre après le contenu, ou un lien d'évitement | Ouvert : CR-07 |
 | D-09 | La carte ne se déplace pas au clavier ni sans glisser (2.1.1, 2.5.7) | MINEURE | Flèches du clavier, boutons de déplacement ou recherche qui centre | Ouvert : CR-03 |
 | D-10 | Carte non centrée sur la position de référence | MINEURE | Centre et cadrage dynamiques sur le vrai fond | Ouvert : CR-02 |
-| D-11 | 44 px au lieu des 48 dp de Material | OBSERVATION | Proposition : garder 44 (Apple, WCAG 2.5.5 AAA) ; à confirmer | À DÉCIDER (§ 12 du rapport) |
+| D-11 | 44 px au lieu des 48 dp de Material | OBSERVATION | **48 px** au moins, par une zone invisible : les dessins ne changent pas (décision de Félix, 23 nov. 2026, 19 h 07). Respecte Apple (44 pt) et Material (48 dp), plus sûr avec des mains mouillées ou froides | DÉCIDÉ ; appliqué à l'intégration (phases 10 à 12) : la version 6.2 du prototype reste à 44 px, son aspect étant validé. Périmètre mesuré le 23 nov. : sur les 8 écrans du prototype, des cibles sont entre 44 et 48 px (bascule Shore / Offshore, pastilles de la carte, puces, boutons d'ordre des onglets et de thème, Retour et niveaux de la fiche) |
 | D-12 | Barre qui défile, hors standard Apple et Material | OBSERVATION | Voulue par Félix (V3-023) ; chevrons ; Journal accessible ailleurs | Arbitré |
 | D-13 | Marqueur « à vérifier » : ⚠ et contour plein au lieu du pointillé et du « ? » du § 6.9 | OBSERVATION | Retour de Félix (14 h 26 : pointillés et « ? » incompris), V3-025 validée au jalon 2 | Arbitré ; écart au référentiel consigné |
 | D-14 | Aide et « mode terrain » non détaillés | MINEURE | Prototyper avant l'intégration | Ouvert : CR-09 |
-| D-15 | Emplacement de l'export du journal non décidé (A22) | MINEURE | Options A, B, C (UX-V3 § 11) | À DÉCIDER après test |
+| D-15 | Emplacement de l'export du journal non décidé (A22) | MINEURE | **(C)** : les deux, la même action (Journal ; Profil, Mes données), décision de Félix, 23 nov. 2026, 19 h 07 | DÉCIDÉ ; prototype mis à jour ; T6 pour confirmer |
 | D-16 | « Phase 9 » écrit à l'écran dans le choix du bateau (UX-03), trouvé au contrôle des exigences de la sous-tâche 3.8 | MINEURE | Mention retirée ; le test d'héritage cherche aussi « phase » | Corrigé, testé |
 
 Aucun défaut critique ou majeur ne reste ouvert. Les défauts de l'audit AVANT (A01 à A22) sont suivis au § 10.

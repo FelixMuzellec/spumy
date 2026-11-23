@@ -209,6 +209,7 @@ export const ELEVATION = Object.freeze({
 });
 export const MOTION = Object.freeze({ fast: 120, base: 200, slow: 280, ease: "cubic-bezier(0.2, 0.8, 0.2, 1)" });
 export const BREAKPOINTS = Object.freeze({ min: 320, phone: 375, phoneL: 390, tablet: 600, desktop: 1024 });
+// D-11 (Félix, 23 nov. 2026) : 48 px au moins à l'intégration, par zone invisible ; le prototype 6.2 reste à 44.
 export const TOUCH = Object.freeze({ min: 44, main: 52 });
 // Prototype V6 : couleurs d'illustration de la Météo (pictogramme du ciel, traînées du vent). Jamais pour un texte.
 export const ILLUSTRATION = Object.freeze({

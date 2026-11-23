@@ -24,7 +24,7 @@ Format ADR. Le registre des exigences (`docs/REQUIREMENTS.md`) et la vision (`do
 | V3-016 | Une place du Top 3 réservée à un spot admissible à 15 min ou moins de ta position | VALIDÉE (Félix, 20 nov. 2026, 4 h 18) |
 | V3-017 | Navigation : Décision, Carte, Journal, Profil, Matériel ; bascule BORD / BATEAU | VALIDÉE (référentiel § 6.4) ; **remplacée en partie par V3-023** (jalon 1) |
 | V3-018 | Identifiants de spot V2 gardés comme identifiants V3 | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) |
-| V3-019 | Point de retour `v2-final` et nettoyage des branches fusionnées | À DÉCIDER (Félix) |
+| V3-019 | Point de retour `v2-final` ; branches gardées | VALIDÉE (Félix, 23 nov. 2026, 19 h 07) ; étiquette créée, à pousser par Félix (relais HTTP 403) |
 | V3-020 | Contrats typés par JSDoc et contrôle `tsc --checkJs`, sans migration TypeScript | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) ; appliquée en Phase 4 |
 | V3-021 | Seuil du filtre « Favorables » : **75** (début de « Très bon ») | VALIDÉE (Félix, 20 nov. 2026, question 9) |
 | V3-022 | Design System V3 : jetons dans `src/design/v3/tokens.js`, CSS généré, repère de valeur des jauges ; pastilles revues par V3-025 | VALIDÉE AVEC RÉSERVES (jalon 2, Félix, 20 nov. 2026, 15 h 40 ; voir V3-027) |
@@ -38,6 +38,7 @@ Format ADR. Le registre des exigences (`docs/REQUIREMENTS.md`) et la vision (`do
 | V3-030 | Juger les notes de SPUMY sur le journal de sorties et faire s'affiner le modèle, par la boucle contrôlée du référentiel | VALIDÉE (Félix, 23 nov. 2026, 8 h 11) |
 | — | Jeton « APPROVED — PROCEED TO PHASE 4 » (23 nov. 2026, 13 h 50) : phase 3 VALIDATED, version 6.2 du prototype comprise (accord lu dans la demande du jeton, INFÉRÉ) ; critères de recette CR-01 à CR-16 du prototype pris comme critères de l'intégration (phases 10 à 12) | VALIDÉE |
 | — | Réponses de Félix au rapport de phase 4 (23 nov. 2026, 14 h 54) : protection de `main` « oui » (pose toujours refusée par le relais de la session, HTTP 403, à faire par Félix) ; étalonnage IGN reporté « si c'est la meilleure option » (oui : il exige les points d'accès audités en phase 5 et l'adaptateur IGN ; le test CORS et joignabilité de l'IGN, promis en phase 4 par le rapport de phase 2, n'est pas reporté) ; ESLint et épinglage des actions maintenant « si c'est la meilleure solution technique » (oui : ESLint 10, la 9 étant en fin de vie depuis le 6 août 2026) ; fusions des phases 2 à 4 attendues jusqu'à l'intégration de la V3 « oui » | VALIDÉE |
+| — | Réponses de Félix du 23 nov. 2026 (19 h 07, « Oui » aux recommandations) : V3-019 (étiquette `v2-final`, branches gardées) ; **D-11 : 48 px** au moins par zone invisible, appliqué à l'intégration (le prototype 6.2 reste à 44 px) ; **D-15 : export aux deux endroits**, même action (Journal ; Profil, Mes données), T6 pour confirmer ; **Dependabot** pour les actions GitHub seulement (mensuel, groupé, attente de 7 jours), actif à la fusion dans `main` ; **IGN** : politique de résilience chiffrée, validation des réponses, étalonnage mesuré avec marge autour de 60 min, contrat enrichi (V3-009 complétée, non modifiée) | VALIDÉE |
 
 ## Décisions V2 encore en vigueur
 
@@ -254,7 +255,9 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 
 ## V3-019 — Point de retour et nettoyage des branches
 
-- **Statut** : À DÉCIDER par Félix.
+- **Statut** : VALIDÉE par Félix le 23 nov. 2026 (19 h 07), sur la recommandation : **étiquette `v2-final` sur bb4f940** (la version publiée, OPS-02) ; **les branches sont gardées**. Les supprimer n'apporte rien dans un dépôt à une personne, et `CLAUDE.md` exclut tout nettoyage destructif.
+- **Exécution** : étiquette annotée créée par la session ; son envoi est refusé par le relais (HTTP 403, non contourné). Félix l'envoie (`git push origin v2-final` depuis une copie qui l'a, ou `git tag -a v2-final bb4f940 -m "v2-final" && git push origin v2-final`) ou la crée depuis GitHub (Releases → Draft a new release → tag `v2-final`, cible `main`).
+- **Proposition d'origine** (pour mémoire) :
 - **Proposition** :
     - étiquette `v2-final` sur `main` à bb4f940, la version publiée ;
     - puis suppression des 14 branches distantes déjà fusionnées.
