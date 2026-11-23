@@ -36,7 +36,7 @@ export function HomeTop({ st, setMode, openPos, day, setDay, notify }) {
             </button>
           ))}
         </div>
-        <PlaceField pos={st.pos} openPos={openPos} />
+        <PlaceField pos={st.pos} openPos={openPos} home />
         <div className="chips6 days6" role="group" aria-label="Jour">
           {DAYS.map(([k, l]) => <button key={k} className="chip6 day" aria-pressed={day === k} onClick={() => pick(k)}>{l}</button>)}
         </div>
@@ -141,7 +141,7 @@ export function HomeBord({ st, go, heroPhoto, openPos, openJournal, setMode, not
       {top}
       <section className="heroc6" aria-label="Synthèse du jour">
         {heroPhoto && <img src={photoSrc(heroPhoto, 1600)} alt="" />}
-        <span className="illus6">Illustration</span>
+        <span className="illus6">Illustration</span><span className="demo6c">Données démo</span>
         <div className="heroc6-in">
           <h1>{st.demo.loading ? "Calcul des spots autour de Pirou…" : phrase.text}</h1>
           {!st.demo.loading && <><p className="heroc6-sub">{phrase.sub}</p><p className="heroc6-sub">vigilance : aucune (Météo-France, 06:00)</p><DayBand cards={cards} /></>}

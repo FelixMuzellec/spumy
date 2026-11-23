@@ -26,18 +26,25 @@ function Effect({ e, small }) {
   return <span className={`eff eff-${e}${small ? " sm" : ""}`} role="img" aria-label={E.word}><b aria-hidden="true">{E.glyph}</b>{!small && <span aria-hidden="true">{E.word}</span>}</span>;
 }
 
-/** Champ de lieu : position de référence ; le bouton de visée relance la localisation (automatique). */
-export function PlaceField({ pos, openPos }) {
-  const label = pos.state === "ok" ? pos.label : pos.state === "pending" ? "Position…" : "Choisir une position";
+/**
+ * Champ de lieu : position de référence. Carte et Météo : loupe et bouton de visée orange (maquette Carte) ;
+ * Home : épingle de position, sans bouton (maquette Home).
+ */
+export function PlaceField({ pos, openPos, home }) {
+  const label = pos.state === "ok" ? pos.label : pos.state === "pending" ? "Position…" : "Saint-Malo, Granville, Cancale…";
   return (
-    <div className="place6">
-      <button className="place6-f" onClick={openPos} aria-label={`Position de référence : ${label}${pos.state === "ok" ? (pos.mode === "auto" ? ", automatique" : ", manuelle") : ""} ; modifier`}>
-        <Icon name="search" size={22} /><span className={pos.state === "ok" ? "" : "ph"}>{label}</span>
+    <div className={`place6${home ? " home" : ""}`}>
+      <button className="place6-f" onClick={openPos} aria-label={`Position de référence : ${pos.state === "ok" ? pos.label : "aucune"}${pos.state === "ok" ? (pos.mode === "auto" ? ", automatique" : ", manuelle") : ""} ; modifier`}>
+        <Icon name={home ? "pinTarget" : "search"} size={home ? 24 : 22} /><span className={pos.state === "ok" ? "" : "ph"}>{label}</span>
       </button>
-      <button className="place6-loc" onClick={openPos} aria-label="Me géolocaliser"><Icon name="locate" size={22} /></button>
+      {!home && <button className="place6-loc" onClick={openPos} aria-label="Me géolocaliser"><Icon name="locate" size={24} /></button>}
     </div>
   );
 }
+
+const TOP = 198; // en-tête, champ et puces posés sur la carte (maquettes) : les pastilles restent dessous
+const BW = 184; // largeur de la bulle (maquette Carte)
+const PW = 196; // largeur du panneau Météo (maquette vidéo)
 
 const shown = (filter) => SPOTS.filter((s) => (filter === "fav" ? favorable(s) : filter === "verify" ? s.status === "verify" : filter === "mine" ? s.mine : true));
 
@@ -51,21 +58,21 @@ export function Carte({ st, sel, setSel, notify, openPos }) {
   if (bateau) return <BateauNotice />;
   return (
     <div className="screen6">
-      <div className="top6">
-        <PlaceField pos={st.pos} openPos={openPos} />
-        <div className="chips6" role="group" aria-label="Filtres">
-          {chips.map(([k, l, n]) => (
-            <button key={k} className="chip6" aria-pressed={filter === k} title={RULE[k]} aria-description={RULE[k]} onClick={() => { setFilter(k); setSel(null); }}>
-              {k === "fav" && <i className="dot6" aria-hidden="true" />}{k === "verify" && <span className="warn6" aria-hidden="true"><Icon name="warn" size={16} /></span>}
-              {l}<b className="num">{n}</b></button>
-          ))}
-        </div>
-      </div>
       <div className="mapwrap6">
         <h1 className="vh">Carte des spots : le terrain et ses effets sur la pêche</h1>
-        <GeoMap items={items} selected={sel} onSelect={(id) => setSel(sel === id ? null : id)}
+        <GeoMap items={items} selected={sel} onSelect={(id) => setSel(sel === id ? null : id)} top={TOP} focusX={(w) => w - 14 - BW - 12 - 23} focusBox={(p) => [p.sx + 30, p.sy - 40, p.sx + 40 + BW, p.sy + 190]}
           onLocate={() => notify("Position : Pirou, automatique (±30 m) · démonstration")} onLayers={() => notify("Couches de terrain : aucune donnée réelle disponible pour l'instant (fonds, profondeurs, estran)")}
-          popover={(s, p) => <Bubble s={s} p={p} onClose={() => setSel(null)} />} legend={<Legend />} cx={0.33} />
+          popover={(s, p) => <Bubble s={s} p={p} onClose={() => setSel(null)} />} legend={<Legend />} />
+        <div className="top6">
+          <PlaceField pos={st.pos} openPos={openPos} />
+          <div className="chips6" role="group" aria-label="Filtres">
+            {chips.map(([k, l, n]) => (
+              <button key={k} className="chip6" aria-pressed={filter === k} title={RULE[k]} aria-description={RULE[k]} onClick={() => { setFilter(k); setSel(null); }}>
+                {k === "fav" && <i className="dot6" aria-hidden="true" />}{k === "verify" && <span className="warn6" aria-hidden="true"><Icon name="warn" size={18} /></span>}
+                {l}<b className="num">{n}</b></button>
+            ))}
+          </div>
+        </div>
         {filter !== "all" && <p className="rule6" role="status">{RULE[filter]}</p>}
         {filter === "mine" && <p className="rule6 empty">Aucun spot ajouté pour l'instant.</p>}
       </div>
@@ -80,18 +87,18 @@ function BateauNotice() {
 
 /** Bulle de la vue pêche : distance, ton journal, meilleur moment (maquette de Félix). */
 function Bubble({ s, p, onClose }) {
-  const W = 184, right = p.sx + 30 + W < p.w - 4, left = right ? p.sx + 30 : Math.max(8, p.sx - 30 - W);
-  const top = Math.min(Math.max(8, p.sy - 58), p.h - 236);
+  const right = p.sx + 23 + 12 + BW <= p.w - 12, left = right ? p.sx + 23 + 12 : Math.max(12, p.sx - 23 - 12 - BW);
+  const top = Math.min(Math.max(TOP - 4, p.sy - 34), p.h - 232);
   return (
-    <div className={`pop6 ${right ? "r" : "l"}`} style={{ left, top, width: W, "--ay": `${p.sy - top}px` }} role="dialog" aria-label={s.name} onKeyDown={(e) => e.key === "Escape" && onClose()}>
-      <div className="pop6-h"><b>{s.name}</b><button className="x6" aria-label="Fermer" onClick={onClose}><Icon name="x" size={16} /></button></div>
+    <div className={`pop6 ${right ? "r" : "l"}`} style={{ left, top, width: BW, "--ay": `${p.sy - top}px` }} role="dialog" aria-label={s.name} onKeyDown={(e) => e.key === "Escape" && onClose()}>
+      <b className="pop6-t">{s.name}</b>
       <ul>
         <li><Icon name="pin" size={20} /><span className="num">{s.route === 0 ? "Sur place" : `${s.km} km · ${s.route} min`}</span></li>
         <li><span className="cnt num" aria-hidden="true">{s.trips}</span><span>{s.trips} sortie{s.trips > 1 ? "s" : ""}</span></li>
-        <li><span className="fishc" aria-hidden="true"><Icon name="fish" size={16} /></span><span>{s.fish} poisson{s.fish > 1 ? "s" : ""}</span></li>
+        <li><span className="fishc" aria-hidden="true"><Icon name="fish" size={14} /></span><span>{s.fish} poisson{s.fish > 1 ? "s" : ""}</span></li>
         <li className="best6"><Icon name="clock" size={20} /><span>{s.win ? <>Meilleur moment<br /><b className="num">{span(s.win)}</b></> : s.status === "nr" ? "Non recommandé aujourd'hui" : "Pas de fenêtre aujourd'hui"}</span></li>
       </ul>
-      <p className="pop6-src">km à vol d'oiseau · journal : démo</p>
+      <p className="pop6-src">km à vol d'oiseau · démo</p>
     </div>
   );
 }
@@ -144,7 +151,8 @@ function Sources({ list }) {
 }
 
 /** Vent animé : nappe de couleurs (force) et traînées (direction), dessinés en coordonnées d'écran. */
-const STOPS = [[0, [52, 40, 120]], [6, [72, 52, 168]], [11, [52, 92, 196]], [16, [36, 140, 178]], [21, [34, 160, 132]], [26, [96, 178, 82]], [31, [206, 182, 60]], [36, [222, 122, 48]], [42, [196, 62, 58]]];
+// Échelle en nœuds, d'après la maquette vidéo : violet, bleu, sarcelle, vert, puis jaune, orange et rouge pour le vent fort.
+const STOPS = [[0, [42, 37, 88]], [6, [59, 47, 120]], [10, [62, 69, 144]], [13, [59, 90, 146]], [16, [52, 110, 138]], [19, [52, 131, 138]], [22, [61, 146, 133]], [26, [75, 154, 110]], [31, [168, 154, 74]], [36, [184, 116, 62]], [42, [168, 70, 64]]];
 export function windColor(kn) {
   for (let i = 1; i < STOPS.length; i++) {
     if (kn <= STOPS[i][0]) { const [a, ca] = STOPS[i - 1], [b, cb] = STOPS[i], f = (kn - a) / (b - a); return ca.map((c, j) => Math.round(c + (cb[j] - c) * f)); }
@@ -173,7 +181,7 @@ function WindLayer({ v, w, h }) {
     const c = parts.current, dpr = Math.min(2, devicePixelRatio || 1), ctx = c.getContext("2d");
     c.width = w * dpr; c.height = h * dpr; ctx.scale(dpr, dpr);
     const seed = () => ({ x: (Math.random() * w - vr.current.x) / vr.current.k, y: (Math.random() * h - vr.current.y) / vr.current.k, age: Math.random() * 80 });
-    P.current = Array.from({ length: Math.round((w * h) / 700) }, seed);
+    P.current = Array.from({ length: Math.round((w * h) / 760) }, seed);
     const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
     const stepOne = (p, len) => {
       const V = vr.current, ww = windAt(p.x, p.y, NOW), dir = ((ww.fromDeg + 180) * Math.PI) / 180, px = (ww.kmh * 0.045 * len) / V.k;
@@ -192,11 +200,11 @@ function WindLayer({ v, w, h }) {
       if (!run) return;
       if (!document.hidden) {
         const V = vr.current;
-        ctx.globalCompositeOperation = "destination-in"; ctx.fillStyle = IL.fade; ctx.fillRect(0, 0, w, h);
-        ctx.globalCompositeOperation = "source-over"; ctx.strokeStyle = IL.trail; ctx.lineWidth = 1; ctx.beginPath();
+        ctx.globalCompositeOperation = "destination-in"; ctx.fillStyle = IL.fade; ctx.fillRect(0, 0, w, h); // traînée courte, comme la maquette
+        ctx.globalCompositeOperation = "source-over"; ctx.strokeStyle = IL.trail; ctx.lineWidth = 1.1; ctx.lineCap = "round"; ctx.beginPath();
         for (const p of P.current) {
           const [nx, ny] = stepOne(p, 1), sx = V.x + p.x * V.k, sy = V.y + p.y * V.k, ex = V.x + nx * V.k, ey = V.y + ny * V.k;
-          if (++p.age > 90 || ex < 0 || ey < 0 || ex > w || ey > h) Object.assign(p, seed(), { age: 0 });
+          if (++p.age > 40 || ex < 0 || ey < 0 || ex > w || ey > h) Object.assign(p, seed(), { age: 0 });
           else { ctx.moveTo(sx, sy); ctx.lineTo(ex, ey); p.x = nx; p.y = ny; }
         }
         ctx.stroke();
@@ -215,26 +223,23 @@ export function Meteo({ st, notify, openPos }) {
   const [sel, setSel] = useState(null);
   const s = SPOTS.find((x) => x.id === sel);
   const focus = s || ranking(SPOTS).cards[0];
-  const [pw, setPw] = useState(0);
-  const wrap = useRef(null);
-  useEffect(() => { const f = () => setPw(Math.min(250, Math.round((wrap.current?.clientWidth || 390) * 0.52))); f(); addEventListener("resize", f); return () => removeEventListener("resize", f); }, []);
   if (st.mode === "bateau") return <BateauNotice />;
   return (
     <div className="screen6">
-      <div className="top6">
-        <PlaceField pos={st.pos} openPos={openPos} />
-        <div className="chips6" role="group" aria-label="Jour">
-          {[["today", "Aujourd'hui"], ["tomorrow", "Demain"], ["week", "7 jours"]].map(([k, l]) => (
-            <button key={k} className="chip6 day" aria-pressed={day === k} onClick={() => { setDay(k); if (k !== "today") notify("Démonstration : seule la journée d'aujourd'hui est remplie"); }}>{l}</button>
-          ))}
-        </div>
-      </div>
-      <div className="mapwrap6" ref={wrap}>
+      <div className="mapwrap6">
         <h1 className="vh">Météo : le vent et les conditions de chaque spot</h1>
-        <GeoMap items={SPOTS} selected={sel} onSelect={(id) => setSel(sel === id ? null : id)} Layer={WindLayer} panelW={s ? pw : 0}
-          panel={s ? <Panel s={s} w={pw} onClose={() => setSel(null)} /> : null} legend={<Legend wind />}
+        <GeoMap items={SPOTS} selected={sel} onSelect={(id) => setSel(sel === id ? null : id)} Layer={WindLayer} panelW={s ? PW : 0} top={TOP} focusX={(w) => w - 12 - PW - 6 - 23}
+          panel={s ? <Panel s={s} onClose={() => setSel(null)} /> : null} legend={<Legend wind />}
           onLocate={() => notify("Position : Pirou, automatique (±30 m) · démonstration")} onLayers={() => notify("Couches : vent (affiché) · mer et houle à venir avec les vraies prévisions")}
-          tag="Vent : démo · Côte © IGN" />
+          tag="Vent : démo · côte © IGN" />
+        <div className="top6">
+          <PlaceField pos={st.pos} openPos={openPos} />
+          <div className="chips6" role="group" aria-label="Jour">
+            {[["today", "Aujourd'hui"], ["tomorrow", "Demain"], ["week", "7 jours"]].map(([k, l]) => (
+              <button key={k} className="chip6 day" aria-pressed={day === k} onClick={() => { setDay(k); if (k !== "today") notify("Démonstration : seule la journée d'aujourd'hui est remplie"); }}>{l}</button>
+            ))}
+          </div>
+        </div>
       </div>
       <MeteoSections s={focus} />
     </div>
@@ -254,30 +259,34 @@ function SkyIcon() {
   );
 }
 
-/** Panneau Météo : le spot touché, sa note, la sécurité d'abord, puis chaque élément et le signe de son effet. */
-function Panel({ s, w, onClose }) {
-  const c = conditions(s), m = meteo(s), eff = (k) => ptsEffect(m.items.find((i) => i.key === k)?.pts);
-  const safety = s.status === "nr" ? ["defav", "Non recommandé"] : s.status === "verify" || s.safety !== "ok" ? ["inconnu", "À vérifier"] : ["fav", "Rien à signaler"];
+/**
+ * Panneau Météo (maquette vidéo, 3e temps) : le spot et sa note, le ciel, puis une ligne « Libellé : valeur » par
+ * élément, la sécurité d'abord (V3-028). Le sens et le poids de chaque élément sont expliqués sous la carte.
+ */
+function Panel({ s, onClose }) {
+  const c = conditions(s);
+  const safety = s.status === "nr" ? "non recommandé" : s.status === "verify" ? "à vérifier" : { ok: "OK", prudence: "prudence", danger: "danger" }[s.safety] || "à vérifier";
   const rows = [
-    ["shield", "Sécurité", safety[1], safety[0]],
-    ["thermo", "Temp. de l'air", `${c.air} °C`, null],
-    ["waves", "Temp. de l'eau", `${c.water} °C`, eff("eau")],
-    ["arrow", "Vent", `${c.windKn} nds ${compass(c.windFrom)}`, eff("vent"), c.windFrom],
-    ["waves", "Houle", c.swell == null ? "non documentée" : `${fr(c.swell)} m`, eff("houle")],
-    ["gauge", "Pression", `${c.pressure} hPa`, eff("pression")],
-    ["tide", "Marée", `${c.tide === "montante" ? "Montante" : "Descendante"} · PM ${hhmm(c.pm)}`, eff("maree")],
+    ["shield", "Sécurité", safety],
+    ["thermo", "Temp. de l'air", `${c.air}\u202f°C`],
+    ["waves", "Temp. de l'eau", `${c.water}\u202f°C`],
+    ["arrow", "Vent", `${c.windKn} nds ${compass(c.windFrom)}`, c.windFrom],
+    ["wind", "Rafales", `${KN(c.gustKmh)} nds`],
+    ["waves", "Houle", c.swell == null ? "non documentée" : `${fr(c.swell)} m`],
+    ["gauge", "Pression", `${c.pressure} hPa`],
+    ["tide", "Marée", c.tide],
   ];
   return (
-    <aside className="panel6" style={{ width: w }} aria-label={`Conditions à ${s.name}`} onKeyDown={(e) => e.key === "Escape" && onClose()}>
+    <aside className="panel6" style={{ width: PW }} aria-label={`Conditions à ${s.name}`} onKeyDown={(e) => e.key === "Escape" && onClose()}>
       <div className="panel6-h"><b>{s.name}</b><Ring s={s} decor /></div>
       <SkyIcon />
       <p className="sky6-t">{c.sky}</p>
       <p className="sky6-s num">Pluie : {c.rain} %</p>
-      <ul className="p6-rows">{rows.map(([ic, l, val, e, deg]) => (
-        <li key={l}><span className="p6-ic" style={deg != null ? { transform: `rotate(${deg + 180}deg)` } : undefined}><Icon name={ic} size={18} /></span>
-          <span className="p6-l">{l}</span><span className="p6-v num">{val}</span>{e ? <Effect e={e} small /> : <span className="eff-none" role="img" aria-label="Sans effet annoncé" />}</li>
+      <ul className="p6-rows">{rows.map(([ic, l, val, deg]) => (
+        <li key={l}><span className="p6-ic" style={deg != null ? { transform: `rotate(${deg + 180}deg)` } : undefined}><Icon name={ic} size={17} /></span>
+          <span><span className="p6-l">{l}</span> : <span className="p6-v num">{val}</span></span></li>
       ))}</ul>
-      <p className="p6-src">{c.source}</p>
+      <p className="p6-src">AROME et Shom, 06:00 · démo</p>
       <button className="vh-focus" onClick={onClose}>Fermer le panneau</button>
     </aside>
   );

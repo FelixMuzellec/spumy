@@ -14,7 +14,7 @@ import { HomeBord, HomeBateau } from "./home.jsx";
 import { Carte, Meteo } from "./carte6.jsx";
 import { Fiche, Comparaison } from "./spot.jsx";
 import { Journal, Profil, PositionSheet, QuickAdd, TAB_LABEL } from "./misc.jsx";
-import { DEMO_NOTE, PHOTO_SET, JOURNAL, SPOT } from "./data.js";
+import { PHOTO_SET, JOURNAL, SPOT } from "./data.js";
 
 const PHOTOS = catalogue.photos.filter((p) => PHOTO_SET.includes(p.id) && !p.remplacee_par);
 const TAB_ICON = { home: "home", carte: "map", meteo: "wind", profil: "user", journal: "book" };
@@ -124,9 +124,8 @@ function App() {
     : <HomeBord st={st} go={go} heroPhoto={heroPhoto} openPos={() => setSheet("pos")} openJournal={() => setSheet("add")} setMode={(k) => { set({ mode: k }); setSel(null); }} notify={notify} />;
 
   return (
-    <div className="app">
+    <div className={`app page-${page}`}>
       {launch && <Launch onDone={() => setLaunch(false)} />}
-      <div className="demo-bar">{DEMO_NOTE}</div>
       {st.demo.offline && <div className="banner" role="status"><Icon name="offline" size={18} />Hors ligne · données de 06:10 ; temps de route en estimation</div>}
       {page !== "home" && (
         <header className="hdr6">

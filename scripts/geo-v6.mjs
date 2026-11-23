@@ -21,7 +21,7 @@ const proj = ([lon, lat]) => [(lon - BOX.west) * KX, (BOX.north - lat) * KY];
 
 // Découpage d'un anneau par le rectangle (Sutherland-Hodgman), avec une marge pour ne pas voir le bord
 // (large à l'est et à l'ouest : la carte se décale pour laisser la place à la bulle et au panneau).
-const MX = 600, MY = 220, edges = [
+const MX = 600, MY = 480, edges = [
   [(p) => p[0] >= -MX, (a, b) => [-MX, a[1] + ((b[1] - a[1]) * (-MX - a[0])) / (b[0] - a[0])]],
   [(p) => p[0] <= W + MX, (a, b) => [W + MX, a[1] + ((b[1] - a[1]) * (W + MX - a[0])) / (b[0] - a[0])]],
   [(p) => p[1] >= -MY, (a, b) => [a[0] + ((b[0] - a[0]) * (-MY - a[1])) / (b[1] - a[1]), -MY]],

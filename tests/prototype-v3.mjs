@@ -109,6 +109,8 @@ const vbox = (page) => page.locator(".geo").evaluate((e) => e.getAttribute("view
   await page.locator(".chip6", { hasText: "Tous" }).click(); await page.waitForTimeout(150);
   const all = Number((await page.locator(".chip6", { hasText: "Tous" }).locator("b").textContent()).trim());
   t("Carte : les 8 vrais spots à 1 h de route, tous affichés", all === 8 && (await shownSpots(page)) === all, String(all));
+  const col = await page.evaluate(() => ({ clusters: document.querySelectorAll(".map6 .ring.cluster").length, left: document.querySelectorAll(".map6 .nm.left").length, ring: document.querySelector(".map6 .ring").getBoundingClientRect().width }));
+  t("Carte : vue d'ensemble en colonne le long de la côte, noms à gauche, sans regroupement (maquette)", col.clusters === 0 && col.left >= 6 && col.ring === 46, JSON.stringify(col));
   t("Carte : chaque pastille porte son score", (await page.locator(".map6 .ring .v").allTextContents()).every((x) => /^\d+$|^–$/.test(x)));
   const labels = await page.locator(".map6 .ring .nm").count();
   t("Carte : des noms à côté des pastilles", labels >= 2, String(labels));
@@ -135,11 +137,15 @@ const vbox = (page) => page.locator(".geo").evaluate((e) => e.getAttribute("view
   t("Carte : la bulle montre distance, sorties, poissons, meilleur moment", /Pirou Plage/.test(pop) && /Sur place|km · \d+ min/.test(pop) && /sortie/.test(pop) && /poisson/.test(pop) && /Meilleur moment/.test(pop), pop.replace(/\n/g, " | "));
   const pb = await page.locator(".pop6").boundingBox(), rb = await pirou.boundingBox();
   t("Carte : la bulle ne cache pas le spot touché", pb.x >= rb.x + rb.width - 2 || pb.x + pb.width <= rb.x + 2);
+  t("Carte : bulle sans croix, comme la maquette (fermeture au second toucher, Échap ou fond de carte)", (await page.locator(".pop6 button").count()) === 0);
   t("Carte : sous la carte, pourquoi ce spot est bon aujourd'hui", /Pirou Plage/.test(await page.locator("#h-terrain").textContent()));
   await pirou.click(); await page.waitForTimeout(120);
   t("Carte : retoucher le spot ferme la bulle", (await page.locator(".pop6").count()) === 0);
   const sec = await page.locator(".sec6").first().evaluate((e) => ({ top: e.getBoundingClientRect().top, facts: e.querySelectorAll(".fact6").length, eff: [...e.querySelectorAll(".fact6 .eff b")].map((b) => b.textContent), lvls: e.querySelectorAll(".lvl").length, srcs: e.querySelectorAll(".srcs6 li").length }));
-  t("Carte : le début des détails dépasse sous la carte", sec.top < 844, String(sec.top));
+  const navTop = await page.locator(".navwrap").evaluate((e) => e.getBoundingClientRect().top);
+  t("Carte : la carte occupe le premier écran, les détails viennent dessous (V3-029)", sec.top >= navTop - 2, `${sec.top} / ${navTop}`);
+  const hdr6 = await page.locator(".hdr6").evaluate((e) => [getComputedStyle(e).position, e.getBoundingClientRect().top]);
+  t("Carte : en-tête et champ posés sur la carte, sans bandeau au-dessus (maquette)", hdr6[0] === "absolute" && hdr6[1] === 0 && (await page.locator(".demo-bar").count()) === 0 && (await page.locator(".map6").evaluate((e) => e.getBoundingClientRect().top)) === 0);
   t("Carte : terrain croisé avec le jour, un effet par ligne (signe et mot)", sec.facts === 4 && sec.eff.every((g) => /^[+−=?]$/.test(g)), JSON.stringify(sec.eff));
   t("Carte : niveaux de preuve et sources affichés", sec.lvls >= 4 && sec.srcs >= 1, `${sec.lvls} niveaux, ${sec.srcs} sources`);
 

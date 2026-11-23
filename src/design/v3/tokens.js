@@ -213,6 +213,6 @@ export const TOUCH = Object.freeze({ min: 44, main: 52 });
 // Prototype V6 : couleurs d'illustration de la Météo (pictogramme du ciel, traînées du vent). Jamais pour un texte.
 export const ILLUSTRATION = Object.freeze({
   sunCore: "#FFD86B", sunEdge: "#F5A623", sunRay: "#F5B53C", cloudTop: "#FFFFFF", cloudBottom: "#CBD6DE", rain: "#7FB4E0",
-  trail: "rgba(255,255,255,.55)", fade: "rgba(0,0,0,.9)",
+  trail: "rgba(255,255,255,.62)", fade: "rgba(0,0,0,.86)",
 });
 export const LAYOUT = Object.freeze({ gutter: 16, readingMax: 680, desktopList: 400, navHeight: 64 });
