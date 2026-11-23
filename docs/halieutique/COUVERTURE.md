@@ -15,6 +15,18 @@ Phase 5 V3, livrable 5, sous-tâche 5.10. **Version intermédiaire du 23 novembr
 
 **Constat principal** : la V2 couvre deux tronçons, le Finistère et la côte ouest du Cotentin. Les sources publiques lues le 23 novembre nomment des **zones** plutôt que des postes : les pêcheurs du bord publient rarement leurs postes exacts. Aucun candidat de la première passe n'atteint encore le niveau d'une fiche (§ 7.2). La deuxième passe (5.8) visera les sources locales : clubs, guides de pêche professionnels, comptes rendus datés, collectivités.
 
+### Deuxième passe (5.8, 23 nov. 2026, soir)
+
+Sources locales recherchées sur les quatre zones vides : guides professionnels, offices de tourisme, études, comptes rendus. Quatre candidats de plus, soit **13 au total**. **Aucun ne devient une fiche.**
+- Les guides professionnels d'Ille-et-Vilaine, des Côtes-d'Armor et du Morbihan proposent la pêche du bord « depuis les meilleurs postes côtiers sélectionnés par votre guide », sans jamais les nommer.
+- La seule étude institutionnelle trouvée est celle de l'Ifremer sur le golfe du Morbihan (2003). Elle ne nomme qu'un site du bord, la jetée de Larmor-Baden, et y range le bar parmi les espèces des plages et des côtes rocheuses, pas des jetées.
+- Les pages qui nomment des pointes, à Cancale, Dinard ou Lorient, sont des agrégateurs sans auteur.
+
+**Conclusion** : avec les sources publiques et citables, le catalogue ne peut pas s'étendre honnêtement à ces quatre zones pour l'instant. Trois pistes restent possibles :
+- des sources de terrain identifiables : clubs, associations, comptes rendus datés et nominatifs ;
+- la connaissance de Félix, pour les spots publics qu'il accepte de verser au catalogue ;
+- une étape ultérieure (phase 7, deuxième passe d'enrichissement du référentiel). Elle pourrait partir d'hypothèses d'habitat (pointes exposées au courant, embouchures), mais elles resteraient marquées HYPOTHÈSE et ne seraient jamais présentées comme des spots corroborés.
+
 ## 2. Ce qui a été vérifié sur les 66 fiches (23 nov. 2026)
 
 | Contrôle | Résultat |

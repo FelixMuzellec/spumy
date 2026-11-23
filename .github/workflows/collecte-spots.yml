@@ -8,6 +8,7 @@ on:
     paths:
       - "scripts/collecte-acces.mjs"
       - "data/spots/collecte/demande.json"
+      - "scripts/collecte-photos.mjs"
       - ".github/workflows/collecte-spots.yml"
 
 permissions:
@@ -23,7 +24,11 @@ jobs:
         with:
           node-version-file: .nvmrc
       - name: Collecte (Nominatim, Overpass, itinéraire piéton IGN)
-        run: node scripts/collecte-acces.mjs
+        run: |
+          if node -e "const d=require('./data/spots/collecte/demande.json');process.exit((d.ids||[]).length?0:1)"; then node scripts/collecte-acces.mjs; else echo "aucun spot demandé pour l'accès"; fi
+      - name: Inventaire des photos libres (Wikimedia Commons)
+        run: |
+          if node -e "process.exit(require('./data/spots/collecte/demande.json').photos?0:1)"; then node scripts/collecte-photos.mjs; else echo "inventaire des photos non demandé"; fi
       - if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:

@@ -1,5 +1,6 @@
 {
- "//": "Spots à collecter au prochain passage de la CI (scripts/collecte-acces.mjs). Rien en attente après le 23 nov. 2026 (Régnéville intégrée).",
+ "//": "Demande de collecte pour la CI. 23 nov. 2026 (soir) : inventaire des photos libres de Wikimedia Commons pour les 66 spots ; aucun accès à recalculer.",
  "ids": [],
- "requetes": {}
+ "requetes": {},
+ "photos": true
 }
