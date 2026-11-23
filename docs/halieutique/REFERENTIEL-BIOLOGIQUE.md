@@ -37,10 +37,11 @@ Conséquence pour les spots : la même limite partage déjà la réglementation 
 | --- | --- | --- | --- |
 | Hiver | La plupart des adultes frayent au large ; une partie reste résidente (`migration-saisonniere`) | VÉRIFIÉ, 1 | Résidents plus rares que les migrants, observés surtout au centre du golfe de Gascogne |
 | Frai, stock de Gascogne | Cartes mensuelles des frayères de **janvier à mars**, d'après les positions de pêche des navires (Ifremer, jeu de données Sextant) | VÉRIFIÉ, 1 | Frayères au large ; ne dit rien de la présence des adultes à la côte |
-| Frai, stock nord | Février à juin, dans des eaux d'au moins 9 °C environ, d'après un modèle de dérive larvaire (`frai-temperature`, Graham 2023) | VÉRIFIÉ, 1 | Seuil du modèle, pas une observation des adultes. Cartes des frayères Manche et mer Celtique : Ifremer (Dambrine, Woillez, Huret, de Pontual, 2020), **mois à relire** |
+| Frai, stock nord | Ponte en plusieurs lots (au moins deux, parfois trois ou quatre, Fritsch 2005, p. 33) ; ovocytes en hydratation dès début avril, fin de la saison en mai, d'après la population du sud-ouest du Royaume-Uni (Mayer et al., cités par Fritsch, p. 43-45). Février à juin, dans des eaux d'au moins 9 °C environ, d'après un modèle de dérive larvaire (`frai-temperature`, Graham 2023) | VÉRIFIÉ, 1 | Seuil du modèle, pas une observation des adultes. Cartes des frayères Manche et mer Celtique : Ifremer (Dambrine, Woillez, Huret, de Pontual, 2020), **mois à relire** |
 | Printemps | Retour sur des zones d'alimentation côtières, les mêmes d'une année sur l'autre (`migration-saisonniere` ; Edwards 2025 : 130 adultes de 40 à 75 cm suivis en télémétrie acoustique) | VÉRIFIÉ, 1 | Dates de retour publiées pour Cork (mi-avril, Doyle 2017), aucune pour le Finistère ni le Cotentin : **INCONNU** localement |
 | Été | Présence côtière et fidélité estivale au site (Edwards 2025 ; Doyle 2017) | VÉRIFIÉ, 1 | — |
-| Automne | Départ vers le large (Cork : mi-octobre, Doyle 2017) | VÉRIFIÉ ailleurs, 1 ; INCONNU ici | Aucune date publiée pour ces côtes |
+| Automne | Départ vers le large : à Cork, vers la mi-octobre (Doyle 2017). Synthèse de Fritsch (2005, § I.4.5, p. 16) : les adultes quittent les zones d'alimentation estivales dès septembre-octobre, vers des zones d'hivernage plus au sud, surtout en Manche ouest | VÉRIFIÉ, 1 pour Cork ; 2 pour la synthèse | Synthèse de travaux surtout britanniques ; aucune date propre au Finistère ni au Cotentin |
+| Fin d'hiver | Remontée vers le nord ou le nord-est dès février, et arrivée sur les zones estivales vers mai-juin. En été, les déplacements sont bien plus courts, limités à la bande côtière (Fritsch 2005, p. 16) | VÉRIFIÉ, 2 (synthèse) | Calendrier général, pas propre à un spot |
 
 **Granularité** : les études ne permettent pas un calendrier mois par mois pour ces côtes (§ 9.1.2, « ne pas forcer une granularité mensuelle artificielle »). Les coefficients mensuels de présence de la V2 (`saison-coefficients`) restent une HYPOTHÈSE de niveau 4.
 
@@ -66,10 +67,11 @@ Conséquence pour les spots : la même limite partage déjà la réglementation 
 ### 2.5 Rythme au cours de la journée
 
 - En captivité, l'alimentation culmine à l'aube ou au crépuscule selon les individus (Millot et Bégout, 2009 ; Chen et al., 2023, en cage). Dans un enclos en mer, les groupes nagent plus lentement et sont moins serrés la nuit (Wageningen, étude du bruit). **VÉRIFIÉ**, niveau 1, **en captivité**.
-- **Aucune étude d'activité de jour et de nuit du bar adulte en milieu naturel n'a été trouvée** (recherche du 23 nov.). La règle « lumière basse » (`lumiere-basse`) reste un savoir de pêcheur, de niveau 2 à 4. **Lacune.**
+- **Aucune étude d'activité de jour et de nuit du bar adulte en milieu naturel n'a été trouvée** (recherche du 23 nov.). La synthèse de Fritsch (2005, p. 12) dit seulement qu'il chasse de jour comme de nuit. La règle « lumière basse » (`lumiere-basse`) reste un savoir de pêcheur, de niveau 2 à 4. **Lacune.**
 
 ### 2.6 Température
 
+- Tolérance d'environ 2 à 32 °C ; le refroidissement d'hiver laisse chaque année un arrêt de croissance sur les écailles (Fritsch 2005, p. 13-15). En Bretagne, taille moyenne à 5 ans : environ 40 cm pour les femelles et 39 cm pour les mâles, donc sous la taille légale de 42 cm (Fritsch 2005, p. 13). VÉRIFIÉ, 2.
 - Des adultes ont été suivis jusqu'à 6,5 °C (de Pontual 2023). D'autres ont hiverné dans un port à 6,9 °C (Goossens 2023, cité par Edwards 2025). **VÉRIFIÉ**, niveau 1.
 - Les paliers V2 de présence côtière (7,5, 9,5, 11,5, 13,5 et 19 °C, `seuils-thermiques`) : **aucune source**. HYPOTHÈSE, niveau 4.
 - « Au-delà de 19 °C, activité décalée vers la nuit » (`eau-chaude`) : aucune source. HYPOTHÈSE, niveau 5.
@@ -78,7 +80,8 @@ Conséquence pour les spots : la même limite partage déjà la réglementation 
 
 - Adultes du large, en automne et en hiver, golfe de Gascogne : surtout des poissons pélagiques (maquereau, chinchard, anchois, sardine). Les crustacés font environ 3 % de la biomasse (Spitz et al., 2013, *ICES Journal of Marine Science* 70 : 452-461). **VÉRIFIÉ**, niveau 1, pour le large.
 - Juvéniles : prédateurs opportunistes (Pickett et Pawson, 1994, cité par Spitz 2013). **VÉRIFIÉ**, niveau 1.
-- **Régime des adultes à la côte, en Manche et en Bretagne : aucune étude trouvée.** Le calendrier des proies V2 par guide (`proies-calendrier`) reste INFÉRÉ, niveau 5. **Lacune.** À lire en priorité : la thèse de M. Fritsch (UBO et Ifremer, 2005), *Traits biologiques et exploitation du bar commun dans les pêcheries françaises de la Manche et du golfe de Gascogne*.
+- Adultes en général : régime dominé par les crabes (crustacés décapodes brachyoures) et les poissons. Chasse de jour comme de nuit, sur le fond ou en pleine eau (synthèse de Fritsch, 2005, § I.4.1, p. 12, d'après Boulineau-Coatanea, 1969). VÉRIFIÉ, niveau 2 : synthèse sans découpage par saison.
+- **Calendrier des proies des adultes à la côte, en Manche et en Bretagne : aucune étude saisonnière trouvée.** Le calendrier des proies V2 par guide (`proies-calendrier`) reste INFÉRÉ, niveau 5. **Lacune.**
 
 ### 2.8 Habitat et profondeur
 
@@ -94,9 +97,9 @@ Le bar est surtout côtier, et migre au large et plus profond en hiver (Pickett 
 
 | Sujet | État | Effet sur le moteur (phases 6 à 9) |
 | --- | --- | --- |
-| Dates de retour et de départ à la côte (Finistère, Cotentin) | **INCONNU** ; seulement l'Irlande (Cork) | la présence saisonnière reste une HYPOTHÈSE, et la Confiance baisse |
-| Activité de jour et de nuit des adultes en milieu naturel | **INCONNU** ; études en captivité seulement | le poids de la lumière reste empirique |
-| Régime des adultes à la côte | **INCONNU** ; thèse Fritsch 2005 à lire | le conseil de leurres s'appuie sur la proie documentée du spot, sinon reste qualitatif |
+| Dates de retour et de départ à la côte (Finistère, Cotentin) | **INCONNU** localement ; calendrier général : départ dès septembre-octobre, remontée dès février, zones d'été vers mai-juin (Fritsch 2005), et Cork | la présence saisonnière reste une HYPOTHÈSE, et la Confiance baisse |
+| Activité de jour et de nuit des adultes en milieu naturel | **INCONNU** ; études en captivité, et une synthèse qui dit « de jour comme de nuit » | le poids de la lumière reste empirique |
+| Régime des adultes à la côte, par saison | **INCONNU** ; en général, crabes et poissons (synthèse de Fritsch 2005) | le conseil de leurres s'appuie sur la proie documentée du spot, sinon reste qualitatif |
 | Paliers de température de la V2 | **aucune source** ; des poissons suivis sous les paliers | à ne pas garder comme seuils sans preuve |
 | Mois de frai | **nuance** : Gascogne janvier à mars (cartes de l'Ifremer) ; stock nord février à juin (modèle) | stocks séparés au 48ᵉ parallèle ; pas une contradiction, mais deux calendriers |
 | Pression | aucune preuve | exclue du modèle initial (§ 9.1.3) |
@@ -184,5 +187,5 @@ Bar :
 - Spitz J. et al. (2013). Prey preferences of adult sea bass in the northeastern Atlantic. *ICES Journal of Marine Science* 70(2) : 452-461 : https://doi.org/10.1093/icesjms/fss200
 - Edwards J. E. et al. (2025). Multi-year tracking of European sea bass. *ICES Journal of Marine Science* : https://doi.org/10.1093/icesjms/fsaf190
 - Bruit et comportement de jour et de nuit en enclos (Wageningen) : https://research.wur.nl/en/publications/european-seabass-respond-more-strongly-to-noise-exposure-at-night/
-- Fritsch M. (2005), thèse UBO et Ifremer : https://archimer.ifremer.fr/doc/2005/sup-1088.pdf (**à lire**)
+- Fritsch M. (2005). *Traits biologiques et exploitation du bar commun dans les pêcheries françaises de la Manche et du golfe de Gascogne*, thèse UBO et Ifremer : https://archimer.ifremer.fr/doc/2005/sup-1088.pdf (lu le 23 nov. : chapitre A et début du chapitre B ; la suite reste à lire)
 - Sources des connaissances V2 citées par identifiant : `data/knowledge/bar-bord.json` (de Pontual 2023, Doyle 2017, Graham 2023, Millot et Bégout 2009, Chen 2023).
