@@ -4,13 +4,14 @@ import "@fontsource-variable/roboto";
 import "@fontsource-variable/roboto-condensed";
 import "@fontsource-variable/montserrat";
 import "./styles.css";
+import "./v6.css";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import catalogue from "../../data/photos/catalogue.json";
 import { pickPhoto } from "../design/ds/ambiance.js";
 import { Icon, brandSrc } from "./ui.jsx";
 import { HomeBord, HomeBateau } from "./home.jsx";
-import { Carte, Meteo } from "./map.jsx";
+import { Carte, Meteo } from "./carte6.jsx";
 import { Fiche, Comparaison } from "./spot.jsx";
 import { Journal, Profil, PositionSheet, QuickAdd, TAB_LABEL } from "./misc.jsx";
 import { DEMO_NOTE, PHOTO_SET, JOURNAL, SPOT } from "./data.js";
@@ -57,6 +58,15 @@ function Nav({ order, page }) {
   );
 }
 
+/** Bascule Shore / Offshore (modes BORD et BATEAU, V3-028). */
+export function ModeToggle({ mode, setMode, small }) {
+  return (
+    <div className={`mode6${small ? " sm" : ""}`} role="radiogroup" aria-label="Mode">
+      {[["bord", "Shore"], ["bateau", "Offshore"]].map(([k, l]) => <button key={k} role="radio" aria-checked={mode === k} onClick={() => setMode(k)}>{l}</button>)}
+    </div>
+  );
+}
+
 /** Écran de lancement : le logo complet d'origine sur son fond crème, puis l'application (1,5 s ; un appui le passe). */
 function Launch({ onDone }) {
   useEffect(() => { const t = setTimeout(onDone, 1500); return () => clearTimeout(t); }, [onDone]);
@@ -96,8 +106,6 @@ function App() {
   const heroPhoto = st.hero !== "auto" ? st.hero
     : pickPhoto(PHOTOS, { usage: "hero", mode: st.mode, lumiere: bateau ? "jour" : "aube", ciel: bateau ? "nuageux" : "clair", mer: "calme", lieu: bateau ? "large" : "rochers", cle: "home" })?.id;
   const p = st.pos;
-  const chip = p.state === "ok" ? p.label
-    : p.state === "pending" ? "Position…" : p.state === "refused" ? "Position refusée · choisir" : "Choisir une position";
   const page = route.page;
   const saveTrip = (state) => {
     const item = { id: `n${Date.now()}`, date: "Aujourd'hui", spot: "Pointe d'Agon", state, catches: state === "capture" ? "bar 44 cm" : null };
@@ -108,8 +116,8 @@ function App() {
   let body;
   if (page === "spot") body = <Fiche id={route.arg} go={go} back={back} />;
   else if (page === "comparer") body = <Comparaison ids={route.arg} back={back} />;
-  else if (page === "carte") body = <Carte st={st} go={go} sel={sel} setSel={setSel} notify={notify} />;
-  else if (page === "meteo") body = <Meteo st={st} go={go} />;
+  else if (page === "carte") body = <Carte st={st} go={go} sel={sel} setSel={setSel} notify={notify} openPos={() => setSheet("pos")} />;
+  else if (page === "meteo") body = <Meteo st={st} go={go} notify={notify} openPos={() => setSheet("pos")} />;
   else if (page === "journal") body = <Journal items={journal} openAdd={() => setSheet("add")} />;
   else if (page === "profil") body = <Profil st={st} set={set} go={go} />;
   else body = bateau ? <HomeBateau st={st} go={go} boat={boat} setBoat={setBoat} heroPhoto={heroPhoto} />
@@ -120,17 +128,12 @@ function App() {
       {launch && <Launch onDone={() => setLaunch(false)} />}
       <div className="demo-bar">{DEMO_NOTE}</div>
       {st.demo.offline && <div className="banner" role="status"><Icon name="offline" size={18} />Hors ligne · données de 06:10 ; temps de route en estimation</div>}
-      <header className="hdr">
-        <div className="hdr-row">
-          <a className="brand" href="#home" aria-label="SPUMY, accueil"><img src={brandSrc("spumy-medaillon-128.png")} alt="" width="44" height="44" /><span className="word">SPUMY</span></a>
-          <button className={`poschip${p.state !== "ok" ? " attn" : ""}`} onClick={() => setSheet("pos")} aria-label={`Position de référence : ${chip}${p.state === "ok" ? (p.mode === "auto" ? ", automatique" : ", manuelle") : ""}${p.state === "ok" && p.mode === "auto" && p.acc ? `, précision ${p.acc}` : ""}`}
-            title={p.state === "ok" ? `${chip} · ${p.mode === "auto" ? `automatique${p.acc ? ` · ${p.acc}` : ""}` : "manuelle"}` : chip}>
-            <Icon name={p.state === "ok" && p.mode === "auto" ? "locate" : "pin"} size={18} /><span>{chip}</span></button>
-        </div>
-        <div className="mode" role="radiogroup" aria-label="Mode">
-          {[["bord", "BORD"], ["bateau", "BATEAU"]].map(([k, l]) => <button key={k} role="radio" aria-checked={st.mode === k} onClick={() => { set({ mode: k }); setSel(null); }}>{l}</button>)}
-        </div>
-      </header>
+      {page !== "home" && (
+        <header className="hdr6">
+          <a className="brand6" href="#home" aria-label="SPUMY, accueil"><img src={brandSrc("spumy-medaillon-128.png")} alt="" width="52" height="52" /><span className="word6">SPUMY</span></a>
+          <ModeToggle mode={st.mode} setMode={(k) => { set({ mode: k }); setSel(null); }} />
+        </header>
+      )}
       <main key={`${page}-${route.arg || ""}-${st.mode}`} className={page === "spot" || page === "comparer" ? "push" : "fade"}>{body}</main>
       <Nav order={st.tabs} page={page} />
       {sheet === "pos" && <PositionSheet pos={p} setPos={(v) => set({ pos: v })} onClose={() => setSheet(null)} notify={notify} />}

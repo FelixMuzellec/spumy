@@ -19,12 +19,13 @@ const LAT0 = (BOX.north + BOX.south) / 2, KX = Math.cos((LAT0 * Math.PI) / 180) 
 const W = Math.round((BOX.east - BOX.west) * KX), H = Math.round((BOX.north - BOX.south) * KY);
 const proj = ([lon, lat]) => [(lon - BOX.west) * KX, (BOX.north - lat) * KY];
 
-// Découpage d'un anneau par le rectangle (Sutherland-Hodgman), avec une marge pour ne pas voir le bord.
-const M = 30, edges = [
-  [(p) => p[0] >= -M, (a, b) => [-M, a[1] + ((b[1] - a[1]) * (-M - a[0])) / (b[0] - a[0])]],
-  [(p) => p[0] <= W + M, (a, b) => [W + M, a[1] + ((b[1] - a[1]) * (W + M - a[0])) / (b[0] - a[0])]],
-  [(p) => p[1] >= -M, (a, b) => [a[0] + ((b[0] - a[0]) * (-M - a[1])) / (b[1] - a[1]), -M]],
-  [(p) => p[1] <= H + M, (a, b) => [a[0] + ((b[0] - a[0]) * (H + M - a[1])) / (b[1] - a[1]), H + M]],
+// Découpage d'un anneau par le rectangle (Sutherland-Hodgman), avec une marge pour ne pas voir le bord
+// (large à l'est et à l'ouest : la carte se décale pour laisser la place à la bulle et au panneau).
+const MX = 600, MY = 220, edges = [
+  [(p) => p[0] >= -MX, (a, b) => [-MX, a[1] + ((b[1] - a[1]) * (-MX - a[0])) / (b[0] - a[0])]],
+  [(p) => p[0] <= W + MX, (a, b) => [W + MX, a[1] + ((b[1] - a[1]) * (W + MX - a[0])) / (b[0] - a[0])]],
+  [(p) => p[1] >= -MY, (a, b) => [a[0] + ((b[0] - a[0]) * (-MY - a[1])) / (b[1] - a[1]), -MY]],
+  [(p) => p[1] <= H + MY, (a, b) => [a[0] + ((b[0] - a[0]) * (H + MY - a[1])) / (b[1] - a[1]), H + MY]],
 ];
 function clip(ring) {
   let out = ring;
