@@ -150,6 +150,8 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 | D. Estimation par la distance à vol d'oiseau | hors ligne | ce n'est pas un temps réel : interdit comme filtre vérifié (§ 8.1) |
 
 - **Recommandation** : A, avec D comme estimation dégradée clairement marquée (hors ligne ou service en échec). Si CORS bloque en Phase 4, un relais gratuit (Cloudflare Worker) sans clé ni donnée stockée.
+- **Vérification du 23 nov. 2026 (phase 4, 4.14)** : CORS ouvert (`Access-Control-Allow-Origin: *`) sur le géocodage, l'itinéraire et l'isochrone ; appels réussis dans Chromium depuis l'origine `https://felixmuzellec.github.io` (contrat IGN, passage 45210735483 du contrat IGN, 23 nov. 2026). **Le relais n'est pas nécessaire** ; l'option A tient telle quelle. Le contrat IGN le revérifie chaque jour.
+- **Étalonnage** : reporté après la phase 5, avec l'adaptateur IGN (décision de Félix, 23 nov. 2026, 14 h 54).
 - **Données gardées** : fournisseur, origine (arrondie à 100 m dans le cache), spot, durée, heure, validité (24 h).
 - **Critères de vérification** :
     - un spot à 59 min est gardé et un spot à 61 min est écarté ;

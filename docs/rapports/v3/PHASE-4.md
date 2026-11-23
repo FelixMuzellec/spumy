@@ -164,3 +164,71 @@ Elle s'appuie sur les contrats de `src/core/contracts/` et sur la validation des
 ## 14. Arrêt
 
 Phase 4 **TESTED**, hors 4.8 (BLOCKED, action de Félix). Aucune tâche de la phase 5 n'a commencé. Jeton attendu : `APPROVED — PROCEED TO PHASE 5`.
+
+## Complément du 23 novembre 2026 (réponses de Félix, 14 h 54)
+
+Réponses de Félix aux décisions du § 12, consignées dans `docs/DECISIONS_LOG.md` :
+
+| Point | Réponse de Félix | Suite |
+| --- | --- | --- |
+| 1. Protection de `main` | oui | Nouvel essai à 14 h 58 : toujours refusé par le relais de la session (HTTP 403, non contourné). **Reste à faire par Félix**, en une minute : `docs/socle/PROTECTION-MAIN.md`. |
+| 2. Étalonnage IGN | « si c'est la meilleure option, on avance » | Oui, c'est la meilleure option : l'étalonnage compare les temps de route aux points d'accès des spots, que la phase 5 audite. Il est fait après la phase 5, avec l'adaptateur IGN (ARCHITECTURE-V3 § 4). **Oubli corrigé** : le rapport de phase 2 prévoyait en phase 4 un test CORS de l'IGN, absent du rapport de phase 4. Il est fait (4.14). |
+| 3. ESLint, épinglage des actions | « si c'est la meilleure solution technique, on avance » | Oui, maintenant plutôt qu'en phase 14, avec une correction : ESLint 9 est en fin de vie depuis le 6 août 2026, donc ESLint 10 (4.12). Actions épinglées par empreinte (4.13). |
+| 4. Fusions | oui, attendre l'intégration de la V3 | Rien n'est fusionné. |
+
+### Sous-tâches ajoutées
+
+| Sous-tâche | Statut | Livrable |
+| --- | --- | --- |
+| 4.12 ESLint 10 | TESTED | ESLint 10.15.0 en configuration « flat » ; `eslint.config.js`, `tests/lint-regles.mjs`, `docs/socle/MAINTENANCE-OUTILS.md` § 1 |
+| 4.13 Actions épinglées par empreinte | TESTED | checkout 7.0.1, setup-node 7.1.0, upload-artifact 7.0.2, toutes sous Node 24 ; contrat Open-Meteo sur `ubuntu-24.04` ; `tests/actions-epinglees.mjs`, `docs/socle/MAINTENANCE-OUTILS.md` § 2 |
+| 4.14 Contrat IGN | TESTED | `.github/workflows/contrat-ign.yml`, `tests/contrat-ign.mjs` ; non exigé pour fusionner |
+
+### Résultat du contrat IGN
+
+Premier passage, 23 nov. 2026, passage 45210735483 : **8/8**.
+- Le géocodage, l'itinéraire et l'isochrone répondent depuis la CI.
+- Les ressources `bdtopo-osrm` et `bdtopo-valhalla` sont annoncées.
+- Les trois services renvoient `Access-Control-Allow-Origin: *`.
+- Les trois appels réussissent dans Chromium, depuis une page de l'origine `https://felixmuzellec.github.io`.
+
+**CORS est donc ouvert : le relais du plan B (V3-009) n'est pas nécessaire.** Le contrat le revérifie chaque jour.
+
+### Preuves
+
+| Commande | Code | Résultat |
+| --- | --- | --- |
+| `npm run lint` (ESLint 10.15.0) | 0 | 149 fichiers, les mêmes qu'avec ESLint 8 ; 0 erreur, 0 avertissement ; règles 19/19 ; actions et images de runner : OK |
+| `tests/lint-regles.mjs` sur ESLint 8.57.1 (copie propre de 22e705b) | — | 19/19 cas identiques |
+| `node tests/actions-epinglees.mjs`, deux cas négatifs (`@v7`, `ubuntu-latest`) | 1 et 1 | refusés comme prévu |
+| `npm audit` | 0 | 0 vulnérabilité (10.15.0 ; la 10.14.0 en avait 3, par minimatch) |
+| `npm test` (535183f) | 0 | e2e 846/846, contrat simulé 28/28 |
+| CI sur 44dc559 | succès | Tests 45191466560, Contrat Open-Meteo 45191466716 : actions épinglées et ESLint 10 |
+| CI sur e6d4aa3 | succès | Contrat IGN 45210735483 (8/8), Contrat Open-Meteo 45210735478, Tests 45210735286 |
+
+### Red-team, mise à jour
+
+| Constat | Gravité | Traitement |
+| --- | --- | --- |
+| ESLint 8 n'est plus maintenu | — | **résolu** (4.12) |
+| Actions épinglées par étiquette ; Node 20 | — | **résolu** (4.13) |
+| CORS de l'IGN inconnu (rapport de phase 2) | — | **résolu** : ouvert (4.14) |
+| Étalonnage IGN | MAJEURE pour le classement BORD | reporté après la phase 5, accord de Félix ; règle inchangée d'ici là |
+| `main` sans protection | MAJEURE | action de Félix |
+| La règle de clés remplaçant `react/jsx-key` est plus étroite (fragments, ternaires et tableaux non couverts) | MINEURE | remettre eslint-plugin-react quand il déclarera ESLint 10 |
+| Un seul trajet IGN mesuré, Coutances → Granville (centres) : 30,0 km en 48 min (2 899 s), soit 37 km/h de moyenne | OBSERVATION (HYPOTHÈSE : temps IGN prudents) | à confronter au terrain lors de l'étalonnage ; s'ils sont prudents, le filtre des 60 min écarterait trop de spots |
+| Empreintes d'actions à tenir à jour à la main | OBSERVATION | procédure dans MAINTENANCE-OUTILS § 2 ; Dependabot possible, non activé (décision de Félix) |
+
+### Décisions encore attendues
+
+1. Activer la protection de `main` (`docs/socle/PROTECTION-MAIN.md`).
+2. Toujours ouvertes, sans urgence :
+    - V3-019 (nettoyage des branches) ;
+    - D-11 (44 px ou 48 dp) ;
+    - D-15 (emplacement de l'export) ;
+    - Dependabot pour les actions (option).
+3. Le jeton de la phase 5.
+
+### Arrêt
+
+Phase 4 **TESTED**, hors 4.8 (BLOCKED, action de Félix). Aucune tâche de la phase 5 n'a commencé. Jeton attendu : `APPROVED — PROCEED TO PHASE 5`.

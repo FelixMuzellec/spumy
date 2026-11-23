@@ -63,10 +63,10 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 | 4.9 Documentation opérationnelle, README et fichiers de pilotage | IMPLEMENTED (EXPLOITATION : installer, publier, revenir en arrière, surveiller, incident, secrets, sauvegardes, coûts ; README et CHANGELOG à jour) | `README.md`, `docs/socle/EXPLOITATION.md`, `CHANGELOG.md` |
 | 4.10 Installation et lancement reproductibles (clone neuf) | TESTED (clone neuf de 8118388 : `npm ci` 0, build sans écart, `npm test` 0, upgrade 12/12, prototype 244/244, prototype-v3 224/224, marque 35/35, secrets 177 commits ; deux défauts trouvés et corrigés : esbuild lisait `tsconfig.json`, test a11y dépendant de l'heure) | — |
 | 4.11 Red-team, rapport en 14 parties, arrêt | TESTED (red-team : 2 constats majeurs ouverts, protection de `main` et étalonnage IGN, 7 mineurs ou observations ; preuves § 7 du rapport) | `docs/rapports/v3/PHASE-4.md` |
-| 4.12 ESLint 10 (réponse de Félix, 23 nov., 14 h 54) | IMPLEMENTED (19f8737 : ESLint 10.15.0, configuration « flat », eslint-plugin-react retiré, mêmes 149 fichiers, 0 erreur et 0 avertissement avant et après, `tests/lint-regles.mjs` 19/19 sur ESLint 8 et 10, `npm audit` 0 ; `npm test` 0 sur 535183f, e2e 846/846 ; CI à confirmer) | `eslint.config.js`, `tests/lint-regles.mjs`, `package.json`, `package-lock.json`, `tests/upgrade.mjs`, `docs/socle/MAINTENANCE-OUTILS.md` |
-| 4.13 Actions épinglées par empreinte | IMPLEMENTED (535183f : checkout 7.0.1, setup-node 7.1.0, upload-artifact 7.0.2, Node 24 ; contrat sur `ubuntu-24.04` ; `tests/actions-epinglees.mjs` OK, deux cas négatifs à 1 ; CI à confirmer) | `.github/workflows/`, `tests/actions-epinglees.mjs` |
-| 4.14 Contrat IGN en CI : joignabilité et CORS depuis le site publié (promis en phase 4 par le rapport de phase 2, oublié dans le rapport de phase 4) | NOT STARTED (arrêt sur limite de crédits avant de commencer) | à créer : `.github/workflows/contrat-ign.yml`, test Playwright |
-| 4.15 Complément du rapport, CI verte, arrêt | NOT STARTED | `docs/rapports/v3/PHASE-4.md` |
+| 4.12 ESLint 10 (réponse de Félix, 23 nov., 14 h 54) | TESTED (19f8737 : ESLint 10.15.0, configuration « flat », eslint-plugin-react retiré, mêmes 149 fichiers, 0 erreur et 0 avertissement avant et après, `tests/lint-regles.mjs` 19/19 sur ESLint 8 et 10, `npm audit` 0 ; `npm test` 0 sur 535183f, e2e 846/846 ; CI verte sur 44dc559) | `eslint.config.js`, `tests/lint-regles.mjs`, `package.json`, `package-lock.json`, `tests/upgrade.mjs`, `docs/socle/MAINTENANCE-OUTILS.md` |
+| 4.13 Actions épinglées par empreinte | TESTED (535183f : checkout 7.0.1, setup-node 7.1.0, upload-artifact 7.0.2, Node 24 ; contrat sur `ubuntu-24.04` ; `tests/actions-epinglees.mjs` OK, deux cas négatifs à 1 ; CI verte sur 44dc559 : Tests 45191466560, Contrat Open-Meteo 45191466716) | `.github/workflows/`, `tests/actions-epinglees.mjs` |
+| 4.14 Contrat IGN en CI : joignabilité et CORS depuis le site publié (promis en phase 4 par le rapport de phase 2, oublié dans le rapport de phase 4) | TESTED (e6d4aa3 ; passage 45210735483 : 8/8, CORS ouvert `Access-Control-Allow-Origin: *`, appels réussis dans Chromium depuis l'origine du site ; relais non nécessaire, V3-009 complétée) | `.github/workflows/contrat-ign.yml`, `tests/contrat-ign.mjs`, `docs/DATA_SOURCES.md`, `docs/ARCHITECTURE-V3.md`, `docs/DECISIONS_LOG.md` |
+| 4.15 Complément du rapport, CI verte, arrêt | TESTED (complément du rapport, red-team mise à jour, CHANGELOG) | `docs/rapports/v3/PHASE-4.md`, `CHANGELOG.md` |
 
 ## Questions et décisions (registre)
 
@@ -101,16 +101,14 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 
 ## Prochaine action
 
-**STOP_REASON: CREDIT_LIMIT** (23 nov. 2026, vers 15 h 20 : « You've hit your 5-hour limit · resets 4:50pm »).
+Reprise après l'arrêt sur limite de crédits (`STOP_REASON: CREDIT_LIMIT`, 23 nov. vers 15 h 20) : reprise à 16 h 53 sur « Continue », complément terminé.
 
-- Phase 4 : **IN PROGRESS** (complément demandé par Félix à 14 h 54) ; 4.8 BLOCKED (action de Félix).
-- Terminé : 4.12 (19f8737), 4.13 (535183f), décisions de Félix consignées (`docs/DECISIONS_LOG.md`).
-- Reste, dans l'ordre :
-  1. `npm test` fait (code 0 sur 535183f, e2e 846/846) ; reste la CI sur la proposition n° 18 (poussée), à confirmer, et `test:upgrade` ; corriger si rouge ;
-  2. 4.14 : passage `contrat-ign.yml` (non exigé pour fusionner) : géocodage, isochrone, itinéraire de l'IGN depuis la CI, et un `fetch()` réel depuis une page de l'origine `https://felixmuzellec.github.io` dans Chromium (CORS) ; paramètres à vérifier sur `https://data.geopf.fr/navigation/getcapabilities` ; résultat consigné dans `docs/DATA_SOURCES.md` et V3-009 ; si CORS bloque, plan B du relais (décision de Félix) ;
-  3. 4.15 : complément du rapport de phase 4 (décisions, 4.12 à 4.14, preuves), `ARCHITECTURE-V3.md` § 4 (étalonnage après la phase 5, avec l'adaptateur IGN), continuité, commit, push, CI verte, arrêt.
-- Branche `claude/v3-phase-4` ; dernier commit : voir `git log` ; `main` inchangé (bb4f940).
-- Aucune tâche de la phase 5 sans le jeton `APPROVED — PROCEED TO PHASE 5`.
+Phase 4 **TESTED**, hors 4.8 (BLOCKED : Félix active la protection de `main`, `docs/socle/PROTECTION-MAIN.md`). Rapport et complément remis, arrêt. Attendus de Félix :
+- la protection de `main` ;
+- les points toujours ouverts (V3-019, D-11, D-15, Dependabot en option) ;
+- le jeton `APPROVED — PROCEED TO PHASE 5`.
+
+Aucune tâche de la phase 5 ne démarre sans ce jeton. Branche `claude/v3-phase-4` ; `main` inchangé (bb4f940).
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 

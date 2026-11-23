@@ -80,13 +80,13 @@ Les champs V2 dépréciés (`v2.pert`, `V2.pert`, `bar:boite-complete`, `bar:tra
 2. **Isochrone** : un appel IGN, voiture, 60 min, depuis la position arrondie à 100 m. Le polygone est gardé en cache 24 h par position arrondie.
 3. **Filtre** : un spot est admissible si son accès est dans le polygone, avec la mention « temps vérifié par l'IGN ».
     - **Point ouvert (red-team de la phase 2)** : l'isochrone suit le réseau routier. Un poste sur une pointe, loin de la route, peut tomber hors du polygone alors que son stationnement y est. Le test d'appartenance se fait donc sur le point d'accès (RTE-04). Tant qu'il manque, il se fait sur le point routier le plus proche, donné par l'itinéraire.
-    - **Étalonnage en Phase 4** sur les 66 spots, en comparant isochrone et itinéraire. Aucun spot n'est écarté sur le seul polygone sans ce contrôle.
+    - **Étalonnage** sur les 66 spots, en comparant isochrone et itinéraire, **après la phase 5** (points d'accès audités) et avec l'adaptateur IGN, par un passage de CI qui atteint l'IGN (décision de Félix, 23 nov. 2026, 14 h 54 ; prévu d'abord en phase 4). Aucun spot n'est écarté sur le seul polygone sans ce contrôle.
 4. **Temps exact** : un appel « itinéraire » pour chaque spot montré (Top 3 à 5, fiche ouverte), au rythme de 5 appels par seconde au plus ; gardé en cache 24 h.
 5. **Dégradé** :
     - hors ligne ou service en échec : estimation par la distance à vol d'oiseau × 1,4, sur 60 km/h, pour lister des spots plausibles ;
     - ces spots sont marqués « temps estimé, non vérifié » et jamais présentés comme « à 60 min ».
 
-   Le coefficient de 1,4 est une HYPOTHÈSE à étalonner en Phase 4 sur les temps IGN des 66 spots.
+   Le coefficient de 1,4 est une HYPOTHÈSE à étalonner sur les temps IGN des 66 spots (même étalonnage, après la phase 5).
 6. **Changement de position** : nouvelle isochrone, puis tout est recalculé (POS-06).
 
 En BATEAU, aucun appel routier (RTE-03). Le temps de navigation n'est calculé que si V3-014 le retient, et seulement avec les données du bateau.
@@ -103,7 +103,7 @@ En BATEAU, aucun appel routier (RTE-03). Le temps de navigation n'est calculé q
 | Fond de carte IGN | cache HTTP du navigateur seulement | — | OpenStreetMap ; hors ligne, « carte indisponible hors ligne » |
 | Vigilance (par le relais, V3-011) | par département, 1 h | 1 h | « vigilance inconnue », jamais « aucune » ; rappel et lien |
 
-**Contrôle des services en continu.** Le contrat Open-Meteo réel tourne chaque jour sur GitHub (V2). On y ajoute un contrat IGN : géocodage, isochrone, itinéraire et en-têtes CORS. C'est la seule surveillance possible sans serveur.
+**Contrôle des services en continu.** Le contrat Open-Meteo réel tourne chaque jour sur GitHub (V2). Le contrat IGN (`.github/workflows/contrat-ign.yml`, phase 4) vérifie chaque jour le géocodage, l'itinéraire, l'isochrone et leur appel par un navigateur depuis l'origine du site publié (CORS). C'est la seule surveillance possible sans serveur. Premier passage : 8/8, CORS ouvert (`Access-Control-Allow-Origin: *`) ; passage 45210735483 du contrat IGN, 23 nov. 2026.
 
 ## 6. Hors ligne et synchronisation
 
