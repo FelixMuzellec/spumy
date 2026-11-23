@@ -34,6 +34,7 @@ Format ADR. Le registre des exigences (`docs/REQUIREMENTS.md`) et la vision (`do
 | V3-026 | Pas de vraies photos de spots : photos d'illustration seulement, marquées « Illustration » | VALIDÉE (Félix, 20 nov. 2026, 15 h 02 : « trop lourd pour l'application ») |
 | V3-027 | Jalon 2 : direction visuelle, principes du Design System et prototype version 5.2 ; 6 réserves suivies | VALIDÉE AVEC RÉSERVES (Félix, 20 nov. 2026, 15 h 40) |
 | V3-028 | Prototype version 6 d'après les maquettes de Félix : Home, Carte vue pêche, Météo vue conditions ; slogan autorisé ; Shore / Offshore ; finition et qualité d'information « top tier » ; pas de retour sur ce qui est validé | VALIDÉE (Félix, 23 nov. 2026, 5 h 58 à 6 h 22) ; réalisation au feu vert |
+| V3-029 | Finalité des onglets : Carte = typologie du terrain et ses effets sur la pêche du bar ; Météo = chaque élément météo et son effet, expliqués scientifiquement | VALIDÉE (Félix, 23 nov. 2026, 6 h 59) |
 
 ## Décisions V2 encore en vigueur
 
@@ -359,4 +360,16 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 - **Corrections des maquettes acceptées par Félix** : 11 points, listés au § 6 du cahier des charges (spot touché, lignes en double, panneau qui masque, jaune pour 62, sécurité, vraies positions, onglet de la vidéo, « Meilleur moment », couleurs de la bande de 24 h, noms cachés au dézoom, « km · min »).
 - **Ce qui ne change pas** : tout ce qui a été validé, listé au § 7 du cahier des charges. Félix ne veut pas y revenir.
 - **Documents à mettre à jour à la réalisation** : Design System, UX-V3, PROTOTYPE-V3, revues, galerie AVANT/CIBLE, exigences MAP-02, MET-01, UX-05, UX-09.
+
+## V3-029 — Finalité scientifique des onglets Carte et Météo
+
+- **Statut** : VALIDÉE par Félix, 23 nov. 2026, 6 h 59. Complète V3-028 et le cahier des charges `docs/design/PROTOTYPE-V6.md` (§ 0, 3 et 4), sans rien retirer de ce qui est validé.
+- **Directive de Félix** :
+    - « Le but de la section carte c'est d'avoir tous les renseignements concernant la typologie du terrain qui peuvent impacter scientifiquement en positif ou en négatif la pêche du bar. »
+    - « Le but de la section météo est d'avoir et d'expliquer de façon scientifique pourquoi tel élément météo va impacter positivement ou négativement notre pêche. »
+- **Ce que cela impose** :
+    1. **Carte** : pour chaque spot, les rubriques de terrain déjà présentes dans les données (fond, terrain, structure, exposition, courant), chacune avec son effet favorable ou défavorable, l'explication, la source et le niveau de preuve (échelle 1 à 5 de `data/knowledge/bar-bord.json`). Une rubrique déduite (niveau 4) ou une règle générale (niveau 5) est marquée comme hypothèse. Les couches de terrain (natures de fonds, profondeurs, estran, courants) ne viennent que de données réelles, avec leur source.
+    2. **Météo** : pour chaque élément, l'effet favorable ou défavorable, pourquoi en mots simples, la source et le niveau de preuve, tirés des connaissances sourcées : vent-exposition, rafales-penalite, houle-turbidite, pression, eau-chaude, seuils-thermiques, ciel-couvert, lumiere-basse, pluie-turbidite, maree-flot, coefficient-plage-utile, courant-coefficient, gros-coefficient-turbidite. Sans connaissance sourcée, la valeur s'affiche sans effet annoncé.
+    3. Rien n'est inventé. Les effets et les explications viennent des données et des connaissances sourcées du dépôt. L'audit biologique et halieutique de la phase 5 les revalidera.
+- **Ce que cela modifie dans le référentiel** : il ne fixait pas cette finalité aux onglets ; elle devient la règle de conception de la Carte et de la Météo. Exigences ajoutées : MAP-09, MET-05.
 

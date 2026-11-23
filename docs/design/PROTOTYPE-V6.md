@@ -1,6 +1,6 @@
 # Prototype SPUMY V3, version 6 — cahier des charges
 
-Décidé avec Félix le 23 novembre 2026, de 5 h 50 à 6 h 22, à partir de ses maquettes. Décision : V3-028 (`docs/DECISIONS_LOG.md`).
+Décidé avec Félix le 23 novembre 2026, de 5 h 50 à 6 h 59, à partir de ses maquettes. Décisions : V3-028 et V3-029 (`docs/DECISIONS_LOG.md`).
 
 **Statut** : DÉCIDÉ, réalisation pas commencée. Elle démarre au feu vert de Félix, dans la phase 3. Rien n'est publié sur le site.
 
@@ -10,6 +10,13 @@ Décidé avec Félix le 23 novembre 2026, de 5 h 50 à 6 h 22, à partir de ses 
 - `meteo-video-planche.jpg` et `meteo-video-trois-temps.jpg` : images de la vidéo de 10 s, la vue Météo.
 
 Félix ne veut pas revenir sur ce qui a été validé : ce document et le journal des décisions font foi. Toute nouvelle idée qui toucherait un point validé doit être présentée comme un changement, avec son impact, et jamais appliquée d'office.
+
+## 0. Finalité des onglets (V3-029)
+
+- **Carte** : tous les renseignements sur la typologie du terrain qui peuvent jouer, scientifiquement, en positif ou en négatif sur la pêche du bar.
+- **Météo** : chaque élément météo, et pourquoi il joue en positif ou en négatif sur la pêche, expliqué scientifiquement.
+
+Dans les deux cas, chaque effet annoncé donne son explication, sa source et son niveau de preuve (1 à 5, `data/knowledge/bar-bord.json`). Une hypothèse est marquée comme telle. Sans connaissance sourcée, aucun effet n'est annoncé.
 
 ## 1. Exigences de finition
 
@@ -68,6 +75,11 @@ Félix ne veut pas revenir sur ce qui a été validé : ce document et le journa
   - « Meilleur moment : 07:10–10:20 ».
 
   Retoucher le spot ferme la bulle. Un bouton de fermeture et la touche Échap la ferment aussi.
+- **Terrain du spot** (V3-029), sous les lignes validées de la bulle, à déplier :
+  - fond, terrain, structure, exposition, courant, d'après les rubriques des spots ;
+  - pour chacun : effet favorable ou défavorable sur le bar, pourquoi en mots simples, source et niveau de preuve ;
+  - une rubrique de niveau 4 ou 5 est marquée « hypothèse ».
+- **Couches de terrain** dans le bouton Couches : natures de fonds, profondeurs, estran découvrant, courants, chacune seulement si des données réelles existent, avec la source et la mention « ne pas utiliser pour la navigation ».
 - **Boutons à droite** : Me localiser, Couches, Vue d'ensemble, avec un + et − discrets.
 - **Légende** dépliable : les 6 paliers.
 - **Pas de vent** sur la Carte.
@@ -94,6 +106,9 @@ Félix ne veut pas revenir sur ce qui a été validé : ce document et le journa
     8. pression ;
     9. marée (montante ou descendante, avec l'heure).
   - Chaque valeur a sa source et son heure, sans aucune ligne en double.
+  - **Effet sur la pêche** (V3-029) : chaque élément porte son effet, favorable, défavorable ou neutre, par un mot et un pictogramme, pas par la couleur seule. On le déplie pour lire pourquoi, en mots simples, avec la source et le niveau de preuve. Les connaissances viennent de `data/knowledge/bar-bord.json` (vent-exposition, rafales-penalite, houle-turbidite, pression, eau-chaude, seuils-thermiques, ciel-couvert, lumiere-basse, pluie-turbidite, maree-flot, coefficient-plage-utile, courant-coefficient, gros-coefficient-turbidite).
+  - Le vent est jugé selon son orientation par rapport à la côte du spot, pas seulement sa force.
+  - Sans connaissance sourcée, la valeur s'affiche sans effet annoncé.
 - **Boutons et légende** : comme sur la Carte.
 
 ## 5. Reste de l'application, au même standard
@@ -152,7 +167,8 @@ Fiche spot, Comparaison, Journal, Profil, Home Offshore et ses vues, feuille de 
 5. Reste des écrans (§ 5).
 6. Tests :
    - mise à jour de `tests/prototype-v3.mjs` pour la nouvelle mise en page ;
+   - chaque effet affiché (terrain et météo) renvoie à une source et à un niveau de preuve ; aucun effet sans source ;
    - toutes les règles gardées ;
    - axe, 44 px, 12 px, captures, planches de comparaison avec les maquettes.
-7. Documents : Design System, UX-V3, PROTOTYPE-V3, revues (complément), galerie AVANT/CIBLE, exigences touchées (MAP-02, MET-01, UX-05, UX-09).
+7. Documents : Design System, UX-V3, PROTOTYPE-V3, revues (complément), galerie AVANT/CIBLE, exigences touchées (MAP-02, MAP-09, MET-01, MET-05, UX-05, UX-09).
 8. Revalidation par Félix, complément au rapport de phase 3, puis jeton de phase 4.

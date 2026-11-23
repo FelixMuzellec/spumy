@@ -2,6 +2,8 @@
 
 Phase 2 V3, 20 novembre 2026. Format du référentiel, § 5.2.
 
+**Version 3** (23 nov. 2026, V3-029) : 97 exigences ; MAP-09 et MET-05 ajoutées, UX-03 modifiée (V3-028).
+
 **Version 2** (20 nov. 2026, jalon 1 de la phase 3) : 95 exigences ; MET-01 à MET-04, UX-08, UX-09, PRO-03, SPOT-09, BAT-09, BAT-10 et MAP-08 ajoutées, UX-05 modifiée (V3-023).
 
 **Colonnes**
@@ -79,6 +81,7 @@ Validation : registre validé par le jeton de la phase 3 (20 nov. 2026, 4 h 25).
 | MAP-06 | Chaque spot a une position en décimales, sourcée ; une position imprécise est signalée tant qu'elle n'est pas corrigée | IND | § 7.4 ; D8 | 66 spots sur 66 en décimales, ou signalés | R | Non conforme (7 spots) | 5, 7 |
 | MAP-07 | Carte utilisable sur téléphone et sur ordinateur (taille adaptée à l'écran) | IMP | § 6.11 ; D11 | captures 320, 390, 1 280 px | V | Non conforme | 3 |
 | MAP-08 | Filtre « Favorables » : Favorabilité affichée de 75 ou plus, sécurité permise, pas « à vérifier » ; jamais « sans danger » | IND | V3-021 | bornes 74 et 75 testées ; compteur égal aux pastilles | U, E | Partiel (seuil 65) | 3, 10 |
+| MAP-09 | Carte = typologie du terrain : pour chaque spot, fond, terrain, structure, exposition et courant, avec leur effet favorable ou défavorable sur la pêche du bar, l'explication, la source et le niveau de preuve (1 à 5) ; couches de terrain (natures de fonds, profondeurs, estran, courants) seulement d'après des données réelles | IND | V3-029 | chaque effet affiché renvoie à une source et à un niveau ; aucune couche sans source | U, E | Partiel (rubriques des spots, sans effet affiché) | 3, 5, 10 |
 
 ## SPOT — Fiches, données et spots personnels
 
@@ -131,6 +134,7 @@ Validation : registre validé par le jeton de la phase 3 (20 nov. 2026, 4 h 25).
 | MET-02 | BATEAU : couche Mer (hauteur, période, direction des vagues) aux mêmes points | IMP | V3-023 | couche testée en BATEAU seulement | U, V | Absent | 3, 9 |
 | MET-03 | Aucun découpage géographique (grille de points, aucune zone nommée) ; couleur neutre, distincte des paliers de Favorabilité ; avertissement écrit à partir de force 6 | IND | § 0.2 ; V3-023 | aucune couleur de palier ni nom de zone dans la couche | U, V | — | 3 |
 | MET-04 | Résumé du lieu de référence (vent, mer, eau, pression, pluie, vigilance, soleil) et courbes du jour ; source, modèle et âge toujours écrits ; hors ligne : dernière prévision avec son âge | IND | § 6.11 ; DATA_SOURCES | source et âge visibles dans tous les états | E, V | Partiel | 3, 6 |
+| MET-05 | Météo = explication scientifique : pour chaque élément (vent et son orientation à la côte, rafales, houle, pression, température de l'eau, ciel et lumière, pluie, marée, coefficient, courant), l'effet favorable ou défavorable sur la pêche du bar, pourquoi, la source et le niveau de preuve ; sans connaissance sourcée, la valeur s'affiche sans effet annoncé | IND | V3-029 | chaque effet renvoie à une connaissance sourcée (`data/knowledge/bar-bord.json`) | U, E | Absent | 3, 5, 6 |
 
 ## UX — Identité, interface, accessibilité
 
