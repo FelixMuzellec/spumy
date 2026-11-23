@@ -1,0 +1,373 @@
+{
+ "id": "penhors",
+ "name": "Penhors",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "audierne",
+  "empreinte_v2": "e0f6f836a839c9563577a3c3eb559dfa4b0c9e1a43ca4491e1d638565189c658",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 47.9395769,
+  "lon": -4.4031143,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (47°56,4'N 4°24,2'W) ; précision non documentée.",
+   "verifie_le": null
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Penhors (Pouldreuzic), accès direct à la plage, GR34 (destination-paysbigouden).",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Temps de marche non documenté en V2."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "PLAGE + PLATIER ROCHEUX — Pouldreuzic, baie d'Audierne",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Plage de la baie d'Audierne et petit port ; break de récif d'après les fiches de surf (surf-forecast). Nature exacte non décrite.",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 2,
+    "gratter": "texan",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Tournée vers le SO (surf-forecast).",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Plage et platier de la baie, battus par la houle (déduit, aucune sonde).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "peu"
+   }
+  },
+  "structures": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Grande baie ouverte, petit port, platier.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Courants de plage par houle ; pas de mesure.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    30,
+    45,
+    85,
+    105
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "penhors",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Grande plage de baie : l'écume et le bord du platier sont les postes.",
+   "lifeHack": "Penhors est au sud du 48e parallèle : 2 bars par jour toute l'année (zone CIEM 8).",
+   "montantOuDescendant": "Le bon moment s'apprend plage par plage (Vidal) : le guide part du flot, à recaler avec ton journal.",
+   "typeHeure": "FLOT",
+   "windows": [
+    {
+     "id": "ph1",
+     "label": "Montant",
+     "note": "Écume et bord du platier.",
+     "offsetAfter": 5,
+     "offsetBefore": 1,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "ph2",
+     "label": "Début de descendant",
+     "note": "Sortie du platier.",
+     "offsetAfter": 2,
+     "offsetBefore": 0,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "descendant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     45,
+     67.5,
+     90
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     202.5,
+     225,
+     247.5,
+     270
+    ]
+   },
+   "texte": "Plage de la baie d'Audierne tournée vers le sud-ouest (houle idéale SO, vent de terre ENE d'après surf-forecast).",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.8
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "VÉRIFIÉ",
+    "origine": "v2",
+    "texte": "Plage citée pour le bar du bord (cannes-peche) ; plages de la baie pêchées par le guide du cap.",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Souple sur tête plombée sur le sable, texan près du platier.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Waders sur les plages de la baie d'Audierne (Pêche-Rando Bar).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Jig dans le gros ressac (même guide).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Une seule source nomme le bar ici (cannes-peche) ; atout-pecheur parle du surfcasting en baie d'Audierne en général.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Penhors est au sud du 48e parallèle : 2 bars par jour toute l'année (zone CIEM 8).",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Blanc / naturel",
+    "name": "Souple 12 cm tête plombée",
+    "technique": "Dans l'écume. Repère du guide : Sand Eel sur tête de 21 g.",
+    "weight": "tête 15-21 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Argent",
+    "name": "Jig de lancer",
+    "technique": "Gros ressac (Pêche-Rando Bar).",
+    "weight": "20-40 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.8,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Règle V2 : réglementation du bar appliquée selon le 48ᵉ parallèle (arrêté du 1er avril 2026) ; à vérifier sur la source officielle, avec sa date (5.7).",
+   "verifie_le": null
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v2",
+  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+ },
+ "provenance": {
+  "sources": [],
+  "sources_v2": [
+   "cannes-peche.blog4ever.com — Pouldreuzic : « Plage de Penhors »",
+   "Pêche-Rando Bar — plages de la baie d'Audierne",
+   "surf-forecast.com — Penhors",
+   "destination-paysbigouden.com — Plage de Penhors"
+  ],
+  "faits_v2": [
+   {
+    "s": "destination-paysbigouden.com — Plage de Penhors",
+    "t": "Plage de Penhors (47,9395769 / -4,4031143), petit port de Penhors sur le GR34 ; surveillée en juillet-août."
+   },
+   {
+    "s": "surf-forecast.com — Penhors",
+    "t": "Break de récif « exposé » ; houle idéale de sud-ouest, vent idéal d'est-nord-est."
+   },
+   {
+    "s": "cannes-peche.blog4ever.com (Alain, 07/11/2016)",
+    "t": "« Plage de Penhors » citée parmi les coins à bar du bord."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": null,
+  "completude": 0.67,
+  "inconnus": [
+   "access.stationnement",
+   "access.marche_min",
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.montante",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": []
+ }
+}

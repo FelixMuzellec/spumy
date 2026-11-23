@@ -1,0 +1,373 @@
+{
+ "id": "minou",
+ "name": "Pointe du Petit Minou",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "logonna",
+  "empreinte_v2": "2a778e656feee50b0e811049ed07fe57ff3e48bbbc756537d1a8fba712a407b1",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 48.3367,
+  "lon": -4.613987,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°20,2'N 4°36,8'W) ; précision non documentée.",
+   "verifie_le": null
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "D789 depuis Brest direction Plouzané / phare du Petit Minou. Parking devant le phare (gratuit). Descente par sentier GR34 vers les rochers. Possibilité de pêcher depuis la plage en contrebas.",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Temps de marche non documenté en V2."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "POINTE / PHARE — Plouzané, Goulet nord",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Roche, galets, tombants vers le canyon du Goulet, estran accidenté.",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 3,
+    "gratter": "non",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Face SO/O. Prend la houle d'Atlantique directement si elle rentre par le Goulet. Vent d'E/NE = bien abrité.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Tombants vers le canyon du goulet (fiche).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "tombant"
+   }
+  },
+  "structures": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pointe rive nord du Goulet, symétrique de la Pointe des Espagnols. Logique identique : courant fort en plein Goulet, contre-courants et criques abritées le long du littoral. Plage sous le phare accessible.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Courant du Goulet, 2-3 nds en VE selon zone. Accélération devant le phare. Plus calme dans les petites anses adjacentes.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    35,
+    55,
+    88,
+    110
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Pointe rocheuse classique avec particularité Goulet : le courant conditionne tout. Privilégier fin de descendant + étale BM + tout début de montant.",
+   "lifeHack": "Houle de SO : au-delà de 1,8 m le guide pénalise la pointe, au-delà de 2,3 m il ne la propose plus ; pêcher alors depuis les petites anses abritées. L'accès au poste dépend de la marée et de la houle du jour.",
+   "montantOuDescendant": "Descendant dominant (principe pointes), renversement également exploitable. Le flot arrive trop fort pour la pêche au leurre en plein Goulet.",
+   "typeHeure": "DESCENDANT + RENVERSEMENT",
+   "windows": [
+    {
+     "id": "pm1",
+     "label": "Fin de jusant (BM−2 → BM−0,5)",
+     "note": "Le jusant faiblit à l'approche de l'étale (règle des douzièmes) : postes accessibles, bars qui chassent.",
+     "offsetAfter": -0.5,
+     "offsetBefore": -2,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "descendant"
+    },
+    {
+     "id": "pm2",
+     "label": "Étale BM (±45min)",
+     "note": "Courant s'annule, moment optimal pour les plus gros postes sous le phare.",
+     "offsetAfter": 0.7,
+     "offsetBefore": -0.7,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "renversement"
+    },
+    {
+     "id": "pm3",
+     "label": "1-2h après PM (descendant)",
+     "note": "Courant encore fort mais exploitable côté anses protégées.",
+     "offsetAfter": 2.5,
+     "offsetBefore": 1,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "descendant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     45,
+     67.5,
+     90
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     225,
+     247.5,
+     270
+    ]
+   },
+   "texte": "Rive nord du Goulet, face au Goulet et à la mer d'Iroise. Exposée SW plein (Atlantique).",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.8
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Zone Goulet = bars et lieus documentés (brestfishing). Postes à gros possibles mais pression de pêche plus forte qu'aux Espagnols car accès plus facile.",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Leurres comptés pour longer le tombant sans le toucher.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Même logique qu'aux Espagnols : renverses, contre-courants des criques, jamais de raclage.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Sources minces : mieuxpecher ne fait que nommer « Grand et Petit Minou » ; brestfishing parle du goulet en bateau.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Houle de SO : au-delà de 1,8 m le guide pénalise la pointe, au-delà de 2,3 m il ne la propose plus ; pêcher alors depuis les petites anses abritées. L'accès au poste dépend de la marée et de la houle du jour.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / Iwashi / Sardine",
+    "name": "Stickbait coulant (sinking pencil)",
+    "technique": "Pêche dans le courant du Goulet, dérive contre courant. Dans ta boîte : Mr Joe 120 (35 g, coulant) ; l'Asturie 130 (27 g) est flottant.",
+    "weight": "30-40 g (limite de ta canne : 42 g)"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Pearl / White / UV",
+    "name": "Shad lourd",
+    "technique": "Le long du tombant, compté, sans le toucher.",
+    "weight": "25-40 g (limite de ta canne : 42 g)"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / Sardine",
+    "name": "Stickbait 140-165 mm (Patchinko)",
+    "technique": "Walk-the-dog sur les plus beaux jours calmes, chasses visibles. Patchinko 165 RB pour les lancers longs.",
+    "weight": "25 g et plus (Patchinko 2 140 : 25 g)"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 2,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Houle de sud-ouest : au-delà de 1,8 m, quitter la pointe pour les petites anses abritées.",
+    "verifie_le": null,
+    "source_texte": "fiche du spot (conseil)"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.8,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Règle V2 : réglementation du bar appliquée selon le 48ᵉ parallèle (arrêté du 1er avril 2026) ; à vérifier sur la source officielle, avec sa date (5.7).",
+   "verifie_le": null
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v2",
+  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+ },
+ "provenance": {
+  "sources": [],
+  "sources_v2": [
+   "brestfishing.fr — Goulet de Brest (pêche en bateau : principes généraux, plateaux rocheux)",
+   "mieuxpecher.com — « Coins de pêche – Finistère NORD » : « Grand et Petit Minou » (nom seul)",
+   "peche.com — Pointes rocheuses (principes)"
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": null,
+  "completude": 0.67,
+  "inconnus": [
+   "access.stationnement",
+   "access.marche_min",
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.montante",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": []
+ }
+}

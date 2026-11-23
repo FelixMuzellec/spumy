@@ -1,0 +1,371 @@
+{
+ "id": "trezbellec",
+ "name": "Plage de Trez Bellec",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "crozon",
+  "empreinte_v2": "085b2b9ecf1b9cbaf4a2b4e36c8bbd27a3fc375725ec02289aa4c3ed05a879a5",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 48.2141993,
+  "lon": -4.3742625,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°12,9'N 4°22,5'W) ; précision non documentée.",
+   "verifie_le": null
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Plage de Trez Bellec, D208, Telgruc-sur-Mer ; parkings (plages.tv).",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Temps de marche non documenté en V2."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "PLAGE — Telgruc-sur-Mer, nord de la baie de Douarnenez",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Plage de sable bordée d'un liseré de galets, au sable « particulièrement dur et plat à marée basse » ; tournée vers la baie de Douarnenez, « protégée des courants, mais pas des courants d'air » (plages.tv).",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 1,
+    "gratter": "oui",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Sud à sud-ouest, face à la baie. Déduit de la carte.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Sable « dur et plat à marée basse » (plages.tv) : très peu d'eau au bord à basse mer.",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "estran"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Grande plage de sable du nord de la baie.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "« Protégée des courants » (plages.tv).",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    30,
+    50,
+    80,
+    100
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "morgat",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Plage plate : le flot ramène le poisson sur le bord.",
+   "lifeHack": "Marée de Morgat (13 km) : l'heure du poste en diffère de quelques minutes au plus (déduit).",
+   "montantOuDescendant": "Aucune source sur la phase : règle générale du bar en Bretagne (Vidal). Le bon moment de chaque plage s'apprend en quelques sorties.",
+   "typeHeure": "RÈGLE GÉNÉRALE (À RECALER)",
+   "windows": [
+    {
+     "id": "tb1",
+     "label": "Montant, règle générale (BM → BM+3)",
+     "note": "Règle générale (Vidal), non propre à cette plage.",
+     "offsetAfter": 3,
+     "offsetBefore": 0,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "tb2",
+     "label": "Fin de descendant, règle générale (BM−3 → BM)",
+     "note": "Règle générale (Vidal), non propre à cette plage.",
+     "offsetAfter": 0,
+     "offsetBefore": -3,
+     "phase": "bm",
+     "priority": "bon",
+     "tidePhaseType": "descendant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     0,
+     22.5,
+     45
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     180,
+     202.5,
+     225,
+     247.5
+    ]
+   },
+   "texte": "Plage du nord de la baie, tournée vers le sud et le sud-ouest (déduit de la carte et de plages.tv) : vent et houle de sud-ouest de face, vent de nord de dos.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 2.5
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "VÉRIFIÉ",
+    "origine": "v2",
+    "texte": "Plage à bars au surfcasting (chtipecheur) ; citée par un pêcheur local (carnalor).",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Souple léger ou leurre de surface dans les vagues du bord ; le sable permet de gratter.",
+   "verifie_le": null
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Plage citée pour le bar au surfcasting (chtipecheur) et par un pêcheur de la presqu'île (carnalor) : au leurre, chercher les jours de petite houle (règle des plages du secteur, pecheaubar).",
+   "verifie_le": null
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Plage de char à voile, de kitesurf et de surf : pêcher tôt ou tard.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Marée de Morgat (13 km) : l'heure du poste en diffère de quelques minutes au plus (déduit).",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel / blanc",
+    "name": "Souple 10-12 cm tête légère",
+    "technique": "Dans les vagues du bord, à la montante.",
+    "weight": "tête 7-15 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost",
+    "name": "Stickbait 110-130 mm",
+    "technique": "Aube ou crépuscule, petite houle.",
+    "weight": "14-27 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 2.5,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Règle V2 : réglementation du bar appliquée selon le 48ᵉ parallèle (arrêté du 1er avril 2026) ; à vérifier sur la source officielle, avec sa date (5.7).",
+   "verifie_le": null
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v2",
+  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+ },
+ "provenance": {
+  "sources": [],
+  "sources_v2": [
+   "chtipecheur.com — « Spots de pêche de Bretagne » : plages de la baie de Douarnenez",
+   "carnalor.com — forum « crozon rade de brest » (Guy535, 2012)",
+   "plages.tv — Plage de Trez Bellec",
+   "Google Maps — position"
+  ],
+  "faits_v2": [
+   {
+    "s": "chtipecheur.com — « Spots de pêche de Bretagne » (JC59110, mod. 16/04/2026)",
+    "t": "« Plages du Ris, Trezmalaouen, Pentrez et Trezbellec » : surfcasting, bars."
+   },
+   {
+    "s": "carnalor.com — forum « crozon rade de brest » (Guy535, 19/03/2012)",
+    "t": "« s'il y a du bar essayez l'ile de l'aber avant crozon » ; « la plage de Telgruc , de l'aber , trez bien a coté »."
+   },
+   {
+    "s": "plages.tv — Plage de Trez Bellec à Telgruc-sur-Mer",
+    "t": "Sable « bordé d'un liseré de galets qui seul perdure à marée très haute » ; « tournée vers la baie de Douarnenez » ; « protégée des courants, mais pas des courants d'air » ; sable « dur et plat à marée basse » ; pêche possible."
+   },
+   {
+    "s": "Google Maps — Plage de Trez-Bellec",
+    "t": "Position : 48,2141993 / -4,3742625."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": null,
+  "completude": 0.66,
+  "inconnus": [
+   "access.stationnement",
+   "access.marche_min",
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.montante",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": []
+ }
+}

@@ -1,0 +1,360 @@
+{
+ "id": "penhir",
+ "name": "Pointe de Pen-Hir",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "logonna",
+  "empreinte_v2": "1d57dd1f267f6a78dd77389fa72676512a92f24c2546c6482555ee789981e98c",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 48.254116,
+  "lon": -4.621814,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°15,2'N 4°37,3'W) ; précision non documentée.",
+   "verifie_le": null
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Depuis Logonna : Le Faou, puis la D791 et le pont de Térénez, direction Crozon / Camaret. Parking pointe de Pen-Hir (monument aux Bretons). Sentier GR34 puis descente technique aux rochers. Niveau pêcheur expérimenté + conditions calmes impératives.",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Temps de marche non documenté en V2."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "CÔTE OCÉANIQUE — Camaret-sur-Mer, mer d'Iroise",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Granite massif, succession de basses rocheuses.",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 3,
+    "gratter": "non",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Exposition plein O/SO, houle d'Atlantique directe (déduit de la carte).",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Basses rocheuses qui se prolongent loin en mer (fiche).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "tombant"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Pointe extrême, face à l'Atlantique. Tas de Pois au large (rochers iconiques). Zone de passage entre rade et baie de Douarnenez. Gros gibier : bars trophées, lieus, pagres, dauphins.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Courant de la mer d'Iroise, modéré à fort selon coef et zone. Pas comparable au Raz Blanchard mais mérite attention en VE.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    25,
+    45,
+    90,
+    115
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Côte océanique classique : courant + houle résiduelle + éclairage faible = déclencheurs majeurs. Les basses du récif sont les postes, chacune à tester selon le courant du jour.",
+   "lifeHack": "Spot dangereux par houle : au-delà de 1,5 m, le guide ne le propose plus (spot engagé). Vérifier le bulletin mer d'Iroise. Jamais seul, gilet obligatoire. Stickbaits de grande taille au lancer long (Patchinko 165).",
+   "montantOuDescendant": "Descendant dominant sur les basses (savoir de terrain de ton guide d'origine). La lumière basse est prise en compte à part par le guide.",
+   "typeHeure": "DESCENDANT + LEVER/COUCHER (principe côte océanique)",
+   "windows": [
+    {
+     "id": "ph1",
+     "label": "Descendant plein (1-3h après PM)",
+     "note": "Courant établi sur les basses. Leurre coulant dans la dérive.",
+     "offsetAfter": 3,
+     "offsetBefore": 1,
+     "phase": "pm",
+     "priority": "prime",
+     "tidePhaseType": "descendant"
+    },
+    {
+     "id": "ph2",
+     "label": "3 dernières heures avant BM",
+     "note": "Reprise courant, fenêtre classique pointes océaniques.",
+     "offsetAfter": -0.5,
+     "offsetBefore": -3,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "descendant"
+    },
+    {
+     "id": "ph3",
+     "label": "Pleine mer (PM−1 → PM+1)",
+     "note": "Basses couvertes, poste haut. Si la pleine mer tombe au lever ou au coucher du soleil, le guide le compte dans la note.",
+     "offsetAfter": 1,
+     "offsetBefore": -1,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "variable"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     90,
+     67.5,
+     45
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     270,
+     247.5,
+     225
+    ]
+   },
+   "texte": "Source brestfishing (pêche en bateau) : « Dans le prolongement de la pointe de Pen Hir ce récif se prolonge loin dans la mer. Une succession de 'basses' nous offre une multitude de poste de pêche. » Côte océanique pleine, houle Atlantique.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.5
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "brestfishing décrit les basses du large pour la pêche en bateau ; aucune source ne parle du bord. Chasses possibles par mer calme (déduit).",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Stickbait et sinking pencil ; leurre coulant compté sur les basses accessibles.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Les basses se lisent à marée basse : les repérer avant de pêcher le flot.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Aucune source du bord : brestfishing décrit les basses de Pen-Hir pour la pêche en bateau. Spot de ton guide d'origine.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Spot dangereux par houle : au-delà de 1,5 m, le guide ne le propose plus (spot engagé). Vérifier le bulletin mer d'Iroise. Jamais seul, gilet obligatoire. Stickbaits de grande taille au lancer long (Patchinko 165).",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / Sardine / Iwashi",
+    "name": "Patchinko / stickbait grande taille",
+    "technique": "Walk-the-dog sur les chasses visibles ou sur les basses au crépuscule. Patchinko 165 en White Ghost RB (validé par toi).",
+    "weight": "25 g et plus (Patchinko 2 140 : 25 g)"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Yellow Bone / Ayu / Ghost",
+    "name": "Stickbait coulant lourd (sinking pencil)",
+    "technique": "Travail en dérive dans le courant sur les basses. Dans ta boîte : Mr Joe 120 (35 g, coulant) ; l'Asturie 150 (32 g, flottant) est présenté par sa fiche produit comme le spécialiste des grosses houles.",
+    "weight": "30-40 g (limite de ta canne : 42 g)"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 3,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Jamais seul, gilet obligatoire. Descente technique aux rochers : conditions calmes impératives et bulletin mer d'Iroise vérifié.",
+    "verifie_le": null,
+    "source_texte": "fiche du spot (conseil et accès)"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.5,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Règle V2 : réglementation du bar appliquée selon le 48ᵉ parallèle (arrêté du 1er avril 2026) ; à vérifier sur la source officielle, avec sa date (5.7).",
+   "verifie_le": null
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v2",
+  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+ },
+ "provenance": {
+  "sources": [],
+  "sources_v2": [
+   "brestfishing.fr — guide de pêche en bateau : récif prolongé, succession de basses",
+   "peche.com — Principes côtes rocheuses exposées"
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": null,
+  "completude": 0.66,
+  "inconnus": [
+   "access.stationnement",
+   "access.marche_min",
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.montante",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": []
+ }
+}

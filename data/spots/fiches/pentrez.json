@@ -1,0 +1,378 @@
+{
+ "id": "pentrez",
+ "name": "Plage de Pentrez",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "crozon",
+  "empreinte_v2": "5b023c378308008ed0798798e2ac0a53f595875fb3f5f6311f50f633d9138eca",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 48.195427,
+  "lon": -4.304321,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°11,7'N 4°18,3'W) ; précision non documentée.",
+   "verifie_le": null
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Chemin des Dunes, Saint-Nic ; parkings gratuits et payants (plages.tv).",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Temps de marche non documenté en V2."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "PLAGE — Saint-Nic, fond de la baie de Douarnenez",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Grande plage de sable fin de 4 km avec Lestrevet, très large à marée basse ; falaises à grottes au nord vers l'anse de Caméros (plages.tv) ; l'une des plages « les plus plates » du secteur (pecheaubar).",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 1,
+    "gratter": "oui",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Ouest, vers l'entrée de la baie. Déduit de la carte.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Plage « très très large par grande marée » (plages.tv), parmi « les plus plates » (pecheaubar) : très peu d'eau au bord à basse mer.",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "estran"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Plage de 4 km, falaises à grottes au nord (plages.tv).",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pas de source.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    30,
+    50,
+    80,
+    100
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "douarnenez",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Plage très plate : le flot couvre vite l'estran.",
+   "lifeHack": "Plage très plate : à la montante, reculer avec le flot, qui monte vite sur un estran aussi large.",
+   "montantOuDescendant": "Aucune source sur la phase : règle générale du bar en Bretagne (Vidal). Le bon moment de chaque plage s'apprend en quelques sorties.",
+   "typeHeure": "RÈGLE GÉNÉRALE (À RECALER)",
+   "windows": [
+    {
+     "id": "pz1",
+     "label": "Montant, règle générale (BM → BM+3)",
+     "note": "Règle générale (Vidal), non propre à cette plage.",
+     "offsetAfter": 3,
+     "offsetBefore": 0,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "pz2",
+     "label": "Fin de descendant, règle générale (BM−3 → BM)",
+     "note": "Règle générale (Vidal), non propre à cette plage.",
+     "offsetAfter": 0,
+     "offsetBefore": -3,
+     "phase": "bm",
+     "priority": "bon",
+     "tidePhaseType": "descendant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     67.5,
+     90,
+     112.5
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     247.5,
+     270,
+     292.5
+    ]
+   },
+   "texte": "Plage du fond de baie tournée vers l'ouest, vers l'entrée de la baie (déduit de la carte) : la houle d'ouest y arrive de face, le vent d'est est de dos.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 2.5
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "VÉRIFIÉ",
+    "origine": "v2",
+    "texte": "Plage à bars au surfcasting (pecheaubar, chtipecheur).",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Souple léger ou leurre de surface dans les vagues ; le sable permet de gratter.",
+   "verifie_le": null
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Les sources la citent pour le surfcasting (« pêche lourde à reculer », pecheaubar ; chtipecheur) : au leurre, la règle des plages battues par la houle s'applique (pecheaubar).",
+   "verifie_le": null
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Zone de kitesurf, spot de surf et de char à voile, surveillée l'été (plages.tv) : pêcher tôt ou tard.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Plage très plate : à la montante, reculer avec le flot, qui monte vite sur un estran aussi large.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel / blanc",
+    "name": "Souple 10-12 cm tête légère",
+    "technique": "Dans les vagues du bord, à la montante.",
+    "weight": "tête 7-15 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost",
+    "name": "Stickbait 110-130 mm",
+    "technique": "Aube ou crépuscule, petite houle.",
+    "weight": "14-27 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Zone de kitesurf et de char à voile à marée basse : partager l'estran.",
+    "verifie_le": null,
+    "source_texte": "plages.tv — Plage de Pentrez"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 2.5,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Règle V2 : réglementation du bar appliquée selon le 48ᵉ parallèle (arrêté du 1er avril 2026) ; à vérifier sur la source officielle, avec sa date (5.7).",
+   "verifie_le": null
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v2",
+  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+ },
+ "provenance": {
+  "sources": [],
+  "sources_v2": [
+   "pecheaubar.com — « La Pêche au bar en Bretagne : Douarnenez » : Pentrez",
+   "chtipecheur.com — « Spots de pêche de Bretagne » : plages de la baie de Douarnenez",
+   "plages.tv — Plage de Pentrez",
+   "Google Maps — position"
+  ],
+  "faits_v2": [
+   {
+    "s": "pecheaubar.com — « La Pêche au bar en Bretagne : Douarnenez » (mod. 15/10/2026)",
+    "t": "« On pratiquera de préférence une pêche lourde à reculer sur les plages les plus plates (Pentrez par exemple) »."
+   },
+   {
+    "s": "chtipecheur.com — « Spots de pêche de Bretagne » (JC59110, mod. 16/04/2026)",
+    "t": "« Plages du Ris, Trezmalaouen, Pentrez et Trezbellec » : surfcasting, bars."
+   },
+   {
+    "s": "plages.tv — Plage de Pentrez à Saint-Nic",
+    "t": "« une belle et grande plage de Pentrez de 4 km de sable fin » ; environ 2,5 km de sable continu à marée haute ; surveillée l'été ; zone de kitesurf, spot de surf, char à voile ; pêche possible."
+   },
+   {
+    "s": "Google Maps — Plage de Pentrez",
+    "t": "Position : 48,195427 / -4,304321."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": null,
+  "completude": 0.67,
+  "inconnus": [
+   "access.stationnement",
+   "access.marche_min",
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.montante",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": []
+ }
+}

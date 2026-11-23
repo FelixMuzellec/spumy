@@ -1,0 +1,406 @@
+{
+ "id": "pennenez",
+ "name": "Penn Enez – Grève Blanche",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "plouguerneau",
+  "empreinte_v2": "4c7523db5321fc33157636f33376ee5c02b4e3f4c010d2ac33e64eb26d0fc507",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 48.628972,
+  "lon": -4.52667,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°37,7'N 4°31,6'W) ; précision non documentée.",
+   "verifie_le": null
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Parking au bout de la Grève Blanche, puis sentier côtier (GR34) vers Penn Enez et le Koréjou (visorando).",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Temps de marche non documenté en V2."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "POINTE ROCHEUSE + GRÈVE — Koréjou, Plouguerneau",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Côte basse très découpée : plages de sable blanc, grèves de galets, amas de rochers et dunes (visorando).",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 2,
+    "gratter": "texan",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Côte nord face à la Manche : vents de NO à NE de face, sud de dos. Déduit de la carte.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Côte basse à rochers et grèves, marnage de 3,4 à 6,8 m : peu d'eau au bord (déduit, aucune sonde).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "peu"
+   }
+  },
+  "structures": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Digue de Penn Enez et port du Koréjou ; archipel de Lilia et Île Vierge au large. Chenaux de sable entre les roches, à repérer à basse mer.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Courant de marée côtier, modéré au bord ; au large, le courant traversier peut atteindre 3 nœuds au Libenter (SHOM, cité par Voile-Aviron). Pas de mesure au poste.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    30,
+    50,
+    85,
+    105
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "aberwrach",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Côte basse à marnage fort : tout se joue sur le mouvement de l'eau. À basse mer, lire le terrain ; au flot, pêcher les couloirs de sable et les rochers qui se couvrent.",
+   "lifeHack": "Repérer à basse mer les cuvettes de sable et les rochers isolés cerclés d'algues : ce sont les postes du flot (Ripault, 2026).",
+   "montantOuDescendant": "Montant dominant : le flot recouvre la grève et les platiers et remet la nourriture en circulation. Les trois dernières heures du descendant sont le second créneau (principe général, peche.com / Delalande).",
+   "typeHeure": "3 PREMIÈRES HEURES DE MONTANT",
+   "windows": [
+    {
+     "id": "pe1",
+     "label": "3 premières heures de montant",
+     "note": "Le flot entre par les couloirs de sable entre les roches. Souple texan ou weightless au ras des algues.",
+     "offsetAfter": 3,
+     "offsetBefore": 0,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "pe2",
+     "label": "Fin de montant et pleine mer",
+     "note": "Les rochers sont couverts : leurre de surface au-dessus des têtes de roche si la mer est calme.",
+     "offsetAfter": 0.5,
+     "offsetBefore": -2,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "pe3",
+     "label": "3 dernières heures de descendant",
+     "note": "L'eau se retire des platiers : postes de sortie, au débouché des couloirs.",
+     "offsetAfter": 0,
+     "offsetBefore": -3,
+     "phase": "bm",
+     "priority": "bon",
+     "tidePhaseType": "descendant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     135,
+     157.5,
+     180
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     315,
+     337.5,
+     0,
+     22.5
+    ]
+   },
+   "texte": "Côte nord, face à la Manche, au pied de l'Île Vierge. Exposée aux vents de NO à NE ; abritée des vents de sud. Orientation déduite de la carte, à confirmer sur place.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.5
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "VÉRIFIÉ",
+    "origine": "v2",
+    "texte": "Poste cité parmi les coins de pêche du Finistère nord (mieuxpecher.com). Aucune source sur la taille ou la saison des poissons ici.",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Texan ou tête weedless près des rochers ; tête plombée classique seulement sur les plaques de sable.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "À basse mer, repérer les couloirs de sable entre les roches : le bar y entre avec le flot.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Les rochers isolés cerclés d'algues sont des postes (Ripault, 2026) : lancer au ras, jamais dedans.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Une seule source pêche, qui ne fait que nommer le poste (mieuxpecher, Finistère nord) ; le reste vient du terrain décrit (visorando, Wikipédia) et de déductions.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Repérer à basse mer les cuvettes de sable et les rochers isolés cerclés d'algues : ce sont les postes du flot (Ripault, 2026).",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel / blanc",
+    "name": "Souple weightless ou texan 10-12 cm",
+    "technique": "Au ras des algues sur le flot. Repère d'un guide du cap Sizun : Gambler 5\" sur tête texane 5 g, ou Dolive Shad 4,5\" sans plomb.",
+    "weight": "sans plomb ou tête 5-7 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / sardine",
+    "name": "Stickbait 110-130 mm",
+    "technique": "Walk-the-dog au-dessus des rochers couverts, mer calme, crépuscule.",
+    "weight": "14-27 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel",
+    "name": "Shad 9-10 cm tête plombée",
+    "technique": "Sur les plaques de sable seulement. Repère du même guide : Nitro Shad 90 sur tête de 15 g.",
+    "weight": "tête 10-15 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Marée montante : ne pas se laisser couper le retour sur les platiers et les îlots (marnage de 3,4 à 6,8 m).",
+    "verifie_le": null,
+    "source_texte": "peche-poissons.com, F. Ripault (2026) · marnage calculé"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.5,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Règle V2 : réglementation du bar appliquée selon le 48ᵉ parallèle (arrêté du 1er avril 2026) ; à vérifier sur la source officielle, avec sa date (5.7).",
+   "verifie_le": null
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v2",
+  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+ },
+ "provenance": {
+  "sources": [],
+  "sources_v2": [
+   "mieuxpecher.com — « Coins de pêche – Finistère NORD » (Norbert, 10/05/2018) : « Penn Enez à Plouguerneau »",
+   "visorando.com — « Terre et mer autour de la chapelle Saint-Michel à Plouguerneau » (départ : parking au bout de la Grève Blanche, N 48,628972° / O 4,52667°)",
+   "Wikipédia (en) — Plouguerneau"
+  ],
+  "faits_v2": [
+   {
+    "s": "visorando.com — « Terre et mer autour de la chapelle Saint-Michel à Plouguerneau »",
+    "t": "Penn Enez : une digue ; le site servait au séchage, au stockage et au brûlage du goémon."
+   },
+   {
+    "s": "visorando.com — même circuit",
+    "t": "Le port du Koréjou est le plus important de Plouguerneau (plaisance, pêche professionnelle, activités nautiques)."
+   },
+   {
+    "s": "Wikipédia (en) — Plouguerneau",
+    "t": "Plouguerneau a 45 km de côte, îles comprises : le plus long littoral communal de France."
+   },
+   {
+    "s": "visorando.com",
+    "t": "Le phare de l'Île Vierge, haut de 82,5 m, domine la côte."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": null,
+  "completude": 0.68,
+  "inconnus": [
+   "access.stationnement",
+   "access.marche_min",
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.montante",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": []
+ }
+}

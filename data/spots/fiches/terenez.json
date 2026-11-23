@@ -1,0 +1,366 @@
+{
+ "id": "terenez",
+ "name": "Île de Térénez",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "logonna",
+  "empreinte_v2": "da0196afd186eb7ed410f25e0f0d9f3bad5de022b169562a868623ff1b8b45fd",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 48.283495,
+  "lon": -4.279264,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°17,0'N 4°16,8'W) ; précision non documentée.",
+   "verifie_le": null
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "D770 vers Le Faou puis D791 rive droite de l'Aulne direction Landévennec, fléchage Térénez. Parking en bord de grève. Traversée à pied à marée basse (vérifier le coef !). Retour obligatoire avant le flot.",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Temps de marche non documenté en V2."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "ÎLE TIDALE — Sortie de l'Aulne, Rosnoën",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Roche et goémon dense côté rade ; sable et galets côté Aulne ; tombants abrupts à la pointe ouest.",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 3,
+    "gratter": "non",
+    "couches": [
+     "surface",
+     "sous-surface"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Sortie de l'Aulne. Protégée O/SO par Landévennec. Exposée NO/N vers la rade.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Goémon dense côté rade ; tombants abrupts seulement à la pointe ouest (fiche).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "peu"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "peche-poissons.com (2022) : « l'île de Térénez qu'on rejoint par la D791, rive droite d'Aulne » ; accessible à marée basse, et en permanence si le coefficient est inférieur à 85. Côté rade : leurre souple non lesté entre les goémons. « Au bout de l'île, en face du cimetière à bateaux, leurres et mouche donnent également de bons résultats », et le coin est excellent en surfcasting.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Zone de sortie Aulne = courant sensible selon lordjimcroisieres. Plus marqué en VE forte.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    25,
+    40,
+    55,
+    85
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Spot atypique : les petits coefficients sont explicitement privilégiés. Pêche fine à l'étale. Le bar est en chasse sans être dérangé par un courant fort.",
+   "lifeHack": "Surveiller le coef de très près : si > 85, on reste bloqué sur l'île à marée haute. Prendre la montre. Pour les bars vus en bordure : micro leurres souples à vue, ou mouche avec de petites imitations de crabes (source).",
+   "montantOuDescendant": "peche-poissons.com (2022) : « Le secteur est surtout pêchant par faible coefficient (40 à 55), une heure avant et après les étales. Au-delà, le courant s'accélère et les lignes ne tiennent plus en place. »",
+   "typeHeure": "PETITS COEFS 40-55, 1h AVANT/APRÈS ÉTALES",
+   "windows": [
+    {
+     "id": "te1",
+     "label": "Étale BM (±1h)",
+     "note": "Source directe (peche-poissons.com, 2022) : une heure avant et après l'étale, coefficient 40 à 55. Accès à pied à BM.",
+     "offsetAfter": 1,
+     "offsetBefore": -1,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "renversement"
+    },
+    {
+     "id": "te2",
+     "label": "Étale PM (±1h)",
+     "note": "Idem étale BM, eau pleine, pêche en bordure goémon.",
+     "offsetAfter": 1,
+     "offsetBefore": -1,
+     "phase": "pm",
+     "priority": "prime",
+     "tidePhaseType": "renversement"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     135,
+     157.5,
+     180
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     315,
+     337.5,
+     0
+    ]
+   },
+   "texte": "peche-poissons.com (2022) : l'île « est accessible à marée basse et en permanence si le coefficient de marée est inférieur à 85 ». Accès conditionné à la marée.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.2
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "VÉRIFIÉ",
+    "origine": "v2",
+    "texte": "peche-poissons.com (2022) : « Côté rade, la pêche du bar est très productive en animant un leurre souple non lesté entre les goémons. On peut aussi le traquer à vue avec de micro leurres souples ou bien à la mouche avec de petites imitations de crabes. » En surfcasting au bout de l'île : « de très gros bars en eschant avec une demi-tête de calamar ou une sardine entière » ; « on y laisse beaucoup de matériel ».",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Souple non lesté entre les goémons (côté rade, peche-poissons.com). Côté Aulne seulement, une tête légère sur le sable.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Côté rade, pêcher comme à Moulin Mer : au-dessus du goémon, lentement, avec des arrêts.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Surveiller le coef de très près : si > 85, on reste bloqué sur l'île à marée haute. Prendre la montre. Pour les bars vus en bordure : micro leurres souples à vue, ou mouche avec de petites imitations de crabes (source).",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Natural / Motor Oil / Ayu",
+    "name": "LS weightless 10-14cm",
+    "technique": "Source : « très productive en animant un leurre souple non lesté entre les goémons » (côté rade). Récupération lente avec pauses.",
+    "weight": "7-12g sans plomb"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Natural / White",
+    "name": "Micro LS à vue",
+    "technique": "Source : « le traquer à vue avec de micro leurres souples ». Approche silencieuse.",
+    "weight": "3-5g sans plomb"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "–",
+    "name": "Surfcasting bout d'île (hors scope leurre)",
+    "technique": "Non-leurre, source : « de très gros bars en eschant avec une demi-tête de calamar ou une sardine entière » ; « on y laisse beaucoup de matériel ».",
+    "weight": "120-150g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 2,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Coefficient supérieur à 85 : l'île n'est plus accessible en permanence, on peut y rester bloqué à marée haute. Prendre la montre.",
+    "verifie_le": null,
+    "source_texte": "peche-poissons.com (julien, 2022) : « accessible à marée basse et en permanence si le coefficient de marée est inférieur à 85 »",
+    "quand": {
+     "coefAbove": 85
+    }
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Traversée à pied à marée basse : retour obligatoire avant le flot.",
+    "verifie_le": null,
+    "source_texte": "fiche du spot (accès)"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.2,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 85,
+   "texte": "au-delà de 85, l'île n'est « plus accessible en permanence » (peche-poissons.com, 2022) : non proposée, par prudence",
+   "verifie_le": null
+  }
+ },
+ "regulations": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Règle V2 : réglementation du bar appliquée selon le 48ᵉ parallèle (arrêté du 1er avril 2026) ; à vérifier sur la source officielle, avec sa date (5.7).",
+   "verifie_le": null
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v2",
+  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+ },
+ "provenance": {
+  "sources": [],
+  "sources_v2": [
+   "peche-poissons.com — « Escapade en rade de Brest, autour de Landévennec » (julien, 30/03/2022 ; photos Thierry Sauvin) — « Côté rade, la pêche du bar est très productive en animant un leurre souple non lesté entre les goémons » — https://peche-poissons.com/mer/mer-coins-de-peche-en-france-escapade-en-rade-de-brest-autour-de-landevennec-693207-php/",
+   "lordjimcroisieres.com — Sortie Aulne / Landévennec courant"
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": null,
+  "completude": 0.69,
+  "inconnus": [
+   "access.stationnement",
+   "access.marche_min",
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.montante",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": []
+ }
+}

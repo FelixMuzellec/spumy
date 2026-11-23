@@ -1,0 +1,405 @@
+{
+ "id": "carteret",
+ "name": "Cap de Carteret",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "pirou",
+  "empreinte_v2": "4be92c4361f451e81ae89b57c78d0e2bd75e96a065051ba85cafac9c1a7e9542",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 49.3667,
+  "lon": -1.8,
+  "precision_m": 1850,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées V2 en texte à la minute près (49°22'N 1°48'W), converties en degrés décimaux : jusqu'à 1,85 km d'écart.",
+   "verifie_le": null
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Sentier des douaniers depuis Carteret, descentes rocheuses techniques. Chaussures de rando obligatoires.",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Temps de marche non documenté en V2."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "CAP ROCHEUX — Cap rocheux, phare, tombant",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Roche franche, platier rocheux au pied du cap, tombant vers le large.",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 3,
+    "gratter": "non",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Très exposé au secteur ouest. Le vent d'est offre le seul abri réel.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Tombant vers le large au pied du cap (fiche).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "tombant"
+   }
+  },
+  "structures": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Cap marquant l'entrée de la baie de Carteret. Le courant s'accélère fortement à son extrémité et crée des remous exploitables en aval.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Fort, en augmentation rapide avec le coefficient. Au-delà de 90, une source Cotentin (récit en bateau) décrit des spots du nord quasiment impossibles à pêcher ; Carteret n'y est pas nommé.",
+   "verifie_le": null,
+   "valeur": {
+    "courantFort": {
+     "above": 90,
+     "t": "au cap, le courant s'accélère fortement (fiche) ; au-delà de 90, « le courant est très fort » selon un pêcheur du Cotentin, qui décrit en bateau une dérive de plus de 6 nœuds sur des spots du nord (extrapolé à Carteret)."
+    }
+   }
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    50,
+    70,
+    88,
+    100
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "carteret",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Spot de qualité plutôt que de quantité. Les fenêtres sont courtes et encadrées par la violence du courant.",
+   "lifeHack": "Ne pas descendre bas sur la roche : la houle réfléchie sur un cap arrive par séries irrégulières. Le meilleur poste est rarement le plus bas.",
+   "montantOuDescendant": "Les deux, mais autour des basculements. Au plus fort du courant le cap devient difficilement pêchable — règle générale du Cotentin.",
+   "typeHeure": "FIN DE JUSANT + DÉBUT DE FLOT",
+   "windows": [
+    {
+     "id": "ca1",
+     "label": "Fin de jusant → BM+2h30",
+     "note": "Pratique de l'auteur de peche.com au cap de la Hague (fin de descendante, début de remontante, jusqu'à 2 h-2 h 30 après le basculement), reprise ici par déduction.",
+     "offsetAfter": 2.5,
+     "offsetBefore": -1.5,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "ca2",
+     "label": "PM-2h30 → PM",
+     "note": "Fin de flot le long du tombant. Souple lourd, prospection verticale du pied de roche.",
+     "offsetAfter": 0,
+     "offsetBefore": -2.5,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "ca3",
+     "label": "Étale de PM + tout début de jusant",
+     "note": "Courant modéré, fenêtre confortable pour travailler la surface si la mer le permet.",
+     "offsetAfter": 1.5,
+     "offsetBefore": 0,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "descendant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     90,
+     112.5
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     247.5,
+     270,
+     292.5,
+     315
+    ]
+   },
+   "texte": "Cap exposé de tous les secteurs ouest. Houle réfléchie sur la roche par mer formée.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.5
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Profondeur, oxygénation et courant permanent : configuration de plateau rocheux favorable aux gabarits supérieurs à la moyenne du secteur sableux voisin.",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Black Minnow monté texan ; souple lourd compté pour longer le pied de roche sans le racler.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pêcher le remous en aval du cap, là où le courant ralentit.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Spot de ton guide d'origine : une seule source, qui ne fait que le nommer (mieuxpecher : « Cap de Carteret à Barneville »).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Ne pas descendre bas sur la roche : la houle réfléchie sur un cap arrive par séries irrégulières. Le meilleur poste est rarement le plus bas.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Kaki / Ayu",
+    "name": "Black Minnow 120 / 140",
+    "technique": "Référence explicite peche.com pour le bord en Cotentin. Le 140 quand des sardines sont présentes.",
+    "weight": "tête 12-20 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / Iwashi",
+    "name": "Stickbait 140-165 mm",
+    "technique": "Dans le courant du cap, animation ample. Vérifier la plage de la canne avant.",
+    "weight": "25-40 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel / blanc",
+    "name": "Souple lourd sur tombant",
+    "technique": "Prospection du pied de roche quand le poisson ne monte pas.",
+    "weight": "18-28 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 3,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Coefficient au-delà de 90 : « le courant est très fort » ; en bateau, certains spots du nord de la côte deviennent « quasiment impossibles à pêcher » (dérive de plus de 6 nœuds). Carteret n'est pas nommé, mais le cap est exposé : rester haut et prudent.",
+    "verifie_le": null,
+    "source_texte": "despoissonssigrands.com (sortie en bateau, spots du nord) — appliqué à Carteret par extrapolation",
+    "quand": {
+     "coefAbove": 90
+    }
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Ne pas descendre bas sur la roche : la houle réfléchie sur le cap arrive par séries irrégulières. Chaussures de randonnée, descentes techniques.",
+    "verifie_le": null,
+    "source_texte": "fiche du spot (conseil et accès)"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.5,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 108,
+   "texte": "Coefficient au-delà duquel la V2 ne propose plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "regulations": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Règle V2 : réglementation du bar appliquée selon le 48ᵉ parallèle (arrêté du 1er avril 2026) ; à vérifier sur la source officielle, avec sa date (5.7).",
+   "verifie_le": null
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v2",
+  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+ },
+ "provenance": {
+  "sources": [],
+  "sources_v2": [
+   "cpiecotentin.com — 'Plus au nord, de Carteret à Urville-Nacqueville, alternent baies sableuses et caps rocheux au pied desquels se trouvent des platiers rocheux'",
+   "peche.com — Trouver les bons spots pour pêcher le bar : les plateaux rocheux",
+   "despoissonssigrands.com — au-delà du coefficient 90, « le courant est très fort » ; en bateau, « certains spots du nord de la côte sont quasiment impossibles à pêcher » (dérive supérieure à 6 nœuds) — https://despoissonssigrands.com/lescarnetsdepeche/peche-du-bar-en-automne-retour-sur-une-excellente-sortie-dans-le-cotentin"
+  ],
+  "faits_v2": [
+   {
+    "s": "CPIE du Cotentin — où pêcher",
+    "t": "De Carteret à Urville-Nacqueville « alternent baies sableuses et caps rocheux », avec des platiers rocheux au pied des caps."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": null,
+  "completude": 0.71,
+  "inconnus": [
+   "access.stationnement",
+   "access.marche_min",
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.montante",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": [
+   "Coordonnées V2 seulement en texte, à la minute près (jusqu'à 1,85 km d'écart) : à vérifier en priorité."
+  ]
+ }
+}

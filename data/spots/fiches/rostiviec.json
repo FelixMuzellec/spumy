@@ -1,0 +1,386 @@
+{
+ "id": "rostiviec",
+ "name": "Rostiviec",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "logonna",
+  "empreinte_v2": "d8e3ad8e17f2a5e9d51fe3c573d93137404ce5ccc022cc60832f528e321dd805",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 48.347654,
+  "lon": -4.326763,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°20,9'N 4°19,6'W) ; précision non documentée.",
+   "verifie_le": null
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Depuis Logonna : Daoulas puis Loperhet, direction port de Rostiviec. Parking à la cale, sentier côtier vers l'anse de Penfoul. Aucune difficulté.",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Temps de marche non documenté en V2."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "RIA / BAIE DE DAOULAS — Port et anse de Penfoul, Loperhet",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Vase et sablo-vase dans l'anse, cailloutis en bordure, corps-morts et anciens parcs.",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 2,
+    "gratter": "texan",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Baie de Daoulas « abritée de la houle » (Pays de Landerneau-Daoulas). Le reste (brise thermique, clapot par vent de S/SO remontant la baie) est déduit de la carte.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Anse de vase dans une ria, chenal d'accès et mouillages (fiche).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "peu"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Ancien village de pêcheurs et port de plaisance installé dans une ria, sur la baie de Daoulas. L'anse de Penfoul prolonge le site vers l'est. Chenal d'accès et zone de mouillages structurent les fonds.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Courant modéré, canalisé par le chenal d'accès et les bordures de mouillages. Nettement plus faible que sur les pointes de la rade — c'est un poste de finesse, pas de force.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    20,
+    35,
+    75,
+    100
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Spot d'abri et de finesse. On y va quand le vent interdit les pointes, et on y pêche léger, en pêche à vue si l'eau est claire.",
+   "lifeHack": "C'est le spot de mauvais temps de la rade : la baie de Daoulas est « abritée de la houle » (Pays de Landerneau-Daoulas). Pêcher fin et discret (déduit).",
+   "montantOuDescendant": "Montant dominant : le flot recouvre les vasières et les bars entrent y chasser crevettes et gobies. Le descendant concentre le poisson dans le chenal.",
+   "typeHeure": "MONTANT SUR LES BORDURES",
+   "windows": [
+    {
+     "id": "ro1",
+     "label": "3 premières heures de montant",
+     "note": "Le flot recouvre les vasières. Longer les bordures et les lignes de mouillages, souple léger ou weightless.",
+     "offsetAfter": 3,
+     "offsetBefore": 0.5,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "ro2",
+     "label": "Fin de montant sur les mouillages",
+     "note": "Les bars circulent entre les coques. Approche silencieuse, leurre discret.",
+     "offsetAfter": -0.5,
+     "offsetBefore": -2,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "ro3",
+     "label": "Début de descendant (chenal)",
+     "note": "L'eau se retire des vasières et concentre le poisson dans le chenal. Shad plombé léger dans la veine.",
+     "offsetAfter": 2.5,
+     "offsetBefore": 0.5,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "descendant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     0,
+     22.5,
+     337.5
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     202.5,
+     180,
+     225
+    ]
+   },
+   "texte": "Port niché dans une ria : brise maritime présente mais abri quasi permanent de la houle. Le clapot ne s'y forme que par vent de sud établi.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.2
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Bars de bordure patrouillant les mouillages, les coques de bateaux et les bordures vaseuses au flot. Poste de repli par excellence quand tout le reste de la rade est impêchable.",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Texan obligatoire près des parcs et des corps-morts ; tête légère possible sur la vase dégagée du chenal.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Les lignes de corps-morts sont des postes, mais aussi des pièges à leurres : longer, ne pas traverser.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Spot de ton guide d'origine : aucune source publiée ne le cite pour le bar (vérifié le 29/10/2026) ; ton journal fera foi.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "C'est le spot de mauvais temps de la rade : la baie de Daoulas est « abritée de la houle » (Pays de Landerneau-Daoulas). Pêcher fin et discret (déduit).",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Natural / Smoke / Motor Oil",
+    "name": "Souple weightless ou tête plombée légère",
+    "technique": "Bordures vaseuses et lignes de mouillages. Le poids minimal qui permet encore de lancer.",
+    "weight": "5-10 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ayu / Mullet / Crystal",
+    "name": "Jerkbait suspending 100-110 mm",
+    "technique": "Twitch lent dans les zones dégagées du chenal.",
+    "weight": "12-16 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Natural / blanc",
+    "name": "Shad souple 10-12 cm en texan",
+    "technique": "Texan indispensable près des parcs et des corps-morts.",
+    "weight": "10-16 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "L'anse de Penfoul « se vide entièrement à marée basse » : ne pas s'avancer sur la vase.",
+    "verifie_le": null,
+    "source_texte": "Office de tourisme Landerneau-Daoulas (vidange de l'anse) · prudence du guide (vase)"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.2,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Règle V2 : réglementation du bar appliquée selon le 48ᵉ parallèle (arrêté du 1er avril 2026) ; à vérifier sur la source officielle, avec sa date (5.7).",
+   "verifie_le": null
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v2",
+  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+ },
+ "provenance": {
+  "sources": [],
+  "sources_v2": [
+   "voileaviron.org — livret des sites de la rade de Brest",
+   "tourisme-landerneau-daoulas.fr — sentier littoral (anse de Penfoul)",
+   "pays-landerneau-daoulas.fr — Le centre nautique est situé sur le littoral de la commune de Loperhet, au port de Rostiviec, niché dans une ria de la rade de Brest ; zone de navigation sur la baie de Daoulas (12 km²), abritée de la houle",
+   "tourisme-landerneau-daoulas.fr — Loperhet listé avec ses propres sites (Pors Don, Kersanton), distincts de ceux de L'Hôpital-Camfrout",
+   "despoissonssigrands.com — Pêche du bar en fond de rade (principes)"
+  ],
+  "faits_v2": [
+   {
+    "s": "Voile-Aviron, livret « 50 sites de la rade de Brest »",
+    "t": "Le sillon de Rostiviec « a du mal à émerger à marée haute » ; derrière, une anse assez abritée ; la cale du quai donne sur une grève praticable."
+   },
+   {
+    "s": "Office de tourisme Landerneau-Daoulas",
+    "t": "L'anse de Penfoul « se vide entièrement à marée basse »."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": null,
+  "completude": 0.67,
+  "inconnus": [
+   "access.stationnement",
+   "access.marche_min",
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.montante",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": []
+ }
+}

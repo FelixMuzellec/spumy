@@ -1,0 +1,402 @@
+{
+ "id": "penmarch",
+ "name": "Pointe de Penmarc'h",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "audierne",
+  "empreinte_v2": "e91aaab021410b4a1cbaa8f23a8456a9a764e92e8e9535754e9b14c1d7f2212b",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 47.798306,
+  "lon": -4.37275,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (47°47,9'N 4°22,4'W) ; précision non documentée.",
+   "verifie_le": null
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "À pied depuis le phare d'Eckmühl (carnet-de-peche.com), quartier de Saint-Pierre à Penmarc'h ; le circuit de la pointe part du parking du port de Saint-Guénolé (toutcommenceenfinistere.com).",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Temps de marche non documenté en V2."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "POINTE ROCHEUSE — Phare d'Eckmühl, Saint-Pierre (Penmarc'h)",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pointe rocheuse au pied du phare d'Eckmühl ; roches basses que la mer montante submerge (carnet-de-peche.com). Nature du fond au large non décrite.",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 3,
+    "gratter": "non",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Ouest à sud-ouest. Déduit de la carte ; rochers voisins « très exposés au vent dominant d'ouest ».",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Roches d'estran sur une pointe de houle (déduit, aucune sonde).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "peu"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Pointe au pied du phare d'Eckmühl, port de Saint-Pierre (Wikipédia).",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Aucune source sur le courant à la pointe.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    30,
+    45,
+    85,
+    105
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "saintguenole",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Le bar chasse dans le ressac quand la mer bouge : c'est aussi quand la pointe est la plus dangereuse.",
+   "lifeHack": "Seuil de houle bas (1,2 m), comme à Saint-Guénolé : la source parle de vagues scélérates.",
+   "montantOuDescendant": "Aucune source ne donne l'heure de marée à la pointe ; la seule consigne datée est le danger de la mer montante sur les roches basses. Le guide garde le flot, depuis un poste haut, et la mi-marée descendante.",
+   "typeHeure": "MER QUI BOUGE + FLOT (PRUDENCE)",
+   "windows": [
+    {
+     "id": "pm1",
+     "label": "Montant",
+     "note": "Depuis les bordures hautes : la mer montante submerge les roches basses.",
+     "offsetAfter": 5,
+     "offsetBefore": 1,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "pm2",
+     "label": "Descendant",
+     "note": "Le ressac sur les roches qui découvrent.",
+     "offsetAfter": 4,
+     "offsetBefore": 1,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "descendant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     22.5,
+     45,
+     67.5
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     202.5,
+     225,
+     247.5,
+     270
+    ]
+   },
+   "texte": "Pointe sud-ouest du pays bigouden, entre la baie d'Audierne et le golfe de Gascogne : exposée d'ouest à sud-ouest ; seul un vent de nord-est l'abrite. Orientation déduite de la carte.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.2
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "VÉRIFIÉ",
+    "origine": "v2",
+    "texte": "« Réputée pour la pêche au bar » (Le Figaro Nautisme, 2026) ; bar dans le ressac (carnet-de-peche).",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Leurres lancés depuis les bordures hautes : stickbait, souple plombé tenu au-dessus des roches, jig dans le gros ressac.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "« Tu pêches aux leurres depuis les bordures hautes, jamais au ras de l'eau » (carnet-de-peche.com).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Le bar « chasse dans le ressac dès que la mer bouge » : une mer formée mais maniable, depuis un poste haut et sûr.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Seuil de houle bas (1,2 m), comme à Saint-Guénolé : la source parle de vagues scélérates.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / sardine",
+    "name": "Stickbait 110-130 mm",
+    "technique": "Dans l'écume du ressac, mer maniable.",
+    "weight": "14-27 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Blanc / naturel",
+    "name": "Souple 12 cm tête plombée",
+    "technique": "Tenu au-dessus des roches. Repère d'un guide du cap : Sand Eel sur tête de 21 g.",
+    "weight": "tête 15-21 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Argent",
+    "name": "Jig 20-30 g",
+    "technique": "Dans le gros ressac : le jig est le choix d'un guide du cap Sizun par grosse houle (Pêche-Rando Bar) ; poids de ta boîte (Drag Metal Cast).",
+    "weight": "20-30 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 3,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Vagues scélérates, ressac et retour de vague, rochers glissants, submersion à marée montante : « Ne descends jamais sur les roches basses, garde de la hauteur et ne viens pas seul ».",
+    "verifie_le": null,
+    "source_texte": "carnet-de-peche.com — Pointe de Penmarc'h"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Lame de fond : cinq personnes emportées le 10 octobre 1870 sur les rochers voisins de Saint-Guénolé.",
+    "verifie_le": null,
+    "source_texte": "destination-paysbigouden.com (2025)"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.2,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Règle V2 : réglementation du bar appliquée selon le 48ᵉ parallèle (arrêté du 1er avril 2026) ; à vérifier sur la source officielle, avec sa date (5.7).",
+   "verifie_le": null
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v2",
+  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+ },
+ "provenance": {
+  "sources": [],
+  "sources_v2": [
+   "Le Figaro Nautisme — Top 10 des spots de pêche en mer en France (01/03/2026) : Pointe de Penmarc'h",
+   "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : autour du phare d'Eckmühl",
+   "carnet-de-peche.com — Pointe de Penmarc'h (description, dangers, accès)",
+   "Wikipédia (en) — Point Penmarc'h ; Penmarc'h Lighthouse (coordonnées)",
+   "toutcommenceenfinistere.com — Circuit la pointe de Penmarc'h"
+  ],
+  "faits_v2": [
+   {
+    "s": "Le Figaro Nautisme — « Top 10 des spots de pêche en mer en France métropolitaine » (01/03/2026)",
+    "t": "Pointe de Penmarc'h « réputée pour la pêche au bar » (aussi lieu, vieille, tacaud) ; surfcasting, jigging et traîne sur fonds rocheux."
+   },
+   {
+    "s": "mieuxpecher.com — « Coins de Pêche – Finistère SUD » (Norbert, 2018, mod. 2022)",
+    "t": "« Autour du phare d'Eckmühl à Penmarch » cité parmi les coins de pêche du Finistère sud."
+   },
+   {
+    "s": "carnet-de-peche.com — Pointe de Penmarc'h (page sans auteur)",
+    "t": "« Où le bar chasse dans le ressac dès que la mer bouge » ; « Tu pêches aux leurres depuis les bordures hautes, jamais au ras de l'eau » ; « Accès à pied depuis le phare d'Eckmühl »."
+   },
+   {
+    "s": "Wikipédia (en) — Point Penmarc'h · Penmarc'h Lighthouse",
+    "t": "La pointe est la limite nord du golfe de Gascogne ; phare d'Eckmühl au port de Saint-Pierre, 47°47′53,9″N 4°22′21,9″W."
+   },
+   {
+    "s": "toutcommenceenfinistere.com — « Circuit la pointe de Penmarc'h »",
+    "t": "Rochers voisins de Saint-Guénolé : « très exposée au vent dominant d'ouest », « La prudence est de rigueur sur ce lieu »."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": null,
+  "completude": 0.68,
+  "inconnus": [
+   "access.stationnement",
+   "access.marche_min",
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.montante",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": []
+ }
+}

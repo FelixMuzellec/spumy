@@ -30,10 +30,11 @@
     "test:prototype": "node scripts/build-prototype.mjs && node tests/prototype.mjs --axe",
     "build:prototype-v3": "node scripts/build-prototype-v3.mjs",
     "test:prototype-v3": "node scripts/build-prototype-v3.mjs && node tests/prototype-v3.mjs --axe",
-    "test": "npm run lint && npm run typecheck && npm run test:secrets && npm run test:layers && npm run test:socle && npm run test:data && npm run test:spots-v2 && npm run test:knowledge && npm run test:design && npm run test:design-v3 && npm run test:v2 && npm run test:unit && npm run test:e2e && CONTRACT_MOCK=1 npm run test:contract",
+    "test": "npm run lint && npm run typecheck && npm run test:secrets && npm run test:layers && npm run test:socle && npm run test:data && npm run test:spots-v2 && npm run test:spots-v3 && npm run test:knowledge && npm run test:design && npm run test:design-v3 && npm run test:v2 && npm run test:unit && npm run test:e2e && CONTRACT_MOCK=1 npm run test:contract",
     "test:upgrade": "node tests/upgrade.mjs",
     "test:contrat-ign": "node tests/contrat-ign.mjs",
-    "test:spots-v2": "node scripts/inventaire-spots-v2.mjs --verifier"
+    "test:spots-v2": "node scripts/inventaire-spots-v2.mjs --verifier",
+    "test:spots-v3": "node tests/spots-v3.mjs"
   },
   "dependencies": {
     "leaflet": "^1.9.4",

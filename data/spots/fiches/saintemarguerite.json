@@ -1,0 +1,386 @@
+{
+ "id": "saintemarguerite",
+ "name": "Dunes de Sainte-Marguerite",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "plouguerneau",
+  "empreinte_v2": "2ee42f217d70ea90fecfd711d3127ee35f2777729831dab7f1d0cb3a1dff0811",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 48.5947,
+  "lon": -4.6017,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°35,7'N 4°36,1'W) ; précision non documentée.",
+   "verifie_le": null
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Route de Sainte-Marguerite (Landéda) ; parking au départ de la « Balade des dunes » (landeda.fr). Rester sur les sentiers : dunes protégées.",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Temps de marche non documenté en V2."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "PLAGE + ROCHERS — Presqu'île Sainte-Marguerite, Landéda",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Grandes plages de sable fin et criques ; îlots rocheux (Cézon, Tariec, Roc'h Avel) atteignables à pied à basse mer (Landéda).",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 1,
+    "gratter": "oui",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Face à l'Iroise (O-NO). Déduit de la carte.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Plages de sable fin à fort marnage : estran qui découvre loin (déduit, aucune sonde).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "estran"
+   }
+  },
+  "structures": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Presqu'île entre deux embouchures d'aber : bancs de sable, îlots et passes que le flot remplit.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Courant d'embouchure aux deux extrémités ; travers au large (Voile-Aviron). Pas de mesure au poste.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    30,
+    45,
+    85,
+    105
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "aberwrach",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Grande plage claire : chercher les structures (îlots, bancs, criques) plutôt que le large.",
+   "lifeHack": "Les îlots atteints à pied à basse mer sont aussi des pièges : noter l'heure de la basse mer et repartir tôt.",
+   "montantOuDescendant": "Plage à fort marnage : le flot qui recouvre le sable est le moment de référence (principe général) ; descendant en second, aux sorties des criques.",
+   "typeHeure": "MONTANT",
+   "windows": [
+    {
+     "id": "sm1",
+     "label": "3 premières heures de montant",
+     "note": "Le flot recouvre le sable et les bords d'îlots. Souple sur tête légère, récupération lente.",
+     "offsetAfter": 3,
+     "offsetBefore": 0,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "sm2",
+     "label": "Fin de descendant",
+     "note": "Sorties de criques et de passes entre les îlots.",
+     "offsetAfter": 0,
+     "offsetBefore": -2.5,
+     "phase": "bm",
+     "priority": "bon",
+     "tidePhaseType": "descendant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     90,
+     112.5,
+     135
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     270,
+     292.5,
+     315
+    ]
+   },
+   "texte": "Plages tournées vers l'Iroise, entre les deux abers. Exposées d'O à NO ; vent d'est de dos. Orientation déduite.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.8
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "VÉRIFIÉ",
+    "origine": "v2",
+    "texte": "Secteur cité pour la pêche aux leurres souples (mieuxpecher).",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Souple sur tête plombée légère sur le sable ; weightless près des îlots.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Leurres souples : c'est l'approche citée pour ce secteur (mieuxpecher).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Prospecter le bord des îlots et les sorties de criques au flot.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Une seule source pêche (mieuxpecher, Finistère nord : « aux leurres souples ») ; ton journal fera foi.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Les îlots atteints à pied à basse mer sont aussi des pièges : noter l'heure de la basse mer et repartir tôt.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel / blanc",
+    "name": "Souple 10-12 cm tête plombée",
+    "technique": "Approche citée pour la presqu'île (mieuxpecher). Gratté lentement sur le sable.",
+    "weight": "tête 7-15 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / lançon",
+    "name": "Long bill minnow ou slug",
+    "technique": "Sur les bancs de sable peu profonds au flot (repère de la côte des havres du Cotentin).",
+    "weight": "10-20 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 2,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Îlots atteignables à pied à basse mer : repartir avant que la mer ne coupe le passage.",
+    "verifie_le": null,
+    "source_texte": "landeda.fr (îlots accessibles à pied) · peche-poissons.com, F. Ripault (2026)"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Dunes protégées (46 ha, espèces protégées) : rester sur les sentiers balisés.",
+    "verifie_le": null,
+    "source_texte": "landeda.fr"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.8,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Règle V2 : réglementation du bar appliquée selon le 48ᵉ parallèle (arrêté du 1er avril 2026) ; à vérifier sur la source officielle, avec sa date (5.7).",
+   "verifie_le": null
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v2",
+  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+ },
+ "provenance": {
+  "sources": [],
+  "sources_v2": [
+   "mieuxpecher.com — « Coins de pêche – Finistère NORD » : « La presqu'île Sainte-Marguerite aux leurres souples »",
+   "landeda.fr — fiche rando circuit 3, « Balade des dunes »",
+   "visorando.com — « Entre Beg ar Vilh et Sainte-Marguerite » ; « La presqu'île Sainte-Marguerite en longeant l'Aber Wrac'h et l'Aber Benoît »"
+  ],
+  "faits_v2": [
+   {
+    "s": "landeda.fr — fiche rando circuit 3, « Balade des dunes » (départ GPS 48,5947 / -4,6017)",
+    "t": "« Grandes plages de sable fin, criques plus intimistes » ; dunes de 46 ha, espace naturel protégé, « espèces protégées dont il faut prendre le plus grand soin »."
+   },
+   {
+    "s": "landeda.fr — même fiche",
+    "t": "Île Cézon, Enez Vihan et Tariec sont atteignables à pied et propices à la pêche à pied ; fort Vauban sur Cézon (1694)."
+   },
+   {
+    "s": "visorando.com — « Entre Beg ar Vilh et Sainte-Marguerite »",
+    "t": "Les dunes de Sainte-Marguerite attirent kitesurfeurs, wingsurfeurs et véliplanchistes."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": null,
+  "completude": 0.68,
+  "inconnus": [
+   "access.stationnement",
+   "access.marche_min",
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.montante",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": []
+ }
+}

@@ -1,0 +1,382 @@
+{
+ "id": "armorique",
+ "name": "Pointe de l'Armorique",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "logonna",
+  "empreinte_v2": "40155b87d4694a5437050d21ca1022eb01e923d0088f15b1cecc77a247a6e7cf",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 48.327343,
+  "lon": -4.45779,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°19,6'N 4°27,5'W) ; précision non documentée.",
+   "verifie_le": null
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Depuis Logonna : D770 puis direction Plougastel-Daoulas nord, route de la Pointe de l'Armorique. Parking en bout de route. Sentier côtier. Accès rochers par descente courte.",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Temps de marche non documenté en V2."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "POINTE RADE — Plougastel-Daoulas, rive sud de la presqu'île",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Roche et platiers, tombant plus marqué qu'en fond de rade.",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 3,
+    "gratter": "non",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Tournée vers le sud et le sud-ouest (la rade et Crozon) ; abritée par vent de nord à nord-est (déduit de la carte).",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Tombant plus marqué qu'en fond de rade (fiche).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "tombant"
+   }
+  },
+  "structures": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pointe majeure de la rade, sur la trajectoire des poissons qui entrent et sortent entre fond de rade et goulet ; tourbillon en aval de la pointe selon le sens du courant (déduit).",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Source directe lordjimcroisieres : 0.5-3 nds selon marée et coef. Un des 4 points de courant sensible de la rade (avec Espagnols, pont Plougastel, sortie Aulne).",
+   "verifie_le": null,
+   "valeur": {
+    "courantFort": {
+     "above": 70,
+     "t": "vive-eau ; le courant est « bien sensible à la pointe de l'Armorique » (lordjimcroisieres.com, 0,5 à 3 nœuds en rade)."
+    },
+    "courantSurface": {
+     "t": "La fiche : surface au crépuscule « si pas trop de courant ».",
+     "v": -2
+    }
+   }
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    35,
+    55,
+    90,
+    112
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Pointe de rade avec courant notable. Changer de côté selon sens du courant : côté NE sur descendant (courant qui s'échappe vers le goulet), côté SO sur montant.",
+   "lifeHack": "Sur cette pointe le courant peut atteindre 3 nds : utiliser des leurres plus lourds qu'ailleurs en rade (25-40g). Repérer les tourbillons visuellement (surface) avant de placer le leurre.",
+   "montantOuDescendant": "Pointe = les deux marchent, mais le descendant expose mieux les tombants. Principe peche.com pointes rocheuses : lancer en amont du courant, dérive en aval.",
+   "typeHeure": "DESCENDANT (tourbillon aval) + DÉBUT MONTANT",
+   "windows": [
+    {
+     "id": "ar1",
+     "label": "1-2h après PM (descendant)",
+     "note": "Courant établi vers le goulet. Leurre coulant en amont, dérive en aval de la pointe.",
+     "offsetAfter": 2.5,
+     "offsetBefore": 1,
+     "phase": "pm",
+     "priority": "prime",
+     "tidePhaseType": "descendant"
+    },
+    {
+     "id": "ar2",
+     "label": "3 dernières heures avant BM",
+     "note": "Reprise du courant descendant. Fenêtre classique pointes rocheuses.",
+     "offsetAfter": -0.5,
+     "offsetBefore": -3,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "descendant"
+    },
+    {
+     "id": "ar3",
+     "label": "Début de montant (côté SO)",
+     "note": "Bascule de côté. Le flot remonte vers le fond de rade, bars de passage.",
+     "offsetAfter": 2.5,
+     "offsetBefore": 0.5,
+     "phase": "bm",
+     "priority": "bon",
+     "tidePhaseType": "montant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     0,
+     22.5,
+     45
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     180,
+     202.5,
+     225,
+     247.5
+    ]
+   },
+   "texte": "Pointe qui avance dans la rade, au sud de la presqu'île de Plougastel (orientation déduite de la carte). Source lordjimcroisieres : « le courant est bien sensible […] en particulier à la pointe de l'Armorique ».",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.5
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Pointe sur zone de passage = poste classique pour bars de passage entre rade et goulet. Gros bars possibles en fin de saison quand les poissons redescendent vers le goulet.",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Leurres coulants comptés (sinking pencil, shad) pour rester au-dessus du tombant.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Compter la descente du leurre et la raccourcir dès le premier contact avec la roche.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Lancer contre le courant et laisser dériver en aval de la pointe.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Spot de ton guide d'origine : la seule source le cite pour son courant, pas pour le bar (vérifié le 29/10/2026).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Sur cette pointe le courant peut atteindre 3 nds : utiliser des leurres plus lourds qu'ailleurs en rade (25-40g). Repérer les tourbillons visuellement (surface) avant de placer le leurre.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ayu / Ghost / Bar naturel",
+    "name": "Stickbait coulant (sinking pencil)",
+    "technique": "Lancer contre le courant, dérive lente en aval (déduit). Dans ta boîte : Mr Joe 120 (35 g, coulant). L'Asturie est un stickbait flottant (110 : 15 g, 130 : 27 g), pas un sinking pencil.",
+    "weight": "25-40g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "White / Natural / Chartreuse",
+    "name": "Shad 5″ tête plombée lourde",
+    "technique": "Prospection du tombant sur courant établi.",
+    "weight": "18-28g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Sardine / Ghost",
+    "name": "Stickbait 125-140mm",
+    "technique": "Walk-the-dog en surface au crépuscule si pas trop de courant. Patchinko 125 ou 140 adapté.",
+    "weight": "25-35g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.5,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Règle V2 : réglementation du bar appliquée selon le 48ᵉ parallèle (arrêté du 1er avril 2026) ; à vérifier sur la source officielle, avec sa date (5.7).",
+   "verifie_le": null
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v2",
+  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+ },
+ "provenance": {
+  "sources": [],
+  "sources_v2": [
+   "lordjimcroisieres.com — Pointe de l'Armorique citée comme point de courant sensible (0.5-3 nds) en rade",
+   "peche.com — Pêche des sparidés en rade de Brest, aux appâts, en bateau (ne parle ni du bar ni de l'Armorique)",
+   "peche.com — Principes pointes rocheuses / tourbillons"
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": null,
+  "completude": 0.67,
+  "inconnus": [
+   "access.stationnement",
+   "access.marche_min",
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.montante",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": []
+ }
+}

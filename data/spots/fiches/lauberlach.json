@@ -1,0 +1,366 @@
+{
+ "id": "lauberlach",
+ "name": "Sillon de Lauberlac'h",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "logonna",
+  "empreinte_v2": "80646cc7526e0760f7822a81af43650a50a1f797f11883261c61e06525fc0fe0",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 48.337254,
+  "lon": -4.414256,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°20,2'N 4°24,9'W) ; précision non documentée.",
+   "verifie_le": null
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "D770 puis direction Lauberlac'h / Plougastel-Daoulas sud. Parking à la cale de l'anse. Sentier côtier (GR34) longe le sillon — accès direct aux deux côtés. Pas de difficulté technique.",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Temps de marche non documenté en V2."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "SILLON / ANSE — Anse de l'Auberlach, Plougastel-Daoulas",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Sable-vase à l'intérieur de l'anse, galets sur le sillon, roche et platiers en bordure.",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 2,
+    "gratter": "texan",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Source directe lordjimcroisieres : ouverte au SO, protégée NO→SE. Spot parfait par vent du secteur N à E. À éviter par fort vent SO.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Anse de sable-vase fermée par un sillon, platiers en bordure (fiche).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "peu"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Classique 'sillon' breton : cordon littoral parallèle à la côte qui crée une anse intérieure protégée. Les bars patrouillent le long du sillon côté rade, et entrent dans l'anse sur le flot. Cale et mouillages dans l'anse.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Courant modéré sur le sillon extérieur, très faible dans l'anse. Bascule de courant selon la marée qui entre/sort de l'anse.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    30,
+    50,
+    88,
+    110
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Deux approches selon l'heure de marée : (1) côté rade du sillon = prospection longue distance sur montant ; (2) à l'intérieur de l'anse = pêche fine en bordure quand le flot a rempli.",
+   "lifeHack": "Repérer à BM les veines et les goémons. Le changement de côté (extérieur sillon → intérieur anse) suit la marée. Refuge par vent de secteur N quand les autres spots locaux sont moins confortables.",
+   "montantOuDescendant": "Montant dominant : longer le sillon côté extérieur (rade) pour chercher les bars de passage, puis passer dans l'anse quand le flot y entre.",
+   "typeHeure": "LE LONG DU SILLON SUR MONTANT + ANSE SUR FLOT PLEIN",
+   "windows": [
+    {
+     "id": "la1",
+     "label": "Montant plein (flot établi)",
+     "note": "Longer le sillon côté rade, lancer parallèle à la côte. Les bars remontent le long du cordon.",
+     "offsetAfter": 4.5,
+     "offsetBefore": 1.5,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "la2",
+     "label": "Étale PM + début descendant (dans l'anse)",
+     "note": "Anse pleine, eau calme, bars en chasse fine sur les bordures. Pêche à vue ou LS weightless.",
+     "offsetAfter": 1.5,
+     "offsetBefore": -0.5,
+     "phase": "pm",
+     "priority": "prime",
+     "tidePhaseType": "renversement"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     315,
+     337.5,
+     292.5
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     202.5,
+     180,
+     225
+    ]
+   },
+   "texte": "Source lordjimcroisieres : 'Anse de l'Auberlach ouverte au Sud-Ouest et bien protégée des vents de Nord-Ouest jusqu'au sud-est.'",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.5
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "VÉRIFIÉ",
+    "origine": "v2",
+    "texte": "Plougastel figure 'parmi les sites les plus privilégiés pour la pêche depuis le bord' (camping Saint-Jean). Bars qui longent le sillon côté rade, patrouillent en bordure d'anse sur le montant.",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Tête plombée légère au cœur de l'anse sableuse ; texan dès qu'on approche des platiers.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Le long du sillon côté rade, prospecter en linéaire lent sans toucher les galets du pied de sillon.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Repérer à BM les veines et les goémons. Le changement de côté (extérieur sillon → intérieur anse) suit la marée. Refuge par vent de secteur N quand les autres spots locaux sont moins confortables.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Natural / Smoke / Ayu",
+    "name": "Shad 10-14cm tête plombée",
+    "technique": "Prospection longue le long du sillon côté rade.",
+    "weight": "10-18g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / Sardine",
+    "name": "Stickbait 110-130mm",
+    "technique": "Surface au-dessus du sillon et en entrée d'anse sur montante.",
+    "weight": "18-28g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "White / Natural / UV",
+    "name": "LS weightless (pintail, slug)",
+    "technique": "Pêche fine dans l'anse à eau calme, à vue si possible. Approche silencieuse.",
+    "weight": "5-10g sans plomb"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.5,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Règle V2 : réglementation du bar appliquée selon le 48ᵉ parallèle (arrêté du 1er avril 2026) ; à vérifier sur la source officielle, avec sa date (5.7).",
+   "verifie_le": null
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v2",
+  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+ },
+ "provenance": {
+  "sources": [],
+  "sources_v2": [
+   "voileaviron.org — livret des sites de la rade de Brest",
+   "hisse-et-oh.com — forum mouillages en rade de Brest",
+   "lordjimcroisieres.com — Navigation rade de Brest : Anse de l'Auberlach, exposition SO et protection NO→SE",
+   "campingsaintjean.com — Porz Gwenn et Sillon de Lauberlac'h parmi les sites de pêche à pied/au leurre privilégiés",
+   "peche.com — Pêche en rade de Brest (Nicolas/brestfishing)"
+  ],
+  "faits_v2": [
+   {
+    "s": "Voile-Aviron, livret « 50 sites de la rade de Brest »",
+    "t": "La passe du sillon « peut connaître un courant assez fort » ; accès bateau à ± 1 h de la pleine mer."
+   },
+   {
+    "s": "Voile-Aviron, livret « 50 sites de la rade de Brest »",
+    "t": "Plage intérieure : « le sable le plus accueillant (il peut y avoir quelques cailloux) »."
+   },
+   {
+    "s": "Forum Hisse et Ho — mouillages en rade de Brest",
+    "t": "Anse « assez exposée au S et SW », à éviter au mouillage en hiver."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": null,
+  "completude": 0.65,
+  "inconnus": [
+   "access.stationnement",
+   "access.marche_min",
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.montante",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": []
+ }
+}

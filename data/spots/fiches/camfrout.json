@@ -1,0 +1,382 @@
+{
+ "id": "camfrout",
+ "name": "L'Hôpital-Camfrout",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "logonna",
+  "empreinte_v2": "db91726236ec4e14ca70000b2c4c8184ea321811bbe4c600a237a1d19d7febc3",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 48.300126,
+  "lon": -4.247263,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°18,0'N 4°14,8'W) ; précision non documentée.",
+   "verifie_le": null
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Depuis Logonna : D770 vers L'Hôpital-Camfrout. Parkings du bourg et de Kerhascoët. Accès à Troaon, Kerdreolet et au cordon de Tibidy (l'îlot de Tibidy est privé : ne pas y monter). Bottes ou waders selon le poste.",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Temps de marche non documenté en V2."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "ESTUAIRE / TOMBOLO — Rivière du Camfrout, Tibidy, Troaon",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Vase-sable dans l'estuaire, roche et cailloux vers Tibidy, parcs à huîtres et herbiers en bordure.",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 2,
+    "gratter": "texan",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Double abri : replié au fond de la ria, et Tibidy masque la sortie. Quasi inattaquable par vent d'O/SO. Le NO remonte l'estuaire et rend l'eau moins lisible.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Bordures peu profondes ; veines plus profondes dans le chenal (fiche).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "peu"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Deux structures superposées : l'estuaire de la rivière du Camfrout, et l'îlot de Tibidy relié au continent par un cordon littoral, à l'embouchure de la rivière du Faou. Le cordon est une barrière physique qui dévie le flux et crée un poste d'embuscade franc.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Chenalisation nette. Courant modéré dans l'estuaire, sensiblement plus marqué autour du cordon de Tibidy où le flux est resserré.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    25,
+    45,
+    85,
+    108
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Règle classique d'estuaire : trois premières heures de montant depuis BM+0h30. Les gros bars remontent avec la marée puis redescendent avec le jusant.",
+   "lifeHack": "Repérer les postes à basse mer : fosses du chenal, bordures herbeuses, parcs à huîtres. Texan indispensable pour ne pas s'accrocher dans les parcs.",
+   "montantOuDescendant": "Montant dominant — les bars entrent avec le flot pour chasser dans le chenal et autour des parcs. Fin de descendant exploitable en postage à la sortie.",
+   "typeHeure": "3 PREMIÈRES HEURES DE MONTANT (règle estuaire)",
+   "windows": [
+    {
+     "id": "hc1",
+     "label": "3 premières heures de montant",
+     "note": "Règle la plus universelle en estuaire. Se poster sur les bordures du chenal ou le long du cordon de Tibidy.",
+     "offsetAfter": 3,
+     "offsetBefore": 0.5,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "hc2",
+     "label": "Fin de descendant (sortie d'estuaire)",
+     "note": "Les bars quittent l'estuaire par le resserrement de Tibidy : embuscade en sortie.",
+     "offsetAfter": -0.5,
+     "offsetBefore": -2,
+     "phase": "bm",
+     "priority": "bon",
+     "tidePhaseType": "descendant"
+    },
+    {
+     "id": "hc3",
+     "label": "Début de descendant (postage chenal)",
+     "note": "Shad plombé dans les veines profondes du chenal.",
+     "offsetAfter": 2.5,
+     "offsetBefore": 0.5,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "descendant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     202.5,
+     225,
+     247.5
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     292.5,
+     315,
+     337.5
+    ]
+   },
+   "texte": "Estuaire encastré en fond de rade, abrité des vents d'O/SO par la géographie ; le vent de NO remonte la ria. Orientation déduite de la carte.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.3
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Biotope euryhalin classique du bar en fond de rade : gradient de salinité, proies concentrées, bars résidents doublés de poissons de passage sur le montant.",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Texan anti-accroche sur les parcs et les herbiers ; weightless à vue dans les bordures peu profondes.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Côté Tibidy (roche), remonter d'une couche : sous-surface plutôt que fond.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Spot de ton guide d'origine : aucune source publiée ne le cite pour le bar (vérifié le 29/10/2026) ; ton journal fera foi.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Repérer les postes à basse mer : fosses du chenal, bordures herbeuses, parcs à huîtres. Texan indispensable pour ne pas s'accrocher dans les parcs.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Natural / Smoke / Motor Oil",
+    "name": "Shad souple 10-12 cm en texan",
+    "technique": "Référence estuaire. Texan anti-accrochage essentiel sur les parcs et les herbiers.",
+    "weight": "10-16 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ayu / Mullet / Crystal",
+    "name": "Jerkbait suspending 100-110 mm",
+    "technique": "Twitch lent dans les zones dégagées du chenal.",
+    "weight": "12-16 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "White UV / Natural",
+    "name": "Pintail / slug weightless",
+    "technique": "Pêche à vue dans les bordures peu profondes, si l'eau du jour le permet.",
+    "weight": "5-10 g sans plomb"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 2,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "L'îlot de Tibidy est privé : ne pas y monter.",
+    "verifie_le": null,
+    "source_texte": "fiche du spot (accès)"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.3,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Règle V2 : réglementation du bar appliquée selon le 48ᵉ parallèle (arrêté du 1er avril 2026) ; à vérifier sur la source officielle, avec sa date (5.7).",
+   "verifie_le": null
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v2",
+  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+ },
+ "provenance": {
+  "sources": [],
+  "sources_v2": [
+   "voileaviron.org — livret des sites de la rade de Brest (Tibidy privé)",
+   "en.wikipedia.org/wiki/Île_de_Tibidy — Tibidy est un îlot à l'embouchure de la rivière du Faou, en fond de rade de Brest, sur des terres appartenant à la commune de L'Hôpital-Camfrout, relié au continent par un cordon littoral",
+   "tourisme-landerneau-daoulas.fr — Sites de L'Hôpital-Camfrout : Tibidy, Kerdreolet, Troaon, Kerhascoët (listés distinctement de ceux de Loperhet)",
+   "tourisme-landerneau-daoulas.fr — Kerhascoët, ancien port coquillier de la commune, vue sur la presqu'île de Logonna",
+   "despoissonssigrands.com — Pêche du bar en estuaire (principes)"
+  ],
+  "faits_v2": [
+   {
+    "s": "Voile-Aviron, livret « 50 sites de la rade de Brest »",
+    "t": "L'îlot de Tibidy est privé ; on ne peut aborder que côté est du tombolo."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": null,
+  "completude": 0.67,
+  "inconnus": [
+   "access.stationnement",
+   "access.marche_min",
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.montante",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": []
+ }
+}

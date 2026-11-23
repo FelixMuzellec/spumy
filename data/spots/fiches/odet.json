@@ -1,0 +1,402 @@
+{
+ "id": "odet",
+ "name": "Embouchure de l'Odet",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "concarneau",
+  "empreinte_v2": "6b549240a0e467b5b8bea26211729ce890fa817fde3054c927e7a19136fbf88d",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2",
+   "riviere": "indicateur V2 repris dans environment.milieu si utile ; valeur gardée dans la sauvegarde"
+  }
+ },
+ "coordinates": {
+  "lat": 47.881574,
+  "lon": -4.11529,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (47°52,9'N 4°06,9'W) ; précision non documentée.",
+   "verifie_le": null
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Parking du port de plaisance de Bénodet, puis corniche de l'estuaire vers la pointe du Coq (visorando). L'été, le stationnement à Bénodet « peut vite tourner au cauchemar » (Cadiou).",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Temps de marche non documenté en V2."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "EMBOUCHURE + ESTUAIRE — Bénodet – Sainte-Marine, secteur aval",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Estuaire aval et embouchure de l'Odet, entre Bénodet et Sainte-Marine (Cadiou, 2023). Nature du fond non décrite pour le bord.",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 2,
+    "gratter": "texan",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Ouverte au sud. Déduit de la carte.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Bordures d'estuaire : profondeur non décrite pour le bord (déduit).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "peu"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Embouchure entre Bénodet et Sainte-Marine, corniche de l'estuaire, pointe du Coq (Cadiou, visorando).",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Courant d'estuaire ; la cale de Bénodet est « exposée au courant principal » (Cadiou) ; maximal à mi-marée (règle des douzièmes).",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    30,
+    45,
+    85,
+    105
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "benodet",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "L'embouchure se pêche à toute marée ; autour de la basse mer, le poisson se concentre dans le chenal.",
+   "lifeHack": "Retard sur le marégraphe de Bénodet (Cadiou) : + 20 min pour le haut du secteur aval, + 20 à 35 min pour le secteur intermédiaire, + 35 à 45 min en baie de Kerogan, + 45 min à 1 h à Quimper. L'heure du guide vaut pour l'embouchure.",
+   "montantOuDescendant": "La basse mer est « un moment à ne pas rater » (Cadiou) ; règle générale des estuaires : trois premières heures de montante et trois dernières de descendante (Vidal).",
+   "typeHeure": "BASSE MER + DÉBUT DE MONTANTE",
+   "windows": [
+    {
+     "id": "od1",
+     "label": "Basse mer (BM−1,5 → BM+1,5)",
+     "note": "« Un moment à ne pas rater » (Cadiou). Dark Sleeper lent avec pauses.",
+     "offsetAfter": 1.5,
+     "offsetBefore": -1.5,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "variable"
+    },
+    {
+     "id": "od2",
+     "label": "Montant (BM+1,5 → BM+3)",
+     "note": "Premières heures de flot (règle générale de Vidal). Z-Claw en surface, animé lentement en travers du courant (Cadiou).",
+     "offsetAfter": 3,
+     "offsetBefore": 1.5,
+     "phase": "bm",
+     "priority": "bon",
+     "tidePhaseType": "montant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     337.5,
+     0,
+     22.5
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     157.5,
+     180,
+     202.5
+    ]
+   },
+   "texte": "Embouchure ouverte au sud (déduit de la carte) : la houle de sud entre dans l'estuaire, le vent de nord descend la rivière.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 2
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "VÉRIFIÉ",
+    "origine": "v2",
+    "texte": "Secteur le plus régulier de l'Odet (Cadiou) ; estuaire réputé (Vidal, mieuxpecher).",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Dark Sleeper lent sur le fond avec des pauses, Sleeper Gill un peu plus haut dans la couche, Z-Claw en surface animé lentement en travers du courant (Cadiou) ; imitation de crabe au ras du fond (Vidal).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Le secteur aval est « probablement la plus régulière en terme de présence des bars » ; la basse mer est « un moment à ne pas rater » (Cadiou).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Bars d'estuaire : imitations de crabe (Vidal).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Retard sur le marégraphe de Bénodet (Cadiou) : + 20 min pour le haut du secteur aval, + 20 à 35 min pour le secteur intermédiaire, + 35 à 45 min en baie de Kerogan, + 45 min à 1 h à Quimper. L'heure du guide vaut pour l'embouchure.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel",
+    "name": "Fiiish Dark Sleeper",
+    "technique": "Lent, avec des pauses, près du fond (Cadiou).",
+    "weight": "selon le courant"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel",
+    "name": "Z Claw Evo",
+    "technique": "Leurre de surface, « animé lentement en travers du courant » (Cadiou).",
+    "weight": "22,5 g (100 mm, flottant)"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Vert / brun",
+    "name": "Imitation de crabe",
+    "technique": "Bars d'estuaire (Vidal, 2026).",
+    "weight": "texan 5-10 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "La cale de Bénodet est « exposée au courant principal » (Cadiou, à propos de la mise à l'eau) : le courant y porte fort par grand coefficient.",
+    "verifie_le": null,
+    "source_texte": "ultimate-fishing.net — N. Cadiou (2023)"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Plus haut dans l'estuaire, la baie de Kerogan a « une vase très molle et de vrais risques de s'enfoncer profondément » : rester sur le haut de la bordure (Cadiou), jamais seul (prudence du guide).",
+    "verifie_le": null,
+    "source_texte": "ultimate-fishing.net — N. Cadiou (2023) · prudence du guide"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 2,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Règle V2 : réglementation du bar appliquée selon le 48ᵉ parallèle (arrêté du 1er avril 2026) ; à vérifier sur la source officielle, avec sa date (5.7).",
+   "verifie_le": null
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v2",
+  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+ },
+ "provenance": {
+  "sources": [],
+  "sources_v2": [
+   "ultimate-fishing.net — N. Cadiou, « Pêche du bar sur l'estuaire de l'Odet, un challenge » (2023)",
+   "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : l'Odet",
+   "peche-poissons.com — J.-B. Vidal (19/10/2026) : estuaires",
+   "visorando.com — « Tour de Bénodet »"
+  ],
+  "faits_v2": [
+   {
+    "s": "ultimate-fishing.net — N. Cadiou, « Pêche du bar sur l'estuaire de l'Odet, un challenge » (02/02/2023)",
+    "t": "Secteur aval et embouchure : « probablement la plus régulière en terme de présence des bars », à toute hauteur et tout coefficient ; la basse mer, « un moment à ne pas rater » ; l'embouchure « est un secteur clé » entre Bénodet et Sainte-Marine."
+   },
+   {
+    "s": "ultimate-fishing.net — N. Cadiou (2023)",
+    "t": "Leurres : Dark Sleeper pour « pêcher lentement sur le fond avec des pauses », Sleeper Gill pour « pêcher un peu plus haut dans la couche d'eau » (bordures et pointes de roches immergées), Z-Claw (leurre de surface) « animé lentement en travers du courant »."
+   },
+   {
+    "s": "mieuxpecher.com — « Coins de Pêche – Finistère SUD »",
+    "t": "« La rivière et l'estuaire de l'Odet » parmi les coins de pêche du Finistère sud."
+   },
+   {
+    "s": "peche-poissons.com — J.-B. Vidal (19/10/2026)",
+    "t": "L'Odet parmi « les estuaires bretons et notamment finistériens » « très prisés par les pêcheurs de bars notamment à vue » ; imitations de crabe « très efficaces sur les bars d'estuaire »."
+   },
+   {
+    "s": "visorando.com — « Tour de Bénodet » (départ 47,881574 / -4,11529)",
+    "t": "Du parking du port de plaisance de Bénodet, la corniche de l'estuaire mène en 1,3 km à la pointe du Coq et son petit phare ; bac vers Sainte-Marine en juillet-septembre."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": null,
+  "completude": 0.68,
+  "inconnus": [
+   "access.stationnement",
+   "access.marche_min",
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.montante",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": []
+ }
+}

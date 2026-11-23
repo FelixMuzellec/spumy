@@ -1,0 +1,400 @@
+{
+ "id": "dinan",
+ "name": "Pointe de Dinan",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "crozon",
+  "empreinte_v2": "48cc4623e593821e3aeb2d22287bd542682b528881893b4597e9765d20b40cd3",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 48.231902,
+  "lon": -4.570842,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°13,9'N 4°34,3'W) ; précision non documentée.",
+   "verifie_le": null
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Route de Camaret vers Dinan, parking au bout (D308) ; environ 500 m à pied par le GR34 jusqu'à la pointe, puis des sentes raides vers les postes rocheux (carnet-de-peche.com).",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Temps de marche non documenté en V2."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "POINTE ROCHEUSE / FALAISE — Château de Dinan, Crozon, côte atlantique",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Éboulis, langues de sable et laminaires au pied de la falaise, de 5 à 15 m de fond (lechasseursousmarin.com) ; pointe prolongée par l'arche du « château de Dinan ».",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 3,
+    "gratter": "non",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Ouest, face à l'Iroise. Déduit de la carte.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "« Profondeur 5 à 15 m » sur le parcours de chasse sous-marine de la pointe (lechasseursousmarin.com).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "tombant"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Pointe à falaises et arche du château de Dinan ; grande grotte côté gauche (carnalor).",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "« Nul à faible » (lechasseursousmarin).",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    40,
+    60,
+    95,
+    110
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "morgat",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Pointe en surplomb sur 5 à 15 m d'eau : le début du jusant, aux heures de faible lumière.",
+   "lifeHack": "Marée de Morgat, port contrôlé le plus proche (5,5 km) : l'heure du poste en diffère de quelques minutes au plus (déduit).",
+   "montantOuDescendant": "« Surtout au coefficient et en début de descendante d'été à l'aube/au crépuscule » (carnet-de-peche.com).",
+   "typeHeure": "DÉBUT DE DESCENDANTE, AUBE ET CRÉPUSCULE",
+   "windows": [
+    {
+     "id": "dn1",
+     "label": "Début de descendant (PM → PM+3)",
+     "note": "La phase citée par la fiche (carnet-de-peche.com), à l'aube ou au crépuscule.",
+     "offsetAfter": 3,
+     "offsetBefore": 0,
+     "phase": "pm",
+     "priority": "prime",
+     "tidePhaseType": "descendant"
+    },
+    {
+     "id": "dn2",
+     "label": "Montant, règle générale (BM → BM+3)",
+     "note": "Règle générale du bar en Bretagne (Vidal), non propre à ce poste.",
+     "offsetAfter": 3,
+     "offsetBefore": 0,
+     "phase": "bm",
+     "priority": "bon",
+     "tidePhaseType": "montant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     67.5,
+     90,
+     112.5
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     247.5,
+     270,
+     292.5,
+     315
+    ]
+   },
+   "texte": "Pointe de la côte atlantique de la presqu'île, tournée vers l'ouest (déduit de la carte) : vent et houle d'ouest de face, vent d'est de dos. Houle maximale de 1,5 m : seuil prudent du guide pour un spot en surplomb (« gaffe aux lames »).",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.5
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "VÉRIFIÉ",
+    "origine": "v2",
+    "texte": "Bar au leurre de surface ou souple (carnet-de-peche) ; bars dans les laminaires (lechasseursousmarin).",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Leurre de surface ou souple pour le bar (carnet-de-peche.com) ; pêche en surplomb (carnalor, 2012) : pas de grattage dans les éboulis et les laminaires.",
+   "verifie_le": null
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Le poste cité par un pêcheur : « à la pointe de Dinan à gauche là où il y a la grosse grotte » (carnalor, 2012).",
+   "verifie_le": null
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Début de descendante, à l'aube et au crépuscule en été, « surtout au coefficient » (carnet-de-peche.com).",
+   "verifie_le": null
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Spot engagé : falaise, ressac et retour de vague, zone isolée ; descendre « prudemment » par des sentes raides (carnet-de-peche.com).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Marée de Morgat, port contrôlé le plus proche (5,5 km) : l'heure du poste en diffère de quelques minutes au plus (déduit).",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel / ghost",
+    "name": "Stickbait 110-130 mm",
+    "technique": "Aube et crépuscule, en début de descendante (carnet-de-peche.com).",
+    "weight": "14-27 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel",
+    "name": "Souple 12-15 cm tête plombée",
+    "technique": "Le long des éboulis, sans gratter : laminaires et roches.",
+    "weight": "tête 15-25 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 3,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Falaise, ressac et retour de vague, zone isolée : descendre prudemment par les sentes raides.",
+    "verifie_le": null,
+    "source_texte": "carnet-de-peche.com — Pointe de Dinan"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "On pêche en surplomb : « gaffe aux lames ».",
+    "verifie_le": null,
+    "source_texte": "carnalor.com (Guy535, 15/03/2012)"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.5,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Règle V2 : réglementation du bar appliquée selon le 48ᵉ parallèle (arrêté du 1er avril 2026) ; à vérifier sur la source officielle, avec sa date (5.7).",
+   "verifie_le": null
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v2",
+  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+ },
+ "provenance": {
+  "sources": [],
+  "sources_v2": [
+   "mieuxpecher.com — « Coins de pêche – Finistère NORD » : château de Dinan",
+   "carnet-de-peche.com — Pointe de Dinan",
+   "carnalor.com — forum « crozon rade de brest » (Guy535, 2012)",
+   "lechasseursousmarin.com — Pointe de Dinan",
+   "Google Maps — position de la pointe et du parking"
+  ],
+  "faits_v2": [
+   {
+    "s": "mieuxpecher.com — « Coins de pêche – Finistère NORD » (Norbert, 10/05/2018, mod. 16/10/2018)",
+    "t": "« Les environs du château de Dinan à Crozon » parmi les coins de pêche du bord."
+   },
+   {
+    "s": "carnet-de-peche.com — Pointe de Dinan (page sans auteur)",
+    "t": "Bar, lieu jaune et vieille ; leurres de surface ou souples pour le bar ; « surtout au coefficient et en début de descendante d'été à l'aube/au crépuscule » ; difficulté 5/5, « du costaud, difficulté justifiée » ; falaise, ressac et retour de vague, zone isolée."
+   },
+   {
+    "s": "carnalor.com — forum, sujet « crozon rade de brest » (Guy535, 15/03/2012)",
+    "t": "« a la pointe de dinan a gauche la ou il y a la grosse grotte je dis bien cote gauche » ; on y pêche « en surplomb », « gaffe aux lames »."
+   },
+   {
+    "s": "lechasseursousmarin.com — Pointe de Dinan (S. Rigolle et S. Chillou, 26/11/2025)",
+    "t": "Bars et mulets « solitaires », bars dans les laminaires ; « Profondeur 5 à 15 m », parmi « les éboulis et les langues de sable » ; « Force du courant nul à faible »."
+   },
+   {
+    "s": "carnet-de-peche.com — Pointe de Dinan",
+    "t": "Accès : route de Camaret vers Dinan, parking au bout ; environ 500 m à pied par le GR34 jusqu'à la pointe ; « Descends prudemment vers les postes rocheux en contrebas (sentes raides) »."
+   },
+   {
+    "s": "Google Maps — Pointe de Dinan, Parking Pointe de Dinan",
+    "t": "Position de la pointe : 48,231902 / -4,570842 ; parking de la pointe sur la D308."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": null,
+  "completude": 0.68,
+  "inconnus": [
+   "access.stationnement",
+   "access.marche_min",
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.montante",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": []
+ }
+}

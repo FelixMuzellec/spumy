@@ -1,0 +1,382 @@
+{
+ "id": "landevennec",
+ "name": "Landévennec",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "logonna",
+  "empreinte_v2": "976e5cd692d8ff0b3510e4741a68a3f6df047629a6061347f11658f7fb0ae28d",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2",
+   "riviere": "indicateur V2 repris dans environment.milieu si utile ; valeur gardée dans la sauvegarde"
+  }
+ },
+ "coordinates": {
+  "lat": 48.294932,
+  "lon": -4.269158,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°17,7'N 4°16,1'W) ; précision non documentée.",
+   "verifie_le": null
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Depuis Logonna : Le Faou puis D60/D791 vers Landévennec. Port Maria = bord de route, parking église Notre-Dame. Sillon des Anglais = GR34 depuis Landévennec, marche dans la forêt domaniale (15-20min).",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Temps de marche non documenté en V2."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "ANSE + SILLON — Cale de Port Maria + Sillon des Anglais",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Platiers et sable, cordes de moules le long du Sillon des Anglais, mouillages et goémon à Port Maria.",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 2,
+    "gratter": "texan",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "peche-poissons.com (2022) : « abrité des vents dominants ». Le reste (encaissement de l'Aulne, exposition au N/NE) est déduit de la carte.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Platiers et sable, cale et mouillages (fiche).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "peu"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Cale de Port Maria en bordure de l'église Notre-Dame = spot urbain confortable. Sillon des Anglais plus sauvage, accès GR34 dans la forêt domaniale. Les deux sont complémentaires selon marée et conditions.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Source lordjimcroisieres : courant sensible à la sortie de l'Aulne (Landévennec). Marnage 6m en VE. Coude de l'Aulne crée des veines et contre-courants.",
+   "verifie_le": null,
+   "valeur": {
+    "courantFort": {
+     "above": 70,
+     "t": "vive-eau ; courant sensible à la sortie de l'Aulne (lordjimcroisieres.com, 0,5 à 3 nœuds en rade)."
+    },
+    "courantSurface": {
+     "t": "Port Maria : « la pêche aux leurres de surface y est très intéressante dès qu'un courant se manifeste » (peche-poissons.com, 2022).",
+     "v": 1
+    }
+   }
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    30,
+    50,
+    85,
+    108
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Aucune plage de coefficient n'est donnée pour Landévennec : la phrase « 40 à 55 » de l'article concerne l'île de Térénez. Un article peche.com rapporte une dizaine de bars d'environ 60 cm par coefficient 50.",
+   "lifeHack": "Port Maria : attendre que le courant de jusant s'établisse avant de lancer en surface. Au sillon, longer les cordes de moules, ne jamais lancer en travers. Par coefficient de 90 et plus, le sillon du Pal (près de l'abbaye) se pêche en avançant avec la mer qui descend (source).",
+   "montantOuDescendant": "Port Maria : jusant, « à partir de la deuxième heure », dès que le courant se manifeste (peche-poissons.com, 2022). Sillon des Anglais : les sources ne donnent pas de moment de marée ; le flot est retenu par déduction (les bars remontent l'Aulne avec la marée).",
+   "typeHeure": "JUSANT À PORT MARIA (SOURCE) · FLOT AU SILLON (DÉDUIT)",
+   "windows": [
+    {
+     "id": "lv1",
+     "label": "Jusant dès la 2e heure (Port Maria)",
+     "note": "Leurres de surface dès qu'un courant se manifeste, « notamment à partir de la deuxième heure du jusant » (peche-poissons.com, 2022). Fin du créneau à PM+4 h : hypothèse.",
+     "offsetAfter": 4,
+     "offsetBefore": 1,
+     "phase": "pm",
+     "priority": "prime",
+     "tidePhaseType": "descendant"
+    },
+    {
+     "id": "lv2",
+     "label": "Flot établi (Sillon des Anglais)",
+     "note": "Longer le sillon côté rade, parallèle aux élevages de moules (source). Moment de marée déduit, aucune source ne le donne.",
+     "offsetAfter": 4,
+     "offsetBefore": 1.5,
+     "phase": "bm",
+     "priority": "bon",
+     "tidePhaseType": "montant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     180,
+     202.5,
+     225
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     0,
+     22.5,
+     45
+    ]
+   },
+   "texte": "Exposition nord à nord-est déduite de la carte. peche-poissons.com (2022) : « niché au fin fond de la rade de Brest » ; « les pieds dans l'eau, abrité des vents dominants, il bénéficie d'un climat clément ».",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.2
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "VÉRIFIÉ",
+    "origine": "v2",
+    "texte": "peche-poissons.com (2022) : la cale de Port Maria « est très prisée par les pêcheurs aux leurres » ; « la pêche aux leurres de surface y est très intéressante dès qu'un courant se manifeste et notamment à partir de la deuxième heure du jusant ». Sillon des Anglais : « les bars aiment s'en approcher, attirés par les élevages de moules ».",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Weightless entre les goémons et les mouillages ; tête légère seulement le long du sillon, parallèle aux cordes.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Ne jamais lancer en travers des cordes de moules : longer.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Port Maria : attendre que le courant de jusant s'établisse avant de lancer en surface. Au sillon, longer les cordes de moules, ne jamais lancer en travers. Par coefficient de 90 et plus, le sillon du Pal (près de l'abbaye) se pêche en avançant avec la mer qui descend (source).",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel / blanc",
+    "name": "Stickbait / leurre de surface",
+    "technique": "Port Maria : « la pêche aux leurres de surface y est très intéressante dès qu'un courant se manifeste », notamment à partir de la 2e heure du jusant (peche-poissons.com, 2022).",
+    "weight": "10-20 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Natural / Smoke / Ayu",
+    "name": "Shad 3-4″ tête plombée légère",
+    "technique": "Le long du Sillon des Anglais, parallèle aux cordes de moules.",
+    "weight": "7-14g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Crystal / Ayu",
+    "name": "Petit jerkbait 90-110mm",
+    "technique": "Entre les mouillages de Port Maria. Animations subtiles.",
+    "weight": "8-14g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.2,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 115,
+   "texte": "Coefficient au-delà duquel la V2 ne propose plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "regulations": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Règle V2 : réglementation du bar appliquée selon le 48ᵉ parallèle (arrêté du 1er avril 2026) ; à vérifier sur la source officielle, avec sa date (5.7).",
+   "verifie_le": null
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v2",
+  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+ },
+ "provenance": {
+  "sources": [],
+  "sources_v2": [
+   "peche.com — À la recherche du bar du côté du cimetière de bateaux en fond de rade de Brest",
+   "voileaviron.org — livret des sites de la rade de Brest",
+   "peche-poissons.com — « Escapade en rade de Brest, autour de Landévennec » (julien, 30/03/2022 ; photos Thierry Sauvin) — https://peche-poissons.com/mer/mer-coins-de-peche-en-france-escapade-en-rade-de-brest-autour-de-landevennec-693207-php/",
+   "peche.com — Rade de Brest (principes)",
+   "lordjimcroisieres.com — Navigation Landévennec"
+  ],
+  "faits_v2": [
+   {
+    "s": "peche.com — « À la recherche du bar du côté du cimetière de bateaux en fond de rade de Brest »",
+    "t": "Près du cimetière de bateaux : « berges composées de roches à huîtres avec du goémon qui descend dans l'eau », plage de galets d'ardoise."
+   },
+   {
+    "s": "peche.com",
+    "t": "Même article, en traîne (bateau ou kayak, pas du bord) : une dizaine de bars maillés, autour de 60 cm, en traîne lente de poissons nageurs le long des tombants, coefficient 50, basse mer vers 9 h 30."
+   },
+   {
+    "s": "peche-poissons.com — « Escapade en rade de Brest, autour de Landévennec » (julien, 30/03/2022)",
+    "t": "Sillon du Pal, près de l'ancienne abbaye : « à privilégier dès que le coefficient de marée est supérieur ou égal à 90 » ; « La mer descendant, le sillon se découvre et l'on peut avancer progressivement en pêchant aux leurres »."
+   },
+   {
+    "s": "Voile-Aviron, livret « 50 sites de la rade de Brest »",
+    "t": "Sillon des Anglais : tombants à la tête est de la flèche ; pas d'accès routier."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": null,
+  "completude": 0.68,
+  "inconnus": [
+   "access.stationnement",
+   "access.marche_min",
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.montante",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": []
+ }
+}

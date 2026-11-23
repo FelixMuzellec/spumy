@@ -1,0 +1,389 @@
+{
+ "id": "bendy",
+ "name": "Pointe du Bendy",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "logonna",
+  "empreinte_v2": "03e1c0a3a73ff8c8fac0807e1b4022a4c60c00bba7093079ad01f1967ebc9084",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2",
+   "riviere": "indicateur V2 repris dans environment.milieu si utile ; valeur gardée dans la sauvegarde"
+  }
+ },
+ "coordinates": {
+  "lat": 48.315,
+  "lon": -4.336333,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°18,9'N 4°20,2'W) ; précision non documentée.",
+   "verifie_le": null
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Depuis Logonna-Daoulas bourg, route vers Pointe du Bendy (fléché). Parking au bout de la route. Accès à pied par sentier côtier (GR34). Pêche depuis les rochers de la pointe ou sur les platiers selon marée.",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Temps de marche non documenté en V2."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "POINTE ROCHEUSE — Anse du Bendy, Logonna-Daoulas",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Alternance de roche et de sable, platiers découvrants, herbiers de zostères en bordure.",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 2,
+    "gratter": "texan",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "OBSERVATION LOCALE",
+   "origine": "v2",
+   "texte": "Face NO/O. Vent de NE/E arrive sur l'arrière des terres = bien abrité. Vent O/NO lève une mer courte mais la rade reste fermée (pas de houle océanique).",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Platiers découvrants et herbiers ; légère accélération au tombant de la pointe (fiche).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "peu"
+   }
+  },
+  "structures": {
+   "statut": "OBSERVATION LOCALE",
+   "origine": "v2",
+   "texte": "Pointe à l'entrée de l'anse du Bendy, sur la rive sud de la rivière de Daoulas. Configuration classique de pointe rade : légère accélération du courant au tombant, tourbillon aval selon sens de marée. Vue dégagée sur l'entrée de la rade vers l'Armorique.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Modéré. Courant de l'anse du Bendy + courant général rade. Plus marqué en vive-eau, quasi nul en morte-eau.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    30,
+    50,
+    85,
+    108
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Pointe de rade classique. À mi-marée + ou -, les platiers sont accessibles et on peut lancer loin. À BM les platiers sont à découvert, inaccessibles.",
+   "lifeHack": "Repérer à BM les chenaux entre les platiers — ce sont les veines que les bars empruntent sur le flot. Possibilité de pêche à vue en été par eau très claire et soleil bas.",
+   "montantOuDescendant": "Les deux fonctionnent. Montante : bars qui remontent avec le flot, en chasse sur les platiers. Descendant : postage sur tombant aval de la pointe.",
+   "typeHeure": "FLOT ÉTABLI + 1h APRÈS PM",
+   "windows": [
+    {
+     "id": "b1",
+     "label": "Fin de montant → 1h après PM",
+     "note": "Fenêtre large : flot terminal + étale PM + tout début de descendant. Les bars sont en chasse sur les platiers qui viennent d'être recouverts.",
+     "offsetAfter": 1,
+     "offsetBefore": -2,
+     "phase": "pm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "b2",
+     "label": "1-2h après PM (descendant)",
+     "note": "Postage sur le tombant aval de la pointe. Leurre coulant dans le courant descendant.",
+     "offsetAfter": 2.5,
+     "offsetBefore": 1,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "descendant"
+    },
+    {
+     "id": "b3",
+     "label": "Début de montant (BM+1 → BM+3)",
+     "note": "Les platiers se recouvrent. Stickbait sur chasses ; la lumière du créneau est calculée à part.",
+     "offsetAfter": 3,
+     "offsetBefore": 1,
+     "phase": "bm",
+     "priority": "bon",
+     "tidePhaseType": "montant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     90,
+     112.5,
+     67.5
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     270,
+     292.5,
+     315
+    ]
+   },
+   "texte": "Pointe orientée à l'ouest sur la rivière de Daoulas. Exposée aux vents d'O/NO, bien abritée E/NE.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.3
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "OBSERVATION LOCALE",
+    "origine": "v2",
+    "texte": "capitaine-spots.fr le disait « spot de pêche réputé » (page non consultable le 29/10/2026). Bars de passage sur le montant, postés sur le descendant derrière la pointe : savoir de terrain de ton guide d'origine.",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Tête weedless ou texan sur les platiers ; tête plombée classique seulement sur le sable.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Repérer à marée basse les plaques de sable entre les platiers : ce sont les seules zones où gratter.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Passer au-dessus des zostères : un souple qui s'y accroche ne pêche plus.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Spot de ton guide d'origine : aucune source publiée consultable ne le cite pour le bar (vérifié le 29/10/2026) ; ton journal fera foi.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Repérer à BM les chenaux entre les platiers — ce sont les veines que les bars empruntent sur le flot. Possibilité de pêche à vue en été par eau très claire et soleil bas.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Natural / Smoke / Chartreuse",
+    "name": "Shad souple 10-14cm tête plombée",
+    "technique": "Prospection large sur platiers recouverts. Récupé lente avec pauses.",
+    "weight": "10-18g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / Sardine",
+    "name": "Stickbait / pencil bait",
+    "technique": "Walk-the-dog au-dessus des platiers en fin de montant si mer calme.",
+    "weight": "18-28g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ayu / Mullet",
+    "name": "Jerkbait suspending",
+    "technique": "Twitchs courts entre les blocs rocheux côté pointe.",
+    "weight": "12-16g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.3,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Règle V2 : réglementation du bar appliquée selon le 48ᵉ parallèle (arrêté du 1er avril 2026) ; à vérifier sur la source officielle, avec sa date (5.7).",
+   "verifie_le": null
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v2",
+  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+ },
+ "provenance": {
+  "sources": [],
+  "sources_v2": [
+   "fr.wikipedia.org — Logonna-Daoulas",
+   "voileaviron.org — livret des sites de la rade de Brest",
+   "capitaine-spots.fr — « Pointe de Bindy » (page non consultable le 29/10/2026 : citation non revérifiée)",
+   "tourisme-landerneau-daoulas.fr — Le Bendy parmi les sites de pêche à pied de Logonna (Le Roz, Le Yelen, Le Bendy, Porsisquin) : coquillages, pas le bar",
+   "peche.com — Principes généraux pointes rocheuses"
+  ],
+  "faits_v2": [
+   {
+    "s": "Wikipédia — Logonna-Daoulas (géographie)",
+    "t": "La pointe du Bendy est l'extrémité ouest de la presqu'île de Logonna."
+   },
+   {
+    "s": "Voile-Aviron, livret « 50 sites de la rade de Brest »",
+    "t": "Sillon en tombolo, doublé d'un second cordon qui forme un bassin abrité."
+   },
+   {
+    "s": "Voile-Aviron, livret « 50 sites de la rade de Brest »",
+    "t": "Roche de La Coët, non balisée, à contourner au large."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": null,
+  "completude": 0.67,
+  "inconnus": [
+   "access.stationnement",
+   "access.marche_min",
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.montante",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": []
+ }
+}

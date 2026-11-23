@@ -48,6 +48,8 @@ jobs:
         run: npm run -s test:data
       - name: Spots V2 inventoriés et sauvegardés, inchangés (phase 5)
         run: npm run -s test:spots-v2
+      - name: Fiches de spots V3 (schéma § 7.4, aucune perte V2, registre central)
+        run: npm run -s test:spots-v3
       - name: Connaissances halieutiques (niveaux de preuve, sources, rubriques des spots)
         run: npm run -s test:knowledge
       - name: Système de design (contrastes WCAG des deux thèmes)

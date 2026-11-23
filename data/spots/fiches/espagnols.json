@@ -1,0 +1,384 @@
+{
+ "id": "espagnols",
+ "name": "Pointe des Espagnols",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "logonna",
+  "empreinte_v2": "5f778b729186bcc3f2aa991ebddf9a38a37f399bd57ce5361b6d0bbed15df426",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 48.341271,
+  "lon": -4.533564,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°20,5'N 4°32,0'W) ; précision non documentée.",
+   "verifie_le": null
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Depuis Logonna : Le Faou, puis la D791 et le pont de Térénez vers la presqu'île de Crozon, direction Roscanvel / pointe des Espagnols. Parking près de la pointe. Accès aux rochers par sentier : repérage conseillé. Niveau expérimenté.",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Temps de marche non documenté en V2."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "GOULET / COURANT FORT — Roscanvel, entrée du Goulet",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Granite, failles et plateaux rocheux, tombants vertigineux.",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 3,
+    "gratter": "non",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Wikipédia : falaise de plus de 60 m, pointe tournée vers le nord-est et Brest. Exposition au nord-est déduite ; lordjimcroisieres décrit une « falaise verdoyante ».",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Plateaux rocheux et tombants vertigineux du goulet (fiche).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "tombant"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Pointe à l'entrée nord du Goulet de Brest (canyon sous-marin 1500m × 3000m). Roche de la Cormorandière juste au large. Tourbillons violents en plein courant, contre-courants dans l'anse sous la pointe (refuge bateaux).",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Source lordjimcroisieres : courant qui s'engouffre entre pointe et Cormorandière. Vive-eau = 3 nds + sur la veine principale. Impêchable en plein courant sauf bras de contre-courant.",
+   "verifie_le": null,
+   "valeur": {
+    "courantSurface": {
+     "t": "La fiche : « en plein courant, le leurre ne tient pas sa couche » ; pêcher les renverses.",
+     "v": -2
+    }
+   }
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    35,
+    55,
+    85,
+    105
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Logique Goulet : les poissons profitent du courant pour chasser, le pêcheur doit se positionner où le courant est exploitable (contre-courants, renverses, petites criques abritées).",
+   "lifeHack": "Repérage indispensable avant la première session (accès, lecture des courants). Coefficients modérés pour commencer (déduit ; pour la Hague, peche.com conseille de ne pas dépasser 80). Ne jamais pêcher en plein courant ; gilet, semelles crantées.",
+   "montantOuDescendant": "Le courant principal est souvent impêchable — chercher la renverse (étales) ou se poster dans un contre-courant abrité.",
+   "typeHeure": "RENVERSE + CONTRE-COURANTS SOUS LA POINTE",
+   "windows": [
+    {
+     "id": "es1",
+     "label": "Étale BM (±45min)",
+     "note": "Courant s'annule, postes accessibles. Fenêtre courte, prévoir d'arriver 1h avant.",
+     "offsetAfter": 0.7,
+     "offsetBefore": -0.7,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "renversement"
+    },
+    {
+     "id": "es2",
+     "label": "Étale PM (±45min)",
+     "note": "Identique BM. Attention : le courant reprend vite.",
+     "offsetAfter": 0.7,
+     "offsetBefore": -0.7,
+     "phase": "pm",
+     "priority": "prime",
+     "tidePhaseType": "renversement"
+    },
+    {
+     "id": "es3",
+     "label": "Contre-courant sous la pointe",
+     "note": "lordjimcroisieres décrit cet abri sous la pointe pour un voilier qui attend la renverse ; y pêcher en plein courant est une déduction du guide.",
+     "offsetAfter": 3,
+     "offsetBefore": 1,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "variable"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     180,
+     202.5,
+     225
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     337.5,
+     0,
+     22.5,
+     45
+    ]
+   },
+   "texte": "La pointe s'avance vers le nord-est (rocher de la Cormorandière), face à Brest (Wikipédia) : vent de nord à nord-est de face par-dessus la rade, vent de sud-ouest de dos (déduit). Le courant « s'engouffre entre la pointe et la roche de la Cormorandière » (lordjimcroisieres).",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.5
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "VÉRIFIÉ",
+    "origine": "v2",
+    "texte": "Zone documentée pour bars et lieus. Pression de pêche limitée par la difficulté d'accès aux postes (mieuxpecher : 'à condition de trouver les accès'). Poste à gros poissons en renverse.",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Sinking pencil et leurres lourds comptés, dans la limite de ta canne (42 g).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pêcher les renverses de courant ; en plein courant, le leurre ne tient pas sa couche.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Repérage indispensable avant la première session (accès, lecture des courants). Coefficients modérés pour commencer (déduit ; pour la Hague, peche.com conseille de ne pas dépasser 80). Ne jamais pêcher en plein courant ; gilet, semelles crantées.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / Iwashi / Sardine",
+    "name": "Stickbait coulant lourd (sinking pencil)",
+    "technique": "Travail dans le courant résiduel en renverse. Dérive naturelle. Dans ta boîte : Mr Joe 120 (35 g, coulant).",
+    "weight": "30-40 g (limite de ta canne : 42 g)"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Sardine / Bleu",
+    "name": "Leurre 10-12cm sardine/bleu",
+    "technique": "Principe peche.com (documenté sur Hague, transposable Goulet) : coloris bleu/sardine pour lieus jaunes en début de saison + bars.",
+    "weight": "20-30g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 3,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Falaise de plus de 60 m (Wikipédia) : ne descendre que par un sentier repéré de jour, jamais seul.",
+    "verifie_le": null,
+    "source_texte": "en.wikipedia.org — Pointe des Espagnols · prudence du guide"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Courants forts entre la pointe et la Cormorandière : ne jamais pêcher en plein courant ; gilet et semelles crantées. Repérage indispensable avant la première session.",
+    "verifie_le": null,
+    "source_texte": "Wikipédia (« strong currents ») · lordjimcroisieres · fiche du spot (conseil)"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.5,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 112,
+   "texte": "Coefficient au-delà duquel la V2 ne propose plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "regulations": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Règle V2 : réglementation du bar appliquée selon le 48ᵉ parallèle (arrêté du 1er avril 2026) ; à vérifier sur la source officielle, avec sa date (5.7).",
+   "verifie_le": null
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v2",
+  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+ },
+ "provenance": {
+  "sources": [],
+  "sources_v2": [
+   "rebent.ifremer.fr — FL05 lieux des herbiers de Zostera marina (Roscanvel)",
+   "voileaviron.org — livret des sites de la rade de Brest",
+   "brestfishing.fr — Guide rade de Brest : Goulet 'canyon sous-marin où les courants de marée peuvent se révéler assez violents, plateaux rocheux (Plateau des Fillettes, Roche du Mengan)'",
+   "lordjimcroisieres.com — Courant sensible à la Pointe des Espagnols, refuge sous la pointe pour attendre la renverse",
+   "mieuxpecher.com — 'Pointe des Espagnols, à condition de trouver les accès…' listée comme spot rade de Brest",
+   "generationvoyage.fr — Roscanvel : 'bars, aiguillettes, vieilles en avançant dans l'eau'",
+   "en.wikipedia.org — Pointe des Espagnols : « Formed by a cliff that is more than 60m high », vers le nord-est par le rocher de la Cormorandière"
+  ],
+  "faits_v2": [
+   {
+    "s": "Ifremer REBENT — lieux des herbiers de Zostera marina",
+    "t": "Herbier de zostères « en ruban » sur la côte de Roscanvel, près de la pointe des Espagnols (station de suivi)."
+   },
+   {
+    "s": "Voile-Aviron, livret « 50 sites de la rade de Brest »",
+    "t": "La roche de la Cormorandière « fait l'objet de tourbillons que l'on se gardera bien d'approcher »."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": null,
+  "completude": 0.69,
+  "inconnus": [
+   "access.stationnement",
+   "access.marche_min",
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.montante",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": []
+ }
+}

@@ -1,0 +1,396 @@
+{
+ "id": "goury",
+ "name": "Goury",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "pirou",
+  "empreinte_v2": "c62733290a7eb0d6b5f13478b711ea8fbc6cde3946a423116093996b58ac44b3",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 49.715018,
+  "lon": -1.945278,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (49°42,9'N 1°56,7'W) ; précision non documentée.",
+   "verifie_le": null
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Port de Goury à Auderville, estran rocheux alentour. Descente engagée, roche glissante.",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Temps de marche non documenté en V2."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "RAZ / COURANT EXTRÊME — Cap de la Hague, entrée du Raz Blanchard",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Roche franche, estran rocheux, tombants profonds, courant du raz.",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 3,
+    "gratter": "non",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Exposé du sud-ouest au nord. Aucun abri réel. Mer croisée quand le vent contrarie le courant.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Tombants profonds, courant du raz (fiche).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "tombant"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Le phare de Goury marque l'entrée du Raz Blanchard, l'un des courants les plus puissants au monde. Remous permanents, veines et contre-courants sur toute la zone.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Extrême. peche.com (bord, Cotentin) : au plus fort du courant, il est compliqué de pêcher correctement. despoissonssigrands.com (en bateau) : au-delà du coefficient 90, la dérive dépasse 6 nœuds sur des spots du nord.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    50,
+    65,
+    80,
+    90
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "goury",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Le spot le plus puissant et le plus dangereux de la liste. Les fenêtres sont dictées par le courant, pas par les préférences du pêcheur.",
+   "lifeHack": "Le coefficient est ici un facteur de sécurité autant que de pêche. Au-delà de 90, « le courant est très fort » ; en bateau, des spots du nord deviennent quasiment impossibles à pêcher. Du bord, le guide ne propose plus le spot, par prudence.",
+   "montantOuDescendant": "La règle est explicite dans la source : fin de la descendante et début de la remontante, jusqu'à 2h à 2h30 après le basculement. À ce moment le flot recouvre l'estran et les bars le suivent.",
+   "typeHeure": "FIN DE JUSANT → BM+2h30",
+   "windows": [
+    {
+     "id": "gy1",
+     "label": "Fin de jusant → BM+2h30",
+     "note": "Pratique de l'auteur de peche.com au cap de la Hague. Attention : le jusant du raz est à son maximum « vers l'heure de la basse mer de Cherbourg » (Wikipédia) — poste haut, à l'abri du courant. Black Minnow 120 sur tête 12-18 g.",
+     "offsetAfter": 2.5,
+     "offsetBefore": -1.5,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "gy2",
+     "label": "Pleine mer (plein courant du raz)",
+     "note": "Pas une étale : le courant du raz Blanchard est à son maximum « aux environs de l'heure de la pleine mer de Cherbourg » (Wikipédia). Poste haut, leurre lourd, coefficient modéré seulement.",
+     "offsetAfter": 1,
+     "offsetBefore": -1,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "variable"
+    },
+    {
+     "id": "gy3",
+     "label": "Début de jusant (PM+1 → PM+2,5)",
+     "note": "Le courant du raz faiblit vers la mi-marée, où il renverse (Wikipédia). Par coefficient modéré : peche.com conseille pour la Hague de ne pas dépasser 80.",
+     "offsetAfter": 2.5,
+     "offsetBefore": 1,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "descendant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     157.5,
+     180
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     270,
+     292.5,
+     315,
+     0
+    ]
+   },
+   "texte": "Point le plus exposé de la côte. Mer croisée fréquente, vent renforcé par l'effet de cap.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.5
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "VÉRIFIÉ",
+    "origine": "v2",
+    "texte": "Zone qualifiée d'excellent spot pour la pêche du bar par deux sources indépendantes. Oxygénation et biomasse maximales, poissons de passage, gabarits supérieurs. Mais fenêtres praticables étroites.",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Black Minnow ou souple lourd en dérive, tenu au-dessus des roches ; stickbait à l'étale.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Fenêtres courtes autour des étales : le reste du temps, le courant interdit toute pêche précise.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Le coefficient est ici un facteur de sécurité autant que de pêche. Au-delà de 90, « le courant est très fort » ; en bateau, des spots du nord deviennent quasiment impossibles à pêcher. Du bord, le guide ne propose plus le spot, par prudence.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Kaki / Ayu",
+    "name": "Black Minnow 120 / 140",
+    "technique": "Référence explicite peche.com pour le bord en Cotentin. Le 140 quand les sardines sont présentes, monté sur tête de 20 g en linéaire.",
+    "weight": "tête 12-20 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Blanc / naturel",
+    "name": "Souple lourd en dérive",
+    "technique": "Pour tenir dans le courant quand il reprend. Vérifier la plage de la canne.",
+    "weight": "20-30 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / Iwashi",
+    "name": "Stickbait 140-165 mm",
+    "technique": "Dans les remous à l'étale, animation ample. Fenêtre courte.",
+    "weight": "25-40 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 3,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Coefficient au-delà de 90 : « le courant est très fort » ; en bateau, la dérive dépasse 6 nœuds sur des spots du nord. Du bord, au pied du Raz Blanchard : spot non proposé, par prudence.",
+    "verifie_le": null,
+    "source_texte": "despoissonssigrands.com (sortie en bateau) · choix de prudence du guide",
+    "quand": {
+     "coefAbove": 90
+    }
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Descente engagée, roche glissante : jamais seul, gilet.",
+    "verifie_le": null,
+    "source_texte": "fiche du spot (accès)"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.5,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 90,
+   "texte": "au-delà de 90, « le courant est très fort » au Raz Blanchard (despoissonssigrands.com) : spot non proposé, par prudence.",
+   "verifie_le": null
+  }
+ },
+ "regulations": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Règle V2 : réglementation du bar appliquée selon le 48ᵉ parallèle (arrêté du 1er avril 2026) ; à vérifier sur la source officielle, avec sa date (5.7).",
+   "verifie_le": null
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v2",
+  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+ },
+ "provenance": {
+  "sources": [],
+  "sources_v2": [
+   "peche.com — Sortie de pêche estivale à la recherche des bars du Cotentin",
+   "peche.com — Pêche du bar du bord dans le Cotentin : 'Le mythique Cap de la Hague est connu pour abriter l'un des courants les plus puissants au monde avec le fameux Raz Blanchard. Cette zone très mouvementée est un excellent spot pour la pêche du bar'",
+   "despoissonssigrands.com — « Le phare de Goury marque l'entrée du Raz Blanchard. Ce violent courant est un excellent spot pour la pêche du bar » ; coefficient préféré « entre 70 et 90 » ; au-delà, en bateau, dérive « supérieure à 6 nœuds » sur des spots du nord — https://despoissonssigrands.com/lescarnetsdepeche/peche-du-bar-en-automne-retour-sur-une-excellente-sortie-dans-le-cotentin",
+   "peche.com — technique : privilégier la fin de la descendante et le début de la remontante, jusqu'à 2h-2h30 après le basculement"
+  ],
+  "faits_v2": [
+   {
+    "s": "peche.com — « Sortie de pêche estivale à la recherche des bars du Cotentin »",
+    "t": "Pointe de la Hague : sorties du soir sous les falaises ; shads de 10 cm plombés de 12 à 25 g selon le courant pour imiter le sprat, laissés descendre « de 1 à 2 mètres maximum » ; Black Minnow coloris Ayu très efficace ; suivre les oiseaux."
+   },
+   {
+    "s": "peche.com",
+    "t": "Les bars de chasse sont souvent calibrés ; il est « rare de faire de gros poissons lors des chasses »."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": null,
+  "completude": 0.7,
+  "inconnus": [
+   "access.stationnement",
+   "access.marche_min",
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.montante",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": []
+ }
+}
