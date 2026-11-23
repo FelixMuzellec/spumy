@@ -61,6 +61,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | Q11 (jalon 2) | 20 nov., 15 h 37 | Validation explicite du jalon 2 sur la version 5.2, avec les réserves proposées | « jalon 2 validé avec réserves » (15 h 40) | V3-022, V3-025 et V3-027 VALIDÉES AVEC RÉSERVES ; 6 réserves suivies en 3.7 |
 | Q12 (version 6) | 23 nov., 5 h 50 à 6 h 22 | Maquettes de Félix (Home, Carte, vidéo Météo) : reproduction fidèle et même standard partout ; slogan ; 7 propositions | Recommandations acceptées ; slogan gardé ; Carte = vue pêche, Météo = vue conditions ; vent en couleurs gardé ; panneau à droite qui s'ouvre et se ferme au toucher ; Home parfaite, partie haute fixe qui se resserre ; aucune courbe de profondeur inventée ; ne pas revenir sur ce qui est validé | V3-028 VALIDÉE ; `docs/design/PROTOTYPE-V6.md` ; `CLAUDE.md` et UX-03 mis à jour |
 | Q13 (finalité) | 23 nov., 6 h 59 | Directive de Félix sur le but des onglets Carte et Météo | Carte = typologie du terrain et ses effets sur la pêche du bar ; Météo = effet de chaque élément expliqué scientifiquement | V3-029 VALIDÉE ; MAP-09 et MET-05 ajoutées ; `PROTOTYPE-V6.md` § 0, 3, 4 |
+| Q14 (ordre de l'information) | 23 nov., 7 h 03 | Précision de Félix : « toujours de façon générale pour aller vers le spécifique » | Vue d'ensemble, puis le spot, puis chaque élément, puis le détail sourcé ; explication de la règle générale vers le cas du spot | V3-029 complétée ; `CLAUDE.md` ; `PROTOTYPE-V6.md` § 0 |
 
 ## Checkpoint
 

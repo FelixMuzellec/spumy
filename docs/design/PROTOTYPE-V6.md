@@ -18,6 +18,17 @@ Félix ne veut pas revenir sur ce qui a été validé : ce document et le journa
 
 Dans les deux cas, chaque effet annoncé donne son explication, sa source et son niveau de preuve (1 à 5, `data/knowledge/bar-bord.json`). Une hypothèse est marquée comme telle. Sans connaissance sourcée, aucun effet n'est annoncé.
 
+**Toujours du général au spécifique**, sur la Carte, la Météo et partout ailleurs :
+
+| Niveau | Carte | Météo |
+| --- | --- | --- |
+| 1. Vue d'ensemble | Typologie de la côte de la zone : rochers, sable, havres et estuaires, courants | Synthèse des conditions du jour pour la pêche, en une phrase |
+| 2. Le spot | Verdict du terrain en une ligne dans la bulle | Verdict des conditions en tête du panneau |
+| 3. Les éléments | Fond, terrain, structure, exposition, courant, chacun avec son effet | Vent, houle, pression, eau, ciel, pluie, marée, chacun avec son effet |
+| 4. Le détail, à déplier | Pourquoi, source, niveau de preuve | Pourquoi, source, niveau de preuve |
+
+Chaque explication part de la règle générale, ce que l'on sait du bar, avant de dire ce qu'elle donne pour ce spot, à cette heure.
+
 ## 1. Exigences de finition
 
 1. **Fidélité aux maquettes** : composition, couleurs, tailles, espacements et comportements. Avant de montrer un écran, le comparer côte à côte avec la maquette, à la même taille. La reproduction au pixel près n'est pas visée, puisque les maquettes sont des images générées.

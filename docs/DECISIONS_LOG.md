@@ -34,7 +34,7 @@ Format ADR. Le registre des exigences (`docs/REQUIREMENTS.md`) et la vision (`do
 | V3-026 | Pas de vraies photos de spots : photos d'illustration seulement, marquées « Illustration » | VALIDÉE (Félix, 20 nov. 2026, 15 h 02 : « trop lourd pour l'application ») |
 | V3-027 | Jalon 2 : direction visuelle, principes du Design System et prototype version 5.2 ; 6 réserves suivies | VALIDÉE AVEC RÉSERVES (Félix, 20 nov. 2026, 15 h 40) |
 | V3-028 | Prototype version 6 d'après les maquettes de Félix : Home, Carte vue pêche, Météo vue conditions ; slogan autorisé ; Shore / Offshore ; finition et qualité d'information « top tier » ; pas de retour sur ce qui est validé | VALIDÉE (Félix, 23 nov. 2026, 5 h 58 à 6 h 22) ; réalisation au feu vert |
-| V3-029 | Finalité des onglets : Carte = typologie du terrain et ses effets sur la pêche du bar ; Météo = chaque élément météo et son effet, expliqués scientifiquement | VALIDÉE (Félix, 23 nov. 2026, 6 h 59) |
+| V3-029 | Finalité des onglets : Carte = typologie du terrain et ses effets sur la pêche du bar ; Météo = chaque élément météo et son effet, expliqués scientifiquement ; toujours du général au spécifique | VALIDÉE (Félix, 23 nov. 2026, 6 h 59 et 7 h 03) |
 
 ## Décisions V2 encore en vigueur
 
@@ -371,5 +371,11 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
     1. **Carte** : pour chaque spot, les rubriques de terrain déjà présentes dans les données (fond, terrain, structure, exposition, courant), chacune avec son effet favorable ou défavorable, l'explication, la source et le niveau de preuve (échelle 1 à 5 de `data/knowledge/bar-bord.json`). Une rubrique déduite (niveau 4) ou une règle générale (niveau 5) est marquée comme hypothèse. Les couches de terrain (natures de fonds, profondeurs, estran, courants) ne viennent que de données réelles, avec leur source.
     2. **Météo** : pour chaque élément, l'effet favorable ou défavorable, pourquoi en mots simples, la source et le niveau de preuve, tirés des connaissances sourcées : vent-exposition, rafales-penalite, houle-turbidite, pression, eau-chaude, seuils-thermiques, ciel-couvert, lumiere-basse, pluie-turbidite, maree-flot, coefficient-plage-utile, courant-coefficient, gros-coefficient-turbidite. Sans connaissance sourcée, la valeur s'affiche sans effet annoncé.
     3. Rien n'est inventé. Les effets et les explications viennent des données et des connaissances sourcées du dépôt. L'audit biologique et halieutique de la phase 5 les revalidera.
+    4. **Toujours du général au spécifique** (Félix, 7 h 03 : « Mais toujours de façon générale pour aller vers le spécifique ») :
+        - chaque écran montre d'abord la vue d'ensemble : sur la Carte, la typologie de la côte de la zone ; sur la Météo, la synthèse des conditions du jour pour la pêche ;
+        - puis le spot : son verdict en une ligne ;
+        - puis chaque élément avec son effet ;
+        - enfin, à déplier, l'explication, la source et le niveau de preuve ;
+        - chaque explication part de la règle générale (ce que l'on sait du bar) avant de dire ce qu'elle donne pour ce spot, à cette heure.
 - **Ce que cela modifie dans le référentiel** : il ne fixait pas cette finalité aux onglets ; elle devient la règle de conception de la Carte et de la Météo. Exigences ajoutées : MAP-09, MET-05.
 

@@ -13,6 +13,7 @@
 
 - Aucune fabrication. Marquer `VÉRIFIÉ`, `INFÉRÉ`, `HYPOTHÈSE`, `INCONNU` ou `À DÉCIDER`. Une déclaration n'est pas une preuve.
 - À l'écran, chaque chiffre a sa source et son heure ; sans source sûre, rien n'est affiché. Pas de courbes de profondeur sans données réelles (Félix, 23 nov. 2026, V3-028).
+- L'information va toujours du général au spécifique : vue d'ensemble, puis le spot, puis chaque élément, puis le détail sourcé ; chaque explication part de la règle générale avant le cas du spot (Félix, 23 nov. 2026, V3-029).
 - Ne pas revenir sur ce qui a été validé avec Félix (23 nov. 2026) : `docs/DECISIONS_LOG.md` fait foi. Une idée qui touche un point validé est présentée comme un changement, avec son impact, jamais appliquée d'office.
 - Ne jamais supprimer un spot V2. Aucun nettoyage destructif, aucun remplacement gratuit.
 - La sécurité ne se compense jamais. Une donnée de sécurité inconnue n'est jamais « au vert ».
