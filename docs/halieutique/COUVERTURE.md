@@ -90,3 +90,28 @@ Sources locales recherchées sur les quatre zones vides : guides professionnels,
 - Une citation V2 sans adresse ne peut pas être relue : elle compte pour la corroboration par éditeur (QUAL-1) mais jamais pour la qualité examinée (QUAL-2).
 - Les données de risque du BRGM sont un recensement : zéro événement n'est jamais une garantie.
 - Les photos sont retenues sur leur nom et leur distance, pas sur leur contenu.
+
+## 6. Passe forums et listes complètes (5.13, demande de Félix du 23 nov., 23 h 10)
+
+**Méthode.** Chaque poste nommé par les listes de mieuxpecher.com des quatre zones pauvres a été croisé avec le catalogue complet de lechasseursousmarin.com (335 zones, lu en entier), les listes de carnet-de-peche.com vues dans les pages lues (catalogue de 632 fiches : vu en partie seulement), les forums publics (pechemercotentin.forumactif.org, carnalor.com), un blog de première main (oupecher.fr) et la presse. Aucune page réservée aux membres ou aux abonnés n'a été lue ; aucune connexion. Le croisement est automatique (règle de nommage `texteNommeLeSpot`), puis relu.
+
+| Zone (repère d'audit) | Postes de la liste | Avec fiche | Second éditeur, sans position IGN | Sans second éditeur trouvé |
+| --- | --- | --- | --- | --- |
+| Ille-et-Vilaine | 22 | 5 (Meinga, Moulière, Varde, Décollé, Grand Bé et Petit Bé) | 0 | 17 |
+| Côtes-d'Armor | 31 | 7 (cap Fréhel, Rosaires, Bec de Vir, Bréhec, pointe du Château, Bihit, Dourven) | 1 (anse des Sévignés) | 23 |
+| Morbihan | 41 | 6 (Laïta, Toulhars, pointe des Chats, Conguel, Percho, Saint-Colomban) | 3 (Étel, Berchis, Penvins) | 32 |
+| Manche, Basse-Normandie | 34 | 15 postes, 13 fiches (dont Saint-Vaast, Tatihou, Saire, Gatteville, Gattemare, la Loge, cap Lévi, Querqueville, et 5 fiches V2) | 1 (pointe de Néville) | 18 |
+
+Hors listes de mieuxpecher.com, deux autres éditeurs indépendants ont suffi pour : la pointe de la Latte, Gwin Zégal, la pointe de Séhar, la pointe des Poulains (carnet-de-peche.com et lechasseursousmarin.com) ; la pointe de Perhérel, l'embouchure du Merrien, Beg an Fry, l'île Percée (mieuxpecher.com Finistère avec carnet-de-peche.com ou lechasseursousmarin.com).
+
+**Écartés, avec la raison :**
+- pointe du Grouin, pointe de la Varde et pointe du Décollé chez bretagne-peche-et-nature.fr et a-babord.com : éditeurs anonymes ou sans source, classés famille 6, qui ne comptent jamais (la Varde et le Décollé ont trouvé leur second éditeur ailleurs) ;
+- pointe de la Garde Guérin : écrite « Guarde Guérin » chez mieuxpecher.com, la règle de nommage ne rapproche pas les deux graphies ; pointe du Dourven : « Dourvin » chez mieuxpecher.com, une seule source de pêche compte (fiche gardée, candidate) ;
+- môle de Saint-Malo et cale Solidor : oupecher.fr les nomme pour le maquereau, l'encornet et la dorade, pas pour le bar ; non retenus comme postes à bar ;
+- « Le Dibenn » de carnet-de-peche.com : une digue près de Brest, pas la pointe du Diben de Plougasnou ;
+- île Tatihou chez lechasseursousmarin.com : parcours en dérive depuis la cale de Jonville ; la fiche existe, mais l'accès à pied du pêcheur du bord n'est pas documenté ;
+- port de Saint-Quay-Portrieux : « maintenant interdit » selon mieuxpecher.com (mise à jour de la liste), non retenu.
+
+**Sécurité nouvelle.** Grand Bé et Petit Bé : accès seulement autour de la basse mer, isolement au flot (office de tourisme de Saint-Malo, oupecher.fr, Le Figaro Nautisme) ; anse des Sévignés : sentier à fort dénivelé et stationnement interdit en haut de la falaise (lechasseursousmarin.com) ; Dinard : un sentier côtier fermé après un éboulement (photo d'un avis municipal sur decathlon-outdoor.com : INFÉRÉ, lieu exact non établi).
+
+**Restes.** Ces 90 postes sans second éditeur restent hors du catalogue tant qu'une seconde voix indépendante ne les nomme pas. La couverture de carnet-de-peche.com n'est pas exhaustive (pages refusées à la lecture directe ; extraits du moteur seulement). La phase 7 est prévue pour reprendre ces lacunes par d'autres sources locales.

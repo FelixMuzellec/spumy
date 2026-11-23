@@ -76,3 +76,11 @@ Chaque source doit recevoir :
 - l'affirmation exacte qu'elle soutient.
 
 Ordre de travail : d'abord les sources qui portent la sécurité et l'accès d'un spot, puis celles des spots sans autre source, puis les plus citées. Les champs `evaluation` se remplissent à la main et ne sont jamais écrasés par le script. Une source lue reçoit sa date de consultation ; une source inaccessible le dit (`statut : inaccessible`).
+
+## Passe forums et listes complètes (5.13)
+
+- **351 sources** au registre (103 éditeurs, 88 groupes d'indépendance) : 107 évaluées page par page, 2 inaccessibles, 242 à évaluer (citations V2 sans adresse relisible). Par famille : 1 → 21, 2 → 40, 3 → 8, 4 → 255, 6 → 19, non fixée → 8.
+- **Lues en 5.13** : 33 zones de lechasseursousmarin.com (introduction publique seulement), les listes complètes de mieuxpecher.com pour l'Ille-et-Vilaine, les Côtes-d'Armor, le Morbihan, la Basse-Normandie et le Finistère nord et sud, des fiches et listes de carnet-de-peche.com (extraits du moteur : la lecture directe est refusée par le site), un récit de première main (oupecher.fr, Saint-Malo), une page de l'office de tourisme de Saint-Malo, un article du Figaro Nautisme, deux sujets du forum « Pêche en mer Cotentin ».
+- **Éditeurs classés** : oupecher.fr (famille 4, blog d'un pêcheur nommé) ; saint-malo-tourisme.co.uk (famille 4, office de tourisme) ; bretagne-peche-et-nature.fr et a-babord.com (famille 6 : anonymes ou sans source, jamais une voix indépendante).
+- **Groupes** : la sélection de chasse sous-marine publiée par Decathlon est faite par lechasseursousmarin.com : même groupe, une seule voix.
+- Les affirmations de chaque source citent mot pour mot ce que la page dit du poste ; la règle de nommage les lit avec le titre de la source (QUAL-1).
