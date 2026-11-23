@@ -275,6 +275,21 @@
    "verifie_le": "2026-11-23",
    "niveau": 1,
    "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-dirm-namo-synthese-peche-loisir-2024"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 2,
+   "valeur": {
+    "portee": "cap Fréhel, du 1er mars au 31 mai",
+    "reference": "arrêté n° 116/2005 du 3 mai 2005",
+    "application_au_poste": "à vérifier"
+   },
+   "texte": "Cap Fréhel : « Interdiction de toute forme de pêche du bar chaque année du 1er mars au 31 mai » au large, entre 48°40' et 48°42' N et entre 02°17'50 et 02°20' W (arrêté n° 116/2005, synthèse de la DIRM Nord Atlantique – Manche Ouest, avril 2024, p. 3). Le point de la fiche est dans ce rectangle : vérifier que l'arrêté est toujours en vigueur et s'il vise la pêche depuis la côte."
   }
  ],
  "windows": {
@@ -354,6 +369,7 @@
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
    "src-carnet-de-peche-lieu-noir",
+   "src-dirm-namo-synthese-peche-loisir-2024",
    "src-georisques-gaspar",
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
@@ -366,7 +382,7 @@
  "quality": {
   "statut": "candidate",
   "derniere_verification": "2026-11-23",
-  "completude": 0.32,
+  "completude": 0.34,
   "inconnus": [
    "access.approche",
    "access.difficulte",
@@ -417,8 +433,8 @@
     "detail": "engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0"
    },
    "QUAL-6": {
-    "ok": true,
-    "detail": "réglementation nationale seule, sans règle locale à vérifier"
+    "ok": false,
+    "detail": "règle locale à vérifier au poste (cap Fréhel, du 1er mars au 31 mai)"
    },
    "QUAL-7": {
     "ok": true,
@@ -426,7 +442,8 @@
    }
   },
   "raisons": [
-   "QUAL-5 : engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0"
+   "QUAL-5 : engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0",
+   "QUAL-6 : règle locale à vérifier au poste (cap Fréhel, du 1er mars au 31 mai)"
   ]
  }
 }

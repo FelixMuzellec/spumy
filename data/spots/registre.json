@@ -7,9 +7,9 @@
    "v3_researched": 34
   },
   "parStatut": {
-   "a_verifier": 55,
-   "corroboree": 5,
+   "a_verifier": 56,
    "candidate": 34,
+   "corroboree": 4,
    "TOP_TIER": 6
   },
   "stationnementConnu": 93
@@ -61,7 +61,7 @@
    "id": "agon",
    "name": "Pointe d'Agon",
    "origin": "v2_preserved",
-   "statut": "corroboree",
+   "statut": "a_verifier",
    "lat": 49.001654,
    "lon": -1.575506,
    "precision_m": 300,
@@ -359,10 +359,10 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.32,
+   "completude": 0.34,
    "inconnus": 23,
    "anomalies": 1
   },

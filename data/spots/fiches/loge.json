@@ -370,8 +370,8 @@
     "detail": "engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0"
    },
    "QUAL-6": {
-    "ok": true,
-    "detail": "réglementation nationale seule, sans règle locale à vérifier"
+    "ok": false,
+    "detail": "règles locales du département 50 non recherchées dans un texte officiel"
    },
    "QUAL-7": {
     "ok": true,
@@ -379,7 +379,8 @@
    }
   },
   "raisons": [
-   "QUAL-5 : engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0"
+   "QUAL-5 : engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0",
+   "QUAL-6 : règles locales du département 50 non recherchées dans un texte officiel"
   ]
  }
 }

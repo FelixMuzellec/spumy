@@ -1119,6 +1119,16 @@
    ],
    "limites": "promotionnel ; page sans date ; une durée mal affichée sur la page lue",
    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "dirm.nord-atlantique-manche-ouest.developpement-durable.gouv.fr": {
+   "famille": 2,
+   "groupe": "etat-fr-reglementation",
+   "nature": "administration de l'État (direction interrégionale de la mer)",
+   "domaines": [
+    "réglementation"
+   ],
+   "limites": "synthèse datée ; le texte de chaque arrêté fait foi",
+   "droits": "document administratif : réutilisation avec mention de la source"
   }
  }
 }

@@ -555,8 +555,8 @@
     "detail": "engagement 2, 1 consigne, contrainte de marée isolement_au_flot, mouvements de terrain 0"
    },
    "QUAL-6": {
-    "ok": true,
-    "detail": "réglementation nationale seule, sans règle locale à vérifier"
+    "ok": false,
+    "detail": "règles locales du département 50 non recherchées dans un texte officiel"
    },
    "QUAL-7": {
     "ok": true,
@@ -566,7 +566,8 @@
   "raisons": [
    "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4)",
    "QUAL-3 : Coordonnées V2 seulement en texte, à la minute près (jusqu'à 1,85 km d'écart) : à vérifier en priorité.",
-   "QUAL-4 : stationnement ou temps de marche inconnu"
+   "QUAL-4 : stationnement ou temps de marche inconnu",
+   "QUAL-6 : règles locales du département 50 non recherchées dans un texte officiel"
   ]
  }
 }

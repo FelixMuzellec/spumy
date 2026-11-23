@@ -77,6 +77,10 @@ for (const { fiche: f } of fiches) {
   if (am?.valeur?.length) t(`${f.id} : contrainte de marée, fenêtre de sécurité inconnue ou sourcée`, f.windows.securite.statut === "INCONNU" || (f.windows.securite.sources?.length && f.windows.securite.verifie_le));
   if (f.photos.statut !== "INCONNU") t(`${f.id} : chaque photo gardée a sa page, sa licence libre et sa distance`, Array.isArray(f.photos.valeur) && f.photos.valeur.length > 0 && f.photos.valeur.every((p) => /^https:\/\/commons\.wikimedia\.org\//.test(p.page) && /^(CC0|Public domain|CC BY(-SA)? [0-9.]+)$/.test(p.licence) && p.distance_m <= 400));
 }
+{
+  const cf = fiches.find(({ fiche }) => fiche.id === "capfrehel")?.fiche;
+  t("cap Fréhel : la fermeture du bar du 1er mars au 31 mai (arrêté n° 116/2005) est sur la fiche, à vérifier au poste", !!cf && cf.regulations.some((r) => r.valeur?.reference === "arrêté n° 116/2005 du 3 mai 2005" && r.valeur.application_au_poste === "à vérifier") && cf.quality.criteres["QUAL-6"].ok === false);
+}
 t("schéma : refuse un code de contrainte de marée inconnu", !variante((c) => { c.safety.acces_maree = { statut: "INFÉRÉ", origine: "v2", valeur: ["sans_danger"] }; }));
 // Qualification (5.9) : chaque statut se recalcule à l'identique ; les critères bloquent ce qu'ils doivent bloquer.
 const parSpot = sourcesParSpot(src);
@@ -96,6 +100,11 @@ for (const { fiche: f } of fiches) {
     t("qualification : une citation de pêche en bateau ne compte pas pour le bord", qualifier(ref, [g("a"), g("b", { texte: `guide de pêche en bateau — ${ref.name}` })]).statut === "a_verifier");
     t("qualification : un article général qui ne nomme pas le spot ne corrobore pas", qualifier(ref, [g("a"), g("b", { texte: "peche.com — les plateaux rocheux" })]).statut === "a_verifier");
     t("qualification : une source privée bloque", qualifier(ref, [...deux, g("c", { prive: true })]).statut === "a_verifier");
+    {
+      const manche = structuredClone(ref);
+      manche.safety.risques_commune = { ...manche.safety.risques_commune, valeur: [{ commune: "TEST", code_insee: "50999", risques: [] }] };
+      t("qualification : sans règles locales recherchées pour le département, QUAL-6 n'est pas rempli", qualifier(manche, deux).criteres["QUAL-6"].ok === false && qualifier(manche, deux).statut === "a_verifier");
+    }
     t("qualification : sans évaluation page par page, jamais TOP_TIER", qualifier(ref, deux).statut !== "TOP_TIER");
     t("qualification : sources lues dont une attache le bar au poste, et tout documenté, donnent TOP_TIER", qualifier(ref, deux.map((x, i) => ({ ...x, evaluation: { statut: "évaluée", bar_au_poste: i === 0 } }))).statut === "TOP_TIER");
     t("qualification : sources lues sans affirmation sur le bar au poste, jamais TOP_TIER", qualifier(ref, deux.map((x) => ({ ...x, evaluation: { statut: "évaluée", bar_au_poste: false } }))).statut !== "TOP_TIER");

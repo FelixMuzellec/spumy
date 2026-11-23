@@ -1,15 +1,15 @@
 {
  "//": "Registre des sources (phase 5, 5.4 ; § 7.1). Généré par scripts/sources-registre.mjs ; les champs « evaluation » se complètent à la main et ne sont jamais écrasés.",
  "totaux": {
-  "sources": 351,
+  "sources": 352,
   "aEvaluer": 242,
-  "avecUrl": 108,
-  "editeurs": 103,
-  "editeurClasse": 351,
+  "avecUrl": 109,
+  "editeurs": 104,
+  "editeurClasse": 352,
   "groupes": 88,
   "parFamille": {
    "1": 21,
-   "2": 40,
+   "2": 41,
    "3": 8,
    "4": 255,
    "6": 19,
@@ -21,6 +21,7 @@
    "collectivité ou tourisme": 21,
    "institutionnel ou scientifique": 29,
    "forum ou communauté": 6,
+   "administration": 1,
    "encyclopédie collaborative": 12,
    "cartographie": 4,
    "cartographie ouverte": 2,
@@ -3270,6 +3271,44 @@
     ],
     "limites": "une synthèse administrative peut dater : le texte en vigueur (Légifrance, Journal officiel) prime",
     "droits": "Licence Ouverte (informations publiques)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-dirm-namo-synthese-peche-loisir-2024",
+   "texte": "DIRM Nord Atlantique – Manche Ouest, « La pêche de loisir à partir d'un navire et la pêche à pied de loisir des crustacés et des poissons en Bretagne — synthèse de la réglementation », mise à jour avril 2024",
+   "editeur": "dirm.nord-atlantique-manche-ouest.developpement-durable.gouv.fr",
+   "url": "https://www.dirm.nord-atlantique-manche-ouest.developpement-durable.gouv.fr/IMG/pdf/reglementation_peche_loisir_bretagne_2024_04_cle511d72.pdf",
+   "type": "administration",
+   "famille": 2,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Direction interrégionale de la mer Nord Atlantique – Manche Ouest",
+    "date": "2024-04",
+    "url_lue": "https://www.dirm.nord-atlantique-manche-ouest.developpement-durable.gouv.fr/IMG/pdf/reglementation_peche_loisir_bretagne_2024_04_cle511d72.pdf",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "synthèse administrative de la réglementation",
+    "precision": "zones et cantonnements décrits par coordonnées ou par nom",
+    "independance": "administration (État)",
+    "limites": "mise à jour d'avril 2024 : l'état en 2026 reste à vérifier ; pas de section dédiée à la pêche à la canne du bord",
+    "droits": "document administratif : réutilisation avec mention de la source",
+    "consulte_le": "2026-11-23",
+    "affirmation": "cap Fréhel (p. 3) : « Interdiction de toute forme de pêche du bar chaque année du 1er mars au 31 mai » au large, entre 48°40'00 et 48°42'00 N et entre 02°17'50 et 02°20'00 W (arrêté n° 116/2005 du 3 mai 2005) ; cantonnements du Morbihan et des Côtes-d'Armor (p. 3, 5) ; réserves des Sept-Îles et de la baie de Saint-Brieuc, barrage de la Rance (p. 9-10)",
+    "bar_au_poste": false
+   },
+   "manuelle": true,
+   "utilise_par": [
+    "spot:capfrehel"
+   ],
+   "groupe": "etat-fr-reglementation",
+   "editeur_classe": {
+    "nature": "administration de l'État (direction interrégionale de la mer)",
+    "domaines": [
+     "réglementation"
+    ],
+    "limites": "synthèse datée ; le texte de chaque arrêté fait foi",
+    "droits": "document administratif : réutilisation avec mention de la source",
     "classe_le": "2026-11-23"
    }
   },

@@ -8,6 +8,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { lireFiches, DIR_FICHES, ecrireRegistre } from "./registre-spots.mjs";
 import { texteNommeLeSpot } from "./noms.mjs";
+import { REGLES_LOCALES_LUES } from "./reglementation-locale.mjs";
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const JOUR = "2026-11-23";
@@ -38,6 +39,9 @@ export function qualifier(f, sources) {
   const posAnom = f.quality.anomalies.filter((a) => ANOMALIE_POSITION.test(a));
   const posOk = (f.coordinates.info.origine === "v3" && f.coordinates.info.statut === "VÉRIFIÉ") || (f.coordinates.controle?.statut === "VÉRIFIÉ" && (f.coordinates.controle.valeur?.ecart_m ?? 9e9) <= 1500);
   const aVerifier = f.regulations.filter((r) => r.valeur?.application_au_poste === "à vérifier");
+  // Département du point (code INSEE de la commune, Géorisques) : ses règles locales ont-elles été recherchées ?
+  const dep = String(f.safety.risques_commune?.valeur?.[0]?.code_insee || "").slice(0, 2);
+  const nonRecherche = !REGLES_LOCALES_LUES[dep];
   const zone = f.quality.anomalies.some((a) => ANOMALIE_ZONE.test(a));
   const s = f.safety;
   const c = {
@@ -46,7 +50,7 @@ export function qualifier(f, sources) {
     "QUAL-3": { ok: posOk && !posAnom.length, detail: posAnom.length ? posAnom.join(" ") : posOk ? "position contrôlée par l'IGN (toponyme officiel à 1,5 km au plus) ou corrigée" : "position non contrôlée" },
     "QUAL-4": { ok: connu(f.access.stationnement) && connu(f.access.marche_min), detail: connu(f.access.stationnement) && connu(f.access.marche_min) ? `stationnement et marche documentés (${f.access.marche_min.valeur} min)` : "stationnement ou temps de marche inconnu" },
     "QUAL-5": { ok: connu(s.engagement) && s.consignes.length > 0 && !!s.acces_maree && !!s.mouvements_terrain, detail: `engagement ${connu(s.engagement) ? s.engagement.valeur : "inconnu"}, ${s.consignes.length} consigne${s.consignes.length > 1 ? "s" : ""}, contrainte de marée ${s.acces_maree?.valeur?.join(", ") || "non documentée"}, mouvements de terrain ${s.mouvements_terrain?.valeur?.total ?? 0}` },
-    "QUAL-6": { ok: !aVerifier.length && !zone, detail: [...aVerifier.map((r) => `règle locale à vérifier au poste (${r.valeur.portee})`), ...(zone ? ["zone CIEM 7 ou 8 incertaine (48ᵉ parallèle)"] : [])].join(" ; ") || "réglementation nationale seule, sans règle locale à vérifier" },
+    "QUAL-6": { ok: !aVerifier.length && !zone && !nonRecherche, detail: [...aVerifier.map((r) => `règle locale à vérifier au poste (${r.valeur.portee})`), ...(zone ? ["zone CIEM 7 ou 8 incertaine (48ᵉ parallèle)"] : []), ...(nonRecherche ? [`règles locales du département ${dep || "inconnu"} non recherchées dans un texte officiel`] : [])].join(" ; ") || "réglementation nationale ; règles locales du département recherchées, aucune à vérifier au poste" },
     "QUAL-7": { ok: !sources.some((s) => s.prive), detail: sources.some((s) => s.prive) ? "cite le journal personnel de Félix : à retirer de la fiche publique" : "aucune source privée" },
   };
   const ok = (...k) => k.every((x) => c[x].ok);

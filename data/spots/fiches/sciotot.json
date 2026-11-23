@@ -627,7 +627,7 @@
    },
    "QUAL-6": {
     "ok": false,
-    "detail": "règle locale à vérifier au poste (plage de Sciotot (Les Pieux))"
+    "detail": "règle locale à vérifier au poste (plage de Sciotot (Les Pieux)) ; règles locales du département 50 non recherchées dans un texte officiel"
    },
    "QUAL-7": {
     "ok": true,
@@ -637,7 +637,7 @@
   "raisons": [
    "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4)",
    "QUAL-3 : Position V2 à 1,5 km du toponyme officiel « Anse de Sciotot » (baie, détail hydrographique, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme).",
-   "QUAL-6 : règle locale à vérifier au poste (plage de Sciotot (Les Pieux))"
+   "QUAL-6 : règle locale à vérifier au poste (plage de Sciotot (Les Pieux)) ; règles locales du département 50 non recherchées dans un texte officiel"
   ]
  }
 }
