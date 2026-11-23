@@ -61,7 +61,7 @@
    "requete": "Pointe du Berchis",
    "departement": "56",
    "milieu": "pointe rocheuse du golfe du Morbihan (Larmor-Baden)",
-   "sans_position": "aucun toponyme IGN de ce nom (géocodage du 23 nov. 2026) : pas de fiche tant que la position n'est pas sourcée",
+   "sans_position": "aucun toponyme IGN de ce nom ni de ses variantes (géocodage du 23 nov. 2026) : pas de fiche tant que la position n'est pas sourcée",
    "autres_requetes": [
     "Le Berchis",
     "Berchis"
@@ -100,11 +100,12 @@
    "requete": "Pointe du Dourven",
    "departement": "22",
    "milieu": "pointe rocheuse de la baie de Lannion (Trédrez-Locquémeau)",
-   "sans_position": "aucun toponyme IGN de ce nom (géocodage du 23 nov. 2026) : pas de fiche tant que la position n'est pas sourcée",
    "autres_requetes": [
     "Le Dourven",
     "Dourven"
-   ]
+   ],
+   "toponyme": "an Dourven",
+   "commune": "Trédrez-Locquémeau"
   },
   {
    "id": "brehec",
@@ -161,7 +162,10 @@
     "Les Rosaires",
     "Rosaires",
     "Pointe de Pordic"
-   ]
+   ],
+   "toponyme": "les Rosaires",
+   "commune": "Plérin",
+   "categorie": "camping"
   },
   {
    "id": "etel",
@@ -173,7 +177,22 @@
     "Barre d'Etel",
     "Embouchure de la rivière d'Étel",
     "Plage de Kervégant"
-   ]
+   ],
+   "sans_position": "aucun toponyme IGN de ce nom ni de ses variantes (géocodage du 23 nov. 2026) : pas de fiche tant que la position n'est pas sourcée"
+  },
+  {
+   "id": "perherel",
+   "nom": "Pointe de Perhérel",
+   "requete": "Pointe de Perhérel",
+   "departement": "29",
+   "milieu": "pointe rocheuse de la baie de Morlaix (Plougasnou)"
+  },
+  {
+   "id": "ilepercee",
+   "nom": "Île Percée (Moëlan-sur-Mer)",
+   "requete": "Île Percée",
+   "departement": "29",
+   "milieu": "îlot rocheux percé devant la plage de Trénez"
   }
  ]
 }

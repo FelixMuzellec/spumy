@@ -1,15 +1,15 @@
 {
  "//": "Registre central des spots V3 (phase 5). Généré par scripts/registre-spots.mjs à partir de data/spots/fiches/ ; ne pas modifier à la main.",
  "totaux": {
-  "spots": 79,
+  "spots": 82,
   "parOrigine": {
    "v2_preserved": 66,
-   "v3_researched": 13
+   "v3_researched": 16
   },
   "parStatut": {
    "a_verifier": 57,
    "corroboree": 7,
-   "candidate": 13,
+   "candidate": 16,
    "TOP_TIER": 2
   },
   "stationnementConnu": 66
@@ -451,6 +451,26 @@
    "guide_v2": "crozon"
   },
   {
+   "id": "dourven",
+   "name": "Pointe du Dourven",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 48.731264,
+   "lon": -3.564283,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
+  },
+  {
    "id": "espagnols",
    "name": "Pointe des Espagnols",
    "origin": "v2_preserved",
@@ -574,6 +594,26 @@
    "inconnus": 10,
    "anomalies": 1,
    "guide_v2": "audierne"
+  },
+  {
+   "id": "grandbe",
+   "name": "Saint-Malo : Grand Bé et Petit Bé",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 48.652217,
+   "lon": -2.033231,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 8,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.29,
+   "inconnus": 24,
+   "anomalies": 1
   },
   {
    "id": "granville",
@@ -1264,6 +1304,26 @@
    "inconnus": 9,
    "anomalies": 0,
    "guide_v2": "pirou"
+  },
+  {
+   "id": "rosaires",
+   "name": "Plage des Rosaires et pointe de Pordic",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 48.555139,
+   "lon": -2.762845,
+   "precision_m": 1000,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 2
   },
   {
    "id": "rospico",

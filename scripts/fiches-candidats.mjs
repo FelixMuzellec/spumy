@@ -13,6 +13,7 @@ const JOUR = "2026-11-23";
 const inconnu = (raison) => ({ statut: "INCONNU", origine: "v3", raison });
 const NATUREL = /orograph|hydrograph|cap|pointe|plage|baie|anse|rocher|estran|île|\bile\b/i;
 const HABITE = /habit|quartier/i;
+const LOISIRS = /camping/i;
 
 /** Ce que les pages lues affirment de chaque candidat (sources de data/sources/manuelles.json). */
 export const PREUVES = {
@@ -30,6 +31,8 @@ export const PREUVES = {
   brehec: [["src-mieuxpecher-cotes-darmor", "« Les Alentours de Bréhec »"], ["src-carnet-de-peche-liste-cotes-darmor", "« Plage de Bréhec · Bar »"]],
   capfrehel: [["src-mieuxpecher-cotes-darmor", "« Cap Fréhél »"], ["src-carnet-de-peche-lieu-noir", "« Cap Fréhel — plateformes basses POINTE ROCHEUSE » (spots à lieu noir)"]],
   saintvaast: [["src-mieuxpecher-normandie", "« Tour Vauban près des parcs au leurre de surface » (Saint-Vaast-la-Hougue)"], ["src-carnet-de-peche-dorade-manche", "« Saint-Vaast-la-Hougue — digue de la Hougue DIGUE · BAR »"], ["src-pechemercotentin-saint-vaast", "« Il y a deux coloris qui marchent très bien sur St Vaast »"]],
+  perherel: [["src-mieuxpecher-finistere-nord", "« Pointe de Perhérel à Plougasnou »"], ["src-carnet-de-peche-perherel", "« le bar longe les bordures à la montante »"]],
+  ilepercee: [["src-mieuxpecher-finistere-sud", "« Île Percée à Moëlan-sur-Mer »"], ["src-decathlon-chasse-cap-levi", "« On y croise de très gros bars à basse mer » (île Percée, chasse sous-marine)"]],
   grandbe: [["src-mieuxpecher-ille-et-vilaine", "« Le Petit Bé » (liste de Saint-Malo)"], ["src-oupecher-saint-malo-bar", "« La pêche du bar est assez prolifique depuis Grand Bé et Petit Bé »"]],
   rosaires: [["src-mieuxpecher-cotes-darmor", "« La pointe de Pordic au dessus de la Plage des Rosaires »"], ["src-carnet-de-peche-sillon-talbert", "« Plage des Rosaires · Bar »"]],
   etel: [["src-mieuxpecher-morbihan", "« Embouchure de la rivière d'Etel »"], ["src-carnet-de-peche-mulet", "« Barre d'Étel — rive Plouhinec ESTUAIRE » (spots à mulet)"]],
@@ -47,7 +50,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     if (fs.existsSync(f_)) { bilan.gardes.push(c.id); continue; }
     const r = collecte.candidats.find((x) => x.id === c.id);
     // Toponyme choisi à la main (candidats-v3.json : nom exact et commune) parmi les résultats de l'IGN.
-    const topo = (r?.toponymes || []).find((t) => t.nom === c.toponyme && t.commune === c.commune);
+    const topo = (r?.toponymes || []).find((t) => t.nom === c.toponyme && t.commune === c.commune && (!c.categorie || (t.categorie || "").startsWith(c.categorie)));
     if (!topo) { bilan.sansPosition.push(c.id); continue; }
     const preuves = PREUVES[c.id] || [];
     const f = {
@@ -74,7 +77,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       provenance: { sources: [...new Set(["src-ign-geocodage-poi", ...preuves.map(([s]) => s)])].sort() },
       quality: { statut: "candidate", derniere_verification: JOUR, completude: 0, inconnus: [], anomalies: ["Fiche créée par la passe exhaustive (5.12) : sécurité, accès et conditions à documenter avant tout affichage.",
         ...(HABITE.test(topo.categorie || "") ? [`Position d'un lieu habité (« ${topo.nom} »), pas du poste : à positionner sur le poste réel.`] : []),
-        ...(!NATUREL.test(topo.categorie || "") && !HABITE.test(topo.categorie || "") ? [`Position repérée sur « ${topo.nom} » (${topo.categorie}), à proximité du poste : précision 1 km.`] : [])] },
+        ...(LOISIRS.test(topo.categorie || "") ? [`Position d'un équipement de loisirs (« ${topo.nom} », ${topo.categorie}), pas du poste : à positionner sur le poste réel.`] : []),
+        ...(!NATUREL.test(topo.categorie || "") && !HABITE.test(topo.categorie || "") && !LOISIRS.test(topo.categorie || "") ? [`Position repérée sur « ${topo.nom} » (${topo.categorie}), à proximité du poste : précision 1 km.`] : [])] },
     };
     const q = qualite(f); f.quality.inconnus = q.inconnus; f.quality.completude = q.completude;
     fs.writeFileSync(f_, JSON.stringify(f, null, 1) + "\n");

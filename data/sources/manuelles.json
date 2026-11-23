@@ -446,7 +446,7 @@
     "limites": "observation sous l'eau, pas de la pêche du bord",
     "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
     "consulte_le": "2026-11-23",
-    "affirmation": "anse du cap Lévi (Fermanville) : « Pour les bars, on attend plutôt que la marée remonte. Ensuite, on se rapproche du bord vers la première pointe. » ; la même sélection cite « Saint-Pierre-Quiberon : pointe de Beg an Aud »",
+    "affirmation": "anse du cap Lévi (Fermanville) : « Pour les bars, on attend plutôt que la marée remonte. Ensuite, on se rapproche du bord vers la première pointe. » ; la même sélection cite « Saint-Pierre-Quiberon : pointe de Beg an Aud » ; « Moëlan-sur-Mer : île Percée » : « On y croise de très gros bars à basse mer »",
     "bar_au_poste": true
    },
    "type": "site, guide ou presse spécialisée",
@@ -716,6 +716,78 @@
    },
    "famille": 4,
    "niveau_v2": null
+  },
+  {
+   "id": "src-carnet-de-peche-perherel",
+   "texte": "carnet-de-peche.com — Pointe de Perhérel (fiche de spot)",
+   "editeur": "carnet-de-peche.com",
+   "url": "https://www.carnet-de-peche.com/spots/pointe-de-perherel-plougasnou",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "équipe Carnet de Pêche",
+    "date": "2026",
+    "url_lue": "https://www.carnet-de-peche.com/spots/pointe-de-perherel-plougasnou",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche rédigée par l'éditeur",
+    "precision": "lieu nommé",
+    "independance": "groupe de l'éditeur",
+    "limites": "position floutée ; aucune date d'observation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "Pointe de Perhérel : « le bar longe les bordures à la montante, le lieu jaune et la vieille tiennent dans les cailloux »",
+    "bar_au_poste": true
+   }
+  },
+  {
+   "id": "src-mieuxpecher-finistere-nord",
+   "texte": "mieuxpecher.com — « Coins de pêche – Finistère NORD »",
+   "editeur": "mieuxpecher.com",
+   "url": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée ensuite)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée",
+    "precision": "lieu nommé",
+    "independance": "groupe de l'éditeur",
+    "limites": "liste ancienne ; nom seul",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "liste qui cite « Pointe de Perhérel à Plougasnou », « Pointe du Diben », « Beg an Fry sur la commune de Guimaëc », « Pointe de Perharidi à Roscoff », « La pointe du grand Grouin à Camaret »",
+    "bar_au_poste": false
+   }
+  },
+  {
+   "id": "src-mieuxpecher-finistere-sud",
+   "texte": "mieuxpecher.com — « Coins de Pêche – Finistère SUD »",
+   "editeur": "mieuxpecher.com",
+   "url": "https://mieuxpecher.com/finistere-sud-coins-de-peche/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-06-17 (modifiée ensuite)",
+    "url_lue": "https://mieuxpecher.com/finistere-sud-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée",
+    "precision": "lieu nommé",
+    "independance": "groupe de l'éditeur",
+    "limites": "liste ancienne ; nom seul",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "liste qui cite « Île Percée à Moëlan-sur-Mer », « Pointe du Cabellou », « Pointe de la Jument à Trègunc », « Pointe Saint Gilles », « L'Embouchure du Merrien »",
+    "bar_au_poste": false
+   }
   }
  ]
 }

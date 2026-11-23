@@ -1,29 +1,30 @@
 {
  "//": "Registre des sources (phase 5, 5.4 ; § 7.1). Généré par scripts/sources-registre.mjs ; les champs « evaluation » se complètent à la main et ne sont jamais écrasés.",
  "totaux": {
-  "sources": 309,
+  "sources": 318,
   "aEvaluer": 242,
-  "avecUrl": 66,
-  "editeurs": 101,
-  "editeurClasse": 309,
-  "groupes": 86,
+  "avecUrl": 75,
+  "editeurs": 103,
+  "editeurClasse": 318,
+  "groupes": 88,
   "parFamille": {
    "1": 21,
    "2": 40,
    "3": 8,
-   "4": 213,
+   "4": 222,
    "6": 19,
    "non fixée": 8
   },
   "parType": {
-   "site, guide ou presse spécialisée": 232,
+   "site, guide ou presse spécialisée": 239,
    "texte réglementaire": 3,
-   "collectivité ou tourisme": 20,
+   "collectivité ou tourisme": 21,
    "institutionnel ou scientifique": 29,
    "forum ou communauté": 6,
    "encyclopédie collaborative": 12,
    "cartographie": 4,
    "cartographie ouverte": 2,
+   "blog ou site de pêcheurs": 1,
    "communautaire": 1
   }
  },
@@ -105,12 +106,14 @@
     "spot:conguel",
     "spot:corsen",
     "spot:dinan",
+    "spot:dourven",
     "spot:espagnols",
     "spot:feunteunaod",
     "spot:gattemare",
     "spot:goury",
     "spot:gouville",
     "spot:goyen",
+    "spot:grandbe",
     "spot:granville",
     "spot:kerjean",
     "spot:kerlouan",
@@ -144,6 +147,7 @@
     "spot:querqueville",
     "spot:raz",
     "spot:regneville",
+    "spot:rosaires",
     "spot:rospico",
     "spot:rostiviec",
     "spot:sablesblancs",
@@ -208,12 +212,14 @@
     "spot:conguel",
     "spot:corsen",
     "spot:dinan",
+    "spot:dourven",
     "spot:espagnols",
     "spot:feunteunaod",
     "spot:gattemare",
     "spot:goury",
     "spot:gouville",
     "spot:goyen",
+    "spot:grandbe",
     "spot:granville",
     "spot:kerjean",
     "spot:kerlouan",
@@ -247,6 +253,7 @@
     "spot:querqueville",
     "spot:raz",
     "spot:regneville",
+    "spot:rosaires",
     "spot:rospico",
     "spot:rostiviec",
     "spot:sablesblancs",
@@ -1888,6 +1895,7 @@
    "manuelle": true,
    "utilise_par": [
     "spot:brehec",
+    "spot:dourven",
     "spot:plougrescant"
    ],
    "groupe": "editeur:carnet-de-peche-com",
@@ -1930,6 +1938,125 @@
    "manuelle": true,
    "utilise_par": [
     "spot:bihit"
+   ],
+   "groupe": "editeur:carnet-de-peche-com",
+   "editeur_classe": {
+    "nature": "base de spots de pêche du bord rédigée par l'éditeur (632 fiches annoncées), avec carnet de prises des utilisateurs",
+    "domaines": [
+     "halieutique",
+     "spots",
+     "technique"
+    ],
+    "limites": "méthode de sélection non publiée ; descriptions sans date d'observation ; positions floutées en accès gratuit, précises pour les abonnés (jamais reprises)",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur) ; contenu payant jamais repris",
+    "constat": "fiches lues le 23 nov. 2026 par le moteur de recherche (Penmarc'h, Mousterlin, Cap Coz, etc.)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-carnet-de-peche-mulet",
+   "texte": "carnet-de-peche.com — « Mulet : maille 30 cm (2026), saisons et spots du bord »",
+   "editeur": "carnet-de-peche.com",
+   "url": "https://www.carnet-de-peche.com/especes/mulet",
+   "type": "site, guide ou presse spécialisée",
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "équipe Carnet de Pêche",
+    "date": "2026 (page vue il y a 153 jours)",
+    "url_lue": "https://www.carnet-de-peche.com/especes/mulet",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "page d'espèce qui liste les spots de sa carte",
+    "precision": "lieu nommé",
+    "independance": "groupe de l'éditeur",
+    "limites": "espèce de la page : le mulet, pas le bar",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "spots à mulet du Morbihan : « Barre d'Étel — rive Plouhinec ESTUAIRE »",
+    "bar_au_poste": false
+   },
+   "famille": 4,
+   "niveau_v2": null,
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:carnet-de-peche-com",
+   "editeur_classe": {
+    "nature": "base de spots de pêche du bord rédigée par l'éditeur (632 fiches annoncées), avec carnet de prises des utilisateurs",
+    "domaines": [
+     "halieutique",
+     "spots",
+     "technique"
+    ],
+    "limites": "méthode de sélection non publiée ; descriptions sans date d'observation ; positions floutées en accès gratuit, précises pour les abonnés (jamais reprises)",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur) ; contenu payant jamais repris",
+    "constat": "fiches lues le 23 nov. 2026 par le moteur de recherche (Penmarc'h, Mousterlin, Cap Coz, etc.)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-carnet-de-peche-perherel",
+   "texte": "carnet-de-peche.com — Pointe de Perhérel (fiche de spot)",
+   "editeur": "carnet-de-peche.com",
+   "url": "https://www.carnet-de-peche.com/spots/pointe-de-perherel-plougasnou",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "équipe Carnet de Pêche",
+    "date": "2026",
+    "url_lue": "https://www.carnet-de-peche.com/spots/pointe-de-perherel-plougasnou",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche rédigée par l'éditeur",
+    "precision": "lieu nommé",
+    "independance": "groupe de l'éditeur",
+    "limites": "position floutée ; aucune date d'observation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "Pointe de Perhérel : « le bar longe les bordures à la montante, le lieu jaune et la vieille tiennent dans les cailloux »",
+    "bar_au_poste": true
+   },
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:carnet-de-peche-com",
+   "editeur_classe": {
+    "nature": "base de spots de pêche du bord rédigée par l'éditeur (632 fiches annoncées), avec carnet de prises des utilisateurs",
+    "domaines": [
+     "halieutique",
+     "spots",
+     "technique"
+    ],
+    "limites": "méthode de sélection non publiée ; descriptions sans date d'observation ; positions floutées en accès gratuit, précises pour les abonnés (jamais reprises)",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur) ; contenu payant jamais repris",
+    "constat": "fiches lues le 23 nov. 2026 par le moteur de recherche (Penmarc'h, Mousterlin, Cap Coz, etc.)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-carnet-de-peche-sillon-talbert",
+   "texte": "carnet-de-peche.com — fiche « Sillon de Talbert » et liste « Autres spots dans les Côtes-d'Armor »",
+   "editeur": "carnet-de-peche.com",
+   "url": "https://www.carnet-de-peche.com/spots/sillon-de-talbert",
+   "type": "site, guide ou presse spécialisée",
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "équipe Carnet de Pêche",
+    "date": "2026",
+    "url_lue": "https://www.carnet-de-peche.com/spots/sillon-de-talbert",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "lien vers une fiche de spot, avec l'espèce",
+    "precision": "lieu nommé",
+    "independance": "groupe de l'éditeur",
+    "limites": "nom et espèce seulement ; la fiche de chaque spot cité n'a pas été lue",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "liste qui cite « Plage des Rosaires · Bar », « Pointe de l'Arcouest · Bar », « Plage du Val André · Bar », « Plage de Trestraou · Bar » ; le Sillon lui-même : « Spot à bar exigeant »",
+    "bar_au_poste": true
+   },
+   "famille": 4,
+   "niveau_v2": null,
+   "manuelle": true,
+   "utilise_par": [
+    "spot:rosaires"
    ],
    "groupe": "editeur:carnet-de-peche-com",
    "editeur_classe": {
@@ -2619,7 +2746,7 @@
     "limites": "observation sous l'eau, pas de la pêche du bord",
     "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
     "consulte_le": "2026-11-23",
-    "affirmation": "anse du cap Lévi (Fermanville) : « Pour les bars, on attend plutôt que la marée remonte. Ensuite, on se rapproche du bord vers la première pointe. » ; la même sélection cite « Saint-Pierre-Quiberon : pointe de Beg an Aud »",
+    "affirmation": "anse du cap Lévi (Fermanville) : « Pour les bars, on attend plutôt que la marée remonte. Ensuite, on se rapproche du bord vers la première pointe. » ; la même sélection cite « Saint-Pierre-Quiberon : pointe de Beg an Aud » ; « Moëlan-sur-Mer : île Percée » : « On y croise de très gros bars à basse mer »",
     "bar_au_poste": true
    },
    "type": "site, guide ou presse spécialisée",
@@ -3381,6 +3508,46 @@
     "limites": "jamais une preuve seule : remonter aux sources de l'article",
     "droits": "CC BY-SA 4.0 (attribution, partage à l'identique)",
     "famille_inferee": 6,
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-figaro-nautisme-forts-saint-malo",
+   "texte": "Le Figaro Nautisme — « Quels forts visiter dans la baie de Saint-Malo en automne ? » (27 oct. 2026)",
+   "editeur": "figaronautisme.meteoconsult.fr",
+   "url": "https://figaronautisme.meteoconsult.fr/actus-nautisme-escales/2026-10-27/93589-quels-forts-visiter-dans-la-baie-de-saint-malo-en-automne",
+   "type": "site, guide ou presse spécialisée",
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Le Figaro Nautisme",
+    "date": "2026-10-27",
+    "url_lue": "https://figaronautisme.meteoconsult.fr/actus-nautisme-escales/2026-10-27/93589-quels-forts-visiter-dans-la-baie-de-saint-malo-en-automne",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "article de presse nautique",
+    "precision": "îlots de la baie de Saint-Malo",
+    "independance": "indépendante des sources de pêche",
+    "limites": "ne parle pas de pêche",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« L'accès à pied n'est jamais une simple promenade improvisée : une remontée rapide de l'eau peut isoler l'îlot, et les indications locales priment toujours » ; « Le Grand Bé et le Petit Bé, deux îlots liés à la marée »",
+    "bar_au_poste": false
+   },
+   "famille": 4,
+   "niveau_v2": null,
+   "manuelle": true,
+   "utilise_par": [
+    "spot:grandbe"
+   ],
+   "groupe": "meteo-consult-figaro-nautisme",
+   "editeur_classe": {
+    "nature": "presse nautique en ligne (Météo Consult, Le Figaro Nautisme)",
+    "domaines": [
+     "halieutique (secteurs)",
+     "météo"
+    ],
+    "limites": "articles de synthèse souvent généraux, sans poste précis",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "constat": "articles signés « Le Figaro Nautisme » ou d'un auteur ; site édité avec Météo Consult (recherche du 23 nov. 2026)",
     "classe_le": "2026-11-23"
    }
   },
@@ -4331,12 +4498,14 @@
     "spot:conguel",
     "spot:corsen",
     "spot:dinan",
+    "spot:dourven",
     "spot:espagnols",
     "spot:feunteunaod",
     "spot:gattemare",
     "spot:goury",
     "spot:gouville",
     "spot:goyen",
+    "spot:grandbe",
     "spot:granville",
     "spot:kerjean",
     "spot:kerlouan",
@@ -4366,6 +4535,7 @@
     "spot:querqueville",
     "spot:raz",
     "spot:regneville",
+    "spot:rosaires",
     "spot:rospico",
     "spot:rostiviec",
     "spot:sablesblancs",
@@ -4948,12 +5118,14 @@
     "spot:conguel",
     "spot:corsen",
     "spot:dinan",
+    "spot:dourven",
     "spot:espagnols",
     "spot:feunteunaod",
     "spot:gattemare",
     "spot:goury",
     "spot:gouville",
     "spot:goyen",
+    "spot:grandbe",
     "spot:granville",
     "spot:kerjean",
     "spot:kerlouan",
@@ -4987,6 +5159,7 @@
     "spot:querqueville",
     "spot:raz",
     "spot:regneville",
+    "spot:rosaires",
     "spot:rospico",
     "spot:rostiviec",
     "spot:sablesblancs",
@@ -7049,7 +7222,125 @@
     "spot:bihit",
     "spot:brehec",
     "spot:capfrehel",
-    "spot:plougrescant"
+    "spot:dourven",
+    "spot:plougrescant",
+    "spot:rosaires"
+   ],
+   "groupe": "editeur:mieuxpecher-com",
+   "editeur_classe": {
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
+    "domaines": [
+     "halieutique",
+     "spots"
+    ],
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-mieuxpecher-finistere-nord",
+   "texte": "mieuxpecher.com — « Coins de pêche – Finistère NORD »",
+   "editeur": "mieuxpecher.com",
+   "url": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée ensuite)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée",
+    "precision": "lieu nommé",
+    "independance": "groupe de l'éditeur",
+    "limites": "liste ancienne ; nom seul",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "liste qui cite « Pointe de Perhérel à Plougasnou », « Pointe du Diben », « Beg an Fry sur la commune de Guimaëc », « Pointe de Perharidi à Roscoff », « La pointe du grand Grouin à Camaret »",
+    "bar_au_poste": false
+   },
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:mieuxpecher-com",
+   "editeur_classe": {
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
+    "domaines": [
+     "halieutique",
+     "spots"
+    ],
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-mieuxpecher-finistere-sud",
+   "texte": "mieuxpecher.com — « Coins de Pêche – Finistère SUD »",
+   "editeur": "mieuxpecher.com",
+   "url": "https://mieuxpecher.com/finistere-sud-coins-de-peche/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-06-17 (modifiée ensuite)",
+    "url_lue": "https://mieuxpecher.com/finistere-sud-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée",
+    "precision": "lieu nommé",
+    "independance": "groupe de l'éditeur",
+    "limites": "liste ancienne ; nom seul",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "liste qui cite « Île Percée à Moëlan-sur-Mer », « Pointe du Cabellou », « Pointe de la Jument à Trègunc », « Pointe Saint Gilles », « L'Embouchure du Merrien »",
+    "bar_au_poste": false
+   },
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:mieuxpecher-com",
+   "editeur_classe": {
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
+    "domaines": [
+     "halieutique",
+     "spots"
+    ],
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-mieuxpecher-ille-et-vilaine",
+   "texte": "mieuxpecher.com — « Coins de Pêche – Ille et Vilaine »",
+   "editeur": "mieuxpecher.com",
+   "url": "https://mieuxpecher.com/ille-et-vilaine-coins-de-peche/",
+   "type": "site, guide ou presse spécialisée",
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-03-08 (modifiée le 2022-02-28)",
+    "url_lue": "https://mieuxpecher.com/ille-et-vilaine-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée",
+    "precision": "lieu nommé",
+    "independance": "groupe de l'éditeur",
+    "limites": "liste ancienne ; nom seul, espèce rarement donnée",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "liste qui cite, à Saint-Malo, « Pointe du christ », « Pointe de la Varde », « Le Petit Bé », « Le môle », « La cale qui se trouve sous la Tour Solidor », et ailleurs « Pointe du Meinga à Saint-Coulomb », « Pointe du Décolle à Saint Lunaire » ; « Entre la pointe du Grouin et l'île des Landes (maquereau) »",
+    "bar_au_poste": false
+   },
+   "famille": 4,
+   "niveau_v2": null,
+   "manuelle": true,
+   "utilise_par": [
+    "spot:grandbe"
    ],
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
@@ -7509,6 +7800,46 @@
    "manuelle": true,
    "utilise_par": [],
    "groupe": "editeur:openstreetmap"
+  },
+  {
+   "id": "src-oupecher-saint-malo-bar",
+   "texte": "oupecher.fr (Arno Convers) — « Pêche du bar à Saint Malo : des poissons de plus de 60 cm au pied de Saint Malo intra-muros ! »",
+   "editeur": "oupecher.fr",
+   "url": "https://www.oupecher.fr/post/des-bars-de-plus-de-60-cm-au-pied-de-saint-malo-intra-muros",
+   "type": "blog ou site de pêcheurs",
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Arno Convers",
+    "date": "2022-07-01 (mise à jour le 3 mars)",
+    "url_lue": "https://www.oupecher.fr/post/des-bars-de-plus-de-60-cm-au-pied-de-saint-malo-intra-muros",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "récit de sessions personnelles (première main), avec photos de prises",
+    "precision": "îlots du Grand Bé et du Petit Bé ; cité d'Aleth",
+    "independance": "groupe de l'éditeur",
+    "limites": "observations d'un seul pêcheur ; poste précis non coté ; à recouper",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« La pêche du bar est assez prolifique depuis Grand Bé et Petit Bé » ; « les sessions de pêche sur ces ilots ne dépassent pas trois heures ! » ; « vous pouvez devenir prisonnier de ces deux îlots » ; bars pris près d'Aleth et au Grand Bé",
+    "bar_au_poste": true
+   },
+   "famille": 4,
+   "niveau_v2": null,
+   "manuelle": true,
+   "utilise_par": [
+    "spot:grandbe"
+   ],
+   "groupe": "editeur:oupecher-fr",
+   "editeur_classe": {
+    "nature": "blog d'un pêcheur nommé (Arno Convers), récits de sessions de première main",
+    "domaines": [
+     "halieutique",
+     "accès",
+     "conditions locales"
+    ],
+    "limites": "observations personnelles, non reproductibles ; quelques secteurs seulement (Saint-Malo) ; à recouper",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
   },
   {
    "id": "src-park4night-com-af9169",
@@ -9627,6 +9958,46 @@
     "limites": "promotionnel",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
     "famille_inferee": 4,
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-saint-malo-tourisme-bes",
+   "texte": "Office de tourisme Saint-Malo – Baie du Mont-Saint-Michel — « Access the forts and islets » (page anglaise)",
+   "editeur": "saint-malo-tourisme.co.uk",
+   "url": "https://saint-malo-tourisme.co.uk/living-like-at-home/explorations/culture-heritage/access-the-forts-and-islets",
+   "type": "collectivité ou tourisme",
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Office de tourisme Saint-Malo – Baie du Mont-Saint-Michel",
+    "date": "non datée (lue le 2026-11-23)",
+    "url_lue": "https://saint-malo-tourisme.co.uk/living-like-at-home/explorations/culture-heritage/access-the-forts-and-islets",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "page d'information de l'office de tourisme",
+    "precision": "îlots du Grand Bé et du Petit Bé",
+    "independance": "indépendante des sources de pêche",
+    "limites": "ne parle pas de pêche ; durée de la fenêtre mal affichée sur la page lue",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "Grand Bé : « You can only get there for a few hours a day, at low tide, by crossing Bon Secours beach » ; fenêtre rapportée à l'heure de basse mer du jour, « 1? hours before and 1? hours after » (chiffre mal affiché) ; Petit Bé : à pied ou en bateau selon la marée",
+    "bar_au_poste": false
+   },
+   "famille": 4,
+   "niveau_v2": null,
+   "manuelle": true,
+   "utilise_par": [
+    "spot:grandbe"
+   ],
+   "groupe": "saint-malo-tourisme",
+   "editeur_classe": {
+    "nature": "office de tourisme (Saint-Malo – Baie du Mont-Saint-Michel)",
+    "domaines": [
+     "accès",
+     "lieux",
+     "activités"
+    ],
+    "limites": "promotionnel ; page sans date ; une durée mal affichée sur la page lue",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
     "classe_le": "2026-11-23"
    }
   },
