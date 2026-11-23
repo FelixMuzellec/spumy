@@ -1,0 +1,50 @@
+{
+ "//": "Sources ajoutées et évaluées à la main pendant la phase 5 (§ 7.1). Fusionnées dans data/sources/registre.json par scripts/sources-registre.mjs.",
+ "sources": [
+  {
+   "id": "src-arrete-bar-loisir-2026",
+   "texte": "Arrêté du 1er avril 2026 précisant les conditions d'exercice de la pêche de loisir du bar européen (Dicentrarchus labrax), NOR TECM2608397A, Journal officiel (copie publiée par la commune de Locquirec)",
+   "editeur": "Journal officiel de la République française",
+   "url": "https://www.locquirec.bzh/wp-content/uploads/2026/04/Arrete-du-1er-avril-2026-Bar-loisir.pdf",
+   "type": "texte réglementaire", "famille": 1, "niveau_v2": null,
+   "evaluation": { "statut": "évaluée", "auteur": "Ministère chargé de la mer (DGAMPA)", "date": "2026-04-01", "methode": "texte réglementaire", "precision": "zones CIEM 7 et 4 (art. 2) et 8 (art. 3), année 2026", "independance": "source primaire", "limites": "copie communale du texte du Journal officiel ; valable pour 2026 seulement", "droits": "texte officiel, réutilisation libre", "consulte_le": "2026-11-23" }
+  },
+  {
+   "id": "src-arrete-peche-loisir-2026-recfishing",
+   "texte": "Arrêté du 1er avril 2026 modifiant l'arrêté du 7 novembre 2025 précisant les conditions d'exercice de la pêche de loisir dans le domaine maritime, NOR TECM2608396A, Journal officiel du 11 avril 2026",
+   "editeur": "Journal officiel de la République française",
+   "url": "https://www.dirm.memn.developpement-durable.gouv.fr/IMG/pdf/joe_20260411_0086_0009.pdf",
+   "type": "texte réglementaire", "famille": 1, "niveau_v2": null,
+   "evaluation": { "statut": "évaluée", "auteur": "Ministère chargé de la mer (DGAMPA)", "date": "2026-04-11", "methode": "texte réglementaire", "precision": "enregistrement RecFishing la veille, déclaration sous 24 h, espèces listées : lieu jaune, bar, dorade rose, maquereau (CIEM 4, 7, 8)", "independance": "source primaire", "limites": "ne fixe ni quotas ni périodes", "droits": "texte officiel, réutilisation libre", "consulte_le": "2026-11-23" }
+  },
+  {
+   "id": "src-legifrance-tailles-minimales-2026",
+   "texte": "Arrêté du 26 octobre 2012 déterminant la taille minimale ou le poids minimal de capture (pêche maritime de loisir), annexe I, version en vigueur depuis le 14 janvier 2026 (modifiée par l'arrêté du 6 janvier 2026)",
+   "editeur": "Légifrance",
+   "url": "https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000041553508",
+   "type": "texte réglementaire", "famille": 1, "niveau_v2": null,
+   "evaluation": { "statut": "évaluée", "auteur": "Légifrance (version consolidée)", "date": "2026-01-14", "methode": "texte réglementaire consolidé", "precision": "bar commun 42 cm (Manche, mer du Nord, Atlantique)", "independance": "source primaire", "limites": "—", "droits": "texte officiel, réutilisation libre", "consulte_le": "2026-11-23" }
+  },
+  {
+   "id": "src-osm-nominatim",
+   "texte": "OpenStreetMap, service de recherche Nominatim (lieux nommés), © contributeurs OpenStreetMap, ODbL",
+   "editeur": "OpenStreetMap", "url": "https://nominatim.openstreetmap.org/",
+   "type": "cartographie ouverte", "famille": 2, "niveau_v2": null,
+   "evaluation": { "statut": "évaluée", "auteur": "contributeurs OpenStreetMap", "date": null, "methode": "base cartographique collaborative ; requête bornée au voisinage du spot", "precision": "position de l'objet cartographié ; exactitude variable selon la saisie", "independance": "indépendante des sources de pêche", "limites": "un nom identique peut désigner un autre objet ; vérifier la catégorie et l'écart", "droits": "ODbL : attribution obligatoire ; une base dérivée diffusée doit rester sous ODbL", "consulte_le": null }
+  },
+  {
+   "id": "src-osm-overpass-parkings",
+   "texte": "OpenStreetMap, Overpass API : parkings (amenity=parking) autour du spot, © contributeurs OpenStreetMap, ODbL",
+   "editeur": "OpenStreetMap", "url": "https://overpass-api.de/",
+   "type": "cartographie ouverte", "famille": 2, "niveau_v2": null,
+   "evaluation": { "statut": "évaluée", "auteur": "contributeurs OpenStreetMap", "date": null, "methode": "objets amenity=parking dans un rayon de 1,5 km (2,5 km si la position est imprécise), sans accès privé", "precision": "position et attributs déclarés (accès, payant, capacité) ; parkings non cartographiés absents", "independance": "indépendante des sources de pêche", "limites": "ne dit ni l'ouverture saisonnière ni l'état réel ; un parking n'est pas forcément l'accès au poste", "droits": "ODbL : attribution obligatoire ; base dérivée sous ODbL", "consulte_le": null }
+  },
+  {
+   "id": "src-ign-itineraire-pieton",
+   "texte": "IGN, Géoplateforme, calcul d'itinéraire piéton (ressources bdtopo-pgr ou bdtopo-valhalla), réseau BD TOPO",
+   "editeur": "IGN", "url": "https://data.geopf.fr/navigation/itineraire",
+   "type": "institutionnel ou scientifique", "famille": 1, "niveau_v2": null,
+   "evaluation": { "statut": "évaluée", "auteur": "Institut national de l'information géographique et forestière", "date": null, "methode": "itinéraire le plus rapide à pied, du parking au point du spot", "precision": "réseau de chemins de la BD TOPO ; l'estran et les rochers ne sont pas modélisés", "independance": "indépendante des sources de pêche", "limites": "le dernier tronçon (grève, rochers, marée) n'est pas compté ; temps théorique", "droits": "Licence Ouverte 2.0 de la Géoplateforme (à confirmer, DATA_SOURCES)", "consulte_le": null }
+  }
+ ]
+}

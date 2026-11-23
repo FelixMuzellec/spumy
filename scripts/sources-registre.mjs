@@ -63,8 +63,18 @@ export function construire() {
   for (const [fichier, mode] of [["data/knowledge/bar-bord.json", "bord"], ["data/knowledge/bateau.json", "bateau"]]) {
     for (const c of read(fichier).connaissances) for (const s of c.sources || []) ajouter(s.ref, s.url, s.niveau, `connaissance:${mode}:${c.id}`);
   }
+  // Sources ajoutées à la main (data/sources/manuelles.json) : gardées telles quelles ; leurs usages sont relevés
+  // dans les fiches qui les citent.
+  const F_MAN = path.join(root, "data/sources/manuelles.json");
+  if (fs.existsSync(F_MAN)) {
+    const fiches = lireFiches();
+    for (const m of JSON.parse(fs.readFileSync(F_MAN, "utf8")).sources) {
+      const usages = fiches.filter(({ fiche }) => JSON.stringify(fiche).includes(`"${m.id}"`)).map(({ fiche }) => `spot:${fiche.id}`);
+      sources.set(m.id, { ...m, manuelle: true, utilise_par: usages });
+    }
+  }
   // Une évaluation déjà faite n'est jamais écrasée.
-  const liste = [...sources.values()].map((s) => (garde.get(s.id)?.evaluation?.statut && garde.get(s.id).evaluation.statut !== "à évaluer" ? { ...s, evaluation: garde.get(s.id).evaluation, famille: garde.get(s.id).famille } : s))
+  const liste = [...sources.values()].map((s) => (!s.manuelle && garde.get(s.id)?.evaluation?.statut && garde.get(s.id).evaluation.statut !== "à évaluer" ? { ...s, evaluation: garde.get(s.id).evaluation, famille: garde.get(s.id).famille } : s))
     .sort((a, b) => a.id.localeCompare(b.id));
   const parEditeur = {};
   for (const s of liste) (parEditeur[s.editeur] ||= []).push(s.id);
@@ -88,7 +98,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   fs.writeFileSync(F_SOURCES, JSON.stringify(registre, null, 1) + "\n");
   let maj = 0;
   for (const { fichier, fiche: f } of lireFiches()) {
-    const ids = [...new Set([...(f.provenance.sources || []), ...(parFiche.get(f.id) || [])])].sort();
+    const citees = [...JSON.stringify({ ...f, provenance: {} }).matchAll(/"(src-[a-z0-9-]+)"/g)].map((m) => m[1]);
+    const ids = [...new Set([...(f.provenance.sources || []), ...(parFiche.get(f.id) || []), ...citees])].sort();
     if (JSON.stringify(ids) !== JSON.stringify(f.provenance.sources)) {
       f.provenance.sources = ids;
       fs.writeFileSync(path.join(DIR_FICHES, fichier), JSON.stringify(f, null, 1) + "\n");

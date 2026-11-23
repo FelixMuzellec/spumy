@@ -20,11 +20,14 @@
    "lon": -4.598854,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 5,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 8,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.69,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "plouguerneau"
@@ -38,11 +41,14 @@
    "lon": -4.757318,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 4,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 7,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.69,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "plouguerneau"
@@ -56,11 +62,14 @@
    "lon": -1.5833,
    "precision_m": 1850,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 5,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 8,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.69,
+   "completude": 0.71,
    "inconnus": 12,
    "anomalies": 1,
    "guide_v2": "pirou"
@@ -74,11 +83,14 @@
    "lon": -4.45779,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 3,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 6,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.67,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "logonna"
@@ -92,11 +104,14 @@
    "lon": -3.855132,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 5,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 8,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.7,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "carantec"
@@ -110,11 +125,14 @@
    "lon": -3.9749,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 2,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 5,
    "sources_v2": 2,
    "derniere_verification": null,
-   "completude": 0.67,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "concarneau"
@@ -128,11 +146,14 @@
    "lon": -4.336333,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 5,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 8,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.67,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "logonna"
@@ -146,11 +167,14 @@
    "lon": -4.7640023,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 5,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 8,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.67,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "plouguerneau"
@@ -164,11 +188,14 @@
    "lon": -4.6642,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 5,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 8,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.67,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "audierne"
@@ -182,11 +209,14 @@
    "lon": -4.247263,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 5,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 8,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.67,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "logonna"
@@ -200,11 +230,14 @@
    "lon": -3.9815139,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 6,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 9,
    "sources_v2": 6,
    "derniere_verification": null,
-   "completude": 0.67,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "concarneau"
@@ -218,11 +251,14 @@
    "lon": -3.898978,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 7,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 10,
    "sources_v2": 7,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.69,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "carantec"
@@ -236,11 +272,14 @@
    "lon": -1.8,
    "precision_m": 1850,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 3,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 6,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.71,
+   "completude": 0.72,
    "inconnus": 11,
    "anomalies": 1,
    "guide_v2": "pirou"
@@ -254,11 +293,14 @@
    "lon": -4.7955,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 3,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 6,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.67,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "plouguerneau"
@@ -272,11 +314,14 @@
    "lon": -4.570842,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 5,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 8,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.7,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "crozon"
@@ -290,11 +335,14 @@
    "lon": -4.533564,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 7,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 10,
    "sources_v2": 7,
    "derniere_verification": null,
-   "completude": 0.69,
+   "completude": 0.7,
    "inconnus": 11,
    "anomalies": 0,
    "guide_v2": "logonna"
@@ -308,11 +356,14 @@
    "lon": -4.69559,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 3,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 6,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.67,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "audierne"
@@ -326,11 +377,14 @@
    "lon": -1.945278,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 4,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 7,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.7,
+   "completude": 0.72,
    "inconnus": 11,
    "anomalies": 0,
    "guide_v2": "pirou"
@@ -344,11 +398,14 @@
    "lon": -1.6,
    "precision_m": 1850,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 5,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 8,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.69,
    "inconnus": 12,
    "anomalies": 1,
    "guide_v2": "pirou"
@@ -362,13 +419,16 @@
    "lon": -4.532755,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 3,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 6,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.69,
    "inconnus": 12,
-   "anomalies": 0,
+   "anomalies": 1,
    "guide_v2": "audierne"
   },
   {
@@ -380,11 +440,14 @@
    "lon": -1.614315,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 3,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 6,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.7,
+   "completude": 0.72,
    "inconnus": 11,
    "anomalies": 0,
    "guide_v2": "pirou"
@@ -398,11 +461,14 @@
    "lon": -3.828032,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 3,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 6,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.66,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "concarneau"
@@ -416,11 +482,14 @@
    "lon": -4.436653,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 3,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 6,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.69,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "plouguerneau"
@@ -434,11 +503,14 @@
    "lon": -4.79,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 5,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 8,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.7,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "plouguerneau"
@@ -452,11 +524,14 @@
    "lon": -4.235063,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 3,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 6,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.7,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "carantec"
@@ -470,11 +545,14 @@
    "lon": -3.5298,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 6,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 9,
    "sources_v2": 6,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.69,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "concarneau"
@@ -488,11 +566,14 @@
    "lon": -4.269158,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 5,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 8,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.69,
    "inconnus": 11,
    "anomalies": 0,
    "guide_v2": "logonna"
@@ -506,11 +587,14 @@
    "lon": -4.414256,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 5,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 8,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.65,
+   "completude": 0.67,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "logonna"
@@ -524,11 +608,14 @@
    "lon": -4.3629178,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 3,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 6,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.67,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "crozon"
@@ -542,11 +629,14 @@
    "lon": -3.6469,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 5,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 8,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.67,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "carantec"
@@ -560,11 +650,14 @@
    "lon": -4.55735,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 3,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 6,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.67,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "crozon"
@@ -578,11 +671,14 @@
    "lon": -4.613987,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 3,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 6,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.67,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "logonna"
@@ -596,11 +692,14 @@
    "lon": -4.492986,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 4,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 7,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.67,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "crozon"
@@ -614,11 +713,14 @@
    "lon": -4.2862,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 6,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 9,
    "sources_v2": 6,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.7,
    "inconnus": 12,
    "anomalies": 1,
    "guide_v2": "logonna"
@@ -632,11 +734,14 @@
    "lon": -4.040351,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 5,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 8,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.69,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "concarneau"
@@ -650,11 +755,14 @@
    "lon": -4.11529,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 4,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 7,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.7,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "concarneau"
@@ -668,11 +776,14 @@
    "lon": -4.521446,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 4,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 7,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.67,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "plouguerneau"
@@ -686,11 +797,14 @@
    "lon": -4.538915,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 2,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 5,
    "sources_v2": 2,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.69,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "plouguerneau"
@@ -704,11 +818,14 @@
    "lon": -4.621814,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 2,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 5,
    "sources_v2": 2,
    "derniere_verification": null,
-   "completude": 0.66,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "logonna"
@@ -722,11 +839,14 @@
    "lon": -4.4031143,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 4,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 7,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.67,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "audierne"
@@ -740,11 +860,14 @@
    "lon": -4.37275,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 5,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 8,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.7,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "audierne"
@@ -758,11 +881,14 @@
    "lon": -4.52667,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 3,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 6,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.7,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "plouguerneau"
@@ -776,11 +902,14 @@
    "lon": -4.304321,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 4,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 7,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.67,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "crozon"
@@ -794,11 +923,14 @@
    "lon": -3.923333,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 5,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 8,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.69,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "carantec"
@@ -812,11 +944,14 @@
    "lon": -1.5833,
    "precision_m": 1850,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 4,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 7,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.7,
    "inconnus": 12,
    "anomalies": 1,
    "guide_v2": "pirou"
@@ -830,11 +965,14 @@
    "lon": -1.7167,
    "precision_m": 1850,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 2,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 5,
    "sources_v2": 2,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.69,
    "inconnus": 12,
    "anomalies": 1,
    "guide_v2": "pirou"
@@ -848,11 +986,14 @@
    "lon": -3.742622,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 4,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 7,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.67,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "concarneau"
@@ -866,11 +1007,14 @@
    "lon": -3.81788,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 5,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 8,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.69,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "carantec"
@@ -884,11 +1028,14 @@
    "lon": -4.74111,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 5,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 8,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.69,
+   "completude": 0.71,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "audierne"
@@ -902,11 +1049,14 @@
    "lon": -1.5667,
    "precision_m": 1850,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 4,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 7,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.69,
+   "completude": 0.71,
    "inconnus": 12,
    "anomalies": 1,
    "guide_v2": "pirou"
@@ -920,11 +1070,14 @@
    "lon": -3.761323,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 2,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 5,
    "sources_v2": 2,
    "derniere_verification": null,
-   "completude": 0.66,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "concarneau"
@@ -938,11 +1091,14 @@
    "lon": -4.326763,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 5,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 8,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.67,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "logonna"
@@ -956,11 +1112,14 @@
    "lon": -3.9314,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 4,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 7,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.66,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "concarneau"
@@ -974,11 +1133,14 @@
    "lon": -4.6017,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 3,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 6,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.7,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "plouguerneau"
@@ -992,11 +1154,14 @@
    "lon": -4.381132,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 6,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 9,
    "sources_v2": 6,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.69,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "audierne"
@@ -1010,11 +1175,14 @@
    "lon": -3.785285,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 2,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 5,
    "sources_v2": 2,
    "derniere_verification": null,
-   "completude": 0.66,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "carantec"
@@ -1028,13 +1196,16 @@
    "lon": -4.597628,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 4,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 7,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.67,
+   "completude": 0.68,
    "inconnus": 12,
-   "anomalies": 0,
+   "anomalies": 1,
    "guide_v2": "audierne"
   },
   {
@@ -1046,11 +1217,14 @@
    "lon": -1.847926,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 3,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 6,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.7,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "pirou"
@@ -1064,11 +1238,14 @@
    "lon": -1.8167,
    "precision_m": 1850,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 3,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 6,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.69,
    "inconnus": 12,
    "anomalies": 1,
    "guide_v2": "pirou"
@@ -1082,11 +1259,14 @@
    "lon": -4.279264,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 2,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 5,
    "sources_v2": 2,
    "derniere_verification": null,
-   "completude": 0.69,
+   "completude": 0.71,
    "inconnus": 11,
    "anomalies": 0,
    "guide_v2": "logonna"
@@ -1100,11 +1280,14 @@
    "lon": -4.353274,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 4,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 7,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.69,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "audierne"
@@ -1118,11 +1301,14 @@
    "lon": -4.5022019,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 4,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 7,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.67,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "crozon"
@@ -1136,11 +1322,14 @@
    "lon": -4.7068,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 4,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 7,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.7,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "audierne"
@@ -1154,11 +1343,14 @@
    "lon": -3.854083,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 4,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 7,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.67,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "concarneau"
@@ -1172,11 +1364,14 @@
    "lon": -4.3742625,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 4,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 7,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.66,
+   "completude": 0.68,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "crozon"
@@ -1190,11 +1385,14 @@
    "lon": -4.715,
    "precision_m": null,
    "stationnement_connu": false,
-   "niveau_preuve": null,
-   "sources": 3,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 1
+   },
+   "sources": 6,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.68,
+   "completude": 0.69,
    "inconnus": 12,
    "anomalies": 0,
    "guide_v2": "audierne"

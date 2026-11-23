@@ -57,6 +57,8 @@ t("registre de sources à jour (node scripts/sources-registre.mjs le régénère
 for (const { fiche: f } of fiches) {
   const absentes = f.provenance.sources.filter((x) => !ids.has(x));
   t(`${f.id} : toutes ses sources sont au registre`, !absentes.length, absentes.join(", "));
+  const partout = [...JSON.stringify(f).matchAll(/"(src-[a-z0-9-]+)"/g)].map((m) => m[1]).filter((x) => !ids.has(x));
+  t(`${f.id} : chaque source citée dans la fiche est au registre`, !partout.length, partout.join(", "));
   t(`${f.id} : chaque source V2 citée est reliée`, (f.provenance.sources_v2 || []).length <= f.provenance.sources.length);
 }
 t("registre central à jour (node scripts/fiches-v3-depuis-v2.mjs le régénère)", fs.readFileSync(F_REGISTRE, "utf8") === texteRegistre());
