@@ -233,3 +233,68 @@ Premier passage, 23 nov. 2026, passage 45210735483 : **8/8**.
 ### Arrêt
 
 Phase 4 **TESTED**, hors 4.8 (BLOCKED, action de Félix). Aucune tâche de la phase 5 n'a commencé. Jeton attendu : `APPROVED — PROCEED TO PHASE 5`.
+
+## Second complément du 23 novembre 2026 (« Oui » de Félix, 19 h 07)
+
+### Protection de `main`
+
+Félix l'a posée à 15 h 31 (ruleset 27906963, actif). Le rapport précédent la disait encore à faire : la session ne l'avait pas revérifiée avant d'écrire.
+
+**Une correction reste à faire par Félix** : le contrôle exigé s'appelle `contract`, alors que le passage s'appelle `contrat`. Tant qu'elle n'est pas faite, aucune fusion dans `main` ne peut aboutir. La marche à suivre est dans `docs/socle/PROTECTION-MAIN.md`.
+
+### Décisions appliquées
+
+| Point | Décision | Fait |
+| --- | --- | --- |
+| V3-019 | étiquette `v2-final` sur bb4f940, branches gardées | étiquette annotée créée par la session ; son envoi est refusé par le relais (HTTP 403, non contourné). **Félix l'envoie** (`docs/DECISIONS_LOG.md`, V3-019) |
+| D-11 | 48 px au moins, par une zone invisible | consigné : Design System, revues, MAP-03, jetons. **Appliqué à l'intégration**, car le prototype 6.2 garde son aspect validé, à 44 px. Périmètre mesuré : sur les 8 écrans du prototype, des cibles sont entre 44 et 48 px |
+| D-15 | export aux deux endroits, même action | prototype mis à jour (Journal ; Profil, Mes données) ; UX-V3 § 11 ; le test T6 confirmera |
+| Dependabot | actions GitHub seulement, une fois par mois, regroupées, attente de 7 jours | `.github/dependabot.yml` ; actif à la fusion dans `main` |
+| IGN | conduite chiffrée, validation des réponses, étalonnage mesuré, contrat enrichi | ARCHITECTURE-V3 § 4 et § 5 ; `src/core/ign/reponses.js` (testé) ; contrat IGN 15/15 |
+
+### Architecture IGN, ce qui a changé
+
+1. **Conduite face aux services**, chiffrée :
+    - délais par appel ;
+    - un seul nouvel essai, dans des cas précis, et respect de `Retry-After` ;
+    - une file de 4 appels par seconde avec priorités ;
+    - annulation des appels quand la position change, et dédoublonnage.
+2. **Validation des réponses**, au point d'entrée de l'IGN :
+    - durée, distance et vitesse moyenne cohérentes ;
+    - zone fermée, en France métropolitaine, contenant le départ ;
+    - toute réponse refusée donne `SERVICE_REPONSE_INVALIDE`, puis le mode dégradé.
+
+    Ces règles sont testées dans le socle (9 cas) et appliquées par le contrat aux vraies réponses de l'IGN.
+3. **Marge de 3 km autour du bord de la zone des 60 min** (HYPOTHÈSE). Dans cette marge, c'est l'itinéraire qui tranche. Le **protocole d'étalonnage** est chiffré :
+    - accord du polygone et de l'itinéraire d'au moins 98 % hors de la marge ;
+    - écart médian et écart au 90ᵉ centile de l'estimation dégradée ;
+    - écart aux temps réels de Félix ; au-delà de 15 % d'écart moyen, la correction est une décision de Félix, jamais appliquée en silence.
+4. **Contrat IGN enrichi** : validité des réponses, temps de réponse face aux délais, cohérence des deux services (Granville dans la zone, Paris hors de la zone), stabilité du trajet de référence (±20 %).
+
+Rien de V3-009 n'est modifié : ces règles le complètent.
+
+### Preuves
+
+| Commande | Code | Résultat |
+| --- | --- | --- |
+| `node tests/socle.mjs` | 0 | 25/25, dont 9 cas de réponses IGN |
+| `npm run typecheck` (avec `src/core/ign/reponses.js`) | 0 | — |
+| `npm run test:prototype-v3` (export ajouté) | 0 | 224/224 |
+| `npm run test:design-v3` | 0 | 186/186 |
+| `npm test` (3e624b7) | 0 | e2e 846/846, contrat simulé 28/28, socle 25/25, aucun secret (556 fichiers) |
+| Contrat IGN (CI, 3e624b7, passage 45236297790) | succès | **15/15**. Temps de réponse : géocodage 166 ms, itinéraire 373 ms, isochrone 428 ms. Trajet de référence 48,3 min (0 %). Granville dans la zone, Paris hors de la zone. CORS ouvert |
+| CI Tests et Contrat Open-Meteo | voir la proposition n° 18 | — |
+
+### Restent ouverts
+
+- **Félix** :
+    - corriger `contract` en `contrat` dans la protection de `main` ;
+    - envoyer l'étiquette `v2-final` ;
+    - donner le jeton de la phase 5.
+- **Plus tard** :
+    - conditions d'utilisation de la Géoplateforme à confirmer (`docs/DATA_SOURCES.md`) ;
+    - test T6 (D-15) ;
+    - D-11 et la conduite face à l'IGN, appliqués à l'intégration ;
+    - étalonnage après la phase 5.
+
+Phase 4 **TESTED**. Aucune tâche de la phase 5 n'a commencé. Jeton attendu : `APPROVED — PROCEED TO PHASE 5`.

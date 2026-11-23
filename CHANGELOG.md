@@ -6,7 +6,7 @@ Branches `claude/v3-phase-2`, `claude/v3-phase-3`, `claude/v3-phase-4` (proposit
 
 - **Phase 2** : vision, 98 exigences, architecture cible (`docs/VISION-V3.md`, `docs/REQUIREMENTS.md`, `docs/ARCHITECTURE-V3.md`).
 - **Phase 3** : conception UX/UI, Design System V3, prototype V3 jusqu'à la version 6.2 d'après les maquettes de Félix (Home, Carte vue pêche, Météo vue conditions, note expliquée par le calcul du moteur v2), logo détouré pour les fonds sombres (`docs/rapports/v3/PHASE-3.md`).
-- **Phase 4** : socle — audit mesuré, architecture détaillée et budgets de performance, contrats JSDoc vérifiés par `tsc --checkJs`, erreur commune et validation des entrées, CI complétée (types, secrets, socle, marque), détection de secrets, `.env.example`, conventions, nettoyage contrôlé, documentation d'exploitation, protection de `main` préparée (`docs/socle/`) ; ESLint 10, actions GitHub épinglées par empreinte, contrat IGN quotidien (CORS ouvert, vérifié le 23 nov.).
+- **Phase 4** : socle — audit mesuré, architecture détaillée et budgets de performance, contrats JSDoc vérifiés par `tsc --checkJs`, erreur commune et validation des entrées, CI complétée (types, secrets, socle, marque), détection de secrets, `.env.example`, conventions, nettoyage contrôlé, documentation d'exploitation, protection de `main` préparée (`docs/socle/`) ; ESLint 10, actions GitHub épinglées par empreinte, contrat IGN quotidien (CORS ouvert, validité, délais, cohérence et trajet de référence), validation des réponses IGN (`src/core/ign/`), Dependabot pour les actions, export du journal dans le Journal et dans Profil (prototype), cibles de 48 px décidées pour l'intégration.
 
 ## 10.0 — la charte SPUMY dans l'application (phase 12)
 

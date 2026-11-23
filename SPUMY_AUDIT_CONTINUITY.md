@@ -67,6 +67,7 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 | 4.13 Actions épinglées par empreinte | TESTED (535183f : checkout 7.0.1, setup-node 7.1.0, upload-artifact 7.0.2, Node 24 ; contrat sur `ubuntu-24.04` ; `tests/actions-epinglees.mjs` OK, deux cas négatifs à 1 ; CI verte sur 44dc559 : Tests 45191466560, Contrat Open-Meteo 45191466716) | `.github/workflows/`, `tests/actions-epinglees.mjs` |
 | 4.14 Contrat IGN en CI : joignabilité et CORS depuis le site publié (promis en phase 4 par le rapport de phase 2, oublié dans le rapport de phase 4) | TESTED (e6d4aa3 ; passage 45210735483 : 8/8, CORS ouvert `Access-Control-Allow-Origin: *`, appels réussis dans Chromium depuis l'origine du site ; relais non nécessaire, V3-009 complétée) | `.github/workflows/contrat-ign.yml`, `tests/contrat-ign.mjs`, `docs/DATA_SOURCES.md`, `docs/ARCHITECTURE-V3.md`, `docs/DECISIONS_LOG.md` |
 | 4.15 Complément du rapport, CI verte, arrêt | TESTED (complément du rapport, red-team mise à jour, CHANGELOG ; test de mise à jour : échec rare de `page.reload` sur 90eaf1b, puis blocage de 34 min ; blocage corrigé, échec simulé en 8 s, code 1 ; local 12/12) | `docs/rapports/v3/PHASE-4.md`, `CHANGELOG.md`, `tests/upgrade.mjs` |
+| 4.16 Décisions du 23 nov. (19 h 07) : V3-019, D-11, D-15, Dependabot, IGN | TESTED (b125156, 648d8cc, 3e624b7 ; étiquette `v2-final` créée, envoi refusé par le relais (403) : Félix ; D-11 consigné, appliqué à l'intégration ; D-15 dans le prototype, 224/224 ; `src/core/ign/reponses.js`, socle 25/25 ; contrat IGN 15/15 en CI ; `npm test` 0) | `docs/DECISIONS_LOG.md`, `docs/ARCHITECTURE-V3.md`, `src/core/ign/reponses.js`, `tests/contrat-ign.mjs`, `.github/dependabot.yml`, prototype |
 
 ## Questions et décisions (registre)
 
@@ -101,14 +102,12 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 
 ## Prochaine action
 
-Reprise après l'arrêt sur limite de crédits (`STOP_REASON: CREDIT_LIMIT`, 23 nov. vers 15 h 20) : reprise à 16 h 53 sur « Continue », complément terminé.
+Phase 4 **TESTED** (rapport, complément et second complément remis), arrêt. Attendus de Félix :
+- corriger le contrôle exigé `contract` en `contrat` dans la protection de `main` (`docs/socle/PROTECTION-MAIN.md`) : sinon aucune fusion ne peut aboutir ;
+- envoyer l'étiquette `v2-final` (V3-019 ; envoi refusé à la session) ;
+- donner le jeton `APPROVED — PROCEED TO PHASE 5`.
 
-Phase 4 **TESTED**, hors 4.8 (BLOCKED : Félix active la protection de `main`, `docs/socle/PROTECTION-MAIN.md`). Rapport et complément remis, arrêt. Attendus de Félix :
-- la protection de `main` ;
-- les points toujours ouverts (V3-019, D-11, D-15, Dependabot en option) ;
-- le jeton `APPROVED — PROCEED TO PHASE 5`.
-
-Aucune tâche de la phase 5 ne démarre sans ce jeton. Branche `claude/v3-phase-4` ; `main` inchangé (bb4f940).
+Aucune tâche de la phase 5 ne démarre sans ce jeton. Branche `claude/v3-phase-4` ; `main` inchangé (bb4f940), protégé depuis le 23 nov., 15 h 31.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
