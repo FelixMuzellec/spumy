@@ -384,6 +384,62 @@
    "statut": "INCONNU",
    "origine": "v2",
    "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune contrainte d'accès liée à la marée dans les consignes de la fiche : non documentée, ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "rayon_m": 500,
+    "total": 1,
+    "types": {
+     "Erosion de berges": 1
+    },
+    "plus_recent": null,
+    "evenements": [
+     {
+      "id": "10600875",
+      "type": "Erosion de berges",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 104
+     }
+    ]
+   },
+   "texte": "1 mouvement de terrain recensé par le BRGM à 500 m du point : erosion de berges (1). 1 événement sans date. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "HOPITAL-CAMFROUT",
+     "code_insee": "29080",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (HOPITAL-CAMFROUT) : par submersion marine. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [
@@ -456,6 +512,8 @@
    "src-arrete-peche-loisir-2026-recfishing",
    "src-despoissonssigrands-com-089f42",
    "src-en-wikipedia-org-wiki-ile-de-tib-7fb085",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
@@ -488,6 +546,7 @@
    "tide_approaches.basse",
    "tide_approaches.haute",
    "safety.coef_max",
+   "safety.acces_maree",
    "windows.habituelles",
    "windows.securite",
    "photos"

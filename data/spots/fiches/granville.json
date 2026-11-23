@@ -392,6 +392,106 @@
    "valeur": 112,
    "texte": "Coefficient au-delà duquel la V2 ne propose plus le spot.",
    "verifie_le": null
+  },
+  "acces_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    "submersible_a_pleine_mer"
+   ],
+   "verifie_le": null,
+   "texte": "Poste recouvert à marée haute. Classement relu à la main depuis la consigne de la fiche : « Marnage jusqu'à 12,6 m en vive-eau (calcul de marée du guide, 2026) : un poste accessible à basse mer peut disparaître vite. Photographier son poste et noter l'heure à l'arrivée. »",
+   "source_texte": "calcul de marée du guide · fiche du spot (conseil)"
+  },
+  "mouvements_terrain": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "rayon_m": 500,
+    "total": 4,
+    "types": {
+     "Chute de blocs / Eboulement": 4
+    },
+    "plus_recent": null,
+    "evenements": [
+     {
+      "id": "65000266",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Décamètre",
+      "lieu": "Haute-Ville",
+      "distance_m": 65
+     },
+     {
+      "id": "65000265",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Décamètre",
+      "lieu": "Haute-Ville",
+      "distance_m": 241
+     },
+     {
+      "id": "65000267",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Décamètre",
+      "lieu": "Haute-Ville",
+      "distance_m": 324
+     },
+     {
+      "id": "65000089",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Décamètre",
+      "lieu": "La Haute Ville",
+      "distance_m": 345
+     }
+    ]
+   },
+   "texte": "4 mouvements de terrain recensés par le BRGM à 500 m du point : chute de blocs / eboulement (4). 4 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "GRANVILLE",
+     "code_insee": "50218",
+     "risques": [
+      "Inondation",
+      "Par une crue à débordement lent de cours d'eau",
+      "Par remontées de nappes naturelles",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Eboulement ou chutes de pierres et de blocs",
+      "Tassements différentiels",
+      "Séisme",
+      "Phénomène lié à l'atmosphère",
+      "Tempête et grains (vent)",
+      "Foudre",
+      "Grêle",
+      "Neige et pluies verglaçantes",
+      "Radon",
+      "Engins de guerre"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (GRANVILLE) : par submersion marine, mouvement de terrain, eboulement ou chutes de pierres et de blocs, tempête et grains (vent), engins de guerre. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [
@@ -449,7 +549,7 @@
   "securite": {
    "statut": "INCONNU",
    "origine": "v2",
-   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+   "raison": "Contrainte de marée documentée (poste recouvert à marée haute), mais aucune durée praticable n'est sourcée : aucun intervalle HH:MM ne peut être calculé (§ 7.6). Le spot ne peut pas être présenté comme praticable sans fenêtre documentée."
   }
  },
  "photos": {
@@ -509,6 +609,8 @@
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
    "src-despoissonssigrands-com-f01490",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
@@ -526,7 +628,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.85,
+  "completude": 0.86,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",

@@ -353,6 +353,73 @@
    "statut": "INCONNU",
    "origine": "v2",
    "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune contrainte d'accès liée à la marée dans les consignes de la fiche : non documentée, ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "rayon_m": 500,
+    "total": 2,
+    "types": {
+     "Chute de blocs / Eboulement": 2
+    },
+    "plus_recent": "1999-12-01",
+    "evenements": [
+     {
+      "id": "62900213",
+      "type": "Chute de blocs / Eboulement",
+      "date": "1995-01-01",
+      "fiabilite": "Fort",
+      "precision": "Décamètre",
+      "lieu": null,
+      "distance_m": 87
+     },
+     {
+      "id": "62900214",
+      "type": "Chute de blocs / Eboulement",
+      "date": "1999-12-01",
+      "fiabilite": "Fort",
+      "precision": "Décamètre",
+      "lieu": null,
+      "distance_m": 446
+     }
+    ]
+   },
+   "texte": "2 mouvements de terrain recensés par le BRGM à 500 m du point : chute de blocs / eboulement (2). Le plus récent daté : 1999 ; Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "PLOUGASNOU",
+     "code_insee": "29188",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (PLOUGASNOU) : par submersion marine, mouvement de terrain. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [
@@ -424,6 +491,8 @@
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
    "src-baiedemorlaix-wordpress-com-baie-5c25ce",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
@@ -448,13 +517,14 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.79,
+  "completude": 0.78,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
    "tide_approaches.basse",
    "tide_approaches.haute",
    "safety.coef_max",
+   "safety.acces_maree",
    "windows.habituelles",
    "windows.securite",
    "photos"

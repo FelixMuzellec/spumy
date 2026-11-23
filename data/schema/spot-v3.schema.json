@@ -69,7 +69,13 @@
       "type": "object", "additionalProperties": false, "required": ["engagement", "consignes", "houle_max_m", "coef_max"],
       "properties": {
         "engagement": { "$ref": "#/$defs/info" }, "consignes": { "type": "array", "items": { "$ref": "#/$defs/info" } },
-        "houle_max_m": { "$ref": "#/$defs/info" }, "coef_max": { "$ref": "#/$defs/info" }
+        "houle_max_m": { "$ref": "#/$defs/info" }, "coef_max": { "$ref": "#/$defs/info" },
+        "acces_maree": {
+          "description": "Contrainte d'accès liée à la marée, classée à la main depuis les consignes de sécurité (§ 7.6, fenêtre de sécurité/accessibilité). Absente = non classée ; INCONNU = aucune contrainte documentée, jamais « sans risque ».",
+          "allOf": [{ "$ref": "#/$defs/info" }, { "properties": { "valeur": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["praticable_a_basse_mer_seulement", "isolement_au_flot", "submersible_a_pleine_mer", "acces_selon_maree"] } } } }]
+        },
+        "mouvements_terrain": { "description": "Mouvements de terrain recensés par le BRGM (base BDMvt, Géorisques) à 500 m du point : faits d'une base officielle non exhaustive ; zéro n'est jamais « sans risque ».", "$ref": "#/$defs/info" },
+        "risques_commune": { "description": "Risques recensés pour la commune du point (base GASPAR, Géorisques) : portée communale, pas le poste.", "$ref": "#/$defs/info" }
       }
     },
     "regulations": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/info" } },

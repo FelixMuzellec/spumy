@@ -33,8 +33,15 @@ for (const f of fiches) {
   const latlon = `${lon},${lat}`;
   const mvt = await get("/mvt", { latlon, rayon: String(RAYON), page: "1", page_size: "50" });
   await pause(150);
-  const gaspar = await get("/gaspar/risques", { latlon, rayon: "1", page: "1", page_size: "10" });
+  let gaspar = await get("/gaspar/risques", { latlon, rayon: "1", page: "1", page_size: "10" });
+  let rayonCommune = 1;
   await pause(150);
+  if (!gaspar.erreur && !(gaspar.json?.data || []).length) {
+    // Point en mer (pointe, embouchure) : hors de toute commune ; repli sur les communes à 1 km, signalé comme tel.
+    gaspar = await get("/gaspar/risques", { latlon, rayon: "1000", page: "1", page_size: "10" });
+    rayonCommune = 1000;
+    await pause(150);
+  }
   if (!forme) {
     // Forme réelle des réponses, une fois, pour écrire l'intégration sur ce qui existe et non sur ce qu'on suppose.
     console.log(`FORME ${JSON.stringify({ mvt: { cles: champs(mvt.json), item: champs(mvt.json?.data?.[0]) }, gaspar: { cles: champs(gaspar.json), item: champs(gaspar.json?.data?.[0]), sous: champs(gaspar.json?.data?.[0]?.risques_detail?.[0]) } })}`);
@@ -49,6 +56,6 @@ for (const f of fiches) {
     code_insee: c.code_insee ?? null, commune: c.libelle_commune ?? null,
     risques: (c.risques_detail || []).map((r) => ({ num: r.num_risque ?? null, libelle: r.libelle_risque_long ?? r.libelle_risque ?? null })),
   }));
-  console.log(`RISQUES ${JSON.stringify({ id: f.id, nom: f.name, rayon_m: RAYON, mvt: { erreur: mvt.erreur || null, ms: mvt.ms, total: mvt.json?.results ?? evts.length, evenements: evts }, gaspar: { erreur: gaspar.erreur || null, ms: gaspar.ms, communes } })}`);
+  console.log(`RISQUES ${JSON.stringify({ id: f.id, nom: f.name, rayon_m: RAYON, mvt: { erreur: mvt.erreur || null, ms: mvt.ms, total: mvt.json?.results ?? evts.length, evenements: evts }, gaspar: { erreur: gaspar.erreur || null, ms: gaspar.ms, rayon_m: rayonCommune, communes } })}`);
 }
 console.log(`[risques] ${fiches.length} spots interrogés`);

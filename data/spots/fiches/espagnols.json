@@ -384,6 +384,92 @@
    "valeur": 112,
    "texte": "Coefficient au-delà duquel la V2 ne propose plus le spot.",
    "verifie_le": null
+  },
+  "acces_maree": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune contrainte d'accès liée à la marée dans les consignes de la fiche : non documentée, ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "rayon_m": 500,
+    "total": 4,
+    "types": {
+     "Chute de blocs / Eboulement": 2,
+     "Glissement": 2
+    },
+    "plus_recent": null,
+    "evenements": [
+     {
+      "id": "10600943",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 49
+     },
+     {
+      "id": "10600945",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 66
+     },
+     {
+      "id": "10600944",
+      "type": "Glissement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 73
+     },
+     {
+      "id": "10601158",
+      "type": "Glissement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 498
+     }
+    ]
+   },
+   "texte": "4 mouvements de terrain recensés par le BRGM à 500 m du point : chute de blocs / eboulement (2), glissement (2). 4 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "ROSCANVEL",
+     "code_insee": "29238",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (ROSCANVEL) : par submersion marine, mouvement de terrain. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [
@@ -511,6 +597,8 @@
    "src-brestfishing-fr-f4b05f",
    "src-en-wikipedia-org-5f5106",
    "src-generationvoyage-fr-0b3dfd",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
@@ -544,11 +632,12 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.87,
+  "completude": 0.85,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
    "tide_approaches.montante",
+   "safety.acces_maree",
    "windows.habituelles",
    "windows.securite"
   ],

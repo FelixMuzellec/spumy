@@ -374,6 +374,80 @@
    "statut": "INCONNU",
    "origine": "v2",
    "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    "praticable_a_basse_mer_seulement",
+    "isolement_au_flot"
+   ],
+   "verifie_le": null,
+   "texte": "Accès praticable seulement autour de la basse mer ; le flot peut couper le retour. Classement relu à la main depuis la consigne de la fiche : « L'Îlette n'est accessible qu'à marée basse : vérifier l'horaire de la marée avant d'y aller. »",
+   "source_texte": "visorando.com"
+  },
+  "mouvements_terrain": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "rayon_m": 500,
+    "total": 4,
+    "types": {
+     "Chute de blocs / Eboulement": 3,
+     "Erosion de berges": 1
+    },
+    "plus_recent": null,
+    "evenements": [
+     {
+      "id": "10600662",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 239
+     },
+     {
+      "id": "10600663",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 265
+     },
+     {
+      "id": "10600661",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 284
+     },
+     {
+      "id": "10600626",
+      "type": "Erosion de berges",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 404
+     }
+    ]
+   },
+   "texte": "4 mouvements de terrain recensés par le BRGM à 500 m du point : chute de blocs / eboulement (3), erosion de berges (1). 4 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+  },
+  "risques_commune": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "verifie_le": "2026-11-23",
+   "raison": "Aucune commune trouvée par Géorisques pour le point (2026-11-23)."
   }
  },
  "regulations": [
@@ -431,7 +505,7 @@
   "securite": {
    "statut": "INCONNU",
    "origine": "v2",
-   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+   "raison": "Contrainte de marée documentée (accès praticable seulement autour de la basse mer ; le flot peut couper le retour), mais aucune durée praticable n'est sourcée : aucun intervalle HH:MM ne peut être calculé (§ 7.6). Le spot ne peut pas être présenté comme praticable sans fenêtre documentée."
   }
  },
  "photos": {
@@ -458,6 +532,7 @@
   "sources": [
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
+   "src-georisques-bdmvt",
    "src-guillaume29-over-blog-com-0f8c52",
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
@@ -502,13 +577,14 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.83,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
    "tide_approaches.basse",
    "tide_approaches.haute",
    "safety.coef_max",
+   "safety.risques_commune",
    "windows.habituelles",
    "windows.securite"
   ],

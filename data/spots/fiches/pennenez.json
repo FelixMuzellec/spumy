@@ -398,6 +398,46 @@
    "statut": "INCONNU",
    "origine": "v2",
    "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    "isolement_au_flot"
+   ],
+   "verifie_le": null,
+   "texte": "Le flot peut couper le retour. Classement relu à la main depuis la consigne de la fiche : « Marée montante : ne pas se laisser couper le retour sur les platiers et les îlots (marnage de 3,4 à 6,8 m). »",
+   "source_texte": "peche-poissons.com, F. Ripault (2026) · marnage calculé"
+  },
+  "mouvements_terrain": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "verifie_le": "2026-11-23",
+   "raison": "Aucun mouvement de terrain recensé par le BRGM à 500 m du point (Géorisques, 2026-11-23) ; le recensement n'est pas exhaustif, ce qui ne prouve pas l'absence de risque."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "PLOUGUERNEAU",
+     "code_insee": "29195",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (PLOUGUERNEAU) : par submersion marine, mouvement de terrain. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [
@@ -455,7 +495,7 @@
   "securite": {
    "statut": "INCONNU",
    "origine": "v2",
-   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+   "raison": "Contrainte de marée documentée (le flot peut couper le retour), mais aucune durée praticable n'est sourcée : aucun intervalle HH:MM ne peut être calculé (§ 7.6). Le spot ne peut pas être présenté comme praticable sans fenêtre documentée."
   }
  },
  "photos": {
@@ -490,6 +530,7 @@
   "sources": [
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
+   "src-georisques-gaspar",
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
@@ -526,13 +567,14 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.83,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
    "tide_approaches.basse",
    "tide_approaches.haute",
    "safety.coef_max",
+   "safety.mouvements_terrain",
    "windows.habituelles",
    "windows.securite"
   ],

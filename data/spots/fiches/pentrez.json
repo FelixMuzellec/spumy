@@ -359,6 +359,55 @@
    "statut": "INCONNU",
    "origine": "v2",
    "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune contrainte d'accès liée à la marée dans les consignes de la fiche : non documentée, ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "rayon_m": 500,
+    "total": 2,
+    "types": {
+     "Glissement": 2
+    },
+    "plus_recent": "2006-06-01",
+    "evenements": [
+     {
+      "id": "10601228",
+      "type": "Glissement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 112
+     },
+     {
+      "id": "62900167",
+      "type": "Glissement",
+      "date": "2006-06-01",
+      "fiabilite": "Moyen",
+      "precision": "Décamètre",
+      "lieu": "Route de la Presqu'île  du n°1 au n°16",
+      "distance_m": 223
+     }
+    ]
+   },
+   "texte": "2 mouvements de terrain recensés par le BRGM à 500 m du point : glissement (2). Le plus récent daté : 2006 ; 1 événement sans date. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+  },
+  "risques_commune": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "verifie_le": "2026-11-23",
+   "raison": "Aucune commune trouvée par Géorisques pour le point (2026-11-23)."
   }
  },
  "regulations": [
@@ -444,6 +493,7 @@
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
    "src-chtipecheur-com-05a3c0",
+   "src-georisques-bdmvt",
    "src-google-maps-20182f",
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
@@ -481,13 +531,15 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.82,
+  "completude": 0.79,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
    "tide_approaches.basse",
    "tide_approaches.haute",
    "safety.coef_max",
+   "safety.acces_maree",
+   "safety.risques_commune",
    "windows.habituelles",
    "windows.securite"
   ],

@@ -365,6 +365,69 @@
    "statut": "INCONNU",
    "origine": "v2",
    "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    "isolement_au_flot"
+   ],
+   "verifie_le": null,
+   "texte": "Le flot peut couper le retour. Classement relu à la main depuis la consigne de la fiche : « Le platier découvre très loin aux grandes marées et la mer qui monte coupe le retour : garder une porte de sortie. »",
+   "source_texte": "carnet-de-peche.com — Pointe de Mousterlin (le platier « découvre largement dès les coefficients de 75 »)"
+  },
+  "mouvements_terrain": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "rayon_m": 500,
+    "total": 1,
+    "types": {
+     "Erosion de berges": 1
+    },
+    "plus_recent": "2006-01-01",
+    "evenements": [
+     {
+      "id": "62900226",
+      "type": "Erosion de berges",
+      "date": "2006-01-01",
+      "fiabilite": "Fort",
+      "precision": "Décamètre",
+      "lieu": "Mousterlin Ouest route de la pointe",
+      "distance_m": 240
+     }
+    ]
+   },
+   "texte": "1 mouvement de terrain recensé par le BRGM à 500 m du point : erosion de berges (1). Le plus récent daté : 2006 ; Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "FOUESNANT",
+     "code_insee": "29058",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (FOUESNANT) : par submersion marine, mouvement de terrain. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [
@@ -418,7 +481,7 @@
   "securite": {
    "statut": "INCONNU",
    "origine": "v2",
-   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+   "raison": "Contrainte de marée documentée (le flot peut couper le retour), mais aucune durée praticable n'est sourcée : aucun intervalle HH:MM ne peut être calculé (§ 7.6). Le spot ne peut pas être présenté comme praticable sans fenêtre documentée."
   }
  },
  "photos": {
@@ -434,6 +497,8 @@
    "src-carnet-de-peche-com-f09448",
    "src-chtipecheur-com-70a00d",
    "src-fishipedia-fr-a4e273",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
@@ -478,7 +543,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.78,
+  "completude": 0.79,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",

@@ -180,6 +180,46 @@
     "droits": "licence propre à chaque fichier (CC0, domaine public, CC BY, CC BY-SA) : attribution de l'auteur et mention de la licence obligatoires, partage à l'identique pour CC BY-SA ; aucune image copiée dans le dépôt",
     "consulte_le": "2026-11-23"
    }
+  },
+  {
+   "id": "src-georisques-bdmvt",
+   "texte": "Géorisques, base des mouvements de terrain (BDMvt, BRGM), API v1 /mvt",
+   "editeur": "BRGM",
+   "url": "https://georisques.gouv.fr/api/v1/mvt",
+   "type": "institutionnel ou scientifique",
+   "famille": 1,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "BRGM et ministère de la Transition écologique (Géorisques)",
+    "date": "2026-11-23",
+    "methode": "événements recensés dans un rayon de 500 m (rayon des rapports de risques Géorisques) autour du point de chaque spot ; passage CI 45262264373",
+    "precision": "type, fiabilité (Fort, Moyen, Faible) et précision de localisation (mètre à hectomètre) de chaque événement ; la date manque souvent (valeur 1111-01-01 dans la base)",
+    "independance": "indépendante des sources de pêche",
+    "limites": "recensement non exhaustif : l'absence d'événement ne prouve pas l'absence de risque ; un événement ancien ne dit pas l'état actuel de la falaise",
+    "droits": "Licence Ouverte 2.0 (Etalab), accès « Ouvert » sans clé (data.gouv.fr, fiche API Géorisques)",
+    "consulte_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-georisques-gaspar",
+   "texte": "Géorisques, risques recensés par commune (base GASPAR), API v1 /gaspar/risques",
+   "editeur": "Ministère de la Transition écologique",
+   "url": "https://georisques.gouv.fr/api/v1/gaspar/risques",
+   "type": "institutionnel ou scientifique",
+   "famille": 1,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "BRGM et ministère de la Transition écologique (Géorisques)",
+    "date": "2026-11-23",
+    "methode": "risques de la commune qui contient le point de chaque spot ; passage CI 45262264373",
+    "precision": "échelle communale",
+    "independance": "indépendante des sources de pêche",
+    "limites": "dit qu'un risque existe dans la commune, pas qu'il concerne le poste",
+    "droits": "Licence Ouverte 2.0 (Etalab), accès « Ouvert » sans clé (data.gouv.fr, fiche API Géorisques)",
+    "consulte_le": "2026-11-23"
+   }
   }
  ]
 }

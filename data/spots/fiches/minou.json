@@ -383,6 +383,101 @@
    "statut": "INCONNU",
    "origine": "v2",
    "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune contrainte d'accès liée à la marée dans les consignes de la fiche : non documentée, ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "rayon_m": 500,
+    "total": 5,
+    "types": {
+     "Glissement": 3,
+     "Chute de blocs / Eboulement": 2
+    },
+    "plus_recent": "2001-01-01",
+    "evenements": [
+     {
+      "id": "10600793",
+      "type": "Glissement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 221
+     },
+     {
+      "id": "62900006",
+      "type": "Chute de blocs / Eboulement",
+      "date": "1994-01-01",
+      "fiabilite": "Fort",
+      "precision": "Décamètre",
+      "lieu": "Cale du petit Minou",
+      "distance_m": 359
+     },
+     {
+      "id": "62900007",
+      "type": "Chute de blocs / Eboulement",
+      "date": "2001-01-01",
+      "fiabilite": "Fort",
+      "precision": "Décamètre",
+      "lieu": "Cale du petit Minou",
+      "distance_m": 359
+     },
+     {
+      "id": "10600794",
+      "type": "Glissement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 366
+     },
+     {
+      "id": "10600796",
+      "type": "Glissement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 407
+     }
+    ]
+   },
+   "texte": "5 mouvements de terrain recensés par le BRGM à 500 m du point : glissement (3), chute de blocs / eboulement (2). Le plus récent daté : 2001 ; 3 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "PLOUZANE",
+     "code_insee": "29212",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (PLOUZANE) : par submersion marine, mouvement de terrain. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [
@@ -508,6 +603,8 @@
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
    "src-brestfishing-fr-de3970",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
@@ -525,13 +622,14 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.82,
+  "completude": 0.81,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
    "tide_approaches.montante",
    "tide_approaches.haute",
    "safety.coef_max",
+   "safety.acces_maree",
    "windows.habituelles",
    "windows.securite"
   ],

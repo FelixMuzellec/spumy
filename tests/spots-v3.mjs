@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import Ajv2020 from "ajv/dist/2020.js";
 import { lireFiches, texteRegistre, F_REGISTRE } from "../scripts/registre-spots.mjs";
+import { CLASSEMENT } from "../scripts/securite-maree.mjs";
 import { qualite } from "../scripts/fiches-v3-depuis-v2.mjs";
 import { construire, F_SOURCES } from "../scripts/sources-registre.mjs";
 
@@ -61,6 +62,17 @@ for (const { fiche: f } of fiches) {
   t(`${f.id} : chaque source citée dans la fiche est au registre`, !partout.length, partout.join(", "));
   t(`${f.id} : chaque source V2 citée est reliée`, (f.provenance.sources_v2 || []).length <= f.provenance.sources.length);
 }
+// Sécurité (§ 0.2, § 7.6) : la contrainte de marée de chaque fiche suit le classement relu à la main ; un spot à
+// contrainte de marée n'a jamais de fenêtre de sécurité sans source ; une photo gardée a une licence libre et sa page.
+for (const { fiche: f } of fiches) {
+  const c = CLASSEMENT[f.id], am = f.safety.acces_maree;
+  t(`${f.id} : contrainte d'accès liée à la marée renseignée`, !!am);
+  if (c) t(`${f.id} : contrainte de marée = classement relu (${c[0].join(", ")})`, am?.statut !== "INCONNU" && JSON.stringify(am?.valeur) === JSON.stringify(c[0]) && f.safety.consignes.some((x) => x.texte.includes(c[1])));
+  else if (am?.origine === "v2") t(`${f.id} : sans consigne de marée, la contrainte est INCONNU (jamais « sans risque »)`, am.statut === "INCONNU");
+  if (am?.valeur?.length) t(`${f.id} : contrainte de marée, fenêtre de sécurité inconnue ou sourcée`, f.windows.securite.statut === "INCONNU" || (f.windows.securite.sources?.length && f.windows.securite.verifie_le));
+  if (f.photos.statut !== "INCONNU") t(`${f.id} : chaque photo gardée a sa page, sa licence libre et sa distance`, Array.isArray(f.photos.valeur) && f.photos.valeur.length > 0 && f.photos.valeur.every((p) => /^https:\/\/commons\.wikimedia\.org\//.test(p.page) && /^(CC0|Public domain|CC BY(-SA)? [0-9.]+)$/.test(p.licence) && p.distance_m <= 400));
+}
+t("schéma : refuse un code de contrainte de marée inconnu", !variante((c) => { c.safety.acces_maree = { statut: "INFÉRÉ", origine: "v2", valeur: ["sans_danger"] }; }));
 t("registre central à jour (node scripts/fiches-v3-depuis-v2.mjs le régénère)", fs.readFileSync(F_REGISTRE, "utf8") === texteRegistre());
 
 console.log(`[spots V3] ${fiches.length} fiches, schéma § 7.4, aucune perte V2, registre : ${pass}/${pass + fail}`);

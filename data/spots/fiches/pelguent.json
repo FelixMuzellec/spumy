@@ -364,6 +364,73 @@
    "statut": "INCONNU",
    "origine": "v2",
    "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune contrainte d'accès liée à la marée dans les consignes de la fiche : non documentée, ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "rayon_m": 500,
+    "total": 2,
+    "types": {
+     "Erosion de berges": 2
+    },
+    "plus_recent": "1996-01-01",
+    "evenements": [
+     {
+      "id": "62900122",
+      "type": "Erosion de berges",
+      "date": "1995-01-01",
+      "fiabilite": "Faible",
+      "precision": "Décamètre",
+      "lieu": "Pointe de Meledam",
+      "distance_m": 84
+     },
+     {
+      "id": "62900121",
+      "type": "Erosion de berges",
+      "date": "1996-01-01",
+      "fiabilite": "Faible",
+      "precision": "Décamètre",
+      "lieu": "Beg Baum",
+      "distance_m": 250
+     }
+    ]
+   },
+   "texte": "2 mouvements de terrain recensés par le BRGM à 500 m du point : erosion de berges (2). Le plus récent daté : 1996 ; Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "PLOUGUERNEAU",
+     "code_insee": "29195",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (PLOUGUERNEAU) : par submersion marine, mouvement de terrain. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [
@@ -434,6 +501,8 @@
   "sources": [
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
@@ -463,13 +532,14 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.8,
+  "completude": 0.79,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
    "tide_approaches.basse",
    "tide_approaches.haute",
    "safety.coef_max",
+   "safety.acces_maree",
    "windows.habituelles",
    "windows.securite",
    "photos"

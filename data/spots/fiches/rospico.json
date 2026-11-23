@@ -353,6 +353,73 @@
    "statut": "INCONNU",
    "origine": "v2",
    "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune contrainte d'accès liée à la marée dans les consignes de la fiche : non documentée, ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "rayon_m": 500,
+    "total": 4,
+    "types": {
+     "Chute de blocs / Eboulement": 4
+    },
+    "plus_recent": null,
+    "evenements": [
+     {
+      "id": "62900264",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Faible",
+      "precision": "Décamètre",
+      "lieu": "Pointe de Rospico",
+      "distance_m": 61
+     },
+     {
+      "id": "62900263",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Faible",
+      "precision": "Décamètre",
+      "lieu": "Poul Douar",
+      "distance_m": 118
+     },
+     {
+      "id": "62900265",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Faible",
+      "precision": "Décamètre",
+      "lieu": "Anse de Rospico",
+      "distance_m": 312
+     },
+     {
+      "id": "62900266",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Moyen",
+      "precision": "Décamètre",
+      "lieu": "Anse de Rospico",
+      "distance_m": 407
+     }
+    ]
+   },
+   "texte": "4 mouvements de terrain recensés par le BRGM à 500 m du point : chute de blocs / eboulement (4). 4 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+  },
+  "risques_commune": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "verifie_le": "2026-11-23",
+   "raison": "Aucune commune trouvée par Géorisques pour le point (2026-11-23)."
   }
  },
  "regulations": [
@@ -420,6 +487,7 @@
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
    "src-deconcarneauapontaven-com-df8eba",
+   "src-georisques-bdmvt",
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
@@ -444,13 +512,15 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.79,
+  "completude": 0.76,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
    "tide_approaches.basse",
    "tide_approaches.descendante",
    "safety.coef_max",
+   "safety.acces_maree",
+   "safety.risques_commune",
    "windows.habituelles",
    "windows.securite",
    "photos"

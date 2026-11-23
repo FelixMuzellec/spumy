@@ -360,6 +360,119 @@
    "statut": "INCONNU",
    "origine": "v2",
    "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune contrainte d'accès liée à la marée dans les consignes de la fiche : non documentée, ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "rayon_m": 500,
+    "total": 9,
+    "types": {
+     "Chute de blocs / Eboulement": 8,
+     "Effondrement / Affaissement": 1
+    },
+    "plus_recent": "2002-12-29",
+    "evenements": [
+     {
+      "id": "62900075",
+      "type": "Chute de blocs / Eboulement",
+      "date": "1983-01-01",
+      "fiabilite": "Fort",
+      "precision": "Décamètre",
+      "lieu": "Arche du Kador",
+      "distance_m": 80
+     },
+     {
+      "id": "62900074",
+      "type": "Chute de blocs / Eboulement",
+      "date": "2002-12-29",
+      "fiabilite": "Fort",
+      "precision": "Décamètre",
+      "lieu": "Grève du Kador",
+      "distance_m": 211
+     },
+     {
+      "id": "10601251",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 226
+     },
+     {
+      "id": "62900073",
+      "type": "Chute de blocs / Eboulement",
+      "date": "1993-01-01",
+      "fiabilite": "Fort",
+      "precision": "Décamètre",
+      "lieu": "Porzh Naye   à MORGAT",
+      "distance_m": 252
+     },
+     {
+      "id": "10601252",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 256
+     },
+     {
+      "id": "10601253",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 297
+     },
+     {
+      "id": "62900076",
+      "type": "Chute de blocs / Eboulement",
+      "date": "1988-01-01",
+      "fiabilite": "Fort",
+      "precision": "Décamètre",
+      "lieu": "Grottes Sainte Marine et Cheminées du Diable",
+      "distance_m": 342
+     },
+     {
+      "id": "10601254",
+      "type": "Effondrement / Affaissement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 351
+     },
+     {
+      "id": "10601681",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 434
+     }
+    ]
+   },
+   "texte": "9 mouvements de terrain recensés par le BRGM à 500 m du point : chute de blocs / eboulement (8), effondrement / affaissement (1). Le plus récent daté : 2002 ; 5 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+  },
+  "risques_commune": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "verifie_le": "2026-11-23",
+   "raison": "Aucune commune trouvée par Géorisques pour le point (2026-11-23)."
   }
  },
  "regulations": [
@@ -469,6 +582,7 @@
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
    "src-cncm-2c6418",
+   "src-georisques-bdmvt",
    "src-google-maps-20182f",
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
@@ -506,13 +620,15 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.82,
+  "completude": 0.79,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
    "tide_approaches.basse",
    "tide_approaches.descendante",
    "safety.coef_max",
+   "safety.acces_maree",
+   "safety.risques_commune",
    "windows.habituelles",
    "windows.securite"
   ],
