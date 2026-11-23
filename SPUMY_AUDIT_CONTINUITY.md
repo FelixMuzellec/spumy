@@ -88,6 +88,7 @@ Référentiel § 15 (phase 5), § 7 (sources, pipeline, préservation V2, schém
 | 5.9 Qualification des fiches (critères explicites) | TESTED (QUAL-1 à QUAL-7 ; 5 corroborées, 61 à vérifier, 0 TOP_TIER ; recalcul et blocages testés) | `scripts/qualifier-fiches.mjs`, `docs/halieutique/QUALIFICATION.md` |
 | 5.10 Rapport de couverture, limites, contradictions et anomalies — livrable 5 | IMPLEMENTED (version finale) | `docs/halieutique/COUVERTURE.md` |
 | 5.11 Red-team, rapport en 14 parties, arrêt | IMPLEMENTED (clone neuf de 9514c43 : tous les tests à 0) | `docs/rapports/v3/PHASE-5.md` |
+| 5.12 Passe exhaustive (réouverture du 23 nov., 22 h 33) : adresses des sources V2 relevées dans les conversations passées, pages lues et évaluées (§ 7.1), listes de coins par département pour les quatre zones vides, requalification | IN PROGRESS | `data/sources/adresses-v2.json`, `data/sources/registre.json`, `data/spots/` |
 
 ## Questions et décisions (registre)
 
@@ -121,7 +122,12 @@ Référentiel § 15 (phase 5), § 7 (sources, pipeline, préservation V2, schém
 
 ## Prochaine action
 
-Phase 5 terminée (rapport `docs/rapports/v3/PHASE-5.md`) ; **arrêt**. Attendre les réponses de Félix au § 12 du rapport et le jeton `APPROVED — PROCEED TO PHASE 6`. Aucune tâche de la phase 6 ne commence avant.
+Phase 5 **rouverte** (Félix, 23 nov. 2026, 22 h 33), sous-tâche 5.12. Ordre :
+1. relever dans les conversations passées les adresses des pages qui ont servi aux 7 guides V2 (logonna, pirou, plouguerneau, audierne, carantec, concarneau, crozon) et à la vérification du 29 oct. 2026 → `data/sources/adresses-v2.json` ;
+2. faire renvoyer la liste par Félix dans un message (l'outil de lecture n'ouvre que les adresses envoyées par lui ou trouvées par une recherche) ;
+3. lire et évaluer chaque page (§ 7.1), puis `node scripts/sources-registre.mjs`, `node scripts/qualifier-fiches.mjs`, `node tests/spots-v3.mjs` ;
+4. listes de coins par département (mieuxpecher.com) pour les quatre zones vides ; chaque candidat passe la collecte IGN, BRGM et les règles locales ;
+5. clôture : tests complets depuis un clone neuf, red-team, complément au rapport, arrêt.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
