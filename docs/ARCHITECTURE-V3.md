@@ -1,6 +1,6 @@
 # Architecture cible — SPUMY V3
 
-Phase 2 V3, 20 novembre 2026. Statut : **PROPOSÉE** (ADR-V3-008 à V3-013 et V3-018, V3-020), à valider par Félix. `docs/ARCHITECTURE.md` décrit l'architecture réellement en place (V2) ; il sera mis à jour lot par lot, à mesure que cette cible est atteinte.
+Phase 2 V3, 20 novembre 2026 ; complétée en phase 4 (23 nov. 2026, § 11). Statut : **VALIDÉE** (ADR-V3-008 à V3-013, V3-018 et V3-020 validées par le jeton de phase 3 ; § 11 à valider avec le rapport de phase 4). `docs/ARCHITECTURE.md` décrit l'architecture réellement en place (V2) ; il sera mis à jour lot par lot, à mesure que cette cible est réalisée.
 
 **En bref** : une seule application statique à deux modes. Un catalogue unique de spots est classé depuis une position de référence. Les moteurs V2 sont gardés sans la Pertinence, et chaque service externe passe par un adaptateur. Pas de serveur à soi, sauf un petit relais gratuit pour la vigilance (V3-011) ; pas de compte ; coût nul (ADR-V3-005).
 
@@ -150,3 +150,92 @@ Le modèle de menace est dans `docs/security/THREAT_MODEL.md`. En résumé :
 ## 10. Options comparées
 
 Voir ADR-V3-008 (forme de l'application), V3-009 (routage), V3-012 (fond de carte) et V3-013 (stockage) dans `docs/DECISIONS_LOG.md`. L'option retenue garde React 18, esbuild et Leaflet, déjà en place et testés. Aucune nouvelle dépendance n'est nécessaire pour la position ni pour le routage : ce sont des appels HTTP par les adaptateurs.
+
+## 11. Architecture détaillée (phase 4)
+
+Mesures de départ : `docs/socle/AUDIT-SOCLE.md`. Règle : pas d'abstraction avant son usage (§ 10.1). La phase 4 pose les fondations communes ; chaque module métier arrive avec la phase qui l'utilise.
+
+### 11.1 Arborescence
+
+| Dossier | Contenu | Phase |
+| --- | --- | --- |
+| `src/core/contracts/` | **types JSDoc des contrats** du § 3 (Position, Qualified, Spot, Route, Safety, Favorability, Confidence, Ranked, JournalEntry), vérifiés par `tsc --checkJs` | **4** |
+| `src/core/errors.js` | **erreur commune** `SpumyError` : code stable, message en français pour la personne, cause gardée, données de diagnostic sans donnée personnelle | **4** |
+| `src/core/validate.js` | **validation des entrées aux frontières** (coordonnées, heures, coefficients, nombres bornés), qui renvoie un résultat ou une `SpumyError` | **4** |
+| `src/core/position/` | service de position (DEVICE, MANUAL), états, validité | 9 à 12 |
+| `src/core/adapters/` | un adaptateur par service (Open-Meteo, IGN géocodage, isochrone, itinéraire, fonds, vigilance) : requête, normalisation, cache, erreurs, attribution | 9 à 12 |
+| `data/spots/` | catalogue unique des spots (V3-018 : identifiants V2 gardés) | 5 à 7 |
+| `src/bord/engine/` | moteur BORD v2 sans la Pertinence (V3-006) | 6 à 11 |
+| `src/bateau/` | moteur BATEAU (V3-014) | 9 à 12 |
+| `src/app/` | coquille V3 : entrée unique, routes par ancre, interface du Design System V3 | 12 |
+
+Les couches de `tests/layers.mjs` ne changent pas : `contracts`, `errors` et `validate` sont dans `core`, utilisables par `bord`, `bateau` et `app`, et par le prototype V3 seulement pour ses types (aucun moteur).
+
+### 11.2 Frontières
+
+| Zone | Contenu | Règle |
+| --- | --- | --- |
+| Parcours V3 | `src/app` (à venir), `src/design/v3`, prototype V3 | n'importe un moteur que par les contrats du § 3 |
+| Services communs | `src/core` (marée, soleil, stockage, synchronisation, puis position et adaptateurs) | sans interface ni métier de mode ; erreurs en `SpumyError` |
+| Héritage V2 | sept pages de guide, `src/bord/ui`, `prototype/`, fichiers publiés à la racine | inchangés jusqu'à la migration (`docs/MIGRATION-V3.md`) ; le contrôle « site publié = sources » les protège |
+
+### 11.3 Flux d'une recommandation BORD
+
+1. Position (DEVICE ou MANUAL) → `validate.position` → `Position`.
+2. Isochrone IGN (position arrondie à 100 m, cache 24 h) → spots admissibles du catalogue ; sinon estimation dégradée, marquée.
+3. Pour chaque spot : marée calculée, prévision et mer Open-Meteo (`Qualified<T>` : valeur, unité, source, heure, âge, type).
+4. Moteur BORD : sécurité (jamais compensée), puis Favorabilité = conditions × présence, puis Confiance (sans effet sur le rang).
+5. Classement V3 (§ 9.1.6, V3-016) → `Ranked[]` → interface.
+Chaque étape renvoie une valeur ou une `SpumyError` ; une donnée inconnue reste « inconnue », jamais « au vert ».
+
+### 11.4 Modèle d'erreurs
+
+`SpumyError` porte :
+- `code` stable, par famille : `POSITION_*`, `RESEAU_*`, `SERVICE_*`, `DONNEE_*`, `STOCKAGE_*`, `VALIDATION_*` ;
+- `message` pour la personne, en français et sans jargon ;
+- `cause`, l'erreur d'origine ;
+- `details`, pour le diagnostic, sans coordonnées précises, jeton ni contenu du journal.
+
+Règles :
+- aucune erreur avalée sans trace (`catch` vide interdit hors des accès au stockage du navigateur, documentés) ;
+- une erreur de service dégrade l'affichage (« inconnue », « à vérifier », « temps estimé »), elle ne bloque jamais l'écran ;
+- les messages pour la personne disent quoi faire.
+
+### 11.5 Budgets de performance
+
+Mesure AVANT du 23 nov. 2026 (`scripts/mesure-perf.mjs`, `docs/socle/perf-avant.json`). Conditions : Chromium, processeur ralenti 4 fois, 1,6 Mbit/s, 150 ms d'aller-retour, réponses en gzip, cache vide ; médiane de 3 passages.
+
+| Page | Premier affichage | Plus grand affichage | Transfert compressé |
+| --- | --- | --- | --- |
+| Accueil V2 (en ligne) | 0,33 s | 1,74 s | 779 Ko |
+| Guide de Pirou V2 (en ligne) | 0,21 s | 3,13 s | 400 Ko |
+| Home du prototype V3 | 1,36 s | 2,82 s | 900 Ko |
+| Carte du prototype V3 | 1,31 s | 1,31 s | 212 Ko |
+
+Budgets de l'application V3 (mêmes conditions, vérifiés à chaque phase d'intégration) :
+
+| Mesure | Budget | Raison |
+| --- | --- | --- |
+| Premier affichage | ≤ 1,5 s | la carte du prototype est à 1,3 s |
+| Plus grand affichage | ≤ 2,5 s | seuil « bon » des Web Vitals ; Home et guide sont au-dessus aujourd'hui (photos en 1 600 px sur téléphone) |
+| Transfert du premier écran | ≤ 500 Ko compressés, polices comprises (CR-14) | images en 720 px sur téléphone ; moteurs et carte chargés à la demande |
+| Classement du jour (moteur) | à mesurer dans l'application intégrée (phase 10) | sans mesure, aucun chiffre n'est revendiqué |
+
+La mémoire JavaScript lue par Chromium est arrondie (9,5 Mo partout) : elle n'est pas retenue comme mesure.
+
+### 11.6 Observabilité d'un site statique
+
+- Aucune télémétrie ni journal distant (confidentialité par défaut).
+- Surveillance : la CI (tests à chaque proposition) et le contrat Open-Meteo réel, chaque jour ; un contrat IGN s'y ajoute avec les adaptateurs (§ 5).
+- Sur l'appareil : écran d'erreur qui garde le journal exportable (V2) ; âge de chaque donnée affiché.
+
+### 11.7 Environnements
+
+| Environnement | Où | Données |
+| --- | --- | --- |
+| Développement | poste local ou session Claude : `npm ci`, `npm run build`, `npm test` | démonstration, fixtures |
+| Revue | pages de revue privées (artefacts) et propositions en brouillon | démonstration, marquées « démo » |
+| Production | GitHub Pages depuis `main` ; fusion = publication, protégée (`docs/socle/PROTECTION-MAIN.md`) | réelles |
+
+Aucun secret côté serveur. La clé de la vigilance Météo-France vivra dans le relais (V3-011), hors du dépôt.
+

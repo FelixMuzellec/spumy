@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-23",
+  "methode": "Chromium (Playwright), processeur ralenti ×4, 1,6 Mbit/s, 150 ms, gzip, cache vide, médiane de 3",
+  "pages": {
+    "v2-accueil": {
+      "label": "Accueil V2 (en ligne)",
+      "fcpMs": 328,
+      "lcpMs": 1744,
+      "dclMs": 4167,
+      "loadMs": 4167,
+      "transferKo": 779,
+      "heapMo": 9.5
+    },
+    "v2-guide-pirou": {
+      "label": "Guide de Pirou V2 (en ligne)",
+      "fcpMs": 208,
+      "lcpMs": 3128,
+      "dclMs": 2039,
+      "loadMs": 2041,
+      "transferKo": 400,
+      "heapMo": 9.5
+    },
+    "v3-prototype-home": {
+      "label": "Home du prototype V3",
+      "fcpMs": 1356,
+      "lcpMs": 2820,
+      "dclMs": 1345,
+      "loadMs": 5256,
+      "transferKo": 900,
+      "heapMo": 9.5
+    },
+    "v3-prototype-carte": {
+      "label": "Carte du prototype V3",
+      "fcpMs": 1312,
+      "lcpMs": 1312,
+      "dclMs": 1283,
+      "loadMs": 1797,
+      "transferKo": 212,
+      "heapMo": 9.5
+    }
+  }
+}
