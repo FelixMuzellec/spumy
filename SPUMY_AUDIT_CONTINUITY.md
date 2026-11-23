@@ -77,7 +77,7 @@ Référentiel § 15 (phase 5), § 7 (sources, pipeline, préservation V2, schém
 | Sous-tâche | Statut | Fichiers |
 | --- | --- | --- |
 | 5.0 Jeton, branche, plan | IMPLEMENTED | ce fichier, `docs/DECISIONS_LOG.md` |
-| 5.1 Inventaire exhaustif et sauvegarde logique des spots V2, empreintes, comparaison avant/après | NOT STARTED | `scripts/inventaire-spots-v2.mjs`, `data/spots/` |
+| 5.1 Inventaire exhaustif et sauvegarde logique des spots V2, empreintes, comparaison avant/après | TESTED (32a36a3 : 66 spots, 7 guides, 66 identifiants uniques ; 7 spots du guide Pirou sans coordonnées numériques (texte à la minute près) ; `--verifier` 0, dans `npm test` et la CI) | `scripts/inventaire-spots-v2.mjs`, `data/spots/` |
 | 5.2 Audit fonctionnel V2, BORD et BATEAU (parcours, moteurs, espèces, spots, données, sécurité, matériel, localisation, UX) — livrable 1 | NOT STARTED | `docs/audit/` |
 | 5.3 Registre central des spots au schéma § 7.4 (66 fiches `v2_preserved`, identifiants V3-018, statut, provenance, preuve, dernière vérification, lacunes) | NOT STARTED | `data/schema/`, `data/spots/`, tests |
 | 5.4 Registre de sources (évaluation § 7.1, indépendance, droits, CGU) — livrable 4 | NOT STARTED | `data/sources/` |
@@ -122,7 +122,7 @@ Référentiel § 15 (phase 5), § 7 (sources, pipeline, préservation V2, schém
 
 ## Prochaine action
 
-Phase 5 IN PROGRESS sur `claude/v3-phase-5`. Prochaine sous-tâche : 5.1, inventaire et sauvegarde logique des 66 spots V2.
+Phase 5 IN PROGRESS sur `claude/v3-phase-5`. Prochaine sous-tâche : 5.2, audit fonctionnel V2 (BORD et BATEAU).
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
