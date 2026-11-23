@@ -217,6 +217,7 @@ Premier passage, 23 nov. 2026, passage 45210735483 : **8/8**.
 | `main` sans protection | MAJEURE | action de Félix |
 | La règle de clés remplaçant `react/jsx-key` est plus étroite (fragments, ternaires et tableaux non couverts) | MINEURE | remettre eslint-plugin-react quand il déclarera ESLint 10 |
 | Un seul trajet IGN mesuré, Coutances → Granville (centres) : 30,0 km en 48 min (2 899 s), soit 37 km/h de moyenne | OBSERVATION (HYPOTHÈSE : temps IGN prudents) | à confronter au terrain lors de l'étalonnage ; s'ils sont prudents, le filtre des 60 min écarterait trop de spots |
+| Le test de mise à jour (V2) a échoué une fois sur 90eaf1b, commit de documentation seule : `page.reload` dépasse 30 s pendant le passage du service worker à la nouvelle version. Il passait juste avant (e6d4aa3, 5 s) et en local (12/12). Après l'échec, le test restait bloqué : la CI a attendu 34 min avant d'être coupée | MINEURE (INFÉRÉ : course rare au changement de service worker V2) | **corrigé pour le blocage** : diagnostic borné à 5 s, fermeture bornée, sortie garantie ; un échec simulé avec une page bloquée sort en 8 s, code 1. La course elle-même est consignée pour le service worker V3 (phases 10 à 12) |
 | Empreintes d'actions à tenir à jour à la main | OBSERVATION | procédure dans MAINTENANCE-OUTILS § 2 ; Dependabot possible, non activé (décision de Félix) |
 
 ### Décisions encore attendues

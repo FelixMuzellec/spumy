@@ -138,10 +138,13 @@ try {
   ok(!errors.length, `aucune erreur JavaScript${errors.length ? ` — ${errors.slice(0, 3).join(" | ")}` : ""}`);
 } catch (e) {
   ok(false, `parcours interrompu : ${e.message.split("\n")[0]}`);
-  try { console.log("  page :", page.url(), "|", (await page.evaluate(() => document.body.innerText)).slice(0, 300).replace(/\n/g, " / "), "| erreurs :", errors.join(" ; ")); } catch { /* page fermée */ }
+  // Diagnostic borné à 5 s : le 23 nov. 2026, une page restée bloquée après l'échec a tenu la CI 34 min.
+  const borne = (p) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error("délai")), 5000))]);
+  try { console.log("  page :", page.url(), "|", (await borne(page.evaluate(() => document.body.innerText))).slice(0, 300).replace(/\n/g, " / "), "| erreurs :", errors.join(" ; ")); } catch { /* page fermée ou bloquée */ }
 } finally {
-  await browser.close(); server.close(); fs.rmSync(OLD, { recursive: true, force: true });
+  await Promise.race([browser.close(), new Promise((r) => setTimeout(r, 10000))]);
+  server.closeAllConnections?.(); server.close(); fs.rmSync(OLD, { recursive: true, force: true });
 }
 const pass = results.filter((r) => r[0]).length;
 console.log(`\nMISE À JOUR : ${pass}/${results.length}`);
-if (pass !== results.length) process.exitCode = 1;
+process.exit(pass !== results.length ? 1 : 0); // sortie garantie, même si une ressource du navigateur reste ouverte
