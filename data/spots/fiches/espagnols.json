@@ -110,24 +110,63 @@
  },
  "tide_approaches": {
   "basse": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (autour de la basse mer) : Étale BM (±45min) (BM −0 h 42 → BM +0 h 42, prioritaire).",
+   "valeur": [
+    {
+     "id": "es1",
+     "libelle": "Étale BM (±45min)",
+     "reference": "BM",
+     "debut_h": -0.7,
+     "fin_h": 0.7,
+     "priorite": "prime",
+     "type_v2": "renversement",
+     "note": "Courant s'annule, postes accessibles. Fenêtre courte, prévoir d'arriver 1h avant."
+    }
+   ]
   },
   "montante": {
    "statut": "INCONNU",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "raison": "Aucune fenêtre marée montante dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
   },
   "haute": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (autour de la pleine mer) : Étale PM (±45min) (PM −0 h 42 → PM +0 h 42, prioritaire).",
+   "valeur": [
+    {
+     "id": "es2",
+     "libelle": "Étale PM (±45min)",
+     "reference": "PM",
+     "debut_h": -0.7,
+     "fin_h": 0.7,
+     "priorite": "prime",
+     "type_v2": "renversement",
+     "note": "Identique BM. Attention : le courant reprend vite."
+    }
+   ]
   },
   "descendante": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée descendante) : Contre-courant sous la pointe (PM +1 h → PM +3 h, bonne).",
+   "valeur": [
+    {
+     "id": "es3",
+     "libelle": "Contre-courant sous la pointe",
+     "reference": "PM",
+     "debut_h": 1,
+     "fin_h": 3,
+     "priorite": "bon",
+     "type_v2": "variable",
+     "note": "lordjimcroisieres décrit cet abri sous la pointe pour un voilier qui attend la renverse ; y pêcher en plein courant est une déduction du guide."
+    }
+   ]
   },
   "coefficients": {
    "statut": "INFÉRÉ",
@@ -414,16 +453,13 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.7,
+  "completude": 0.78,
   "inconnus": [
    "access.stationnement",
    "access.marche_min",
    "access.difficulte",
    "access.restrictions",
-   "tide_approaches.basse",
    "tide_approaches.montante",
-   "tide_approaches.haute",
-   "tide_approaches.descendante",
    "windows.habituelles",
    "windows.securite",
    "photos"

@@ -106,22 +106,48 @@
   "basse": {
    "statut": "INCONNU",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
   },
   "montante": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : Montant, règle générale (BM → BM+3) (BM +0 h → BM +3 h, prioritaire).",
+   "valeur": [
+    {
+     "id": "lm1",
+     "libelle": "Montant, règle générale (BM → BM+3)",
+     "reference": "BM",
+     "debut_h": 0,
+     "fin_h": 3,
+     "priorite": "prime",
+     "type_v2": "montant",
+     "note": "Règle générale (Vidal), non propre à ce poste."
+    }
+   ]
   },
   "haute": {
    "statut": "INCONNU",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "raison": "Aucune fenêtre autour de la pleine mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
   },
   "descendante": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée descendante) : Fin de descendant, règle générale (BM−3 → BM) (BM −3 h → BM +0 h, bonne).",
+   "valeur": [
+    {
+     "id": "lm2",
+     "libelle": "Fin de descendant, règle générale (BM−3 → BM)",
+     "reference": "BM",
+     "debut_h": -3,
+     "fin_h": 0,
+     "priorite": "bon",
+     "type_v2": "descendant",
+     "note": "Règle générale (Vidal), non propre à ce poste."
+    }
+   ]
   },
   "coefficients": {
    "statut": "INFÉRÉ",
@@ -402,16 +428,14 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.68,
+  "completude": 0.74,
   "inconnus": [
    "access.stationnement",
    "access.marche_min",
    "access.difficulte",
    "access.restrictions",
    "tide_approaches.basse",
-   "tide_approaches.montante",
    "tide_approaches.haute",
-   "tide_approaches.descendante",
    "safety.coef_max",
    "windows.habituelles",
    "windows.securite",

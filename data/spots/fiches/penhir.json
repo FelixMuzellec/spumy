@@ -106,22 +106,58 @@
   "basse": {
    "statut": "INCONNU",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
   },
   "montante": {
    "statut": "INCONNU",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "raison": "Aucune fenêtre marée montante dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
   },
   "haute": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (autour de la pleine mer) : Pleine mer (PM−1 → PM+1) (PM −1 h → PM +1 h, bonne).",
+   "valeur": [
+    {
+     "id": "ph3",
+     "libelle": "Pleine mer (PM−1 → PM+1)",
+     "reference": "PM",
+     "debut_h": -1,
+     "fin_h": 1,
+     "priorite": "bon",
+     "type_v2": "variable",
+     "note": "Basses couvertes, poste haut. Si la pleine mer tombe au lever ou au coucher du soleil, le guide le compte dans la note."
+    }
+   ]
   },
   "descendante": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée descendante) : Descendant plein (1-3h après PM) (PM +1 h → PM +3 h, prioritaire) ; 3 dernières heures avant BM (BM −3 h → BM −0 h 30, prioritaire).",
+   "valeur": [
+    {
+     "id": "ph1",
+     "libelle": "Descendant plein (1-3h après PM)",
+     "reference": "PM",
+     "debut_h": 1,
+     "fin_h": 3,
+     "priorite": "prime",
+     "type_v2": "descendant",
+     "note": "Courant établi sur les basses. Leurre coulant dans la dérive."
+    },
+    {
+     "id": "ph2",
+     "libelle": "3 dernières heures avant BM",
+     "reference": "BM",
+     "debut_h": -3,
+     "fin_h": -0.5,
+     "priorite": "prime",
+     "type_v2": "descendant",
+     "note": "Reprise courant, fenêtre classique pointes océaniques."
+    }
+   ]
   },
   "coefficients": {
    "statut": "INFÉRÉ",
@@ -384,7 +420,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.68,
+  "completude": 0.73,
   "inconnus": [
    "access.stationnement",
    "access.marche_min",
@@ -392,8 +428,6 @@
    "access.restrictions",
    "tide_approaches.basse",
    "tide_approaches.montante",
-   "tide_approaches.haute",
-   "tide_approaches.descendante",
    "safety.coef_max",
    "windows.habituelles",
    "windows.securite",

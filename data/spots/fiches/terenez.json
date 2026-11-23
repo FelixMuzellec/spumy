@@ -103,24 +103,50 @@
  },
  "tide_approaches": {
   "basse": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (autour de la basse mer) : Étale BM (±1h) (BM −1 h → BM +1 h, prioritaire).",
+   "valeur": [
+    {
+     "id": "te1",
+     "libelle": "Étale BM (±1h)",
+     "reference": "BM",
+     "debut_h": -1,
+     "fin_h": 1,
+     "priorite": "prime",
+     "type_v2": "renversement",
+     "note": "Source directe (peche-poissons.com, 2022) : une heure avant et après l'étale, coefficient 40 à 55. Accès à pied à BM."
+    }
+   ]
   },
   "montante": {
    "statut": "INCONNU",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "raison": "Aucune fenêtre marée montante dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
   },
   "haute": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (autour de la pleine mer) : Étale PM (±1h) (PM −1 h → PM +1 h, prioritaire).",
+   "valeur": [
+    {
+     "id": "te2",
+     "libelle": "Étale PM (±1h)",
+     "reference": "PM",
+     "debut_h": -1,
+     "fin_h": 1,
+     "priorite": "prime",
+     "type_v2": "renversement",
+     "note": "Idem étale BM, eau pleine, pêche en bordure goémon."
+    }
+   ]
   },
   "descendante": {
    "statut": "INCONNU",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "raison": "Aucune fenêtre marée descendante dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
   },
   "coefficients": {
    "statut": "INFÉRÉ",
@@ -391,15 +417,13 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.71,
+  "completude": 0.76,
   "inconnus": [
    "access.stationnement",
    "access.marche_min",
    "access.difficulte",
    "access.restrictions",
-   "tide_approaches.basse",
    "tide_approaches.montante",
-   "tide_approaches.haute",
    "tide_approaches.descendante",
    "windows.habituelles",
    "windows.securite",

@@ -104,24 +104,60 @@
  },
  "tide_approaches": {
   "basse": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (autour de la basse mer) : Étale BM (±45min) (BM −0 h 42 → BM +0 h 42, prioritaire).",
+   "valeur": [
+    {
+     "id": "pm2",
+     "libelle": "Étale BM (±45min)",
+     "reference": "BM",
+     "debut_h": -0.7,
+     "fin_h": 0.7,
+     "priorite": "prime",
+     "type_v2": "renversement",
+     "note": "Courant s'annule, moment optimal pour les plus gros postes sous le phare."
+    }
+   ]
   },
   "montante": {
    "statut": "INCONNU",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "raison": "Aucune fenêtre marée montante dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
   },
   "haute": {
    "statut": "INCONNU",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "raison": "Aucune fenêtre autour de la pleine mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
   },
   "descendante": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée descendante) : Fin de jusant (BM−2 → BM−0,5) (BM −2 h → BM −0 h 30, prioritaire) ; 1-2h après PM (descendant) (PM +1 h → PM +2 h 30, bonne).",
+   "valeur": [
+    {
+     "id": "pm1",
+     "libelle": "Fin de jusant (BM−2 → BM−0,5)",
+     "reference": "BM",
+     "debut_h": -2,
+     "fin_h": -0.5,
+     "priorite": "prime",
+     "type_v2": "descendant",
+     "note": "Le jusant faiblit à l'approche de l'étale (règle des douzièmes) : postes accessibles, bars qui chassent."
+    },
+    {
+     "id": "pm3",
+     "libelle": "1-2h après PM (descendant)",
+     "reference": "PM",
+     "debut_h": 1,
+     "fin_h": 2.5,
+     "priorite": "bon",
+     "type_v2": "descendant",
+     "note": "Courant encore fort mais exploitable côté anses protégées."
+    }
+   ]
   },
   "coefficients": {
    "statut": "INFÉRÉ",
@@ -398,16 +434,14 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.68,
+  "completude": 0.74,
   "inconnus": [
    "access.stationnement",
    "access.marche_min",
    "access.difficulte",
    "access.restrictions",
-   "tide_approaches.basse",
    "tide_approaches.montante",
    "tide_approaches.haute",
-   "tide_approaches.descendante",
    "safety.coef_max",
    "windows.habituelles",
    "windows.securite",

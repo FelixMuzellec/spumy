@@ -106,22 +106,61 @@
   "basse": {
    "statut": "INCONNU",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
   },
   "montante": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : Fin de jusant → BM+2h30 (BM −1 h 30 → BM +2 h 30, prioritaire).",
+   "valeur": [
+    {
+     "id": "gy1",
+     "libelle": "Fin de jusant → BM+2h30",
+     "reference": "BM",
+     "debut_h": -1.5,
+     "fin_h": 2.5,
+     "priorite": "prime",
+     "type_v2": "montant",
+     "note": "Pratique de l'auteur de peche.com au cap de la Hague. Attention : le jusant du raz est à son maximum « vers l'heure de la basse mer de Cherbourg » (Wikipédia) — poste haut, à l'abri du courant. Black Minnow 120 sur tête 12-18 g."
+    }
+   ]
   },
   "haute": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (autour de la pleine mer) : Pleine mer (plein courant du raz) (PM −1 h → PM +1 h, bonne).",
+   "valeur": [
+    {
+     "id": "gy2",
+     "libelle": "Pleine mer (plein courant du raz)",
+     "reference": "PM",
+     "debut_h": -1,
+     "fin_h": 1,
+     "priorite": "bon",
+     "type_v2": "variable",
+     "note": "Pas une étale : le courant du raz Blanchard est à son maximum « aux environs de l'heure de la pleine mer de Cherbourg » (Wikipédia). Poste haut, leurre lourd, coefficient modéré seulement."
+    }
+   ]
   },
   "descendante": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée descendante) : Début de jusant (PM+1 → PM+2,5) (PM +1 h → PM +2 h 30, bonne).",
+   "valeur": [
+    {
+     "id": "gy3",
+     "libelle": "Début de jusant (PM+1 → PM+2,5)",
+     "reference": "PM",
+     "debut_h": 1,
+     "fin_h": 2.5,
+     "priorite": "bon",
+     "type_v2": "descendant",
+     "note": "Le courant du raz faiblit vers la mi-marée, où il renverse (Wikipédia). Par coefficient modéré : peche.com conseille pour la Hague de ne pas dépasser 80."
+    }
+   ]
   },
   "coefficients": {
    "statut": "INFÉRÉ",
@@ -423,16 +462,13 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.72,
+  "completude": 0.79,
   "inconnus": [
    "access.stationnement",
    "access.marche_min",
    "access.difficulte",
    "access.restrictions",
    "tide_approaches.basse",
-   "tide_approaches.montante",
-   "tide_approaches.haute",
-   "tide_approaches.descendante",
    "windows.habituelles",
    "windows.securite",
    "photos"

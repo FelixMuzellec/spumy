@@ -107,22 +107,48 @@
   "basse": {
    "statut": "INCONNU",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
   },
   "montante": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : Montant (BM+1 → BM+5,5) (BM +1 h → BM +5 h 30, prioritaire).",
+   "valeur": [
+    {
+     "id": "st1",
+     "libelle": "Montant (BM+1 → BM+5,5)",
+     "reference": "BM",
+     "debut_h": 1,
+     "fin_h": 5.5,
+     "priorite": "prime",
+     "type_v2": "montant",
+     "note": "Le flot couvre le sable et le rocher. Souple sur tête de 10-15 g dans l'écume."
+    }
+   ]
   },
   "haute": {
    "statut": "INCONNU",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "raison": "Aucune fenêtre autour de la pleine mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
   },
   "descendante": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v2",
-   "raison": "V2 : règles de marée non séparées par phase (voir v2) ; à documenter séparément (§ 7.5)."
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée descendante) : Début de descendant (PM +0 h → PM +2 h, bonne).",
+   "valeur": [
+    {
+     "id": "st2",
+     "libelle": "Début de descendant",
+     "reference": "PM",
+     "debut_h": 0,
+     "fin_h": 2,
+     "priorite": "bon",
+     "type_v2": "descendant",
+     "note": "Sortie du rocher central."
+    }
+   ]
   },
   "coefficients": {
    "statut": "INFÉRÉ",
@@ -398,16 +424,14 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.68,
+  "completude": 0.74,
   "inconnus": [
    "access.stationnement",
    "access.marche_min",
    "access.difficulte",
    "access.restrictions",
    "tide_approaches.basse",
-   "tide_approaches.montante",
    "tide_approaches.haute",
-   "tide_approaches.descendante",
    "safety.coef_max",
    "windows.habituelles",
    "windows.securite",
