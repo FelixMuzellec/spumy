@@ -180,7 +180,7 @@ Validation : registre validé par le jeton de la phase 3 (20 nov. 2026, 4 h 25).
 | QA-02 | Tests d'invariance du rang et parcours e2e du § 13.2 | IND | § 13.2 | suite verte dans la CI | U, E | Partiel | 4 à 14 |
 | QA-03 | Suite complète verte avant toute fusion | IND | § 12.3 | CI verte sur la proposition | I | Conforme | toutes |
 | OPS-01 | Jamais de push sur `main` ; une proposition par phase ; fusion = publication, avec l'accord de Félix | IND | § 12.1 | historique Git | R | Conforme | toutes |
-| OPS-02 | Point de retour `v2-final` | IMP | V3-019 | étiquette présente | R | Absent | 2 ou 4 |
+| OPS-02 | Point de retour `v2-final` | IMP | V3-019 | étiquette présente | R | **Conforme** : `v2-final` → bb4f940 (23 nov. 2026, vérifié) | 4 |
 | OPS-03 | Archive Drive à la clôture de la V3 (Gate I) | IND | § 0.2.1 | `ARCHIVAGE VÉRIFIÉ` | R | — | 15 |
 | OPS-04 | Les anciennes adresses `<guide>.html#…` mènent à la V3 sans erreur ni perte de contexte | IMP | migration | 7 adresses testées | E | — | 10 |
 

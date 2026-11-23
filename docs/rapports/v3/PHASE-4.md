@@ -248,7 +248,7 @@ Félix l'a posée à 15 h 31 (ruleset 27906963, actif). Le rapport précédent l
 
 | Point | Décision | Fait |
 | --- | --- | --- |
-| V3-019 | étiquette `v2-final` sur bb4f940, branches gardées | étiquette annotée créée par la session ; son envoi est refusé par le relais (HTTP 403, non contourné). **Félix l'envoie** (`docs/DECISIONS_LOG.md`, V3-019) |
+| V3-019 | étiquette `v2-final` sur bb4f940, branches gardées | envoi refusé à la session (HTTP 403, non contourné) ; **publiée par Félix à 20 h 00** depuis GitHub, vérifiée : `v2-final` → bb4f940 ; OPS-02 conforme |
 | D-11 | 48 px au moins, par une zone invisible | consigné : Design System, revues, MAP-03, jetons. **Appliqué à l'intégration**, car le prototype 6.2 garde son aspect validé, à 44 px. Périmètre mesuré : sur les 8 écrans du prototype, des cibles sont entre 44 et 48 px |
 | D-15 | export aux deux endroits, même action | prototype mis à jour (Journal ; Profil, Mes données) ; UX-V3 § 11 ; le test T6 confirmera |
 | Dependabot | actions GitHub seulement, une fois par mois, regroupées, attente de 7 jours | `.github/dependabot.yml` ; actif à la fusion dans `main` |
@@ -290,7 +290,6 @@ Rien de V3-009 n'est modifié : ces règles le complètent.
 ### Restent ouverts
 
 - **Félix** :
-    - envoyer l'étiquette `v2-final` ;
     - donner le jeton de la phase 5.
 - **Plus tard** :
     - conditions d'utilisation de la Géoplateforme à confirmer (`docs/DATA_SOURCES.md`) ;

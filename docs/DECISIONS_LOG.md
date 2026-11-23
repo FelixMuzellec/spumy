@@ -24,7 +24,7 @@ Format ADR. Le registre des exigences (`docs/REQUIREMENTS.md`) et la vision (`do
 | V3-016 | Une place du Top 3 réservée à un spot admissible à 15 min ou moins de ta position | VALIDÉE (Félix, 20 nov. 2026, 4 h 18) |
 | V3-017 | Navigation : Décision, Carte, Journal, Profil, Matériel ; bascule BORD / BATEAU | VALIDÉE (référentiel § 6.4) ; **remplacée en partie par V3-023** (jalon 1) |
 | V3-018 | Identifiants de spot V2 gardés comme identifiants V3 | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) |
-| V3-019 | Point de retour `v2-final` ; branches gardées | VALIDÉE (Félix, 23 nov. 2026, 19 h 07) ; étiquette créée, à pousser par Félix (relais HTTP 403) |
+| V3-019 | Point de retour `v2-final` ; branches gardées | VALIDÉE (Félix, 23 nov. 2026, 19 h 07) ; **exécutée** : étiquette `v2-final` sur bb4f940, publiée par Félix le 23 nov. à 20 h 00 (Release « v2-final — V2 publiée (10.0) ») |
 | V3-020 | Contrats typés par JSDoc et contrôle `tsc --checkJs`, sans migration TypeScript | VALIDÉE (jeton de phase 3, 20 nov. 2026, 4 h 25) ; appliquée en Phase 4 |
 | V3-021 | Seuil du filtre « Favorables » : **75** (début de « Très bon ») | VALIDÉE (Félix, 20 nov. 2026, question 9) |
 | V3-022 | Design System V3 : jetons dans `src/design/v3/tokens.js`, CSS généré, repère de valeur des jauges ; pastilles revues par V3-025 | VALIDÉE AVEC RÉSERVES (jalon 2, Félix, 20 nov. 2026, 15 h 40 ; voir V3-027) |
@@ -256,7 +256,7 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 ## V3-019 — Point de retour et nettoyage des branches
 
 - **Statut** : VALIDÉE par Félix le 23 nov. 2026 (19 h 07), sur la recommandation : **étiquette `v2-final` sur bb4f940** (la version publiée, OPS-02) ; **les branches sont gardées**. Les supprimer n'apporte rien dans un dépôt à une personne, et `CLAUDE.md` exclut tout nettoyage destructif.
-- **Exécution** : étiquette annotée créée par la session ; son envoi est refusé par le relais (HTTP 403, non contourné). Félix l'envoie (`git push origin v2-final` depuis une copie qui l'a, ou `git tag -a v2-final bb4f940 -m "v2-final" && git push origin v2-final`) ou la crée depuis GitHub (Releases → Draft a new release → tag `v2-final`, cible `main`).
+- **Exécution** : **faite le 23 nov. 2026 à 20 h 00 par Félix**, depuis GitHub (Release « v2-final — V2 publiée (10.0) », cible `main`). Vérifiée par la session : `refs/tags/v2-final` → bb4f940. La session avait préparé l'étiquette, mais son envoi était refusé par le relais (HTTP 403, non contourné). Félix l'envoie (`git push origin v2-final` depuis une copie qui l'a, ou `git tag -a v2-final bb4f940 -m "v2-final" && git push origin v2-final`) ou la crée depuis GitHub (Releases → Draft a new release → tag `v2-final`, cible `main`).
 - **Proposition d'origine** (pour mémoire) :
 - **Proposition** :
     - étiquette `v2-final` sur `main` à bb4f940, la version publiée ;
