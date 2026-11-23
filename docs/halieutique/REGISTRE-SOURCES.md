@@ -13,7 +13,7 @@ Le registre rassemble deux origines :
 | Sources distinctes | **297** (284 au premier passage, plus les sources officielles ajoutées en 5.7) |
 | Éditeurs | 102, regroupés en **87 groupes d'indépendance** |
 | Avec une adresse | 53 ; les 244 autres sont des citations V2 sans lien |
-| Évaluées page par page (§ 7.1) | **14** (textes officiels 2026, IGN, OpenStreetMap, Géorisques, Wikimedia Commons, DDTM du Finistère, Attitude Manche, Le Figaro Nautisme) ; **3 introuvables** (`inaccessible`) |
+| Évaluées page par page (§ 7.1) | **60** après la passe exhaustive (textes officiels, IGN, Géorisques, Commons, DDTM 29, Attitude Manche, Le Figaro Nautisme ; 35 citations mieuxpecher.com vérifiées mot pour mot ; fiches carnet-de-peche.com ; sources des six candidates) ; **2 introuvables** ; chaque évaluation porte l'affirmation exacte et `bar_au_poste` (`scripts/evaluer-pages.mjs`) |
 | Classées par éditeur | 297 sur 297 reçoivent la nature, les domaines, le groupe, les limites et les droits de leur éditeur |
 | Famille (§ 7.1, INFÉRÉE de l'éditeur) | 1 : 21 ; 2 : 40 ; 3 : 8 ; 4 : 166 ; 6 : 19 ; non fixée : 43 (mieuxpecher.com et peche-poissons.com) |
 

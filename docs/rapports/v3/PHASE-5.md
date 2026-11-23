@@ -204,3 +204,36 @@ Aucune tâche de la phase 6 n'a commencé. Jeton attendu : `APPROVED — PROCEED
 - **Recherche de nouveaux spots** : une dizaine de requêtes, sans la liste par département de mieuxpecher.com, qui a servi à construire la V2. La conclusion « aucune source citable » était trop forte ; elle est corrigée dans `COUVERTURE.md`.
 - **Évaluation des sources** : 14 pages lues sur 296 ; trois seulement cherchées avant d'être déclarées introuvables ; les conversations où figurent les adresses n'avaient pas été consultées.
 
+## Second complément : passe exhaustive (réouverture du 23 novembre 2026, 22 h 33)
+
+Félix : « je veux que tu respectes les consignes et que tu rouvres la phase 5 ». Sous-tâche 5.12, même jeton de phase 5 ; aucune tâche de phase 6.
+
+**Ce qui a changé de méthode**
+- Les adresses des sources V2 se retrouvent dans l'historique du dépôt et par la recherche limitée à un site. Pas besoin de demander à Félix de les renvoyer.
+- mieuxpecher.com, l'éditeur cité par 36 fiches V2 et la « liste-maîtresse » des guides d'origine, est lu. Pages Finistère NORD (Norbert, 2018), Finistère SUD (2018, modifiée en 2022) et Normandie (2019) lues en entier : les 35 citations V2 sont retrouvées mot pour mot. Listes Côtes-d'Armor, Ille-et-Vilaine et Morbihan lues par extraits.
+- carnet-de-peche.com, base de fiches de spots rédigée par l'éditeur, est lu pour Penmarc'h, Mousterlin, Cap Coz, puis pour les zones vides. Les positions précises payantes ne sont jamais reprises.
+- **QUAL-2 précisé** : deux groupes d'indépendance parmi les sources lues page par page, dont au moins une attache le bar au poste.
+
+**Résultat (VÉRIFIÉ, `tests/spots-v3.mjs` 1007/1007)**
+
+| | Avant | Après |
+| --- | --- | --- |
+| Fiches | 66 | **72** (6 candidates nouvelles) |
+| TOP_TIER | 0 | **2** (Mousterlin, Penmarc'h) |
+| Corroborées | 5 | **7** |
+| Sources lues page par page | 14 | **60** |
+| Zones sans fiche | 4 | **1** (Ille-et-Vilaine : un seul éditeur trouvé) |
+
+**Fiches nouvelles** : Pointe du Percho, Pointe du Conguel, Pointe de Saint-Colomban (Morbihan) ; Pointe du Château à Plougrescant (Côtes-d'Armor) ; Pointe et digue de Querqueville, Cap Lévi (nord et est du Cotentin).
+- Leur position est le toponyme officiel de l'IGN, choisi à la main.
+- Stationnement, marche, risques du BRGM et photos ont été collectés comme pour les autres fiches.
+- Elles restent `candidate`, faute de consigne de sécurité documentée (QUAL-5).
+
+**Contradiction** : carnet-de-peche.com recommande Port Bara, dont l'accès est signalé interdit (éboulements). Ce poste n'est pas proposé.
+
+**Ce qui reste** (à reprendre dans une passe suivante, jamais supposé) :
+- 242 pages V2 à lire, dont celles de cannes-peche.blog4ever.com, chtipecheur.com et peche-poissons.com ;
+- les fiches carnet-de-peche.com des autres spots V2 ;
+- les consignes de sécurité des six candidates (sources officielles : communes, préfectures) ;
+- un second éditeur pour l'Ille-et-Vilaine.
+

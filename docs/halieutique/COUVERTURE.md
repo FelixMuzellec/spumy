@@ -1,6 +1,6 @@
 # Couverture, limites, contradictions et anomalies
 
-Phase 5 V3, livrable 5, sous-tâche 5.10. **Version finale de la phase, 23 novembre 2026 (soir)**, après les deux passes de recherche, les collectes officielles (IGN, BRGM, Géorisques, Wikimedia Commons) et la qualification. Les repères par département servent seulement à mesurer la couverture : ils ne créent aucun secteur dans l'application (§ 7.2).
+Phase 5 V3, livrable 5, sous-tâche 5.10, **mise à jour par la passe exhaustive (5.12) du 23 novembre 2026 (fin de soirée)**, après après les deux passes de recherche, les collectes officielles (IGN, BRGM, Géorisques, Wikimedia Commons) et la qualification. Les repères par département servent seulement à mesurer la couverture : ils ne créent aucun secteur dans l'application (§ 7.2).
 
 ## 1. Couverture actuelle
 
@@ -14,6 +14,16 @@ Phase 5 V3, livrable 5, sous-tâche 5.10. **Version finale de la phase, 23 novem
 | Morbihan | 0, hors Laïta, à la limite du Finistère | 2 (rade de Lorient et Gâvres, source très faible ; côte sauvage de Quiberon, accès restreint) | **lacune** |
 
 **Constat principal** : la V2 couvre deux tronçons, le Finistère et la côte ouest du Cotentin. Les sources publiques lues le 23 novembre nomment des **zones** plutôt que des postes : les pêcheurs du bord publient rarement leurs postes exacts. Aucun candidat de la première passe n'atteint encore le niveau d'une fiche (§ 7.2). La deuxième passe (5.8), ci-dessous, a visé les sources locales.
+
+### Passe exhaustive (5.12, 23 nov. 2026, fin de soirée)
+
+La recherche limitée à un site fait remonter les pages que la recherche générale ne trouvait pas :
+- **mieuxpecher.com** publie une liste de coins de pêche du bord par département (Finistère NORD et SUD, Côtes-d'Armor, Ille-et-Vilaine, Morbihan, Normandie), par le même auteur (Norbert), 2018-2022, sans méthode publiée. C'est la « liste-maîtresse » qui avait servi à construire la V2 ; elle nomme des postes dans les quatre zones vides.
+- **carnet-de-peche.com** publie des fiches de spots rédigées par l'éditeur (632 annoncées), avec la structure, les espèces et souvent le moment de marée ; positions floutées en accès gratuit (jamais reprises).
+
+Résultat : **six fiches nouvelles** (`candidate`), chacune nommée par deux éditeurs indépendants — Pointe du Percho, Pointe du Conguel, Pointe de Saint-Colomban (Morbihan), Pointe du Château à Plougrescant (Côtes-d'Armor), Pointe et digue de Querqueville, Cap Lévi (nord et est du Cotentin). Ille-et-Vilaine : un seul éditeur, aucune fiche.
+
+**Contradiction relevée** : le guide Bretagne de carnet-de-peche.com recommande Port Bara (côte sauvage de Quiberon), dont l'accès est signalé interdit à cause des éboulements par une autre source (candidat `cand-quiberon` de la première passe). Port Bara n'est pas proposé.
 
 ### Deuxième passe (5.8, 23 nov. 2026, soir)
 
@@ -42,8 +52,8 @@ Sources locales recherchées sur les quatre zones vides : guides professionnels,
 | Risques de la commune (GASPAR, Géorisques) | 66 sur 66 ; 22 points hors des limites communales (pointe, embouchure), rattachés aux communes à 1 km et signalés comme tels |
 | Règles locales sourcées | **17 spots** : limites des ports (14) et herbiers de zostères (2) dans le Finistère, cantonnement « Le Cochon » à Port-Manec'h, arrêté municipal de Sciotot ; application au poste « à vérifier » partout |
 | Photos libres (Wikimedia Commons, 400 m, nom du lieu dans le titre ou la description) | **31 spots**, 107 photos, statut INFÉRÉ : ce que montre chaque image reste à vérifier avant affichage ; 35 sans photo retenue |
-| Sources | 297 au registre ; 102 éditeurs classés (famille, groupe d'indépendance, limites, droits) ; 14 sources évaluées page par page, 3 introuvables ; 43 sources d'éditeurs non classés |
-| Qualification (critères QUAL-1 à QUAL-7, `QUALIFICATION.md`) | **5 corroborées** (Agon, Brézellec, Dinan, Mousterlin, Penmarc'h), **61 à vérifier**, **0 TOP_TIER** |
+| Sources | 304 au registre, 86 groupes d'indépendance ; **60 évaluées page par page** (dont 35 citations mieuxpecher.com vérifiées mot pour mot), 2 introuvables ; peche-poissons.com non classé |
+| Qualification (critères QUAL-1 à QUAL-7, `QUALIFICATION.md`) | 72 fiches : **2 TOP_TIER** (Mousterlin, Penmarc'h), **7 corroborées**, **57 à vérifier**, **6 candidates** |
 
 ## 3. Anomalies
 
