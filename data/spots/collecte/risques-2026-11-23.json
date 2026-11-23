@@ -1,7 +1,7 @@
 {
- "//": "Collecte Géorisques (API v1 : /mvt à 500 m, /gaspar/risques de la commune), Licence Ouverte 2.0. Passage CI 45262264373.",
+ "//": "Collecte Géorisques (API v1 : /mvt à 500 m, /gaspar/risques de la commune), Licence Ouverte 2.0. Passage CI 45262736236.",
  "date": "2026-11-23",
- "passage_ci": "45262264373",
+ "passage_ci": "45262736236",
  "spots": [
   {
    "id": "aberbenoit",
@@ -9,13 +9,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 423,
+    "ms": 620,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 137,
+    "ms": 132,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29101",
@@ -56,7 +57,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 116,
+    "ms": 108,
     "total": 1,
     "evenements": [
      {
@@ -76,7 +77,8 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 132,
+    "ms": 130,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29112",
@@ -117,13 +119,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 118,
+    "ms": 106,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 134,
+    "ms": 131,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "50003",
@@ -200,13 +203,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 118,
+    "ms": 107,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 140,
+    "ms": 133,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29189",
@@ -259,13 +263,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 121,
+    "ms": 107,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 136,
+    "ms": 137,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29186",
@@ -306,7 +311,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 120,
+    "ms": 108,
     "total": 1,
     "evenements": [
      {
@@ -326,7 +331,8 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 138,
+    "ms": 127,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29058",
@@ -367,13 +373,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 118,
+    "ms": 107,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 136,
+    "ms": 126,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29137",
@@ -406,7 +413,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 116,
+    "ms": 108,
     "total": 2,
     "evenements": [
      {
@@ -439,8 +446,96 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 126,
-    "communes": []
+    "ms": 163,
+    "rayon_m": 1000,
+    "communes": [
+     {
+      "code_insee": "29040",
+      "commune": "LE CONQUET",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "123",
+        "libelle": "Eboulement ou chutes de pierres et de blocs"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     },
+     {
+      "code_insee": "29201",
+      "commune": "PLOUMOGUER",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     },
+     {
+      "code_insee": "29282",
+      "commune": "TREBABU",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     }
+    ]
    }
   },
   {
@@ -449,13 +544,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 115,
+    "ms": 108,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 138,
+    "ms": 130,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29028",
@@ -496,7 +592,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 118,
+    "ms": 107,
     "total": 1,
     "evenements": [
      {
@@ -516,7 +612,8 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 147,
+    "ms": 124,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29080",
@@ -549,14 +646,68 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 116,
+    "ms": 108,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 129,
-    "communes": []
+    "ms": 146,
+    "rayon_m": 1000,
+    "communes": [
+     {
+      "code_insee": "29057",
+      "commune": "LA FORET-FOUESNANT",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     },
+     {
+      "code_insee": "29058",
+      "commune": "FOUESNANT",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     }
+    ]
    }
   },
   {
@@ -565,13 +716,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 117,
+    "ms": 105,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 137,
+    "ms": 127,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29023",
@@ -612,13 +764,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 117,
+    "ms": 106,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 138,
+    "ms": 127,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "50031",
@@ -699,7 +852,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 119,
+    "ms": 108,
     "total": 5,
     "evenements": [
      {
@@ -771,7 +924,8 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 142,
+    "ms": 132,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29177",
@@ -812,7 +966,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 118,
+    "ms": 108,
     "total": 6,
     "evenements": [
      {
@@ -897,7 +1051,8 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 147,
+    "ms": 155,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29042",
@@ -962,7 +1117,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 116,
+    "ms": 107,
     "total": 4,
     "evenements": [
      {
@@ -1021,7 +1176,8 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 139,
+    "ms": 131,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29238",
@@ -1062,13 +1218,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 115,
+    "ms": 105,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 137,
+    "ms": 127,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29168",
@@ -1113,14 +1270,94 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 116,
+    "ms": 107,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 127,
-    "communes": []
+    "ms": 129,
+    "rayon_m": 1000,
+    "communes": [
+     {
+      "code_insee": "50041",
+      "commune": "LA HAGUE",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "112",
+        "libelle": "Par une crue à débordement lent de cours d'eau"
+       },
+       {
+        "num": "116",
+        "libelle": "Par remontées de nappes naturelles"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "123",
+        "libelle": "Eboulement ou chutes de pierres et de blocs"
+       },
+       {
+        "num": "127",
+        "libelle": "Tassements différentiels"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "17",
+        "libelle": "Phénomène lié à l'atmosphère"
+       },
+       {
+        "num": "172",
+        "libelle": "Tempête et grains (vent)"
+       },
+       {
+        "num": "174",
+        "libelle": "Foudre"
+       },
+       {
+        "num": "175",
+        "libelle": "Grêle"
+       },
+       {
+        "num": "176",
+        "libelle": "Neige et pluies verglaçantes"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       },
+       {
+        "num": "22",
+        "libelle": "Nucléaire"
+       },
+       {
+        "num": "24",
+        "libelle": "Transport de marchandises dangereuses"
+       },
+       {
+        "num": "25",
+        "libelle": "Engins de guerre"
+       }
+      ]
+     }
+    ]
    }
   },
   {
@@ -1129,13 +1366,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 117,
+    "ms": 106,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 139,
+    "ms": 126,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "50058",
@@ -1212,13 +1450,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 116,
+    "ms": 115,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 135,
+    "ms": 128,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29197",
@@ -1259,7 +1498,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 117,
+    "ms": 107,
     "total": 4,
     "evenements": [
      {
@@ -1318,7 +1557,8 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 150,
+    "ms": 125,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "50218",
@@ -1399,13 +1639,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 117,
+    "ms": 108,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 137,
+    "ms": 131,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29293",
@@ -1446,13 +1687,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 117,
+    "ms": 106,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 135,
+    "ms": 134,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29091",
@@ -1485,7 +1727,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 118,
+    "ms": 108,
     "total": 4,
     "evenements": [
      {
@@ -1544,8 +1786,44 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 127,
-    "communes": []
+    "ms": 124,
+    "rayon_m": 1000,
+    "communes": [
+     {
+      "code_insee": "29040",
+      "commune": "LE CONQUET",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "123",
+        "libelle": "Eboulement ou chutes de pierres et de blocs"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     }
+    ]
    }
   },
   {
@@ -1554,14 +1832,80 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 116,
+    "ms": 106,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 120,
-    "communes": []
+    "ms": 137,
+    "rayon_m": 1000,
+    "communes": [
+     {
+      "code_insee": "29206",
+      "commune": "PLOUNEVEZ-LOCHRIST",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       },
+       {
+        "num": "23",
+        "libelle": "Rupture de barrage"
+       }
+      ]
+     },
+     {
+      "code_insee": "29287",
+      "commune": "TREFLEZ",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     }
+    ]
    }
   },
   {
@@ -1570,7 +1914,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 118,
+    "ms": 108,
     "total": 1,
     "evenements": [
      {
@@ -1590,8 +1934,74 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 122,
-    "communes": []
+    "ms": 146,
+    "rayon_m": 1000,
+    "communes": [
+     {
+      "code_insee": "29031",
+      "commune": "CLOHARS-CARNOET",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     },
+     {
+      "code_insee": "56078",
+      "commune": "GUIDEL",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "127",
+        "libelle": "Tassements différentiels"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "17",
+        "libelle": "Phénomène lié à l'atmosphère"
+       },
+       {
+        "num": "172",
+        "libelle": "Tempête et grains (vent)"
+       }
+      ]
+     }
+    ]
    }
   },
   {
@@ -1600,13 +2010,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 115,
+    "ms": 105,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 136,
+    "ms": 128,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29104",
@@ -1639,7 +2050,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 119,
+    "ms": 108,
     "total": 1,
     "evenements": [
      {
@@ -1659,8 +2070,52 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 124,
-    "communes": []
+    "ms": 131,
+    "rayon_m": 1000,
+    "communes": [
+     {
+      "code_insee": "29189",
+      "commune": "PLOUGASTEL-DAOULAS",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       },
+       {
+        "num": "21",
+        "libelle": "Risque industriel"
+       },
+       {
+        "num": "211",
+        "libelle": "Effet thermique"
+       },
+       {
+        "num": "212",
+        "libelle": "Effet de surpression"
+       }
+      ]
+     }
+    ]
    }
   },
   {
@@ -1669,7 +2124,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 119,
+    "ms": 108,
     "total": 3,
     "evenements": [
      {
@@ -1715,7 +2170,8 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 137,
+    "ms": 128,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29046",
@@ -1768,14 +2224,38 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 118,
+    "ms": 106,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 123,
-    "communes": []
+    "ms": 128,
+    "rayon_m": 1000,
+    "communes": [
+     {
+      "code_insee": "29133",
+      "commune": "LOCQUIREC",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     }
+    ]
    }
   },
   {
@@ -1784,7 +2264,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 117,
+    "ms": 106,
     "total": 6,
     "evenements": [
      {
@@ -1869,7 +2349,8 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 150,
+    "ms": 135,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29042",
@@ -1934,7 +2415,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 119,
+    "ms": 107,
     "total": 5,
     "evenements": [
      {
@@ -2006,7 +2487,8 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 135,
+    "ms": 123,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29212",
@@ -2047,7 +2529,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 120,
+    "ms": 107,
     "total": 9,
     "evenements": [
      {
@@ -2171,8 +2653,64 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 139,
-    "communes": []
+    "ms": 137,
+    "rayon_m": 1000,
+    "communes": [
+     {
+      "code_insee": "29042",
+      "commune": "CROZON",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       },
+       {
+        "num": "21",
+        "libelle": "Risque industriel"
+       },
+       {
+        "num": "211",
+        "libelle": "Effet thermique"
+       },
+       {
+        "num": "212",
+        "libelle": "Effet de surpression"
+       },
+       {
+        "num": "213",
+        "libelle": "Effet toxique"
+       },
+       {
+        "num": "214",
+        "libelle": "Effet de projection"
+       },
+       {
+        "num": "22",
+        "libelle": "Nucléaire"
+       }
+      ]
+     }
+    ]
    }
   },
   {
@@ -2181,14 +2719,60 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 116,
+    "ms": 106,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 137,
-    "communes": []
+    "ms": 140,
+    "rayon_m": 1000,
+    "communes": [
+     {
+      "code_insee": "29080",
+      "commune": "HOPITAL-CAMFROUT",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     },
+     {
+      "code_insee": "29137",
+      "commune": "LOGONNA-DAOULAS",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     }
+    ]
    }
   },
   {
@@ -2197,7 +2781,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 117,
+    "ms": 106,
     "total": 1,
     "evenements": [
      {
@@ -2217,7 +2801,8 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 137,
+    "ms": 127,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29058",
@@ -2258,13 +2843,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 117,
+    "ms": 105,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 134,
+    "ms": 127,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29006",
@@ -2305,14 +2891,106 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 117,
+    "ms": 107,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 151,
-    "communes": []
+    "ms": 156,
+    "rayon_m": 1000,
+    "communes": [
+     {
+      "code_insee": "29101",
+      "commune": "LANDEDA",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     },
+     {
+      "code_insee": "29117",
+      "commune": "LANNILIS",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     },
+     {
+      "code_insee": "29195",
+      "commune": "PLOUGUERNEAU",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     }
+    ]
    }
   },
   {
@@ -2321,7 +2999,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 117,
+    "ms": 108,
     "total": 2,
     "evenements": [
      {
@@ -2354,7 +3032,8 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 145,
+    "ms": 134,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29195",
@@ -2395,7 +3074,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 119,
+    "ms": 107,
     "total": 4,
     "evenements": [
      {
@@ -2454,7 +3133,8 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 141,
+    "ms": 131,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29022",
@@ -2495,7 +3175,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 117,
+    "ms": 107,
     "total": 1,
     "evenements": [
      {
@@ -2515,8 +3195,62 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 117,
-    "communes": []
+    "ms": 144,
+    "rayon_m": 1000,
+    "communes": [
+     {
+      "code_insee": "29214",
+      "commune": "PLOVAN",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     },
+     {
+      "code_insee": "29225",
+      "commune": "POULDREUZIC",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     }
+    ]
    }
   },
   {
@@ -2525,13 +3259,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 118,
+    "ms": 107,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
     "ms": 135,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29158",
@@ -2572,13 +3307,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 117,
+    "ms": 105,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 145,
+    "ms": 132,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29195",
@@ -2619,7 +3355,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 118,
+    "ms": 109,
     "total": 2,
     "evenements": [
      {
@@ -2652,8 +3388,40 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 118,
-    "communes": []
+    "ms": 128,
+    "rayon_m": 1000,
+    "communes": [
+     {
+      "code_insee": "29256",
+      "commune": "SAINT-NIC",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     }
+    ]
    }
   },
   {
@@ -2662,14 +3430,46 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 116,
+    "ms": 105,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 124,
-    "communes": []
+    "ms": 128,
+    "rayon_m": 1000,
+    "communes": [
+     {
+      "code_insee": "29023",
+      "commune": "CARANTEC",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     }
+    ]
    }
   },
   {
@@ -2678,13 +3478,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 116,
+    "ms": 105,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 131,
+    "ms": 124,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "50403",
@@ -2761,14 +3562,82 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 118,
+    "ms": 107,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 118,
-    "communes": []
+    "ms": 127,
+    "rayon_m": 1000,
+    "communes": [
+     {
+      "code_insee": "50412",
+      "commune": "PORT-BAIL-SUR-MER",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "112",
+        "libelle": "Par une crue à débordement lent de cours d'eau"
+       },
+       {
+        "num": "116",
+        "libelle": "Par remontées de nappes naturelles"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "123",
+        "libelle": "Eboulement ou chutes de pierres et de blocs"
+       },
+       {
+        "num": "127",
+        "libelle": "Tassements différentiels"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "17",
+        "libelle": "Phénomène lié à l'atmosphère"
+       },
+       {
+        "num": "172",
+        "libelle": "Tempête et grains (vent)"
+       },
+       {
+        "num": "174",
+        "libelle": "Foudre"
+       },
+       {
+        "num": "175",
+        "libelle": "Grêle"
+       },
+       {
+        "num": "176",
+        "libelle": "Neige et pluies verglaçantes"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       },
+       {
+        "num": "25",
+        "libelle": "Engins de guerre"
+       }
+      ]
+     }
+    ]
    }
   },
   {
@@ -2777,13 +3646,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 117,
+    "ms": 106,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 138,
+    "ms": 130,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29153",
@@ -2816,7 +3686,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 118,
+    "ms": 108,
     "total": 1,
     "evenements": [
      {
@@ -2836,7 +3706,8 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 137,
+    "ms": 141,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29188",
@@ -2877,7 +3748,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 116,
+    "ms": 107,
     "total": 1,
     "evenements": [
      {
@@ -2897,7 +3768,8 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 136,
+    "ms": 126,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29168",
@@ -2942,14 +3814,152 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 118,
+    "ms": 107,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 118,
-    "communes": []
+    "ms": 138,
+    "rayon_m": 1000,
+    "communes": [
+     {
+      "code_insee": "50003",
+      "commune": "AGON-COUTAINVILLE",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "112",
+        "libelle": "Par une crue à débordement lent de cours d'eau"
+       },
+       {
+        "num": "116",
+        "libelle": "Par remontées de nappes naturelles"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "123",
+        "libelle": "Eboulement ou chutes de pierres et de blocs"
+       },
+       {
+        "num": "127",
+        "libelle": "Tassements différentiels"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "17",
+        "libelle": "Phénomène lié à l'atmosphère"
+       },
+       {
+        "num": "172",
+        "libelle": "Tempête et grains (vent)"
+       },
+       {
+        "num": "174",
+        "libelle": "Foudre"
+       },
+       {
+        "num": "175",
+        "libelle": "Grêle"
+       },
+       {
+        "num": "176",
+        "libelle": "Neige et pluies verglaçantes"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       },
+       {
+        "num": "25",
+        "libelle": "Engins de guerre"
+       }
+      ]
+     },
+     {
+      "code_insee": "50429",
+      "commune": "REGNEVILLE-SUR-MER",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "112",
+        "libelle": "Par une crue à débordement lent de cours d'eau"
+       },
+       {
+        "num": "116",
+        "libelle": "Par remontées de nappes naturelles"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "123",
+        "libelle": "Eboulement ou chutes de pierres et de blocs"
+       },
+       {
+        "num": "127",
+        "libelle": "Tassements différentiels"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "17",
+        "libelle": "Phénomène lié à l'atmosphère"
+       },
+       {
+        "num": "172",
+        "libelle": "Tempête et grains (vent)"
+       },
+       {
+        "num": "174",
+        "libelle": "Foudre"
+       },
+       {
+        "num": "175",
+        "libelle": "Grêle"
+       },
+       {
+        "num": "176",
+        "libelle": "Neige et pluies verglaçantes"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       },
+       {
+        "num": "25",
+        "libelle": "Engins de guerre"
+       }
+      ]
+     }
+    ]
    }
   },
   {
@@ -2958,7 +3968,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 118,
+    "ms": 107,
     "total": 4,
     "evenements": [
      {
@@ -3017,8 +4027,32 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 122,
-    "communes": []
+    "ms": 126,
+    "rayon_m": 1000,
+    "communes": [
+     {
+      "code_insee": "29153",
+      "commune": "NEVEZ",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     }
+    ]
    }
   },
   {
@@ -3027,13 +4061,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 115,
+    "ms": 106,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 140,
+    "ms": 126,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29140",
@@ -3072,7 +4107,8 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 136,
+    "ms": 125,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29039",
@@ -3121,13 +4157,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 115,
+    "ms": 107,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 139,
+    "ms": 137,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29101",
@@ -3168,13 +4205,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 118,
+    "ms": 107,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 138,
+    "ms": 124,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29158",
@@ -3215,7 +4253,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 116,
+    "ms": 106,
     "total": 2,
     "evenements": [
      {
@@ -3248,7 +4286,8 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 135,
+    "ms": 126,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29188",
@@ -3289,14 +4328,72 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 118,
+    "ms": 107,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 120,
-    "communes": []
+    "ms": 139,
+    "rayon_m": 1000,
+    "communes": [
+     {
+      "code_insee": "29003",
+      "commune": "AUDIERNE",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "123",
+        "libelle": "Eboulement ou chutes de pierres et de blocs"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     },
+     {
+      "code_insee": "29228",
+      "commune": "PRIMELIN",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     }
+    ]
    }
   },
   {
@@ -3305,14 +4402,164 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 116,
+    "ms": 107,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 120,
-    "communes": []
+    "ms": 139,
+    "rayon_m": 1000,
+    "communes": [
+     {
+      "code_insee": "50402",
+      "commune": "LES PIEUX",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "112",
+        "libelle": "Par une crue à débordement lent de cours d'eau"
+       },
+       {
+        "num": "116",
+        "libelle": "Par remontées de nappes naturelles"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "123",
+        "libelle": "Eboulement ou chutes de pierres et de blocs"
+       },
+       {
+        "num": "127",
+        "libelle": "Tassements différentiels"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "17",
+        "libelle": "Phénomène lié à l'atmosphère"
+       },
+       {
+        "num": "172",
+        "libelle": "Tempête et grains (vent)"
+       },
+       {
+        "num": "174",
+        "libelle": "Foudre"
+       },
+       {
+        "num": "175",
+        "libelle": "Grêle"
+       },
+       {
+        "num": "176",
+        "libelle": "Neige et pluies verglaçantes"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       },
+       {
+        "num": "22",
+        "libelle": "Nucléaire"
+       },
+       {
+        "num": "24",
+        "libelle": "Transport de marchandises dangereuses"
+       },
+       {
+        "num": "25",
+        "libelle": "Engins de guerre"
+       }
+      ]
+     },
+     {
+      "code_insee": "50442",
+      "commune": "LE ROZEL",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "112",
+        "libelle": "Par une crue à débordement lent de cours d'eau"
+       },
+       {
+        "num": "116",
+        "libelle": "Par remontées de nappes naturelles"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "123",
+        "libelle": "Eboulement ou chutes de pierres et de blocs"
+       },
+       {
+        "num": "127",
+        "libelle": "Tassements différentiels"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "17",
+        "libelle": "Phénomène lié à l'atmosphère"
+       },
+       {
+        "num": "172",
+        "libelle": "Tempête et grains (vent)"
+       },
+       {
+        "num": "174",
+        "libelle": "Foudre"
+       },
+       {
+        "num": "175",
+        "libelle": "Grêle"
+       },
+       {
+        "num": "176",
+        "libelle": "Neige et pluies verglaçantes"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       },
+       {
+        "num": "22",
+        "libelle": "Nucléaire"
+       },
+       {
+        "num": "25",
+        "libelle": "Engins de guerre"
+       }
+      ]
+     }
+    ]
    }
   },
   {
@@ -3321,13 +4568,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 117,
+    "ms": 106,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 132,
+    "ms": 124,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "50585",
@@ -3412,13 +4660,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 116,
+    "ms": 105,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 152,
+    "ms": 126,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29240",
@@ -3459,7 +4708,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 117,
+    "ms": 107,
     "total": 5,
     "evenements": [
      {
@@ -3531,7 +4780,8 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 133,
+    "ms": 128,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29171",
@@ -3572,13 +4822,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 116,
+    "ms": 108,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 145,
+    "ms": 136,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29008",
@@ -3611,7 +4862,7 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 118,
+    "ms": 108,
     "total": 5,
     "evenements": [
      {
@@ -3683,8 +4934,74 @@
    },
    "gaspar": {
     "erreur": null,
-    "ms": 126,
-    "communes": []
+    "ms": 147,
+    "rayon_m": 1000,
+    "communes": [
+     {
+      "code_insee": "29028",
+      "commune": "CLEDEN-CAP-SIZUN",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     },
+     {
+      "code_insee": "29168",
+      "commune": "PLOGOFF",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "16",
+        "libelle": "Feu de forêt"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     }
+    ]
    }
   },
   {
@@ -3693,13 +5010,14 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 117,
+    "ms": 106,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 140,
+    "ms": 130,
+    "rayon_m": 1,
     "communes": [
      {
       "code_insee": "29293",
@@ -3740,14 +5058,38 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 116,
+    "ms": 109,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 126,
-    "communes": []
+    "ms": 127,
+    "rayon_m": 1000,
+    "communes": [
+     {
+      "code_insee": "29280",
+      "commune": "TELGRUC-SUR-MER",
+      "risques": [
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     }
+    ]
    }
   },
   {
@@ -3756,14 +5098,46 @@
    "rayon_m": 500,
    "mvt": {
     "erreur": null,
-    "ms": 115,
+    "ms": 106,
     "total": 0,
     "evenements": []
    },
    "gaspar": {
     "erreur": null,
-    "ms": 126,
-    "communes": []
+    "ms": 136,
+    "rayon_m": 1000,
+    "communes": [
+     {
+      "code_insee": "29028",
+      "commune": "CLEDEN-CAP-SIZUN",
+      "risques": [
+       {
+        "num": "11",
+        "libelle": "Inondation"
+       },
+       {
+        "num": "117",
+        "libelle": "Par submersion marine"
+       },
+       {
+        "num": "12",
+        "libelle": "Mouvement de terrain"
+       },
+       {
+        "num": "121",
+        "libelle": "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)"
+       },
+       {
+        "num": "13",
+        "libelle": "Séisme"
+       },
+       {
+        "num": "18",
+        "libelle": "Radon"
+       }
+      ]
+     }
+    ]
    }
   }
  ]

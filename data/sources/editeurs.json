@@ -1,0 +1,1076 @@
+{
+ "//": "Classement des éditeurs (phase 5, 5.4 ; § 7.1), 23 nov. 2026. La famille est INFÉRÉE de la nature de l'éditeur et ne vaut pas évaluation de la page : chaque page reste « à évaluer » tant qu'elle n'a pas été lue. groupe : groupe d'indépendance (null = l'éditeur forme à lui seul son groupe). Lu par scripts/sources-registre.mjs.",
+ "classe_le": "2026-11-23",
+ "editeurs": {
+  "doi.org": {
+   "famille": 1,
+   "groupe": "article-scientifique",
+   "nature": "article scientifique à comité de lecture (groupe propre à chaque article)",
+   "domaines": [
+    "biologie",
+    "comportement"
+   ],
+   "limites": "résultats propres à la population, au lieu et à la période étudiés ; transfert au spot à justifier",
+   "droits": "résumé public ou version ouverte seulement ; jamais de contournement d'un accès payant"
+  },
+  "cambridge.org": {
+   "famille": 1,
+   "groupe": "article-scientifique",
+   "nature": "article scientifique à comité de lecture (groupe propre à chaque article)",
+   "domaines": [
+    "biologie",
+    "comportement"
+   ],
+   "limites": "résultats propres à la population, au lieu et à la période étudiés ; transfert au spot à justifier",
+   "droits": "résumé public ou version ouverte seulement ; jamais de contournement d'un accès payant"
+  },
+  "Ifremer": {
+   "famille": 1,
+   "groupe": "ifremer",
+   "nature": "institut public de recherche marine",
+   "domaines": [
+    "biologie",
+    "habitats",
+    "pêche"
+   ],
+   "limites": "échelle du site d'étude ; date de l'étude à vérifier",
+   "droits": "Licence Ouverte pour les données publiques ; publications : conditions propres à chacune"
+  },
+  "rebent.ifremer.fr": {
+   "famille": 1,
+   "groupe": "ifremer",
+   "nature": "institut public de recherche marine",
+   "domaines": [
+    "biologie",
+    "habitats",
+    "pêche"
+   ],
+   "limites": "échelle du site d'étude ; date de l'étude à vérifier",
+   "droits": "Licence Ouverte pour les données publiques ; publications : conditions propres à chacune"
+  },
+  "inpn.mnhn.fr": {
+   "famille": 1,
+   "groupe": "mnhn",
+   "nature": "Muséum national d'histoire naturelle, inventaire national du patrimoine naturel",
+   "domaines": [
+    "habitats",
+    "espèces",
+    "zones protégées"
+   ],
+   "limites": "données d'inventaire, pas de comportement halieutique",
+   "droits": "Licence Ouverte (données publiques) — à confirmer jeu par jeu"
+  },
+  "MarLIN (Marine Biological Association)": {
+   "famille": 1,
+   "groupe": "marlin-mba",
+   "nature": "Marine Biological Association (Royaume-Uni), synthèses d'espèces et d'habitats",
+   "domaines": [
+    "biologie",
+    "habitats"
+   ],
+   "limites": "synthèses britanniques ; transfert à la Manche française à justifier",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "FishBase": {
+   "famille": 1,
+   "groupe": "fishbase",
+   "nature": "base scientifique mondiale sur les poissons",
+   "domaines": [
+    "biologie"
+   ],
+   "limites": "valeurs générales de l'espèce, pas locales",
+   "droits": "CC BY-NC (HYPOTHÈSE, à confirmer sur le site)"
+  },
+  "coastalwiki.org": {
+   "famille": 2,
+   "groupe": "coastalwiki",
+   "nature": "encyclopédie côtière rédigée par des spécialistes",
+   "domaines": [
+    "processus côtiers"
+   ],
+   "limites": "connaissance générale, pas locale",
+   "droits": "à vérifier"
+  },
+  "DDTM du Finistère": {
+   "famille": 2,
+   "groupe": "etat-fr-reglementation",
+   "nature": "administration de l'État",
+   "domaines": [
+    "réglementation"
+   ],
+   "limites": "une synthèse administrative peut dater : le texte en vigueur (Légifrance, Journal officiel) prime",
+   "droits": "Licence Ouverte (informations publiques)"
+  },
+  "Service-public.fr": {
+   "famille": 2,
+   "groupe": "etat-fr-reglementation",
+   "nature": "administration de l'État",
+   "domaines": [
+    "réglementation"
+   ],
+   "limites": "une synthèse administrative peut dater : le texte en vigueur (Légifrance, Journal officiel) prime",
+   "droits": "Licence Ouverte (informations publiques)"
+  },
+  "Ministère de la Mer": {
+   "famille": 2,
+   "groupe": "etat-fr-reglementation",
+   "nature": "administration de l'État",
+   "domaines": [
+    "réglementation"
+   ],
+   "limites": "une synthèse administrative peut dater : le texte en vigueur (Légifrance, Journal officiel) prime",
+   "droits": "Licence Ouverte (informations publiques)"
+  },
+  "dirm.memn.developpement-durable.gouv.fr": {
+   "famille": 2,
+   "groupe": "etat-fr-reglementation",
+   "nature": "administration de l'État",
+   "domaines": [
+    "réglementation"
+   ],
+   "limites": "une synthèse administrative peut dater : le texte en vigueur (Légifrance, Journal officiel) prime",
+   "droits": "Licence Ouverte (informations publiques)"
+  },
+  "Météo-France": {
+   "famille": 2,
+   "groupe": "meteo-france",
+   "nature": "service météorologique national",
+   "domaines": [
+    "météo",
+    "état de mer"
+   ],
+   "limites": "prévision, pas mesure locale",
+   "droits": "Licence Ouverte pour les données publiques"
+  },
+  "shom.fr / maree.info": {
+   "famille": 2,
+   "groupe": "shom",
+   "nature": "service hydrographique national (marée)",
+   "domaines": [
+    "marée"
+   ],
+   "limites": "maree.info est un service tiers qui reprend des prédictions : vérifier la provenance",
+   "droits": "prédictions du SHOM sous licence propre : ne pas reproduire sans droit"
+  },
+  "Open-Meteo": {
+   "famille": 2,
+   "groupe": "open-meteo",
+   "nature": "service technique de données météo-marines (modèles)",
+   "domaines": [
+    "météo",
+    "état de mer"
+   ],
+   "limites": "sorties de modèles, pas observations",
+   "droits": "CC BY 4.0 (attribution)"
+  },
+  "Devon and Severn IFCA": {
+   "famille": 2,
+   "groupe": "autorites-uk",
+   "nature": "autorité ou texte réglementaire britannique",
+   "domaines": [
+    "réglementation (Royaume-Uni)",
+    "biologie (contexte)"
+   ],
+   "limites": "ne s'applique pas en France ; utile pour le contexte biologique seulement",
+   "droits": "Open Government Licence (à confirmer)"
+  },
+  "legislation.gov.uk": {
+   "famille": 2,
+   "groupe": "autorites-uk",
+   "nature": "autorité ou texte réglementaire britannique",
+   "domaines": [
+    "réglementation (Royaume-Uni)",
+    "biologie (contexte)"
+   ],
+   "limites": "ne s'applique pas en France ; utile pour le contexte biologique seulement",
+   "droits": "Open Government Licence (à confirmer)"
+  },
+  "Réserve naturelle régionale de la presqu'île de Crozon": {
+   "famille": 2,
+   "groupe": "rnr-crozon",
+   "nature": "gestionnaire d'espace protégé",
+   "domaines": [
+    "règles locales",
+    "accès",
+    "milieux"
+   ],
+   "limites": "périmètre et règles à confirmer sur le texte de classement",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "patrimoine.bzh": {
+   "famille": 2,
+   "groupe": "inventaire-patrimoine-bretagne",
+   "nature": "inventaire du patrimoine (Région Bretagne)",
+   "domaines": [
+    "lieux",
+    "histoire"
+   ],
+   "limites": "ne dit rien de la pêche",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "saint-pabu.bzh": {
+   "famille": 2,
+   "groupe": null,
+   "nature": "site d'une commune ou d'une intercommunalité",
+   "domaines": [
+    "accès",
+    "règles locales",
+    "lieux"
+   ],
+   "limites": "information municipale datée variable ; un arrêté municipal prime",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "landeda.fr": {
+   "famille": 2,
+   "groupe": null,
+   "nature": "site d'une commune ou d'une intercommunalité",
+   "domaines": [
+    "accès",
+    "règles locales",
+    "lieux"
+   ],
+   "limites": "information municipale datée variable ; un arrêté municipal prime",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "locquirec.bzh": {
+   "famille": 2,
+   "groupe": null,
+   "nature": "site d'une commune ou d'une intercommunalité",
+   "domaines": [
+    "accès",
+    "règles locales",
+    "lieux"
+   ],
+   "limites": "information municipale datée variable ; un arrêté municipal prime",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "iroise-bretagne.bzh": {
+   "famille": 2,
+   "groupe": null,
+   "nature": "site d'une commune ou d'une intercommunalité",
+   "domaines": [
+    "accès",
+    "règles locales",
+    "lieux"
+   ],
+   "limites": "information municipale datée variable ; un arrêté municipal prime",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "patrimoine-iroise.fr": {
+   "famille": 2,
+   "groupe": null,
+   "nature": "site d'une commune ou d'une intercommunalité",
+   "domaines": [
+    "accès",
+    "règles locales",
+    "lieux"
+   ],
+   "limites": "information municipale datée variable ; un arrêté municipal prime",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "Google Maps": {
+   "famille": 2,
+   "groupe": "google-maps",
+   "nature": "cartographie commerciale",
+   "domaines": [
+    "lieux"
+   ],
+   "limites": "positions non sourcées ; remplacées par l'IGN (5.7)",
+   "droits": "conditions d'utilisation restrictives : aucune coordonnée reprise"
+  },
+  "peche.com": {
+   "famille": 4,
+   "groupe": "peche-com-bateaux-com",
+   "nature": "presse spécialisée en ligne ; articles signés, souvent par des moniteurs-guides de pêche ou des pêcheurs locaux nommés",
+   "domaines": [
+    "halieutique",
+    "technique",
+    "spots (secteurs)"
+   ],
+   "limites": "retours d'expérience : postes rarement précis, conditions de la sortie pas toujours datées ; les deux titres renvoient l'un vers l'autre et forment une seule voix",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+   "constat": "bateaux.com renvoie vers peche.com (« Retrouvez toute l'actualité de la pêche sur Peche.com ») : un seul groupe d'indépendance (INFÉRÉ) ; articles signés (par exemple Benjamin Le Provost, Jean-Baptiste Vidal, moniteur-guide de pêche), recherche du 23 nov. 2026"
+  },
+  "bateaux.com": {
+   "famille": 4,
+   "groupe": "peche-com-bateaux-com",
+   "nature": "presse spécialisée en ligne ; articles signés, souvent par des moniteurs-guides de pêche ou des pêcheurs locaux nommés",
+   "domaines": [
+    "halieutique",
+    "technique",
+    "spots (secteurs)"
+   ],
+   "limites": "retours d'expérience : postes rarement précis, conditions de la sortie pas toujours datées ; les deux titres renvoient l'un vers l'autre et forment une seule voix",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+   "constat": "bateaux.com renvoie vers peche.com (« Retrouvez toute l'actualité de la pêche sur Peche.com ») : un seul groupe d'indépendance (INFÉRÉ) ; articles signés (par exemple Benjamin Le Provost, Jean-Baptiste Vidal, moniteur-guide de pêche), recherche du 23 nov. 2026"
+  },
+  "figaronautisme.meteoconsult.fr": {
+   "famille": 4,
+   "groupe": "meteo-consult-figaro-nautisme",
+   "nature": "presse nautique en ligne (Météo Consult, Le Figaro Nautisme)",
+   "domaines": [
+    "halieutique (secteurs)",
+    "météo"
+   ],
+   "limites": "articles de synthèse souvent généraux, sans poste précis",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+   "constat": "articles signés « Le Figaro Nautisme » ou d'un auteur ; site édité avec Météo Consult (recherche du 23 nov. 2026)"
+  },
+  "Le Figaro Nautisme": {
+   "famille": 4,
+   "groupe": "meteo-consult-figaro-nautisme",
+   "nature": "presse nautique en ligne (Météo Consult, Le Figaro Nautisme)",
+   "domaines": [
+    "halieutique (secteurs)",
+    "météo"
+   ],
+   "limites": "articles de synthèse souvent généraux, sans poste précis",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+   "constat": "articles signés « Le Figaro Nautisme » ou d'un auteur ; site édité avec Météo Consult (recherche du 23 nov. 2026)"
+  },
+  "marine.meteoconsult.fr": {
+   "famille": 4,
+   "groupe": "meteo-consult-figaro-nautisme",
+   "nature": "presse nautique en ligne (Météo Consult, Le Figaro Nautisme)",
+   "domaines": [
+    "halieutique (secteurs)",
+    "météo"
+   ],
+   "limites": "articles de synthèse souvent généraux, sans poste précis",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+   "constat": "articles signés « Le Figaro Nautisme » ou d'un auteur ; site édité avec Météo Consult (recherche du 23 nov. 2026)"
+  },
+  "despoissonssigrands.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "guide de pêche, loueur ou magasin local (activité professionnelle)",
+   "domaines": [
+    "halieutique",
+    "conditions locales"
+   ],
+   "limites": "intérêt commercial ; secteurs plutôt que postes ; à recouper",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "brestfishing.fr": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "guide de pêche, loueur ou magasin local (activité professionnelle)",
+   "domaines": [
+    "halieutique",
+    "conditions locales"
+   ],
+   "limites": "intérêt commercial ; secteurs plutôt que postes ; à recouper",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "Guide pêche Latitude Manche": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "guide de pêche, loueur ou magasin local (activité professionnelle)",
+   "domaines": [
+    "halieutique",
+    "conditions locales"
+   ],
+   "limites": "intérêt commercial ; secteurs plutôt que postes ; à recouper",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "lordjimcroisieres.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "guide de pêche, loueur ou magasin local (activité professionnelle)",
+   "domaines": [
+    "halieutique",
+    "conditions locales"
+   ],
+   "limites": "intérêt commercial ; secteurs plutôt que postes ; à recouper",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "sylco-peche-brehal.fr": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "guide de pêche, loueur ou magasin local (activité professionnelle)",
+   "domaines": [
+    "halieutique",
+    "conditions locales"
+   ],
+   "limites": "intérêt commercial ; secteurs plutôt que postes ; à recouper",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "cannes-peche.blog4ever.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "blog ou site de pêcheurs (auteur souvent sous pseudonyme)",
+   "domaines": [
+    "halieutique",
+    "accès"
+   ],
+   "limites": "auteur et date souvent absents ; observations non reproductibles ; à recouper",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "chtipecheur.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "blog ou site de pêcheurs (auteur souvent sous pseudonyme)",
+   "domaines": [
+    "halieutique",
+    "accès"
+   ],
+   "limites": "auteur et date souvent absents ; observations non reproductibles ; à recouper",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "carnet-de-peche.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "blog ou site de pêcheurs (auteur souvent sous pseudonyme)",
+   "domaines": [
+    "halieutique",
+    "accès"
+   ],
+   "limites": "auteur et date souvent absents ; observations non reproductibles ; à recouper",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "pecheaubar.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "blog ou site de pêcheurs (auteur souvent sous pseudonyme)",
+   "domaines": [
+    "halieutique",
+    "accès"
+   ],
+   "limites": "auteur et date souvent absents ; observations non reproductibles ; à recouper",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "Pêche-Rando Bar": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "blog ou site de pêcheurs (auteur souvent sous pseudonyme)",
+   "domaines": [
+    "halieutique",
+    "accès"
+   ],
+   "limites": "auteur et date souvent absents ; observations non reproductibles ; à recouper",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "lesbredouilleurs": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "blog ou site de pêcheurs (auteur souvent sous pseudonyme)",
+   "domaines": [
+    "halieutique",
+    "accès"
+   ],
+   "limites": "auteur et date souvent absents ; observations non reproductibles ; à recouper",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "Desperadiens": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "blog ou site de pêcheurs (auteur souvent sous pseudonyme)",
+   "domaines": [
+    "halieutique",
+    "accès"
+   ],
+   "limites": "auteur et date souvent absents ; observations non reproductibles ; à recouper",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "guillaume29.over-blog.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "blog ou site de pêcheurs (auteur souvent sous pseudonyme)",
+   "domaines": [
+    "halieutique",
+    "accès"
+   ],
+   "limites": "auteur et date souvent absents ; observations non reproductibles ; à recouper",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "atout-pecheur.fr": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "blog ou site de pêcheurs (auteur souvent sous pseudonyme)",
+   "domaines": [
+    "halieutique",
+    "accès"
+   ],
+   "limites": "auteur et date souvent absents ; observations non reproductibles ; à recouper",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "ultimate-fishing.net": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "blog ou site de pêcheurs (auteur souvent sous pseudonyme)",
+   "domaines": [
+    "halieutique",
+    "accès"
+   ],
+   "limites": "auteur et date souvent absents ; observations non reproductibles ; à recouper",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "apppcc.jimdofree.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "blog ou site de pêcheurs (auteur souvent sous pseudonyme)",
+   "domaines": [
+    "halieutique",
+    "accès"
+   ],
+   "limites": "auteur et date souvent absents ; observations non reproductibles ; à recouper",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "lechasseursousmarin.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "site de chasse sous-marine",
+   "domaines": [
+    "présence d'espèces",
+    "fonds"
+   ],
+   "limites": "observation sous l'eau, pas de la pêche du bord",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "carnalor.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "forum de pêcheurs ou de plaisanciers",
+   "domaines": [
+    "halieutique",
+    "conditions"
+   ],
+   "limites": "messages anonymes, souvent anciens ; jamais une source seule ; aucune lecture réservée aux membres",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "hisse-et-oh.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "forum de pêcheurs ou de plaisanciers",
+   "domaines": [
+    "halieutique",
+    "conditions"
+   ],
+   "limites": "messages anonymes, souvent anciens ; jamais une source seule ; aucune lecture réservée aux membres",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "pechemercotentin.forumactif.org": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "forum de pêcheurs ou de plaisanciers",
+   "domaines": [
+    "halieutique",
+    "conditions"
+   ],
+   "limites": "messages anonymes, souvent anciens ; jamais une source seule ; aucune lecture réservée aux membres",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "voileaviron.org": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "guide nautique ou association de navigation côtière",
+   "domaines": [
+    "courants",
+    "mouillages",
+    "dangers en mer"
+   ],
+   "limites": "point de vue du navigateur, pas du pêcheur du bord",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "marinatips.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "guide nautique ou association de navigation côtière",
+   "domaines": [
+    "courants",
+    "mouillages",
+    "dangers en mer"
+   ],
+   "limites": "point de vue du navigateur, pas du pêcheur du bord",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "portbooker.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "guide nautique ou association de navigation côtière",
+   "domaines": [
+    "courants",
+    "mouillages",
+    "dangers en mer"
+   ],
+   "limites": "point de vue du navigateur, pas du pêcheur du bord",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "sea-seek.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "guide nautique ou association de navigation côtière",
+   "domaines": [
+    "courants",
+    "mouillages",
+    "dangers en mer"
+   ],
+   "limites": "point de vue du navigateur, pas du pêcheur du bord",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "waterways.navship.org": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "guide nautique ou association de navigation côtière",
+   "domaines": [
+    "courants",
+    "mouillages",
+    "dangers en mer"
+   ],
+   "limites": "point de vue du navigateur, pas du pêcheur du bord",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "cpiecotentin.com": {
+   "famille": 3,
+   "groupe": "cpie-cotentin",
+   "nature": "CPIE du Cotentin (association d'éducation à l'environnement)",
+   "domaines": [
+    "milieux",
+    "pêche à pied",
+    "espèces"
+   ],
+   "limites": "vulgarisation ; pas de mesure",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "surf-forecast.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "site de surf (spots, exposition à la houle)",
+   "domaines": [
+    "exposition à la houle",
+    "accès plage"
+   ],
+   "limites": "orienté surf : exposition et houle, pas la pêche",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "surf-report.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "site de surf (spots, exposition à la houle)",
+   "domaines": [
+    "exposition à la houle",
+    "accès plage"
+   ],
+   "limites": "orienté surf : exposition et houle, pas la pêche",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "mondo.surf": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "site de surf (spots, exposition à la houle)",
+   "domaines": [
+    "exposition à la houle",
+    "accès plage"
+   ],
+   "limites": "orienté surf : exposition et houle, pas la pêche",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "plages.tv": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "site de surf (spots, exposition à la houle)",
+   "domaines": [
+    "exposition à la houle",
+    "accès plage"
+   ],
+   "limites": "orienté surf : exposition et houle, pas la pêche",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "visorando.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "plateforme de randonnée, d'itinérance ou de stationnement (contenu de contributeurs)",
+   "domaines": [
+    "accès",
+    "sentiers",
+    "stationnement"
+   ],
+   "limites": "ne dit rien de la pêche ; tracés de contributeurs, à confirmer sur place",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "visorando": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "plateforme de randonnée, d'itinérance ou de stationnement (contenu de contributeurs)",
+   "domaines": [
+    "accès",
+    "sentiers",
+    "stationnement"
+   ],
+   "limites": "ne dit rien de la pêche ; tracés de contributeurs, à confirmer sur place",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "komoot.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "plateforme de randonnée, d'itinérance ou de stationnement (contenu de contributeurs)",
+   "domaines": [
+    "accès",
+    "sentiers",
+    "stationnement"
+   ],
+   "limites": "ne dit rien de la pêche ; tracés de contributeurs, à confirmer sur place",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "sitytrail.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "plateforme de randonnée, d'itinérance ou de stationnement (contenu de contributeurs)",
+   "domaines": [
+    "accès",
+    "sentiers",
+    "stationnement"
+   ],
+   "limites": "ne dit rien de la pêche ; tracés de contributeurs, à confirmer sur place",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "cirkwi.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "plateforme de randonnée, d'itinérance ou de stationnement (contenu de contributeurs)",
+   "domaines": [
+    "accès",
+    "sentiers",
+    "stationnement"
+   ],
+   "limites": "ne dit rien de la pêche ; tracés de contributeurs, à confirmer sur place",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "park4night.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "plateforme de randonnée, d'itinérance ou de stationnement (contenu de contributeurs)",
+   "domaines": [
+    "accès",
+    "sentiers",
+    "stationnement"
+   ],
+   "limites": "ne dit rien de la pêche ; tracés de contributeurs, à confirmer sur place",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "oblyk.org": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "plateforme de randonnée, d'itinérance ou de stationnement (contenu de contributeurs)",
+   "domaines": [
+    "accès",
+    "sentiers",
+    "stationnement"
+   ],
+   "limites": "ne dit rien de la pêche ; tracés de contributeurs, à confirmer sur place",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "baiedemorlaix.bzh": {
+   "famille": 4,
+   "groupe": "baie-de-morlaix-tourisme",
+   "nature": "office de tourisme",
+   "domaines": [
+    "accès",
+    "lieux",
+    "activités"
+   ],
+   "limites": "promotionnel ; renvoie parfois à des guides de pêche",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "baiedemorlaix.wordpress.com / baiedemorlaix.bzh": {
+   "famille": 4,
+   "groupe": "baie-de-morlaix-tourisme",
+   "nature": "office de tourisme",
+   "domaines": [
+    "accès",
+    "lieux",
+    "activités"
+   ],
+   "limites": "promotionnel ; renvoie parfois à des guides de pêche",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "tourisme-landerneau-daoulas.fr": {
+   "famille": 4,
+   "groupe": "landerneau-daoulas-tourisme",
+   "nature": "office de tourisme ou collectivité",
+   "domaines": [
+    "accès",
+    "lieux"
+   ],
+   "limites": "promotionnel",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "pays-landerneau-daoulas.fr": {
+   "famille": 4,
+   "groupe": "landerneau-daoulas-tourisme",
+   "nature": "office de tourisme ou collectivité",
+   "domaines": [
+    "accès",
+    "lieux"
+   ],
+   "limites": "promotionnel",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "tourismebretagne.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "office ou comité de tourisme",
+   "domaines": [
+    "accès",
+    "lieux",
+    "activités"
+   ],
+   "limites": "promotionnel",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "lorientbretagnesudtourisme.fr": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "office ou comité de tourisme",
+   "domaines": [
+    "accès",
+    "lieux",
+    "activités"
+   ],
+   "limites": "promotionnel",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "normandie-tourisme.fr": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "office ou comité de tourisme",
+   "domaines": [
+    "accès",
+    "lieux",
+    "activités"
+   ],
+   "limites": "promotionnel",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "roscoff-tourisme.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "office ou comité de tourisme",
+   "domaines": [
+    "accès",
+    "lieux",
+    "activités"
+   ],
+   "limites": "promotionnel",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "deconcarneauapontaven.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "office ou comité de tourisme",
+   "domaines": [
+    "accès",
+    "lieux",
+    "activités"
+   ],
+   "limites": "promotionnel",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "destination-paysbigouden.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "office ou comité de tourisme",
+   "domaines": [
+    "accès",
+    "lieux",
+    "activités"
+   ],
+   "limites": "promotionnel",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "toutcommenceenfinistere.com": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "office ou comité de tourisme",
+   "domaines": [
+    "accès",
+    "lieux",
+    "activités"
+   ],
+   "limites": "promotionnel",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "tendanceouest.com": {
+   "famille": 4,
+   "groupe": "tendance-ouest",
+   "nature": "presse régionale",
+   "domaines": [
+    "événements",
+    "faits locaux"
+   ],
+   "limites": "actualité datée, pas de connaissance halieutique",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "Wikipédia (en)": {
+   "famille": 6,
+   "groupe": "wikipedia",
+   "nature": "encyclopédie collaborative",
+   "domaines": [
+    "lieux",
+    "connaissance générale"
+   ],
+   "limites": "jamais une preuve seule : remonter aux sources de l'article",
+   "droits": "CC BY-SA 4.0 (attribution, partage à l'identique)"
+  },
+  "Wikipédia (fr)": {
+   "famille": 6,
+   "groupe": "wikipedia",
+   "nature": "encyclopédie collaborative",
+   "domaines": [
+    "lieux",
+    "connaissance générale"
+   ],
+   "limites": "jamais une preuve seule : remonter aux sources de l'article",
+   "droits": "CC BY-SA 4.0 (attribution, partage à l'identique)"
+  },
+  "fr.wikipedia.org": {
+   "famille": 6,
+   "groupe": "wikipedia",
+   "nature": "encyclopédie collaborative",
+   "domaines": [
+    "lieux",
+    "connaissance générale"
+   ],
+   "limites": "jamais une preuve seule : remonter aux sources de l'article",
+   "droits": "CC BY-SA 4.0 (attribution, partage à l'identique)"
+  },
+  "en.wikipedia.org": {
+   "famille": 6,
+   "groupe": "wikipedia",
+   "nature": "encyclopédie collaborative",
+   "domaines": [
+    "lieux",
+    "connaissance générale"
+   ],
+   "limites": "jamais une preuve seule : remonter aux sources de l'article",
+   "droits": "CC BY-SA 4.0 (attribution, partage à l'identique)"
+  },
+  "en.wikipedia.org/wiki/Île_de_Tibidy": {
+   "famille": 6,
+   "groupe": "wikipedia",
+   "nature": "encyclopédie collaborative",
+   "domaines": [
+    "lieux",
+    "connaissance générale"
+   ],
+   "limites": "jamais une preuve seule : remonter aux sources de l'article",
+   "droits": "CC BY-SA 4.0 (attribution, partage à l'identique)"
+  },
+  "capitaine-spots.fr": {
+   "famille": 6,
+   "groupe": null,
+   "nature": "agrégateur, site généraliste ou commercial",
+   "domaines": [
+    "connaissance générale"
+   ],
+   "limites": "contenu générique ou recopié ; ne compte pas comme une voix indépendante sans preuve",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "fishipedia.fr": {
+   "famille": 6,
+   "groupe": null,
+   "nature": "agrégateur, site généraliste ou commercial",
+   "domaines": [
+    "connaissance générale"
+   ],
+   "limites": "contenu générique ou recopié ; ne compte pas comme une voix indépendante sans preuve",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "generationvoyage.fr": {
+   "famille": 6,
+   "groupe": null,
+   "nature": "agrégateur, site généraliste ou commercial",
+   "domaines": [
+    "connaissance générale"
+   ],
+   "limites": "contenu générique ou recopié ; ne compte pas comme une voix indépendante sans preuve",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "sport-decouverte.com": {
+   "famille": 6,
+   "groupe": null,
+   "nature": "agrégateur, site généraliste ou commercial",
+   "domaines": [
+    "connaissance générale"
+   ],
+   "limites": "contenu générique ou recopié ; ne compte pas comme une voix indépendante sans preuve",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "campingsaintjean.com": {
+   "famille": 6,
+   "groupe": null,
+   "nature": "agrégateur, site généraliste ou commercial",
+   "domaines": [
+    "connaissance générale"
+   ],
+   "limites": "contenu générique ou recopié ; ne compte pas comme une voix indépendante sans preuve",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "lhdigest.com": {
+   "famille": 6,
+   "groupe": null,
+   "nature": "agrégateur, site généraliste ou commercial",
+   "domaines": [
+    "connaissance générale"
+   ],
+   "limites": "contenu générique ou recopié ; ne compte pas comme une voix indépendante sans preuve",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "mieuxpecher.com": {
+   "famille": null,
+   "groupe": null,
+   "nature": "site spécialisé de pêche (spots et conseils)",
+   "domaines": [
+    "halieutique",
+    "spots"
+   ],
+   "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+   "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)"
+  },
+  "peche-poissons.com": {
+   "famille": null,
+   "groupe": null,
+   "nature": "site spécialisé de pêche (spots et conseils)",
+   "domaines": [
+    "halieutique",
+    "spots"
+   ],
+   "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+   "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)"
+  },
+  "Ton journal": {
+   "famille": 4,
+   "groupe": "prive-felix",
+   "nature": "journal personnel de Félix",
+   "domaines": [
+    "observations personnelles"
+   ],
+   "limites": "donnée privée : hors des fiches publiques V3",
+   "droits": "privé"
+  },
+  "CNCM": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "structure locale d'activités nautiques ou de randonnée (sigle non résolu)",
+   "domaines": [
+    "accès",
+    "sentiers"
+   ],
+   "limites": "éditeur non identifié avec certitude : sigle seul dans la V2",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "Ministère de la Transition écologique": {
+   "famille": 2,
+   "groupe": "etat-fr-securite",
+   "nature": "administration de l'État (communication)",
+   "domaines": [
+    "sécurité en mer",
+    "risques"
+   ],
+   "limites": "fiche de presse : consignes générales, pas locales",
+   "droits": "Licence Ouverte (informations publiques)"
+  }
+ }
+}

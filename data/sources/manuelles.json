@@ -193,7 +193,7 @@
     "statut": "évaluée",
     "auteur": "BRGM et ministère de la Transition écologique (Géorisques)",
     "date": "2026-11-23",
-    "methode": "événements recensés dans un rayon de 500 m (rayon des rapports de risques Géorisques) autour du point de chaque spot ; passage CI 45262264373",
+    "methode": "événements recensés dans un rayon de 500 m (rayon des rapports de risques Géorisques) autour du point de chaque spot ; passage CI 45262736236",
     "precision": "type, fiabilité (Fort, Moyen, Faible) et précision de localisation (mètre à hectomètre) de chaque événement ; la date manque souvent (valeur 1111-01-01 dans la base)",
     "independance": "indépendante des sources de pêche",
     "limites": "recensement non exhaustif : l'absence d'événement ne prouve pas l'absence de risque ; un événement ancien ne dit pas l'état actuel de la falaise",
@@ -213,11 +213,51 @@
     "statut": "évaluée",
     "auteur": "BRGM et ministère de la Transition écologique (Géorisques)",
     "date": "2026-11-23",
-    "methode": "risques de la commune qui contient le point de chaque spot ; passage CI 45262264373",
+    "methode": "risques de la commune qui contient le point de chaque spot ; passage CI 45262736236 ; repli sur les communes à 1 km quand le point est hors des limites communales (pointe, embouchure)",
     "precision": "échelle communale",
     "independance": "indépendante des sources de pêche",
     "limites": "dit qu'un risque existe dans la commune, pas qu'il concerne le poste",
     "droits": "Licence Ouverte 2.0 (Etalab), accès « Ouvert » sans clé (data.gouv.fr, fiche API Géorisques)",
+    "consulte_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-ddtm29-synthese-peche-loisir-2026",
+   "texte": "DDTM du Finistère, Délégation à la mer et au littoral, « Synthèse de la réglementation de la pêche maritime de loisir embarquée, à pied, à la nage ou en plongée sur le littoral du Finistère », mise à jour d'avril 2026 (copie publiée par la commune de Locquirec)",
+   "editeur": "DDTM du Finistère",
+   "url": "https://www.locquirec.bzh/wp-content/uploads/2026/04/2026-SYNTHESE-peche-loisir-en-mer.pdf",
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "DDTM du Finistère, préfecture du Finistère",
+    "date": "2026-04",
+    "methode": "synthèse administrative des textes en vigueur ; le document précise qu'il est informatif et ne remplace pas la réglementation",
+    "precision": "départementale ; périmètres des ports et des cantonnements non reproduits dans le texte lu",
+    "independance": "administration de l'État (groupe etat-fr-reglementation)",
+    "limites": "les limites administratives des ports et la carte des cantonnements ne sont pas dans le texte : l'application à un poste précis reste à vérifier ; aucune référence d'arrêté pour certains cantonnements",
+    "droits": "Licence Ouverte (informations publiques)",
+    "consulte_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-attitude-manche-sciotot",
+   "texte": "Attitude Manche (agence d'attractivité de la Manche), fiche « Plage de Sciotot » sur cirkwi.com, citant l'arrêté municipal des Pieux A2022-06-13-001 ; mise à jour du 20 nov. 2026",
+   "editeur": "Attitude Manche",
+   "url": "https://www.cirkwi.com/fr/point-interet/2487515-plage-de-sciotot",
+   "type": "collectivité ou tourisme",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Attitude Manche (Saint-Lô)",
+    "date": "2026-11-20",
+    "methode": "fiche touristique qui reprend un arrêté municipal",
+    "precision": "plage de Sciotot, de la cale à la barre rocheuse de la Roquette",
+    "independance": "indépendante des sources de pêche",
+    "limites": "l'arrêté municipal lui-même n'a pas été lu ; le sens de « pêche à l'hameçon (paillots…) » pour la pêche au leurre à la canne reste à confirmer auprès de la mairie des Pieux",
+    "droits": "droit de citation",
     "consulte_le": "2026-11-23"
    }
   }

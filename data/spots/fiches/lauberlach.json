@@ -369,13 +369,34 @@
      }
     ]
    },
-   "texte": "1 mouvement de terrain recensé par le BRGM à 500 m du point : glissement (1). 1 événement sans date. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+   "texte": "1 mouvement de terrain recensé par le BRGM à 500 m du point : Glissement (1). 1 événement sans date. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
   },
   "risques_commune": {
-   "statut": "INCONNU",
+   "statut": "VÉRIFIÉ",
    "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
    "verifie_le": "2026-11-23",
-   "raison": "Aucune commune trouvée par Géorisques pour le point (2026-11-23)."
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "PLOUGASTEL-DAOULAS",
+     "code_insee": "29189",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon",
+      "Risque industriel",
+      "Effet thermique",
+      "Effet de surpression"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour les communes à 1 km du point (le point est hors des limites communales) (PLOUGASTEL-DAOULAS) : Par submersion marine ; Mouvement de terrain. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [
@@ -448,6 +469,7 @@
    "src-arrete-peche-loisir-2026-recfishing",
    "src-campingsaintjean-com-e1ac34",
    "src-georisques-bdmvt",
+   "src-georisques-gaspar",
    "src-hisse-et-oh-com-fb1c3d",
    "src-ign-bdtopo-parkings",
    "src-ign-itineraire-pieton",
@@ -481,7 +503,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.74,
+  "completude": 0.77,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -489,7 +511,6 @@
    "tide_approaches.descendante",
    "safety.coef_max",
    "safety.acces_maree",
-   "safety.risques_commune",
    "windows.habituelles",
    "windows.securite",
    "photos"

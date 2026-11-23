@@ -4,11 +4,13 @@
 // interdits. Taille minimale 42 cm (arrêté du 26 octobre 2012, version du 14 janvier 2026). Enregistrement RecFishing
 // la veille et déclaration sous 24 h (arrêté TECM2608396A). La limite des zones CIEM 7 et 8 est le 48ᵉ parallèle Nord.
 // Remplace la ligne V2 de `regulations` (texte gardé dans la sauvegarde V2). Les règles valent pour 2026 seulement.
+// Les règles locales (scripts/reglementation-locale.mjs) suivent les règles nationales.
 //   node scripts/reglementation-fiches.mjs
 import fs from "node:fs";
 import path from "node:path";
 import { lireFiches, DIR_FICHES, ecrireRegistre } from "./registre-spots.mjs";
 import { qualite } from "./fiches-v3-depuis-v2.mjs";
+import { LOCALES } from "./reglementation-locale.mjs";
 
 const JOUR = "2026-11-23";
 const S_BAR = "src-arrete-bar-loisir-2026", S_TAILLE = "src-legifrance-tailles-minimales-2026", S_DECL = "src-arrete-peche-loisir-2026-recfishing";
@@ -28,7 +30,7 @@ const regles = (lat) => {
 
 let n = 0;
 for (const { fichier, fiche: f } of lireFiches()) {
-  f.regulations = regles(f.coordinates.lat);
+  f.regulations = [...regles(f.coordinates.lat), ...(LOCALES[f.id] || [])];
   const proche = Math.abs(f.coordinates.lat - 48) < 0.02;
   const note = "Spot à moins de 2,2 km du 48ᵉ parallèle : la zone CIEM (7 ou 8) dépend du poste exact ; à vérifier sur place.";
   f.quality.anomalies = f.quality.anomalies.filter((a) => a !== note).concat(proche ? [note] : []);

@@ -413,13 +413,29 @@
      }
     ]
    },
-   "texte": "4 mouvements de terrain recensés par le BRGM à 500 m du point : chute de blocs / eboulement (4). 4 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+   "texte": "4 mouvements de terrain recensés par le BRGM à 500 m du point : Chute de blocs / Eboulement (4). 4 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
   },
   "risques_commune": {
-   "statut": "INCONNU",
+   "statut": "VÉRIFIÉ",
    "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
    "verifie_le": "2026-11-23",
-   "raison": "Aucune commune trouvée par Géorisques pour le point (2026-11-23)."
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "NEVEZ",
+     "code_insee": "29153",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour les communes à 1 km du point (le point est hors des limites communales) (NEVEZ) : Par submersion marine. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [
@@ -488,6 +504,7 @@
    "src-arrete-peche-loisir-2026-recfishing",
    "src-deconcarneauapontaven-com-df8eba",
    "src-georisques-bdmvt",
+   "src-georisques-gaspar",
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
@@ -512,7 +529,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.76,
+  "completude": 0.78,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -520,7 +537,6 @@
    "tide_approaches.descendante",
    "safety.coef_max",
    "safety.acces_maree",
-   "safety.risques_commune",
    "windows.habituelles",
    "windows.securite",
    "photos"

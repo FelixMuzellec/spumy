@@ -74,8 +74,17 @@ export function construire() {
     }
   }
   // Une évaluation déjà faite n'est jamais écrasée.
-  const liste = [...sources.values()].map((s) => (!s.manuelle && garde.get(s.id)?.evaluation?.statut && garde.get(s.id).evaluation.statut !== "à évaluer" ? { ...s, evaluation: garde.get(s.id).evaluation, famille: garde.get(s.id).famille } : s))
-    .sort((a, b) => a.id.localeCompare(b.id));
+  const evaluees = [...sources.values()].map((s) => (!s.manuelle && garde.get(s.id)?.evaluation?.statut && garde.get(s.id).evaluation.statut !== "à évaluer" ? { ...s, evaluation: garde.get(s.id).evaluation, famille: garde.get(s.id).famille } : s));
+  // Classement par éditeur (data/sources/editeurs.json) : nature, domaines, groupe d'indépendance, limites, droits.
+  // Il fixe la famille d'une source qui n'en a pas (INFÉRÉ, page non relue) ; il ne vaut jamais évaluation de la page.
+  const F_ED = path.join(root, "data/sources/editeurs.json");
+  const classes = fs.existsSync(F_ED) ? JSON.parse(fs.readFileSync(F_ED, "utf8")) : { editeurs: {} };
+  const liste = evaluees.map((s) => {
+    const c = classes.editeurs[s.editeur];
+    if (!c) return { ...s, groupe: s.groupe || `editeur:${slug(s.editeur)}` };
+    return { ...s, famille: s.famille ?? c.famille, groupe: c.groupe || `editeur:${slug(s.editeur)}`,
+      editeur_classe: { nature: c.nature, domaines: c.domaines, limites: c.limites, droits: c.droits, ...(c.constat ? { constat: c.constat } : {}), famille_inferee: s.famille == null ? c.famille : undefined, classe_le: classes.classe_le } };
+  }).sort((a, b) => a.id.localeCompare(b.id));
   const parEditeur = {};
   for (const s of liste) (parEditeur[s.editeur] ||= []).push(s.id);
   return {
@@ -84,6 +93,9 @@ export function construire() {
       totaux: {
         sources: liste.length, aEvaluer: liste.filter((s) => s.evaluation.statut === "à évaluer").length,
         avecUrl: liste.filter((s) => s.url).length, editeurs: Object.keys(parEditeur).length,
+        editeurClasse: liste.filter((s) => s.editeur_classe || s.evaluation.statut !== "à évaluer").length,
+        groupes: new Set(liste.map((s) => s.groupe)).size,
+        parFamille: liste.reduce((m, s) => ((m[s.famille ?? "non fixée"] = (m[s.famille ?? "non fixée"] || 0) + 1), m), {}),
         parType: liste.reduce((m, s) => ((m[s.type] = (m[s.type] || 0) + 1), m), {}),
       },
       sources: liste,

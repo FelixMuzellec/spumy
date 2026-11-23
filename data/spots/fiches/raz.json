@@ -414,7 +414,7 @@
      }
     ]
    },
-   "texte": "1 mouvement de terrain recensé par le BRGM à 500 m du point : erosion de berges (1). 1 événement sans date. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+   "texte": "1 mouvement de terrain recensé par le BRGM à 500 m du point : Erosion de berges (1). 1 événement sans date. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
   },
   "risques_commune": {
    "statut": "VÉRIFIÉ",
@@ -439,7 +439,7 @@
      ]
     }
    ],
-   "texte": "Risques recensés pour la commune (PLOGOFF) : par submersion marine, mouvement de terrain. Portée communale : ne décrit pas le poste."
+   "texte": "Risques recensés pour la commune (PLOGOFF) : Par submersion marine ; Mouvement de terrain. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [

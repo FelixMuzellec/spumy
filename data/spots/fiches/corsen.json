@@ -431,7 +431,7 @@
      }
     ]
    },
-   "texte": "5 mouvements de terrain recensés par le BRGM à 500 m du point : chute de blocs / eboulement (3), glissement (1), erosion de berges (1). 5 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+   "texte": "5 mouvements de terrain recensés par le BRGM à 500 m du point : Chute de blocs / Eboulement (3), Glissement (1), Erosion de berges (1). 5 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
   },
   "risques_commune": {
    "statut": "VÉRIFIÉ",
@@ -455,7 +455,7 @@
      ]
     }
    ],
-   "texte": "Risques recensés pour la commune (PLOUARZEL) : par submersion marine, mouvement de terrain. Portée communale : ne décrit pas le poste."
+   "texte": "Risques recensés pour la commune (PLOUARZEL) : Par submersion marine ; Mouvement de terrain. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [

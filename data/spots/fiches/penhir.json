@@ -433,7 +433,7 @@
      }
     ]
    },
-   "texte": "4 mouvements de terrain recensés par le BRGM à 500 m du point : glissement (2), effondrement / affaissement (1), chute de blocs / eboulement (1). 4 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+   "texte": "4 mouvements de terrain recensés par le BRGM à 500 m du point : Glissement (2), Effondrement / Affaissement (1), Chute de blocs / Eboulement (1). 4 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
   },
   "risques_commune": {
    "statut": "VÉRIFIÉ",
@@ -457,7 +457,7 @@
      ]
     }
    ],
-   "texte": "Risques recensés pour la commune (CAMARET-SUR-MER) : par submersion marine, mouvement de terrain. Portée communale : ne décrit pas le poste."
+   "texte": "Risques recensés pour la commune (CAMARET-SUR-MER) : Par submersion marine ; Mouvement de terrain. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [

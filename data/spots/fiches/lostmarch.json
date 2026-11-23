@@ -439,7 +439,7 @@
      }
     ]
    },
-   "texte": "6 mouvements de terrain recensés par le BRGM à 500 m du point : chute de blocs / eboulement (3), glissement (2), erosion de berges (1). 6 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+   "texte": "6 mouvements de terrain recensés par le BRGM à 500 m du point : Chute de blocs / Eboulement (3), Glissement (2), Erosion de berges (1). 6 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
   },
   "risques_commune": {
    "statut": "VÉRIFIÉ",
@@ -469,7 +469,7 @@
      ]
     }
    ],
-   "texte": "Risques recensés pour la commune (CROZON) : par submersion marine, mouvement de terrain. Portée communale : ne décrit pas le poste."
+   "texte": "Risques recensés pour la commune (CROZON) : Par submersion marine ; Mouvement de terrain. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [

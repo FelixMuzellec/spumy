@@ -402,13 +402,54 @@
      }
     ]
    },
-   "texte": "2 mouvements de terrain recensés par le BRGM à 500 m du point : glissement (1), erosion de berges (1). 2 événements sans date. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+   "texte": "2 mouvements de terrain recensés par le BRGM à 500 m du point : Glissement (1), Erosion de berges (1). 2 événements sans date. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
   },
   "risques_commune": {
-   "statut": "INCONNU",
+   "statut": "VÉRIFIÉ",
    "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
    "verifie_le": "2026-11-23",
-   "raison": "Aucune commune trouvée par Géorisques pour le point (2026-11-23)."
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "LE CONQUET",
+     "code_insee": "29040",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Eboulement ou chutes de pierres et de blocs",
+      "Séisme",
+      "Radon"
+     ]
+    },
+    {
+     "commune": "PLOUMOGUER",
+     "code_insee": "29201",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon"
+     ]
+    },
+    {
+     "commune": "TREBABU",
+     "code_insee": "29282",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour les communes à 1 km du point (le point est hors des limites communales) (LE CONQUET, PLOUMOGUER, TREBABU) : Par submersion marine ; Mouvement de terrain ; Eboulement ou chutes de pierres et de blocs. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [
@@ -536,6 +577,7 @@
    "src-atout-pecheur-fr-0d64ee",
    "src-fishipedia-fr-411451",
    "src-georisques-bdmvt",
+   "src-georisques-gaspar",
    "src-guillaume29-over-blog-com-0f8c52",
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
@@ -574,7 +616,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.79,
+  "completude": 0.81,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -582,7 +624,6 @@
    "tide_approaches.haute",
    "safety.coef_max",
    "safety.acces_maree",
-   "safety.risques_commune",
    "windows.habituelles",
    "windows.securite"
   ],

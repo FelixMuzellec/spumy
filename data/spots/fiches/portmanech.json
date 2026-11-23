@@ -378,7 +378,7 @@
      ]
     }
    ],
-   "texte": "Risques recensés pour la commune (NEVEZ) : par submersion marine. Portée communale : ne décrit pas le poste."
+   "texte": "Risques recensés pour la commune (NEVEZ) : Par submersion marine. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [
@@ -421,6 +421,34 @@
    "verifie_le": "2026-11-23",
    "niveau": 1,
    "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ddtm29-synthese-peche-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 2,
+   "valeur": {
+    "portee": "Finistère",
+    "application_au_poste": "à vérifier"
+   },
+   "texte": "Finistère : il est interdit « de pêcher à l'intérieur des limites administratives des ports » (synthèse de la DDTM du Finistère, avril 2026, p. 4). Le poste décrit touche un port, une digue ou une cale : avant toute recommandation, vérifier qu'il est hors de ces limites."
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ddtm29-synthese-peche-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 2,
+   "valeur": {
+    "portee": "cantonnement « Le Cochon »",
+    "application_au_poste": "à vérifier"
+   },
+   "texte": "Cantonnement de Port-Manec'h dit « Le Cochon » : « Toute pêche » interdite (synthèse de la DDTM du Finistère, avril 2026, p. 6). Le périmètre n'est pas dans le texte lu : vérifier que le poste est hors du cantonnement."
   }
  ],
  "windows": {
@@ -445,6 +473,7 @@
   "sources": [
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
+   "src-ddtm29-synthese-peche-loisir-2026",
    "src-georisques-gaspar",
    "src-ign-bdtopo-parkings",
    "src-ign-itineraire-pieton",
@@ -482,7 +511,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.76,
+  "completude": 0.77,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",

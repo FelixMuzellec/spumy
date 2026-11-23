@@ -441,13 +441,32 @@
      }
     ]
    },
-   "texte": "4 mouvements de terrain recensés par le BRGM à 500 m du point : chute de blocs / eboulement (3), erosion de berges (1). 4 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+   "texte": "4 mouvements de terrain recensés par le BRGM à 500 m du point : Chute de blocs / Eboulement (3), Erosion de berges (1). 4 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
   },
   "risques_commune": {
-   "statut": "INCONNU",
+   "statut": "VÉRIFIÉ",
    "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
    "verifie_le": "2026-11-23",
-   "raison": "Aucune commune trouvée par Géorisques pour le point (2026-11-23)."
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "LE CONQUET",
+     "code_insee": "29040",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Eboulement ou chutes de pierres et de blocs",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour les communes à 1 km du point (le point est hors des limites communales) (LE CONQUET) : Par submersion marine ; Mouvement de terrain ; Eboulement ou chutes de pierres et de blocs. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [
@@ -533,6 +552,7 @@
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
    "src-georisques-bdmvt",
+   "src-georisques-gaspar",
    "src-guillaume29-over-blog-com-0f8c52",
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
@@ -577,14 +597,13 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.82,
+  "completude": 0.84,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
    "tide_approaches.basse",
    "tide_approaches.haute",
    "safety.coef_max",
-   "safety.risques_commune",
    "windows.habituelles",
    "windows.securite"
   ],

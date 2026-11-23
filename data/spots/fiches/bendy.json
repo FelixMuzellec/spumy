@@ -401,7 +401,7 @@
      ]
     }
    ],
-   "texte": "Risques recensés pour la commune (LOGONNA-DAOULAS) : par submersion marine. Portée communale : ne décrit pas le poste."
+   "texte": "Risques recensés pour la commune (LOGONNA-DAOULAS) : Par submersion marine. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [
@@ -448,6 +448,20 @@
    "verifie_le": "2026-11-23",
    "niveau": 1,
    "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ddtm29-synthese-peche-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 2,
+   "valeur": {
+    "portee": "Finistère",
+    "application_au_poste": "à vérifier"
+   },
+   "texte": "Finistère : « La pêche dans les herbiers de zostères est interdite » (synthèse de la DDTM du Finistère, avril 2026, p. 4 ; le barème des sanctions vise la « pêche à pied »). La fiche décrit des herbiers : ne pas pêcher ni marcher dedans ; les conseils qui visent les herbiers sont à revoir."
   }
  ],
  "windows": {
@@ -503,6 +517,7 @@
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
    "src-capitaine-spots-fr-0c86de",
+   "src-ddtm29-synthese-peche-loisir-2026",
    "src-fr-wikipedia-org-a16630",
    "src-georisques-gaspar",
    "src-ign-bdtopo-parkings",
@@ -538,7 +553,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.78,
+  "completude": 0.79,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",

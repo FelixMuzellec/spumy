@@ -52,7 +52,7 @@ Sources locales recherchées sur les quatre zones vides : guides professionnels,
 ## 4. Contradictions et nuances
 
 - **Frai du bar** : janvier à mars dans le golfe de Gascogne (cartes de l'Ifremer), février à juin pour le stock nord (modèle larvaire). Ce ne sont pas des contradictions mais deux stocks, séparés au 48ᵉ parallèle (référentiel biologique, § 2.1).
-- **Réglementation du lieu jaune pour 2026** : les quotas européens annonçaient 3 lieus par jour au nord du 48ᵉ parallèle. L'administration a rappelé que seuls s'appliquent les textes en vigueur, soit 2 par jour, d'après l'arrêté de 2025 et la présentation de juin 2026. **À confirmer** sur un texte de 2026.
+- **Réglementation du lieu jaune pour 2026** : les quotas européens annonçaient 3 lieus par jour au nord du 48ᵉ parallèle. L'administration a rappelé que seuls s'appliquent les textes en vigueur, soit 2 par jour. **Résolu (23 nov., soir)** : la synthèse de la DDTM du Finistère mise à jour en avril 2026 cite l'arrêté du 24 décembre 2024 : aucune détention du 1er janvier au 30 avril, 2 lieus par pêcheur et par jour du 1er mai au 31 décembre, relâcher interdit. VÉRIFIÉ sur une source administrative de 2026 ; le texte de l'arrêté reste à lire sur Légifrance.
 - **Mesures locales** : la synthèse régionale de 2024 (DIRM Nord Atlantique-Manche Ouest) cite une interdiction de toute pêche du bar du 1er mars au 31 mai au large du cap Fréhel. Elle s'appuie sur l'arrêté n° 116/2005 de la direction régionale des affaires maritimes et vise un rectangle compris entre 48°40' et 48°42' de latitude nord, et entre 2°17'50'' et 2°20' de longitude ouest. D'autres règles locales de ce type peuvent exister : chaque fiche nouvelle devra les rechercher (5.7).
 
 ## 5. Limites de la méthode

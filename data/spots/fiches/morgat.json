@@ -466,13 +466,37 @@
      }
     ]
    },
-   "texte": "9 mouvements de terrain recensés par le BRGM à 500 m du point : chute de blocs / eboulement (8), effondrement / affaissement (1). Le plus récent daté : 2002 ; 5 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+   "texte": "9 mouvements de terrain recensés par le BRGM à 500 m du point : Chute de blocs / Eboulement (8), Effondrement / Affaissement (1). Le plus récent daté : 2002 ; 5 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
   },
   "risques_commune": {
-   "statut": "INCONNU",
+   "statut": "VÉRIFIÉ",
    "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
    "verifie_le": "2026-11-23",
-   "raison": "Aucune commune trouvée par Géorisques pour le point (2026-11-23)."
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "CROZON",
+     "code_insee": "29042",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon",
+      "Risque industriel",
+      "Effet thermique",
+      "Effet de surpression",
+      "Effet toxique",
+      "Effet de projection",
+      "Nucléaire"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour les communes à 1 km du point (le point est hors des limites communales) (CROZON) : Par submersion marine ; Mouvement de terrain. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [
@@ -519,6 +543,20 @@
    "verifie_le": "2026-11-23",
    "niveau": 1,
    "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ddtm29-synthese-peche-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 2,
+   "valeur": {
+    "portee": "Finistère",
+    "application_au_poste": "à vérifier"
+   },
+   "texte": "Finistère : il est interdit « de pêcher à l'intérieur des limites administratives des ports » (synthèse de la DDTM du Finistère, avril 2026, p. 4). Le poste décrit touche un port, une digue ou une cale : avant toute recommandation, vérifier qu'il est hors de ces limites."
   }
  ],
  "windows": {
@@ -582,7 +620,9 @@
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
    "src-cncm-2c6418",
+   "src-ddtm29-synthese-peche-loisir-2026",
    "src-georisques-bdmvt",
+   "src-georisques-gaspar",
    "src-google-maps-20182f",
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
@@ -620,7 +660,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.79,
+  "completude": 0.81,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -628,7 +668,6 @@
    "tide_approaches.descendante",
    "safety.coef_max",
    "safety.acces_maree",
-   "safety.risques_commune",
    "windows.habituelles",
    "windows.securite"
   ],

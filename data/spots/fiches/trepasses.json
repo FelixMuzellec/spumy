@@ -448,13 +448,44 @@
      }
     ]
    },
-   "texte": "5 mouvements de terrain recensés par le BRGM à 500 m du point : erosion de berges (1), glissement (1), chute de blocs / eboulement (3). Le plus récent daté : 2000 ; 4 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+   "texte": "5 mouvements de terrain recensés par le BRGM à 500 m du point : Erosion de berges (1), Glissement (1), Chute de blocs / Eboulement (3). Le plus récent daté : 2000 ; 4 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
   },
   "risques_commune": {
-   "statut": "INCONNU",
+   "statut": "VÉRIFIÉ",
    "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
    "verifie_le": "2026-11-23",
-   "raison": "Aucune commune trouvée par Géorisques pour le point (2026-11-23)."
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "CLEDEN-CAP-SIZUN",
+     "code_insee": "29028",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon"
+     ]
+    },
+    {
+     "commune": "PLOGOFF",
+     "code_insee": "29168",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Feu de forêt",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour les communes à 1 km du point (le point est hors des limites communales) (CLEDEN-CAP-SIZUN, PLOGOFF) : Par submersion marine ; Mouvement de terrain. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [
@@ -572,6 +603,7 @@
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
    "src-georisques-bdmvt",
+   "src-georisques-gaspar",
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
@@ -606,7 +638,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.8,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -614,7 +646,6 @@
    "tide_approaches.haute",
    "safety.coef_max",
    "safety.acces_maree",
-   "safety.risques_commune",
    "windows.habituelles",
    "windows.securite"
   ],
