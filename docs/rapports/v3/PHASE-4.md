@@ -242,6 +242,8 @@ Félix l'a posée à 15 h 31 (ruleset 27906963, actif). Le rapport précédent l
 
 **Une correction reste à faire par Félix** : le contrôle exigé s'appelle `contract`, alors que le passage s'appelle `contrat`. Tant qu'elle n'est pas faite, aucune fusion dans `main` ne peut aboutir. La marche à suivre est dans `docs/socle/PROTECTION-MAIN.md`.
 
+**Corrigé par Félix à 19 h 47**, vérifié en lecture : contrôles exigés `tests` et `contrat` (GitHub Actions). Sous-tâche 4.8 : **TESTED**.
+
 ### Décisions appliquées
 
 | Point | Décision | Fait |
@@ -288,7 +290,6 @@ Rien de V3-009 n'est modifié : ces règles le complètent.
 ### Restent ouverts
 
 - **Félix** :
-    - corriger `contract` en `contrat` dans la protection de `main` ;
     - envoyer l'étiquette `v2-final` ;
     - donner le jeton de la phase 5.
 - **Plus tard** :

@@ -21,11 +21,7 @@ Ruleset « Protéger main (fusion = publication du site) », sur la branche par 
 - contournement : rôle administrateur, par proposition seulement ;
 - cible : la branche par défaut.
 
-**Une correction reste à faire.** Le contrôle exigé s'appelle `contract`, sans source. Or le passage du contrat Open-Meteo s'appelle `contrat`, et GitHub Actions publie bien `contrat`, `tests` et `ign`. Un contrôle `contract` ne sera donc jamais rendu : toute fusion dans `main` attendrait sans fin, sauf contournement par l'administrateur. Félix corrige (la session ne peut pas écrire les rulesets, HTTP 403) :
-1. Settings → Rules → Rulesets → « Protéger main… » → Require status checks to pass ;
-2. retirer `contract` ;
-3. Add checks → `contrat`, source GitHub Actions ;
-4. Save changes.
+**Correction faite par Félix le 23 nov. 2026, 19 h 47** : les contrôles exigés sont désormais `tests` et `contrat`, tous deux de GitHub Actions (integration 15368). Lecture du 23 nov., 19 h 50 : `rules/branches/main` liste `deletion`, `non_fast_forward`, `pull_request` et `required_status_checks` (`tests`, `contrat`). La protection est **conforme au plan**.
 
 ## Pour l'activer (Félix, une minute)
 

@@ -59,7 +59,7 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 | 4.5 Configuration reproductible et secrets (`.env.example`, détection de secrets, `.gitignore`) | TESTED (`tests/secrets.mjs` : 544 fichiers et 173 commits, aucun secret ; `.env.example` ; `.gitignore` complété) | `.env.example`, `tests/secrets.mjs` |
 | 4.6 Conventions et qualité de code | IMPLEMENTED (conventions V3 dans CONTRIBUTING ; ESLint 8 non maintenu : passage à ESLint 9 ou 10 proposé à Félix, pas fait d'office) | `CONTRIBUTING.md`, `.eslintrc.json` |
 | 4.7 Nettoyage autorisé (registre, suppressions sûres seulement, restauration) | TESTED (`map.jsx` supprimé après audit ; lint 0, couches 0, construction identique ; reste en registre ; branches : V3-019, rien supprimé) | `docs/socle/NETTOYAGE.md` |
-| 4.8 Protection de `main` | IMPLEMENTED par Félix le 23 nov., 15 h 31 (ruleset 27906963, actif) ; **une correction** : contrôle exigé `contract` au lieu de `contrat` (fusion bloquée tant qu'il n'est pas corrigé), action de Félix | `docs/socle/PROTECTION-MAIN.md`, `docs/socle/protection-main.json` |
+| 4.8 Protection de `main` | TESTED (posée par Félix le 23 nov., 15 h 31, ruleset 27906963 ; contrôle exigé corrigé par Félix à 19 h 47 : `tests` et `contrat`, GitHub Actions ; vérifié en lecture à 19 h 50) | `docs/socle/PROTECTION-MAIN.md`, `docs/socle/protection-main.json` |
 | 4.9 Documentation opérationnelle, README et fichiers de pilotage | IMPLEMENTED (EXPLOITATION : installer, publier, revenir en arrière, surveiller, incident, secrets, sauvegardes, coûts ; README et CHANGELOG à jour) | `README.md`, `docs/socle/EXPLOITATION.md`, `CHANGELOG.md` |
 | 4.10 Installation et lancement reproductibles (clone neuf) | TESTED (clone neuf de 8118388 : `npm ci` 0, build sans écart, `npm test` 0, upgrade 12/12, prototype 244/244, prototype-v3 224/224, marque 35/35, secrets 177 commits ; deux défauts trouvés et corrigés : esbuild lisait `tsconfig.json`, test a11y dépendant de l'heure) | — |
 | 4.11 Red-team, rapport en 14 parties, arrêt | TESTED (red-team : 2 constats majeurs ouverts, protection de `main` et étalonnage IGN, 7 mineurs ou observations ; preuves § 7 du rapport) | `docs/rapports/v3/PHASE-4.md` |
@@ -103,11 +103,10 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 ## Prochaine action
 
 Phase 4 **TESTED** (rapport, complément et second complément remis), arrêt. Attendus de Félix :
-- corriger le contrôle exigé `contract` en `contrat` dans la protection de `main` (`docs/socle/PROTECTION-MAIN.md`) : sinon aucune fusion ne peut aboutir ;
 - envoyer l'étiquette `v2-final` (V3-019 ; envoi refusé à la session) ;
 - donner le jeton `APPROVED — PROCEED TO PHASE 5`.
 
-Aucune tâche de la phase 5 ne démarre sans ce jeton. Branche `claude/v3-phase-4` ; `main` inchangé (bb4f940), protégé depuis le 23 nov., 15 h 31.
+Aucune tâche de la phase 5 ne démarre sans ce jeton. Branche `claude/v3-phase-4` ; `main` inchangé (bb4f940), protégé depuis le 23 nov., 15 h 31 (contrôles `tests` et `contrat`, corrigés à 19 h 47).
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
