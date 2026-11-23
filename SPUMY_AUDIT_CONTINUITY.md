@@ -59,7 +59,7 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 | 4.5 Configuration reproductible et secrets (`.env.example`, détection de secrets, `.gitignore`) | NOT STARTED | `.env.example`, `tests/secrets.mjs` |
 | 4.6 Conventions et qualité de code | NOT STARTED | `CONTRIBUTING.md`, `.eslintrc.json` |
 | 4.7 Nettoyage autorisé (registre, suppressions sûres seulement, restauration) | NOT STARTED | `docs/socle/NETTOYAGE.md` |
-| 4.8 Protection de `main` (réglage du dépôt : accord explicite de Félix requis) | NOT STARTED | — |
+| 4.8 Protection de `main` (accord de Félix, 23 nov., 13 h 55 : protection complète) | BLOCKED — action de Félix : le relais GitHub de la session refuse l'écriture des rulesets (HTTP 403), non contourné ; règle et commande prêtes | `docs/socle/PROTECTION-MAIN.md`, `docs/socle/protection-main.json` |
 | 4.9 Documentation opérationnelle, README et fichiers de pilotage | NOT STARTED | `README.md`, `docs/socle/EXPLOITATION.md`, `CHANGELOG.md` |
 | 4.10 Installation et lancement reproductibles (clone neuf) | NOT STARTED | — |
 | 4.11 Red-team, rapport en 14 parties, arrêt | NOT STARTED | `docs/rapports/v3/PHASE-4.md` |
@@ -86,6 +86,7 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 | Q15 (justification) | 23 nov., 7 h 47 | Précision de Félix : partir de la carte de chaque onglet, puis justifier | Carte : pourquoi ce spot est bon aujourd'hui par son terrain ; Météo : comment chaque élément a pesé dans la note | V3-029 complétée ; MAP-09, MET-05 ; `CLAUDE.md` ; `PROTOTYPE-V6.md` § 0 |
 | Q16 (niveaux) | 23 nov., 7 h 52 | Précision de Félix : pas toute l'information au même niveau | La carte au premier écran ; bulle et panneau courts ; justification et détail sous la carte, en faisant défiler, avec au moins la rigueur des trois vues | V3-029 complétée ; `CLAUDE.md` ; `PROTOTYPE-V6.md` § 0, 3, 4 |
 | Q17 (journal) | 23 nov., 8 h 11 | Directive de Félix : juger les notes sur le journal et faire s'affiner le modèle | Déjà au référentiel (§ 9.3.1, phase 8) ; ajout de l'instantané de la note et de la vue de comparaison ; apprentissage contrôlé, approuvé, réversible | V3-030 VALIDÉE ; JRN-06 ; `PROTOTYPE-V6.md` § 5 |
+| Q18 (protection de main) | 23 nov., 13 h 55 | Question de la phase 4 : quelle protection pour `main` ? | Félix : « Complète » (PR obligatoire, CI `tests` et `contrat` verte, ni push forcé ni suppression, contournement administrateur par PR seulement) | Pose bloquée par le relais (403) ; à activer par Félix (`docs/socle/PROTECTION-MAIN.md`) |
 
 ## Checkpoint
 
