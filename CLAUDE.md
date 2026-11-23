@@ -1,6 +1,6 @@
 # CLAUDE.md — instructions de travail SPUMY V3
 
-À lire à chaque session, avant toute action. Le référentiel complet est `docs/SPUMY_MASTER_PROMPT.md` (V4.1.13) ; ce fichier le résume et ne le contredit jamais.
+À lire à chaque session, avant toute action. Le référentiel complet est `docs/SPUMY_MASTER_PROMPT.md` (V4.1.13) ; ce fichier le résume et ne le contredit jamais, sauf là où une décision de Félix consignée dans `docs/DECISIONS_LOG.md` modifie le référentiel (jamais en sécurité) : ce fichier le signale alors.
 
 ## Entrée de session
 
@@ -12,12 +12,14 @@
 ## Règles absolues (résumé du § 0.2)
 
 - Aucune fabrication. Marquer `VÉRIFIÉ`, `INFÉRÉ`, `HYPOTHÈSE`, `INCONNU` ou `À DÉCIDER`. Une déclaration n'est pas une preuve.
+- À l'écran, chaque chiffre a sa source et son heure ; sans source sûre, rien n'est affiché. Pas de courbes de profondeur sans données réelles (Félix, 23 nov. 2026, V3-028).
+- Ne pas revenir sur ce qui a été validé avec Félix (23 nov. 2026) : `docs/DECISIONS_LOG.md` fait foi. Une idée qui touche un point validé est présentée comme un changement, avec son impact, jamais appliquée d'office.
 - Ne jamais supprimer un spot V2. Aucun nettoyage destructif, aucun remplacement gratuit.
 - La sécurité ne se compense jamais. Une donnée de sécurité inconnue n'est jamais « au vert ».
 - Deux scores seulement : Favorabilité et Confiance. La Pertinence est supprimée ; la Confiance ne change jamais le rang.
 - Aucun découpage géographique dans le produit (secteurs, régions, départements) : position de référence dynamique ; 60 min de route au plus en BORD seulement.
 - Logo BRAND : le dessin du poisson et l'orange de l'aplat (#C76A31, mesuré sur `assets/brand/sources/spumy.jpg`) ne changent jamais, ni par recoloration, ni par filtre, ni par transparence. Logos Inshore et Offshore facultatifs (décision de Félix, 20 nov. 2026).
-- Aucun slogan dans l'application. « V2 » n'apparaît pas à l'écran.
+- Un seul slogan dans l'application : « Read the sea. Fish the moment. », en tête de Home (Félix, 23 nov. 2026, V3-028 ; modifie le référentiel § 6.2.2). Aucun autre. « V2 » n'apparaît pas à l'écran.
 - Poser tout de suite une question qui bloque, une à la fois.
 
 ## Dépôt

@@ -59,6 +59,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | Q9 | 20 nov., après 13 h 46 | Seuil du filtre « Favorables » : 60, 65 ou 75 | **75** (Félix) | V3-021 VALIDÉE ; `FAVORABLE_MIN`, `isFavorable` testés ; MAP-08 |
 | Q10 (jalon 2) | 20 nov., 14 h 26 | Retour de Félix sur le prototype : « loin d'un graphisme top tier » ; pas assez de photos, photos de mauvaise qualité, interface lourde et peu attrayante ; les informations y sont. Barre : impossible de faire défiler les onglets. Carte : pastilles laides et incompréhensibles (carrés, barrés, pointillés, « ? ») ; le nombre de pastilles doit égaler les compteurs ; couleurs appréciées, mais il manque les scores. Météo : bien, graphisme à travailler ; différence BORD / Mer (carrés, ronds) incomprise | jalon 2 NON VALIDÉ : refonte visuelle faite (3.6, versions 2 à 5.2), revalidée en Q11 | V3-025 |
 | Q11 (jalon 2) | 20 nov., 15 h 37 | Validation explicite du jalon 2 sur la version 5.2, avec les réserves proposées | « jalon 2 validé avec réserves » (15 h 40) | V3-022, V3-025 et V3-027 VALIDÉES AVEC RÉSERVES ; 6 réserves suivies en 3.7 |
+| Q12 (version 6) | 23 nov., 5 h 50 à 6 h 22 | Maquettes de Félix (Home, Carte, vidéo Météo) : reproduction fidèle et même standard partout ; slogan ; 7 propositions | Recommandations acceptées ; slogan gardé ; Carte = vue pêche, Météo = vue conditions ; vent en couleurs gardé ; panneau à droite qui s'ouvre et se ferme au toucher ; Home parfaite, partie haute fixe qui se resserre ; aucune courbe de profondeur inventée ; ne pas revenir sur ce qui est validé | V3-028 VALIDÉE ; `docs/design/PROTOTYPE-V6.md` ; `CLAUDE.md` et UX-03 mis à jour |
 
 ## Checkpoint
 
@@ -69,7 +70,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 
 ## Prochaine action
 
-Phase 3 TESTED, rapport en 14 parties remis. ARRÊT. Attendre `APPROVED — PROCEED TO PHASE 4` (qui valide aussi les critères de recette CR-01 à CR-14, jalon 4) et la décision de Félix sur la fusion des phases 2 et 3 (recommandation : attendre la phase 4, `prototype-v3/` hors du site publié). À la reprise : première tâche de la phase 4, branche `claude/v3-phase-4` partie de `claude/v3-phase-3`.
+Phase 3 TESTED, rapport remis. Version 6 du prototype décidée le 23 nov. (V3-028) : NE PAS COMMENCER avant le feu vert explicite de Félix. Au feu vert, suivre `docs/design/PROTOTYPE-V6.md` § 8, dans la phase 3, sur `claude/v3-phase-3`, sans rien publier. Ne pas revenir sur ce qui est validé. Le jeton de phase 4 sera demandé après la revalidation de la version 6.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 

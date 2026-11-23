@@ -33,6 +33,7 @@ Format ADR. Le registre des exigences (`docs/REQUIREMENTS.md`) et la vision (`do
 | V3-025 | Refonte visuelle après le jalon 2 : photos en grand, cartes à photo, disque de score, pastilles-étiquettes avec score, nuit marine par défaut, barre déplaçable à la souris | VALIDÉE AVEC RÉSERVES (jalon 2, Félix, 20 nov. 2026, 15 h 40 ; voir V3-027) |
 | V3-026 | Pas de vraies photos de spots : photos d'illustration seulement, marquées « Illustration » | VALIDÉE (Félix, 20 nov. 2026, 15 h 02 : « trop lourd pour l'application ») |
 | V3-027 | Jalon 2 : direction visuelle, principes du Design System et prototype version 5.2 ; 6 réserves suivies | VALIDÉE AVEC RÉSERVES (Félix, 20 nov. 2026, 15 h 40) |
+| V3-028 | Prototype version 6 d'après les maquettes de Félix : Home, Carte vue pêche, Météo vue conditions ; slogan autorisé ; Shore / Offshore ; finition et qualité d'information « top tier » ; pas de retour sur ce qui est validé | VALIDÉE (Félix, 23 nov. 2026, 5 h 58 à 6 h 22) ; réalisation au feu vert |
 
 ## Décisions V2 encore en vigueur
 
@@ -341,4 +342,21 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
     5. Météo : dessin des flèches et densité de la grille à affiner avec les vraies prévisions ;
     6. données de démonstration seulement (scores, fenêtres, marées) : rien n'est un résultat du moteur.
 - **Félix (15 h 36)** : les retouches visuelles restent possibles après le jalon ; elles suivent la règle ci-dessus.
+
+## V3-028 — Prototype version 6 d'après les maquettes de Félix
+
+- **Statut** : VALIDÉE par Félix, 23 nov. 2026, de 5 h 58 à 6 h 22. Réalisation au feu vert de Félix, dans la phase 3, sans rien publier. Cahier des charges complet : `docs/design/PROTOTYPE-V6.md`. Maquettes : `docs/design/maquettes-v6/`.
+- **Origine** : deux captures (Home, Carte) et une vidéo de 10 s (Météo), faites par Félix pour améliorer l'ergonomie, le design et les fonctions de chaque partie.
+- **Ce qui modifie le référentiel ou une décision antérieure** :
+    1. **Slogan** : « Read the sea. Fish the moment. » est autorisé en tête de Home, et c'est le seul. Il modifie le référentiel § 6.2.2 (« Aucun slogan ») et l'exigence UX-03 ; l'écart A05 de l'audit AVANT visait le slogan de la V2. Félix l'a inventé et le garde.
+    2. **Noms des modes à l'écran** : Shore / Offshore au lieu de BORD / BATEAU, que les documents et le code gardent. Les logos Inshore et Offshore d'origine (jusqu'ici facultatifs) portent les deux cartes de mode de Home.
+    3. **Home** : grandes cartes de mode, champ de lieu, jours, carte principale avec la bande de 24 h. Le champ de lieu remplace la puce de position en haut à droite (remarque du jalon 1, V3-023). La partie haute reste fixe et se resserre quand on fait défiler.
+    4. **Carte, vue pêche** : pastilles à anneau avec le nom du spot ; bulle au toucher (distance, sorties, poissons, meilleur moment) ; pas de vent ; boutons réduits, légende dépliable. Elle remplace les pastilles-étiquettes et le panneau du bas de V3-025.
+    5. **Météo, vue conditions** : vent animé en couleurs, que Félix garde malgré ma proposition contraire ; jours ; panneau à droite au toucher, avec la sécurité en tête. Elle remplace la grille de flèches à force Beaufort de MET-01.
+    6. **Unités** : le vent en nœuds, au lieu de km/h et Beaufort ; la distance en « km · min » (la limite de 60 min de route ne change pas).
+    7. **Profondeurs** : aucune courbe sans données réelles (EMODnet ou Shom, avec source, précision et « ne pas utiliser pour la navigation »).
+    8. **Exigence de qualité** : finition exceptionnelle des cartes ; chaque chiffre affiché a sa source et son heure ; le même niveau partout dans l'application.
+- **Corrections des maquettes acceptées par Félix** : 11 points, listés au § 6 du cahier des charges (spot touché, lignes en double, panneau qui masque, jaune pour 62, sécurité, vraies positions, onglet de la vidéo, « Meilleur moment », couleurs de la bande de 24 h, noms cachés au dézoom, « km · min »).
+- **Ce qui ne change pas** : tout ce qui a été validé, listé au § 7 du cahier des charges. Félix ne veut pas y revenir.
+- **Documents à mettre à jour à la réalisation** : Design System, UX-V3, PROTOTYPE-V3, revues, galerie AVANT/CIBLE, exigences MAP-02, MET-01, UX-05, UX-09.
 
