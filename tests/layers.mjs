@@ -12,6 +12,7 @@
 //   prototype-v3 → prototype-v3, design, data   prototype de la phase 3 V3 : données de démonstration, aucun moteur importé
 //
 // Le bord et le bateau ne s'importent jamais l'un l'autre : deux moteurs séparés.
+// src/core/contracts/ (types JSDoc seulement, sans code exécuté) est lisible par toutes les couches.
 // Usage : node tests/layers.mjs
 import fs from "node:fs";
 import path from "node:path";
@@ -43,6 +44,8 @@ for (const f of files) {
     edges++;
     if (!fs.existsSync(tgt)) { console.log(`✗ ${path.relative(root, f)} : fichier introuvable ${m[1]}`); bad++; continue; }
     const to = layerOf(tgt);
+    // Les contrats (src/core/contracts/) ne sont que des types JSDoc : toutes les couches peuvent les lire (phase 4 V3).
+    if (path.relative(root, tgt).startsWith(path.join("src", "core", "contracts"))) continue;
     if (!ALLOWED[from].includes(to)) { console.log(`✗ ${path.relative(root, f)} (${from}) importe ${path.relative(root, tgt)} (${to})`); bad++; }
   }
 }

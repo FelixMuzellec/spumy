@@ -13,7 +13,9 @@
     "icons": "node scripts/icons.mjs",
     "build:prototype": "node scripts/build-prototype.mjs",
     "lint": "eslint -c .eslintrc.json --ext .js,.jsx,.mjs src data scripts tests",
+    "typecheck": "tsc -p tsconfig.json",
     "test:layers": "node tests/layers.mjs",
+    "test:socle": "node tests/socle.mjs",
     "test:data": "node tests/data.mjs",
     "test:knowledge": "node tests/knowledge.mjs",
     "test:v2": "node tests/v2.mjs",
@@ -27,7 +29,7 @@
     "test:prototype": "node scripts/build-prototype.mjs && node tests/prototype.mjs --axe",
     "build:prototype-v3": "node scripts/build-prototype-v3.mjs",
     "test:prototype-v3": "node scripts/build-prototype-v3.mjs && node tests/prototype-v3.mjs --axe",
-    "test": "npm run lint && npm run test:layers && npm run test:data && npm run test:knowledge && npm run test:design && npm run test:design-v3 && npm run test:v2 && npm run test:unit && npm run test:e2e && CONTRACT_MOCK=1 npm run test:contract",
+    "test": "npm run lint && npm run typecheck && npm run test:layers && npm run test:socle && npm run test:data && npm run test:knowledge && npm run test:design && npm run test:design-v3 && npm run test:v2 && npm run test:unit && npm run test:e2e && CONTRACT_MOCK=1 npm run test:contract",
     "test:upgrade": "node tests/upgrade.mjs"
   },
   "dependencies": {
@@ -45,6 +47,7 @@
     "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "playwright": "^1.56.0"
+    "playwright": "^1.56.0",
+    "typescript": "6.0.3"
   }
 }

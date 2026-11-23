@@ -54,7 +54,7 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 | 4.0 Jeton, branche, suivi, plan | IMPLEMENTED | ce fichier, `docs/DECISIONS_LOG.md` |
 | 4.1 Audit du socle (stack réelle, dépendances, sécurité des dépendances, CI, reproductibilité, inventaire de nettoyage) | IMPLEMENTED (`npm audit` 0 vulnérabilité ; historique sans secret ; ESLint 8 non maintenu ; CI sans typecheck ni brand.py) | `docs/socle/AUDIT-SOCLE.md` |
 | 4.2 Architecture détaillée (modules, frontières V3 / services communs / héritage V2, flux, erreurs, migration) | IMPLEMENTED (ARCHITECTURE-V3 § 11 ; mesure AVANT des performances et budgets) | `docs/ARCHITECTURE-V3.md`, `scripts/mesure-perf.mjs`, `docs/socle/perf-avant.json` |
-| 4.3 Contrats typés (JSDoc) et `tsc --checkJs` ; erreurs typées ; validation des entrées | NOT STARTED | `src/core/contracts/`, `tsconfig.json`, `npm run typecheck` |
+| 4.3 Contrats typés (JSDoc) et `tsc --checkJs` ; erreurs typées ; validation des entrées | TESTED (`npm run typecheck` 0, TypeScript 6.0.3 épinglé ; `tests/socle.mjs` 16/16 ; couches 0 écart) | `src/core/contracts/index.js`, `src/core/errors.js`, `src/core/validate.js`, `tsconfig.json`, `tests/socle.mjs`, `src/prototype-v3/modele.js` (types), `tests/layers.mjs` |
 | 4.4 Tests et CI : fixtures déterministes (heure, fuseau, polices), contrôles manquants en CI (typecheck, marque) | NOT STARTED | `.github/workflows/`, `tests/` |
 | 4.5 Configuration reproductible et secrets (`.env.example`, détection de secrets, `.gitignore`) | NOT STARTED | `.env.example`, `tests/secrets.mjs` |
 | 4.6 Conventions et qualité de code | NOT STARTED | `CONTRIBUTING.md`, `.eslintrc.json` |
@@ -97,7 +97,7 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 
 ## Prochaine action
 
-Phase 4 IN PROGRESS sur `claude/v3-phase-4`. Prochaine sous-tâche : 4.3, contrats JSDoc, `tsc --checkJs`, erreurs et validation.
+Phase 4 IN PROGRESS sur `claude/v3-phase-4`. Prochaine sous-tâche : 4.4, tests et CI.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
