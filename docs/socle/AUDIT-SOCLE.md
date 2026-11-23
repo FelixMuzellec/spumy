@@ -71,7 +71,7 @@ Méthode : références statiques (`git grep`, y compris scripts, tests, CI et d
 
 | Élément | Références | Décision de phase 4 |
 | --- | --- | --- |
-| `src/prototype-v3/map.jsx` | aucun import (remplacé par `geomap.jsx` en version 6) | **supprimé** en 4.7 (code mort) |
+| `src/prototype-v3/map.jsx` | aucun import (remplacé par `geomap.jsx` en version 6) | **supprimé** en 4.7 (code mort ; restauration : `git checkout 874912f -- src/prototype-v3/map.jsx`) |
 | `assets/brand/spumy-*-sombre.png`, `web/spumy-logo-sombre.webp`, `logo-spumy.webp` (racine) | site en ligne (`index.html`, `scripts/build.mjs`, `scripts/sites.mjs`) | **gardés** : non conformes (A01) mais encore utilisés par le site ; remplacés à l'intégration (phases 10 à 12) |
 | Fichiers publiés à la racine (HTML, JSON, PNG des 7 guides, `app.js`, `sw.js`, polices, icônes) | GitHub Pages, contrôle « site publié = sources » | **gardés** : c'est le site |
 | `audit/AUDIT-SPUMY-v9.1.md`, `audit/UX-SPUMY-v9.2.md` | `docs/ARCHITECTURE.md`, rapport de phase 1 | **gardés** (historique cité) ; déplacement vers `docs/historique/` proposé à la phase 15 |
@@ -90,4 +90,4 @@ Méthode : références statiques (`git grep`, y compris scripts, tests, CI et d
 3. CI : contrôle de types, `tests/brand.py`, attente des polices dans les tests de mise en page, `.gitignore` complété.
 4. Détection de secrets dans la CI (arbre et nouveaux commits).
 5. Proposition à Félix : passer à ESLint 9 ou 10 (configuration « flat ») ; épingler les actions par empreinte.
-6. Nettoyage : le seul élément mort sûr (`map.jsx`) ; le reste en registre.
+6. Nettoyage : le seul élément mort sûr (`map.jsx`, supprimé en 4.7) ; le reste en registre (`docs/socle/NETTOYAGE.md`).
