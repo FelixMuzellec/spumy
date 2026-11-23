@@ -25,7 +25,7 @@ export function HomeTop({ st, setMode, openPos, day, setDay, notify }) {
     <>
       <div className="htop6">
         <div className="hbrand6">
-          <img src={brandSrc("spumy-medaillon-128.png")} alt="" width="64" height="64" />
+          <img src={brandSrc("spumy-symbole-256.png")} alt="" width="60" height="60" />
           <span className="word6">SPUMY</span><span className="sep6" aria-hidden="true" />
           <p className="slogan6"><span>Read the sea.</span><span className="o">Fish the moment.</span></p>
         </div>

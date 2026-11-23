@@ -163,9 +163,15 @@ const vbox = (page) => page.locator(".geo").evaluate((e) => e.getAttribute("view
   t("Météo : vent en nœuds, source et heure écrites", /\d+ nds/.test(ptxt) && /AROME/.test(ptxt) && /06:00/.test(ptxt));
   const panel = await page.locator(".panel6").boundingBox(), r2 = await p2.boundingBox();
   t("Météo : le spot touché reste visible à gauche du panneau", r2.x + r2.width <= panel.x + 2, `${r2.x + r2.width} / ${panel.x}`);
-  const pts = (await page.locator(".w6-p").allTextContents()).map((x) => (x === "–" ? 0 : Number(x.replace("−", "-").replace("+", ""))));
-  const M = meteoOf(SPOT.pirou);
-  t("Météo : sous la carte, le poids de chaque élément rend compte de la note", pts.reduce((a, b) => a + b, 0) === M.sum && M.base + M.sum === SPOT.pirou.fav && (await page.locator("#h-meteo").textContent()).includes("Comment la météo a pesé"), `${pts.join(",")} = ${M.sum}`);
+  const X = meteoOf(SPOT.pirou), F = X.formula;
+  const why = await page.locator(".why6p").innerText();
+  t("Météo : le panneau dit pourquoi la note (points de chaque critère, conditions × présence)", why.includes(`Pourquoi ${SPOT.pirou.fav}`) && (await page.locator(".why6p li").count()) === X.crit.length + X.excluded.length && why.replace(/\s+/g, " ").includes(`= ${F.fav}`), why.replace(/\n/g, " | "));
+  const msec = (await page.locator("#h-meteo").evaluate((h) => h.closest("section").innerText)).replace(/\s+/g, " ");
+  const critPts = await page.locator(".w6 .w6-row .w6-n b").allTextContents();
+  t("Météo : sous la carte, chaque critère, son poids, ses points du jour et pourquoi ; la somme et la formule rendent compte de la note (moteur)",
+    msec.includes(`Pourquoi ${SPOT.pirou.fav} aujourd'hui`) && X.crit.every((x) => msec.includes(`Pourquoi ce critère pèse ${x.max} points`)) &&
+    Math.abs(X.crit.reduce((a, x) => a + x.pts, 0) - F.got) < 0.01 && Math.round((F.got / F.max) * 100) === F.cond && Math.round(F.cond * F.pres) === F.fav && F.fav === SPOT.pirou.fav &&
+    critPts.length === X.crit.length + 1 && msec.includes(`= ${F.fav}/100`), `${critPts.join(",")} → ${F.got}/${F.max} = ${F.cond} × ${F.pres} = ${F.fav}`);
   await p2.click(); await page.waitForTimeout(150);
   t("Météo : retoucher le spot ferme le panneau", (await page.locator(".panel6").count()) === 0);
 
@@ -178,7 +184,7 @@ const vbox = (page) => page.locator(".geo").evaluate((e) => e.getAttribute("view
   t("Fiche : Confiance ne change pas le rang", ft.includes("ne change pas le rang"));
   await page.evaluate(() => { location.hash = "spot-portbail"; });
   await page.waitForTimeout(80);
-  t("Fiche : fixture « 53/100 — À vérifier »", (await page.textContent("main")).includes("53/100 — À vérifier"));
+  t("Fiche : « à vérifier » affiché avec sa note calculée (Confiance 69, fixture § 6.7.2)", (await page.textContent("main")).includes(`${SPOT.portbail.fav}/100 — À vérifier`));
   await page.evaluate(() => { location.hash = "comparer-carteret-agon"; });
   await page.waitForTimeout(80);
   const ct = await page.textContent("main");
@@ -189,6 +195,18 @@ const vbox = (page) => page.locator(".geo").evaluate((e) => e.getAttribute("view
   t("Comparaison : « avantage non établi » si un spot est à vérifier", (await page.textContent("main")).includes("Avantage non établi"));
   t("parcours 390 : aucune erreur", errors.length === 0, errors.join(" | "));
   await ctx.close();
+}
+// Le modèle du prototype est celui du moteur : mêmes points, même tableau vent et mer, mêmes facteurs de présence.
+{
+  const M = await import("../src/prototype-v3/modele.js");
+  const { V2 } = await import("../src/bord/engine/v2-params.js");
+  const v2src = fs.readFileSync(path.join(root, "src/bord/engine/v2.js"), "utf8"), modsrc = fs.readFileSync(path.join(root, "src/bord/engine/model.js"), "utf8");
+  const tab = (src, reg, exp) => { const m = src.match(new RegExp(`${reg}:\\s*\\{?\\s*face:\\s*\\[([^\\]]+)\\],\\s*travers:\\s*\\[([^\\]]+)\\],\\s*dos:\\s*\\[([^\\]]+)\\]`)); return m && JSON.stringify(m.slice(1, 4).map((x) => x.split(",").map(Number))) === JSON.stringify([exp.face, exp.travers, exp.dos]); };
+  const season = (reg) => { const m = modsrc.match(new RegExp(`\\n\\s*${reg}:\\s*\\[([^\\]]+)\\]`)); return m && JSON.stringify(m[1].split(",").map(Number)) === JSON.stringify(M.SEASON[reg]); };
+  t("modèle du prototype = moteur v2 : points de marée, lumière, vent et mer", M.PTS.fenetre.prime === V2.maree.prime && M.PTS.fenetre.bon === V2.maree.bon && M.PTS.coef === V2.maree.coef && M.PTS.vent === V2.vent && JSON.stringify(M.PTS.lumiere) === JSON.stringify(V2.lumiere));
+  t("modèle du prototype = moteur v2 : tableau vent et mer (3 régimes)", ["roche", "plage", "abri"].every((r) => tab(v2src, r, M.VENT_MER[r])));
+  t("modèle du prototype = moteur v2 : présence (saison, 3 régimes ; paliers d'eau)", ["roche", "plage", "abri"].every(season) && [[7, 0.3], [9, 0.5], [11, 0.75], [13, 0.92], [15, 1], [20, 0.9], [23, 0.72]].every(([t0, f]) => M.thermal(t0).factor === f && modsrc.includes(`factor: ${f.toFixed(2)}`)));
+  t("modèle : chaque note = conditions × présence, sur le meilleur créneau du jour", ALL.every((x) => x.model && x.fav === Math.round(x.model.cond * x.model.pres.factor) && Math.round((x.model.got / x.model.max) * 100) === x.model.cond));
 }
 t("données : 8 spots V2 à moins d'1 h, positions des fiches", ALL.length === 8 && ALL.every((x) => x.v2 && x.route <= 60 && Number.isFinite(x.x) && Number.isFinite(x.y)));
 
@@ -351,9 +369,10 @@ if (CAP) {
   await page.screenshot({ path: path.join(CAP, "10-home-bateau.png"), fullPage: true });
   await ctx.close();
   // Premiers écrans, comme les maquettes de Félix : bulle de la Carte, panneau de la Météo, haut de Home resserré.
-  for (const [r, name, act] of [["carte", "12-carte-bulle", "tap"], ["meteo", "13-meteo-panneau", "tap"], ["home", "14-home-defile", "scroll"], ["meteo", "15-meteo-vent", "none"]]) {
-    const o = await open({ width: 390, height: 844 }, "dark", r, false, r === "meteo"); // Météo : vent animé, comme la maquette vidéo
-    if (act === "tap") { await o.page.waitForSelector(".map6 .ring"); await o.page.getByRole("button", { name: /^Pointe d'Agon, / }).first().click(); }
+  for (const [r, name, act] of [["carte", "12-carte-bulle", "tap"], ["meteo", "13-meteo-panneau", "tap"], ["home", "14-home-defile", "scroll"], ["meteo", "15-meteo-vent", "none"], ["meteo", "16-meteo-pourquoi", "why"]]) {
+    const o = await open({ width: 390, height: 844 }, "dark", r, false, r === "meteo" && act !== "why"); // Météo : vent animé, comme la maquette vidéo
+    if (act === "tap" || act === "why") { await o.page.waitForSelector(".map6 .ring"); await o.page.getByRole("button", { name: /^Pointe d'Agon, / }).first().click(); }
+    if (act === "why") { await o.page.waitForTimeout(300); await o.page.evaluate(() => document.getElementById("h-meteo").scrollIntoView()); }
     else if (act === "scroll") await o.page.evaluate(() => scrollTo(0, 900));
     await o.page.waitForTimeout(r === "meteo" ? 1800 : 400);
     await o.page.screenshot({ path: path.join(CAP, `${name}.png`) });

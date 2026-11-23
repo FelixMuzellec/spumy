@@ -1,20 +1,20 @@
 // Prototype V6 — effets sur la pêche du bar (V3-029), du général au spécifique.
 // Terrain : les rubriques réelles des fiches (data/sites/pirou.config.js) croisées avec les conditions du jour.
-// Météo : chaque élément, son effet et son poids dans la note, d'après les connaissances sourcées (data/knowledge).
-// Les conditions du jour et les poids sont des DONNÉES DE DÉMONSTRATION : les vrais poids viendront du calcul de la note.
+// Météo : la note expliquée par le calcul du moteur v2 (modele.js) : chaque critère, son poids, ses points du jour et
+// la règle générale sourcée (data/knowledge). Les conditions du jour sont des DONNÉES DE DÉMONSTRATION.
 import { KNOW } from "./connaissances.js";
-import { TIDE, SUN, NOW, windows, windAt, compass, hhmm } from "./data.js";
+import { TIDE, SUN, NOW, WATER, windows, windAt, compass, hhmm } from "./data.js";
+import { PTS, VENT_MER, EXPO_LABEL, REGIME_LABEL, exposureOf, regimeOf } from "./modele.js";
 
 const fr = (n, d = 1) => String(Math.round(n * 10 ** d) / 10 ** d).replace(".", ",");
-const angleGap = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
 export const KN = (kmh) => Math.round(kmh / 1.852);
 
 /** Conditions du jour au spot (démonstration). */
 export function conditions(s) {
   const w = windAt(s.x, s.y, NOW);
   return {
-    sky: "Partiellement nuageux", rain: 15, air: 11, water: 13, pressure: 1021, trend: "stable",
-    windFrom: w.fromDeg, windKn: KN(w.kmh), gustKmh: w.gust, swell: s.swell, coef: TIDE.coef,
+    sky: "Partiellement nuageux", rain: 15, air: 11, water: WATER, pressure: 1021, trend: "stable",
+    windFrom: w.fromDeg, windKn: KN(w.kmh), windBft: w.bft, gustKmh: w.gust, swell: s.swell, coef: TIDE.coef,
     tide: NOW > TIDE.bm && NOW < TIDE.pm ? "montante" : "descendante", pm: TIDE.pm, bm: TIDE.bm,
     source: "Météo-France AROME via Open-Meteo, 06:00 · démonstration", sea: "Open-Meteo Marine, 06:00 · démonstration",
   };
@@ -35,8 +35,8 @@ export function terrain(s) {
     fiche: v2.tidalRules?.description || v2.tidalRules?.typeHeure || "", level: ev.bars ?? null, rule: rule("maree-flot"), windows: win,
   });
   // 2. Exposition au vent du jour.
-  const exposed = (v2.exposedAngles || []).some((a) => angleGap(a, c.windFrom) <= 22.5);
-  const sheltered = (v2.shelteredAngles || []).some((a) => angleGap(a, c.windFrom) <= 22.5);
+  // Même règle que le calcul de la note : vent de mer à moins de 45° d'un angle exposé de la fiche, vent de terre côté abrité.
+  const ex = exposureOf(v2, c.windFrom), exposed = ex === "face", sheltered = ex === "dos";
   rows.push({
     key: "exposition", title: "Exposition au vent du jour",
     effect: exposed ? (c.windKn <= 20 ? "fav" : c.windKn > 25 ? "defav" : "neutre") : sheltered ? "defav" : "neutre",
@@ -76,30 +76,49 @@ export function terrain(s) {
   return { rows, ctx, verdict, sources: v2.sources || [], securite: v2.securite || [], cond: c };
 }
 
-/** Le poids de chaque élément du jour dans la note (démonstration). Le reste vient du terrain et de la saison. */
+/**
+ * Pourquoi cette note : le calcul du moteur v2 sur le meilleur créneau du jour, critère par critère.
+ * Chaque critère dit son poids (et pourquoi il pèse autant), ses points du jour (et pourquoi), sa courbe et la règle sourcée.
+ */
+const WEIGHT_WHY = {
+  fenetre: "Le bar chasse quand le courant de marée met la nourriture en mouvement, et chaque spot a ses moments, écrits dans sa fiche. C'est la base de toute sortie : 25 points.",
+  coef: "Le coefficient règle la force du courant et la part d'estran couverte : trop faible, l'eau ne travaille pas ; trop fort, le courant devient impraticable du bord. 20 points, pleins dans la plage utile du spot.",
+  lumiere: "En lumière basse, le bar perd sa méfiance et vient chasser près du bord ; en plein jour par eau claire, il se tient plus loin. 25 points.",
+  vent: "Un vent de mer modéré lève du clapot, teinte l'eau et met le bar en chasse sur un spot exposé ; vent de terre et mer plate : eau claire, poisson méfiant. Le plus gros critère : 30 points. Au-delà de la force 5, c'est la sécurité qui décide.",
+};
 export function meteo(s) {
-  const c = conditions(s), v2 = s.v2, t = terrain(s);
-  const exp = t.rows.find((r) => r.key === "exposition"), mar = t.rows.find((r) => r.key === "maree"), cou = t.rows.find((r) => r.key === "courant");
-  const sunrise = s.win && s.win[0] <= SUN.rise + 1 && s.win[1] >= SUN.rise - 1;
-  const items = [
-    { key: "maree", label: "Marée", value: `${c.tide === "montante" ? "Montante" : "Descendante"} · PM ${hhmm(c.pm)} · coef ${c.coef}`,
-      pts: mar.effect === "fav" ? 6 : -3, why: mar.today, rule: rule("maree-flot") },
-    { key: "coef", label: "Coefficient", value: String(c.coef), pts: cou.effect === "fav" ? 3 : cou.effect === "neutre" ? 0 : -3, why: cou.today, rule: rule("coefficient-plage-utile") },
-    { key: "vent", label: "Vent", value: `${c.windKn} nds ${compass(c.windFrom)}`, pts: exp.effect === "fav" ? 4 : exp.effect === "defav" ? -3 : 0, why: exp.today, rule: rule("vent-exposition") },
-    { key: "rafales", label: "Rafales", value: `${KN(c.gustKmh)} nds`, pts: c.gustKmh > 50 ? -2 : 0,
-      why: c.gustKmh > 50 ? "Rafales au-delà de 50 km/h : lancer et tenue de ligne se dégradent" : "Rafales sous 50 km/h : sans effet", rule: rule("rafales-penalite") },
-    { key: "houle", label: "Houle", value: c.swell == null ? "non documentée" : `${fr(c.swell)} m`, pts: c.swell == null ? 0 : c.swell >= 1.5 && c.swell <= v2.houleMax ? 3 : 0,
-      why: t.rows.find((r) => r.key === "houle").today, rule: rule("houle-turbidite"), unknown: c.swell == null },
-    { key: "lumiere", label: "Lumière", value: `Lever ${hhmm(SUN.rise)}`, pts: sunrise ? 2 : 0,
-      why: sunrise ? "La fenêtre du spot encadre le lever du jour" : "La fenêtre du spot est en plein jour", rule: rule("lumiere-basse") },
-    { key: "ciel", label: "Ciel", value: c.sky, pts: 1, why: "Ciel en partie couvert : moins de méfiance de jour", rule: rule("ciel-couvert") },
-    { key: "eau", label: "Eau", value: `${c.water} °C`, pts: c.water >= 13.5 && c.water <= 19 ? 3 : c.water >= 11.5 ? 1 : -3,
-      why: c.water >= 13.5 ? "Eau dans la plage de pleine présence (13,5 à 19 °C)" : c.water >= 11.5 ? "Eau entre 11,5 et 13,5 °C : les bars sont en retour sur la côte" : "Eau froide : présence résiduelle", rule: rule("seuils-thermiques") },
-    { key: "pression", label: "Pression", value: `${c.pressure} hPa, ${c.trend}`, pts: 1, why: "Pression haute et stable", rule: rule("pression") },
-    { key: "pluie", label: "Pluie", value: `${c.rain} %`, pts: null, why: "Cumul des 36 dernières heures inconnu : aucun effet annoncé", rule: rule("pluie-turbidite") },
+  const c = conditions(s), M = s.model, v2 = s.v2;
+  if (!M) return null;
+  const regime = regimeOf(v2), expo = exposureOf(v2, c.windFrom), [lo, o1, o2, hi] = v2.coefBand || [30, 45, 75, 105];
+  const tab = VENT_MER[regime][expo], best = Math.max(...tab), bestF = tab.indexOf(best);
+  const span2 = `${hhmm(M.win.from)}–${hhmm(M.win.to)}`;
+  const today = {
+    fenetre: `« ${M.win.label} », ${span2} : ${M.win.priority === "prime" ? "une fenêtre « prime » de la fiche" : "une « bonne » fenêtre de la fiche (une « prime » vaudrait 25)"}.`,
+    coef: `Coefficient ${c.coef} : ${c.coef < o1 ? `sous la plage utile du spot (${o1} à ${o2})` : c.coef <= o2 ? `dans la plage utile du spot (${o1} à ${o2})` : `au-dessus de la plage utile du spot (${o1} à ${o2})`}.`,
+    lumiere: `Le créneau ${span2} se passe surtout ${{ aube: `à l'aube (lever à ${hhmm(SUN.rise)})`, crepuscule: `au crépuscule (coucher à ${hhmm(SUN.set)})`, nuit: "de nuit", jour: "en plein jour" }[M.band]}.`,
+    vent: `Vent de ${compass(c.windFrom)}, ${c.windKn} nds (force ${c.windBft}) : ${EXPO_LABEL[expo]} sur un ${REGIME_LABEL[regime]}. Le maximum, ${best} points, est à force ${bestF}.`,
+  };
+  const curve = {
+    fenetre: `« prime » ${PTS.fenetre.prime} · « bonne » ${PTS.fenetre.bon} · hors fenêtre : pas de créneau`,
+    coef: `${PTS.coef} de ${o1} à ${o2} ; baisse jusqu'à 0 à ${lo} et à ${hi}`,
+    lumiere: `aube ou crépuscule ${PTS.lumiere.aube} · nuit ${PTS.lumiere.nuit} · plein jour ${PTS.lumiere.jour}, + ${PTS.lumiere.couvert} ciel couvert, + ${PTS.lumiere.merFormee} mer formée`,
+    vent: `${EXPO_LABEL[expo]}, ${REGIME_LABEL[regime]}, force 0 à 7 : ${tab.join(" · ")}`,
+  };
+  const rules = { fenetre: rule("maree-flot"), coef: rule("coefficient-plage-utile"), lumiere: rule("lumiere-basse"), vent: rule("vent-exposition") };
+  const crit = M.crit.map((x) => ({ ...x, short: { fenetre: "Marée", coef: "Coef.", lumiere: "Lumière", vent: "Vent et mer" }[x.k], long: { fenetre: "Marée", coef: "Coefficient", lumiere: "Lumière", vent: "Vent et mer" }[x.k], weightWhy: WEIGHT_WHY[x.k], today: today[x.k], curve: curve[x.k], rule: rules[x.k] }));
+  const excluded = M.excluded.map((x) => ({ ...x, short: "Vent et mer", weightWhy: WEIGHT_WHY[x.k], rule: rules[x.k] }));
+  const P = M.pres;
+  const pres = {
+    factor: P.factor, rule: rule("seuils-thermiques"),
+    weightWhy: "Le bar quitte la côte l'hiver pour frayer au large (marquages Ifremer) et l'eau froide le rend moins actif : quand il n'est pas là, les conditions n'y changent rien. La note est multipliée par la plus restrictive des deux.",
+    today: `${P.season.month[0].toUpperCase()}${P.season.month.slice(1)} : ${String(P.season.factor).replace(".", ",")} (${P.season.label}) ; eau à ${P.thermal.sst} °C : ${String(P.thermal.factor).replace(".", ",")} (${P.thermal.label}) ; on retient ${String(P.factor).replace(".", ",")}.`,
+  };
+  const info = [
+    { key: "pression", label: "Pression", value: `${c.pressure} hPa, ${c.trend}`, why: "Son effet sur le bar n'est pas démontré : elle est affichée, elle ne compte pas.", rule: rule("pression") },
+    { key: "rafales", label: "Rafales", value: `${KN(c.gustKmh)} nds`, why: "Sous 60 km/h, elles gênent le lancer sans changer la note ; au-delà, la sécurité met « à vérifier ».", rule: rule("rafales-penalite") },
+    { key: "pluie", label: "Pluie et clarté de l'eau", value: `${c.rain} %`, why: "Une eau teintée change le choix des leurres (couleur, taille), pas la note.", rule: rule("pluie-turbidite") },
   ];
-  const sum = items.reduce((m, i) => m + (i.pts || 0), 0);
-  return { items, sum, base: s.fav == null ? null : s.fav - sum, cond: c };
+  return { M, c, crit, excluded, pres, info, formula: { got: M.got, max: M.max, cond: M.cond, pres: P.factor, fav: M.fav } };
 }
 
 /** Signe d'un effet : un mot et une forme, jamais la couleur seule. */

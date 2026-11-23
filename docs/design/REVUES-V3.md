@@ -313,6 +313,7 @@ Même méthode que les revues 3.7 (heuristiques, accessibilité, contenu), appli
 | Accessibilité | axe : aucune violation grave dans les deux thèmes après correction de l'orange (3,9 → 5,1:1) et du vert (4,3 → 5,9:1) en plein jour, des libellés d'effet et des pastilles décoratives | Testé |
 | Cibles | Liens de sources portés à 44 px ; boutons de carte 44 px ; pastilles 52 px | Testé |
 | Vue large | Colonne le long de la côte comme la maquette ; spots trop proches écartés avec un trait vers leur vraie position ; « +N » seulement sur écran court (version 6.1) | Changement d'un point du jalon 2, consigné (V3-028, précision de 12 h 07) |
+| Version 6.2 | Logo sans anneau crème (symbole détouré, testé) ; champ transparent, côte jusqu'en haut ; terre et mer distinctes sous le vent ; note expliquée par le calcul du moteur v2 (panneau et détail) ; Home allégée | Revalidation par Félix |
 | Fidélité (version 6.1) | Planches au même cadrage : plein écran sous l'en-tête, pastilles, boutons, bulle, panneau, vent, Home et barre du bas recalés ; couleurs relevées sur les maquettes | Revalidation par Félix |
 | Offshore | Carte et Météo Offshore : un avis, pas encore la vue V6 | À faire |
 | Mouvement | Vent animé en pause onglet caché ; flèches fixes si le mouvement est réduit | Testé (mouvement réduit) |

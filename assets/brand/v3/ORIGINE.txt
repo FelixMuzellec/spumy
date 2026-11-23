@@ -4,3 +4,4 @@ Icônes : carré de la source centré sur le symbole (fond crème d'origine), r�
 Logo complet (spumy-logo-960.webp, spumy-logo-480.png) : recadrage (424, 518, 1624, 1521) de la source, puis réduction proportionnelle ; aucune retouche.
 
 inshore-128/256.webp, offshore-128/256.webp : scripts/logos-modes-v6.py, redimensionnement seul des sources assets/brand/sources/inshore.jpg et offshore.jpg (prototype V6, V3-028).
+Symbole détouré (spumy-symbole-744.png, -256.png, -128.png, scripts/logos-symbole-v6.py) : même recadrage que le médaillon, origine (652, 530) ; fond crème d'origine relié au bord (écart < 40) et haut des lettres rendus transparents ; aucune valeur de couleur modifiée.

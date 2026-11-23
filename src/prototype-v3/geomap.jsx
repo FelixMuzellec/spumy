@@ -138,16 +138,18 @@ export function GeoMap({ items, selected, onSelect, popover, panel, panelW = 0, 
   const fit = useCallback((w = size.w, h = size.h) => {
     if (!w || !h) return;
     if (compact) { const k = 2.2; setV(clamp(k, w / 2 - REF.x * k, h / 2 - REF.y * k, w, h)); return; } // mini-carte de la position
+    // Cadrage sur l'emprise des spots et de la position (elle reste dedans) : le haut de la colonne passe juste sous
+    // les puces, et la côte remonte jusqu'en haut de l'écran, sous l'en-tête (maquette).
     const [y0, y1] = fitBand(h), pts = [...items, REF];
-    const dy = Math.max(...pts.map((p) => Math.abs(p.y - REF.y))) || 1;
-    let k = Math.min(K_MAX, Math.max(kMin(w, h), (y1 - y0 - 24) / (2 * dy))), X0 = w / 2;
+    const top0 = Math.min(...pts.map((p) => p.y)), bot0 = Math.max(...pts.map((p) => p.y)), dy = Math.max(bot0 - top0, 1);
+    let k = Math.min(K_MAX, Math.max(kMin(w, h), (y1 - y0) / dy)), X0 = w / 2;
     for (let i = 0; i < 24; i++) {
       const lo = Math.max(...items.map((it) => 14 + LBL(it) + 9 + R - (it.x - REF.x) * k), R + 14);
       const hi = Math.min(...items.map((it) => w - 74 - R - (it.x - REF.x) * k), w - 74 - R);
       if (lo <= hi || !items.length) { X0 = items.length ? lo + 0.3 * (hi - lo) : w / 2; break; }
       k *= 0.9;
     }
-    setV(clamp(k, X0 - REF.x * k, (y0 + y1) / 2 - REF.y * k, w, h));
+    setV(clamp(k, X0 - REF.x * k, (y0 + y1) / 2 - ((top0 + bot0) / 2) * k, w, h));
   }, [items, size, clamp, top]); // eslint-disable-line react-hooks/exhaustive-deps
   useLayoutEffect(() => {
     const f = () => { const r = box.current.getBoundingClientRect(); setSize({ w: r.width, h: r.height }); };
@@ -253,7 +255,7 @@ export function GeoMap({ items, selected, onSelect, popover, panel, panelW = 0, 
         <path d={GEO.land} className="land6" vectorEffect="non-scaling-stroke" />
       </svg>
       {Layer && size.w > 0 && <Layer v={v} w={size.w} h={size.h} />}
-      {Layer && <svg className="geo coast6" viewBox={vb} preserveAspectRatio="none" aria-hidden="true"><path d={GEO.land} vectorEffect="non-scaling-stroke" /></svg>}
+      {Layer && <svg className="geo coast6" viewBox={vb} preserveAspectRatio="none" aria-hidden="true"><path d={GEO.land} className="shade" /><path d={GEO.land} vectorEffect="non-scaling-stroke" /></svg>}
       <span className="ref6" style={{ left: refS.sx, top: refS.sy }} aria-hidden="true" />
       {lead.length > 0 && (
         <svg className="lead6" width={size.w} height={size.h} aria-hidden="true">

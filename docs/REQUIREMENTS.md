@@ -2,7 +2,7 @@
 
 Phase 2 V3, 20 novembre 2026. Format du référentiel, § 5.2.
 
-**Version 3** (23 nov. 2026, V3-029 et V3-030) : 98 exigences ; MAP-09, MET-05 et JRN-06 ajoutées, UX-03 modifiée (V3-028) ; MAP-02, MET-01, UX-05 et UX-09 précisées pour le prototype V6 (V3-028).
+**Version 3** (23 nov. 2026, V3-029 et V3-030) : 98 exigences ; MAP-09, MET-05 et JRN-06 ajoutées, UX-03 modifiée (V3-028) ; MAP-02, MET-01, UX-05 et UX-09 précisées pour le prototype V6 (V3-028). MET-05 : le prototype explique la note par le calcul du moteur v2 (précision de V3-028, 12 h 45).
 
 **Version 2** (20 nov. 2026, jalon 1 de la phase 3) : 95 exigences ; MET-01 à MET-04, UX-08, UX-09, PRO-03, SPOT-09, BAT-09, BAT-10 et MAP-08 ajoutées, UX-05 modifiée (V3-023).
 

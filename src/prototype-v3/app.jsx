@@ -129,7 +129,7 @@ function App() {
       {st.demo.offline && <div className="banner" role="status"><Icon name="offline" size={18} />Hors ligne · données de 06:10 ; temps de route en estimation</div>}
       {page !== "home" && (
         <header className="hdr6">
-          <a className="brand6" href="#home" aria-label="SPUMY, accueil"><img src={brandSrc("spumy-medaillon-128.png")} alt="" width="52" height="52" /><span className="word6">SPUMY</span></a>
+          <a className="brand6" href="#home" aria-label="SPUMY, accueil"><img src={brandSrc("spumy-symbole-256.png")} alt="" width="60" height="60" /><span className="word6">SPUMY</span></a>
           <ModeToggle mode={st.mode} setMode={(k) => { set({ mode: k }); setSel(null); }} />
         </header>
       )}

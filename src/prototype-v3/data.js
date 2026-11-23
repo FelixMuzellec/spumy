@@ -21,7 +21,9 @@ export const hhmm = (h) => {
 export const span = (w) => (w ? `${hhmm(w[0])}–${hhmm(w[1])}` : null);
 
 export const NOW = 9 + 10 / 60; // 09:10
-export const SUN = { rise: 8 + 21 / 60, set: 17 + 12 / 60 };
+export const SUN = { rise: 8 + 21 / 60, set: 17 + 12 / 60, dawn: 7 + 44 / 60, dusk: 17 + 49 / 60 }; // 23 novembre, Pirou ; aube et nuit civiles
+export const MONTH = 11; // novembre
+export const WATER = 13; // °C, eau du jour (démonstration)
 export const TIDE = { pm: 13 + 53 / 60, bm: 7 + 40 / 60, coef: 78, period: 12.42, mean: 6.4, amp: 4.9 };
 export const tideHeight = (t) => TIDE.mean + TIDE.amp * Math.cos((2 * Math.PI * (t - TIDE.pm)) / TIDE.period);
 
@@ -35,9 +37,10 @@ export const PLACES = [
 // Version 6 : les 8 vrais spots BORD de la fiche de Pirou à moins d'1 h de route (data/sites/pirou.config.js), à leur
 // position réelle (coordonnées des fiches, à la minute près : jusqu'à environ 1 km d'écart près de la côte). Les notes, la marée du
 // jour, le vent et les résultats du journal restent des DONNÉES DE DÉMONSTRATION.
-import { SPOTS as V2 } from "../../data/sites/pirou.config.js";
+import { SPOTS as V2, SITE } from "../../data/sites/pirou.config.js";
 import { NIVEAUX } from "./connaissances.js";
 import { GEO, project, parseDM } from "./geo.js";
+import { bestOf } from "./modele.js";
 export { GEO };
 
 const km = (a, b) => { // distance à vol d'oiseau
@@ -57,19 +60,18 @@ export function windows(v2) {
     return { ...w, from: base + w.offsetBefore, to: base + w.offsetAfter };
   });
 }
-const firstPrime = (v2) => windows(v2).filter((w) => w.priority === "prime" && w.to > SUN.rise && w.from < SUN.set).sort((a, b) => a.from - b.from)[0];
-
-/** Les 8 spots ; demo : note, Confiance, statut, houle prévue, raison, journal (tout ce qui n'est pas dans la fiche). */
+/** Les 8 spots ; demo : Confiance, statut, houle prévue, raison, journal (tout ce qui n'est ni dans la fiche ni calculé).
+ *  La Favorabilité est calculée par le modèle du moteur v2 (modele.js) sur les conditions de démonstration du jour. */
 const DEMO = [
-  { id: "granville", fav: 92, conf: 48, level: "Faible", safety: "ok", swell: 1.4, photo: "falaise-mer-formee", lieu: "pointe", trips: 6, fish: 11, reason: "courant de flot sur la pointe du Roc, eau teintée par la houle" },
-  { id: "agon", fav: 84, conf: 69, level: "Moyenne", safety: "ok", swell: 1.3, photo: "estuaire-pres-sales", lieu: "estuaire", trips: 18, fish: 42, reason: "montant sur les bancs de sable, puis veine du havre au jusant" },
-  { id: "gouville", fav: 79, conf: 81, level: "Haute", safety: "ok", swell: 1.2, photo: "lancer-ressac", lieu: "rochers", trips: 9, fish: 14, reason: "montant entre les tables et sur les roches proches du bord" },
-  { id: "pirou", fav: 71, conf: 55, level: "Moyenne", safety: "ok", swell: 1.2, photo: "roches-eau-turquoise", lieu: "rochers", trips: 24, fish: 37, reason: "épis et tables à mi-marée montante" },
-  { id: "carteret", fav: 62, conf: 62, level: "Moyenne", safety: "ok", swell: 1.5, photo: "roche-ciel-bleu", lieu: "pointe", trips: 3, fish: 2, reason: "pied du cap au flot, courant soutenu" },
-  { id: "regneville", fav: 54, conf: 70, level: "Moyenne", safety: "ok", swell: 0.9, photo: "estuaire-pres-sales", lieu: "estuaire", trips: 5, fish: 4, reason: "jusant à la sortie du havre de la Sienne" },
-  // Portbail reprend la fixture du référentiel (§ 6.7.2) : Favorabilité 53 — À vérifier, Confiance 69 — Moyenne.
-  { id: "portbail", fav: 53, conf: 69, level: "Moyenne", safety: "unknown", status: "verify", verifyWhy: "Houle non documentée sur le platier : sécurité à vérifier", swell: null, photo: "lancer-ressac", lieu: "rochers", trips: 2, fish: 0, reason: "houle non documentée" },
-  { id: "surtainville", fav: 45, conf: 66, level: "Moyenne", safety: "danger", status: "nr", swell: 2.4, photo: "plage-averse", lieu: "plage", trips: 0, fish: 0, reason: "houle au-delà de la limite du spot" },
+  { id: "granville", conf: 48, level: "Faible", safety: "ok", swell: 1.4, photo: "falaise-mer-formee", lieu: "pointe", trips: 6, fish: 11, reason: "courant de flot sur la pointe du Roc, eau teintée par la houle" },
+  { id: "agon", conf: 69, level: "Moyenne", safety: "ok", swell: 1.3, photo: "estuaire-pres-sales", lieu: "estuaire", trips: 18, fish: 42, reason: "montant sur les bancs de sable, puis veine du havre au jusant" },
+  { id: "gouville", conf: 81, level: "Haute", safety: "ok", swell: 1.2, photo: "lancer-ressac", lieu: "rochers", trips: 9, fish: 14, reason: "montant entre les tables et sur les roches proches du bord" },
+  { id: "pirou", conf: 55, level: "Moyenne", safety: "ok", swell: 1.2, photo: "roches-eau-turquoise", lieu: "rochers", trips: 24, fish: 37, reason: "épis et tables à mi-marée montante" },
+  { id: "carteret", conf: 62, level: "Moyenne", safety: "ok", swell: 1.5, photo: "roche-ciel-bleu", lieu: "pointe", trips: 3, fish: 2, reason: "pied du cap au flot, courant soutenu" },
+  { id: "regneville", conf: 70, level: "Moyenne", safety: "ok", swell: 0.9, photo: "estuaire-pres-sales", lieu: "estuaire", trips: 5, fish: 4, reason: "jusant à la sortie du havre de la Sienne" },
+  // Portbail : Confiance 69 — Moyenne et « à vérifier » (fixture du référentiel, § 6.7.2) ; sa Favorabilité est calculée.
+  { id: "portbail", conf: 69, level: "Moyenne", safety: "unknown", status: "verify", verifyWhy: "Houle non documentée sur le platier : sécurité à vérifier", swell: null, photo: "lancer-ressac", lieu: "rochers", trips: 2, fish: 0, reason: "houle non documentée" },
+  { id: "surtainville", conf: 66, level: "Moyenne", safety: "danger", status: "nr", swell: 2.4, photo: "plage-averse", lieu: "plage", trips: 0, fish: 0, reason: "houle au-delà de la limite du spot" },
 ];
 
 // Exposition au vent du jour, comme dans effets.js : vent qui entre (± 22,5°), vent de terre, ou vent qui longe la côte.
@@ -77,9 +79,12 @@ const gap = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
 const expo = (v2, from) => ((v2.exposedAngles || []).some((a) => gap(a, from) <= 22.5) ? "de face" : (v2.shelteredAngles || []).some((a) => gap(a, from) <= 22.5) ? "abrité" : "de côté");
 
 export const SPOTS = DEMO.map((d) => {
-  const v2 = V2.find((x) => x.id === d.id), c = at(d.id), pt = project(c.lat, c.lon), w = firstPrime(v2);
+  const v2 = V2.find((x) => x.id === d.id), c = at(d.id), pt = project(c.lat, c.lon), wa = windAt(pt.x, pt.y, NOW);
+  // Meilleur créneau du jour selon le modèle (fenêtres de la fiche posées sur la marée du jour).
+  const model = bestOf(windows(v2), { v2, coef: TIDE.coef, sky: "partiel", swell: d.swell, rade: SITE.zones?.[v2.zone]?.sea === "rade", windDeg: wa.fromDeg, windBft: wa.bft, month: MONTH, sst: WATER, sun: SUN });
+  const w = model?.win;
   const s = {
-    ...d, name: v2.name, kind: String(v2.type || "").toLowerCase(), sub: v2.subtitle, v2, lat: c.lat, lon: c.lon, x: pt.x, y: pt.y,
+    ...d, fav: model ? model.fav : null, model, name: v2.name, kind: String(v2.type || "").toLowerCase(), sub: v2.subtitle, v2, lat: c.lat, lon: c.lon, x: pt.x, y: pt.y,
     route: v2.distMin, km: Math.round(km(HOME, c)), verified: true,
     win: d.status === "nr" ? null : w ? [w.from, w.to] : null, winLabel: w?.label, evidence: NIVEAUX[d.id] || {},
     wind: { from: "NO", bft: 4, gust: 34, expo: expo(v2, windAt(pt.x, pt.y, NOW).fromDeg) },
@@ -144,8 +149,8 @@ export function windAt(x, y, h) {
   const daily = Math.sin(((h - 6) / 24) * 2 * Math.PI);
   const offshore = Math.max(0, (GEO.width - x) / GEO.width);
   // Démonstration : un champ régulier, avec des cellules plus ou moins ventées et une direction qui ondule (maquette vidéo).
-  const cells = 7 * Math.sin(x / 70 + y / 115) + 5 * Math.cos(y / 62 - x / 160);
-  const kmh = Math.max(6, Math.round(19 + 11 * offshore + 6 * daily + cells));
+  const cells = 4 * Math.sin(x / 70 + y / 115) + 3 * Math.cos(y / 62 - x / 160);
+  const kmh = Math.max(6, Math.round(14 + 10 * offshore + 4 * daily + cells));
   const fromDeg = Math.round(305 + 12 * offshore + 8 * Math.sin(h / 4) + 22 * Math.sin(x / 48 - y / 72) + 10 * Math.cos(y / 40));
   return { fromDeg, kmh, gust: Math.round(kmh * 1.55), bft: beaufort(kmh) };
 }

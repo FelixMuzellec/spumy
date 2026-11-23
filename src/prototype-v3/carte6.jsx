@@ -6,7 +6,7 @@ import { tierOf, FAVORABLE_MIN, ILLUSTRATION as IL } from "../design/v3/tokens.j
 import { Icon } from "./ui.jsx";
 import { GeoMap, Ring, Legend } from "./geomap.jsx";
 import { SPOTS, favorable, verifyList, ranking, windAt, compass, hhmm, span, NOW } from "./data.js";
-import { terrain, meteo, conditions, EFFECT, ptsEffect, KN } from "./effets.js";
+import { terrain, meteo, conditions, EFFECT, KN } from "./effets.js";
 import { ECHELLE } from "./connaissances.js";
 
 const fr = (n) => String(n).replace(".", ",");
@@ -229,7 +229,7 @@ export function Meteo({ st, notify, openPos }) {
       <div className="mapwrap6">
         <h1 className="vh">Météo : le vent et les conditions de chaque spot</h1>
         <GeoMap items={SPOTS} selected={sel} onSelect={(id) => setSel(sel === id ? null : id)} Layer={WindLayer} panelW={s ? PW : 0} top={TOP} focusX={(w) => w - 12 - PW - 6 - 23}
-          panel={s ? <Panel s={s} onClose={() => setSel(null)} /> : null} legend={<Legend wind />}
+          panel={s ? <Panel s={s} onClose={() => setSel(null)} onWhy={() => document.getElementById("h-meteo")?.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" })} /> : null} legend={<Legend wind />}
           onLocate={() => notify("Position : Pirou, automatique (±30 m) · démonstration")} onLayers={() => notify("Couches : vent (affiché) · mer et houle à venir avec les vraies prévisions")}
           tag="Vent : démo · côte © IGN" />
         <div className="top6">
@@ -263,8 +263,8 @@ function SkyIcon() {
  * Panneau Météo (maquette vidéo, 3e temps) : le spot et sa note, le ciel, puis une ligne « Libellé : valeur » par
  * élément, la sécurité d'abord (V3-028). Le sens et le poids de chaque élément sont expliqués sous la carte.
  */
-function Panel({ s, onClose }) {
-  const c = conditions(s);
+function Panel({ s, onClose, onWhy }) {
+  const c = conditions(s), X = meteo(s);
   const safety = s.status === "nr" ? "non recommandé" : s.status === "verify" ? "à vérifier" : { ok: "OK", prudence: "prudence", danger: "danger" }[s.safety] || "à vérifier";
   const rows = [
     ["shield", "Sécurité", safety],
@@ -282,6 +282,19 @@ function Panel({ s, onClose }) {
       <SkyIcon />
       <p className="sky6-t">{c.sky}</p>
       <p className="sky6-s num">Pluie : {c.rain} %</p>
+      {X && (
+        <div className="why6p">
+          <b className="why6p-t">Pourquoi {s.fav}</b>
+          <ul>
+            {X.crit.map((x) => (
+              <li key={x.k}><span>{x.long}</span><span className="num">{fr(x.pts)}/{x.max}</span><i className="bar6" aria-hidden="true"><i style={{ width: `${(x.pts / x.max) * 100}%` }} /></i></li>
+            ))}
+            {X.excluded.map((x) => <li key={x.k} className="ex"><span>{x.short}</span><span>hors calcul</span></li>)}
+          </ul>
+          <p className="why6p-f">Conditions <b className="num">{X.formula.cond}</b> × présence <b className="num">{fr(X.formula.pres)}</b> = <b className="num">{X.formula.fav}</b></p>
+          <button className="why6p-more" onClick={onWhy}>Pourquoi ces points<Icon name="down" size={16} /></button>
+        </div>
+      )}
       <ul className="p6-rows">{rows.map(([ic, l, val, deg]) => (
         <li key={l}><span className="p6-ic" style={deg != null ? { transform: `rotate(${deg + 180}deg)` } : undefined}><Icon name={ic} size={17} /></span>
           <span><span className="p6-l">{l}</span> : <span className="p6-v num">{val}</span></span></li>
@@ -292,39 +305,67 @@ function Panel({ s, onClose }) {
   );
 }
 
-/** Sous la carte : comment chaque élément a pesé dans la note (V3-029). */
+/**
+ * Sous la carte : pourquoi cette note (V3-029, MET-05). Du général au spécifique : la règle de calcul, la formule du jour,
+ * puis chaque critère, son poids et pourquoi il pèse autant, ses points du jour et pourquoi, enfin le barème et la règle sourcée.
+ */
 function MeteoSections({ s }) {
-  const M = meteo(s), t = tierOf(s.fav), max = Math.max(...M.items.map((i) => Math.abs(i.pts || 0)), 1);
+  const X = meteo(s);
+  if (!X) return null;
+  const F = X.formula;
   return (
     <section className="sec6" aria-labelledby="h-meteo">
       <div className="sec6-head">
-        <span className="eyebrow6">La météo · {s.name}</span>
-        <h2 id="h-meteo">Comment la météo a pesé dans la note</h2>
-        <div className="verdict6"><Ring s={s} decor />
-          <p><b>{s.fav ?? "–"}/100 · {t ? t.word : "sans note"}</b><br />Les conditions du jour comptent pour <b className="num">{M.sum >= 0 ? "+" : "−"}{Math.abs(M.sum)}</b> points ; le reste (<span className="num">{M.base}</span>) vient du terrain et de la saison.</p></div>
-        <div className="compo6" aria-hidden="true"><span className="b" style={{ width: `${M.base}%` }} /><span className={`m ${M.sum < 0 ? "neg" : ""}`} style={{ width: `${Math.abs(M.sum)}%` }} /></div>
-        <div className="compo6-l num" aria-hidden="true"><span>terrain et saison {M.base}</span><span>conditions du jour {M.sum >= 0 ? "+" : "−"}{Math.abs(M.sum)}</span></div>
+        <span className="eyebrow6">La note · {s.name}</span>
+        <h2 id="h-meteo">Pourquoi {s.fav} aujourd'hui</h2>
+        <p className="intro6">La Favorabilité note sur 100 les conditions de pêche du meilleur créneau du jour (marée, lumière, vent et mer), puis les multiplie par la présence du bar en cette saison.</p>
+        <div className="formula6">
+          <div className="f6-bar" aria-hidden="true">
+            {[...X.crit, ...X.excluded.map((x) => ({ ...x, pts: 0, max: 30, out: true }))].map((x) => (
+              <span key={x.k} className={`f6-seg${x.out ? " out" : ""}`} style={{ flexGrow: x.max }}><i style={{ width: `${(x.pts / x.max) * 100}%` }} /></span>
+            ))}
+          </div>
+          <ul className="f6-legend num">
+            {X.crit.map((x) => <li key={x.k} style={{ flexGrow: x.max }}><em><b>{fr(x.pts)}</b>/{x.max}</em><span>{x.short}</span></li>)}
+            {X.excluded.map((x) => <li key={x.k} style={{ flexGrow: 30 }}><em><b>–</b></em><span>{x.short} (hors calcul)</span></li>)}
+          </ul>
+          <p className="f6-eq">Conditions : <b className="num">{fr(F.got)}</b> points sur <b className="num">{F.max}</b> = <b className="num">{F.cond}</b>/100{F.max < 100 ? ` (calculées sur ${F.max} % des critères)` : ""}<br />
+            Favorabilité : <b className="num">{F.cond}</b> × présence <b className="num">{fr(F.pres)}</b> = <b className="num">{F.fav}</b>/100</p>
+        </div>
       </div>
       <ol className="w6">
-        {M.items.map((i) => (
-          <li key={i.key} className="w6-row">
-            <details>
-              <summary>
-                <span className="w6-l">{i.label}</span><span className="w6-v num">{i.value}</span>
-                <span className="w6-bar" aria-hidden="true"><i className={i.pts > 0 ? "p" : i.pts < 0 ? "n" : "z"} style={{ width: `${(Math.abs(i.pts || 0) / max) * 50}%` }} /></span>
-                <span className="w6-p num">{i.pts == null ? "–" : i.pts > 0 ? `+${i.pts}` : i.pts < 0 ? `−${-i.pts}` : "0"}</span>
-                <Effect e={ptsEffect(i.pts)} small />
-              </summary>
-              <div className="w6-why">
-                <p><b>Ici, aujourd'hui.</b> {i.why}.</p>
-                <p><b>Règle générale.</b> {i.rule.enonce} <Level n={i.rule.niveau} prefix="règle," /></p>
-                <Sources list={i.rule.sources} />
-              </div>
+        {X.crit.map((x) => (
+          <li key={x.k} className="w6-row">
+            <div className="w6-h"><h3>{x.label}</h3><span className="w6-n num"><b>{fr(x.pts)}</b>/{x.max}</span></div>
+            <span className="bar6 lg" aria-hidden="true"><i style={{ width: `${(x.pts / x.max) * 100}%` }} /></span>
+            <p><b>Pourquoi ce critère pèse {x.max} points.</b> {x.weightWhy}</p>
+            <p><b>Aujourd'hui.</b> {x.today} <b>{fr(x.pts)} sur {x.max}.</b></p>
+            <details className="why6"><summary>Barème et règle sourcée</summary>
+              <p><b>Barème.</b> {x.curve}.</p>
+              <p><b>Règle générale.</b> {x.rule.enonce} <Level n={x.rule.niveau} prefix="règle," /></p>
+              <Sources list={x.rule.sources} />
             </details>
           </li>
         ))}
+        {X.excluded.map((x) => (
+          <li key={x.k} className="w6-row">
+            <div className="w6-h"><h3>{x.label}</h3><span className="w6-n">hors calcul</span></div>
+            <p><b>Pourquoi.</b> {x.why[0].toUpperCase() + x.why.slice(1)}. La note est alors calculée sur les autres critères, et la Confiance baisse.</p>
+            <details className="why6"><summary>Règle sourcée</summary><p>{x.rule.enonce} <Level n={x.rule.niveau} prefix="règle," /></p><Sources list={x.rule.sources} /></details>
+          </li>
+        ))}
+        <li className="w6-row">
+          <div className="w6-h"><h3>Présence du bar</h3><span className="w6-n num">× <b>{fr(X.pres.factor)}</b></span></div>
+          <p><b>Pourquoi elle multiplie la note.</b> {X.pres.weightWhy}</p>
+          <p><b>Aujourd'hui.</b> {X.pres.today}</p>
+          <details className="why6"><summary>Règle sourcée</summary><p>{X.pres.rule.enonce} <Level n={X.pres.rule.niveau} prefix="règle," /></p><Sources list={X.pres.rule.sources} /></details>
+        </li>
       </ol>
-      <p className="demo6">Poids de démonstration : les vrais poids viendront du calcul de la note. Règles et sources : connaissances sourcées du projet ({M.items.length} éléments ; « – » : aucun effet annoncé faute de donnée).</p>
+      <div className="ctx6">
+        <h3>Affichés, mais sans effet sur la note</h3>
+        {X.info.map((i) => <p key={i.key}><b>{i.label} · <span className="num">{i.value}</span>.</b> {i.why} <Level n={i.rule.niveau} prefix="règle," /></p>)}
+      </div>
+      <p className="demo6">Barèmes : hypothèses de départ du calcul de la note (niveau 4), à éprouver sur ton journal. Conditions du jour : démonstration.</p>
     </section>
   );
 }

@@ -70,19 +70,27 @@ Vraies photos de spots : abandonnées (V3-026). Le fond IGN réel arrive aux pha
 - Météo : panneau étroit sous le champ, lignes « Libellé : valeur », sécurité d'abord, rafales ; couleurs du vent relevées sur la vidéo, traînées courtes, apparition en fondu, côte tracée par-dessus ;
 - Home : cartes de mode, champ à épingle, jours de même largeur, synthèse plus grande ; couleurs relevées sur les maquettes.
 
+**Version 6.2** (23 nov., 12 h 45, remarques de Félix sur les quatre planches) :
+- logo : le disque et le poisson sans l'anneau crème, comme sur les maquettes (symbole détouré, couleurs d'origine inchangées) ;
+- Carte : champ de lieu et puces transparents ; cadrage sur l'emprise des spots, la côte remonte jusqu'en haut de l'écran sous l'en-tête ;
+- Météo : la terre assombrie sous le vent, la mer en couleurs ; le panneau dit **pourquoi la note** (points de marée, coefficient, lumière, vent et mer, puis conditions × présence) ; sous la carte, chaque critère dit pourquoi il pèse autant, ses points du jour et pourquoi, son barème et sa règle sourcée ;
+- les notes sont calculées par le modèle du moteur v2 (`src/prototype-v3/modele.js`, valeurs vérifiées contre le moteur) sur les conditions de démonstration ;
+- Home : plus de finesse (graisses et tailles allégées), Offshore n'est plus en orange.
+
 | Donnée | Réelle | De démonstration |
 | --- | --- | --- |
 | Spots, positions (à la minute près), temps de route, fenêtres de marée des fiches, terrain, sécurité, sources | oui (fiches V2, `data/sites/pirou.config.js`) | — |
 | Connaissances et niveaux de preuve | oui (`data/knowledge`, générées par `scripts/connaissances-v6.mjs`) | — |
 | Trait de côte | oui (IGN Admin Express 2018) | — |
-| Notes du jour, marée du jour, vent, houle, ciel, journal | — | oui, marquées « démo » à l'écran |
+| Calcul de la note (barèmes, présence) | oui : modèle du moteur v2, valeurs vérifiées par test | — |
+| Conditions du jour (marée, vent, houle, ciel, eau), journal | — | oui, marquées « démo » à l'écran ; les notes en sont calculées |
 | Courbes de profondeur | **absentes** : aucune donnée réelle joignable d'ici (EMODnet et Shom refusés par le proxy) ; rien n'est dessiné | — |
 
 ## Où le voir
 
 - **Page de revue** : artefact « Prototype SPUMY V3 » (privé), construit avec `node scripts/build-prototype-v3.mjs --revue <dossier>`.
 - **Dans le dépôt** : `prototype-v3/`, construit par `npm run build:prototype-v3`. Les photos et le logo sont lus dans `../assets`. Ce dossier sera publié avec le site seulement si Félix accepte la fusion.
-- **Captures** à 390 × 844 : `docs/design/prototype-v3/*.webp`, 15 images, nuit marine (et deux en plein jour), plus le bureau ; dont les premiers écrans avec la bulle de la Carte (12), le panneau de la Météo (13), le haut de Home resserré (14) et le vent animé (15).
+- **Captures** à 390 × 844 : `docs/design/prototype-v3/*.webp`, 16 images (16 : pourquoi la note), nuit marine (et deux en plein jour), plus le bureau ; dont les premiers écrans avec la bulle de la Carte (12), le panneau de la Météo (13), le haut de Home resserré (14) et le vent animé (15).
 - **Maquette contre prototype**, même largeur : `docs/design/comparaison-v6/{home,carte,meteo,meteo-vent}.webp`.
 
 ## Ce qu'on peut faire
@@ -115,7 +123,8 @@ Il n'existe pas dans l'application.
 
 | Commande | Code de sortie | Résultat |
 | --- | --- | --- |
-| `npm run test:prototype-v3` (construction, puis `tests/prototype-v3.mjs --axe`), version 6.1 | 0 | 219/219 |
+| `npm run test:prototype-v3` (construction, puis `tests/prototype-v3.mjs --axe`), version 6.2 | 0 | 224/224 |
+| `python3 tests/brand.py` (dont le symbole détouré) | 0 | 35/35 |
 | `npm test` (lint, couches, données, connaissances, design, moteur v2, unitaires, e2e, contrat simulé) | 0 | tout vert ; 0 couleur en dur ajoutée |
 | `npm run test:a11y` ; `npm run test:upgrade` ; `npm run test:prototype` | 0 ; 0 ; 0 | 0 violation ; 12/12 ; 244/244 |
 | `node scripts/connaissances-v6.mjs --check` | 0 | `connaissances.js` à jour |

@@ -78,3 +78,12 @@ Félix les rend facultatifs (ADR-V3-002). Proposition de la Phase 3, à valider 
 | Médaillon et mot SPUMY | marque | en-tête de tous les écrans : médaillon de 44 px, mot SPUMY en Montserrat 800, interlettrage 0,16 em | 44 px | marine, ardoise | le mot est du texte, jamais une image recolorée |
 | Icônes V3 | application installée | icône d'écran d'accueil, favicon | — | crème d'origine | produites par le script seulement |
 | INSHORE, OFFSHORE | modes (facultatif) | écran d'entrée de mode, au choix | 96 px | leur fond d'origine | jamais dans la navigation ni sur les cartes |
+
+## Symbole détouré (prototype V6, 23 nov. 2026)
+
+Demande de Félix (12 h 45, « le logo n'est pas bon ») : sur les maquettes, le disque et le poisson sont posés directement sur le fond marine. `scripts/logos-symbole-v6.py` produit `spumy-symbole-744.png` (taille native), `-256.png` et `-128.png` :
+- même recadrage que le médaillon ; seuls le fond crème d'origine relié au bord du cadre (écart au crème < 40) et le haut des lettres deviennent transparents ;
+- les reflets clairs du poisson, entourés de son trait, restent opaques ; aucune valeur de couleur n'est modifiée ;
+- réduction en alpha prémultiplié (pas de liseré crème).
+
+Preuve (`python3 tests/brand.py`, 35/35) : couleurs identiques à la source pixel pour pixel ; disque entièrement opaque (hors bord lissé de 2 px) ; toute l'encre du poisson opaque ; seul le fond crème relié au bord transparent ; orange conservé à ±2 sur les réductions. Le médaillon reste l'export de référence sur fond clair ou incertain.

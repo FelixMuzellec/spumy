@@ -99,6 +99,27 @@ dark_px = mut.mean(axis=2) < 110
 mut[outside_disc & dark_px & protected] = [239, 231, 216]
 t("contrôle négatif : une recoloration du poisson est détectée", not np.array_equal(mut[protected], win[protected]) and int((outside_disc & dark_px & protected).sum()) > 0)
 
+# 5. Symbole détouré (prototype V6) : seule l'opacité du fond crème change ; aucune valeur de couleur n'est modifiée.
+import importlib.util as _iu
+_spec = _iu.spec_from_file_location("logos_sym", ROOT / "scripts/logos-symbole-v6.py"); S = _iu.module_from_spec(_spec); _spec.loader.exec_module(S)
+sym = np.asarray(Image.open(L.OUT / "spumy-symbole-744.png").convert("RGBA")).astype(int)
+_, (sx0, sy0), back = S.symbol()
+src_crop = np.asarray(Image.open(L.SRC).convert("RGB"))[sy0:sy0 + sym.shape[0], sx0:sx0 + sym.shape[1]].astype(int)
+t("symbole : couleurs identiques à la source, pixel pour pixel (seule l'opacité change)", np.array_equal(sym[..., :3], src_crop))
+syy, sxx = np.mgrid[0:sym.shape[0], 0:sym.shape[1]]
+sd = np.hypot(sxx + 0.5 - (L.CX - sx0), syy + 0.5 - (L.CY - sy0))
+t("symbole : disque orange entièrement opaque (hors bord lissé de 2 px)", (sym[..., 3][sd <= L.DISC_R - 2] == 255).all())
+bgc = np.median(np.asarray(Image.open(L.SRC).convert("RGB"))[20:120, 20:120].reshape(-1, 3), axis=0)
+far = np.sqrt(((src_crop - bgc) ** 2).sum(-1)) >= S.CREAM_GAP
+sprot = (sd <= L.PROTECTED_R) & ((syy + sy0) < L.WORD_TOP - 5)
+t("symbole : toute l'encre du poisson (écart au crème ≥ 40) reste opaque", (sym[..., 3][far & sprot] == 255).all())
+t("symbole : seul le fond crème relié au bord devient transparent", ((sym[..., 3] < 255) <= (back | ~sprot | ~far)).all())
+for s_ in (256, 128):
+    e = np.asarray(Image.open(L.OUT / f"spumy-symbole-{s_}.png").convert("RGBA")).astype(int)
+    op = e[..., 3] == 255
+    o, n = orange_of(e[..., :3] * op[..., None])
+    t(f"spumy-symbole-{s_}.png : orange de l'aplat conservé (±2)", n > 0 and np.abs(o - o_src).max() <= 2, "#%02X%02X%02X" % tuple(o))
+
 # 4. Signalement de l'export V2 non conforme (il reste en place jusqu'à son remplacement dans l'application).
 v2 = ROOT / "assets/brand/spumy-marque-sombre.png"
 t("export V2 sombre toujours présent (remplacement prévu en Phase 10–12, défaut A01)", v2.exists())
