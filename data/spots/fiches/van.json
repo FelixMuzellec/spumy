@@ -501,7 +501,7 @@
  },
  "quality": {
   "statut": "a_verifier",
-  "derniere_verification": null,
+  "derniere_verification": "2026-11-23",
   "completude": 0.77,
   "inconnus": [
    "access.difficulte",
@@ -515,6 +515,39 @@
    "windows.securite",
    "photos"
   ],
-  "anomalies": []
+  "anomalies": [],
+  "criteres": {
+   "QUAL-1": {
+    "ok": false,
+    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:cannes-peche-blog4ever-com"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "0 source halieutique évaluée page par page sur 1"
+   },
+   "QUAL-3": {
+    "ok": true,
+    "detail": "position contrôlée par l'IGN (toponyme officiel à 1,5 km au plus) ou corrigée"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (13 min)"
+   },
+   "QUAL-5": {
+    "ok": true,
+    "detail": "engagement 3, 1 consigne, contrainte de marée non documentée, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": true,
+    "detail": "réglementation nationale seule, sans règle locale à vérifier"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:cannes-peche-blog4ever-com"
+  ]
  }
 }

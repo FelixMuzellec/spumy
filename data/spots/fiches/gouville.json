@@ -525,7 +525,7 @@
  },
  "quality": {
   "statut": "a_verifier",
-  "derniere_verification": null,
+  "derniere_verification": "2026-11-23",
   "completude": 0.74,
   "inconnus": [
    "access.stationnement",
@@ -542,6 +542,40 @@
   ],
   "anomalies": [
    "Coordonnées V2 seulement en texte, à la minute près (jusqu'à 1,85 km d'écart) : à vérifier en priorité."
+  ],
+  "criteres": {
+   "QUAL-1": {
+    "ok": true,
+    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:sylco-peche-brehal-fr, peche-com-bateaux-com"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "0 source halieutique évaluée page par page sur 2"
+   },
+   "QUAL-3": {
+    "ok": false,
+    "detail": "Coordonnées V2 seulement en texte, à la minute près (jusqu'à 1,85 km d'écart) : à vérifier en priorité."
+   },
+   "QUAL-4": {
+    "ok": false,
+    "detail": "stationnement ou temps de marche inconnu"
+   },
+   "QUAL-5": {
+    "ok": true,
+    "detail": "engagement 3, 2 consignes, contrainte de marée isolement_au_flot, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": true,
+    "detail": "réglementation nationale seule, sans règle locale à vérifier"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-3 : Coordonnées V2 seulement en texte, à la minute près (jusqu'à 1,85 km d'écart) : à vérifier en priorité.",
+   "QUAL-4 : stationnement ou temps de marche inconnu"
   ]
  }
 }

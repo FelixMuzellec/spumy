@@ -552,7 +552,7 @@
  },
  "quality": {
   "statut": "a_verifier",
-  "derniere_verification": null,
+  "derniere_verification": "2026-11-23",
   "completude": 0.77,
   "inconnus": [
    "access.difficulte",
@@ -568,6 +568,39 @@
   ],
   "anomalies": [
    "La fiche V2 cite le journal personnel de Félix (sessions, prises) : à revoir avant publication d'une fiche V3."
+  ],
+  "criteres": {
+   "QUAL-1": {
+    "ok": true,
+    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:desperadiens, peche-com-bateaux-com"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "0 source halieutique évaluée page par page sur 2"
+   },
+   "QUAL-3": {
+    "ok": true,
+    "detail": "position contrôlée par l'IGN (toponyme officiel à 1,5 km au plus) ou corrigée"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (26 min)"
+   },
+   "QUAL-5": {
+    "ok": true,
+    "detail": "engagement 1, 1 consigne, contrainte de marée non documentée, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": true,
+    "detail": "réglementation nationale seule, sans règle locale à vérifier"
+   },
+   "QUAL-7": {
+    "ok": false,
+    "detail": "cite le journal personnel de Félix : à retirer de la fiche publique"
+   }
+  },
+  "raisons": [
+   "QUAL-7 : cite le journal personnel de Félix : à retirer de la fiche publique"
   ]
  }
 }

@@ -587,7 +587,7 @@
  },
  "quality": {
   "statut": "a_verifier",
-  "derniere_verification": null,
+  "derniere_verification": "2026-11-23",
   "completude": 0.8,
   "inconnus": [
    "access.difficulte",
@@ -602,6 +602,41 @@
   ],
   "anomalies": [
    "Position V2 à 1,5 km du toponyme officiel « Anse de Sciotot » (baie, détail hydrographique, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme)."
+  ],
+  "criteres": {
+   "QUAL-1": {
+    "ok": false,
+    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : peche-com-bateaux-com"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "0 source halieutique évaluée page par page sur 1"
+   },
+   "QUAL-3": {
+    "ok": false,
+    "detail": "Position V2 à 1,5 km du toponyme officiel « Anse de Sciotot » (baie, détail hydrographique, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme)."
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (6 min)"
+   },
+   "QUAL-5": {
+    "ok": true,
+    "detail": "engagement 2, 2 consignes, contrainte de marée isolement_au_flot, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": false,
+    "detail": "règle locale à vérifier au poste (plage de Sciotot (Les Pieux))"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : peche-com-bateaux-com",
+   "QUAL-3 : Position V2 à 1,5 km du toponyme officiel « Anse de Sciotot » (baie, détail hydrographique, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme).",
+   "QUAL-6 : règle locale à vérifier au poste (plage de Sciotot (Les Pieux))"
   ]
  }
 }

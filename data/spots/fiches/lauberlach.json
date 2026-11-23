@@ -502,7 +502,7 @@
  },
  "quality": {
   "statut": "a_verifier",
-  "derniere_verification": null,
+  "derniere_verification": "2026-11-23",
   "completude": 0.77,
   "inconnus": [
    "access.difficulte",
@@ -515,6 +515,40 @@
    "windows.securite",
    "photos"
   ],
-  "anomalies": []
+  "anomalies": [],
+  "criteres": {
+   "QUAL-1": {
+    "ok": true,
+    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:hisse-et-oh-com, peche-com-bateaux-com"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "0 source halieutique évaluée page par page sur 2"
+   },
+   "QUAL-3": {
+    "ok": false,
+    "detail": "position non contrôlée"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (3 min)"
+   },
+   "QUAL-5": {
+    "ok": false,
+    "detail": "engagement 1, 0 consigne, contrainte de marée non documentée, mouvements de terrain 1"
+   },
+   "QUAL-6": {
+    "ok": true,
+    "detail": "réglementation nationale seule, sans règle locale à vérifier"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-3 : position non contrôlée",
+   "QUAL-5 : engagement 1, 0 consigne, contrainte de marée non documentée, mouvements de terrain 1"
+  ]
  }
 }

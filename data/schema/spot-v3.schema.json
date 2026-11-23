@@ -96,6 +96,8 @@
       "type": "object", "additionalProperties": false, "required": ["statut", "derniere_verification", "completude", "inconnus", "anomalies"],
       "properties": {
         "statut": { "enum": ["candidate", "a_verifier", "corroboree", "TOP_TIER", "inaccessible", "reglementee"] },
+        "criteres": { "type": "object", "description": "Critères de qualification QUAL-1 à QUAL-7 (docs/halieutique/QUALIFICATION.md) : vrai, faux, avec le détail.", "additionalProperties": { "type": "object", "required": ["ok", "detail"], "properties": { "ok": { "type": "boolean" }, "detail": { "type": "string" } }, "additionalProperties": false } },
+        "raisons": { "type": "array", "items": { "type": "string" }, "description": "Pourquoi la fiche n'atteint pas le niveau supérieur." },
         "derniere_verification": { "type": ["string", "null"], "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
         "completude": { "type": "number", "minimum": 0, "maximum": 1 },
         "inconnus": { "type": "array", "items": { "type": "string" } },

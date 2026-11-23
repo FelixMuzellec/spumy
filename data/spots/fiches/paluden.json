@@ -564,7 +564,7 @@
  },
  "quality": {
   "statut": "a_verifier",
-  "derniere_verification": null,
+  "derniere_verification": "2026-11-23",
   "completude": 0.81,
   "inconnus": [
    "access.difficulte",
@@ -578,6 +578,41 @@
   ],
   "anomalies": [
    "Position V2 à 4,1 km du toponyme officiel « Aber Wrac'h » (embouchure, détail hydrographique, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme)."
+  ],
+  "criteres": {
+   "QUAL-1": {
+    "ok": false,
+    "detail": "0 groupe d'indépendance halieutique (famille 1 à 4) ; 2 sources d'éditeur non classé, non comptées"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "0 source halieutique évaluée page par page sur 0"
+   },
+   "QUAL-3": {
+    "ok": false,
+    "detail": "Position V2 à 4,1 km du toponyme officiel « Aber Wrac'h » (embouchure, détail hydrographique, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme)."
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (8 min)"
+   },
+   "QUAL-5": {
+    "ok": true,
+    "detail": "engagement 1, 1 consigne, contrainte de marée praticable_a_basse_mer_seulement, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": false,
+    "detail": "règle locale à vérifier au poste (Finistère)"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4) ; 2 sources d'éditeur non classé, non comptées",
+   "QUAL-3 : Position V2 à 4,1 km du toponyme officiel « Aber Wrac'h » (embouchure, détail hydrographique, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme).",
+   "QUAL-6 : règle locale à vérifier au poste (Finistère)"
   ]
  }
 }

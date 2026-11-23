@@ -510,7 +510,7 @@
  },
  "quality": {
   "statut": "a_verifier",
-  "derniere_verification": null,
+  "derniere_verification": "2026-11-23",
   "completude": 0.77,
   "inconnus": [
    "access.difficulte",
@@ -524,6 +524,41 @@
    "windows.securite",
    "photos"
   ],
-  "anomalies": []
+  "anomalies": [],
+  "criteres": {
+   "QUAL-1": {
+    "ok": false,
+    "detail": "0 groupe d'indépendance halieutique (famille 1 à 4) ; 2 sources d'éditeur non classé, non comptées"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "0 source halieutique évaluée page par page sur 0"
+   },
+   "QUAL-3": {
+    "ok": false,
+    "detail": "position non contrôlée"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (1 min)"
+   },
+   "QUAL-5": {
+    "ok": true,
+    "detail": "engagement 2, 1 consigne, contrainte de marée non documentée, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": false,
+    "detail": "règle locale à vérifier au poste (Finistère) ; règle locale à vérifier au poste (cantonnement « Le Cochon »)"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4) ; 2 sources d'éditeur non classé, non comptées",
+   "QUAL-3 : position non contrôlée",
+   "QUAL-6 : règle locale à vérifier au poste (Finistère) ; règle locale à vérifier au poste (cantonnement « Le Cochon »)"
+  ]
  }
 }

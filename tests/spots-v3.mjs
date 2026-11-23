@@ -5,6 +5,7 @@ import path from "node:path";
 import Ajv2020 from "ajv/dist/2020.js";
 import { lireFiches, texteRegistre, F_REGISTRE } from "../scripts/registre-spots.mjs";
 import { CLASSEMENT } from "../scripts/securite-maree.mjs";
+import { qualifier, sourcesParSpot } from "../scripts/qualifier-fiches.mjs";
 import { qualite } from "../scripts/fiches-v3-depuis-v2.mjs";
 import { construire, F_SOURCES } from "../scripts/sources-registre.mjs";
 
@@ -73,6 +74,33 @@ for (const { fiche: f } of fiches) {
   if (f.photos.statut !== "INCONNU") t(`${f.id} : chaque photo gardée a sa page, sa licence libre et sa distance`, Array.isArray(f.photos.valeur) && f.photos.valeur.length > 0 && f.photos.valeur.every((p) => /^https:\/\/commons\.wikimedia\.org\//.test(p.page) && /^(CC0|Public domain|CC BY(-SA)? [0-9.]+)$/.test(p.licence) && p.distance_m <= 400));
 }
 t("schéma : refuse un code de contrainte de marée inconnu", !variante((c) => { c.safety.acces_maree = { statut: "INFÉRÉ", origine: "v2", valeur: ["sans_danger"] }; }));
+// Qualification (5.9) : chaque statut se recalcule à l'identique ; les critères bloquent ce qu'ils doivent bloquer.
+const parSpot = sourcesParSpot(src);
+for (const { fiche: f } of fiches) {
+  const q = qualifier(f, parSpot.get(f.id) || []);
+  t(`${f.id} : qualification recalculée (${q.statut})`, f.quality.statut === q.statut && JSON.stringify(f.quality.criteres) === JSON.stringify(q.criteres) && JSON.stringify(f.quality.raisons) === JSON.stringify(q.raisons));
+  if (f.quality.statut === "TOP_TIER") t(`${f.id} : TOP_TIER avec sources évaluées page par page`, q.criteres["QUAL-2"].ok);
+  if (["corroboree", "TOP_TIER"].includes(f.quality.statut)) t(`${f.id} : corroborée sans règle locale à vérifier ni anomalie de position`, q.criteres["QUAL-3"].ok && q.criteres["QUAL-6"].ok);
+}
+{
+  const g = (groupe, extra = {}) => ({ id: `src-t-${groupe}`, texte: "t", groupe, famille: 4, editeur_classe: { domaines: ["halieutique"] }, evaluation: { statut: "à évaluer" }, ...extra });
+  const ref = fiches.find(({ fiche }) => fiche.quality.statut === "corroboree")?.fiche;
+  if (ref) {
+    const deux = [g("a"), g("b")];
+    t("qualification : deux groupes indépendants et le reste documenté donnent « corroborée »", qualifier(ref, deux).statut === "corroboree");
+    t("qualification : deux pages du même éditeur ne corroborent pas", qualifier(ref, [g("a"), g("a")]).statut === "a_verifier");
+    t("qualification : une citation de pêche en bateau ne compte pas pour le bord", qualifier(ref, [g("a"), g("b", { texte: "guide de pêche en bateau" })]).statut === "a_verifier");
+    t("qualification : une source privée bloque", qualifier(ref, [...deux, g("c", { prive: true })]).statut === "a_verifier");
+    t("qualification : sans évaluation page par page, jamais TOP_TIER", qualifier(ref, deux).statut !== "TOP_TIER");
+    t("qualification : sources lues et tout documenté donnent TOP_TIER", qualifier(ref, deux.map((x) => ({ ...x, evaluation: { statut: "évaluée" } }))).statut === "TOP_TIER");
+    const regle = structuredClone(ref); regle.regulations.push({ statut: "VÉRIFIÉ", origine: "v3", valeur: { portee: "port", application_au_poste: "à vérifier" } });
+    t("qualification : une règle locale à vérifier bloque la corroboration", qualifier(regle, deux).statut === "a_verifier");
+    const interdit = structuredClone(ref); interdit.regulations.push({ statut: "VÉRIFIÉ", origine: "v3", valeur: { interdit_au_poste: true } });
+    t("qualification : une interdiction confirmée au poste donne « réglementée »", qualifier(interdit, deux).statut === "reglementee");
+    const pos = structuredClone(ref); pos.quality.anomalies.push("Position V2 à 3,0 km du toponyme officiel « X » : à vérifier.");
+    t("qualification : une anomalie de position bloque la corroboration", qualifier(pos, deux).statut === "a_verifier");
+  }
+}
 t("registre central à jour (node scripts/fiches-v3-depuis-v2.mjs le régénère)", fs.readFileSync(F_REGISTRE, "utf8") === texteRegistre());
 
 console.log(`[spots V3] ${fiches.length} fiches, schéma § 7.4, aucune perte V2, registre : ${pass}/${pass + fail}`);

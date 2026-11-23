@@ -559,8 +559,8 @@
   ]
  },
  "quality": {
-  "statut": "a_verifier",
-  "derniere_verification": null,
+  "statut": "corroboree",
+  "derniere_verification": "2026-11-23",
   "completude": 0.8,
   "inconnus": [
    "access.difficulte",
@@ -573,6 +573,39 @@
    "windows.securite",
    "photos"
   ],
-  "anomalies": []
+  "anomalies": [],
+  "criteres": {
+   "QUAL-1": {
+    "ok": true,
+    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:sylco-peche-brehal-fr, peche-com-bateaux-com"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "0 source halieutique évaluée page par page sur 2"
+   },
+   "QUAL-3": {
+    "ok": true,
+    "detail": "position contrôlée par l'IGN (toponyme officiel à 1,5 km au plus) ou corrigée"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (12 min)"
+   },
+   "QUAL-5": {
+    "ok": true,
+    "detail": "engagement 2, 2 consignes, contrainte de marée praticable_a_basse_mer_seulement, isolement_au_flot, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": true,
+    "detail": "réglementation nationale seule, sans règle locale à vérifier"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-2 : 0 source halieutique évaluée page par page sur 2"
+  ]
  }
 }

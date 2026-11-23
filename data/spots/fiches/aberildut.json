@@ -564,7 +564,7 @@
  },
  "quality": {
   "statut": "a_verifier",
-  "derniere_verification": null,
+  "derniere_verification": "2026-11-23",
   "completude": 0.82,
   "inconnus": [
    "access.difficulte",
@@ -576,6 +576,40 @@
    "windows.habituelles",
    "windows.securite"
   ],
-  "anomalies": []
+  "anomalies": [],
+  "criteres": {
+   "QUAL-1": {
+    "ok": false,
+    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:cannes-peche-blog4ever-com ; 2 sources d'éditeur non classé, non comptées"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "0 source halieutique évaluée page par page sur 1"
+   },
+   "QUAL-3": {
+    "ok": true,
+    "detail": "position contrôlée par l'IGN (toponyme officiel à 1,5 km au plus) ou corrigée"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (4 min)"
+   },
+   "QUAL-5": {
+    "ok": true,
+    "detail": "engagement 2, 1 consigne, contrainte de marée non documentée, mouvements de terrain 1"
+   },
+   "QUAL-6": {
+    "ok": false,
+    "detail": "règle locale à vérifier au poste (Finistère)"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:cannes-peche-blog4ever-com ; 2 sources d'éditeur non classé, non comptées",
+   "QUAL-6 : règle locale à vérifier au poste (Finistère)"
+  ]
  }
 }

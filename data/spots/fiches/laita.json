@@ -580,7 +580,7 @@
  },
  "quality": {
   "statut": "a_verifier",
-  "derniere_verification": null,
+  "derniere_verification": "2026-11-23",
   "completude": 0.82,
   "inconnus": [
    "access.difficulte",
@@ -594,6 +594,41 @@
   ],
   "anomalies": [
    "Position V2 à 4,7 km du toponyme officiel « la Laïta » (cours d'eau, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme)."
+  ],
+  "criteres": {
+   "QUAL-1": {
+    "ok": false,
+    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:apppcc-jimdofree-com ; 2 sources d'éditeur non classé, non comptées"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "0 source halieutique évaluée page par page sur 1"
+   },
+   "QUAL-3": {
+    "ok": false,
+    "detail": "Position V2 à 4,7 km du toponyme officiel « la Laïta » (cours d'eau, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme)."
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (2 min)"
+   },
+   "QUAL-5": {
+    "ok": true,
+    "detail": "engagement 2, 2 consignes, contrainte de marée non documentée, mouvements de terrain 1"
+   },
+   "QUAL-6": {
+    "ok": false,
+    "detail": "règle locale à vérifier au poste (Finistère)"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:apppcc-jimdofree-com ; 2 sources d'éditeur non classé, non comptées",
+   "QUAL-3 : Position V2 à 4,7 km du toponyme officiel « la Laïta » (cours d'eau, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme).",
+   "QUAL-6 : règle locale à vérifier au poste (Finistère)"
   ]
  }
 }

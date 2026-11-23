@@ -506,7 +506,7 @@
  },
  "quality": {
   "statut": "a_verifier",
-  "derniere_verification": null,
+  "derniere_verification": "2026-11-23",
   "completude": 0.76,
   "inconnus": [
    "access.difficulte",
@@ -522,6 +522,40 @@
   ],
   "anomalies": [
    "Spot à moins de 2,2 km du 48ᵉ parallèle : la zone CIEM (7 ou 8) dépend du poste exact ; à vérifier sur place."
+  ],
+  "criteres": {
+   "QUAL-1": {
+    "ok": true,
+    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:cannes-peche-blog4ever-com, editeur:peche-rando-bar"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "0 source halieutique évaluée page par page sur 2"
+   },
+   "QUAL-3": {
+    "ok": true,
+    "detail": "position contrôlée par l'IGN (toponyme officiel à 1,5 km au plus) ou corrigée"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (3 min)"
+   },
+   "QUAL-5": {
+    "ok": false,
+    "detail": "engagement 1, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": false,
+    "detail": "zone CIEM 7 ou 8 incertaine (48ᵉ parallèle)"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-5 : engagement 1, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0",
+   "QUAL-6 : zone CIEM 7 ou 8 incertaine (48ᵉ parallèle)"
   ]
  }
 }
