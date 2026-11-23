@@ -1,0 +1,37 @@
+# Contrat IGN (Géoplateforme) — phase 4 V3, sous-tâche 4.14.
+# Vérifie que le géocodage, l'itinéraire et l'isochrone de l'IGN répondent, et qu'un navigateur peut les appeler
+# depuis l'origine du site publié (CORS) : la V3 en dépend pour le classement BORD (V3-009). Le bac à sable de
+# Claude n'atteint pas l'IGN ; l'intégration continue, si. Ce contrôle n'est pas exigé pour fusionner : un service
+# extérieur en panne ne doit pas bloquer une publication. En cas d'échec, GitHub envoie un e-mail.
+name: Contrat IGN
+
+on:
+  schedule:
+    - cron: "43 4 * * *"   # 04 h 43 UTC, tous les jours
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ign:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npx playwright install --with-deps chromium
+      - name: Contrat IGN (réseau réel, CI et navigateur)
+        run: node tests/contrat-ign.mjs
+      - if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: contrat-ign
+          path: out/contrat-ign.json
+          if-no-files-found: ignore
+          retention-days: 30
