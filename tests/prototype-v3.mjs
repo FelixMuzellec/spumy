@@ -344,6 +344,15 @@ if (CAP) {
   await page.waitForTimeout(250);
   await page.screenshot({ path: path.join(CAP, "10-home-bateau.png"), fullPage: true });
   await ctx.close();
+  // Premiers écrans, comme les maquettes de Félix : bulle de la Carte, panneau de la Météo, haut de Home resserré.
+  for (const [r, name, act] of [["carte", "12-carte-bulle", "tap"], ["meteo", "13-meteo-panneau", "tap"], ["home", "14-home-defile", "scroll"]]) {
+    const o = await open({ width: 390, height: 844 }, "dark", r);
+    if (act === "tap") { await o.page.waitForSelector(".map6 .ring"); await o.page.getByRole("button", { name: /^Pirou Plage, / }).click(); }
+    else await o.page.evaluate(() => scrollTo(0, 900));
+    await o.page.waitForTimeout(400);
+    await o.page.screenshot({ path: path.join(CAP, `${name}.png`) });
+    await o.ctx.close();
+  }
   const d = await open({ width: 1280, height: 800 }, "dark", "carte");
   await d.page.waitForTimeout(250);
   await d.page.screenshot({ path: path.join(CAP, "11-carte-bureau.png") });

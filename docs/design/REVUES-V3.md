@@ -170,7 +170,7 @@ La galerie AVANT/CIBLE est dans `docs/design/galerie-avant-cible.html`, publiée
 ## 7. Revue des contenus et revue terrain
 
 **Contenus**
-- Pas de slogan, pas de « V2 » ni de « phase », pas de note sur 10, pas de « Pertinence » à l'écran (testé sur 8 écrans ; « Phase 9 » retiré du choix du bateau, D-16).
+- Un seul slogan, en tête de Home (V3-028) ; pas de « V2 » ni de « phase », pas de note sur 10, pas de « Pertinence » à l'écran (testé sur 8 écrans ; « Phase 9 » retiré du choix du bateau, D-16).
 - Heures au format `HH:MM–HH:MM`.
 - Espace insécable avant « : ».
 - Chaque photo est marquée « Illustration » (V3-026).
@@ -234,7 +234,7 @@ Aucun défaut critique ou majeur ne reste ouvert. Les défauts de l'audit AVANT 
 | A04 (Top 3), A21 (filtres), A14 (paragraphes avant de voir), A13 (textes, horaires) | Corrigés dans le prototype (A04 et A21 testés). |
 | A11 (carte), A19 (bureau), A17 (navigation), A18 (BATEAU) | Corrigés dans le prototype ; vrai fond de carte à l'intégration. |
 | A12 (pastilles provisoires au chargement) | État « Chargement » prototypé. |
-| A05 (slogan) | Absent du prototype ; à retirer du site à l'intégration. |
+| A05 (slogan) | Le slogan du site est retiré ; seul « Read the sea. Fish the moment. » reste, en tête de Home (V3-028). |
 | A08 (coordonnées), A10 (vigilance) | Hors du périmètre de la phase 3 : phases 5, 7 et 9. |
 | A22 (export) | À décider après le test T6. |
 
@@ -252,7 +252,7 @@ Aucun défaut critique ou majeur ne reste ouvert. Les défauts de l'audit AVANT 
 | Données et confiance | Partiellement conforme | Source et heure (Météo, fiche), hors ligne, sécurité avant tout, règles de pêche marquées | Données de démonstration (R6) ; vigilance réelle : relais (V3-011) |
 | Terrain et accessibilité | Partiellement conforme | WCAG 2.2 AA : 24 critères conformes, 7 partiels ou non vérifiables (§ 4) ; cibles de 44 px ; deux thèmes | Essai dehors (CR-05) ; D-08, D-09 |
 | Responsive et performance | Partiellement conforme | 320, 375, 390, 1 280 px × 2 thèmes ; 265 à 466 Ko par écran | Appareils réels, réseau dégradé, zones sûres : CR-06 |
-| Contenus et assets | Conforme | Photos marquées « Illustration », provenance dans `data/photos/catalogue.json`, aucun slogan, aucun « V2 » | — |
+| Contenus et assets | Conforme | Photos marquées « Illustration », provenance dans `data/photos/catalogue.json`, un seul slogan, en tête de Home (V3-028), aucun « V2 » | — |
 | Périmètre V3 et héritage V2 | Partiellement conforme | BATEAU présent : Home, marques, bateau, sorties, carte, météo Mer | Fonctions BATEAU V2 non toutes prototypées (journal BATEAU détaillé, modèle appris) ; vérifiées à l'intégration (BAT-01 à BAT-10) |
 | Validation | Partiellement conforme | Captures réelles, 194 + 186 + 29 tests, jalons 1 et 2 de Félix | TEST UTILISATEUR NON EFFECTUÉ ; VALIDATION HUMAINE INDÉPENDANTE NON OBTENUE |
 | Trois cartes de recommandation | Conforme | 3 cartes BORD et 3 BATEAU ; place réservée, égalités, pénurie testées ; responsive | Données réelles : intégration |
@@ -297,3 +297,21 @@ Chaque critère reprend une réserve du jalon 2 (R1 à R6) ou un défaut ouvert.
 | CR-12 | R5 | Météo sur vraies prévisions : flèches lisibles à 320 px, densité de grille réglée, rafales visibles | Captures, retour de Félix |
 | CR-13 | R6, jalon 3 | Prototypes métier revalidés avec les scores du moteur, après les phases 5, 8 et 9 ; fixture 53 / 100 provisoire / 69 rejouée sur mobile et bureau (§ 10) | Tests de compréhension T7 |
 | CR-14 | Performance | Home sous 500 Ko au premier chargement, polices comprises (466 Ko mesurés dans le prototype) ; images en 720 px sur mobile | Mesure du poids |
+| CR-15 | V3-028 | Courbes de profondeur seulement depuis une donnée réelle (EMODnet Bathymetry ou Shom), avec source et date ; aucune courbe sinon | Recette carto, source citée |
+| CR-16 | V3-028 | Vent animé sur vraies prévisions : couleurs en nœuds justes contre les données, animation en pause onglet caché, flèches fixes si le mouvement est réduit, 60 i/s sur un téléphone moyen | Mesure, captures |
+
+## 14. Revue de la version 6 (23 nov. 2026)
+
+Même méthode que les revues 3.7 (heuristiques, accessibilité, contenu), appliquée aux maquettes de Félix reproduites (V3-028 à V3-030).
+
+| Point | Constat | Suite |
+| --- | --- | --- |
+| Fidélité aux 3 vues | Home, Carte et Météo reprennent la composition, la palette et la hiérarchie des maquettes (`docs/design/comparaison-v6/`) | Revalidation par Félix |
+| Données | Trait de côte IGN réel, 8 vrais spots à leur position ; notes, marée du jour, vent et journal de démonstration, marqués | Moteur : phases 5, 8, 9 |
+| Courbes de profondeur | Absentes : EMODnet et Shom refusés par le proxy ; rien de dessiné | Fichier à fournir par Félix (CR-15) |
+| Général → spécifique | Premier écran = carte ; bulle ou panneau au toucher ; sections « pourquoi » sous la carte ; détail sourcé avec niveau de preuve | Testé |
+| Accessibilité | axe : aucune violation grave dans les deux thèmes après correction de l'orange (3,9 → 5,1:1) et du vert (4,3 → 5,9:1) en plein jour, des libellés d'effet et des pastilles décoratives | Testé |
+| Cibles | Liens de sources portés à 44 px ; boutons de carte 44 px ; pastilles 52 px | Testé |
+| Vue large | Spots proches regroupés (« +N ») : les vrais spots couvrent ~70 km, la maquette 4 spots rapprochés | Écart assumé, à confirmer par Félix |
+| Offshore | Carte et Météo Offshore : un avis, pas encore la vue V6 | À faire |
+| Mouvement | Vent animé en pause onglet caché ; flèches fixes si le mouvement est réduit | Testé (mouvement réduit) |

@@ -55,11 +55,28 @@ Vraies photos de spots : abandonnées (V3-026). Le fond IGN réel arrive aux pha
 
 **Statut** : jalon 2 VALIDÉ AVEC RÉSERVES (Félix, 20 nov., 15 h 40 ; V3-027) sur la version 5.2 ; la version 5.3 n'apporte que les corrections des revues. Toutes les données sont **de démonstration**, et l'écran le dit en permanence. Le prototype n'appelle aucun service : ni météo, ni route, ni géocodage, ni tuiles.
 
+**Version 6** (23 nov. 2026, maquettes de Félix ; V3-028, V3-029, V3-030 ; cahier `docs/design/PROTOTYPE-V6.md`) :
+- **Home**, d'après la maquette jugée « parfaite » : médaillon, mot SPUMY et le slogan « Read the sea. Fish the moment. » (seul slogan, en tête de Home) ; cartes Shore et Offshore avec les logos d'origine (redimensionnés seulement) ; champ de lieu ; Aujourd'hui, Demain, 7 jours ; photo et phrase de synthèse ; **bande de 24 h colorée heure par heure selon le score réel** ; la partie haute reste fixe en faisant défiler et se resserre.
+- **Carte = vue pêche** : vrai trait de côte (IGN Admin Express, Licence ouverte) et les 8 vrais spots V2 à leur position ; pastilles à anneau de palier ; noms masqués en vue large ; boutons Me localiser, Couches, Vue d'ensemble, + et − discrets ; légende dépliable. Toucher un spot ouvre une bulle courte (km · min, sorties, poissons, « Meilleur moment ») ; le retoucher la ferme. Aucun vent sur cette vue.
+- **Météo = vue conditions** : vent animé en couleurs (nappe de force et traînées, en nœuds ; flèches fixes si le mouvement est réduit, pause quand l'onglet est caché) ; Aujourd'hui, Demain, 7 jours ; panneau à droite au toucher d'un spot, refermé au second toucher, **Sécurité d'abord**, chaque valeur avec sa source et son heure.
+- **Du général au spécifique** (V3-029) : la carte occupe le premier écran ; en faisant défiler, la Carte explique **pourquoi ce spot est bon aujourd'hui par son terrain** (marée, exposition, courant, houle croisés avec le jour, puis fond et structure), la Météo **comment chaque élément a pesé dans la note** (sens et poids, somme égale à la note) ; puis le détail sourcé, avec le niveau de preuve (1 à 5) de chaque connaissance.
+- **Journal (JRN-06)** : chaque sortie garde la note affichée ce jour-là ; une vue met les notes de SPUMY face aux résultats (prises par heure), sans conclusion sous le seuil de 5 sorties dont 2 avec prise ; la boucle d'affinage reste contrôlée (§ 9.3.1 : calculée, approuvée par Félix, réversible).
+- **Autres écrans** à la palette V6, vent en nœuds partout ; Pointe A à Pointe G remplacées par les vrais noms.
+
+| Donnée | Réelle | De démonstration |
+| --- | --- | --- |
+| Spots, positions (à la minute près), temps de route, fenêtres de marée des fiches, terrain, sécurité, sources | oui (fiches V2, `data/sites/pirou.config.js`) | — |
+| Connaissances et niveaux de preuve | oui (`data/knowledge`, générées par `scripts/connaissances-v6.mjs`) | — |
+| Trait de côte | oui (IGN Admin Express 2018) | — |
+| Notes du jour, marée du jour, vent, houle, ciel, journal | — | oui, marquées « démo » à l'écran |
+| Courbes de profondeur | **absentes** : aucune donnée réelle joignable d'ici (EMODnet et Shom refusés par le proxy) ; rien n'est dessiné | — |
+
 ## Où le voir
 
 - **Page de revue** : artefact « Prototype SPUMY V3 » (privé), construit avec `node scripts/build-prototype-v3.mjs --revue <dossier>`.
 - **Dans le dépôt** : `prototype-v3/`, construit par `npm run build:prototype-v3`. Les photos et le logo sont lus dans `../assets`. Ce dossier sera publié avec le site seulement si Félix accepte la fusion.
-- **Captures** à 390 × 844 : `docs/design/prototype-v3/*.webp`, 11 images, nuit marine (et deux en plein jour), plus le bureau.
+- **Captures** à 390 × 844 : `docs/design/prototype-v3/*.webp`, 14 images, nuit marine (et deux en plein jour), plus le bureau ; dont les premiers écrans avec la bulle de la Carte (12), le panneau de la Météo (13) et le haut de Home resserré (14).
+- **Maquette contre prototype** : `docs/design/comparaison-v6/{home,carte,meteo}.webp`.
 
 ## Ce qu'on peut faire
 
@@ -91,7 +108,10 @@ Il n'existe pas dans l'application.
 
 | Commande | Code de sortie | Résultat |
 | --- | --- | --- |
-| `npm run test:prototype-v3` (construction, puis `tests/prototype-v3.mjs --axe`) | 0 | 194/194 |
+| `npm run test:prototype-v3` (construction, puis `tests/prototype-v3.mjs --axe`), version 6 | 0 | 216/216 |
+| `npm test` (lint, couches, données, connaissances, design, moteur v2, unitaires, e2e, contrat simulé) | 0 | tout vert ; 0 couleur en dur ajoutée |
+| `npm run test:a11y` ; `npm run test:upgrade` ; `npm run test:prototype` | 0 ; 0 ; 0 | 0 violation ; 12/12 ; 244/244 |
+| `node scripts/connaissances-v6.mjs --check` | 0 | `connaissances.js` à jour |
 | `npm run test:design-v3` | 0 | 186/186 |
 | `npm run -s lint` ; `node tests/layers.mjs` | 0 ; 0 | aucun écart ; 253 couleurs en dur hors de `src/design/`, inchangé |
 
@@ -102,14 +122,20 @@ Il n'existe pas dans l'application.
 - la fiche : courbe, danger avant la marée, fixture « 53/100 — À vérifier » ;
 - la comparaison : vent, écart chiffré, « avantage non établi » ;
 - la barre : 4 onglets visibles, Journal hors champ, chevrons, ordre modifié ;
-- la Météo : grille de flèches, curseur, couche Mer ;
+- la Météo (V6) : nappe et traînées du vent, panneau du spot avec Sécurité d'abord, vent en nœuds, source et heure, somme des poids égale à la note, ouverture et fermeture au toucher ;
+- la Carte (V6) : bulle (distance, sorties, poissons, meilleur moment) qui ne cache pas le spot, détails sous la carte (effet par ligne, niveaux de preuve, sources), début des détails visible dans le premier écran ;
+- Home (V6) : slogan, cartes Shore et Offshore avec logos chargés, bande de 24 h, haut fixe qui se resserre ;
+- le Journal : note de SPUMY ce jour-là face au résultat, pas de conclusion sous le seuil ;
 - BATEAU : choix du bateau avant le verdict ;
 - les revues (3.7) : Confiance sans effet sur le rang ni sur les égalités (3 jeux), pénurie sans carte inventée, fixture § 6.7.2, règle des filtres, cibles de 44 px, un h1 et un titre par écran, 12 px au moins, ni Pertinence, ni note sur 10, ni « V2 » à l'écran ;
 - axe-core (WCAG 2.2 A et AA) sur 6 écrans dans les deux thèmes : aucune violation grave ni critique.
 
 ## Limites connues
 
-- Fond de carte schématique, côte inventée, et données inventées : aucune décision ne doit s'appuyer sur les chiffres.
+- Version 6 : trait de côte réel, mais notes, marée du jour, vent et journal **de démonstration** : aucune décision ne doit s'appuyer sur ces chiffres.
+- Courbes de profondeur : absentes faute de données réelles joignables (Félix, 23 nov. : rien d'inventé).
+- Offshore (Carte et Météo) : un avis remplace encore la vue ; pas au niveau V6.
+- En vue large, les spots proches se regroupent (« +N ») : les 8 vrais spots couvrent environ 70 km de côte, la maquette en montrait 4 sur quelques kilomètres.
 - Glisser-déposer des onglets : seules les flèches fonctionnent ; les poignées sont dessinées.
 - Demain et 7 jours : seule la journée d'aujourd'hui est remplie.
 - Les composantes de « Pourquoi ? », la réglementation et les sources sont des textes d'exemple.

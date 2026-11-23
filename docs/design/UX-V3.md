@@ -393,3 +393,18 @@ Dans `docs/design/wireframes/` : la source (`index.html`, ouverte telle quelle d
 | 13 | 09 : carte marine (épaves, hauts-fonds…) ; bonus, pas obligatoire aujourd'hui | § 6 BATEAU, point 5 : À ÉTUDIER (V3-024), hors du périmètre obligatoire |
 
 Hors du jalon 1 : l'apparence (jalon 2), l'emplacement de l'export (test), les statistiques du Profil (étude).
+
+## 15. Version 6 : niveaux d'information (23 nov. 2026, V3-028 à V3-030)
+
+Règle de Félix (V3-029) : l'information va du général au spécifique, jamais tout au même niveau. Chaque explication part de la règle générale avant le cas du spot.
+
+| Niveau | Carte (vue pêche) | Météo (vue conditions) |
+| --- | --- | --- |
+| 1. Point de vue global (premier écran) | la carte : côte réelle, spots et leur note, filtres, légende | la carte du vent animé en couleurs, spots et leur note, jours |
+| 2. Le spot (un toucher, refermé au second) | bulle courte : km · min, sorties, poissons, « Meilleur moment » | panneau à droite : Sécurité d'abord, ciel, air, eau, vent en nœuds, houle, pression, marée, chacun avec source et heure |
+| 3. La justification (en faisant défiler sous la carte) | **pourquoi ce spot est bon aujourd'hui par son terrain** : marée, exposition au vent, courant, houle croisés avec le jour, chacun avec son effet ; puis fond, structure, bancs | **comment chaque élément a pesé dans la note** : sens et poids de chaque élément, somme égale à la note ; rien d'inventé quand l'élément n'a pas de poids |
+| 4. Le détail sourcé | la règle générale (connaissance, niveau de preuve 1 à 5), les sources de la fiche, les fenêtres de marée, la sécurité | la règle générale de chaque élément (connaissance, niveau de preuve), la source et l'heure de chaque valeur |
+
+- **Home** reste la synthèse : marque et slogan, Shore / Offshore, lieu, jours, phrase et bande de 24 h colorée heure par heure, puis les spots ; la partie haute reste fixe en faisant défiler, resserrée.
+- **Journal** : les notes de SPUMY face aux sorties (JRN-06) ; aucune conclusion sous le seuil ; l'affinage du modèle reste la boucle contrôlée du § 9.3.1.
+- **Offshore** : Carte et Météo affichent encore un avis ; la vue V6 Offshore reste à faire (écart signalé).

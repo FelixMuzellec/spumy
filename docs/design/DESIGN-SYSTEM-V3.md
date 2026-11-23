@@ -236,8 +236,8 @@ Dans tous les cas, le filtre exige aussi la sécurité et l'absence de statut «
     - information : « i ».
 - **Logos** : la matrice d'usage de `docs/design/BRAND-MANIFEST.md` § 6 s'applique.
     - Médaillon BRAND : 40 px au moins dans l'interface.
-    - Mot SPUMY : en texte, jamais accompagné d'un slogan.
-    - INSHORE et OFFSHORE : facultatifs, jamais dans la navigation.
+    - Mot SPUMY : en texte ; accompagné du seul slogan « Read the sea. Fish the moment. », en tête de Home uniquement (V3-028).
+    - INSHORE et OFFSHORE : facultatifs, jamais dans la barre de navigation ; sur les cartes Shore et Offshore de Home (V3-028), sans retouche (redimensionnés seulement, `assets/brand/v3/{inshore,offshore}-{128,256}.webp`).
 
 ## 7. Composants
 
@@ -293,7 +293,7 @@ Chaque composant est spécifié ici, puis prototypé en 3.6. Le critère d'accep
 ## 9. Contenus et rédaction
 
 - **Phrases courtes**, au présent ; un verbe pour chaque action (« Ouvrir la fiche », « Me géolocaliser »).
-- **Aucun slogan** ; « V2 » n'apparaît jamais à l'écran (§ 6.2.2).
+- **Un seul slogan**, « Read the sea. Fish the moment. », en tête de Home (V3-028, modifie le § 6.2.2) ; « V2 » n'apparaît jamais à l'écran.
 - **Heures** au format `HH:MM–HH:MM`, en heure locale. Sinon : « Fenêtre non déterminable », suivi de sa raison.
 - **Nombres** : virgule décimale (« 4,2 MN ») ; espace insécable avant les unités et avant « : ; ? ! » ; « ~ » ou « environ » pour une estimation ; « estimation » écrit en toutes lettres quand le temps de route n'est pas vérifié.
 - **Scores** :
@@ -313,7 +313,21 @@ Chaque composant est spécifié ici, puis prototypé en 3.6. Le critère d'accep
 5. Disposition des cartes de recommandation sur bureau.
 6. Rendu de la carte du vent (épaisseur des flèches, densité de la grille) et de la courbe de marée.
 
-## 11. Preuves
+## 11. Version 6 (23 nov. 2026, V3-028 à V3-030)
+
+Les jetons V3 restent la référence (paliers, seuil 75, typographie, cibles). La version 6 ajoute, dans `src/prototype-v3/v6.css`, une couche de jetons `--v6-*` pour reproduire les maquettes de Félix, dans les deux thèmes.
+
+- **Surfaces** : fond marine `#0D1A25` (nuit) et papier `#F1EEE6` (jour) ; verre dépoli pour les commandes posées sur la carte (`--v6-glass`) ; mer et terre de la carte (`--v6-sea`, `--v6-land`), trait de côte en filet.
+- **Orange d'interface** : `#E58A4C` sur fond marine, `#9E4E1C` sur papier (texte à 5,1:1 ; l'ancien `#B85E26` ne tenait que 3,9:1). Il ne sert qu'aux libellés et au bouton principal ; **l'orange du logo (#C76A31) n'est ni repris ni modifié**, le logo s'affiche toujours depuis ses exports.
+- **Effets** (terrain et météo) : favorable `#5CCB8E` / `#17683F`, défavorable `#F08A7E` / `#B23B30`, neutre, inconnu ; toujours avec un signe (+ − = ?) et un mot, jamais la couleur seule.
+- **Pastille V6** : disque sombre, score au centre, anneau de la couleur du palier ; ⚠ pour « à vérifier », score barré pour « non recommandé », « – » sans note ; groupe sous 44 px avec « +N ». 52 px à l'écran, à toutes les échelles.
+- **Vent** : échelle de couleurs en nœuds de 0 à 42 (violet, bleu, vert, jaune, orange, rouge), nappe lissée et traînées blanches ; couleurs d'illustration dans `ILLUSTRATION` de `src/design/v3/tokens.js`, jamais pour un texte.
+- **Bulle** (Carte) de 184 px, à droite du spot ; **panneau** (Météo) de 250 px au plus (52 % de l'écran), le spot touché reste visible à sa gauche.
+- **Niveaux d'information** (V3-029) : premier écran = la carte ; puis la bulle ou le panneau ; puis, en faisant défiler, les sections « pourquoi » ; puis le détail sourcé.
+
+Contrôles : `tests/prototype-v3.mjs --axe` 216/216 (axe : aucune violation grave dans les deux thèmes) ; `tests/layers.mjs` sans couleur en dur ajoutée.
+
+## 12. Preuves
 
 | Commande | Code de sortie | Résultat |
 | --- | --- | --- |

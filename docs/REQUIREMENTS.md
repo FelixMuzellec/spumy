@@ -2,7 +2,7 @@
 
 Phase 2 V3, 20 novembre 2026. Format du référentiel, § 5.2.
 
-**Version 3** (23 nov. 2026, V3-029 et V3-030) : 98 exigences ; MAP-09, MET-05 et JRN-06 ajoutées, UX-03 modifiée (V3-028).
+**Version 3** (23 nov. 2026, V3-029 et V3-030) : 98 exigences ; MAP-09, MET-05 et JRN-06 ajoutées, UX-03 modifiée (V3-028) ; MAP-02, MET-01, UX-05 et UX-09 précisées pour le prototype V6 (V3-028).
 
 **Version 2** (20 nov. 2026, jalon 1 de la phase 3) : 95 exigences ; MET-01 à MET-04, UX-08, UX-09, PRO-03, SPOT-09, BAT-09, BAT-10 et MAP-08 ajoutées, UX-05 modifiée (V3-023).
 
@@ -74,7 +74,7 @@ Validation : registre validé par le jeton de la phase 3 (20 nov. 2026, 4 h 25).
 | Id | Exigence | Prio. | Origine | Critère d'acceptation | Vérif. | V2 | Phase |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | MAP-01 | Carte centrée sur la position active, cadrée sur les spots retenus | IND | § 6.9 ; D11 | position et spots visibles sans geste, aux 4 largeurs | E, V | Non conforme | 3, 10 |
-| MAP-02 | Remplissage du marqueur = palier de Favorabilité seulement ; « à vérifier », « non recommandé » et « pas de note » par des signes distincts | IND | § 6.7.4 | légende et rendu conformes | V | Conforme | 3 |
+| MAP-02 | Marqueur = palier de Favorabilité seulement (V6 : anneau de la couleur du palier autour du score, V3-028) ; « à vérifier » (⚠), « non recommandé » (score barré) et « pas de note » (–) par des signes distincts ; sous 44 px d'écart, un groupe porte le meilleur score et « +N » | IND | § 6.7.4 ; V3-028 | légende et rendu conformes ; spots d'un groupe comptés dans les filtres | V | Conforme | 3 |
 | MAP-03 | Pas de chevauchement illisible (regroupement ou décalage) ; zone tactile de 44 px au moins | IND | § 6.9, § 6.10 ; D11 | capture de la côte de Carteret sans chevauchement | V, E | Non conforme | 3, 10 |
 | MAP-04 | Accord exact entre liste, marqueurs et compteurs de filtres | IND | § 13.2 | test croisé sur 3 positions | E | Conforme (par guide) | 10 |
 | MAP-05 | Fond de carte attribué ; hors ligne, un message clair ; aucun préchargement interdit | IND | § 8.5 ; V3-012 | attribution visible ; aucune requête de tuile hors de la vue | E, R | Conforme | 3, 10 |
@@ -131,7 +131,7 @@ Validation : registre validé par le jeton de la phase 3 (20 nov. 2026, 4 h 25).
 
 | Id | Exigence | Prio. | Origine | Critère d'acceptation | Vérif. | V2 | Phase |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| MET-01 | Carte du vent autour de la position de référence : flèches sur une grille régulière, force et rafales écrites, direction, heure par heure sur 48 h, puis 7 jours | IND | V3-023 (jalon 1) | flèches justes contre les données reçues ; heure choisie gardée | U, V | Absent (onglet Météo V2 sans carte) | 3, 6 |
+| MET-01 | Carte du vent autour de la position de référence : vent animé en couleurs (nappe de force et traînées dans le sens du vent, V3-028 ; flèches fixes si le mouvement est réduit), force et rafales écrites en nœuds, direction, heure par heure sur 48 h, puis 7 jours (Aujourd'hui, Demain, 7 jours) | IND | V3-023 (jalon 1) ; V3-028 | couleurs et traînées justes contre les données reçues ; heure choisie gardée ; animation en pause onglet caché | U, V | Absent (onglet Météo V2 sans carte) | 3, 6 |
 | MET-02 | BATEAU : couche Mer (hauteur, période, direction des vagues) aux mêmes points | IMP | V3-023 | couche testée en BATEAU seulement | U, V | Absent | 3, 9 |
 | MET-03 | Aucun découpage géographique (grille de points, aucune zone nommée) ; couleur neutre, distincte des paliers de Favorabilité ; avertissement écrit à partir de force 6 | IND | § 0.2 ; V3-023 | aucune couleur de palier ni nom de zone dans la couche | U, V | — | 3 |
 | MET-04 | Résumé du lieu de référence (vent, mer, eau, pression, pluie, vigilance, soleil) et courbes du jour ; source, modèle et âge toujours écrits ; hors ligne : dernière prévision avec son âge | IND | § 6.11 ; DATA_SOURCES | source et âge visibles dans tous les états | E, V | Partiel | 3, 6 |
@@ -145,11 +145,11 @@ Validation : registre validé par le jeton de la phase 3 (20 nov. 2026, 4 h 25).
 | UX-02 | Palette #F07824, #172B3A, #344B5A, #F3F1EB ; aucun cyan structurant ; jetons sémantiques ; `brand-logo-orange` distinct de `accent-orange` | IND | § 6.2 ; D6, D7 | jetons et contrastes mesurés (WCAG 2.2 AA) | U, V | Non conforme | 3 |
 | UX-03 | Aucun slogan sauf « Read the sea. Fish the moment. » en tête de Home (V3-028) ; aucune mention de « V2 » ni de « phase » à l'écran | IND | § 6.2.2 ; D5, D13 | recherche de texte dans le build | U | Non conforme | 3 |
 | UX-04 | Deux scores dans une disposition lisible, pas une grille à trois colonnes ; la fixture « 53/100, à vérifier » et « 69/100, moyenne » est comprise | IND | § 6.7.1, § 6.7.2 ; H4, H5 | 4 personnes sur 5 l'expliquent (test) | T, V | Non conforme | 3 |
-| UX-05 | Barre défilante : 4 onglets visibles, ordre par défaut Home, Carte, Météo, Profil, puis Journal ; ordre modifiable dans Profil ; Journal aussi depuis Home et Profil ; bascule BORD / BATEAU (V3-023, qui remplace en partie V3-017) | IND | § 6.4 ; V3-023 | navigation testée au clavier et au toucher ; ordre enregistré et rétabli | E | Partiel | 3, 10 |
+| UX-05 | Barre défilante : 4 onglets visibles, ordre par défaut Home, Carte, Météo, Profil, puis Journal ; ordre modifiable dans Profil ; Journal aussi depuis Home et Profil ; bascule BORD / BATEAU, écrite « Shore » / « Offshore » (cartes à logos sur Home, bascule dans l'en-tête des autres onglets, V3-028) (V3-023, qui remplace en partie V3-017) | IND | § 6.4 ; V3-023 ; V3-028 | navigation testée au clavier et au toucher ; ordre enregistré et rétabli | E | Partiel | 3, 10 |
 | UX-06 | WCAG 2.2 AA mesuré ; largeurs 320, 375, 390 px et ordinateur ; thème Plein soleil ; mouvement réduit | IND | § 6.10, § 6.14 | 0 violation axe et ratios consignés | U, V | Partiel | 3, 14 |
 | UX-07 | Le chargement n'affiche pas de statut provisoire comme s'il était réel | IMP | D12 | capture au chargement sans « à vérifier » provisoire | V | Non conforme | 3 |
 | UX-08 | On change d'onglet en le touchant ; glisser la barre fait apparaître les autres onglets (défilement par onglet entier, repère de suite, onglet actif toujours visible) ; le contenu ne change pas d'onglet par glissement ; sans animation si le mouvement est réduit | IMP | V3-023 (précision du 20 nov., 14 h 02) | barre défilée au doigt et au clavier ; Journal atteint en faisant défiler | E | Absent | 3, 10 |
-| UX-09 | Home : photo de fond (automatique selon les conditions, ou choisie dans Profil), marquée « Illustration », et phrase de synthèse de la pêche probable, horaires compris | IND | V3-023 | phrase lisible sur chaque photo (voile, contraste mesuré) ; aucune promesse | V, T | Partiel | 3, 10 |
+| UX-09 | Home : photo de fond (automatique selon les conditions, ou choisie dans Profil), marquée « Illustration », et phrase de synthèse de la pêche probable, horaires compris ; bande de 24 h colorée heure par heure selon le score réel ; partie haute (marque, Shore / Offshore, lieu, jours) fixe en faisant défiler, resserrée (V3-028) | IND | V3-023 ; V3-028 | phrase lisible sur chaque photo (voile, contraste mesuré) ; aucune promesse ; haut fixe testé au défilement | V, T | Partiel | 3, 10 |
 
 ## OFF — Hors ligne et synchronisation
 

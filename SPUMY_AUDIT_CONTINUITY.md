@@ -42,6 +42,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | 3.6 Prototype interactif (BORD et BATEAU) ; les wireframes sont faits en 3.4 | VALIDATED avec réserves (jalon 2, Félix, 20 nov., 15 h 40 ; V3-027) sur la version 5.2 (28b3b85 ; `test:prototype-v3` 156/156, `test:design-v3` 186/186, `tests/brand.py` 29/29) | `src/prototype-v3/`, `scripts/build-prototype-v3.mjs`, `tests/prototype-v3.mjs`, `prototype-v3/`, `docs/design/PROTOTYPE-V3.md`, `docs/design/prototype-v3/` ; artefact « Prototype SPUMY V3 » |
 | 3.7 Revues, tests, galerie AVANT/CIBLE, matrices de conformité et de traçabilité | IMPLEMENTED (revues UX, plateformes, WCAG 2.2, DA, carte, contenus, terrain ; 16 défauts dont 8 corrigés, 0 critique ou majeur ouvert ; matrices § 6.16 et de traçabilité ; 14 critères de recette ; TEST UTILISATEUR NON EFFECTUÉ, protocole prêt ; prototype 5.3 : `test:prototype-v3` 194/194) | `docs/design/REVUES-V3.md`, `docs/design/galerie-avant-cible.html` (artefact privé), `scripts/mesures-revue-v3.mjs`, `docs/design/revue-v3-mesures.json` |
 | 3.8 Rapport et arrêt | TESTED (`npm ci`, `npm run build` sans écart, `npm test`, `test:a11y`, `test:upgrade`, `test:prototype` 244/244, `test:prototype-v3` 194/194, `tests/brand.py` 29/29 : tous code 0 ; CI verte sur a2b7844 ; D-16 corrigé en 76338f2) | `docs/rapports/v3/PHASE-3.md`, document Claude du rapport |
+| 3.9 Prototype V6 (maquettes de Félix, V3-028 à V3-030 ; feu vert du 23 nov., 8 h 47) | TESTED (`npm test` 0, `test:a11y` 0, `test:upgrade` 12/12, `test:prototype` 244/244, `prototype-v3 --axe` 216/216, `connaissances-v6 --check` 0) ; revalidation par Félix attendue | `docs/design/PROTOTYPE-V6.md`, `src/prototype-v3/` (geo, connaissances, data, effets, geomap, carte6, home, v6.css), `scripts/geo-v6.mjs`, `scripts/connaissances-v6.mjs`, `scripts/logos-modes-v6.py`, `tests/prototype-v3.mjs`, captures `docs/design/prototype-v3/`, planches `docs/design/comparaison-v6/`, documents DESIGN-SYSTEM-V3 § 11, UX-V3 § 15, PROTOTYPE-V3, REVUES-V3 § 14, REQUIREMENTS (MAP-02, MET-01, UX-05, UX-09) |
 
 ## Questions et décisions (registre)
 
@@ -70,12 +71,12 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 
 - Branche : `claude/v3-phase-3`, partie de `claude/v3-phase-2` (05cbcc0), elle-même partie de `main` (bb4f940). La phase 2 n'est pas fusionnée.
 - Dernier commit : voir `git log` ; ce fichier est mis à jour à chaque sous-tâche.
-- Tests : suite complète relancée le 20 nov. 2026 (3.8), tous les codes de sortie à 0 ; voir le rapport, § 7.
+- Tests : suite complète relancée le 23 nov. 2026 après la version 6 (3.9), tous les codes de sortie à 0 : `npm test`, `test:a11y`, `test:upgrade`, `test:prototype`, `tests/prototype-v3.mjs --axe` 216/216.
 - Rien n'est fusionné ; `main` reste à bb4f940 ; V3-019 non exécuté.
 
 ## Prochaine action
 
-Phase 3 TESTED, rapport remis. Version 6 du prototype décidée le 23 nov. (V3-028) : NE PAS COMMENCER avant le feu vert explicite de Félix. Au feu vert, suivre `docs/design/PROTOTYPE-V6.md` § 8, dans la phase 3, sur `claude/v3-phase-3`, sans rien publier. Ne pas revenir sur ce qui est validé. Le jeton de phase 4 sera demandé après la revalidation de la version 6.
+Version 6 du prototype faite et testée (3.9), dans la phase 3, sur `claude/v3-phase-3`, sans rien publier. Prochaine action : republier la page de revue du prototype, puis remettre à Félix le compte rendu de la version 6 (fait, écarts : Offshore Carte et Météo en avis ; aucune courbe de profondeur faute de donnée réelle, fichier EMODnet ou Shom à fournir ; regroupement en vue large) et demander sa revalidation. Après la revalidation : complément au rapport de phase 3, puis demande du jeton de phase 4. Ne pas revenir sur ce qui est validé. V3-019 non exécuté ; D-11 et D-15 toujours à décider.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
