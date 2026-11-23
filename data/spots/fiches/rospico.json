@@ -323,7 +323,10 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-deconcarneauapontaven-com-df8eba",
+   "src-mieuxpecher-com-c37d1a"
+  ],
   "sources_v2": [
    "deconcarneauapontaven.com — « Les trois univers pêche » : pointes rocheuses (Kerjean, la Jument, Rospico)",
    "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : la pointe de Rospico"

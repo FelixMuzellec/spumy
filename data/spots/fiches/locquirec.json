@@ -331,7 +331,13 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-baiedemorlaix-bzh-149505",
+   "src-figaronautisme-meteoconsult-fr-86f2d9",
+   "src-mieuxpecher-com-bed4e8",
+   "src-mondo-surf-48c8cd",
+   "src-sea-seek-com-15204b"
+  ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : pointe et digue de Locquirec",
    "baiedemorlaix.bzh — « La pêche au bar avec un guide pêche » ; office de tourisme",

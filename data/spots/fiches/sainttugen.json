@@ -327,7 +327,12 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-cannes-peche-blog4ever-com-0f51b4",
+   "src-mondo-surf-b11376",
+   "src-peche-rando-bar-a9c57d",
+   "src-surf-forecast-com-f133fa"
+  ],
   "sources_v2": [
    "cannes-peche.blog4ever.com — Primelin : « plage de Saint-Tugen »",
    "mondo.surf — Saint Tugen (fond, rocher, accès, coordonnées)",

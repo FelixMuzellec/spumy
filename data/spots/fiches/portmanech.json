@@ -330,7 +330,12 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-mieuxpecher-com-77b97b",
+   "src-peche-poissons-com-c865ad",
+   "src-plages-tv-6eff5e",
+   "src-visorando-com-fdd54d"
+  ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : embouchures de l'Aven et du Bélon",
    "peche-poissons.com — J.-B. Vidal (19/10/2026) : estuaires",

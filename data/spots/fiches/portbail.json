@@ -350,7 +350,10 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-cpiecotentin-com-1324b8",
+   "src-peche-com-18cc55"
+  ],
   "sources_v2": [
    "cpiecotentin.com — 'À Portbail, le platier rocheux offre moule, coquille Saint-Jacques, étrille et bouquet' ; havre appartenant aux quatre havres de la côte ouest",
    "peche.com — principes généraux des embouchures et des plateaux rocheux"

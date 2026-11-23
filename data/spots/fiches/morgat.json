@@ -330,7 +330,12 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-cncm-2c6418",
+   "src-google-maps-20182f",
+   "src-lechasseursousmarin-com-fc423e",
+   "src-mieuxpecher-com-df233a"
+  ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : pointe et port de Morgat",
    "lechasseursousmarin.com — Pointe de Morgat",

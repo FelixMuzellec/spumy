@@ -322,7 +322,12 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-carnalor-com-3bdfd1",
+   "src-chtipecheur-com-05a3c0",
+   "src-google-maps-20182f",
+   "src-plages-tv-c7368d"
+  ],
   "sources_v2": [
    "chtipecheur.com — « Spots de pêche de Bretagne » : plages de la baie de Douarnenez",
    "carnalor.com — forum « crozon rade de brest » (Guy535, 2012)",

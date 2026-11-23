@@ -328,7 +328,11 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-komoot-com-c43f18",
+   "src-mieuxpecher-com-bd7b0b",
+   "src-patrimoine-bzh-703a84"
+  ],
   "sources_v2": [
    "mieuxpecher.com — liste des coins de pêche : « Pointe de Feunteun Aod à Plogoff »",
    "patrimoine.bzh — inventaire du patrimoine, port-abri de Feunteun Aod",

@@ -337,7 +337,14 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-apppcc-jimdofree-com-81109f",
+   "src-lorientbretagnesudtourisme-fr-627c6a",
+   "src-mieuxpecher-com-ceb5da",
+   "src-peche-poissons-com-c865ad",
+   "src-visorando-com-fb7f7e",
+   "src-waterways-navship-org-f7e5bc"
+  ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : estuaire de la Laïta",
    "peche-poissons.com — J.-B. Vidal (19/10/2026) : estuaires",

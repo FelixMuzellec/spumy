@@ -344,7 +344,13 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-guillaume29-over-blog-com-0f8c52",
+   "src-lhdigest-com-764c7f",
+   "src-mieuxpecher-com-11a42d",
+   "src-patrimoine-iroise-fr-3bcbe7",
+   "src-visorando-com-7d424b"
+  ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : « Pointe de Kermorvan »",
    "guillaume29.over-blog.com — « spot de pêche au leurre 29 » (Jegou, 2005)",

@@ -329,7 +329,11 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-google-maps-7805c5",
+   "src-mieuxpecher-com-b4850a",
+   "src-surf-forecast-com-a85d32"
+  ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : pointe de Leydé",
    "surf-forecast.com — Les Roches Blanches (le Leydé)",

@@ -334,7 +334,11 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-komoot-com-b5aa5d",
+   "src-mieuxpecher-com-318609",
+   "src-toutcommenceenfinistere-com-3cd0ca"
+  ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : « Enez Amann ar rouz à Kerlouan »",
    "komoot.com — « Enez Amann Ar Rouz (Île aux Vaches) »",

@@ -341,7 +341,15 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-brestfishing-fr-f4b05f",
+   "src-en-wikipedia-org-5f5106",
+   "src-generationvoyage-fr-0b3dfd",
+   "src-lordjimcroisieres-com-3eb6ca",
+   "src-mieuxpecher-com-8efb4c",
+   "src-rebent-ifremer-fr-465f02",
+   "src-voileaviron-org-f9f46c"
+  ],
   "sources_v2": [
    "rebent.ifremer.fr — FL05 lieux des herbiers de Zostera marina (Roscanvel)",
    "voileaviron.org — livret des sites de la rade de Brest",

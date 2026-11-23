@@ -358,7 +358,11 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-mieuxpecher-com-59001e",
+   "src-visorando-com-647b4f",
+   "src-wikipedia-en-fb03cd"
+  ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » (Norbert, 10/05/2018) : « Penn Enez à Plouguerneau »",
    "visorando.com — « Terre et mer autour de la chapelle Saint-Michel à Plouguerneau » (départ : parking au bout de la Grève Blanche, N 48,628972° / O 4,52667°)",

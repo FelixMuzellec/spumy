@@ -342,7 +342,11 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-landeda-fr-1043ce",
+   "src-mieuxpecher-com-3e943c",
+   "src-visorando-com-0b426a"
+  ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : « La presqu'île Sainte-Marguerite aux leurres souples »",
    "landeda.fr — fiche rando circuit 3, « Balade des dunes »",

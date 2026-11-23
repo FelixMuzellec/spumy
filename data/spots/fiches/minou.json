@@ -343,7 +343,11 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-brestfishing-fr-de3970",
+   "src-mieuxpecher-com-b185a3",
+   "src-peche-com-9ab318"
+  ],
   "sources_v2": [
    "brestfishing.fr — Goulet de Brest (pêche en bateau : principes généraux, plateaux rocheux)",
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : « Grand et Petit Minou » (nom seul)",

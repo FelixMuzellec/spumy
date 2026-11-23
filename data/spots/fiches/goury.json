@@ -356,7 +356,12 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-despoissonssigrands-com-ec7905",
+   "src-peche-com-3ab835",
+   "src-peche-com-7b01a1",
+   "src-peche-com-f2e8bf"
+  ],
   "sources_v2": [
    "peche.com — Sortie de pêche estivale à la recherche des bars du Cotentin",
    "peche.com — Pêche du bar du bord dans le Cotentin : 'Le mythique Cap de la Hague est connu pour abriter l'un des courants les plus puissants au monde avec le fameux Raz Blanchard. Cette zone très mouvementée est un excellent spot pour la pêche du bar'",

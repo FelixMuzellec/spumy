@@ -344,7 +344,13 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-despoissonssigrands-com-3be706",
+   "src-pays-landerneau-daoulas-fr-e39423",
+   "src-tourisme-landerneau-daoulas-fr-9bb519",
+   "src-tourisme-landerneau-daoulas-fr-d92841",
+   "src-voileaviron-org-f9f46c"
+  ],
   "sources_v2": [
    "voileaviron.org — livret des sites de la rade de Brest",
    "tourisme-landerneau-daoulas.fr — sentier littoral (anse de Penfoul)",

@@ -347,7 +347,12 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-peche-rando-bar-aef607",
+   "src-surf-forecast-com-fd94dd",
+   "src-surf-report-com-96bbf2",
+   "src-wikipedia-en-c550ed"
+  ],
   "sources_v2": [
    "Pêche-Rando Bar — bilan 2018 : « plages et Baie des Trépassés »",
    "surf-report.com — Baie des Trépassés",

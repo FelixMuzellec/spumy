@@ -357,7 +357,12 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-cpiecotentin-com-a8e56e",
+   "src-peche-com-a6bfa5",
+   "src-pechemercotentin-forumactif-org-3fde48",
+   "src-pechemercotentin-forumactif-org-91d007"
+  ],
   "sources_v2": [
    "pechemercotentin.forumactif.org — sujet « pêche au bar »",
    "cpiecotentin.com — 'De Pirou à Barneville-Carteret s'étendent de grandes plages sableuses, entrecoupées par quatre havres, qui découvrent à marée basse sur des estrans rocheux'",

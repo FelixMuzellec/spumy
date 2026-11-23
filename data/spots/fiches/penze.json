@@ -342,7 +342,13 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-baiedemorlaix-bzh-229532",
+   "src-marinatips-com-4478a0",
+   "src-mieuxpecher-com-3ff077",
+   "src-peche-poissons-com-c865ad",
+   "src-visorando-com-8889f6"
+  ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : embouchure de la Penzé à Carantec",
    "baiedemorlaix.bzh — « La pêche au bar avec un guide pêche »",

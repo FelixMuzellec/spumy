@@ -323,7 +323,11 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-cannes-peche-blog4ever-com-42e7ea",
+   "src-deconcarneauapontaven-com-df8eba",
+   "src-mieuxpecher-com-278e6e"
+  ],
   "sources_v2": [
    "deconcarneauapontaven.com — « Les trois univers pêche » : pointes rocheuses (Kerjean, la Jument, Rospico)",
    "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : pointe de Kerjean",

@@ -329,7 +329,11 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-google-maps-902434",
+   "src-mieuxpecher-com-4a6bbb",
+   "src-reserve-naturelle-regionale-de-l-1cff81"
+  ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : pointe de Lostmarc'h",
    "Réserve naturelle régionale de la presqu'île de Crozon — fiche Lostmarc'h",

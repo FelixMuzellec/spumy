@@ -354,7 +354,12 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-cirkwi-com-f9fb38",
+   "src-cpiecotentin-com-c65abb",
+   "src-peche-com-66aceb",
+   "src-sylco-peche-brehal-fr-54c906"
+  ],
   "sources_v2": [
    "cirkwi.com — Le havre de Sienne (Attitude Manche)",
    "sylco-peche-brehal.fr — 'La Sienne est une très belle rivière' ; le secteur est présenté comme zone de pêche du bord reconnue de la côte des havres",

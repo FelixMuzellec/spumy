@@ -335,7 +335,14 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-cannes-peche-blog4ever-com-def7c5",
+   "src-destination-paysbigouden-com-e92dff",
+   "src-mieuxpecher-com-fd2285",
+   "src-surf-report-com-23b53f",
+   "src-visorando-com-3782fe",
+   "src-wikipedia-en-9707ad"
+  ],
   "sources_v2": [
    "cannes-peche.blog4ever.com — Penmarc'h / Saint-Guénolé : « Île Conq et ses roches »",
    "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : « Île Conq à Saint Guénolé »",

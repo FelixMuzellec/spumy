@@ -347,7 +347,11 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-atout-pecheur-fr-4cf329",
+   "src-cannes-peche-blog4ever-com-9ea819",
+   "src-roscoff-tourisme-com-ae2d7f"
+  ],
   "sources_v2": [
    "cannes-peche.blog4ever.com — baie du Kernic et grande plage de Ker Emma",
    "atout-pecheur.fr — Plage de Plounévez-Lochrist",

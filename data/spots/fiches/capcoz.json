@@ -329,7 +329,14 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-cannes-peche-blog4ever-com-712b7f",
+   "src-carnet-de-peche-com-5c39ae",
+   "src-chtipecheur-com-52ddea",
+   "src-coastalwiki-org-82c200",
+   "src-mieuxpecher-com-509c0f",
+   "src-tourismebretagne-com-20242e"
+  ],
   "sources_v2": [
    "cannes-peche.blog4ever.com — Cap-Coz : pointe et digue rocheuse",
    "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : Cap Coz",

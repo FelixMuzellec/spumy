@@ -5,6 +5,7 @@ import path from "node:path";
 import Ajv2020 from "ajv/dist/2020.js";
 import { lireFiches, texteRegistre, F_REGISTRE } from "../scripts/registre-spots.mjs";
 import { qualite } from "../scripts/fiches-v3-depuis-v2.mjs";
+import { construire, F_SOURCES } from "../scripts/sources-registre.mjs";
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const read = (p) => JSON.parse(fs.readFileSync(path.join(root, p), "utf8"));
@@ -49,6 +50,15 @@ for (const s of inv.spots) {
   }
 }
 t("aucune fiche v2_preserved sans spot V2", fiches.every(({ fiche: f }) => f.origin !== "v2_preserved" || inv.spots.some((s) => s.id === f.id)));
+const src = read("data/sources/registre.json");
+const ids = new Set(src.sources.map((x) => x.id));
+t("registre de sources : identifiants uniques", ids.size === src.sources.length);
+t("registre de sources à jour (node scripts/sources-registre.mjs le régénère)", fs.readFileSync(F_SOURCES, "utf8") === JSON.stringify(construire().registre, null, 1) + "\n");
+for (const { fiche: f } of fiches) {
+  const absentes = f.provenance.sources.filter((x) => !ids.has(x));
+  t(`${f.id} : toutes ses sources sont au registre`, !absentes.length, absentes.join(", "));
+  t(`${f.id} : chaque source V2 citée est reliée`, (f.provenance.sources_v2 || []).length <= f.provenance.sources.length);
+}
 t("registre central à jour (node scripts/fiches-v3-depuis-v2.mjs le régénère)", fs.readFileSync(F_REGISTRE, "utf8") === texteRegistre());
 
 console.log(`[spots V3] ${fiches.length} fiches, schéma § 7.4, aucune perte V2, registre : ${pass}/${pass + fail}`);

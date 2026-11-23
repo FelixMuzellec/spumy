@@ -348,7 +348,13 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-carnet-de-peche-com-10c969",
+   "src-le-figaro-nautisme-523b6e",
+   "src-mieuxpecher-com-2baae9",
+   "src-toutcommenceenfinistere-com-7530a0",
+   "src-wikipedia-en-151517"
+  ],
   "sources_v2": [
    "Le Figaro Nautisme — Top 10 des spots de pêche en mer en France (01/03/2026) : Pointe de Penmarc'h",
    "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : autour du phare d'Eckmühl",

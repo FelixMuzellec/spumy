@@ -368,7 +368,11 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-cpiecotentin-com-7d58f1",
+   "src-despoissonssigrands-com-ee3a5b",
+   "src-peche-com-59bdb6"
+  ],
   "sources_v2": [
    "cpiecotentin.com — 'Plus au nord, de Carteret à Urville-Nacqueville, alternent baies sableuses et caps rocheux au pied desquels se trouvent des platiers rocheux'",
    "peche.com — Trouver les bons spots pour pêcher le bar : les plateaux rocheux",

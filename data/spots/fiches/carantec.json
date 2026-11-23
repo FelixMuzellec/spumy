@@ -341,7 +341,15 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-baiedemorlaix-bzh-ab3829",
+   "src-cannes-peche-blog4ever-com-5114f2",
+   "src-mieuxpecher-com-a3c6e6",
+   "src-patrimoine-bzh-c98cf4",
+   "src-sport-decouverte-com-31e326",
+   "src-tourismebretagne-com-ec215b",
+   "src-visorando-com-8889f6"
+  ],
   "sources_v2": [
    "baiedemorlaix.bzh — office de tourisme : pointe de Penn al Lan, zones ostréicoles (Kelenn)",
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : pointe du Cosmeur",

@@ -343,7 +343,13 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-capitaine-spots-fr-0c86de",
+   "src-fr-wikipedia-org-a16630",
+   "src-peche-com-746b42",
+   "src-tourisme-landerneau-daoulas-fr-9e6a1d",
+   "src-voileaviron-org-f9f46c"
+  ],
   "sources_v2": [
    "fr.wikipedia.org — Logonna-Daoulas",
    "voileaviron.org — livret des sites de la rade de Brest",

@@ -323,7 +323,10 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-baiedemorlaix-wordpress-com-baie-5c25ce",
+   "src-tourismebretagne-com-f3ec4a"
+  ],
   "sources_v2": [
    "baiedemorlaix.wordpress.com / baiedemorlaix.bzh — office de tourisme (pêcheur local de Plougasnou)",
    "tourismebretagne.com — Plage de Plougasnou – Saint-Jean-du-Doigt"

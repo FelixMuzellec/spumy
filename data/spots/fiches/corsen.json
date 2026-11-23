@@ -330,7 +330,11 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-cannes-peche-blog4ever-com-4deefb",
+   "src-mieuxpecher-com-1b6020",
+   "src-wikipedia-en-dfd087"
+  ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : « Pointe de Corsen à Plouarzel »",
    "cannes-peche.blog4ever.com — Plouarzel : « Île Ségal, bordures de l'Aber Ildut, roches face à l'Île de Melon »",

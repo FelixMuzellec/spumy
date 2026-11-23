@@ -344,7 +344,13 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-despoissonssigrands-com-089f42",
+   "src-en-wikipedia-org-wiki-ile-de-tib-7fb085",
+   "src-tourisme-landerneau-daoulas-fr-38d978",
+   "src-tourisme-landerneau-daoulas-fr-75d373",
+   "src-voileaviron-org-6589d4"
+  ],
   "sources_v2": [
    "voileaviron.org — livret des sites de la rade de Brest (Tibidy privé)",
    "en.wikipedia.org/wiki/Île_de_Tibidy — Tibidy est un îlot à l'embouchure de la rivière du Faou, en fond de rade de Brest, sur des terres appartenant à la commune de L'Hôpital-Camfrout, relié au continent par un cordon littoral",

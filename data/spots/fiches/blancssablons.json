@@ -329,7 +329,13 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-atout-pecheur-fr-0d64ee",
+   "src-fishipedia-fr-411451",
+   "src-guillaume29-over-blog-com-0f8c52",
+   "src-iroise-bretagne-bzh-9ab293",
+   "src-mieuxpecher-com-30bb60"
+  ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : « Plage des Blancs-Sablons au Conquet »",
    "atout-pecheur.fr — Plage des Blancs Sablons (surfcasting)",

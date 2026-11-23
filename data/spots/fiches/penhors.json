@@ -328,7 +328,12 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-cannes-peche-blog4ever-com-6be925",
+   "src-destination-paysbigouden-com-2e3174",
+   "src-peche-rando-bar-93aa8f",
+   "src-surf-forecast-com-726c6a"
+  ],
   "sources_v2": [
    "cannes-peche.blog4ever.com — Pouldreuzic : « Plage de Penhors »",
    "Pêche-Rando Bar — plages de la baie d'Audierne",

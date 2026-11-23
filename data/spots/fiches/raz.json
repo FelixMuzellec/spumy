@@ -369,7 +369,13 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-bateaux-com-c55fde",
+   "src-lordjimcroisieres-com-fa2f6e",
+   "src-peche-poissons-com-fac8ff",
+   "src-toutcommenceenfinistere-com-a81d39",
+   "src-wikipedia-en-5c33f9"
+  ],
   "sources_v2": [
    "peche-poissons.com — julien, « Au leurre, à la pointe du Raz » (17/12/2021)",
    "bateaux.com — C. Fernbach, « Le Raz de Sein, les bons conseils pour ce passage délicat » (08/07/2025)",

@@ -360,7 +360,11 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-cpiecotentin-com-4d282f",
+   "src-normandie-tourisme-fr-6c6bee",
+   "src-peche-com-12b8da"
+  ],
   "sources_v2": [
    "normandie-tourisme.fr — Plage de Sciotot (réglementation de la pêche)",
    "cpiecotentin.com — alternance de baies sableuses et de caps rocheux avec platiers au pied, de Carteret à Urville-Nacqueville",

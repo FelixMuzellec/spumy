@@ -335,7 +335,11 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-cannes-peche-blog4ever-com-e4338e",
+   "src-visorando-com-1d7838",
+   "src-wikipedia-fr-65af58"
+  ],
   "sources_v2": [
    "cannes-peche.blog4ever.com — Cléden-Cap-Sizun : « Pointe de Brézellec et Pointe du Van et leurs roches escarpées »",
    "Wikipédia (fr) — Pointe du Van",

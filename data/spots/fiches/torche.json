@@ -335,7 +335,12 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-cannes-peche-blog4ever-com-ff551a",
+   "src-surf-report-com-b82135",
+   "src-visorando-com-3782fe",
+   "src-wikipedia-en-278e87"
+  ],
   "sources_v2": [
    "cannes-peche.blog4ever.com — Plomeur : « pointe rocheuse de la Torche »",
    "Wikipédia (en) — Pointe de la Torche",

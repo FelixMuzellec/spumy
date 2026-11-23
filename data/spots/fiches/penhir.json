@@ -331,7 +331,10 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-brestfishing-fr-2a812a",
+   "src-peche-com-945709"
+  ],
   "sources_v2": [
    "brestfishing.fr — guide de pêche en bateau : récif prolongé, succession de basses",
    "peche.com — Principes côtes rocheuses exposées"

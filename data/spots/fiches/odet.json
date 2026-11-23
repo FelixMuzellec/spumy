@@ -349,7 +349,12 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-mieuxpecher-com-06c6f4",
+   "src-peche-poissons-com-c865ad",
+   "src-ultimate-fishing-net-023351",
+   "src-visorando-com-4845a1"
+  ],
   "sources_v2": [
    "ultimate-fishing.net — N. Cadiou, « Pêche du bar sur l'estuaire de l'Odet, un challenge » (2023)",
    "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : l'Odet",

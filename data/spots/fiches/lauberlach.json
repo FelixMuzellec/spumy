@@ -320,7 +320,13 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-campingsaintjean-com-e1ac34",
+   "src-hisse-et-oh-com-fb1c3d",
+   "src-lordjimcroisieres-com-ce434b",
+   "src-peche-com-3abe47",
+   "src-voileaviron-org-f9f46c"
+  ],
   "sources_v2": [
    "voileaviron.org — livret des sites de la rade de Brest",
    "hisse-et-oh.com — forum mouillages en rade de Brest",

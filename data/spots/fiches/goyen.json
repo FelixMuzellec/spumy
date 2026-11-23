@@ -342,7 +342,11 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-mieuxpecher-com-604583",
+   "src-peche-poissons-com-44a77f",
+   "src-visorando-com-6ce7a8"
+  ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » (liste jusqu'au Cap Sizun) : « Les digue à Audierne »",
    "peche-poissons.com — J.-B. Vidal (19/10/2026) : estuaire du Goyen",

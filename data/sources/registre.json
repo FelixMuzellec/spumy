@@ -1,0 +1,6614 @@
+{
+ "//": "Registre des sources (phase 5, 5.4 ; § 7.1). Généré par scripts/sources-registre.mjs ; les champs « evaluation » se complètent à la main et ne sont jamais écrasés.",
+ "totaux": {
+  "sources": 284,
+  "aEvaluer": 284,
+  "avecUrl": 40,
+  "editeurs": 95,
+  "parType": {
+   "site, guide ou presse spécialisée": 221,
+   "collectivité ou tourisme": 19,
+   "institutionnel ou scientifique": 23,
+   "forum ou communauté": 4,
+   "encyclopédie collaborative": 12,
+   "cartographie": 4,
+   "journal personnel (Félix)": 1
+  }
+ },
+ "sources": [
+  {
+   "id": "src-apppcc-jimdofree-com-81109f",
+   "texte": "apppcc.jimdofree.com — « L'embouchure de la Laïta »",
+   "editeur": "apppcc.jimdofree.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:laita"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-atout-pecheur-fr-0d64ee",
+   "texte": "atout-pecheur.fr — Plage des Blancs Sablons (surfcasting)",
+   "editeur": "atout-pecheur.fr",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:blancssablons"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-atout-pecheur-fr-4cf329",
+   "texte": "atout-pecheur.fr — Plage de Plounévez-Lochrist",
+   "editeur": "atout-pecheur.fr",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:kernic"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-atout-pecheur-fr-eec463",
+   "texte": "atout-pecheur.fr — Pointe de Trévignon",
+   "editeur": "atout-pecheur.fr",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:trevignon"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-baiedemorlaix-bzh-149505",
+   "texte": "baiedemorlaix.bzh — « La pêche au bar avec un guide pêche » ; office de tourisme",
+   "editeur": "baiedemorlaix.bzh",
+   "url": null,
+   "type": "collectivité ou tourisme",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:locquirec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-baiedemorlaix-bzh-229532",
+   "texte": "baiedemorlaix.bzh — « La pêche au bar avec un guide pêche »",
+   "editeur": "baiedemorlaix.bzh",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:penze",
+    "spot:primel"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-baiedemorlaix-bzh-76c945",
+   "texte": "baiedemorlaix.bzh — office de tourisme : pointe de Primel (menhir), surfcasting",
+   "editeur": "baiedemorlaix.bzh",
+   "url": null,
+   "type": "collectivité ou tourisme",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:primel"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-baiedemorlaix-bzh-ab3829",
+   "texte": "baiedemorlaix.bzh — office de tourisme : pointe de Penn al Lan, zones ostréicoles (Kelenn)",
+   "editeur": "baiedemorlaix.bzh",
+   "url": null,
+   "type": "collectivité ou tourisme",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:carantec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-baiedemorlaix-bzh-b82923",
+   "texte": "baiedemorlaix.bzh — office de tourisme : pointe de Barnenez, zones ostréicoles de la rive est",
+   "editeur": "baiedemorlaix.bzh",
+   "url": null,
+   "type": "collectivité ou tourisme",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:barnenez"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-baiedemorlaix-bzh-c3a451",
+   "texte": "baiedemorlaix.bzh — « La pêche au bar avec un guide pêche » : anse du Dourduff",
+   "editeur": "baiedemorlaix.bzh",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:barnenez"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-baiedemorlaix-wordpress-com-baie-5c25ce",
+   "texte": "baiedemorlaix.wordpress.com / baiedemorlaix.bzh — office de tourisme (pêcheur local de Plougasnou)",
+   "editeur": "baiedemorlaix.wordpress.com / baiedemorlaix.bzh",
+   "url": null,
+   "type": "collectivité ou tourisme",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:saintjean"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-bateaux-com-c55fde",
+   "texte": "bateaux.com — C. Fernbach, « Le Raz de Sein, les bons conseils pour ce passage délicat » (08/07/2025)",
+   "editeur": "bateaux.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:raz"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-bateaux-com-c5ded6",
+   "texte": "bateaux.com — Navigation délicate, le passage d'un raz (C. Fernbach, 15/07/2025)",
+   "editeur": "bateaux.com",
+   "url": "https://www.bateaux.com/article/31514/navigation-delicate-le-passage-d-un-raz",
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": 2,
+   "utilise_par": [
+    "connaissance:bateau:sec-raz"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-bateaux-com-fa459f",
+   "texte": "bateaux.com — Savoir lire un atlas des courants de marée du SHOM (O. Tourchon, 08/10/2020) : vitesse croissante avec le coefficient",
+   "editeur": "bateaux.com",
+   "url": "https://www.bateaux.com/article/34870/decouvrir-la-carte-des-courants-de-maree",
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": 2,
+   "utilise_par": [
+    "connaissance:bord:courant-coefficient"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-brestfishing-fr-2a812a",
+   "texte": "brestfishing.fr — guide de pêche en bateau : récif prolongé, succession de basses",
+   "editeur": "brestfishing.fr",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:penhir"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-brestfishing-fr-de3970",
+   "texte": "brestfishing.fr — Goulet de Brest (pêche en bateau : principes généraux, plateaux rocheux)",
+   "editeur": "brestfishing.fr",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:minou"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-brestfishing-fr-f4b05f",
+   "texte": "brestfishing.fr — Guide rade de Brest : Goulet 'canyon sous-marin où les courants de marée peuvent se révéler assez violents, plateaux rocheux (Plateau des Fillettes, Roche du Mengan)'",
+   "editeur": "brestfishing.fr",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:espagnols"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cambridge-org-7a8ac9",
+   "texte": "Millot S., Bégout M.-L. (2009). Individual fish rhythm directs group feeding: a case study with sea bass juveniles (Dicentrarchus labrax) under self-demand feeding conditions. Aquatic Living Resources (en ligne le 23/10/2009) — juvéniles en bassin",
+   "editeur": "cambridge.org",
+   "url": "https://www.cambridge.org/core/journals/aquatic-living-resources/article/individual-fish-rhythm-directs-group-feeding-a-case-studywith-sea-bass-juveniles-dicentrarchus-labrax-under-selfdemand-feeding-conditions/E0BE5D25E180587973B3100430A477BA",
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bord:lumiere-basse"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-campingsaintjean-com-e1ac34",
+   "texte": "campingsaintjean.com — Porz Gwenn et Sillon de Lauberlac'h parmi les sites de pêche à pied/au leurre privilégiés",
+   "editeur": "campingsaintjean.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:lauberlach"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cannes-peche-blog4ever-com-03a3c7",
+   "texte": "cannes-peche.blog4ever.com — « Les coins de pêche à bar / loup (du bord) » (Alain, 07/11/2016) : Landéda, « bordures de l'embouchure de l'Aber Vrac'h et de l'Aber Benoit »",
+   "editeur": "cannes-peche.blog4ever.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:aberbenoit"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cannes-peche-blog4ever-com-0f51b4",
+   "texte": "cannes-peche.blog4ever.com — Primelin : « plage de Saint-Tugen »",
+   "editeur": "cannes-peche.blog4ever.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:sainttugen"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cannes-peche-blog4ever-com-42e7ea",
+   "texte": "cannes-peche.blog4ever.com — Kerjean (plage de Don)",
+   "editeur": "cannes-peche.blog4ever.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:kerjean"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cannes-peche-blog4ever-com-4deefb",
+   "texte": "cannes-peche.blog4ever.com — Plouarzel : « Île Ségal, bordures de l'Aber Ildut, roches face à l'Île de Melon »",
+   "editeur": "cannes-peche.blog4ever.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:aberildut",
+    "spot:corsen"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cannes-peche-blog4ever-com-5114f2",
+   "texte": "cannes-peche.blog4ever.com — Carantec : pointe rocheuse dite « La Chaise du Curé »",
+   "editeur": "cannes-peche.blog4ever.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:carantec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cannes-peche-blog4ever-com-6be925",
+   "texte": "cannes-peche.blog4ever.com — Pouldreuzic : « Plage de Penhors »",
+   "editeur": "cannes-peche.blog4ever.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:penhors"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cannes-peche-blog4ever-com-712b7f",
+   "texte": "cannes-peche.blog4ever.com — Cap-Coz : pointe et digue rocheuse",
+   "editeur": "cannes-peche.blog4ever.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:capcoz"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cannes-peche-blog4ever-com-7ddcda",
+   "texte": "cannes-peche.blog4ever.com — Trégunc : pointe de Trévignon, roches",
+   "editeur": "cannes-peche.blog4ever.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:trevignon"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cannes-peche-blog4ever-com-9ea819",
+   "texte": "cannes-peche.blog4ever.com — baie du Kernic et grande plage de Ker Emma",
+   "editeur": "cannes-peche.blog4ever.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:kernic"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cannes-peche-blog4ever-com-af2c77",
+   "texte": "cannes-peche.blog4ever.com — « Pointe de Brézellec et Pointe du Van et leurs roches escarpées »",
+   "editeur": "cannes-peche.blog4ever.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:brezellec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cannes-peche-blog4ever-com-def7c5",
+   "texte": "cannes-peche.blog4ever.com — Penmarc'h / Saint-Guénolé : « Île Conq et ses roches »",
+   "editeur": "cannes-peche.blog4ever.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:saintguenole"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cannes-peche-blog4ever-com-e0ee35",
+   "texte": "cannes-peche.blog4ever.com — Concarneau : sud des Sables Blancs",
+   "editeur": "cannes-peche.blog4ever.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:sablesblancs"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cannes-peche-blog4ever-com-e4338e",
+   "texte": "cannes-peche.blog4ever.com — Cléden-Cap-Sizun : « Pointe de Brézellec et Pointe du Van et leurs roches escarpées »",
+   "editeur": "cannes-peche.blog4ever.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:van"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cannes-peche-blog4ever-com-ff551a",
+   "texte": "cannes-peche.blog4ever.com — Plomeur : « pointe rocheuse de la Torche »",
+   "editeur": "cannes-peche.blog4ever.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:torche"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-capitaine-spots-fr-0c86de",
+   "texte": "capitaine-spots.fr — « Pointe de Bindy » (page non consultable le 29/10/2026 : citation non revérifiée)",
+   "editeur": "capitaine-spots.fr",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:bendy"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-carnalor-com-3bdfd1",
+   "texte": "carnalor.com — forum « crozon rade de brest » (Guy535, 2012)",
+   "editeur": "carnalor.com",
+   "url": null,
+   "type": "forum ou communauté",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:dinan",
+    "spot:trezbellec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-carnet-de-peche-com-081359",
+   "texte": "carnet-de-peche.com — Pointe de Dinan",
+   "editeur": "carnet-de-peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:dinan"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-carnet-de-peche-com-10c969",
+   "texte": "carnet-de-peche.com — Pointe de Penmarc'h (description, dangers, accès)",
+   "editeur": "carnet-de-peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:penmarch"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-carnet-de-peche-com-5c39ae",
+   "texte": "carnet-de-peche.com — Cap Coz",
+   "editeur": "carnet-de-peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:capcoz"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-carnet-de-peche-com-f09448",
+   "texte": "carnet-de-peche.com — Pointe de Mousterlin",
+   "editeur": "carnet-de-peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:mousterlin"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-chtipecheur-com-05a3c0",
+   "texte": "chtipecheur.com — « Spots de pêche de Bretagne » : plages de la baie de Douarnenez",
+   "editeur": "chtipecheur.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:pentrez",
+    "spot:trezbellec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-chtipecheur-com-4ded74",
+   "texte": "chtipecheur.com — « Spots de pêche de Bretagne » : plage et pointe du Beg Meil",
+   "editeur": "chtipecheur.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:begmeil"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-chtipecheur-com-52ddea",
+   "texte": "chtipecheur.com — « Spots de pêche de Bretagne » : Cap Coz",
+   "editeur": "chtipecheur.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:capcoz"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-chtipecheur-com-70a00d",
+   "texte": "chtipecheur.com — « Spots de pêche de Bretagne » : pointe de Mousterlin",
+   "editeur": "chtipecheur.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:mousterlin"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cirkwi-com-f9fb38",
+   "texte": "cirkwi.com — Le havre de Sienne (Attitude Manche)",
+   "editeur": "cirkwi.com",
+   "url": null,
+   "type": "collectivité ou tourisme",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:agon",
+    "spot:regneville"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cncm-2c6418",
+   "texte": "CNCM — « Les sentiers de Morgat »",
+   "editeur": "CNCM",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:morgat"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-coastalwiki-org-82c200",
+   "texte": "coastalwiki.org — Cap Coz (Fouesnant)",
+   "editeur": "coastalwiki.org",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:capcoz"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cpiecotentin-com-1025cd",
+   "texte": "cpiecotentin.com — grandes plages sableuses de la côte ouest, estrans découvrant largement",
+   "editeur": "cpiecotentin.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:surtainville"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cpiecotentin-com-1324b8",
+   "texte": "cpiecotentin.com — 'À Portbail, le platier rocheux offre moule, coquille Saint-Jacques, étrille et bouquet' ; havre appartenant aux quatre havres de la côte ouest",
+   "editeur": "cpiecotentin.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:portbail"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cpiecotentin-com-4d282f",
+   "texte": "cpiecotentin.com — alternance de baies sableuses et de caps rocheux avec platiers au pied, de Carteret à Urville-Nacqueville",
+   "editeur": "cpiecotentin.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:sciotot"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cpiecotentin-com-5726a4",
+   "texte": "cpiecotentin.com — géomorphologie des havres et pointes sableuses",
+   "editeur": "cpiecotentin.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:agon"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cpiecotentin-com-6c5656",
+   "texte": "cpiecotentin.com — estrans rocheux découvrant à marée basse sur ce linéaire",
+   "editeur": "cpiecotentin.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:gouville"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cpiecotentin-com-7d58f1",
+   "texte": "cpiecotentin.com — 'Plus au nord, de Carteret à Urville-Nacqueville, alternent baies sableuses et caps rocheux au pied desquels se trouvent des platiers rocheux'",
+   "editeur": "cpiecotentin.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:carteret"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cpiecotentin-com-a8e56e",
+   "texte": "cpiecotentin.com — 'De Pirou à Barneville-Carteret s'étendent de grandes plages sableuses, entrecoupées par quatre havres, qui découvrent à marée basse sur des estrans rocheux'",
+   "editeur": "cpiecotentin.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:pirou"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-cpiecotentin-com-c65abb",
+   "texte": "cpiecotentin.com — géomorphologie de la côte des havres, estrans rocheux découvrant à marée basse",
+   "editeur": "cpiecotentin.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:regneville"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-ddtm-du-finistere-c07ef1",
+   "texte": "DDTM du Finistère — synthèse de la réglementation de la pêche maritime de loisir (actualisation avril 2026)",
+   "editeur": "DDTM du Finistère",
+   "url": "https://www.locquirec.bzh/wp-content/uploads/2026/04/2026-SYNTHESE-peche-loisir-en-mer.pdf",
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bateau:lj-reglementation",
+    "connaissance:bateau:ln-reglementation",
+    "connaissance:bateau:maq-reglementation",
+    "connaissance:bateau:bar-bateau-commun",
+    "connaissance:bateau:vieille-reglementation",
+    "connaissance:bateau:sp-reglementation",
+    "connaissance:bateau:reg-hamecons",
+    "connaissance:bateau:reg-marquage-recfishing"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-ddtm-du-finistere-c91226",
+   "texte": "DDTM du Finistère — synthèse de la réglementation de la pêche maritime de loisir (avril 2026)",
+   "editeur": "DDTM du Finistère",
+   "url": "https://www.locquirec.bzh/wp-content/uploads/2026/04/2026-SYNTHESE-peche-loisir-en-mer.pdf",
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bord:reglementation-bar-2026"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-deconcarneauapontaven-com-189c08",
+   "texte": "deconcarneauapontaven.com — Plage des Sables Blancs",
+   "editeur": "deconcarneauapontaven.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:sablesblancs"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-deconcarneauapontaven-com-4eb240",
+   "texte": "deconcarneauapontaven.com — « Les trois univers pêche »",
+   "editeur": "deconcarneauapontaven.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:trevignon"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-deconcarneauapontaven-com-df8eba",
+   "texte": "deconcarneauapontaven.com — « Les trois univers pêche » : pointes rocheuses (Kerjean, la Jument, Rospico)",
+   "editeur": "deconcarneauapontaven.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:kerjean",
+    "spot:rospico"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-desperadiens-a52c90",
+   "texte": "Desperadiens — 'Pêche aux leurres de surface par Relec29' (mentionne explicitement les bordures de Moulin Mer comme spot référence LS en goémon)",
+   "editeur": "Desperadiens",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:moulinmer"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-despoissonssigrands-com-089f42",
+   "texte": "despoissonssigrands.com — Pêche du bar en estuaire (principes)",
+   "editeur": "despoissonssigrands.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:camfrout"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-despoissonssigrands-com-3be706",
+   "texte": "despoissonssigrands.com — Pêche du bar en fond de rade (principes)",
+   "editeur": "despoissonssigrands.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:rostiviec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-despoissonssigrands-com-ec7905",
+   "texte": "despoissonssigrands.com — « Le phare de Goury marque l'entrée du Raz Blanchard. Ce violent courant est un excellent spot pour la pêche du bar » ; coefficient préféré « entre 70 et 90 » ; au-delà, en bateau, dérive « supérieure à 6 nœuds » sur des spots du nord — https://despoissonssigrands.com/lescarnetsdepeche/peche-du-bar-en-automne-retour-sur-une-excellente-sortie-dans-le-cotentin",
+   "editeur": "despoissonssigrands.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:goury"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-despoissonssigrands-com-ee3a5b",
+   "texte": "despoissonssigrands.com — au-delà du coefficient 90, « le courant est très fort » ; en bateau, « certains spots du nord de la côte sont quasiment impossibles à pêcher » (dérive supérieure à 6 nœuds) — https://despoissonssigrands.com/lescarnetsdepeche/peche-du-bar-en-automne-retour-sur-une-excellente-sortie-dans-le-cotentin",
+   "editeur": "despoissonssigrands.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:carteret"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-despoissonssigrands-com-f01490",
+   "texte": "despoissonssigrands.com — gestion du courant en Cotentin selon le coefficient",
+   "editeur": "despoissonssigrands.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:granville"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-destination-paysbigouden-com-2e3174",
+   "texte": "destination-paysbigouden.com — Plage de Penhors",
+   "editeur": "destination-paysbigouden.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:penhors"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-destination-paysbigouden-com-e92dff",
+   "texte": "destination-paysbigouden.com — fiche visite Penmarc'h (2025)",
+   "editeur": "destination-paysbigouden.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:saintguenole"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-devon-and-severn-ifca-355b54",
+   "texte": "Devon and Severn IFCA — A review of wrasse ecology and fisheries interactions (S. Davies, septembre 2016), citant Morel et al. 2013 (Jersey) et Villegas-Ríos et al. 2013 (Galice)",
+   "editeur": "Devon and Severn IFCA",
+   "url": "https://www.devonandsevernifca.gov.uk/wp-content/uploads/2023/09/Reviewofwrasseecology.pdf",
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bateau:vieille-habitat",
+    "connaissance:bateau:vieille-comportement",
+    "connaissance:bateau:vieille-reproduction"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-dirm-memn-developpement-durable-cd8764",
+   "texte": "Arrêté du 1er avril 2026 modifiant l'arrêté du 7 novembre 2025 (NOR TECM2608396A, JO du 11/04/2026) : enregistrement RecFishing dès le 12/02/2026, déclaration dans les 24 h",
+   "editeur": "dirm.memn.developpement-durable.gouv.fr",
+   "url": "https://www.dirm.memn.developpement-durable.gouv.fr/IMG/pdf/joe_20260411_0086_0009.pdf",
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bord:reglementation-bar-2026"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-doi-org-077314",
+   "texte": "de Pontual H. et al. (2023). Seasonal migration, site fidelity, and population structure of European seabass (Dicentrarchus labrax). ICES Journal of Marine Science 80 : 1606-1618 (programme Bargip, Ifremer)",
+   "editeur": "doi.org",
+   "url": "https://doi.org/10.1093/icesjms/fsad087",
+   "type": "institutionnel ou scientifique",
+   "famille": 1,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bord:migration-saisonniere",
+    "connaissance:bord:abri-hiver",
+    "connaissance:bord:seuils-thermiques",
+    "connaissance:bord:maree-flot"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-doi-org-272f9f",
+   "texte": "Spitz J. et al. (2013). Prey preferences of adult sea bass Dicentrarchus labrax in the northeastern Atlantic. ICES Journal of Marine Science 70(2) : 452-461 (plateau du golfe de Gascogne, automne et hiver)",
+   "editeur": "doi.org",
+   "url": "https://doi.org/10.1093/icesjms/fss200",
+   "type": "institutionnel ou scientifique",
+   "famille": 1,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bord:proies-calendrier"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-doi-org-2e51c1",
+   "texte": "Graham J. A. et al. (2023). Pelagic connectivity of European sea bass between spawning and nursery grounds. Frontiers in Marine Science 9 : 1046585",
+   "editeur": "doi.org",
+   "url": "https://doi.org/10.3389/fmars.2022.1046585",
+   "type": "institutionnel ou scientifique",
+   "famille": 1,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bord:frai-temperature"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-doi-org-595eac",
+   "texte": "Edwards J. E. et al. (2025). Multi-year tracking of European sea bass shows large-scale connectivity, summer site fidelity, and repeatability in migration timing. ICES Journal of Marine Science 82(10) : fsaf190",
+   "editeur": "doi.org",
+   "url": "https://doi.org/10.1093/icesjms/fsaf190",
+   "type": "institutionnel ou scientifique",
+   "famille": 1,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bord:migration-saisonniere",
+    "connaissance:bord:abri-hiver",
+    "connaissance:bord:seuils-thermiques",
+    "connaissance:bord:maree-flot"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-doi-org-b48a5b",
+   "texte": "Doyle T. et al. (2017). Localised residency and inter-annual fidelity to coastal foraging areas may place sea bass at risk to local depletion. Scientific Reports 7 : 45841 (Cork, Irlande)",
+   "editeur": "doi.org",
+   "url": "https://doi.org/10.1038/srep45841",
+   "type": "institutionnel ou scientifique",
+   "famille": 1,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bord:migration-saisonniere",
+    "connaissance:bord:saison-coefficients"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-doi-org-c15d65",
+   "texte": "Chen I.-H. et al. (2023). Food anticipatory behaviour on European seabass in sea cages. Frontiers in Marine Science 10 : 1168953 — poissons en cage",
+   "editeur": "doi.org",
+   "url": "https://doi.org/10.3389/fmars.2023.1168953",
+   "type": "institutionnel ou scientifique",
+   "famille": 1,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bord:lumiere-basse"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-en-wikipedia-org-5f5106",
+   "texte": "en.wikipedia.org — Pointe des Espagnols : « Formed by a cliff that is more than 60m high », vers le nord-est par le rocher de la Cormorandière",
+   "editeur": "en.wikipedia.org",
+   "url": null,
+   "type": "encyclopédie collaborative",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:espagnols"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-en-wikipedia-org-wiki-ile-de-tib-7fb085",
+   "texte": "en.wikipedia.org/wiki/Île_de_Tibidy — Tibidy est un îlot à l'embouchure de la rivière du Faou, en fond de rade de Brest, sur des terres appartenant à la commune de L'Hôpital-Camfrout, relié au continent par un cordon littoral",
+   "editeur": "en.wikipedia.org/wiki/Île_de_Tibidy",
+   "url": null,
+   "type": "encyclopédie collaborative",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:camfrout"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-figaronautisme-meteoconsult-fr-86f2d9",
+   "texte": "figaronautisme.meteoconsult.fr — informations du port de Locquirec (abri, clapot, échouage)",
+   "editeur": "figaronautisme.meteoconsult.fr",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:locquirec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-fishbase-3bd863",
+   "texte": "FishBase — Pollachius virens, Saithe (fiche espèce)",
+   "editeur": "FishBase",
+   "url": "https://fishbase.se/summary/1343",
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bateau:ln-distribution",
+    "connaissance:bateau:ln-pertinence-finistere"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-fishbase-4fd56f",
+   "texte": "FishBase — Scomber scombrus, Atlantic mackerel (fiche espèce)",
+   "editeur": "FishBase",
+   "url": "https://fishbase.se/summary/118",
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bateau:maq-habitat-saison",
+    "connaissance:bateau:maq-comportement"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-fishbase-6ed940",
+   "texte": "FishBase — Labrus bergylta, Ballan wrasse (fiche espèce)",
+   "editeur": "FishBase",
+   "url": "https://fishbase.se/summary/572",
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bateau:vieille-habitat",
+    "connaissance:bateau:vieille-reproduction"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-fishbase-7d9f22",
+   "texte": "FishBase — Pollachius pollachius, Pollack (fiche espèce ; Cohen et al. 1990)",
+   "editeur": "FishBase",
+   "url": "https://fishbase.se/summary/34",
+   "type": "institutionnel ou scientifique",
+   "famille": 1,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bateau:lj-habitat",
+    "connaissance:bateau:lj-reproduction"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-fishbase-cdfc9f",
+   "texte": "FishBase — Zeus faber, John dory (fiche espèce)",
+   "editeur": "FishBase",
+   "url": "https://fishbase.se/summary/1370",
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bateau:sp-habitat"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-fishipedia-fr-411451",
+   "texte": "fishipedia.fr — Plage des Blancs Sablons (coordonnées, faune)",
+   "editeur": "fishipedia.fr",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:blancssablons"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-fishipedia-fr-a4e273",
+   "texte": "fishipedia.fr — Plage de Mousterlin",
+   "editeur": "fishipedia.fr",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:mousterlin"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-fr-wikipedia-org-a16630",
+   "texte": "fr.wikipedia.org — Logonna-Daoulas",
+   "editeur": "fr.wikipedia.org",
+   "url": null,
+   "type": "encyclopédie collaborative",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:bendy"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-fr-wikipedia-org-bb7caa",
+   "texte": "fr.wikipedia.org — Logonna-Daoulas (géographie : Moulin-Mer, rive sud, embouchure de la rivière de l'Hôpital)",
+   "editeur": "fr.wikipedia.org",
+   "url": null,
+   "type": "encyclopédie collaborative",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:moulinmer"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-generationvoyage-fr-0b3dfd",
+   "texte": "generationvoyage.fr — Roscanvel : 'bars, aiguillettes, vieilles en avançant dans l'eau'",
+   "editeur": "generationvoyage.fr",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:espagnols"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-google-maps-1a2ded",
+   "texte": "Google Maps — position de la pointe et du parking",
+   "editeur": "Google Maps",
+   "url": null,
+   "type": "cartographie",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:dinan"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-google-maps-20182f",
+   "texte": "Google Maps — position",
+   "editeur": "Google Maps",
+   "url": null,
+   "type": "cartographie",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:morgat",
+    "spot:pentrez",
+    "spot:trenaouret",
+    "spot:trezbellec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-google-maps-7805c5",
+   "texte": "Google Maps — position, parking",
+   "editeur": "Google Maps",
+   "url": null,
+   "type": "cartographie",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:leyde"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-google-maps-902434",
+   "texte": "Google Maps — positions",
+   "editeur": "Google Maps",
+   "url": null,
+   "type": "cartographie",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:lostmarch"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-guide-peche-latitude-manche-1283c0",
+   "texte": "Guide pêche Latitude Manche — 'Sur les bancs de sable de la pointe d'Agon, à marée montante, on peut utiliser des leurres plongeants type long bill minnow ou un buldo pour rechercher les bars présents dans 50 cm d'eau' ; avertissement explicite : 'attention à ne pas se laisser entourer à marée montante'",
+   "editeur": "Guide pêche Latitude Manche",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:agon"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-guillaume29-over-blog-com-0f8c52",
+   "texte": "guillaume29.over-blog.com — « spot de pêche au leurre 29 » (Jegou, 2005)",
+   "editeur": "guillaume29.over-blog.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:blancssablons",
+    "spot:kermorvan"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-hisse-et-oh-com-fb1c3d",
+   "texte": "hisse-et-oh.com — forum mouillages en rade de Brest",
+   "editeur": "hisse-et-oh.com",
+   "url": null,
+   "type": "forum ou communauté",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:lauberlach"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-ifremer-c9488d",
+   "texte": "Ifremer — synthèse des marquages de bars adultes (programme Bargip), document de 4 pages",
+   "editeur": "Ifremer",
+   "url": "https://bar.ifremer.fr/content/download/116111/file/4PagesMarquageAdultes_Final-3.pdf",
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bord:migration-saisonniere",
+    "connaissance:bord:saison-coefficients"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-inpn-mnhn-fr-39a848",
+   "texte": "inpn.mnhn.fr — Natura 2000 FR2502018 Banc et récifs de Surtainville",
+   "editeur": "inpn.mnhn.fr",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:surtainville"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-inpn-mnhn-fr-e97479",
+   "texte": "inpn.mnhn.fr — ZNIEFF marine 25M000020",
+   "editeur": "inpn.mnhn.fr",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:agon"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-inpn-mnhn-fr-e9f612",
+   "texte": "inpn.mnhn.fr — ZNIEFF marine 25M000020 Estran rocheux de Gouville à Agon-Coutainville",
+   "editeur": "inpn.mnhn.fr",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:gouville"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-iroise-bretagne-bzh-9ab293",
+   "texte": "iroise-bretagne.bzh — Plage des Blancs Sablons",
+   "editeur": "iroise-bretagne.bzh",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:blancssablons"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-komoot-com-b5aa5d",
+   "texte": "komoot.com — « Enez Amann Ar Rouz (Île aux Vaches) »",
+   "editeur": "komoot.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:kerlouan"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-komoot-com-c43f18",
+   "texte": "komoot.com — Port de Feunteun Aod (coordonnées)",
+   "editeur": "komoot.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:feunteunaod"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-landeda-fr-1043ce",
+   "texte": "landeda.fr — fiche rando circuit 3, « Balade des dunes »",
+   "editeur": "landeda.fr",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:saintemarguerite"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-le-figaro-nautisme-523b6e",
+   "texte": "Le Figaro Nautisme — Top 10 des spots de pêche en mer en France (01/03/2026) : Pointe de Penmarc'h",
+   "editeur": "Le Figaro Nautisme",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:penmarch"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-lechasseursousmarin-com-9fda2f",
+   "texte": "lechasseursousmarin.com — Pointe de Luguénez – Pors Lesven",
+   "editeur": "lechasseursousmarin.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:trenaouret"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-lechasseursousmarin-com-c76233",
+   "texte": "lechasseursousmarin.com — Pointe de Brézellec (H. Maldent, 26/11/2025)",
+   "editeur": "lechasseursousmarin.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:brezellec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-lechasseursousmarin-com-f96b13",
+   "texte": "lechasseursousmarin.com — Pointe de Dinan",
+   "editeur": "lechasseursousmarin.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:dinan"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-lechasseursousmarin-com-fc423e",
+   "texte": "lechasseursousmarin.com — Pointe de Morgat",
+   "editeur": "lechasseursousmarin.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:morgat"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-legislation-gov-uk-dd62f0",
+   "texte": "Directive 2013/53/UE relative aux bateaux de plaisance, annexe I, A, 1 (catégories de conception) — copie de legislation.gov.uk",
+   "editeur": "legislation.gov.uk",
+   "url": "https://www.legislation.gov.uk/eudr/2013/53/annex/I/division/A/data.pdf",
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bateau:sec-categorie-conception"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-lesbredouilleurs-c167f5",
+   "texte": "lesbredouilleurs.com, peche.com, pecheurdumorin.fr, ici.fr, dailypresse.com, ultimate-fishing.net (cités dans model.js)",
+   "editeur": "lesbredouilleurs",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": 5,
+   "utilise_par": [
+    "connaissance:bord:pression"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-lhdigest-com-764c7f",
+   "texte": "lhdigest.com — Kermorvan Light (coordonnées)",
+   "editeur": "lhdigest.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:kermorvan"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-locquirec-bzh-b2ca24",
+   "texte": "Arrêté du 1er avril 2026 réglementant la pêche de loisir du bar européen (NOR TECM2608397A, JO du 9/04/2026)",
+   "editeur": "locquirec.bzh",
+   "url": "https://www.locquirec.bzh/wp-content/uploads/2026/04/Arrete-du-1er-avril-2026-Bar-loisir.pdf",
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bord:reglementation-bar-2026",
+    "connaissance:bateau:bar-bateau-commun"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-lordjimcroisieres-com-1d68d2",
+   "texte": "lordjimcroisieres.com — Navigation Landévennec",
+   "editeur": "lordjimcroisieres.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:landevennec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-lordjimcroisieres-com-3eb6ca",
+   "texte": "lordjimcroisieres.com — Courant sensible à la Pointe des Espagnols, refuge sous la pointe pour attendre la renverse",
+   "editeur": "lordjimcroisieres.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:espagnols"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-lordjimcroisieres-com-4d2c5a",
+   "texte": "lordjimcroisieres.com — Sortie Aulne / Landévennec courant",
+   "editeur": "lordjimcroisieres.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:terenez"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-lordjimcroisieres-com-7a0836",
+   "texte": "lordjimcroisieres.com — Pointe de l'Armorique citée comme point de courant sensible (0.5-3 nds) en rade",
+   "editeur": "lordjimcroisieres.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:armorique"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-lordjimcroisieres-com-ce434b",
+   "texte": "lordjimcroisieres.com — Navigation rade de Brest : Anse de l'Auberlach, exposition SO et protection NO→SE",
+   "editeur": "lordjimcroisieres.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:lauberlach"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-lordjimcroisieres-com-fa2f6e",
+   "texte": "lordjimcroisieres.com — « Passage du Raz de Sein en voilier » (étale environ 1 h avant la PM de Brest ; 7 nœuds au flot, 6 au jusant en vive-eau)",
+   "editeur": "lordjimcroisieres.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:raz"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-lorientbretagnesudtourisme-fr-627c6a",
+   "texte": "lorientbretagnesudtourisme.fr — Plage du Bas Pouldu (courants du chenal)",
+   "editeur": "lorientbretagnesudtourisme.fr",
+   "url": null,
+   "type": "collectivité ou tourisme",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:laita"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-marinatips-com-4478a0",
+   "texte": "marinatips.com — Port de Carantec (coordonnées)",
+   "editeur": "marinatips.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:penze"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-marine-meteoconsult-fr-3a3476",
+   "texte": "marine.meteoconsult.fr — Sables Blancs (position)",
+   "editeur": "marine.meteoconsult.fr",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:sablesblancs"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-marlin-marine-biological-associa-bf825a",
+   "texte": "MarLIN (Marine Biological Association) — Pollack (Pollachius pollachius)",
+   "editeur": "MarLIN (Marine Biological Association)",
+   "url": "https://marlin.ac.uk/species/detail/9",
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bateau:lj-habitat",
+    "connaissance:bateau:lj-reproduction"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-marlin-marine-biological-associa-c8851e",
+   "texte": "MarLIN (Marine Biological Association) — Atlantic mackerel (Scomber scombrus)",
+   "editeur": "MarLIN (Marine Biological Association)",
+   "url": "https://www.marlin.ac.uk/species/detail/44",
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bateau:maq-comportement"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-meteo-france-5290dc",
+   "texte": "Météo-France — Guide marine (octobre 2022) : BMS, échelle de l'état de la mer, termes de visibilité, bulletins côtiers",
+   "editeur": "Météo-France",
+   "url": "https://meteofrance.fr/sites/meteofrance.fr/files/files/editorial/Guide_marine_octobre2022.pdf",
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bateau:sec-bms",
+    "connaissance:bateau:sec-etat-mer",
+    "connaissance:bateau:sec-visibilite"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-meteo-france-812b34",
+   "texte": "Météo-France — Guide marine (octobre 2022) : BMS côte dès la force 7 ; échelle de Beaufort en vent moyen",
+   "editeur": "Météo-France",
+   "url": null,
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bord:filtre-vent"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-meteo-france-82bd6c",
+   "texte": "Météo-France — vigilance vent (vigilance.meteofrance.fr) : avis de coup de vent dès 62 km/h, tempête au-delà de 90 km/h de rafales",
+   "editeur": "Météo-France",
+   "url": "https://vigilance.meteofrance.fr",
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bord:filtre-vent"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-06c6f4",
+   "texte": "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : l'Odet",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:odet"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-11a42d",
+   "texte": "mieuxpecher.com — « Coins de pêche – Finistère NORD » : « Pointe de Kermorvan »",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:kermorvan"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-11af92",
+   "texte": "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : Beg Meil",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:begmeil"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-1b6020",
+   "texte": "mieuxpecher.com — « Coins de pêche – Finistère NORD » : « Pointe de Corsen à Plouarzel »",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:corsen"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-278e6e",
+   "texte": "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : pointe de Kerjean",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:kerjean"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-2baae9",
+   "texte": "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : autour du phare d'Eckmühl",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:penmarch"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-30bb60",
+   "texte": "mieuxpecher.com — « Coins de pêche – Finistère NORD » : « Plage des Blancs-Sablons au Conquet »",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:blancssablons"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-318609",
+   "texte": "mieuxpecher.com — « Coins de pêche – Finistère NORD » : « Enez Amann ar rouz à Kerlouan »",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:kerlouan"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-3a1b38",
+   "texte": "mieuxpecher.com — « Coins de pêche – Finistère NORD » : « Roc'h ar Pelguent à Plouguerneau »",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:pelguent"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-3e943c",
+   "texte": "mieuxpecher.com — « Coins de pêche – Finistère NORD » : « La presqu'île Sainte-Marguerite aux leurres souples »",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:saintemarguerite"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-3ff077",
+   "texte": "mieuxpecher.com — « Coins de pêche – Finistère NORD » : embouchure de la Penzé à Carantec",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:penze"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-4a6bbb",
+   "texte": "mieuxpecher.com — « Coins de pêche – Finistère NORD » : pointe de Lostmarc'h",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:lostmarch"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-509c0f",
+   "texte": "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : Cap Coz",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:capcoz"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-59001e",
+   "texte": "mieuxpecher.com — « Coins de pêche – Finistère NORD » (Norbert, 10/05/2018) : « Penn Enez à Plouguerneau »",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:pennenez"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-5f7545",
+   "texte": "mieuxpecher.com — « Coins de pêche – Finistère NORD » : « L'embouchure de l'Aber Idult » ; Top 10 Bretagne",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:aberildut"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-604583",
+   "texte": "mieuxpecher.com — « Coins de pêche – Finistère NORD » (liste jusqu'au Cap Sizun) : « Les digue à Audierne »",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:goyen"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-613cb6",
+   "texte": "mieuxpecher.com — « Top 10 des coins de pêche en Bretagne (1/2) » (Norbert, 2018, mis à jour 2020)",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:paluden"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-77b97b",
+   "texte": "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : embouchures de l'Aven et du Bélon",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:portmanech"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-7ce072",
+   "texte": "mieuxpecher.com — « Coins de pêche – Finistère NORD » : pointe de Trénaouret",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:trenaouret"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-8716b2",
+   "texte": "mieuxpecher.com — « Coins de Pêche – Finistère SUD »",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:sablesblancs",
+    "spot:trevignon"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-8efb4c",
+   "texte": "mieuxpecher.com — 'Pointe des Espagnols, à condition de trouver les accès…' listée comme spot rade de Brest",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:espagnols"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-a3c6e6",
+   "texte": "mieuxpecher.com — « Coins de pêche – Finistère NORD » : pointe du Cosmeur",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:carantec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-ac5a35",
+   "texte": "mieuxpecher.com — « Coins de pêche – Finistère NORD » : alentours de la pointe de Primel",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:primel"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-b0f79e",
+   "texte": "mieuxpecher.com — « Coins de pêche – Finistère NORD » : château de Dinan",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:dinan"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-b185a3",
+   "texte": "mieuxpecher.com — « Coins de pêche – Finistère NORD » : « Grand et Petit Minou » (nom seul)",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:minou"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-b4850a",
+   "texte": "mieuxpecher.com — « Coins de pêche – Finistère NORD » : pointe de Leydé",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:leyde"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-ba6412",
+   "texte": "mieuxpecher.com — liste des coins de pêche : « La pointe de Brezellec »",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:brezellec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-bd7b0b",
+   "texte": "mieuxpecher.com — liste des coins de pêche : « Pointe de Feunteun Aod à Plogoff »",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:feunteunaod"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-bed4e8",
+   "texte": "mieuxpecher.com — « Coins de pêche – Finistère NORD » : pointe et digue de Locquirec",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:locquirec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-c37d1a",
+   "texte": "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : la pointe de Rospico",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:rospico"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-ceb5da",
+   "texte": "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : estuaire de la Laïta",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:laita"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-df233a",
+   "texte": "mieuxpecher.com — « Coins de pêche – Finistère NORD » : pointe et port de Morgat",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:morgat"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-e73489",
+   "texte": "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : pointe de Mousterlin",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:mousterlin"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-f242a9",
+   "texte": "mieuxpecher.com — Top 10 Bretagne : « la côte à proximité de l'estuaire peut être intéressante » (Brenduff, plus en amont, est aussi cité)",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:aberbenoit"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mieuxpecher-com-fd2285",
+   "texte": "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : « Île Conq à Saint Guénolé »",
+   "editeur": "mieuxpecher.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:saintguenole"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-ministere-de-la-mer-5c147b",
+   "texte": "Ministère de la Mer — Le matériel d'armement et de sécurité et les limites d'utilisation (division 240 de l'arrêté du 23/11/1987, modifiée le 21/05/2026 ; page mise à jour le 19/06/2026)",
+   "editeur": "Ministère de la Mer",
+   "url": "https://www.mer.gouv.fr/le-materiel-darmement-et-de-securite-et-les-limites-dutilisation",
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bateau:sec-zones-armement"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-ministere-de-la-mer-c85230",
+   "texte": "Ministère de la Mer — Plaisance et loisirs nautiques : adoptez les bons réflexes (mis à jour le 03/07/2026)",
+   "editeur": "Ministère de la Mer",
+   "url": "https://mer.gouv.fr/plaisance-et-loisirs-nautiques-decouvrez-les-bons-gestes-adopter",
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bateau:sec-rappels"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-ministere-de-la-transition-ecolo-18bbd4",
+   "texte": "Ministère de la Transition écologique — fiche presse « Sécurité en mer » (mai 2026)",
+   "editeur": "Ministère de la Transition écologique",
+   "url": "https://www.ecologie.gouv.fr/sites/default/files/documents/27052026.Fiche-presse_S%C3%A9curit%C3%A9_en_mer.pdf",
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bateau:sec-rappels"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mondo-surf-48c8cd",
+   "texte": "mondo.surf — Locquirec (fond, houle et vent)",
+   "editeur": "mondo.surf",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:locquirec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-mondo-surf-b11376",
+   "texte": "mondo.surf — Saint Tugen (fond, rocher, accès, coordonnées)",
+   "editeur": "mondo.surf",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:sainttugen"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-normandie-tourisme-fr-6c6bee",
+   "texte": "normandie-tourisme.fr — Plage de Sciotot (réglementation de la pêche)",
+   "editeur": "normandie-tourisme.fr",
+   "url": null,
+   "type": "collectivité ou tourisme",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:sciotot"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-oblyk-org-2ee5af",
+   "texte": "oblyk.org — La pointe de Primel (roche, coordonnées)",
+   "editeur": "oblyk.org",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:primel"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-open-meteo-6ff871",
+   "texte": "Open-Meteo — documentation de l'API marine (MFWAM, ECMWF WAM, courants SMOC « pas adaptés à la navigation côtière »)",
+   "editeur": "Open-Meteo",
+   "url": "https://open-meteo.com/en/docs/marine-weather-api",
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": 2,
+   "utilise_par": [
+    "connaissance:bateau:sec-courants-donnees"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-open-meteo-94ccc4",
+   "texte": "Open-Meteo — documentation de l'API Météo-France (AROME, ARPEGE : liste des variables)",
+   "editeur": "Open-Meteo",
+   "url": "https://open-meteo.com/en/docs/meteofrance-api",
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": 2,
+   "utilise_par": [
+    "connaissance:bateau:sec-visibilite-donnees"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-park4night-com-af9169",
+   "texte": "park4night.com — lieu n° 4587 (avis d'utilisateurs)",
+   "editeur": "park4night.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:brezellec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-patrimoine-bzh-15d60c",
+   "texte": "patrimoine.bzh — inventaire, pointe de Primel",
+   "editeur": "patrimoine.bzh",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:primel"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-patrimoine-bzh-703a84",
+   "texte": "patrimoine.bzh — inventaire du patrimoine, port-abri de Feunteun Aod",
+   "editeur": "patrimoine.bzh",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:feunteunaod"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-patrimoine-bzh-bbbe27",
+   "texte": "patrimoine.bzh — port-abri de Brézellec",
+   "editeur": "patrimoine.bzh",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:brezellec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-patrimoine-bzh-c98cf4",
+   "texte": "patrimoine.bzh — inventaire, pointe de Penn al Lann",
+   "editeur": "patrimoine.bzh",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:carantec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-patrimoine-iroise-fr-3bcbe7",
+   "texte": "patrimoine-iroise.fr — Le phare de Kermorvan au Conquet (courant, écueils, accès)",
+   "editeur": "patrimoine-iroise.fr",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:kermorvan"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-pays-landerneau-daoulas-fr-e39423",
+   "texte": "pays-landerneau-daoulas.fr — Le centre nautique est situé sur le littoral de la commune de Loperhet, au port de Rostiviec, niché dans une ria de la rade de Brest ; zone de navigation sur la baie de Daoulas (12 km²), abritée de la houle",
+   "editeur": "pays-landerneau-daoulas.fr",
+   "url": null,
+   "type": "collectivité ou tourisme",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:rostiviec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-12b8da",
+   "texte": "peche.com — Pêche du bar du bord dans le Cotentin (technique du flot sur estran)",
+   "editeur": "peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:sciotot"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-18cc55",
+   "texte": "peche.com — principes généraux des embouchures et des plateaux rocheux",
+   "editeur": "peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:portbail"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-1a85ec",
+   "texte": "peche.com — Comment relâcher un poisson ? Pratiquez le no-kill correctement (J. Del Arco Aguirre, 24/06/2022)",
+   "editeur": "peche.com",
+   "url": "https://www.peche.com/article/32998/comment-relacher-un-poisson-pratiquez-le-no-kill-correctement",
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": 2,
+   "utilise_par": [
+    "connaissance:bord:remise-a-l-eau"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-1d50eb",
+   "texte": "peche.com — Le maquereau, un poisson chasseur accessible à tous (auteur et date non indiqués sur la page)",
+   "editeur": "peche.com",
+   "url": "https://www.peche.com/article/31966/le-maquereau-poisson-chasseur-accessible-a-tous",
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": 2,
+   "utilise_par": [
+    "connaissance:bateau:maq-habitat-saison",
+    "connaissance:bateau:maq-comportement"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-265478",
+   "texte": "peche.com — « La rade de Brest, un formidable terrain de jeu… » (Benjamin Le Provost)",
+   "editeur": "peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:moulinmer"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-3ab835",
+   "texte": "peche.com — Pêche du bar du bord dans le Cotentin : 'Le mythique Cap de la Hague est connu pour abriter l'un des courants les plus puissants au monde avec le fameux Raz Blanchard. Cette zone très mouvementée est un excellent spot pour la pêche du bar'",
+   "editeur": "peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:goury"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-3abe47",
+   "texte": "peche.com — Pêche en rade de Brest (Nicolas/brestfishing)",
+   "editeur": "peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:lauberlach"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-443117",
+   "texte": "peche.com — Le lieu jaune, un poisson combatif présent sur la façade atlantique (G. Fourrier, 07/12/2023)",
+   "editeur": "peche.com",
+   "url": "https://www.peche.com/article/32023/lieu-jaune-poisson-combatif-de-la-facade-atlantique",
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": 2,
+   "utilise_par": [
+    "connaissance:bateau:lj-habitat",
+    "connaissance:bateau:lj-reproduction",
+    "connaissance:bateau:lj-technique"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-59bdb6",
+   "texte": "peche.com — Trouver les bons spots pour pêcher le bar : les plateaux rocheux",
+   "editeur": "peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:carteret",
+    "spot:granville"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-5c77d5",
+   "texte": "peche.com — Principes pointes rocheuses / tourbillons",
+   "editeur": "peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:armorique"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-66aceb",
+   "texte": "peche.com — principe général des embouchures et du flot sur estran",
+   "editeur": "peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:regneville"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-6ce21a",
+   "texte": "peche.com — Rade de Brest (principes)",
+   "editeur": "peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:landevennec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-746b42",
+   "texte": "peche.com — Principes généraux pointes rocheuses",
+   "editeur": "peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:bendy"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-7b01a1",
+   "texte": "peche.com — technique : privilégier la fin de la descendante et le début de la remontante, jusqu'à 2h-2h30 après le basculement",
+   "editeur": "peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:goury"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-945709",
+   "texte": "peche.com — Principes côtes rocheuses exposées",
+   "editeur": "peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:penhir"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-9ab318",
+   "texte": "peche.com — Pointes rocheuses (principes)",
+   "editeur": "peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:minou"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-a6bfa5",
+   "texte": "peche.com — Pêche du bar du bord dans le Cotentin (technique générale du flot sur estran)",
+   "editeur": "peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:pirou"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-ad2e9d",
+   "texte": "peche.com — Les quotas bars et lieus 2026 pour les pêcheurs de loisir (08/01/2026)",
+   "editeur": "peche.com",
+   "url": "https://www.peche.com/article/50915/les-quotas-bars-et-lieus-2026-pour-les-pecheurs-de-loisir",
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": 2,
+   "utilise_par": [
+    "connaissance:bateau:lj-reglementation"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-bc916e",
+   "texte": "peche.com — principes des plateaux rocheux et du flot sur estran",
+   "editeur": "peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:gouville"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-c2610a",
+   "texte": "peche.com — Pêche des sparidés en rade de Brest, aux appâts, en bateau (ne parle ni du bar ni de l'Armorique)",
+   "editeur": "peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:armorique"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-c7defb",
+   "texte": "peche.com — La pêche du bar en fonction des saisons (T. Cendrier, 08/10/2024)",
+   "editeur": "peche.com",
+   "url": "https://www.peche.com/article/32987/la-peche-du-bar-en-fonction-des-saisons",
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": 2,
+   "utilise_par": [
+    "connaissance:bord:proies-calendrier",
+    "connaissance:bord:leurres-regles"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-dfd180",
+   "texte": "peche.com — Pêche du bar du bord dans le Cotentin : le flot recouvre l'estran et les bars le suivent",
+   "editeur": "peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:surtainville"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-e03f5b",
+   "texte": "peche.com — La pêche du bar dans les vagues (11/06/2021)",
+   "editeur": "peche.com",
+   "url": "https://www.peche.com/article/37249/la-peche-du-bar-dans-les-vagues-des-conditions-difficiles-souvent-payantes",
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": 2,
+   "utilise_par": [
+    "connaissance:bord:maree-flot",
+    "connaissance:bord:vent-exposition",
+    "connaissance:bord:leurres-regles"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-e7151a",
+   "texte": "peche.com — Comprendre et calculer les niveaux des marées avec la règle des douzièmes",
+   "editeur": "peche.com",
+   "url": "https://peche.com/article/43574/comprendre-et-calculer-les-niveaux-des-marees-avec-la-regle-des-douziemes",
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": 2,
+   "utilise_par": [
+    "connaissance:bord:regle-douziemes"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-e8b658",
+   "texte": "peche.com — À la recherche du bar du côté du cimetière de bateaux en fond de rade de Brest",
+   "editeur": "peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:landevennec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-ea5b50",
+   "texte": "peche.com — « RecFishing : le ministère retire l'obligation de déclaration » (L. Duclos, 01/04/2026) : l'article se termine par « ceci est un poisson d'avril »",
+   "editeur": "peche.com",
+   "url": "https://www.peche.com/article/51605/recfishing-le-ministere-retire-l-obligation-de-declaration-des-prises-de-lois",
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": 2,
+   "utilise_par": [
+    "connaissance:bord:reglementation-bar-2026"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-efc7ea",
+   "texte": "peche.com — Quelle couleur choisir selon l'eau et la météo ? (L. Duclos, 03/06/2026)",
+   "editeur": "peche.com",
+   "url": "https://www.peche.com/article/52017/peche-aux-leurres-quelle-couleur-choisir-selon-l-eau-et-la-meteo",
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": 2,
+   "utilise_par": [
+    "connaissance:bord:lumiere-basse",
+    "connaissance:bord:ciel-couvert",
+    "connaissance:bord:leurres-regles"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-com-f2e8bf",
+   "texte": "peche.com — Sortie de pêche estivale à la recherche des bars du Cotentin",
+   "editeur": "peche.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:goury"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-poissons-com-0a9fa0",
+   "texte": "peche-poissons.com — « Escapade en rade de Brest, autour de Landévennec » (julien, 30/03/2022 ; photos Thierry Sauvin) — https://peche-poissons.com/mer/mer-coins-de-peche-en-france-escapade-en-rade-de-brest-autour-de-landevennec-693207-php/",
+   "editeur": "peche-poissons.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:landevennec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-poissons-com-0eff55",
+   "texte": "peche-poissons.com — « Escapade en rade de Brest, autour de Landévennec » (julien, 30/03/2022 ; photos Thierry Sauvin) — « Côté rade, la pêche du bar est très productive en animant un leurre souple non lesté entre les goémons » — https://peche-poissons.com/mer/mer-coins-de-peche-en-france-escapade-en-rade-de-brest-autour-de-landevennec-693207-php/",
+   "editeur": "peche-poissons.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:terenez"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-poissons-com-44a77f",
+   "texte": "peche-poissons.com — J.-B. Vidal (19/10/2026) : estuaire du Goyen",
+   "editeur": "peche-poissons.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:goyen"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-poissons-com-44c3a2",
+   "texte": "peche-poissons.com — J.-B. Vidal (19/10/2026) : parcs à huîtres (du Morbihan)",
+   "editeur": "peche-poissons.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:barnenez"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-poissons-com-5a9560",
+   "texte": "peche-poissons.com — J.-B. Vidal, « Bar en Bretagne… où, quand, comment ? » (19/10/2026) : estuaires des abers, pêche à vue, imitations de crabe, coefficients 50-80",
+   "editeur": "peche-poissons.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:paluden"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-poissons-com-8d94f7",
+   "texte": "peche-poissons.com — J.-B. Vidal (19/10/2026) : estuaires des abers",
+   "editeur": "peche-poissons.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:aberbenoit",
+    "spot:aberildut"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-poissons-com-c865ad",
+   "texte": "peche-poissons.com — J.-B. Vidal (19/10/2026) : estuaires",
+   "editeur": "peche-poissons.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:laita",
+    "spot:odet",
+    "spot:penze",
+    "spot:portmanech"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-poissons-com-fac8ff",
+   "texte": "peche-poissons.com — julien, « Au leurre, à la pointe du Raz » (17/12/2021)",
+   "editeur": "peche-poissons.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:raz"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-rando-bar-93aa8f",
+   "texte": "Pêche-Rando Bar — plages de la baie d'Audierne",
+   "editeur": "Pêche-Rando Bar",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:penhors"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-rando-bar-a9c57d",
+   "texte": "Pêche-Rando Bar — plages de la baie d'Audierne, waders",
+   "editeur": "Pêche-Rando Bar",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:sainttugen"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-peche-rando-bar-aef607",
+   "texte": "Pêche-Rando Bar — bilan 2018 : « plages et Baie des Trépassés »",
+   "editeur": "Pêche-Rando Bar",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:trepasses"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-pecheaubar-com-b1883e",
+   "texte": "pecheaubar.com — « La Pêche au bar en Bretagne : Douarnenez » : Pentrez",
+   "editeur": "pecheaubar.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:pentrez"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-pechemercotentin-forumactif-org-3fde48",
+   "texte": "pechemercotentin.forumactif.org — sujet « pêche au bar »",
+   "editeur": "pechemercotentin.forumactif.org",
+   "url": null,
+   "type": "forum ou communauté",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:pirou"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-pechemercotentin-forumactif-org-91d007",
+   "texte": "pechemercotentin.forumactif.org — pêcheurs locaux au leurre souple sur Pirou plage, travaillant les bouchots et tables à huîtres, bons poissons en avril",
+   "editeur": "pechemercotentin.forumactif.org",
+   "url": null,
+   "type": "forum ou communauté",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:pirou"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-plages-tv-6209c9",
+   "texte": "plages.tv — Plage de Pentrez",
+   "editeur": "plages.tv",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:pentrez"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-plages-tv-6eff5e",
+   "texte": "plages.tv — Plage de Port-Manec'h",
+   "editeur": "plages.tv",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:portmanech"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-plages-tv-c7368d",
+   "texte": "plages.tv — Plage de Trez Bellec",
+   "editeur": "plages.tv",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:trezbellec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-portbooker-com-eae758",
+   "texte": "portbooker.com — port du Dourduff (Plouezoc'h)",
+   "editeur": "portbooker.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:barnenez"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-rebent-ifremer-fr-465f02",
+   "texte": "rebent.ifremer.fr — FL05 lieux des herbiers de Zostera marina (Roscanvel)",
+   "editeur": "rebent.ifremer.fr",
+   "url": null,
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:espagnols"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-reserve-naturelle-regionale-de-l-1cff81",
+   "texte": "Réserve naturelle régionale de la presqu'île de Crozon — fiche Lostmarc'h",
+   "editeur": "Réserve naturelle régionale de la presqu'île de Crozon",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:lostmarch"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-roscoff-tourisme-com-ae2d7f",
+   "texte": "roscoff-tourisme.com — « Plouescat grandeur nature »",
+   "editeur": "roscoff-tourisme.com",
+   "url": null,
+   "type": "collectivité ou tourisme",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:kernic"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-saint-pabu-bzh-dd6ee3",
+   "texte": "saint-pabu.bzh — « La perle des Abers »",
+   "editeur": "saint-pabu.bzh",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:aberbenoit"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-sea-seek-com-15204b",
+   "texte": "sea-seek.com — Locquirec (port, coordonnées)",
+   "editeur": "sea-seek.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:locquirec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-service-public-fr-afbe78",
+   "texte": "Service-public.fr — Pêche de loisir en mer : tailles, quotas, marquage, déclaration RecFishing (fiche F2118, vérifiée le 17/04/2026)",
+   "editeur": "Service-public.fr",
+   "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F2118",
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bateau:lj-reglementation",
+    "connaissance:bateau:maq-reglementation",
+    "connaissance:bateau:vieille-reglementation",
+    "connaissance:bateau:sp-reglementation",
+    "connaissance:bateau:reg-marquage-recfishing"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-shom-fr-maree-info-d55b87",
+   "texte": "shom.fr / maree.info — Granville, port de référence du secteur, parmi les plus forts marnages d'Europe continentale",
+   "editeur": "shom.fr / maree.info",
+   "url": null,
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:granville"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-sitytrail-com-4b79fd",
+   "texte": "sitytrail.com — « Aber Wrac'h de Paluden au pont du Diable » (départ 48,588233 / -4,521446)",
+   "editeur": "sitytrail.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:paluden"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-sport-decouverte-com-31e326",
+   "texte": "sport-decouverte.com — pêche du bar en bord de mer à Carantec",
+   "editeur": "sport-decouverte.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:carantec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-surf-forecast-com-726c6a",
+   "texte": "surf-forecast.com — Penhors",
+   "editeur": "surf-forecast.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:penhors"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-surf-forecast-com-a85d32",
+   "texte": "surf-forecast.com — Les Roches Blanches (le Leydé)",
+   "editeur": "surf-forecast.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:leyde"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-surf-forecast-com-f133fa",
+   "texte": "surf-forecast.com — St Tugen (houle et vent idéaux)",
+   "editeur": "surf-forecast.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:sainttugen"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-surf-forecast-com-fd94dd",
+   "texte": "surf-forecast.com — Baie des Trépassés (« Be wary of rips »)",
+   "editeur": "surf-forecast.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:trepasses"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-surf-report-com-23b53f",
+   "texte": "surf-report.com — Pors Carn ; mondo.surf — Pors Carn",
+   "editeur": "surf-report.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:saintguenole"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-surf-report-com-96bbf2",
+   "texte": "surf-report.com — Baie des Trépassés",
+   "editeur": "surf-report.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:trepasses"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-surf-report-com-b82135",
+   "texte": "surf-report.com — La Torche",
+   "editeur": "surf-report.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:torche"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-sylco-peche-brehal-fr-54c906",
+   "texte": "sylco-peche-brehal.fr — 'La Sienne est une très belle rivière' ; le secteur est présenté comme zone de pêche du bord reconnue de la côte des havres",
+   "editeur": "sylco-peche-brehal.fr",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:regneville"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-sylco-peche-brehal-fr-87fa95",
+   "texte": "sylco-peche-brehal.fr — 'Le Sénéquet à Gouville-sur-Mer' cité comme très apprécié des pêcheurs locaux (page non revérifiée le 29/10/2026)",
+   "editeur": "sylco-peche-brehal.fr",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:gouville"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-sylco-peche-brehal-fr-d08333",
+   "texte": "sylco-peche-brehal.fr — le phare du Ronquet en face d'Agon-Coutainville, très apprécié des pêcheurs locaux",
+   "editeur": "sylco-peche-brehal.fr",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:agon"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-tendanceouest-com-77bced",
+   "texte": "tendanceouest.com — accident du Sénéquet (02/03/2025)",
+   "editeur": "tendanceouest.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:gouville"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-ton-journal-ae3fad",
+   "texte": "Ton journal : 3 sessions (27/12/2025, 07/08/2026, 08/08/2026)",
+   "editeur": "Ton journal",
+   "url": null,
+   "type": "journal personnel (Félix)",
+   "famille": 4,
+   "prive": true,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:moulinmer"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-tourisme-landerneau-daoulas-fr-38d978",
+   "texte": "tourisme-landerneau-daoulas.fr — Sites de L'Hôpital-Camfrout : Tibidy, Kerdreolet, Troaon, Kerhascoët (listés distinctement de ceux de Loperhet)",
+   "editeur": "tourisme-landerneau-daoulas.fr",
+   "url": null,
+   "type": "collectivité ou tourisme",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:camfrout"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-tourisme-landerneau-daoulas-fr-75d373",
+   "texte": "tourisme-landerneau-daoulas.fr — Kerhascoët, ancien port coquillier de la commune, vue sur la presqu'île de Logonna",
+   "editeur": "tourisme-landerneau-daoulas.fr",
+   "url": null,
+   "type": "collectivité ou tourisme",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:camfrout"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-tourisme-landerneau-daoulas-fr-959a10",
+   "texte": "tourisme-landerneau-daoulas.fr — sentier littoral de Logonna et escapade en rade",
+   "editeur": "tourisme-landerneau-daoulas.fr",
+   "url": null,
+   "type": "collectivité ou tourisme",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:moulinmer"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-tourisme-landerneau-daoulas-fr-9bb519",
+   "texte": "tourisme-landerneau-daoulas.fr — Loperhet listé avec ses propres sites (Pors Don, Kersanton), distincts de ceux de L'Hôpital-Camfrout",
+   "editeur": "tourisme-landerneau-daoulas.fr",
+   "url": null,
+   "type": "collectivité ou tourisme",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:rostiviec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-tourisme-landerneau-daoulas-fr-9e6a1d",
+   "texte": "tourisme-landerneau-daoulas.fr — Le Bendy parmi les sites de pêche à pied de Logonna (Le Roz, Le Yelen, Le Bendy, Porsisquin) : coquillages, pas le bar",
+   "editeur": "tourisme-landerneau-daoulas.fr",
+   "url": null,
+   "type": "collectivité ou tourisme",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:bendy"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-tourisme-landerneau-daoulas-fr-d92841",
+   "texte": "tourisme-landerneau-daoulas.fr — sentier littoral (anse de Penfoul)",
+   "editeur": "tourisme-landerneau-daoulas.fr",
+   "url": null,
+   "type": "collectivité ou tourisme",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:rostiviec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-tourismebretagne-com-20242e",
+   "texte": "tourismebretagne.com — Plage du Cap-Coz",
+   "editeur": "tourismebretagne.com",
+   "url": null,
+   "type": "collectivité ou tourisme",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:capcoz"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-tourismebretagne-com-ec215b",
+   "texte": "tourismebretagne.com — Plage du Cosmeur",
+   "editeur": "tourismebretagne.com",
+   "url": null,
+   "type": "collectivité ou tourisme",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:carantec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-tourismebretagne-com-f3ec4a",
+   "texte": "tourismebretagne.com — Plage de Plougasnou – Saint-Jean-du-Doigt",
+   "editeur": "tourismebretagne.com",
+   "url": null,
+   "type": "collectivité ou tourisme",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:saintjean"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-toutcommenceenfinistere-com-3cd0ca",
+   "texte": "toutcommenceenfinistere.com — « Site de Meneham »",
+   "editeur": "toutcommenceenfinistere.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:kerlouan"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-toutcommenceenfinistere-com-7530a0",
+   "texte": "toutcommenceenfinistere.com — Circuit la pointe de Penmarc'h",
+   "editeur": "toutcommenceenfinistere.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:penmarch"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-toutcommenceenfinistere-com-a81d39",
+   "texte": "toutcommenceenfinistere.com — « Pêche Rando Bar » (sorties guidées à la pointe du Raz)",
+   "editeur": "toutcommenceenfinistere.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:raz"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-ultimate-fishing-net-023351",
+   "texte": "ultimate-fishing.net — N. Cadiou, « Pêche du bar sur l'estuaire de l'Odet, un challenge » (2023)",
+   "editeur": "ultimate-fishing.net",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:odet"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-visorando-40ae1d",
+   "texte": "visorando — « De la Pointe du Millier à la Pointe de Trénaouret »",
+   "editeur": "visorando",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:trenaouret"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-visorando-com-0b426a",
+   "texte": "visorando.com — « Entre Beg ar Vilh et Sainte-Marguerite » ; « La presqu'île Sainte-Marguerite en longeant l'Aber Wrac'h et l'Aber Benoît »",
+   "editeur": "visorando.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:saintemarguerite"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-visorando-com-1d7838",
+   "texte": "visorando.com — « De la pointe de Brézellec à la pointe du Van et la chapelle Saint-They »",
+   "editeur": "visorando.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:van"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-visorando-com-3782fe",
+   "texte": "visorando.com — « Circuit mégalithique depuis la pointe de la Torche »",
+   "editeur": "visorando.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:saintguenole",
+    "spot:torche"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-visorando-com-4845a1",
+   "texte": "visorando.com — « Tour de Bénodet »",
+   "editeur": "visorando.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:mousterlin",
+    "spot:odet"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-visorando-com-647b4f",
+   "texte": "visorando.com — « Terre et mer autour de la chapelle Saint-Michel à Plouguerneau » (départ : parking au bout de la Grève Blanche, N 48,628972° / O 4,52667°)",
+   "editeur": "visorando.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:pennenez"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-visorando-com-656214",
+   "texte": "visorando.com — « Presqu'île de Barnenez et anse de Térénez »",
+   "editeur": "visorando.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:barnenez"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-visorando-com-6ce7a8",
+   "texte": "visorando.com — « Port d'Audierne depuis le quartier maritime de Poulgoazec à Plouhinec »",
+   "editeur": "visorando.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:goyen"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-visorando-com-7d424b",
+   "texte": "visorando.com — Tour de la presqu'île de Kermorvan",
+   "editeur": "visorando.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:kermorvan"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-visorando-com-8889f6",
+   "texte": "visorando.com — « Tour de Carantec au départ d'Henvic »",
+   "editeur": "visorando.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:carantec",
+    "spot:penze"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-visorando-com-987751",
+   "texte": "visorando.com — « Pointe de Roc'h Pelguent » (coordonnées) et circuit de la chapelle Saint-Michel",
+   "editeur": "visorando.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:pelguent"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-visorando-com-f5e1fa",
+   "texte": "visorando.com — « Nord de Lanildut entre terre, aber et mer »",
+   "editeur": "visorando.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:aberildut"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-visorando-com-fb7f7e",
+   "texte": "visorando.com — « Terre et mer par le Pouldu »",
+   "editeur": "visorando.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:laita"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-visorando-com-fdd54d",
+   "texte": "visorando.com — « Autour de Port Manec'h »",
+   "editeur": "visorando.com",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:portmanech"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-voileaviron-org-6589d4",
+   "texte": "voileaviron.org — livret des sites de la rade de Brest (Tibidy privé)",
+   "editeur": "voileaviron.org",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:camfrout"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-voileaviron-org-a382c4",
+   "texte": "voileaviron.org — topo FVA n° 43, « Les Abers »",
+   "editeur": "voileaviron.org",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:paluden"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-voileaviron-org-bc2c89",
+   "texte": "voileaviron.org — topo FVA n° 43",
+   "editeur": "voileaviron.org",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:aberbenoit"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-voileaviron-org-f9f46c",
+   "texte": "voileaviron.org — livret des sites de la rade de Brest",
+   "editeur": "voileaviron.org",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:bendy",
+    "spot:espagnols",
+    "spot:landevennec",
+    "spot:lauberlach",
+    "spot:moulinmer",
+    "spot:rostiviec"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-waterways-navship-org-f7e5bc",
+   "texte": "waterways.navship.org — Laïta (position du port)",
+   "editeur": "waterways.navship.org",
+   "url": null,
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:laita"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-wikipedia-en-151517",
+   "texte": "Wikipédia (en) — Point Penmarc'h ; Penmarc'h Lighthouse (coordonnées)",
+   "editeur": "Wikipédia (en)",
+   "url": null,
+   "type": "encyclopédie collaborative",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:penmarch"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-wikipedia-en-278e87",
+   "texte": "Wikipédia (en) — Pointe de la Torche",
+   "editeur": "Wikipédia (en)",
+   "url": null,
+   "type": "encyclopédie collaborative",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:torche"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-wikipedia-en-5c33f9",
+   "texte": "Wikipédia (en) — Pointe du Raz (48°02′25″N 4°44′28″W)",
+   "editeur": "Wikipédia (en)",
+   "url": null,
+   "type": "encyclopédie collaborative",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:raz"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-wikipedia-en-9707ad",
+   "texte": "Wikipédia (en) — Penmarch",
+   "editeur": "Wikipédia (en)",
+   "url": null,
+   "type": "encyclopédie collaborative",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:saintguenole"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-wikipedia-en-c550ed",
+   "texte": "Wikipédia (en) — Baie des Trépassés",
+   "editeur": "Wikipédia (en)",
+   "url": null,
+   "type": "encyclopédie collaborative",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:trepasses"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-wikipedia-en-dfd087",
+   "texte": "Wikipédia (en) — Pointe de Corsen",
+   "editeur": "Wikipédia (en)",
+   "url": null,
+   "type": "encyclopédie collaborative",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:corsen"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-wikipedia-en-fb03cd",
+   "texte": "Wikipédia (en) — Plouguerneau",
+   "editeur": "Wikipédia (en)",
+   "url": null,
+   "type": "encyclopédie collaborative",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:pennenez"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  },
+  {
+   "id": "src-wikipedia-fr-65af58",
+   "texte": "Wikipédia (fr) — Pointe du Van",
+   "editeur": "Wikipédia (fr)",
+   "url": null,
+   "type": "encyclopédie collaborative",
+   "famille": null,
+   "niveau_v2": null,
+   "utilise_par": [
+    "spot:van"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   }
+  }
+ ]
+}

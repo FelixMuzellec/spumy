@@ -351,7 +351,13 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-baiedemorlaix-bzh-b82923",
+   "src-baiedemorlaix-bzh-c3a451",
+   "src-peche-poissons-com-44c3a2",
+   "src-portbooker-com-eae758",
+   "src-visorando-com-656214"
+  ],
   "sources_v2": [
    "baiedemorlaix.bzh — office de tourisme : pointe de Barnenez, zones ostréicoles de la rive est",
    "baiedemorlaix.bzh — « La pêche au bar avec un guide pêche » : anse du Dourduff",

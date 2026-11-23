@@ -329,7 +329,12 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-google-maps-20182f",
+   "src-lechasseursousmarin-com-9fda2f",
+   "src-mieuxpecher-com-7ce072",
+   "src-visorando-40ae1d"
+  ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : pointe de Trénaouret",
    "visorando — « De la Pointe du Millier à la Pointe de Trénaouret »",

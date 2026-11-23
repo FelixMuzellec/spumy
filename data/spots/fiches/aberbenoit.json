@@ -342,7 +342,13 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-cannes-peche-blog4ever-com-03a3c7",
+   "src-mieuxpecher-com-f242a9",
+   "src-peche-poissons-com-8d94f7",
+   "src-saint-pabu-bzh-dd6ee3",
+   "src-voileaviron-org-bc2c89"
+  ],
   "sources_v2": [
    "mieuxpecher.com — Top 10 Bretagne : « la côte à proximité de l'estuaire peut être intéressante » (Brenduff, plus en amont, est aussi cité)",
    "cannes-peche.blog4ever.com — « Les coins de pêche à bar / loup (du bord) » (Alain, 07/11/2016) : Landéda, « bordures de l'embouchure de l'Aber Vrac'h et de l'Aber Benoit »",

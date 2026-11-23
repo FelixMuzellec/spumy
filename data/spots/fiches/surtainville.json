@@ -350,7 +350,11 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-cpiecotentin-com-1025cd",
+   "src-inpn-mnhn-fr-39a848",
+   "src-peche-com-dfd180"
+  ],
   "sources_v2": [
    "inpn.mnhn.fr — Natura 2000 FR2502018 Banc et récifs de Surtainville",
    "cpiecotentin.com — grandes plages sableuses de la côte ouest, estrans découvrant largement",

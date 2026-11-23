@@ -330,7 +330,12 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-atout-pecheur-fr-eec463",
+   "src-cannes-peche-blog4ever-com-7ddcda",
+   "src-deconcarneauapontaven-com-4eb240",
+   "src-mieuxpecher-com-8716b2"
+  ],
   "sources_v2": [
    "cannes-peche.blog4ever.com — Trégunc : pointe de Trévignon, roches",
    "mieuxpecher.com — « Coins de Pêche – Finistère SUD »",

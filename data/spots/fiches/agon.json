@@ -367,7 +367,13 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-cirkwi-com-f9fb38",
+   "src-cpiecotentin-com-5726a4",
+   "src-guide-peche-latitude-manche-1283c0",
+   "src-inpn-mnhn-fr-e97479",
+   "src-sylco-peche-brehal-fr-d08333"
+  ],
   "sources_v2": [
    "inpn.mnhn.fr — ZNIEFF marine 25M000020",
    "cirkwi.com — Le havre de Sienne (Attitude Manche)",

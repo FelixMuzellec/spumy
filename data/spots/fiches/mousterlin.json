@@ -338,7 +338,13 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-carnet-de-peche-com-f09448",
+   "src-chtipecheur-com-70a00d",
+   "src-fishipedia-fr-a4e273",
+   "src-mieuxpecher-com-e73489",
+   "src-visorando-com-4845a1"
+  ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : pointe de Mousterlin",
    "carnet-de-peche.com — Pointe de Mousterlin",

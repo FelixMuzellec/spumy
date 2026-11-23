@@ -342,7 +342,13 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-carnalor-com-3bdfd1",
+   "src-carnet-de-peche-com-081359",
+   "src-google-maps-1a2ded",
+   "src-lechasseursousmarin-com-f96b13",
+   "src-mieuxpecher-com-b0f79e"
+  ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : château de Dinan",
    "carnet-de-peche.com — Pointe de Dinan",

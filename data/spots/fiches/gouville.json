@@ -351,7 +351,13 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-cpiecotentin-com-6c5656",
+   "src-inpn-mnhn-fr-e9f612",
+   "src-peche-com-bc916e",
+   "src-sylco-peche-brehal-fr-87fa95",
+   "src-tendanceouest-com-77bced"
+  ],
   "sources_v2": [
    "inpn.mnhn.fr — ZNIEFF marine 25M000020 Estran rocheux de Gouville à Agon-Coutainville",
    "sylco-peche-brehal.fr — 'Le Sénéquet à Gouville-sur-Mer' cité comme très apprécié des pêcheurs locaux (page non revérifiée le 29/10/2026)",

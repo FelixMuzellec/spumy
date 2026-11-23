@@ -333,7 +333,13 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-lordjimcroisieres-com-1d68d2",
+   "src-peche-com-6ce21a",
+   "src-peche-com-e8b658",
+   "src-peche-poissons-com-0a9fa0",
+   "src-voileaviron-org-f9f46c"
+  ],
   "sources_v2": [
    "peche.com — À la recherche du bar du côté du cimetière de bateaux en fond de rade de Brest",
    "voileaviron.org — livret des sites de la rade de Brest",

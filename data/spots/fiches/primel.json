@@ -342,7 +342,13 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-baiedemorlaix-bzh-229532",
+   "src-baiedemorlaix-bzh-76c945",
+   "src-mieuxpecher-com-ac5a35",
+   "src-oblyk-org-2ee5af",
+   "src-patrimoine-bzh-15d60c"
+  ],
   "sources_v2": [
    "baiedemorlaix.bzh — office de tourisme : pointe de Primel (menhir), surfcasting",
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : alentours de la pointe de Primel",

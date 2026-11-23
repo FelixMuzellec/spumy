@@ -354,7 +354,14 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-desperadiens-a52c90",
+   "src-fr-wikipedia-org-bb7caa",
+   "src-peche-com-265478",
+   "src-ton-journal-ae3fad",
+   "src-tourisme-landerneau-daoulas-fr-959a10",
+   "src-voileaviron-org-f9f46c"
+  ],
   "sources_v2": [
    "fr.wikipedia.org — Logonna-Daoulas (géographie : Moulin-Mer, rive sud, embouchure de la rivière de l'Hôpital)",
    "tourisme-landerneau-daoulas.fr — sentier littoral de Logonna et escapade en rade",

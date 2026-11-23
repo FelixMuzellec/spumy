@@ -352,7 +352,11 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-lordjimcroisieres-com-7a0836",
+   "src-peche-com-5c77d5",
+   "src-peche-com-c2610a"
+  ],
   "sources_v2": [
    "lordjimcroisieres.com — Pointe de l'Armorique citée comme point de courant sensible (0.5-3 nds) en rade",
    "peche.com — Pêche des sparidés en rade de Brest, aux appâts, en bateau (ne parle ni du bar ni de l'Armorique)",

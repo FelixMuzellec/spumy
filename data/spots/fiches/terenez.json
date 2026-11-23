@@ -338,7 +338,10 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-lordjimcroisieres-com-4d2c5a",
+   "src-peche-poissons-com-0eff55"
+  ],
   "sources_v2": [
    "peche-poissons.com — « Escapade en rade de Brest, autour de Landévennec » (julien, 30/03/2022 ; photos Thierry Sauvin) — « Côté rade, la pêche du bar est très productive en animant un leurre souple non lesté entre les goémons » — https://peche-poissons.com/mer/mer-coins-de-peche-en-france-escapade-en-rade-de-brest-autour-de-landevennec-693207-php/",
    "lordjimcroisieres.com — Sortie Aulne / Landévennec courant"

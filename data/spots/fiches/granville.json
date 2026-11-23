@@ -352,7 +352,11 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-despoissonssigrands-com-f01490",
+   "src-peche-com-59bdb6",
+   "src-shom-fr-maree-info-d55b87"
+  ],
   "sources_v2": [
    "shom.fr / maree.info — Granville, port de référence du secteur, parmi les plus forts marnages d'Europe continentale",
    "peche.com — Trouver les bons spots pour pêcher le bar : les plateaux rocheux",

@@ -329,7 +329,10 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-chtipecheur-com-4ded74",
+   "src-mieuxpecher-com-11af92"
+  ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : Beg Meil",
    "chtipecheur.com — « Spots de pêche de Bretagne » : plage et pointe du Beg Meil"

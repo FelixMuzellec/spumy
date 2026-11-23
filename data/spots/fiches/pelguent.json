@@ -334,7 +334,10 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-mieuxpecher-com-3a1b38",
+   "src-visorando-com-987751"
+  ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : « Roc'h ar Pelguent à Plouguerneau »",
    "visorando.com — « Pointe de Roc'h Pelguent » (coordonnées) et circuit de la chapelle Saint-Michel"

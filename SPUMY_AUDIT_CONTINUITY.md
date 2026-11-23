@@ -80,7 +80,7 @@ Référentiel § 15 (phase 5), § 7 (sources, pipeline, préservation V2, schém
 | 5.1 Inventaire exhaustif et sauvegarde logique des spots V2, empreintes, comparaison avant/après | TESTED (32a36a3 : 66 spots, 7 guides, 66 identifiants uniques ; 7 spots du guide Pirou sans coordonnées numériques (texte à la minute près) ; `--verifier` 0, dans `npm test` et la CI) | `scripts/inventaire-spots-v2.mjs`, `data/spots/` |
 | 5.2 Audit fonctionnel V2, BORD et BATEAU (parcours, moteurs, espèces, spots, données, sécurité, matériel, localisation, UX) — livrable 1 | IMPLEMENTED (espèces réelles : bar en BORD ; lieu jaune, lieu noir, maquereau, bar, vieille, saint-pierre en BATEAU ; aucun point d'accès dans les fiches ; 8 écarts pour la phase 5) | `docs/audit/` |
 | 5.3 Registre central des spots au schéma § 7.4 (66 fiches `v2_preserved`, identifiants V3-018, statut, provenance, preuve, dernière vérification, lacunes) | TESTED (schéma `data/schema/spot-v3.schema.json` ; 66 fiches `data/spots/fiches/`, toutes « à vérifier », 0 stationnement connu ; registre `data/spots/registre.json` généré ; `tests/spots-v3.mjs` 404/404, dans `npm test` et la CI ; 28 fiches V2 citent le journal personnel : anomalie à revoir) | `data/schema/`, `data/spots/`, tests |
-| 5.4 Registre de sources (évaluation § 7.1, indépendance, droits, CGU) — livrable 4 | NOT STARTED | `data/sources/` |
+| 5.4 Registre de sources (évaluation § 7.1, indépendance, droits, CGU) — livrable 4 | IN PROGRESS (inventaire fait : 284 sources, 95 éditeurs, 66 fiches reliées, test d'intégrité ; droits et indépendance par éditeur décrits ; **évaluation § 7.1 de chaque source : 0/284**, à faire avec 5.7 ; Google Maps à re-sourcer sur IGN ou OSM) | `data/sources/` |
 | 5.5 Référentiel biologique par espèce, région et saison (espèces réelles de la V2), fiches de preuve, lacunes et contradictions | NOT STARTED | `docs/halieutique/`, `data/knowledge/` |
 | 5.6 Recherche systématique des spots, Bretagne → Cherbourg, première passe | NOT STARTED | `data/spots/` |
 | 5.7 Vérification par spot : coordonnées, accès et stationnement, marche, milieu, marée en quatre phases, conditions, sécurité, réglementation, fenêtres, photos | NOT STARTED | `data/spots/` |
@@ -122,7 +122,7 @@ Référentiel § 15 (phase 5), § 7 (sources, pipeline, préservation V2, schém
 
 ## Prochaine action
 
-Phase 5 IN PROGRESS sur `claude/v3-phase-5`. Prochaine sous-tâche : 5.4, registre de sources (sources V2 des fiches, évaluation § 7.1).
+Phase 5 IN PROGRESS sur `claude/v3-phase-5`. Prochaine sous-tâche : 5.5, référentiel biologique (bar d'abord, puis les cinq autres espèces BATEAU) ; l'évaluation des sources (5.4) se fait avec la vérification des spots (5.7).
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 

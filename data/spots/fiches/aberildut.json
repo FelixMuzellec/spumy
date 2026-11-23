@@ -342,7 +342,12 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-cannes-peche-blog4ever-com-4deefb",
+   "src-mieuxpecher-com-5f7545",
+   "src-peche-poissons-com-8d94f7",
+   "src-visorando-com-f5e1fa"
+  ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : « L'embouchure de l'Aber Idult » ; Top 10 Bretagne",
    "cannes-peche.blog4ever.com — Plouarzel : « Île Ségal, bordures de l'Aber Ildut, roches face à l'Île de Melon »",

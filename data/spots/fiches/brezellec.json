@@ -328,7 +328,13 @@
   "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
  },
  "provenance": {
-  "sources": [],
+  "sources": [
+   "src-cannes-peche-blog4ever-com-af2c77",
+   "src-lechasseursousmarin-com-c76233",
+   "src-mieuxpecher-com-ba6412",
+   "src-park4night-com-af9169",
+   "src-patrimoine-bzh-bbbe27"
+  ],
   "sources_v2": [
    "cannes-peche.blog4ever.com — « Pointe de Brézellec et Pointe du Van et leurs roches escarpées »",
    "mieuxpecher.com — liste des coins de pêche : « La pointe de Brezellec »",
