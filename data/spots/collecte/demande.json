@@ -1,8 +1,8 @@
 {
- "//": "Demande de collecte pour la CI : vide (fin de 5.12).",
+ "//": "Demande CI (5.13) : position IGN des neuf candidats de la passe forums et listes complètes.",
  "ids": [],
  "requetes": {},
  "photos": false,
  "risques": false,
- "candidats": false
+ "candidats": true
 }

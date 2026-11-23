@@ -54,6 +54,69 @@
    "milieu": "cap rocheux du nord-est du Cotentin (Fermanville)",
    "toponyme": "Phare du Cap Lévi",
    "commune": "Fermanville"
+  },
+  {
+   "id": "berchis",
+   "nom": "Pointe du Berchis",
+   "requete": "Pointe du Berchis",
+   "departement": "56",
+   "milieu": "pointe rocheuse du golfe du Morbihan (Larmor-Baden)"
+  },
+  {
+   "id": "begenaud",
+   "nom": "Pointe de Beg en Aud",
+   "requete": "Beg en Aud",
+   "departement": "56",
+   "milieu": "pointe rocheuse (Saint-Pierre-Quiberon)"
+  },
+  {
+   "id": "toulhars",
+   "nom": "Toulhars (Larmor-Plage)",
+   "requete": "Toulhars",
+   "departement": "56",
+   "milieu": "plage et roches de l'entrée de la rade de Lorient"
+  },
+  {
+   "id": "bihit",
+   "nom": "Pointe de Bihit",
+   "requete": "Pointe de Bihit",
+   "departement": "22",
+   "milieu": "pointe rocheuse (Trébeurden)"
+  },
+  {
+   "id": "dourven",
+   "nom": "Pointe du Dourven",
+   "requete": "Pointe du Dourven",
+   "departement": "22",
+   "milieu": "pointe rocheuse de la baie de Lannion (Trédrez-Locquémeau)"
+  },
+  {
+   "id": "brehec",
+   "nom": "Bréhec",
+   "requete": "Bréhec",
+   "departement": "22",
+   "milieu": "anse et plage de la côte du Goëlo (Plouha)"
+  },
+  {
+   "id": "capfrehel",
+   "nom": "Cap Fréhel",
+   "requete": "Cap Fréhel",
+   "departement": "22",
+   "milieu": "cap rocheux à falaises"
+  },
+  {
+   "id": "saintvaast",
+   "nom": "Saint-Vaast-la-Hougue : la Hougue",
+   "requete": "La Hougue",
+   "departement": "50",
+   "milieu": "presqu'île, tour et digue de la Hougue"
+  },
+  {
+   "id": "gattemare",
+   "nom": "Anse de Gattemare",
+   "requete": "Gattemare",
+   "departement": "50",
+   "milieu": "plage de sable du nord-est du Cotentin (Gatteville, Gouberville)"
   }
  ]
 }
