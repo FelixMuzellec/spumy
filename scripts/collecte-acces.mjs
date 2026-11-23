@@ -31,7 +31,7 @@ async function json(url, opts = {}, essais = 2) {
   for (let i = 0; i < essais; i++) {
     try {
       const t0 = performance.now();
-      const res = await fetch(url, { ...opts, headers: { "User-Agent": UA, Accept: "application/json", ...(opts.headers || {}) }, signal: AbortSignal.timeout(30000) });
+      const res = await fetch(url, { ...opts, headers: { "User-Agent": UA, Accept: "application/json", ...(opts.headers || {}) }, signal: AbortSignal.timeout(15000) });
       const ms = Math.round(performance.now() - t0);
       if (res.status === 429 || res.status >= 500) { await pause(5000 * (i + 1)); continue; }
       const texte = await res.text();
@@ -41,57 +41,104 @@ async function json(url, opts = {}, essais = 2) {
   return { erreur: "service saturé ou en panne après nouvel essai" };
 }
 
+/** Variantes du nom : complet, sans mot générique de tête, partie avant « : » ou « – ». */
+function variantes(nom) {
+  const v = [nom.replace(/\s*[:–-]\s*/g, " ").trim()];
+  const sans = nom.replace(/^(Embouchures?|Estuaire|Plage|Anse|Baie|Rochers|Dunes|Sillon|Île)\s+(de la|de l'|des|du|de|d')\s*/i, "").replace(/\s*[:–-].*$/, "").trim();
+  if (sans && !v.includes(sans)) v.push(sans);
+  const avant = nom.split(/\s*[:–]\s*/)[0].trim();
+  if (avant && !v.includes(avant)) v.push(avant);
+  return v;
+}
+
 async function lieuxNommes(f) {
   const { lat, lon } = f.coordinates;
   const d = f.coordinates.precision_m && f.coordinates.precision_m > 1000 ? 0.06 : 0.04;
-  const q = f.name.replace(/\s*[:–-]\s*/g, " ").trim();
-  const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&limit=6&bounded=1&accept-language=fr&viewbox=${lon - d * 1.5},${lat + d},${lon + d * 1.5},${lat - d}&q=${encodeURIComponent(q)}`;
-  const r = await json(url);
-  await pause(1100);
-  return {
-    requete: q, statut: r.statut, erreur: r.erreur,
-    resultats: Array.isArray(r.json) ? r.json.map((x) => ({ nom: x.display_name, categorie: `${x.category}/${x.type}`, osm: `${x.osm_type}/${x.osm_id}`, lat: +x.lat, lon: +x.lon, ecart_m: dist({ lat, lon }, { lat: +x.lat, lon: +x.lon }) })) : [],
-  };
+  const essais = [];
+  let osm = [];
+  for (const q of variantes(f.name)) {
+    const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&limit=6&bounded=1&accept-language=fr&viewbox=${lon - d * 1.5},${lat + d},${lon + d * 1.5},${lat - d}&q=${encodeURIComponent(q)}`;
+    const r = await json(url);
+    await pause(1100);
+    essais.push({ requete: q, statut: r.statut, erreur: r.erreur, n: Array.isArray(r.json) ? r.json.length : 0 });
+    if (Array.isArray(r.json) && r.json.length) {
+      osm = r.json.map((x) => ({ source: "osm", nom: x.display_name, categorie: `${x.category}/${x.type}`, osm: `${x.osm_type}/${x.osm_id}`, lat: +x.lat, lon: +x.lon, ecart_m: dist({ lat, lon }, { lat: +x.lat, lon: +x.lon }) }));
+      break;
+    }
+  }
+  // Toponymes officiels de l'IGN (index « poi » du géocodage de la Géoplateforme), autour du point.
+  let ignPoi = [];
+  for (const q of variantes(f.name).slice(0, 2)) {
+    const r = await json(`https://data.geopf.fr/geocodage/search?index=poi&limit=5&lat=${lat}&lon=${lon}&q=${encodeURIComponent(q)}`);
+    await pause(250);
+    essais.push({ requete: `ign:${q}`, statut: r.statut, erreur: r.erreur, n: r.json?.features?.length || 0 });
+    const fs_ = (r.json?.features || []).map((x) => ({ source: "ign", nom: x.properties?.toponym || x.properties?.name || x.properties?.label, categorie: [].concat(x.properties?.category || []).join(", "), lat: x.geometry?.coordinates?.[1], lon: x.geometry?.coordinates?.[0] }))
+      .filter((x) => x.lat != null).map((x) => ({ ...x, ecart_m: dist({ lat, lon }, x) })).filter((x) => x.ecart_m <= 8000);
+    if (fs_.length) { ignPoi = fs_; break; }
+  }
+  return { essais, resultats: [...osm, ...ignPoi].sort((a, b) => a.ecart_m - b.ecart_m) };
 }
 
 async function parkings(f) {
   const { lat, lon } = f.coordinates;
   const rayon = f.coordinates.precision_m && f.coordinates.precision_m > 1000 ? 2500 : 1500;
-  const q = `[out:json][timeout:25];nwr(around:${rayon},${lat},${lon})[amenity=parking];out center tags;`;
-  const r = await json("https://overpass-api.de/api/interpreter", { method: "POST", body: new URLSearchParams({ data: q }), headers: { "Content-Type": "application/x-www-form-urlencoded" } }, 3);
-  await pause(1500);
-  const els = r.json?.elements || [];
-  return {
-    rayon_m: rayon, statut: r.statut, erreur: r.erreur,
-    resultats: els.map((e) => {
+  const dLat = rayon / 111000, dLon = rayon / (111000 * Math.cos((lat * Math.PI) / 180));
+  // 1. IGN, BD TOPO (équipements de transport de nature « Parking »), Licence Ouverte.
+  const wfs = `https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=BDTOPO_V3:equipement_de_transport&OUTPUTFORMAT=application/json&COUNT=200&BBOX=${lat - dLat},${lon - dLon},${lat + dLat},${lon + dLon},urn:ogc:def:crs:EPSG::4326`;
+  const r = await json(wfs);
+  await pause(250);
+  const centre = (g) => {
+    if (!g) return null;
+    if (g.type === "Point") return { lon: g.coordinates[0], lat: g.coordinates[1] };
+    const pts = (g.type === "Polygon" ? g.coordinates[0] : g.type === "MultiPolygon" ? g.coordinates[0][0] : g.coordinates).filter((p) => Array.isArray(p));
+    if (!pts.length) return null;
+    return { lon: pts.reduce((a, p) => a + p[0], 0) / pts.length, lat: pts.reduce((a, p) => a + p[1], 0) / pts.length };
+  };
+  let res = (r.json?.features || []).filter((x) => /parking/i.test(x.properties?.nature || "")).map((x) => {
+    const c = centre(x.geometry);
+    return c && { source: "ign", ign: x.id, ...c, ecart_m: dist({ lat, lon }, c), nom: x.properties?.toponyme || x.properties?.nom || null, nature: x.properties?.nature || null, detail: x.properties?.nature_detaillee || null };
+  }).filter(Boolean);
+  let source = "ign-bdtopo";
+  // 2. Sinon, OpenStreetMap (Overpass), un seul essai court.
+  let overpass = null;
+  if (!res.length) {
+    const q = `[out:json][timeout:12];nwr(around:${rayon},${lat},${lon})[amenity=parking];out center tags;`;
+    const o = await json("https://overpass-api.de/api/interpreter", { method: "POST", body: new URLSearchParams({ data: q }), headers: { "Content-Type": "application/x-www-form-urlencoded" } }, 1);
+    await pause(1000);
+    overpass = { statut: o.statut, erreur: o.erreur };
+    res = (o.json?.elements || []).map((e) => {
       const p = e.type === "node" ? { lat: e.lat, lon: e.lon } : { lat: e.center?.lat, lon: e.center?.lon };
       const t = e.tags || {};
-      return { osm: `${e.type}/${e.id}`, ...p, ecart_m: dist({ lat, lon }, p), nom: t.name || null, acces: t.access || null, payant: t.fee || null, capacite: t.capacity || null, revetement: t.surface || null, type: t.parking || null };
-    }).filter((p) => p.lat != null && p.acces !== "private" && p.acces !== "no").sort((a, b) => a.ecart_m - b.ecart_m).slice(0, 8),
-  };
+      return { source: "osm", osm: `${e.type}/${e.id}`, ...p, ecart_m: dist({ lat, lon }, p), nom: t.name || null, acces: t.access || null, payant: t.fee || null, capacite: t.capacity || null };
+    }).filter((p) => p.lat != null && p.acces !== "private" && p.acces !== "no");
+    source = "osm-overpass";
+  }
+  return { rayon_m: rayon, source, wfs: { statut: r.statut, erreur: r.erreur, n: r.json?.features?.length ?? null }, overpass, resultats: res.sort((a, b) => a.ecart_m - b.ecart_m).slice(0, 8) };
 }
 
 async function marche(f, liste) {
   const { lat, lon } = f.coordinates;
   const out = [];
   for (const p of liste.slice(0, 3)) {
+    const ref = p.osm || p.ign;
     let meilleur = null;
     for (const resource of ["bdtopo-pgr", "bdtopo-valhalla"]) {
       const url = `https://data.geopf.fr/navigation/itineraire?resource=${resource}&profile=pedestrian&optimization=fastest&start=${p.lon},${p.lat}&end=${lon},${lat}`;
       const r = await json(url);
       await pause(300);
       const v = r.json ? ign.itineraire(r.json) : null;
-      if (v?.ok) { meilleur = { osm: p.osm, resource, minutes: +v.value.minutes.toFixed(1), km: +v.value.km.toFixed(2) }; break; }
-      meilleur = { osm: p.osm, resource, erreur: r.erreur || (v && !v.ok ? v.error.details.raison : `HTTP ${r.statut}`) };
+      if (v?.ok) { meilleur = { parking: ref, resource, minutes: +v.value.minutes.toFixed(1), km: +v.value.km.toFixed(2) }; break; }
+      meilleur = { parking: ref, resource, erreur: r.erreur || (v && !v.ok ? v.error.details.raison : `HTTP ${r.statut}`) };
     }
     out.push(meilleur);
+    await pause(100);
   }
   return out;
 }
 
 const fiches = fs.readdirSync(DIR).filter((n) => n.endsWith(".json")).sort().map((n) => JSON.parse(fs.readFileSync(path.join(DIR, n), "utf8")))
   .filter((f) => !filtre.length || filtre.includes(f.id));
-const resultat = { date: new Date().toISOString(), agent: UA, sources: { nominatim: "OpenStreetMap, Nominatim (ODbL, © contributeurs OpenStreetMap)", overpass: "OpenStreetMap, Overpass API (ODbL, © contributeurs OpenStreetMap)", ign: "IGN, Géoplateforme, itinéraire piéton" }, spots: [] };
+const resultat = { date: new Date().toISOString(), agent: UA, sources: { bdtopo: "IGN, BD TOPO, équipements de transport (Licence Ouverte)", poi: "IGN, géocodage de la Géoplateforme, index poi", nominatim: "OpenStreetMap, Nominatim (ODbL, © contributeurs OpenStreetMap)", overpass: "OpenStreetMap, Overpass API (ODbL, © contributeurs OpenStreetMap)", ign: "IGN, Géoplateforme, itinéraire piéton" }, spots: [] };
 for (const f of fiches) {
   const nommes = await lieuxNommes(f);
   const parks = await parkings(f);
