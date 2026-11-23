@@ -489,6 +489,7 @@
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
    "src-landeda-fr-1043ce",
+   "src-lcsm-presquile-sainte-marguerite",
    "src-legifrance-tailles-minimales-2026",
    "src-mieuxpecher-com-3e943c",
    "src-visorando-com-0b426a"
@@ -514,7 +515,7 @@
   ]
  },
  "quality": {
-  "statut": "a_verifier",
+  "statut": "TOP_TIER",
   "derniere_verification": "2026-11-23",
   "completude": 0.8,
   "inconnus": [
@@ -531,12 +532,12 @@
   "anomalies": [],
   "criteres": {
    "QUAL-1": {
-    "ok": false,
-    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:mieuxpecher-com"
+    "ok": true,
+    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:lechasseursousmarin-com, editeur:mieuxpecher-com"
    },
    "QUAL-2": {
-    "ok": false,
-    "detail": "1 groupe d'indépendance parmi les sources lues page par page (1 sur 1) ; aucune n'attache le bar au poste"
+    "ok": true,
+    "detail": "2 groupes d'indépendance parmi les sources lues page par page (2 sur 2) ; au moins une attache le bar au poste"
    },
    "QUAL-3": {
     "ok": true,
@@ -559,8 +560,6 @@
     "detail": "aucune source privée"
    }
   },
-  "raisons": [
-   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:mieuxpecher-com"
-  ]
+  "raisons": []
  }
 }

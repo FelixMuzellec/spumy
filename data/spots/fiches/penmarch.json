@@ -520,6 +520,7 @@
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
+   "src-lcsm-pointe-de-penmarch",
    "src-le-figaro-nautisme-523b6e",
    "src-legifrance-tailles-minimales-2026",
    "src-mieuxpecher-com-2baae9",
@@ -575,11 +576,11 @@
   "criteres": {
    "QUAL-1": {
     "ok": true,
-    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:carnet-de-peche-com, meteo-consult-figaro-nautisme"
+    "detail": "3 groupes d'indépendance halieutique (famille 1 à 4) : editeur:carnet-de-peche-com, editeur:lechasseursousmarin-com, meteo-consult-figaro-nautisme"
    },
    "QUAL-2": {
     "ok": true,
-    "detail": "2 groupes d'indépendance parmi les sources lues page par page (2 sur 2) ; au moins une attache le bar au poste"
+    "detail": "3 groupes d'indépendance parmi les sources lues page par page (3 sur 3) ; au moins une attache le bar au poste"
    },
    "QUAL-3": {
     "ok": true,

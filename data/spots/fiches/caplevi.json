@@ -365,6 +365,7 @@
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
+   "src-lcsm-cap-levi",
    "src-legifrance-tailles-minimales-2026",
    "src-mieuxpecher-normandie",
    "src-wikimedia-commons-geo"
@@ -409,7 +410,7 @@
    },
    "QUAL-2": {
     "ok": true,
-    "detail": "2 groupes d'indépendance parmi les sources lues page par page (2 sur 2) ; au moins une attache le bar au poste"
+    "detail": "2 groupes d'indépendance parmi les sources lues page par page (3 sur 3) ; au moins une attache le bar au poste"
    },
    "QUAL-3": {
     "ok": true,

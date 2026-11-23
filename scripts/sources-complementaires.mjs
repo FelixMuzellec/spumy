@@ -27,6 +27,27 @@ export const COMPLEMENTS = {
   ],
   "ilepercee": [
     "src-lcsm-ile-percee"
+  ],
+  "morgat": [
+    "src-lcsm-pointe-de-morgat"
+  ],
+  "dinan": [
+    "src-lcsm-pointe-de-dinan"
+  ],
+  "mousterlin": [
+    "src-lcsm-pointe-de-mousterlin"
+  ],
+  "corsen": [
+    "src-lcsm-anse-de-corsen"
+  ],
+  "saintemarguerite": [
+    "src-lcsm-presquile-sainte-marguerite"
+  ],
+  "caplevi": [
+    "src-lcsm-cap-levi"
+  ],
+  "penmarch": [
+    "src-lcsm-pointe-de-penmarch"
   ]
 };
 

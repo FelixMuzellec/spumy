@@ -615,6 +615,7 @@
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
+   "src-lcsm-pointe-de-dinan",
    "src-lechasseursousmarin-com-f96b13",
    "src-legifrance-tailles-minimales-2026",
    "src-mieuxpecher-com-b0f79e",
@@ -655,7 +656,7 @@
   ]
  },
  "quality": {
-  "statut": "corroboree",
+  "statut": "TOP_TIER",
   "derniere_verification": "2026-11-23",
   "completude": 0.82,
   "inconnus": [
@@ -675,8 +676,8 @@
     "detail": "3 groupes d'indépendance halieutique (famille 1 à 4) : editeur:carnet-de-peche-com, editeur:lechasseursousmarin-com, editeur:mieuxpecher-com"
    },
    "QUAL-2": {
-    "ok": false,
-    "detail": "1 groupe d'indépendance parmi les sources lues page par page (1 sur 3) ; aucune n'attache le bar au poste"
+    "ok": true,
+    "detail": "2 groupes d'indépendance parmi les sources lues page par page (2 sur 4) ; au moins une attache le bar au poste"
    },
    "QUAL-3": {
     "ok": true,
@@ -699,8 +700,6 @@
     "detail": "aucune source privée"
    }
   },
-  "raisons": [
-   "QUAL-2 : 1 groupe d'indépendance parmi les sources lues page par page (1 sur 3) ; aucune n'attache le bar au poste"
-  ]
+  "raisons": []
  }
 }

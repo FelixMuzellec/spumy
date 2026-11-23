@@ -7,10 +7,10 @@
    "v3_researched": 34
   },
   "parStatut": {
-   "a_verifier": 57,
-   "corroboree": 6,
+   "a_verifier": 55,
+   "corroboree": 5,
    "candidate": 34,
-   "TOP_TIER": 3
+   "TOP_TIER": 6
   },
   "stationnementConnu": 66
  },
@@ -379,7 +379,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
    "completude": 0.32,
@@ -472,7 +472,7 @@
    "id": "corsen",
    "name": "Pointe de Corsen",
    "origin": "v2_preserved",
-   "statut": "a_verifier",
+   "statut": "TOP_TIER",
    "lat": 48.4145,
    "lon": -4.7955,
    "precision_m": null,
@@ -481,7 +481,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 12,
+   "sources": 13,
    "sources_v2": 3,
    "derniere_verification": "2026-11-23",
    "completude": 0.81,
@@ -513,7 +513,7 @@
    "id": "dinan",
    "name": "Pointe de Dinan",
    "origin": "v2_preserved",
-   "statut": "corroboree",
+   "statut": "TOP_TIER",
    "lat": 48.231902,
    "lon": -4.570842,
    "precision_m": null,
@@ -522,7 +522,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 14,
+   "sources": 15,
    "sources_v2": 5,
    "derniere_verification": "2026-11-23",
    "completude": 0.82,
@@ -1100,7 +1100,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 14,
+   "sources": 15,
    "sources_v2": 4,
    "derniere_verification": "2026-11-23",
    "completude": 0.81,
@@ -1162,7 +1162,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 14,
+   "sources": 15,
    "sources_v2": 5,
    "derniere_verification": "2026-11-23",
    "completude": 0.81,
@@ -1288,7 +1288,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 13,
+   "sources": 14,
    "sources_v2": 5,
    "derniere_verification": "2026-11-23",
    "completude": 0.82,
@@ -1692,7 +1692,7 @@
    "id": "saintemarguerite",
    "name": "Dunes de Sainte-Marguerite",
    "origin": "v2_preserved",
-   "statut": "a_verifier",
+   "statut": "TOP_TIER",
    "lat": 48.5947,
    "lon": -4.6017,
    "precision_m": null,
@@ -1701,7 +1701,7 @@
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 3,
    "derniere_verification": "2026-11-23",
    "completude": 0.8,
