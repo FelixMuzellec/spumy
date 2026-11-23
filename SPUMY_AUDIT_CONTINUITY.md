@@ -52,7 +52,7 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 | Sous-tâche | Statut | Fichiers |
 | --- | --- | --- |
 | 4.0 Jeton, branche, suivi, plan | IMPLEMENTED | ce fichier, `docs/DECISIONS_LOG.md` |
-| 4.1 Audit du socle (stack réelle, dépendances, sécurité des dépendances, CI, reproductibilité, inventaire de nettoyage) | NOT STARTED | `docs/socle/AUDIT-SOCLE.md` |
+| 4.1 Audit du socle (stack réelle, dépendances, sécurité des dépendances, CI, reproductibilité, inventaire de nettoyage) | IMPLEMENTED (`npm audit` 0 vulnérabilité ; historique sans secret ; ESLint 8 non maintenu ; CI sans typecheck ni brand.py) | `docs/socle/AUDIT-SOCLE.md` |
 | 4.2 Architecture détaillée (modules, frontières V3 / services communs / héritage V2, flux, erreurs, migration) | NOT STARTED | `docs/ARCHITECTURE-V3.md` |
 | 4.3 Contrats typés (JSDoc) et `tsc --checkJs` ; erreurs typées ; validation des entrées | NOT STARTED | `src/core/contracts/`, `tsconfig.json`, `npm run typecheck` |
 | 4.4 Tests et CI : fixtures déterministes (heure, fuseau, polices), contrôles manquants en CI (typecheck, marque) | NOT STARTED | `.github/workflows/`, `tests/` |
@@ -97,7 +97,7 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 
 ## Prochaine action
 
-Phase 4 IN PROGRESS sur `claude/v3-phase-4`. Prochaine sous-tâche : 4.1, audit du socle (lecture et mesures, sans modification du code applicatif).
+Phase 4 IN PROGRESS sur `claude/v3-phase-4`. Prochaine sous-tâche : 4.2, architecture détaillée.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
