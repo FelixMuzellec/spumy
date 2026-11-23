@@ -30,6 +30,9 @@ export const PREUVES = {
   brehec: [["src-mieuxpecher-cotes-darmor", "« Les Alentours de Bréhec »"], ["src-carnet-de-peche-liste-cotes-darmor", "« Plage de Bréhec · Bar »"]],
   capfrehel: [["src-mieuxpecher-cotes-darmor", "« Cap Fréhél »"], ["src-carnet-de-peche-lieu-noir", "« Cap Fréhel — plateformes basses POINTE ROCHEUSE » (spots à lieu noir)"]],
   saintvaast: [["src-mieuxpecher-normandie", "« Tour Vauban près des parcs au leurre de surface » (Saint-Vaast-la-Hougue)"], ["src-carnet-de-peche-dorade-manche", "« Saint-Vaast-la-Hougue — digue de la Hougue DIGUE · BAR »"], ["src-pechemercotentin-saint-vaast", "« Il y a deux coloris qui marchent très bien sur St Vaast »"]],
+  grandbe: [["src-mieuxpecher-ille-et-vilaine", "« Le Petit Bé » (liste de Saint-Malo)"], ["src-oupecher-saint-malo-bar", "« La pêche du bar est assez prolifique depuis Grand Bé et Petit Bé »"]],
+  rosaires: [["src-mieuxpecher-cotes-darmor", "« La pointe de Pordic au dessus de la Plage des Rosaires »"], ["src-carnet-de-peche-sillon-talbert", "« Plage des Rosaires · Bar »"]],
+  etel: [["src-mieuxpecher-morbihan", "« Embouchure de la rivière d'Etel »"], ["src-carnet-de-peche-mulet", "« Barre d'Étel — rive Plouhinec ESTUAIRE » (spots à mulet)"]],
   gattemare: [["src-mieuxpecher-normandie", "« Anse de Gattemare »"], ["src-pechemercotentin-gattemare", "« J'ai déjà pêché à Gattemare !!! C'est au coude à coude, là-bas !!! »"]],
 };
 

@@ -39,6 +39,22 @@ export const CLASSEMENT = {
   surtainville: [["isolement_au_flot"], "le flot gagne vite"],
   terenez: [["praticable_a_basse_mer_seulement", "isolement_au_flot"], "retour obligatoire avant le flot"],
 };
+/**
+ * Fiches V3 : contrainte de marée tirée de sources lues (§ 7.1), jamais d'une consigne V2. Chaque consigne cite ses sources ;
+ * la fenêtre reste INCONNU tant qu'aucune durée n'est lue sans ambiguïté.
+ */
+export const CLASSEMENT_V3 = {
+  grandbe: {
+    codes: ["praticable_a_basse_mer_seulement", "isolement_au_flot"],
+    consignes: [
+      { texte: "Office de tourisme de Saint-Malo (page anglaise) : le Grand Bé, « You can only get there for a few hours a day, at low tide, by crossing Bon Secours beach » ; le Petit Bé, à pied ou en bateau selon la marée, après avoir vérifié l'heure de basse mer du jour.", sources: ["src-saint-malo-tourisme-bes"] },
+      { texte: "Un pêcheur du site : « vous pouvez devenir prisonnier de ces deux îlots », « Désagréable et dangereux » ; sessions de trois heures au plus.", sources: ["src-oupecher-saint-malo-bar"] },
+      { texte: "« une remontée rapide de l'eau peut isoler l'îlot, et les indications locales priment toujours ».", sources: ["src-figaro-nautisme-forts-saint-malo"] },
+    ],
+    fenetre: "L'office de tourisme rapporte l'accès à l'heure de basse mer du jour (« 1? hours before and 1? hours after » : chiffre mal affiché sur la page lue) ; un pêcheur du site parle de « deux ou trois heures de pêche max ». Tant que la durée n'est pas relue sans ambiguïté, aucun intervalle HH:MM n'est calculé (§ 7.6) et le spot n'est jamais présenté comme praticable.",
+  },
+};
+const JOUR = "2026-11-23";
 const LIBELLE = {
   praticable_a_basse_mer_seulement: "accès praticable seulement autour de la basse mer",
   isolement_au_flot: "le flot peut couper le retour",
@@ -52,6 +68,18 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     const c = CLASSEMENT[f.id];
     const s = f.safety;
     if (s.acces_maree?.origine === "v3" && s.acces_maree.statut === "VÉRIFIÉ") continue; // vérification de terrain : jamais écrasée
+    const v3 = CLASSEMENT_V3[f.id];
+    if (v3) {
+      const textes = new Set(v3.consignes.map((x) => x.texte));
+      s.consignes = [...s.consignes.filter((x) => !textes.has(x.texte)), ...v3.consignes.map((x) => ({ statut: "INFÉRÉ", origine: "v3", texte: x.texte, sources: x.sources, verifie_le: JOUR }))];
+      s.acces_maree = { statut: "INFÉRÉ", origine: "v3", valeur: v3.codes, sources: [...new Set(v3.consignes.flatMap((x) => x.sources))], verifie_le: JOUR,
+        texte: `${(([t]) => t[0].toUpperCase() + t.slice(1))([v3.codes.map((k) => LIBELLE[k]).join(" ; ")])}. Classement relu à la main depuis les consignes sourcées de la fiche.` };
+      f.windows.securite = { statut: "INCONNU", origine: "v3", raison: v3.fenetre };
+      for (const k of v3.codes) bilan[k] = (bilan[k] || 0) + 1;
+      const q = qualite(f); f.quality.inconnus = q.inconnus; f.quality.completude = q.completude;
+      fs.writeFileSync(path.join(DIR_FICHES, fichier), JSON.stringify(f, null, 1) + "\n");
+      continue;
+    }
     if (f.origin !== "v2_preserved" && !c) continue; // fiche V3 sans consigne : sa contrainte reste celle de la fiche
     if (c) {
       const [codes, extrait] = c;
@@ -71,5 +99,5 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     fs.writeFileSync(path.join(DIR_FICHES, fichier), JSON.stringify(f, null, 1) + "\n");
   }
   ecrireRegistre();
-  console.log(`[sécurité marée] ${Object.keys(CLASSEMENT).length} spots classés :`, bilan);
+  console.log(`[sécurité marée] ${Object.keys(CLASSEMENT).length + Object.keys(CLASSEMENT_V3).length} spots classés :`, bilan);
 }

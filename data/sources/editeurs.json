@@ -1075,6 +1075,50 @@
    ],
    "limites": "fiche de presse : consignes générales, pas locales",
    "droits": "Licence Ouverte (informations publiques)"
+  },
+  "oupecher.fr": {
+   "famille": 4,
+   "groupe": null,
+   "nature": "blog d'un pêcheur nommé (Arno Convers), récits de sessions de première main",
+   "domaines": [
+    "halieutique",
+    "accès",
+    "conditions locales"
+   ],
+   "limites": "observations personnelles, non reproductibles ; quelques secteurs seulement (Saint-Malo) ; à recouper",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "bretagne-peche-et-nature.fr": {
+   "famille": 6,
+   "groupe": null,
+   "nature": "agrégateur, site généraliste ou commercial",
+   "domaines": [
+    "connaissance générale"
+   ],
+   "limites": "anonyme, sans date ni méthode, texte sans accents (production non établie, possiblement générée) ; ne compte pas comme une voix indépendante",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "a-babord.com": {
+   "famille": 6,
+   "groupe": null,
+   "nature": "agrégateur, site généraliste ou commercial",
+   "domaines": [
+    "connaissance générale"
+   ],
+   "limites": "article d'une minute sous pseudonyme, liens d'affiliation, aucune source citée ; ne compte pas comme une voix indépendante",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+  },
+  "saint-malo-tourisme.co.uk": {
+   "famille": 4,
+   "groupe": "saint-malo-tourisme",
+   "nature": "office de tourisme (Saint-Malo – Baie du Mont-Saint-Michel)",
+   "domaines": [
+    "accès",
+    "lieux",
+    "activités"
+   ],
+   "limites": "promotionnel ; page sans date ; une durée mal affichée sur la page lue",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
   }
  }
 }

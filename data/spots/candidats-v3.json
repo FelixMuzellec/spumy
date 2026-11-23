@@ -133,6 +133,27 @@
    "milieu": "plage de sable du nord-est du Cotentin (Gatteville, Gouberville)",
    "toponyme": "Étang de Gattemare",
    "commune": "Gatteville-le-Phare"
+  },
+  {
+   "id": "grandbe",
+   "nom": "Saint-Malo : Grand Bé et Petit Bé",
+   "requete": "Grand Bé",
+   "departement": "35",
+   "milieu": "îlots rocheux reliés à la côte à basse mer (embouchure de la Rance)"
+  },
+  {
+   "id": "rosaires",
+   "nom": "Plage des Rosaires et pointe de Pordic",
+   "requete": "Plage des Rosaires",
+   "departement": "22",
+   "milieu": "plage et pointe rocheuse de la baie de Saint-Brieuc"
+  },
+  {
+   "id": "etel",
+   "nom": "Étel : embouchure et estuaire",
+   "requete": "Barre d'Étel",
+   "departement": "56",
+   "milieu": "embouchure de la ria d'Étel et sa barre"
   }
  ]
 }
