@@ -1,22 +1,22 @@
 {
  "//": "Registre des sources (phase 5, 5.4 ; § 7.1). Généré par scripts/sources-registre.mjs ; les champs « evaluation » se complètent à la main et ne sont jamais écrasés.",
  "totaux": {
-  "sources": 318,
+  "sources": 344,
   "aEvaluer": 242,
-  "avecUrl": 75,
+  "avecUrl": 101,
   "editeurs": 103,
-  "editeurClasse": 318,
+  "editeurClasse": 344,
   "groupes": 88,
   "parFamille": {
    "1": 21,
    "2": 40,
    "3": 8,
-   "4": 222,
+   "4": 248,
    "6": 19,
    "non fixée": 8
   },
   "parType": {
-   "site, guide ou presse spécialisée": 239,
+   "site, guide ou presse spécialisée": 265,
    "texte réglementaire": 3,
    "collectivité ou tourisme": 21,
    "institutionnel ou scientifique": 29,
@@ -115,6 +115,7 @@
     "spot:goyen",
     "spot:grandbe",
     "spot:granville",
+    "spot:ilepercee",
     "spot:kerjean",
     "spot:kerlouan",
     "spot:kermorvan",
@@ -139,6 +140,7 @@
     "spot:pentrez",
     "spot:penze",
     "spot:percho",
+    "spot:perherel",
     "spot:pirou",
     "spot:plougrescant",
     "spot:portbail",
@@ -221,6 +223,7 @@
     "spot:goyen",
     "spot:grandbe",
     "spot:granville",
+    "spot:ilepercee",
     "spot:kerjean",
     "spot:kerlouan",
     "spot:kermorvan",
@@ -245,6 +248,7 @@
     "spot:pentrez",
     "spot:penze",
     "spot:percho",
+    "spot:perherel",
     "spot:pirou",
     "spot:plougrescant",
     "spot:portbail",
@@ -1803,7 +1807,7 @@
     "limites": "recommande un secteur (Port Bara) signalé fermé : contradiction relevée",
     "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
     "consulte_le": "2026-11-23",
-    "affirmation": "Quiberon, côte sauvage : « Pointe du Percho (rochers profonds, lieu jaune et gros bars) » ; la page recommande aussi Port Bara, dont l'accès est signalé interdit (éboulements) par une autre source",
+    "affirmation": "Quiberon, côte sauvage : « Pointe du Percho (rochers profonds, lieu jaune et gros bars) » ; la page recommande aussi Port Bara, dont l'accès est signalé interdit (éboulements) par une autre source ; « Belle-Île, Pointe des Poulains » : « Spot mythique pour le bar au leurre de surface en été »",
     "bar_au_poste": true
    },
    "type": "site, guide ou presse spécialisée",
@@ -1886,7 +1890,7 @@
     "limites": "nom et espèce seulement ; la fiche du spot elle-même n'a pas été lue",
     "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
     "consulte_le": "2026-11-23",
-    "affirmation": "liste « Autres spots dans les Côtes-d'Armor » qui cite « Pointe du Château — Gouffre de Plougrescant · Bar », « Plage de Bréhec · Bar », « Pointe du Dourven · Bar »",
+    "affirmation": "liste « Autres spots dans les Côtes-d'Armor » qui cite « Pointe du Château — Gouffre de Plougrescant · Bar », « Plage de Bréhec · Bar », « Pointe du Dourven · Bar » ; « Port de Gwin Zégal 2.5 km · Bar », « Pointe de Séhar Bar », « Pointe du Roselier Bar »",
     "bar_au_poste": true
    },
    "type": "site, guide ou presse spécialisée",
@@ -1929,7 +1933,7 @@
     "limites": "nom et espèce seulement",
     "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
     "consulte_le": "2026-11-23",
-    "affirmation": "liste qui cite « Pointe de Bihit · Bar »",
+    "affirmation": "liste qui cite « Pointe de Bihit · Bar » ; « Pointe de la Latte 6.1 km · Bar », « Pointe de Château Renard Bar », « Pointe de Séhar Bar »",
     "bar_au_poste": true
    },
    "type": "site, guide ou presse spécialisée",
@@ -2016,7 +2020,9 @@
     "bar_au_poste": true
    },
    "manuelle": true,
-   "utilise_par": [],
+   "utilise_par": [
+    "spot:perherel"
+   ],
    "groupe": "editeur:carnet-de-peche-com",
    "editeur_classe": {
     "nature": "base de spots de pêche du bord rédigée par l'éditeur (632 fiches annoncées), avec carnet de prises des utilisateurs",
@@ -2755,7 +2761,8 @@
    "manuelle": true,
    "utilise_par": [
     "spot:begenaud",
-    "spot:caplevi"
+    "spot:caplevi",
+    "spot:ilepercee"
    ],
    "groupe": "editeur:lechasseursousmarin-com",
    "editeur_classe": {
@@ -4507,6 +4514,7 @@
     "spot:goyen",
     "spot:grandbe",
     "spot:granville",
+    "spot:ilepercee",
     "spot:kerjean",
     "spot:kerlouan",
     "spot:kermorvan",
@@ -4528,6 +4536,7 @@
     "spot:pennenez",
     "spot:pentrez",
     "spot:percho",
+    "spot:perherel",
     "spot:pirou",
     "spot:plougrescant",
     "spot:portbail",
@@ -4901,6 +4910,982 @@
    }
   },
   {
+   "id": "src-lcsm-anse-des-sevignes",
+   "texte": "lechasseursousmarin.com — zone « Anse des Sévignés » (Plévenon)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/anse-des-sevignes/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "lechasseursousmarin.com",
+    "date": "2025-11-12",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/anse-des-sevignes/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "anse « Cachée au pied des hautes falaises » du cap Fréhel ; accès « par un sentier avec un fort dénivelé » ; « le stationnement en haut de la falaise est désormais interdit aux véhicules » : « 700 m supplémentaire à pied depuis le parking du cap »",
+    "bar_au_poste": false
+   },
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-gwin-zegal",
+   "texte": "lechasseursousmarin.com — zone « Gwin Zégal » (Plouha)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/gwin-zegal/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Hugues Maldent",
+    "date": "2025-11-20",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/gwin-zegal/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« La presqu'île de Gwin Zégal fait partie d'une belle zone rocheuse » ; « un vaste champ de sargasses peu profond très propices à la rencontre de bars, mulets »",
+    "bar_au_poste": true
+   },
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-ile-de-tatihou",
+   "texte": "lechasseursousmarin.com — zone « Île de Tatihou » (Saint-Vaast-la-Hougue)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/ile-de-tatihou/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Sébastien Fresnel",
+    "date": "2019-11-20",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/ile-de-tatihou/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Cette zone alternant roches, moulières et sable est propice à la rencontre de bars » ; le parcours part de la cale de la pointe de Jonville",
+    "bar_au_poste": true
+   },
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-ile-percee",
+   "texte": "lechasseursousmarin.com — zone « Île Percée » (Moëlan-sur-Mer)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/ile-percee/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "lechasseursousmarin.com",
+    "date": "2025-11-19",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/ile-percee/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« L'île Percée est idéale pour débuter de par l'absence de courant » ; « de gros bars fréquentent la zone ! »",
+    "bar_au_poste": true
+   },
+   "manuelle": true,
+   "utilise_par": [
+    "spot:ilepercee"
+   ],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-merrien",
+   "texte": "lechasseursousmarin.com — zone « Merrien » (Moëlan-sur-Mer)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/merrien/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Ludovic Jan",
+    "date": "2025 (page vue il y a 369 jours)",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/merrien/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« à l'embouchure de la rivière de Merrien » ; « Commencez à pêcher dès la pointe en 1 : bars, vieilles, plies peuvent être rencontrés »",
+    "bar_au_poste": true
+   },
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-phare-de-gatteville",
+   "texte": "lechasseursousmarin.com — zone « Phare de Gatteville » (Gatteville-le-Phare)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/phare-de-gatteville/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Hugues Maldent",
+    "date": "2025-12-09",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/phare-de-gatteville/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« du poisson blanc qui circule beaucoup : bar, mulet, lieu jaune et même maquereau ! »",
+    "bar_au_poste": true
+   },
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-pointe-de-beg-an-aud",
+   "texte": "lechasseursousmarin.com — zone « Pointe de Beg an Aud » (Saint-Pierre-Quiberon)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/pointe-de-beg-an-aud/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Hugues Maldent",
+    "date": "2025-11-14",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/pointe-de-beg-an-aud/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« les lieus jaunes, vieilles sont bien présents avec quelques beaux sars à surprendre et des bars isolés »",
+    "bar_au_poste": true
+   },
+   "manuelle": true,
+   "utilise_par": [
+    "spot:begenaud"
+   ],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-pointe-de-beg-an-fry",
+   "texte": "lechasseursousmarin.com — zone « Pointe de Beg an Fry » (Guimaëc)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/pointe-de-beg-an-fry/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Hugues Maldent",
+    "date": "2025 (page vue il y a 362 jours)",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/pointe-de-beg-an-fry/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« ses remontées rocheuses qui retiennent les poissons »",
+    "bar_au_poste": false
+   },
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-pointe-de-bihit",
+   "texte": "lechasseursousmarin.com — zone « Pointe de Bihit » (Trébeurden)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/pointe-de-bihit/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Hugues Maldent",
+    "date": "2025 (page vue il y a 368 jours)",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/pointe-de-bihit/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« La faune est variée : bars, mulets, vieilles, plats, rougets et dorades »",
+    "bar_au_poste": true
+   },
+   "manuelle": true,
+   "utilise_par": [
+    "spot:bihit"
+   ],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-pointe-de-brezellec",
+   "texte": "lechasseursousmarin.com — zone « Pointe de Brézellec » (Cléden-Cap-Sizun)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/pointe-de-brezellec/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Hugues Maldent",
+    "date": "2024 (page vue il y a 362 jours)",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/pointe-de-brezellec/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« des poissons de passage comme les bars, les lieus jaunes et les dorades grises »",
+    "bar_au_poste": true
+   },
+   "manuelle": true,
+   "utilise_par": [
+    "spot:brezellec"
+   ],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-pointe-de-la-loge",
+   "texte": "lechasseursousmarin.com — zone « Pointe de la Loge » (Cosqueville)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/pointe-de-la-loge/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Sébastien Fresnel",
+    "date": "2025-12-09",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/pointe-de-la-loge/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« un éperon rocheux (la pointe de la Loge) » ; « propice à la rencontre d'espèces diverses : bars, mulets, vieilles »",
+    "bar_au_poste": true
+   },
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-pointe-de-la-mouliere",
+   "texte": "lechasseursousmarin.com — zone « Pointe de la Moulière » (Cancale)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/pointe-de-la-mouliere/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Gwendal Bergougniou",
+    "date": "2025-11-26",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/pointe-de-la-mouliere/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Tentez aussi des agachons pour attirer des bars, mulets ou lieus jaunes en maraude »",
+    "bar_au_poste": true
+   },
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-pointe-de-la-varde",
+   "texte": "lechasseursousmarin.com — zone « Pointe de la Varde » (Saint-Malo)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/pointe-de-la-varde/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Hugues Maldent",
+    "date": "2025 (page vue il y a 362 jours)",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/pointe-de-la-varde/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« La première grande pointe en partant de Saint-Malo vers l'Est » ; mulets à l'agachon à la pointe",
+    "bar_au_poste": false
+   },
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-pointe-de-neville",
+   "texte": "lechasseursousmarin.com — zone « Pointe de Néville » (Néville-sur-Mer)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/pointe-de-neville/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Bruno Hall",
+    "date": "2025-12-09",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/pointe-de-neville/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« La zone est une pointe rocheuse isolée au milieu d'un cordon de plage » ; « Cette particularité retient le poisson de passage »",
+    "bar_au_poste": false
+   },
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-pointe-de-penvins",
+   "texte": "lechasseursousmarin.com — zone « Pointe de Penvins » (Sarzeau)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/pointe-de-penvins/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Jean-François Capecchi",
+    "date": "2025 (page vue il y a 374 jours)",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/pointe-de-penvins/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« cet éperon rocheux est bordé à l'ouest par une longue plage et à l'est par la sortie de la rivière de Pénerf » ; « une faune marine nombreuse et variée »",
+    "bar_au_poste": false
+   },
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-pointe-de-querqueville",
+   "texte": "lechasseursousmarin.com — zone « Pointe de Querqueville » (Cherbourg-en-Cotentin)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/pointe-de-querqueville/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Michel Loy",
+    "date": "2024 (page vue il y a 776 jours)",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/pointe-de-querqueville/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« La prise d'un bar ou mulet est possible ici »",
+    "bar_au_poste": true
+   },
+   "manuelle": true,
+   "utilise_par": [
+    "spot:querqueville"
+   ],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-pointe-de-saire",
+   "texte": "lechasseursousmarin.com — zone « Pointe de Saire » (Réville)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/pointe-de-saire/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Hugues Maldent",
+    "date": "2025-12-09",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/pointe-de-saire/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Baigné par un courant de marée, c'est une zone de chasse pour les bars et mulets »",
+    "bar_au_poste": true
+   },
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-pointe-de-sehar",
+   "texte": "lechasseursousmarin.com — zone « Pointe de Séhar » (Trédrez-Locquémeau (page : Locquémeau, 29))",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/pointe-de-sehar/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Jean-Pierre Juges",
+    "date": "2025 (page vue il y a 363 jours)",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/pointe-de-sehar/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Voici une zone facile n'excédant pas 10 m de profondeur et peu soumise au courant » ; fonds « appréciés de nombreuses espèces »",
+    "bar_au_poste": false
+   },
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-pointe-du-bec-de-vir",
+   "texte": "lechasseursousmarin.com — zone « Pointe du Bec de Vir » (Tréveneuc)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/pointe-du-bec-de-vir/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Cyril Fiévet",
+    "date": "2025-11-20",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/pointe-du-bec-de-vir/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Côté chasse, les bars et les mulets sont les plus présents »",
+    "bar_au_poste": true
+   },
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-pointe-du-chateau",
+   "texte": "lechasseursousmarin.com — zone « Pointe du Château » (Plougrescant)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/pointe-du-chateau/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "lechasseursousmarin.com",
+    "date": "2025-11-20",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/pointe-du-chateau/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Les bars de passage sont donc fréquents ainsi que les lieus jaunes, mulets et vieilles »",
+    "bar_au_poste": true
+   },
+   "manuelle": true,
+   "utilise_par": [
+    "spot:plougrescant"
+   ],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-pointe-du-conguel",
+   "texte": "lechasseursousmarin.com — zone « Pointe du Conguel » (Quiberon)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/pointe-du-conguel/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "lechasseursousmarin.com",
+    "date": "2025-11-14",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/pointe-du-conguel/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Côté faune : mulet, bar, poissons plats, araignée, poulpe et coquille Saint-Jacques sont les plus présents »",
+    "bar_au_poste": true
+   },
+   "manuelle": true,
+   "utilise_par": [
+    "spot:conguel"
+   ],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-pointe-du-decolle",
+   "texte": "lechasseursousmarin.com — zone « Pointe du Décollé » (Saint-Lunaire)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/pointe-du-decolle/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Denis Béliard",
+    "date": "2025-11-26",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/pointe-du-decolle/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Le parcours suit cette belle pointe rocheuse caractéristique de la Bretagne nord » ; fonds propices « à l'agachon pour les poissons blancs »",
+    "bar_au_poste": false
+   },
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-pointe-du-fort-de-la-latte",
+   "texte": "lechasseursousmarin.com — zone « Pointe du fort de la Latte » (Plévenon)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/pointe-du-fort-de-la-latte/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Xavier Maldent",
+    "date": "2025-11-12",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/pointe-du-fort-de-la-latte/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« les remontées rocheuses de la pointe baignées par le courant retiennent bars, mulets, lieus jaunes, dorades grises et vieilles »",
+    "bar_au_poste": true
+   },
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-pointe-du-meinga",
+   "texte": "lechasseursousmarin.com — zone « Pointe du Meinga » (Saint-Coulomb)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/pointe-du-meinga/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Hugues Maldent",
+    "date": "2025 (page vue il y a 362 jours)",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/pointe-du-meinga/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Cette avancée rocheuse s'élance sur 900 m » ; la zone « permet une pêche sportive de bars, mulets, lieus jaunes et vieilles dans le courant »",
+    "bar_au_poste": true
+   },
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-porh-koustik-pointe-des-chats",
+   "texte": "lechasseursousmarin.com — zone « Porh-Koustik – Pointe des Chats » (Île de Groix)",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/porh-koustik-pointe-des-chats/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Hugues Maldent",
+    "date": "2025-11-13",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/porh-koustik-pointe-des-chats/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Des agachons, permettront, autour de la cardinale de la pointe ainsi qu'au retour, une pêche de poissons (bars, mulets, vieilles…) »",
+    "bar_au_poste": true
+   },
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-lcsm-villa-sarah-bernhardt-pointe-des-poulains",
+   "texte": "lechasseursousmarin.com — zone « Villa Sarah Bernhardt – Pointe des Poulains » (Sauzon (Belle-Île-en-Mer))",
+   "editeur": "lechasseursousmarin.com",
+   "url": "https://www.lechasseursousmarin.com/zones/villa-sarah-bernhardt-pointe-des-poulains/",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Hugues Maldent",
+    "date": "2025 (page vue il y a 375 jours)",
+    "url_lue": "https://www.lechasseursousmarin.com/zones/villa-sarah-bernhardt-pointe-des-poulains/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche de zone et de parcours de chasse sous-marine",
+    "precision": "zone nommée",
+    "independance": "groupe de l'éditeur",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Sur la célèbre pointe des Poulains, au nord-ouest de la côte sauvage de Belle-Île » ; des sars « hors normes »",
+    "bar_au_poste": false
+   },
+   "manuelle": true,
+   "utilise_par": [],
+   "groupe": "editeur:lechasseursousmarin-com",
+   "editeur_classe": {
+    "nature": "site de chasse sous-marine",
+    "domaines": [
+     "présence d'espèces",
+     "fonds"
+    ],
+    "limites": "observation sous l'eau, pas de la pêche du bord",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
    "id": "src-le-figaro-nautisme-523b6e",
    "texte": "Le Figaro Nautisme — Top 10 des spots de pêche en mer en France (01/03/2026) : Pointe de Penmarc'h",
    "editeur": "Le Figaro Nautisme",
@@ -5127,6 +6112,7 @@
     "spot:goyen",
     "spot:grandbe",
     "spot:granville",
+    "spot:ilepercee",
     "spot:kerjean",
     "spot:kerlouan",
     "spot:kermorvan",
@@ -5151,6 +6137,7 @@
     "spot:pentrez",
     "spot:penze",
     "spot:percho",
+    "spot:perherel",
     "spot:pirou",
     "spot:plougrescant",
     "spot:portbail",
@@ -7211,7 +8198,7 @@
     "limites": "liste ancienne ; nom seul",
     "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
     "consulte_le": "2026-11-23",
-    "affirmation": "liste qui cite « La Pointe du Château à Plougrescant », « La Pointe de Bihit à Trébeurden », « Pointe du Dourvin », « Les Alentours de Bréhec », « Cap Fréhél »",
+    "affirmation": "liste qui cite « La Pointe du Château à Plougrescant », « La Pointe de Bihit à Trébeurden », « Pointe du Dourvin », « Les Alentours de Bréhec », « Cap Fréhél » ; « La pointe de Pordic au dessus de la Plage des Rosaires » ; « La pointe du Bec de Vir » ; « L'anse des Sévignés près du cap Fréhél »",
     "bar_au_poste": false
    },
    "type": "site, guide ou presse spécialisée",
@@ -7263,7 +8250,9 @@
     "bar_au_poste": false
    },
    "manuelle": true,
-   "utilise_par": [],
+   "utilise_par": [
+    "spot:perherel"
+   ],
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
     "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
@@ -7301,7 +8290,9 @@
     "bar_au_poste": false
    },
    "manuelle": true,
-   "utilise_par": [],
+   "utilise_par": [
+    "spot:ilepercee"
+   ],
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
     "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
@@ -7333,7 +8324,7 @@
     "limites": "liste ancienne ; nom seul, espèce rarement donnée",
     "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
     "consulte_le": "2026-11-23",
-    "affirmation": "liste qui cite, à Saint-Malo, « Pointe du christ », « Pointe de la Varde », « Le Petit Bé », « Le môle », « La cale qui se trouve sous la Tour Solidor », et ailleurs « Pointe du Meinga à Saint-Coulomb », « Pointe du Décolle à Saint Lunaire » ; « Entre la pointe du Grouin et l'île des Landes (maquereau) »",
+    "affirmation": "liste qui cite, à Saint-Malo, « Pointe du christ », « Pointe de la Varde », « Le Petit Bé », « Le môle », « La cale qui se trouve sous la Tour Solidor », et ailleurs « Pointe du Meinga à Saint-Coulomb », « Pointe du Décolle à Saint Lunaire » ; « Entre la pointe du Grouin et l'île des Landes (maquereau) » ; « La pointe de la Moulière »",
     "bar_au_poste": false
    },
    "famille": 4,
@@ -7372,7 +8363,7 @@
     "limites": "liste ancienne ; nom seul",
     "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
     "consulte_le": "2026-11-23",
-    "affirmation": "liste qui cite « Pointe du Percho », « Pointe du Conguel », « La pointe de Saint Colomban », « Pointe du Berchis », « Roches de Toulhars » (Larmor-Plage)",
+    "affirmation": "liste qui cite « Pointe du Percho », « Pointe du Conguel », « La pointe de Saint Colomban », « Pointe du Berchis », « Roches de Toulhars » (Larmor-Plage) ; « Embouchure de la rivière d'Etel » ; « La pointe de Penvins » ; « Pointe des Chats »",
     "bar_au_poste": false
    },
    "type": "site, guide ou presse spécialisée",
@@ -7415,7 +8406,7 @@
     "limites": "liste ancienne ; nom seul ; « pas exhaustive » selon la page",
     "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
     "consulte_le": "2026-11-23",
-    "affirmation": "liste qui cite « Pointe et digue de Querqueville », « Cap Levi », « Anse de Gattemare » et, à Saint-Vaast-la-Hougue, « Tour Vauban près des parcs au leurre de surface »",
+    "affirmation": "liste qui cite « Pointe et digue de Querqueville », « Cap Levi », « Anse de Gattemare » et, à Saint-Vaast-la-Hougue, « Tour Vauban près des parcs au leurre de surface » ; « Pointe de Saire à Reville » ; « Pointe de Néville à Néville-sur-Mer » ; « Pointe de la Loge » ; « Phare de Gatteville » ; « Les alentours de l'ile Tatihou »",
     "bar_au_poste": false
    },
    "type": "site, guide ou presse spécialisée",

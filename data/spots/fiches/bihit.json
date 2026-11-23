@@ -236,6 +236,7 @@
    "src-arrete-peche-loisir-2026-recfishing",
    "src-carnet-de-peche-liste-cotes-darmor-2",
    "src-ign-geocodage-poi",
+   "src-lcsm-pointe-de-bihit",
    "src-legifrance-tailles-minimales-2026",
    "src-mieuxpecher-cotes-darmor"
   ]
@@ -277,11 +278,11 @@
   "criteres": {
    "QUAL-1": {
     "ok": true,
-    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:carnet-de-peche-com, editeur:mieuxpecher-com"
+    "detail": "3 groupes d'indépendance halieutique (famille 1 à 4) : editeur:carnet-de-peche-com, editeur:lechasseursousmarin-com, editeur:mieuxpecher-com"
    },
    "QUAL-2": {
     "ok": true,
-    "detail": "2 groupes d'indépendance parmi les sources lues page par page (2 sur 2) ; au moins une attache le bar au poste"
+    "detail": "3 groupes d'indépendance parmi les sources lues page par page (3 sur 3) ; au moins une attache le bar au poste"
    },
    "QUAL-3": {
     "ok": true,

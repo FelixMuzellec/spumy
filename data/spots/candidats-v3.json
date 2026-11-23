@@ -78,7 +78,7 @@
   },
   {
    "id": "toulhars",
-   "nom": "Toulhars (Larmor-Plage)",
+   "nom": "Larmor-Plage : Toulhars",
    "requete": "Toulhars",
    "departement": "56",
    "milieu": "plage et roches de l'entrée de la rade de Lorient",
@@ -105,7 +105,8 @@
     "Dourven"
    ],
    "toponyme": "an Dourven",
-   "commune": "Trédrez-Locquémeau"
+   "commune": "Trédrez-Locquémeau",
+   "graphie_mieuxpecher": "« Pointe du Dourvin » (graphie de mieuxpecher.com) : la règle de nommage ne la rapproche pas de « Dourven » ; une seule source de pêche compte pour QUAL-1"
   },
   {
    "id": "brehec",
@@ -185,14 +186,185 @@
    "nom": "Pointe de Perhérel",
    "requete": "Pointe de Perhérel",
    "departement": "29",
-   "milieu": "pointe rocheuse de la baie de Morlaix (Plougasnou)"
+   "milieu": "pointe rocheuse de la baie de Morlaix (Plougasnou)",
+   "toponyme": "Pointe de Perhérel",
+   "commune": "Plougasnou"
   },
   {
    "id": "ilepercee",
    "nom": "Île Percée (Moëlan-sur-Mer)",
    "requete": "Île Percée",
    "departement": "29",
-   "milieu": "îlot rocheux percé devant la plage de Trénez"
+   "milieu": "îlot rocheux percé devant la plage de Trénez",
+   "toponyme": "Île Percée",
+   "commune": "Moëlan-sur-Mer",
+   "categorie": "ile"
+  },
+  {
+   "id": "meinga",
+   "nom": "Pointe du Meinga",
+   "requete": "Pointe du Meinga",
+   "departement": "35",
+   "milieu": "pointe rocheuse de 900 m (Saint-Coulomb)"
+  },
+  {
+   "id": "mouliere",
+   "nom": "Pointe de la Moulière",
+   "requete": "Pointe de la Moulière",
+   "departement": "35",
+   "milieu": "pointe rocheuse au bord de la plage du Saussaye (Cancale)"
+  },
+  {
+   "id": "decolle",
+   "nom": "Pointe du Décollé",
+   "requete": "Pointe du Décollé",
+   "departement": "35",
+   "milieu": "pointe rocheuse (Saint-Lunaire)",
+   "autres_requetes": [
+    "Pointe du Décolle"
+   ]
+  },
+  {
+   "id": "varde",
+   "nom": "Pointe de la Varde",
+   "requete": "Pointe de la Varde",
+   "departement": "35",
+   "milieu": "pointe rocheuse (Saint-Malo, Rothéneuf)"
+  },
+  {
+   "id": "becdevir",
+   "nom": "Pointe du Bec de Vir",
+   "requete": "Pointe du Bec de Vir",
+   "departement": "22",
+   "milieu": "pointe rocheuse de la côte du Goëlo (Tréveneuc)",
+   "autres_requetes": [
+    "Bec de Vir"
+   ]
+  },
+  {
+   "id": "sevignes",
+   "nom": "Anse des Sévignés",
+   "requete": "Anse des Sévignés",
+   "departement": "22",
+   "milieu": "anse au pied des falaises du cap Fréhel (Plévenon)",
+   "autres_requetes": [
+    "Les Sévignés"
+   ]
+  },
+  {
+   "id": "latte",
+   "nom": "Plévenon : pointe de la Latte",
+   "requete": "Pointe de la Latte",
+   "departement": "22",
+   "milieu": "pointe rocheuse sous le fort la Latte",
+   "autres_requetes": [
+    "Fort la Latte",
+    "Fort de la Latte"
+   ]
+  },
+  {
+   "id": "gwinzegal",
+   "nom": "Plouha : Gwin Zégal",
+   "requete": "Gwin Zégal",
+   "departement": "22",
+   "milieu": "presqu'île rocheuse et port-abri (Plouha)",
+   "autres_requetes": [
+    "Pointe de Gwin Zégal",
+    "Port de Gwin Zégal"
+   ]
+  },
+  {
+   "id": "sehar",
+   "nom": "Pointe de Séhar",
+   "requete": "Pointe de Séhar",
+   "departement": "22",
+   "milieu": "pointe rocheuse de la baie de Lannion (Trédrez-Locquémeau)",
+   "autres_requetes": [
+    "Séhar"
+   ]
+  },
+  {
+   "id": "penvins",
+   "nom": "Pointe de Penvins",
+   "requete": "Pointe de Penvins",
+   "departement": "56",
+   "milieu": "éperon rocheux entre la plage et la sortie de la rivière de Pénerf (Sarzeau)"
+  },
+  {
+   "id": "chatsgroix",
+   "nom": "Groix : pointe des Chats",
+   "requete": "Pointe des Chats",
+   "departement": "56",
+   "milieu": "pointe rocheuse du sud-est de l'île de Groix"
+  },
+  {
+   "id": "poulains",
+   "nom": "Belle-Île : pointe des Poulains",
+   "requete": "Pointe des Poulains",
+   "departement": "56",
+   "milieu": "pointe rocheuse du nord-ouest de Belle-Île (Sauzon)"
+  },
+  {
+   "id": "merrien",
+   "nom": "Moëlan-sur-Mer : embouchure du Merrien",
+   "requete": "Merrien",
+   "departement": "29",
+   "milieu": "embouchure de la ria de Merrien",
+   "autres_requetes": [
+    "Port de Merrien",
+    "Rivière de Merrien"
+   ]
+  },
+  {
+   "id": "begnafry",
+   "nom": "Pointe de Beg an Fry",
+   "requete": "Beg an Fry",
+   "departement": "29",
+   "milieu": "pointe rocheuse (Guimaëc)",
+   "autres_requetes": [
+    "Pointe de Beg an Fry"
+   ]
+  },
+  {
+   "id": "saire",
+   "nom": "Pointe de Saire",
+   "requete": "Pointe de Saire",
+   "departement": "50",
+   "milieu": "pointe rocheuse du Val de Saire (Réville)"
+  },
+  {
+   "id": "neville",
+   "nom": "Pointe de Néville",
+   "requete": "Pointe de Néville",
+   "departement": "50",
+   "milieu": "pointe rocheuse isolée dans un cordon de plage (Néville-sur-Mer)"
+  },
+  {
+   "id": "loge",
+   "nom": "Cosqueville : pointe de la Loge",
+   "requete": "Pointe de la Loge",
+   "departement": "50",
+   "milieu": "éperon rocheux du nord du Cotentin (Cosqueville)"
+  },
+  {
+   "id": "gatteville",
+   "nom": "Phare de Gatteville",
+   "requete": "Phare de Gatteville",
+   "departement": "50",
+   "milieu": "pointe de Barfleur, au pied du phare",
+   "autres_requetes": [
+    "Pointe de Barfleur"
+   ]
+  },
+  {
+   "id": "tatihou",
+   "nom": "Saint-Vaast-la-Hougue : île Tatihou",
+   "requete": "Île de Tatihou",
+   "departement": "50",
+   "milieu": "île reliée à la côte à basse mer",
+   "autres_requetes": [
+    "Tatihou"
+   ]
   }
  ]
 }

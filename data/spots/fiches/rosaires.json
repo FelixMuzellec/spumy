@@ -277,12 +277,12 @@
   ],
   "criteres": {
    "QUAL-1": {
-    "ok": false,
-    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:carnet-de-peche-com"
+    "ok": true,
+    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:carnet-de-peche-com, editeur:mieuxpecher-com"
    },
    "QUAL-2": {
-    "ok": false,
-    "detail": "1 groupe d'indépendance parmi les sources lues page par page (1 sur 1) ; au moins une attache le bar au poste"
+    "ok": true,
+    "detail": "2 groupes d'indépendance parmi les sources lues page par page (2 sur 2) ; au moins une attache le bar au poste"
    },
    "QUAL-3": {
     "ok": false,
@@ -306,7 +306,6 @@
    }
   },
   "raisons": [
-   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:carnet-de-peche-com",
    "QUAL-3 : Position d'un équipement de loisirs (« les Rosaires », camping, zone d'activité ou d'intérêt), pas du poste : à positionner sur le poste réel.",
    "QUAL-4 : stationnement ou temps de marche inconnu",
    "QUAL-5 : engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0"

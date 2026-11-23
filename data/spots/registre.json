@@ -1,16 +1,16 @@
 {
  "//": "Registre central des spots V3 (phase 5). Généré par scripts/registre-spots.mjs à partir de data/spots/fiches/ ; ne pas modifier à la main.",
  "totaux": {
-  "spots": 82,
+  "spots": 84,
   "parOrigine": {
    "v2_preserved": 66,
-   "v3_researched": 16
+   "v3_researched": 18
   },
   "parStatut": {
    "a_verifier": 57,
-   "corroboree": 7,
-   "candidate": 16,
-   "TOP_TIER": 2
+   "corroboree": 6,
+   "candidate": 18,
+   "TOP_TIER": 3
   },
   "stationnementConnu": 66
  },
@@ -133,7 +133,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 7,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
    "completude": 0.19,
@@ -195,7 +195,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 7,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
    "completude": 0.19,
@@ -247,7 +247,7 @@
    "id": "brezellec",
    "name": "Pointe de Brézellec",
    "origin": "v2_preserved",
-   "statut": "corroboree",
+   "statut": "TOP_TIER",
    "lat": 48.0696,
    "lon": -4.6642,
    "precision_m": null,
@@ -256,7 +256,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 13,
+   "sources": 14,
    "sources_v2": 5,
    "derniere_verification": "2026-11-23",
    "completude": 0.79,
@@ -401,7 +401,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
    "completude": 0.35,
@@ -635,6 +635,26 @@
    "inconnus": 6,
    "anomalies": 0,
    "guide_v2": "pirou"
+  },
+  {
+   "id": "ilepercee",
+   "name": "Île Percée (Moëlan-sur-Mer)",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 47.787479,
+   "lon": -3.705263,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 7,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
   },
   {
    "id": "kerjean",
@@ -1140,6 +1160,26 @@
    "anomalies": 1
   },
   {
+   "id": "perherel",
+   "name": "Pointe de Perhérel",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 48.695109,
+   "lon": -3.849763,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
+  },
+  {
    "id": "pirou",
    "name": "Pirou Plage",
    "origin": "v2_preserved",
@@ -1173,7 +1213,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
    "completude": 0.32,
@@ -1256,7 +1296,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
    "completude": 0.32,
@@ -1598,7 +1638,7 @@
   },
   {
    "id": "toulhars",
-   "name": "Toulhars (Larmor-Plage)",
+   "name": "Larmor-Plage : Toulhars",
    "origin": "v3_researched",
    "statut": "candidate",
    "lat": 47.709759,
