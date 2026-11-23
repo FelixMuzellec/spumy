@@ -143,3 +143,79 @@ Dépendances : accès IGN (V3-009, V3-012), relais Météo-France plus tard (V3-
 ## 14. Arrêt
 
 Phase 3 **TESTED**. Arrêt : aucune tâche de la phase 4 n'a commencé. Jeton attendu : `APPROVED — PROCEED TO PHASE 4`.
+
+## Complément du 23 novembre 2026 : prototype version 6
+
+Félix a dessiné trois vues (Home, Carte, Météo) et demandé de les reproduire fidèlement, au niveau « top tier », puis d'appliquer ce standard au reste de l'application (V3-028). La version 6 a été faite dans la phase 3, sur `claude/v3-phase-3`, sans rien publier, en trois passes : 6.0 (feu vert de 8 h 47), 6.1 (« Tu ne respectes pas les modèles présentés », 12 h 07), 6.2 (remarques sur les quatre planches, 12 h 45). Le 23 nov. à 13 h 25, Félix demande le jeton de phase 4 ; ce message est lu comme l'accord sur la version 6.2 (INFÉRÉ).
+
+### Ce qui a été fait
+
+- **Home**, d'après la maquette :
+    - marque et slogan « Read the sea. Fish the moment. », seul slogan de l'application ;
+    - cartes Shore et Offshore avec les logos d'origine ; champ de lieu ; Aujourd'hui, Demain, 7 jours ;
+    - synthèse sur photo et bande de 24 h colorée heure par heure selon le score ;
+    - partie haute fixe qui se resserre en faisant défiler.
+- **Carte, vue pêche** :
+    - plein écran, avec en-tête, champ et puces transparents posés sur la carte ; vrai trait de côte (IGN) ;
+    - les 8 vrais spots en colonne le long de la côte, noms à gauche ; les spots trop proches sont écartés, avec un trait vers leur vraie position ;
+    - bulle au toucher (km · min, sorties, poissons, meilleur moment), refermée au second toucher ;
+    - sous la carte : pourquoi le spot est bon aujourd'hui par son terrain, avec les niveaux de preuve et les sources.
+- **Météo, vue conditions** :
+    - vent animé en couleurs, la terre assombrie sous le vent ;
+    - panneau au toucher, sécurité d'abord, avec les points de chaque critère de la note ;
+    - sous la carte : pourquoi cette note. Pour chaque critère : son poids et pourquoi, ses points du jour et pourquoi, son barème et sa règle sourcée.
+- **Calcul de la note** : il suit le modèle du moteur v2 (`src/prototype-v3/modele.js`, valeurs vérifiées par test contre le moteur) : Favorabilité = conditions × présence. Les notes de démonstration sont calculées par ce modèle sur les conditions de démonstration du jour.
+- **Journal (JRN-06)** : la note de SPUMY le jour de chaque sortie, face au résultat ; aucune conclusion sous le seuil de sorties.
+- **Logo** : sur les en-têtes sombres, le disque et le poisson sans l'anneau crème. Seule l'opacité du fond crème d'origine change, aucune couleur n'est modifiée (testé).
+
+### Décisions consignées (`docs/DECISIONS_LOG.md`)
+
+- **V3-028**, avec ses précisions de 12 h 07 et de 12 h 45 :
+    - les maquettes font foi ;
+    - le regroupement « +N » du jalon 2 est remplacé par l'écartement en colonne ;
+    - la note est expliquée par le calcul du moteur, et la décomposition de démonstration est retirée ;
+    - la note de démonstration de Portbail passe de 53 à 79 (calculée sur 70 % des critères) ; la Confiance 69 et le statut « à vérifier » sont gardés.
+- **V3-029** : finalité des onglets, du général au spécifique.
+- **V3-030** : notes jugées sur le journal, apprentissage contrôlé.
+
+### Preuves (23 nov. 2026)
+
+| Commande | Code | Résultat |
+| --- | --- | --- |
+| `npm ci` | 0 | — |
+| `npm run build`, puis `git status --porcelain` | 0 | aucun écart |
+| `npm test` | 0 | lint et couches sans écart ; design V3 186/186 ; moteur V2 56/56 ; e2e 846/846 ; contrat simulé 28/28 |
+| `npm run test:a11y` | 0 | 0 violation |
+| `npm run test:upgrade` | 0 | 12/12 |
+| `npm run test:prototype` (V2) | 0 | 244/244 |
+| `npm run test:prototype-v3` (avec axe) | 0 | 224/224 |
+| `python3 tests/brand.py` | 0 | 35/35 |
+| CI GitHub (Tests ; Contrat Open-Meteo) | succès | sur 8844312 |
+
+Deux CI de la journée avaient échoué : 5 px de défilement horizontal sur Home à 390 px, avec la police de secours de la CI. Le défaut a été reproduit en local avec DejaVu Sans, puis corrigé et testé.
+
+### Exigences
+
+- **Modifiées** : UX-03.
+- **Précisées** : MAP-02, MET-01, MET-05, UX-05 et UX-09.
+- **Ajoutées** : MAP-09, MET-05 et JRN-06.
+- Le registre compte 98 exigences.
+
+### Écarts et risques
+
+- **Courbes de profondeur** : absentes. Rien n'est inventé, et EMODnet et le Shom ne sont pas joignables d'ici. Fichier proposé : MNT de façade Atlantique du Shom (Homonim, 0,001°, Licence ouverte), à fournir par Félix.
+- **Offshore** : les vues Carte et Météo affichent encore un avis, pas la vue V6.
+- **Spots proches** : sur un écran de moins d'environ 780 px de haut, les deux plus proches peuvent se regrouper. Quand la bulle ou le panneau est ouvert, quelques noms se masquent.
+- **Données de démonstration** : conditions du jour et journal, marquées « démo » à l'écran.
+- **Revues et tests** : revues faites par l'auteur ; test utilisateur toujours non effectué.
+
+### Décisions attendues
+
+1. **Jeton** « APPROVED — PROCEED TO PHASE 4 », en toutes lettres.
+2. **Fusion des phases 2 et 3** (= publication) : recommandation inchangée, attendre et garder `prototype-v3/` hors du site publié.
+3. **D-11** (cibles de 44 px ou de 48 dp) et **D-15** (emplacement de l'export) : toujours ouvertes.
+4. **V3-019** : non exécutée.
+
+### Arrêt
+
+Phase 3 **TESTED**, version 6.2 comprise. Aucune tâche de la phase 4 n'a commencé.

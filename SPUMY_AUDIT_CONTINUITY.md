@@ -71,12 +71,12 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 
 - Branche : `claude/v3-phase-3`, partie de `claude/v3-phase-2` (05cbcc0), elle-même partie de `main` (bb4f940). La phase 2 n'est pas fusionnée.
 - Dernier commit : voir `git log` ; ce fichier est mis à jour à chaque sous-tâche.
-- Tests : suite complète relancée le 23 nov. 2026 après la version 6 (3.9), tous les codes de sortie à 0 : `npm test`, `test:a11y`, `test:upgrade`, `test:prototype`, `tests/prototype-v3.mjs --axe` 216/216.
+- Tests : suite de clôture relancée le 23 nov. 2026 (version 6.2), tous les codes de sortie à 0 : `npm ci`, `npm run build` sans écart, `npm test`, `test:a11y`, `test:upgrade` 12/12, `test:prototype` 244/244, `test:prototype-v3` 224/224, `tests/brand.py` 35/35 ; CI verte sur 8844312.
 - Rien n'est fusionné ; `main` reste à bb4f940 ; V3-019 non exécuté.
 
 ## Prochaine action
 
-Version 6 du prototype faite et testée (3.9), dans la phase 3, sur `claude/v3-phase-3`, sans rien publier. Prochaine action : republier la page de revue du prototype (version 6.2), puis remettre à Félix les planches et le compte rendu de la version 6.2 (fait, écarts : Offshore Carte et Météo en avis ; aucune courbe de profondeur faute de donnée réelle, fichier EMODnet ou Shom à fournir ; regroupement en vue large) et demander sa revalidation. Après la revalidation : complément au rapport de phase 3, puis demande du jeton de phase 4. Ne pas revenir sur ce qui est validé. V3-019 non exécuté ; D-11 et D-15 toujours à décider.
+Phase 3 TESTED, version 6.2 du prototype comprise ; complément au rapport de phase 3 remis (`docs/rapports/v3/PHASE-3.md`, section « Complément du 23 novembre 2026 », et document Claude du rapport). Félix a demandé le jeton de phase 4 le 23 nov. à 13 h 25 (lu comme l'accord sur la version 6.2, INFÉRÉ). ATTENDRE le jeton exact « APPROVED — PROCEED TO PHASE 4 » : aucune tâche de la phase 4 avant. Ne pas revenir sur ce qui est validé. V3-019 non exécuté ; D-11 et D-15 toujours à décider ; fusion non demandée.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
