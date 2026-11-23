@@ -15,13 +15,39 @@
    "verifie_le": "2026-11-23",
    "niveau": 1,
    "texte": "Position du toponyme officiel « Phare de Gatteville » (phare, construction, construction ponctuelle, Gatteville-le-Phare). Le poste exact reste à confirmer sur place."
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Phare de Gatteville",
+    "ecart_m": 0
+   },
+   "texte": "Toponyme officiel « Phare de Gatteville » (phare, construction, construction ponctuelle) à 0 m de la position de la fiche."
   }
  },
  "access": {
   "stationnement": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v3",
-   "raison": "À collecter (BD TOPO de l'IGN) après la création de la fiche."
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 49.693949,
+    "lon": -1.279149,
+    "ign": "equipement_de_transport.65157",
+    "nature": "Parking",
+    "ecart_m": 994
+   },
+   "texte": "Parking recensé par la BD TOPO de l'IGN, à 994 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
   },
   "approche": {
    "statut": "INCONNU",
@@ -29,9 +55,15 @@
    "raison": "Aucune source ne décrit l'approche du poste."
   },
   "marche_min": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v3",
-   "raison": "À calculer (itinéraire piéton de l'IGN)."
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 22,
+   "texte": "22 min à pied (1,46 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
   },
   "difficulte": {
    "statut": "INCONNU",
@@ -165,6 +197,44 @@
    "statut": "INCONNU",
    "origine": "v3",
    "raison": "Aucune contrainte d'accès liée à la marée documentée : ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "verifie_le": "2026-11-23",
+   "raison": "Aucun mouvement de terrain recensé par le BRGM à 500 m du point (Géorisques, 2026-11-23) ; le recensement n'est pas exhaustif, ce qui ne prouve pas l'absence de risque."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "GATTEVILLE-LE-PHARE",
+     "code_insee": "50196",
+     "risques": [
+      "Inondation",
+      "Par une crue à débordement lent de cours d'eau",
+      "Par remontées de nappes naturelles",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Tassements différentiels",
+      "Séisme",
+      "Phénomène lié à l'atmosphère",
+      "Tempête et grains (vent)",
+      "Foudre",
+      "Grêle",
+      "Neige et pluies verglaçantes",
+      "Radon",
+      "Engins de guerre"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (GATTEVILLE-LE-PHARE) : Par submersion marine ; Mouvement de terrain ; Tempête et grains (vent) ; Engins de guerre. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [
@@ -226,28 +296,85 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
+  "statut": "INFÉRÉ",
   "origine": "v3",
-  "raison": "Photos non inventoriées."
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Phare de Gatteville - Lentilles de Fresnel.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Phare_de_Gatteville_-_Lentilles_de_Fresnel.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Lionel BELOT",
+    "date": "2004-10-30 15:09:11",
+    "distance_m": 2
+   },
+   {
+    "titre": "Phare de Gatteville vu de la plage ouest.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Phare_de_Gatteville_vu_de_la_plage_ouest.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Lionel BELOT",
+    "date": "2004-10-30 14:42:04",
+    "distance_m": 4
+   },
+   {
+    "titre": "Escalier intérieur du Phare de Gatteville.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Escalier_int%C3%A9rieur_du_Phare_de_Gatteville.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Lionel BELOT",
+    "date": "2004-10-30 15:14:50",
+    "distance_m": 4
+   },
+   {
+    "titre": "Gatteville, Le Phare 01.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Gatteville,_Le_Phare_01.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Celeda",
+    "date": "2026-04-11 14:30:09",
+    "distance_m": 4
+   },
+   {
+    "titre": "Gatteville - 2012 1.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Gatteville_-_2012_1.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Martin Leveneur",
+    "date": "2012-08-02",
+    "distance_m": 6
+   },
+   {
+    "titre": "Gatteville le Phare DSC 2090 2.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Gatteville_le_Phare_DSC_2090_2.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "W.Rebel",
+    "date": "2011-07-09",
+    "distance_m": 12
+   }
+  ],
+  "texte": "6 photos libres de Wikimedia Commons, à 12 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
    "src-lcsm-phare-de-gatteville",
    "src-legifrance-tailles-minimales-2026",
-   "src-mieuxpecher-normandie"
+   "src-mieuxpecher-normandie",
+   "src-wikimedia-commons-geo"
   ]
  },
  "quality": {
   "statut": "candidate",
   "derniere_verification": "2026-11-23",
-  "completude": 0.19,
+  "completude": 0.32,
   "inconnus": [
-   "access.stationnement",
    "access.approche",
-   "access.marche_min",
    "access.difficulte",
    "access.restrictions",
    "environment.fond",
@@ -267,9 +394,9 @@
    "safety.houle_max_m",
    "safety.coef_max",
    "safety.acces_maree",
+   "safety.mouvements_terrain",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": [
    "Fiche créée par la passe exhaustive (5.12) : sécurité, accès et conditions à documenter avant tout affichage.",
@@ -289,8 +416,8 @@
     "detail": "position contrôlée par l'IGN (toponyme officiel à 1,5 km au plus) ou corrigée"
    },
    "QUAL-4": {
-    "ok": false,
-    "detail": "stationnement ou temps de marche inconnu"
+    "ok": true,
+    "detail": "stationnement et marche documentés (22 min)"
    },
    "QUAL-5": {
     "ok": false,
@@ -306,7 +433,6 @@
    }
   },
   "raisons": [
-   "QUAL-4 : stationnement ou temps de marche inconnu",
    "QUAL-5 : engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0"
   ]
  }

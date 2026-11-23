@@ -15,13 +15,39 @@
    "verifie_le": "2026-11-23",
    "niveau": 1,
    "texte": "Position du toponyme officiel « Merrien » (lieu-dit habité, zone d'habitation, Moëlan-sur-Mer). Le poste exact reste à confirmer sur place."
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "le Merrien",
+    "ecart_m": 3296
+   },
+   "texte": "Toponyme officiel « le Merrien » (cours d'eau, hydrographie) à 3296 m de la position de la fiche."
   }
  },
  "access": {
   "stationnement": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v3",
-   "raison": "À collecter (BD TOPO de l'IGN) après la création de la fiche."
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 47.780539,
+    "lon": -3.648267,
+    "ign": "equipement_de_transport.100245",
+    "nature": "Parking touristique",
+    "ecart_m": 259
+   },
+   "texte": "Parking touristique recensé par la BD TOPO de l'IGN, à 259 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
   },
   "approche": {
    "statut": "INCONNU",
@@ -29,9 +55,15 @@
    "raison": "Aucune source ne décrit l'approche du poste."
   },
   "marche_min": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v3",
-   "raison": "À calculer (itinéraire piéton de l'IGN)."
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 6,
+   "texte": "6 min à pied (0,37 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
   },
   "difficulte": {
    "statut": "INCONNU",
@@ -165,6 +197,114 @@
    "statut": "INCONNU",
    "origine": "v3",
    "raison": "Aucune contrainte d'accès liée à la marée documentée : ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "rayon_m": 500,
+    "total": 7,
+    "types": {
+     "Glissement": 1,
+     "Chute de blocs / Eboulement": 6
+    },
+    "plus_recent": "2006-12-01",
+    "evenements": [
+     {
+      "id": "62900044",
+      "type": "Glissement",
+      "date": "2000-12-01",
+      "fiabilite": "Fort",
+      "precision": "Décamètre",
+      "lieu": "Rive gauche de la rivière de Merrien zone aval",
+      "distance_m": 205
+     },
+     {
+      "id": "10601623",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 319
+     },
+     {
+      "id": "10601622",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 322
+     },
+     {
+      "id": "10601686",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 324
+     },
+     {
+      "id": "10601685",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 328
+     },
+     {
+      "id": "10601684",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 341
+     },
+     {
+      "id": "62900189",
+      "type": "Chute de blocs / Eboulement",
+      "date": "2006-12-01",
+      "fiabilite": "Fort",
+      "precision": "Décamètre",
+      "lieu": "Au sud de Merrien",
+      "distance_m": 357
+     }
+    ]
+   },
+   "texte": "7 mouvements de terrain recensés par le BRGM à 500 m du point : Glissement (1), Chute de blocs / Eboulement (6). Le plus récent daté : 2006 ; 5 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "MOELAN-SUR-MER",
+     "code_insee": "29150",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (MOELAN-SUR-MER) : Par submersion marine ; Mouvement de terrain. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [
@@ -224,13 +364,18 @@
  "photos": {
   "statut": "INCONNU",
   "origine": "v3",
-  "raison": "Photos non inventoriées."
+  "verifie_le": "2026-11-23",
+  "raison": "Aucune des 4 photos libres de Wikimedia Commons à 400 m du point ne porte le nom du lieu : aucune n'est présentée comme une photo du spot (inventaire du 2026-11-23)."
  },
  "provenance": {
   "sources": [
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
    "src-lcsm-merrien",
    "src-legifrance-tailles-minimales-2026",
    "src-mieuxpecher-finistere-sud"
@@ -239,11 +384,9 @@
  "quality": {
   "statut": "candidate",
   "derniere_verification": "2026-11-23",
-  "completude": 0.19,
+  "completude": 0.32,
   "inconnus": [
-   "access.stationnement",
    "access.approche",
-   "access.marche_min",
    "access.difficulte",
    "access.restrictions",
    "environment.fond",
@@ -269,7 +412,8 @@
   ],
   "anomalies": [
    "Fiche créée par la passe exhaustive (5.12) : sécurité, accès et conditions à documenter avant tout affichage.",
-   "Position d'un lieu habité (« Merrien »), pas du poste : à positionner sur le poste réel."
+   "Position d'un lieu habité (« Merrien »), pas du poste : à positionner sur le poste réel.",
+   "Position V2 à 3,3 km du toponyme officiel « le Merrien » (cours d'eau, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme)."
   ],
   "criteres": {
    "QUAL-1": {
@@ -282,15 +426,15 @@
    },
    "QUAL-3": {
     "ok": false,
-    "detail": "Position d'un lieu habité (« Merrien »), pas du poste : à positionner sur le poste réel."
+    "detail": "Position d'un lieu habité (« Merrien »), pas du poste : à positionner sur le poste réel. Position V2 à 3,3 km du toponyme officiel « le Merrien » (cours d'eau, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme)."
    },
    "QUAL-4": {
-    "ok": false,
-    "detail": "stationnement ou temps de marche inconnu"
+    "ok": true,
+    "detail": "stationnement et marche documentés (6 min)"
    },
    "QUAL-5": {
     "ok": false,
-    "detail": "engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0"
+    "detail": "engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 7"
    },
    "QUAL-6": {
     "ok": true,
@@ -302,9 +446,8 @@
    }
   },
   "raisons": [
-   "QUAL-3 : Position d'un lieu habité (« Merrien »), pas du poste : à positionner sur le poste réel.",
-   "QUAL-4 : stationnement ou temps de marche inconnu",
-   "QUAL-5 : engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0"
+   "QUAL-3 : Position d'un lieu habité (« Merrien »), pas du poste : à positionner sur le poste réel. Position V2 à 3,3 km du toponyme officiel « le Merrien » (cours d'eau, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme).",
+   "QUAL-5 : engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 7"
   ]
  }
 }

@@ -12,7 +12,7 @@
    "candidate": 34,
    "TOP_TIER": 6
   },
-  "stationnementConnu": 66
+  "stationnementConnu": 93
  },
  "spots": [
   {
@@ -128,16 +128,16 @@
    "lat": 48.675799,
    "lon": -2.859239,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.32,
+   "inconnus": 23,
    "anomalies": 1
   },
   {
@@ -148,16 +148,16 @@
    "lat": 47.528064,
    "lon": -3.15923,
    "precision_m": 1000,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 7,
+   "sources": 12,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.33,
+   "inconnus": 22,
    "anomalies": 2
   },
   {
@@ -189,16 +189,16 @@
    "lat": 48.704343,
    "lon": -3.717209,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.32,
+   "inconnus": 23,
    "anomalies": 1
   },
   {
@@ -230,16 +230,16 @@
    "lat": 48.758144,
    "lon": -3.582882,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 7,
+   "sources": 12,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.35,
+   "inconnus": 22,
    "anomalies": 1
   },
   {
@@ -276,12 +276,12 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 9,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
-   "anomalies": 2
+   "completude": 0.29,
+   "inconnus": 24,
+   "anomalies": 3
   },
   {
    "id": "brezellec",
@@ -354,16 +354,16 @@
    "lat": 48.688309,
    "lon": -2.318132,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.32,
+   "inconnus": 23,
    "anomalies": 1
   },
   {
@@ -436,16 +436,16 @@
    "lat": 47.620734,
    "lon": -3.421505,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.3,
+   "inconnus": 23,
    "anomalies": 1
   },
   {
@@ -497,16 +497,16 @@
    "lat": 48.645107,
    "lon": -2.112505,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.32,
+   "inconnus": 23,
    "anomalies": 1
   },
   {
@@ -538,16 +538,16 @@
    "lat": 48.731264,
    "lon": -3.564283,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 11,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.35,
+   "inconnus": 22,
    "anomalies": 1
   },
   {
@@ -600,16 +600,16 @@
    "lat": 49.69124,
    "lon": -1.298871,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 9,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.29,
+   "inconnus": 24,
    "anomalies": 1
   },
   {
@@ -620,16 +620,16 @@
    "lat": 49.696435,
    "lon": -1.265875,
    "precision_m": 1000,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.32,
+   "inconnus": 23,
    "anomalies": 2
   },
   {
@@ -703,16 +703,16 @@
    "lat": 48.652217,
    "lon": -2.033231,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 8,
+   "sources": 12,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.29,
-   "inconnus": 24,
+   "completude": 0.41,
+   "inconnus": 22,
    "anomalies": 1
   },
   {
@@ -744,16 +744,16 @@
    "lat": 48.702328,
    "lon": -2.89574,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.32,
+   "inconnus": 23,
    "anomalies": 1
   },
   {
@@ -764,16 +764,16 @@
    "lat": 47.787479,
    "lon": -3.705263,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 7,
+   "sources": 11,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.32,
+   "inconnus": 23,
    "anomalies": 1
   },
   {
@@ -910,16 +910,16 @@
    "lat": 48.668736,
    "lon": -2.283985,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.32,
+   "inconnus": 23,
    "anomalies": 1
   },
   {
@@ -993,16 +993,16 @@
    "lat": 49.704571,
    "lon": -1.420798,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 9,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.29,
+   "inconnus": 24,
    "anomalies": 1
   },
   {
@@ -1034,16 +1034,16 @@
    "lat": 48.701992,
    "lon": -1.936368,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.32,
+   "inconnus": 23,
    "anomalies": 1
   },
   {
@@ -1054,17 +1054,17 @@
    "lat": 47.781884,
    "lon": -3.645432,
    "precision_m": 1000,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
-   "anomalies": 2
+   "completude": 0.32,
+   "inconnus": 23,
+   "anomalies": 3
   },
   {
    "id": "minou",
@@ -1116,16 +1116,16 @@
    "lat": 48.70071,
    "lon": -1.868704,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.32,
+   "inconnus": 23,
    "anomalies": 1
   },
   {
@@ -1387,16 +1387,16 @@
    "lat": 48.695109,
    "lon": -3.849763,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.32,
+   "inconnus": 23,
    "anomalies": 1
   },
   {
@@ -1490,16 +1490,16 @@
    "lat": 47.39052,
    "lon": -3.252388,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.32,
+   "inconnus": 23,
    "anomalies": 1
   },
   {
@@ -1593,16 +1593,16 @@
    "lat": 48.555139,
    "lon": -2.762845,
    "precision_m": 1000,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.32,
+   "inconnus": 23,
    "anomalies": 2
   },
   {
@@ -1780,16 +1780,16 @@
    "lat": 49.575126,
    "lon": -1.274349,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 7,
+   "sources": 11,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.32,
+   "inconnus": 23,
    "anomalies": 1
   },
   {
@@ -1800,16 +1800,16 @@
    "lat": 49.606096,
    "lon": -1.229369,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.32,
+   "inconnus": 23,
    "anomalies": 1
   },
   {
@@ -1841,16 +1841,16 @@
    "lat": 48.725152,
    "lon": -3.583084,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.32,
+   "inconnus": 23,
    "anomalies": 1
   },
   {
@@ -1882,16 +1882,16 @@
    "lat": 49.589279,
    "lon": -1.244412,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.32,
+   "inconnus": 23,
    "anomalies": 1
   },
   {
@@ -1944,16 +1944,16 @@
    "lat": 47.709759,
    "lon": -3.380621,
    "precision_m": 1000,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.32,
+   "inconnus": 23,
    "anomalies": 2
   },
   {
@@ -2069,16 +2069,16 @@
    "lat": 48.683809,
    "lon": -1.989703,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 11,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.35,
+   "inconnus": 22,
    "anomalies": 1
   }
  ]

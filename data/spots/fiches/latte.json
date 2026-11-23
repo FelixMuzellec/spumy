@@ -15,13 +15,39 @@
    "verifie_le": "2026-11-23",
    "niveau": 1,
    "texte": "Position du toponyme officiel « Pointe de la Latte » (cap, élément topographique ou forestier, détail orographique, Plévenon). Le poste exact reste à confirmer sur place."
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Pointe de la Latte",
+    "ecart_m": 0
+   },
+   "texte": "Toponyme officiel « Pointe de la Latte » (cap, élément topographique ou forestier, détail orographique) à 0 m de la position de la fiche."
   }
  },
  "access": {
   "stationnement": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v3",
-   "raison": "À collecter (BD TOPO de l'IGN) après la création de la fiche."
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 48.664453,
+    "lon": -2.292677,
+    "ign": "equipement_de_transport.53544",
+    "nature": "Parking touristique",
+    "ecart_m": 796
+   },
+   "texte": "Parking touristique recensé par la BD TOPO de l'IGN, à 796 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
   },
   "approche": {
    "statut": "INCONNU",
@@ -29,9 +55,15 @@
    "raison": "Aucune source ne décrit l'approche du poste."
   },
   "marche_min": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v3",
-   "raison": "À calculer (itinéraire piéton de l'IGN)."
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 10,
+   "texte": "10 min à pied (0,65 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
   },
   "difficulte": {
    "statut": "INCONNU",
@@ -165,6 +197,38 @@
    "statut": "INCONNU",
    "origine": "v3",
    "raison": "Aucune contrainte d'accès liée à la marée documentée : ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "verifie_le": "2026-11-23",
+   "raison": "Aucun mouvement de terrain recensé par le BRGM à 500 m du point (Géorisques, 2026-11-23) ; le recensement n'est pas exhaustif, ce qui ne prouve pas l'absence de risque."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "PLEVENON",
+     "code_insee": "22201",
+     "risques": [
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Tassements différentiels",
+      "Séisme",
+      "Feu de forêt",
+      "Phénomène lié à l'atmosphère",
+      "Tempête et grains (vent)",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (PLEVENON) : Mouvement de terrain ; Tempête et grains (vent). Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [
@@ -226,28 +290,85 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
+  "statut": "INFÉRÉ",
   "origine": "v3",
-  "raison": "Photos non inventoriées."
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Le Cap Fréhel et Fort-la-Latte - panoramio (1).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Le_Cap_Fr%C3%A9hel_et_Fort-la-Latte_-_panoramio_(1).jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Infernal Quack (Shif…",
+    "date": "Taken on 3 September 2014",
+    "distance_m": 7
+   },
+   {
+    "titre": "Fort-la-Latte - panoramio (19).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Fort-la-Latte_-_panoramio_(19).jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Infernal Quack (Shif…",
+    "date": "Taken on 3 September 2014",
+    "distance_m": 23
+   },
+   {
+    "titre": "Le Cap Fréhel depuis Fort-la-Latte - panoramio.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Le_Cap_Fr%C3%A9hel_depuis_Fort-la-Latte_-_panoramio.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Infernal Quack (Shif…",
+    "date": "Taken on 3 September 2014",
+    "distance_m": 23
+   },
+   {
+    "titre": "Fort-la-Latte - Tour sud-est.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Fort-la-Latte_-_Tour_sud-est.jpg",
+    "licence": "Public domain",
+    "auteur": "Tangopaso",
+    "date": "2021-09-16",
+    "distance_m": 32
+   },
+   {
+    "titre": "Fort-la-Latte - Vue vers le cap Fréhel.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Fort-la-Latte_-_Vue_vers_le_cap_Fr%C3%A9hel.jpg",
+    "licence": "Public domain",
+    "auteur": "Tangopaso",
+    "date": "2021-09-16",
+    "distance_m": 34
+   },
+   {
+    "titre": "Fort-la-Latte - La base du donjon.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Fort-la-Latte_-_La_base_du_donjon.jpg",
+    "licence": "Public domain",
+    "auteur": "Tangopaso",
+    "date": "2021-09-16",
+    "distance_m": 39
+   }
+  ],
+  "texte": "6 photos libres de Wikimedia Commons, à 39 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
    "src-carnet-de-peche-liste-cotes-darmor-2",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
    "src-lcsm-pointe-du-fort-de-la-latte",
-   "src-legifrance-tailles-minimales-2026"
+   "src-legifrance-tailles-minimales-2026",
+   "src-wikimedia-commons-geo"
   ]
  },
  "quality": {
   "statut": "candidate",
   "derniere_verification": "2026-11-23",
-  "completude": 0.19,
+  "completude": 0.32,
   "inconnus": [
-   "access.stationnement",
    "access.approche",
-   "access.marche_min",
    "access.difficulte",
    "access.restrictions",
    "environment.fond",
@@ -267,9 +388,9 @@
    "safety.houle_max_m",
    "safety.coef_max",
    "safety.acces_maree",
+   "safety.mouvements_terrain",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": [
    "Fiche créée par la passe exhaustive (5.12) : sécurité, accès et conditions à documenter avant tout affichage."
@@ -288,8 +409,8 @@
     "detail": "position contrôlée par l'IGN (toponyme officiel à 1,5 km au plus) ou corrigée"
    },
    "QUAL-4": {
-    "ok": false,
-    "detail": "stationnement ou temps de marche inconnu"
+    "ok": true,
+    "detail": "stationnement et marche documentés (10 min)"
    },
    "QUAL-5": {
     "ok": false,
@@ -305,7 +426,6 @@
    }
   },
   "raisons": [
-   "QUAL-4 : stationnement ou temps de marche inconnu",
    "QUAL-5 : engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0"
   ]
  }

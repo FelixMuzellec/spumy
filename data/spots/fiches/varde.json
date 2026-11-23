@@ -15,13 +15,39 @@
    "verifie_le": "2026-11-23",
    "niveau": 1,
    "texte": "Position du toponyme officiel « Pointe de la Varde » (cap, élément topographique ou forestier, détail orographique, Saint-Malo). Le poste exact reste à confirmer sur place."
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Pointe de la Varde",
+    "ecart_m": 0
+   },
+   "texte": "Toponyme officiel « Pointe de la Varde » (cap, élément topographique ou forestier, détail orographique) à 0 m de la position de la fiche."
   }
  },
  "access": {
   "stationnement": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v3",
-   "raison": "À collecter (BD TOPO de l'IGN) après la création de la fiche."
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 48.680343,
+    "lon": -1.981916,
+    "ign": "equipement_de_transport.71176",
+    "nature": "Parking touristique",
+    "ecart_m": 689
+   },
+   "texte": "Parking touristique recensé par la BD TOPO de l'IGN, à 689 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
   },
   "approche": {
    "statut": "INCONNU",
@@ -29,9 +55,15 @@
    "raison": "Aucune source ne décrit l'approche du poste."
   },
   "marche_min": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v3",
-   "raison": "À calculer (itinéraire piéton de l'IGN)."
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 12,
+   "texte": "12 min à pied (0,8 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
   },
   "difficulte": {
    "statut": "INCONNU",
@@ -165,6 +197,61 @@
    "statut": "INCONNU",
    "origine": "v3",
    "raison": "Aucune contrainte d'accès liée à la marée documentée : ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "rayon_m": 500,
+    "total": 1,
+    "types": {
+     "Chute de blocs / Eboulement": 1
+    },
+    "plus_recent": null,
+    "evenements": [
+     {
+      "id": "10600365",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": "Pointe de la Varde",
+      "distance_m": 68
+     }
+    ]
+   },
+   "texte": "1 mouvement de terrain recensé par le BRGM à 500 m du point : Chute de blocs / Eboulement (1). 1 événement sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "SAINT-MALO",
+     "code_insee": "35288",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Tassements différentiels",
+      "Séisme",
+      "Phénomène lié à l'atmosphère",
+      "Tempête et grains (vent)",
+      "Transport de marchandises dangereuses"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (SAINT-MALO) : Par submersion marine ; Mouvement de terrain ; Tempête et grains (vent). Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [
@@ -226,28 +313,62 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
+  "statut": "INFÉRÉ",
   "origine": "v3",
-  "raison": "Photos non inventoriées."
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Saint-Malo - Pointe de la Varde (balise) 02.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Saint-Malo_-_Pointe_de_la_Varde_(balise)_02.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Kev22",
+    "date": "2022-08-26 14:44:08",
+    "distance_m": 42
+   },
+   {
+    "titre": "Saint-Malo - Pointe de la Varde - Fort de l'Arboulé + Stp Ra 109 (batterie) 01.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Saint-Malo_-_Pointe_de_la_Varde_-_Fort_de_l%27Arboul%C3%A9_%2B_Stp_Ra_109_(batterie)_01.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Kev22",
+    "date": "2022-08-26 14:44:48",
+    "distance_m": 52
+   },
+   {
+    "titre": "Route-du-Rhum-2010-Pointe-de-la-Varde.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Route-du-Rhum-2010-Pointe-de-la-Varde.jpg",
+    "licence": "CC BY-SA 2.0",
+    "auteur": "Ktoine from France",
+    "date": "2010-10-31 13:32",
+    "distance_m": 98
+   }
+  ],
+  "texte": "3 photos libres de Wikimedia Commons, à 98 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
    "src-lcsm-pointe-de-la-varde",
    "src-legifrance-tailles-minimales-2026",
-   "src-mieuxpecher-ille-et-vilaine"
+   "src-mieuxpecher-ille-et-vilaine",
+   "src-wikimedia-commons-geo"
   ]
  },
  "quality": {
   "statut": "candidate",
   "derniere_verification": "2026-11-23",
-  "completude": 0.19,
+  "completude": 0.35,
   "inconnus": [
-   "access.stationnement",
    "access.approche",
-   "access.marche_min",
    "access.difficulte",
    "access.restrictions",
    "environment.fond",
@@ -268,8 +389,7 @@
    "safety.coef_max",
    "safety.acces_maree",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": [
    "Fiche créée par la passe exhaustive (5.12) : sécurité, accès et conditions à documenter avant tout affichage."
@@ -288,12 +408,12 @@
     "detail": "position contrôlée par l'IGN (toponyme officiel à 1,5 km au plus) ou corrigée"
    },
    "QUAL-4": {
-    "ok": false,
-    "detail": "stationnement ou temps de marche inconnu"
+    "ok": true,
+    "detail": "stationnement et marche documentés (12 min)"
    },
    "QUAL-5": {
     "ok": false,
-    "detail": "engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0"
+    "detail": "engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 1"
    },
    "QUAL-6": {
     "ok": true,
@@ -305,8 +425,7 @@
    }
   },
   "raisons": [
-   "QUAL-4 : stationnement ou temps de marche inconnu",
-   "QUAL-5 : engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0"
+   "QUAL-5 : engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 1"
   ]
  }
 }

@@ -15,6 +15,20 @@
    "verifie_le": "2026-11-23",
    "niveau": 1,
    "texte": "Position du toponyme officiel « Bréhec » (quartier, zone d'habitation, Plouha). Le poste exact reste à confirmer sur place."
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Plage de Bréhec",
+    "ecart_m": 357
+   },
+   "texte": "Toponyme officiel « Plage de Bréhec » (plage, élément topographique ou forestier, détail orographique) à 357 m de la position de la fiche."
   }
  },
  "access": {
@@ -165,6 +179,92 @@
    "statut": "INCONNU",
    "origine": "v3",
    "raison": "Aucune contrainte d'accès liée à la marée documentée : ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "rayon_m": 500,
+    "total": 4,
+    "types": {
+     "Glissement": 4
+    },
+    "plus_recent": null,
+    "evenements": [
+     {
+      "id": "62200219",
+      "type": "Glissement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 260
+     },
+     {
+      "id": "62200218",
+      "type": "Glissement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 268
+     },
+     {
+      "id": "62200220",
+      "type": "Glissement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 303
+     },
+     {
+      "id": "62200221",
+      "type": "Glissement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 445
+     }
+    ]
+   },
+   "texte": "4 mouvements de terrain recensés par le BRGM à 500 m du point : Glissement (4). 4 événements sans date. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "PLOUHA",
+     "code_insee": "22222",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Eboulement ou chutes de pierres et de blocs",
+      "Glissement de terrain",
+      "Recul du trait de côte et de falaises",
+      "Tassements différentiels",
+      "Séisme",
+      "Phénomène lié à l'atmosphère",
+      "Tempête et grains (vent)",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (PLOUHA) : Par submersion marine ; Mouvement de terrain ; Eboulement ou chutes de pierres et de blocs ; Tempête et grains (vent). Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [
@@ -226,24 +326,66 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
+  "statut": "INFÉRÉ",
   "origine": "v3",
-  "raison": "Photos non inventoriées."
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Conglomerate Brehec Brittany France.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Conglomerate_Brehec_Brittany_France.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "zarmel http://www.geodiversite.net/auteur2",
+    "date": "2010-06-27",
+    "distance_m": 258
+   },
+   {
+    "titre": "Bréhec - pano.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Br%C3%A9hec_-_pano.jpg",
+    "licence": "CC BY 3.0",
+    "auteur": "Eusebius",
+    "date": "2010-01-01",
+    "distance_m": 341
+   },
+   {
+    "titre": "Plouézec - Bréhec - Route principale 02.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Plou%C3%A9zec_-_Br%C3%A9hec_-_Route_principale_02.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Kev22",
+    "date": "2024-01-11 10:17:41",
+    "distance_m": 364
+   },
+   {
+    "titre": "Brehec.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Brehec.jpg",
+    "licence": "Public domain",
+    "auteur": "Collection personnelle",
+    "date": "1925",
+    "distance_m": 381
+   }
+  ],
+  "texte": "4 photos libres de Wikimedia Commons, à 381 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
    "src-carnet-de-peche-liste-cotes-darmor",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
    "src-ign-geocodage-poi",
    "src-legifrance-tailles-minimales-2026",
-   "src-mieuxpecher-cotes-darmor"
+   "src-mieuxpecher-cotes-darmor",
+   "src-wikimedia-commons-geo"
   ]
  },
  "quality": {
   "statut": "candidate",
   "derniere_verification": "2026-11-23",
-  "completude": 0.19,
+  "completude": 0.29,
   "inconnus": [
    "access.stationnement",
    "access.approche",
@@ -268,12 +410,12 @@
    "safety.coef_max",
    "safety.acces_maree",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": [
    "Fiche créée par la passe exhaustive (5.12) : sécurité, accès et conditions à documenter avant tout affichage.",
-   "Position d'un lieu habité (« Bréhec »), pas du poste : à positionner sur le poste réel."
+   "Position d'un lieu habité (« Bréhec »), pas du poste : à positionner sur le poste réel.",
+   "Aucun parking de la BD TOPO à 1,5 km du point : accès à documenter autrement."
   ],
   "criteres": {
    "QUAL-1": {
@@ -294,7 +436,7 @@
    },
    "QUAL-5": {
     "ok": false,
-    "detail": "engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0"
+    "detail": "engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 4"
    },
    "QUAL-6": {
     "ok": true,
@@ -308,7 +450,7 @@
   "raisons": [
    "QUAL-3 : Position d'un lieu habité (« Bréhec »), pas du poste : à positionner sur le poste réel.",
    "QUAL-4 : stationnement ou temps de marche inconnu",
-   "QUAL-5 : engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0"
+   "QUAL-5 : engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 4"
   ]
  }
 }

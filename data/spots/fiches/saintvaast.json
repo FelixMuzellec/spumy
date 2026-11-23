@@ -15,13 +15,39 @@
    "verifie_le": "2026-11-23",
    "niveau": 1,
    "texte": "Position du toponyme officiel « la Hougue » (ile, élément topographique ou forestier, détail orographique, Saint-Vaast-la-Hougue). Le poste exact reste à confirmer sur place."
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "la Hougue",
+    "ecart_m": 0
+   },
+   "texte": "Toponyme officiel « la Hougue » (ile, élément topographique ou forestier, détail orographique) à 0 m de la position de la fiche."
   }
  },
  "access": {
   "stationnement": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v3",
-   "raison": "À collecter (BD TOPO de l'IGN) après la création de la fiche."
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 49.57767,
+    "lon": -1.274194,
+    "ign": "equipement_de_transport.83914",
+    "nature": "Parking touristique",
+    "ecart_m": 283
+   },
+   "texte": "Parking touristique recensé par la BD TOPO de l'IGN, à 283 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
   },
   "approche": {
    "statut": "INCONNU",
@@ -29,9 +55,15 @@
    "raison": "Aucune source ne décrit l'approche du poste."
   },
   "marche_min": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v3",
-   "raison": "À calculer (itinéraire piéton de l'IGN)."
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 5,
+   "texte": "5 min à pied (0,3 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
   },
   "difficulte": {
    "statut": "INCONNU",
@@ -167,6 +199,45 @@
    "statut": "INCONNU",
    "origine": "v3",
    "raison": "Aucune contrainte d'accès liée à la marée documentée : ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "verifie_le": "2026-11-23",
+   "raison": "Aucun mouvement de terrain recensé par le BRGM à 500 m du point (Géorisques, 2026-11-23) ; le recensement n'est pas exhaustif, ce qui ne prouve pas l'absence de risque."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "SAINT-VAAST-LA-HOUGUE",
+     "code_insee": "50562",
+     "risques": [
+      "Inondation",
+      "Par une crue à débordement lent de cours d'eau",
+      "Par remontées de nappes naturelles",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Eboulement ou chutes de pierres et de blocs",
+      "Tassements différentiels",
+      "Séisme",
+      "Phénomène lié à l'atmosphère",
+      "Tempête et grains (vent)",
+      "Foudre",
+      "Grêle",
+      "Neige et pluies verglaçantes",
+      "Radon",
+      "Engins de guerre"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (SAINT-VAAST-LA-HOUGUE) : Par submersion marine ; Mouvement de terrain ; Eboulement ou chutes de pierres et de blocs ; Tempête et grains (vent) ; Engins de guerre. Portée communale : ne décrit pas le poste."
   }
  },
  "regulations": [
@@ -228,29 +299,86 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
+  "statut": "INFÉRÉ",
   "origine": "v3",
-  "raison": "Photos non inventoriées."
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Le long des fortifications de La Hougue à Saint-Vaast - panoramio (1).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Le_long_des_fortifications_de_La_Hougue_%C3%A0_Saint-Vaast_-_panoramio_(1).jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Eric Bajart",
+    "date": "26 May 2010 (original upload date)",
+    "distance_m": 81
+   },
+   {
+    "titre": "Fort de La Hougue, Saint-Vaast-la-Hougue-7812.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Fort_de_La_Hougue,_Saint-Vaast-la-Hougue-7812.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Raimond Spekking",
+    "date": "2021-12-25",
+    "distance_m": 83
+   },
+   {
+    "titre": "Saint-Vaast Porte-aux-Dames.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Saint-Vaast_Porte-aux-Dames.JPG",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Louistisserand",
+    "date": "2010-09-10",
+    "distance_m": 111
+   },
+   {
+    "titre": "Fort vauban la hougue fr.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Fort_vauban_la_hougue_fr.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Yohlg",
+    "date": "2004-08-08",
+    "distance_m": 203
+   },
+   {
+    "titre": "Saint-vaast-la-hougue-detail-muraille.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Saint-vaast-la-hougue-detail-muraille.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Nitot",
+    "date": "2005-08-01",
+    "distance_m": 211
+   },
+   {
+    "titre": "Saint Vaast la Hougue, Tour de Tatihou.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Saint_Vaast_la_Hougue,_Tour_de_Tatihou.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Celeda",
+    "date": "2026-04-11 15:36:56",
+    "distance_m": 213
+   }
+  ],
+  "texte": "6 photos libres de Wikimedia Commons, à 213 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
    "src-carnet-de-peche-dorade-manche",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
    "src-legifrance-tailles-minimales-2026",
    "src-mieuxpecher-normandie",
-   "src-pechemercotentin-saint-vaast"
+   "src-pechemercotentin-saint-vaast",
+   "src-wikimedia-commons-geo"
   ]
  },
  "quality": {
   "statut": "candidate",
   "derniere_verification": "2026-11-23",
-  "completude": 0.19,
+  "completude": 0.32,
   "inconnus": [
-   "access.stationnement",
    "access.approche",
-   "access.marche_min",
    "access.difficulte",
    "access.restrictions",
    "environment.fond",
@@ -270,9 +398,9 @@
    "safety.houle_max_m",
    "safety.coef_max",
    "safety.acces_maree",
+   "safety.mouvements_terrain",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": [
    "Fiche créée par la passe exhaustive (5.12) : sécurité, accès et conditions à documenter avant tout affichage."
@@ -291,8 +419,8 @@
     "detail": "position contrôlée par l'IGN (toponyme officiel à 1,5 km au plus) ou corrigée"
    },
    "QUAL-4": {
-    "ok": false,
-    "detail": "stationnement ou temps de marche inconnu"
+    "ok": true,
+    "detail": "stationnement et marche documentés (5 min)"
    },
    "QUAL-5": {
     "ok": false,
@@ -308,7 +436,6 @@
    }
   },
   "raisons": [
-   "QUAL-4 : stationnement ou temps de marche inconnu",
    "QUAL-5 : engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0"
   ]
  }
