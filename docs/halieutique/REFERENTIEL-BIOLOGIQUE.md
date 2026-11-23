@@ -116,12 +116,14 @@ Base : les 35 connaissances BATEAU de la V2 (`data/knowledge/bateau.json`), et l
 | Frai | Jusqu'à environ 100 m de profondeur, de janvier à avril, avec un pic en mars (Wheeler 1969, cité par MarLIN) | VÉRIFIÉ, 2 (source ancienne, citée de seconde main) |
 | Déplacements | Télémétrie acoustique et marques archives en Manche (Gonse et al., 2024, *Journal of Fish Biology*). 30 lieus détectés sur 83, aucun grand déplacement d'une rive à l'autre de la Manche, déplacements côtiers le long de la Bretagne. La mer d'Iroise compte toute l'année, surtout l'été | VÉRIFIÉ, 1 |
 | Régime | Prédateur ; niveau trophique 4,3 (FishBase) | VÉRIFIÉ, 2 |
+| Maturité | Première maturité vers 1 kg sur les côtes atlantiques françaises ; les juvéniles gagnent les eaux profondes (Suquet, Ifremer, rapport DRV/RA/RST/2000-11) | VÉRIFIÉ, 1 (résumé du rapport) |
+| Frayères en France | Cartes des frayères du lieu jaune dans l'atlas de l'Ifremer (Casemajor, Alglave, Woillez, juillet 2024, § 4.1.9 et § 4.2.11) | À LIRE |
 | Réglementation | Voir § 4.6 | — |
 
 ### 4.2 Lieu noir (*Pollachius virens*)
 
 - **Taille minimale : 35 cm** (tableau officiel des tailles 2026, d'après l'arrêté du 26 octobre 2012). VÉRIFIÉ, 2 : tableau d'une source secondaire, à relire sur Légifrance.
-- Biologie dans les eaux de Bretagne et de Manche : **aucune source lue à ce jour**. Lacune, à combler dans la prochaine session (habitat des jeunes à la côte, saison, profondeur).
+- Biologie dans les eaux de Bretagne et de Manche : **aucune source régionale trouvée** (recherche du 23 nov.) ; seulement des généralités, par exemple une maturité entre 4 et 9 ans (Wikipédia, niveau 3). Lacune : habitat des jeunes à la côte, saison, profondeur. Pour SPUMY, le lieu noir est surtout une prise du large ; sa Favorabilité devra rester qualitative tant que cette lacune dure (phase 6).
 
 ### 4.3 Maquereau (*Scomber scombrus*)
 
@@ -172,6 +174,8 @@ Espèces du BATEAU et réglementation :
 - Mucientes G. et al. (2019). Interannual fine-scale site fidelity of male ballan wrasse : https://digital.csic.es/bitstream/10261/202897/3/Interannual_fine_scale_2019.pdf
 - Brand L. (2025). Fine scale behaviour of *Labrus bergylta* (mémoire, université de l'Algarve) : https://sapientia.ualg.pt/bitstreams/d28cea69-71a9-49c9-b5d7-6bd159c93e6d/download
 - Dunn M. R. The biology and exploitation of John dory in the waters of England and Wales (Cefas) : https://www.cefas.co.uk/data-and-publications/publications/list/publication-abstract/?id=13131
+- Suquet M. (2000). Le lieu jaune : biologie, pêche, marché et potentiel aquacole. Ifremer : https://archimer.ifremer.fr/doc/00715/82752/87574.pdf
+- Ifremer (2024). Cartographie des frayères des espèces halieutiques en France métropolitaine : https://archimer.ifremer.fr/doc/00901/101301/111966.pdf (à lire)
 - Marine Conservation Society, Good Fish Guide, John Dory : https://www.mcsuk.org/goodfishguide/species/john-dory/wild/158/
 - Arrêté réglementant la pêche de loisir du lieu jaune en zones CIEM 7 et 8 (texte soumis à consultation, ministère) : https://agriculture.gouv.fr/telecharger/145728 ; consultation du public : https://agriculture.gouv.fr/telecharger/146418
 - Commune de Saint-Pabu, présentation de la pêche récréative, juin 2026 : https://www.saint-pabu.bzh/download/20/saint-pabu-le-mag-kannadig-special-semestriels/2922/presentation-peche-recreativej-juin-2026_final.pdf
