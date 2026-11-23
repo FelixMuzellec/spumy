@@ -60,7 +60,7 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 | 4.6 Conventions et qualité de code | IMPLEMENTED (conventions V3 dans CONTRIBUTING ; ESLint 8 non maintenu : passage à ESLint 9 ou 10 proposé à Félix, pas fait d'office) | `CONTRIBUTING.md`, `.eslintrc.json` |
 | 4.7 Nettoyage autorisé (registre, suppressions sûres seulement, restauration) | TESTED (`map.jsx` supprimé après audit ; lint 0, couches 0, construction identique ; reste en registre ; branches : V3-019, rien supprimé) | `docs/socle/NETTOYAGE.md` |
 | 4.8 Protection de `main` (accord de Félix, 23 nov., 13 h 55 : protection complète) | BLOCKED — action de Félix : le relais GitHub de la session refuse l'écriture des rulesets (HTTP 403), non contourné ; règle et commande prêtes | `docs/socle/PROTECTION-MAIN.md`, `docs/socle/protection-main.json` |
-| 4.9 Documentation opérationnelle, README et fichiers de pilotage | NOT STARTED | `README.md`, `docs/socle/EXPLOITATION.md`, `CHANGELOG.md` |
+| 4.9 Documentation opérationnelle, README et fichiers de pilotage | IMPLEMENTED (EXPLOITATION : installer, publier, revenir en arrière, surveiller, incident, secrets, sauvegardes, coûts ; README et CHANGELOG à jour) | `README.md`, `docs/socle/EXPLOITATION.md`, `CHANGELOG.md` |
 | 4.10 Installation et lancement reproductibles (clone neuf) | NOT STARTED | — |
 | 4.11 Red-team, rapport en 14 parties, arrêt | NOT STARTED | `docs/rapports/v3/PHASE-4.md` |
 
@@ -97,7 +97,7 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 
 ## Prochaine action
 
-Phase 4 IN PROGRESS sur `claude/v3-phase-4`. Prochaine sous-tâche : 4.9, documentation opérationnelle.
+Phase 4 IN PROGRESS sur `claude/v3-phase-4`. Prochaine sous-tâche : 4.10, installation reproductible depuis un clone neuf.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 

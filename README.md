@@ -15,7 +15,7 @@ SPUMY est une application web pour la pêche du bar aux leurres du bord, avec un
 
 Les sept guides n'ont aucun spot en commun (Logonna garde la rade, le goulet et Crozon) et utilisent exactement le même moteur ; seul le fichier de configuration du lieu change.
 
-Version 9.2 (le numéro et l'identifiant de construction sont affichés en bas de l'accueil : c'est la façon de vérifier qu'un dépôt est bien en ligne).
+Version 10.0 (le numéro et l'identifiant de construction sont affichés en bas de l'accueil : c'est la façon de vérifier qu'un dépôt est bien en ligne).
 
 Elle s'ouvre dans le navigateur du téléphone et s'installe sur l'écran d'accueil comme **une seule application** : l'accueil et les sept guides partagent le même manifeste (`manifest.json`). Installée depuis n'importe laquelle des huit pages, c'est la même application ; elle s'ouvre sur l'accueil, et le titre de chaque guide (« ‹ SPUMY · … ») y ramène. Sur Android, un appui long sur l'icône propose des raccourcis vers les trois premiers guides : Chrome pour Android n'en affiche pas plus de trois ([web.dev](https://web.dev/articles/app-shortcuts)). L'accueil affiche un bouton « Installer l'application » quand Chrome le permet, et l'aide pas à pas (Android, iPhone) sinon.
 
@@ -24,6 +24,14 @@ Une fois ouverte, elle fonctionne hors ligne : l'accueil et les sept guides sont
 Adresse : **<https://felixmuzellec.github.io/spumy/>**, la seule (décision de Félix, 18 novembre 2026). GitHub Pages publie la branche `main` du dépôt `FelixMuzellec/spumy`, à la racine.
 
 À cette adresse, SPUMY partage l'origine `felixmuzellec.github.io` avec l'ancien guide du bar (`/guide-peche-bar/`) : le journal, tes spots, ta boîte et tes réglages enregistrés par l'ancien guide sur le téléphone sont lus directement, sans transfert. Pour changer de téléphone, *Réglages → Toutes mes données* enregistre tout dans un fichier, et l'importe sur l'autre téléphone sans rien écraser.
+
+## SPUMY V3 (en cours, novembre 2026)
+
+La V3 refait l'application en une seule application à deux modes (Shore / Offshore), classée depuis ta position, sans guides ni secteurs. Rien n'en est encore publié : le site en ligne reste la version 10.0.
+
+- Pilotage : [`CLAUDE.md`](CLAUDE.md) (règles de travail), [`docs/SPUMY_MASTER_PROMPT.md`](docs/SPUMY_MASTER_PROMPT.md) (référentiel), [`SPUMY_AUDIT_CONTINUITY.md`](SPUMY_AUDIT_CONTINUITY.md) (où en est le travail), [`docs/DECISIONS_LOG.md`](docs/DECISIONS_LOG.md) (décisions de Félix), [`docs/REQUIREMENTS.md`](docs/REQUIREMENTS.md) (exigences).
+- Conception (phase 3) : prototype V3 dans `prototype-v3/`, documents dans `docs/design/`, rapports dans `docs/rapports/v3/`.
+- Socle (phase 4) : architecture détaillée [`docs/ARCHITECTURE-V3.md`](docs/ARCHITECTURE-V3.md) § 11, audit et exploitation dans [`docs/socle/`](docs/socle/) ([exploitation](docs/socle/EXPLOITATION.md), [protection de `main`](docs/socle/PROTECTION-MAIN.md), [nettoyage](docs/socle/NETTOYAGE.md)), contrats typés dans `src/core/contracts/`.
 
 ## État des fonctionnalités
 
@@ -35,7 +43,7 @@ Adresse : **<https://felixmuzellec.github.io/spumy/>**, la seule (décision de F
 | BATEAU (onglet Offshore de l'accueil) | Carnet de spots et de sorties ; note empirique après 8 sorties | Pas encore de logique par espèce ni de sécurité bateau (phases 9, 10 et 13) |
 | Hors ligne | Fonctionne ; la dernière météo s'affiche avec son âge | Pas de fond de carte hors ligne (interdit par OpenStreetMap) |
 | Sauvegarde GitHub, analyse photo | Testées contre des services simulés | Pas d'essai automatique contre les vrais services |
-| Mise en ligne | Code dans `main`, construit à la racine | GitHub Pages n'est pas encore activé sur le dépôt : le site n'est pas en ligne |
+| Mise en ligne | Code dans `main`, construit à la racine, publié par GitHub Pages | Pages est activé sur le dépôt (lu par l'API GitHub, 23 nov. 2026) ; le site en ligne n'a pas encore été vérifié dans un vrai navigateur depuis la session de Claude (réserve P1-14) |
 
 Ces limites sont traitées dans les phases suivantes (voir la feuille de route), ou attendent une décision de Félix (`SPUMY_AUDIT_CONTINUITY.md`, questions gardées).
 
@@ -54,7 +62,14 @@ npm run test:v2           # moteur v2 : les 16 scénarios de la spécification e
 npm run test:design       # contrastes WCAG des jetons du système de design (phase 11), deux thèmes
 npm run build:prototype   # construit le prototype de la phase 11 dans prototype/
 npm run test:prototype    # construit puis parcourt les 23 écrans du prototype (390 et 320 px, deux thèmes, axe-core)
+npm run typecheck         # V3 : contrats JSDoc et modules communs (tsc --checkJs, strict)
+npm run test:secrets      # V3 : aucun jeton ni clé dans le dépôt (--historique : tout l'historique Git)
+npm run test:socle        # V3 : erreur commune et validation des entrées
+npm run test:prototype-v3 # V3 : construit puis parcourt le prototype V3 (4 largeurs, deux thèmes, axe-core)
+node scripts/mesure-perf.mjs   # V3 : performances (CPU ×4, 4G lente), budgets de docs/ARCHITECTURE-V3.md § 11.5
 ```
+
+Exploitation (publier, revenir en arrière, incident, secrets, sauvegardes) : [`docs/socle/EXPLOITATION.md`](docs/socle/EXPLOITATION.md).
 
 Épreuve du moteur (phase 8), sans réseau, sur les journées du dépôt (`data/epreuve/archives/`, une archive compressée par guide, lue telle quelle) : `node scripts/epreuve-analyse.mjs` (coût de la prudence, paliers, v1 et v2, journal) ; `node scripts/epreuve-mc.mjs data/epreuve/archives 1000 tout <résultat.json> [guide,guide…]` puis `node scripts/epreuve-synthese.mjs <résultat.json>…` (Monte Carlo, environ 25 minutes pour les sept guides sur deux cœurs).
 
