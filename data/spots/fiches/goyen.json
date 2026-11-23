@@ -544,11 +544,11 @@
   "criteres": {
    "QUAL-1": {
     "ok": false,
-    "detail": "0 groupe d'indépendance halieutique (famille 1 à 4) ; 2 sources d'éditeur non classé, non comptées"
+    "detail": "0 groupe d'indépendance halieutique (famille 1 à 4) ; 1 source d'éditeur non classé, non comptée"
    },
    "QUAL-2": {
     "ok": false,
-    "detail": "0 source halieutique évaluée page par page sur 0"
+    "detail": "0 groupe d'indépendance parmi les sources lues page par page (0 sur 0) ; aucune n'attache le bar au poste"
    },
    "QUAL-3": {
     "ok": true,
@@ -572,7 +572,7 @@
    }
   },
   "raisons": [
-   "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4) ; 2 sources d'éditeur non classé, non comptées",
+   "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4) ; 1 source d'éditeur non classé, non comptée",
    "QUAL-6 : règle locale à vérifier au poste (Finistère) ; zone CIEM 7 ou 8 incertaine (48ᵉ parallèle)"
   ]
  }

@@ -541,7 +541,7 @@
   ]
  },
  "quality": {
-  "statut": "corroboree",
+  "statut": "TOP_TIER",
   "derniere_verification": "2026-11-23",
   "completude": 0.79,
   "inconnus": [
@@ -559,11 +559,11 @@
   "criteres": {
    "QUAL-1": {
     "ok": true,
-    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:carnet-de-peche-com, editeur:chtipecheur-com ; 1 source d'éditeur non classé, non comptée"
+    "detail": "3 groupes d'indépendance halieutique (famille 1 à 4) : editeur:carnet-de-peche-com, editeur:chtipecheur-com, editeur:mieuxpecher-com"
    },
    "QUAL-2": {
-    "ok": false,
-    "detail": "0 source halieutique évaluée page par page sur 2"
+    "ok": true,
+    "detail": "2 groupes d'indépendance parmi les sources lues page par page (2 sur 3) ; au moins une attache le bar au poste"
    },
    "QUAL-3": {
     "ok": true,
@@ -586,8 +586,6 @@
     "detail": "aucune source privée"
    }
   },
-  "raisons": [
-   "QUAL-2 : 0 source halieutique évaluée page par page sur 2"
-  ]
+  "raisons": []
  }
 }

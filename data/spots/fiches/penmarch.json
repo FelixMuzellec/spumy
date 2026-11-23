@@ -558,7 +558,7 @@
   ]
  },
  "quality": {
-  "statut": "corroboree",
+  "statut": "TOP_TIER",
   "derniere_verification": "2026-11-23",
   "completude": 0.82,
   "inconnus": [
@@ -575,11 +575,11 @@
   "criteres": {
    "QUAL-1": {
     "ok": true,
-    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:carnet-de-peche-com, meteo-consult-figaro-nautisme ; 1 source d'éditeur non classé, non comptée"
+    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:carnet-de-peche-com, meteo-consult-figaro-nautisme"
    },
    "QUAL-2": {
-    "ok": false,
-    "detail": "1 source halieutique évaluée page par page sur 2"
+    "ok": true,
+    "detail": "2 groupes d'indépendance parmi les sources lues page par page (2 sur 2) ; au moins une attache le bar au poste"
    },
    "QUAL-3": {
     "ok": true,
@@ -602,8 +602,6 @@
     "detail": "aucune source privée"
    }
   },
-  "raisons": [
-   "QUAL-2 : 1 source halieutique évaluée page par page sur 2"
-  ]
+  "raisons": []
  }
 }

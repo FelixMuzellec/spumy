@@ -551,7 +551,7 @@
    },
    "QUAL-2": {
     "ok": false,
-    "detail": "0 source halieutique évaluée page par page sur 0"
+    "detail": "0 groupe d'indépendance parmi les sources lues page par page (0 sur 0) ; aucune n'attache le bar au poste"
    },
    "QUAL-3": {
     "ok": true,

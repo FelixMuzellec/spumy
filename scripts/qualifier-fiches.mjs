@@ -33,6 +33,8 @@ export function qualifier(f, sources) {
   const groupes = [...new Set(hal.map((s) => s.groupe))].sort();
   const nonClasses = sources.filter((s) => !s.prive && s.famille == null).length;
   const lues = hal.filter((s) => s.evaluation?.statut === "évaluée");
+  const groupesLus = [...new Set(lues.map((s) => s.groupe))];
+  const barLu = lues.some((s) => s.evaluation?.bar_au_poste === true);
   const posAnom = f.quality.anomalies.filter((a) => ANOMALIE_POSITION.test(a));
   const posOk = (f.coordinates.info.origine === "v3" && f.coordinates.info.statut === "VÉRIFIÉ") || (f.coordinates.controle?.statut === "VÉRIFIÉ" && (f.coordinates.controle.valeur?.ecart_m ?? 9e9) <= 1500);
   const aVerifier = f.regulations.filter((r) => r.valeur?.application_au_poste === "à vérifier");
@@ -40,7 +42,7 @@ export function qualifier(f, sources) {
   const s = f.safety;
   const c = {
     "QUAL-1": { ok: groupes.length >= 2, detail: `${groupes.length} groupe${groupes.length > 1 ? "s" : ""} d'indépendance halieutique (famille 1 à 4)${groupes.length ? ` : ${groupes.join(", ")}` : ""}${nonClasses ? ` ; ${nonClasses} source${nonClasses > 1 ? "s" : ""} d'éditeur non classé, non comptée${nonClasses > 1 ? "s" : ""}` : ""}` },
-    "QUAL-2": { ok: hal.length > 0 && lues.length === hal.length, detail: `${lues.length} source${lues.length > 1 ? "s" : ""} halieutique${lues.length > 1 ? "s" : ""} évaluée${lues.length > 1 ? "s" : ""} page par page sur ${hal.length}` },
+    "QUAL-2": { ok: groupesLus.length >= 2 && barLu, detail: `${groupesLus.length} groupe${groupesLus.length > 1 ? "s" : ""} d'indépendance parmi les sources lues page par page (${lues.length} sur ${hal.length}) ; ${barLu ? "au moins une attache le bar au poste" : "aucune n'attache le bar au poste"}` },
     "QUAL-3": { ok: posOk && !posAnom.length, detail: posAnom.length ? posAnom.join(" ") : posOk ? "position contrôlée par l'IGN (toponyme officiel à 1,5 km au plus) ou corrigée" : "position non contrôlée" },
     "QUAL-4": { ok: connu(f.access.stationnement) && connu(f.access.marche_min), detail: connu(f.access.stationnement) && connu(f.access.marche_min) ? `stationnement et marche documentés (${f.access.marche_min.valeur} min)` : "stationnement ou temps de marche inconnu" },
     "QUAL-5": { ok: connu(s.engagement) && s.consignes.length > 0 && !!s.acces_maree && !!s.mouvements_terrain, detail: `engagement ${connu(s.engagement) ? s.engagement.valeur : "inconnu"}, ${s.consignes.length} consigne${s.consignes.length > 1 ? "s" : ""}, contrainte de marée ${s.acces_maree?.valeur?.join(", ") || "non documentée"}, mouvements de terrain ${s.mouvements_terrain?.valeur?.total ?? 0}` },

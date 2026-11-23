@@ -94,7 +94,8 @@ for (const { fiche: f } of fiches) {
     t("qualification : un article général qui ne nomme pas le spot ne corrobore pas", qualifier(ref, [g("a"), g("b", { texte: "peche.com — les plateaux rocheux" })]).statut === "a_verifier");
     t("qualification : une source privée bloque", qualifier(ref, [...deux, g("c", { prive: true })]).statut === "a_verifier");
     t("qualification : sans évaluation page par page, jamais TOP_TIER", qualifier(ref, deux).statut !== "TOP_TIER");
-    t("qualification : sources lues et tout documenté donnent TOP_TIER", qualifier(ref, deux.map((x) => ({ ...x, evaluation: { statut: "évaluée" } }))).statut === "TOP_TIER");
+    t("qualification : sources lues dont une attache le bar au poste, et tout documenté, donnent TOP_TIER", qualifier(ref, deux.map((x, i) => ({ ...x, evaluation: { statut: "évaluée", bar_au_poste: i === 0 } }))).statut === "TOP_TIER");
+    t("qualification : sources lues sans affirmation sur le bar au poste, jamais TOP_TIER", qualifier(ref, deux.map((x) => ({ ...x, evaluation: { statut: "évaluée", bar_au_poste: false } }))).statut !== "TOP_TIER");
     const regle = structuredClone(ref); regle.regulations.push({ statut: "VÉRIFIÉ", origine: "v3", valeur: { portee: "port", application_au_poste: "à vérifier" } });
     t("qualification : une règle locale à vérifier bloque la corroboration", qualifier(regle, deux).statut === "a_verifier");
     const interdit = structuredClone(ref); interdit.regulations.push({ statut: "VÉRIFIÉ", origine: "v3", valeur: { interdit_au_poste: true } });

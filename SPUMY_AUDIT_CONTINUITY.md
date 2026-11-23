@@ -88,7 +88,7 @@ Référentiel § 15 (phase 5), § 7 (sources, pipeline, préservation V2, schém
 | 5.9 Qualification des fiches (critères explicites) | TESTED (QUAL-1 à QUAL-7 ; 5 corroborées, 61 à vérifier, 0 TOP_TIER ; recalcul et blocages testés) | `scripts/qualifier-fiches.mjs`, `docs/halieutique/QUALIFICATION.md` |
 | 5.10 Rapport de couverture, limites, contradictions et anomalies — livrable 5 | IMPLEMENTED (version finale) | `docs/halieutique/COUVERTURE.md` |
 | 5.11 Red-team, rapport en 14 parties, arrêt | IMPLEMENTED (clone neuf de 9514c43 : tous les tests à 0) | `docs/rapports/v3/PHASE-5.md` |
-| 5.12 Passe exhaustive (réouverture du 23 nov., 22 h 33) : adresses des sources V2 relevées dans les conversations passées, pages lues et évaluées (§ 7.1), listes de coins par département pour les quatre zones vides, requalification | IN PROGRESS | `data/sources/adresses-v2.json`, `data/sources/registre.json`, `data/spots/` |
+| 5.12 Passe exhaustive (réouverture du 23 nov., 22 h 33) | IN PROGRESS : sources retrouvées dans l'historique du dépôt et par recherche limitée à un site ; mieuxpecher.com lu (Finistère NORD et SUD, Normandie, Top 10) : 35 citations V2 vérifiées mot pour mot ; carnet-de-peche.com lu (Penmarc'h, Mousterlin, Cap Coz) ; QUAL-2 = deux groupes lus dont un attache le bar au poste ; résultat : 2 TOP_TIER (Mousterlin, Penmarc'h), 7 corroborées ; reste : listes mieuxpecher et fiches carnet-de-peche des quatre zones vides, candidats à deux éditeurs, fiches nouvelles | `scripts/evaluer-pages.mjs`, `data/sources/`, `data/spots/` |
 
 ## Questions et décisions (registre)
 

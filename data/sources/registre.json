@@ -2,7 +2,7 @@
  "//": "Registre des sources (phase 5, 5.4 ; § 7.1). Généré par scripts/sources-registre.mjs ; les champs « evaluation » se complètent à la main et ne sont jamais écrasés.",
  "totaux": {
   "sources": 296,
-  "aEvaluer": 279,
+  "aEvaluer": 242,
   "avecUrl": 53,
   "editeurs": 101,
   "editeurClasse": 296,
@@ -11,9 +11,9 @@
    "1": 21,
    "2": 40,
    "3": 8,
-   "4": 165,
+   "4": 200,
    "6": 19,
-   "non fixée": 43
+   "non fixée": 8
   },
   "parType": {
    "site, guide ou presse spécialisée": 221,
@@ -1495,13 +1495,15 @@
    },
    "groupe": "editeur:carnet-de-peche-com",
    "editeur_classe": {
-    "nature": "blog ou site de pêcheurs (auteur souvent sous pseudonyme)",
+    "nature": "base de spots de pêche du bord rédigée par l'éditeur (632 fiches annoncées), avec carnet de prises des utilisateurs",
     "domaines": [
      "halieutique",
-     "accès"
+     "spots",
+     "technique"
     ],
-    "limites": "auteur et date souvent absents ; observations non reproductibles ; à recouper",
-    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "limites": "méthode de sélection non publiée ; descriptions sans date d'observation ; positions floutées en accès gratuit, précises pour les abonnés (jamais reprises)",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur) ; contenu payant jamais repris",
+    "constat": "fiches lues le 23 nov. 2026 par le moteur de recherche (Penmarc'h, Mousterlin, Cap Coz, etc.)",
     "famille_inferee": 4,
     "classe_le": "2026-11-23"
    }
@@ -1518,25 +1520,31 @@
     "spot:penmarch"
    ],
    "evaluation": {
-    "statut": "inaccessible",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": "page citée par la V2 sans adresse, non retrouvée par la recherche du 23 nov. 2026 : l'affirmation de la V2 n'a pas pu être relue",
-    "droits": null,
-    "consulte_le": "2026-11-23"
+    "statut": "évaluée",
+    "auteur": "équipe Carnet de Pêche (carnet-de-peche.com)",
+    "date": "2026 (pages vues par le moteur de recherche il y a 80 à 165 jours)",
+    "url_lue": "https://www.carnet-de-peche.com/spots/pointe-de-penmarch",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche (description complète du spot)",
+    "methode": "fiche rédigée par l'éditeur ; méthode de sélection non publiée ; prises déclarées par les utilisateurs affichées à part",
+    "precision": "lieu nommé, structure, espèces, technique et moment de marée quand ils sont décrits ; position floutée de plusieurs centaines de mètres",
+    "independance": "éditeur carnet-de-peche.com (groupe propre)",
+    "limites": "description générique possible ; aucune date d'observation ; ne dit rien des dangers ni des règles locales",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie ; positions précises payantes, jamais reprises",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Terrain de roches plates battues par la houle d'Atlantique, où le bar chasse dans le ressac dès que la mer bouge. Tu pêches aux leurres depuis les bordures hautes, jamais au ras de l'eau. »",
+    "bar_au_poste": true
    },
    "groupe": "editeur:carnet-de-peche-com",
    "editeur_classe": {
-    "nature": "blog ou site de pêcheurs (auteur souvent sous pseudonyme)",
+    "nature": "base de spots de pêche du bord rédigée par l'éditeur (632 fiches annoncées), avec carnet de prises des utilisateurs",
     "domaines": [
      "halieutique",
-     "accès"
+     "spots",
+     "technique"
     ],
-    "limites": "auteur et date souvent absents ; observations non reproductibles ; à recouper",
-    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "limites": "méthode de sélection non publiée ; descriptions sans date d'observation ; positions floutées en accès gratuit, précises pour les abonnés (jamais reprises)",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur) ; contenu payant jamais repris",
+    "constat": "fiches lues le 23 nov. 2026 par le moteur de recherche (Penmarc'h, Mousterlin, Cap Coz, etc.)",
     "classe_le": "2026-11-23"
    }
   },
@@ -1552,26 +1560,31 @@
     "spot:capcoz"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "équipe Carnet de Pêche (carnet-de-peche.com)",
+    "date": "2026 (pages vues par le moteur de recherche il y a 80 à 165 jours)",
+    "url_lue": "https://www.carnet-de-peche.com/spots/cap-coz-fouesnant",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche (description complète du spot)",
+    "methode": "fiche rédigée par l'éditeur ; méthode de sélection non publiée ; prises déclarées par les utilisateurs affichées à part",
+    "precision": "lieu nommé, structure, espèces, technique et moment de marée quand ils sont décrits ; position floutée de plusieurs centaines de mètres",
+    "independance": "éditeur carnet-de-peche.com (groupe propre)",
+    "limites": "description générique possible ; aucune date d'observation ; ne dit rien des dangers ni des règles locales",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie ; positions précises payantes, jamais reprises",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« le bar longe la flèche à la montante et l'estran rocheux qui découvre donne du terrain sur les bordures. Leurres en bordure, surfcasting côté baie. »",
+    "bar_au_poste": true
    },
    "groupe": "editeur:carnet-de-peche-com",
    "editeur_classe": {
-    "nature": "blog ou site de pêcheurs (auteur souvent sous pseudonyme)",
+    "nature": "base de spots de pêche du bord rédigée par l'éditeur (632 fiches annoncées), avec carnet de prises des utilisateurs",
     "domaines": [
      "halieutique",
-     "accès"
+     "spots",
+     "technique"
     ],
-    "limites": "auteur et date souvent absents ; observations non reproductibles ; à recouper",
-    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "famille_inferee": 4,
+    "limites": "méthode de sélection non publiée ; descriptions sans date d'observation ; positions floutées en accès gratuit, précises pour les abonnés (jamais reprises)",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur) ; contenu payant jamais repris",
+    "constat": "fiches lues le 23 nov. 2026 par le moteur de recherche (Penmarc'h, Mousterlin, Cap Coz, etc.)",
     "classe_le": "2026-11-23"
    }
   },
@@ -1587,26 +1600,31 @@
     "spot:mousterlin"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "équipe Carnet de Pêche (carnet-de-peche.com)",
+    "date": "2026 (pages vues par le moteur de recherche il y a 80 à 165 jours)",
+    "url_lue": "https://www.carnet-de-peche.com/spots/pointe-de-mousterlin",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche (description complète du spot)",
+    "methode": "fiche rédigée par l'éditeur ; méthode de sélection non publiée ; prises déclarées par les utilisateurs affichées à part",
+    "precision": "lieu nommé, structure, espèces, technique et moment de marée quand ils sont décrits ; position floutée de plusieurs centaines de mètres",
+    "independance": "éditeur carnet-de-peche.com (groupe propre)",
+    "limites": "description générique possible ; aucune date d'observation ; ne dit rien des dangers ni des règles locales",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie ; positions précises payantes, jamais reprises",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Le poste est réputé pour le bar et le congre » ; « Aux leurres, cherche les bordures du platier au début de la montante. »",
+    "bar_au_poste": true
    },
    "groupe": "editeur:carnet-de-peche-com",
    "editeur_classe": {
-    "nature": "blog ou site de pêcheurs (auteur souvent sous pseudonyme)",
+    "nature": "base de spots de pêche du bord rédigée par l'éditeur (632 fiches annoncées), avec carnet de prises des utilisateurs",
     "domaines": [
      "halieutique",
-     "accès"
+     "spots",
+     "technique"
     ],
-    "limites": "auteur et date souvent absents ; observations non reproductibles ; à recouper",
-    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "famille_inferee": 4,
+    "limites": "méthode de sélection non publiée ; descriptions sans date d'observation ; positions floutées en accès gratuit, précises pour les abonnés (jamais reprises)",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur) ; contenu payant jamais repris",
+    "constat": "fiches lues le 23 nov. 2026 par le moteur de recherche (Penmarc'h, Mousterlin, Cap Coz, etc.)",
     "classe_le": "2026-11-23"
    }
   },
@@ -5238,33 +5256,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:odet"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-06-17 (modifiée le 2022-02-28)",
+    "url_lue": "https://mieuxpecher.com/finistere-sud-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de Pêche – Finistère SUD » cite : « La rivière et l'estuaire de l'Odet »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -5274,33 +5295,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:kermorvan"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée le 2018-10-16)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de pêche – Finistère NORD » cite : « Pointe de Kermorvan »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -5310,33 +5334,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:begmeil"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-06-17 (modifiée le 2022-02-28)",
+    "url_lue": "https://mieuxpecher.com/finistere-sud-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de Pêche – Finistère SUD » cite : « Beg Meil »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -5346,33 +5373,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:corsen"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée le 2018-10-16)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de pêche – Finistère NORD » cite : « Pointe de Corsen à Plouarzel »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -5382,33 +5412,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:kerjean"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-06-17 (modifiée le 2022-02-28)",
+    "url_lue": "https://mieuxpecher.com/finistere-sud-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de Pêche – Finistère SUD » cite : « Pointe de Kerjean »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -5418,33 +5451,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:penmarch"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-06-17 (modifiée le 2022-02-28)",
+    "url_lue": "https://mieuxpecher.com/finistere-sud-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de Pêche – Finistère SUD » cite : « Autour du phare d'Eckmuhl à Penmarch »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -5454,33 +5490,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:blancssablons"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée le 2018-10-16)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de pêche – Finistère NORD » cite : « Plage des Blancs-Sablons au Conquet »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -5490,33 +5529,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:kerlouan"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée le 2018-10-16)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de pêche – Finistère NORD » cite : « Enez Amann ar rouz à Kerlouan »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -5526,33 +5568,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:pelguent"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée le 2018-10-16)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de pêche – Finistère NORD » cite : « Roc’h ar Pelguent à Plouguerneau »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -5562,33 +5607,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:saintemarguerite"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée le 2018-10-16)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de pêche – Finistère NORD » cite : « La presqu’île Sainte-Marguerite aux leurres souples »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -5598,33 +5646,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:penze"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée le 2018-10-16)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de pêche – Finistère NORD » cite : « L’embouchure de la Penzée à Carantec »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -5634,33 +5685,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:lostmarch"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée le 2018-10-16)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de pêche – Finistère NORD » cite : « Les abords de la Pointe de Lostmarc’h à Crozon »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -5670,33 +5724,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:capcoz"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-06-17 (modifiée le 2022-02-28)",
+    "url_lue": "https://mieuxpecher.com/finistere-sud-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de Pêche – Finistère SUD » cite : « Cap Coz »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -5706,33 +5763,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:pennenez"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée le 2018-10-16)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de pêche – Finistère NORD » cite : « Penn Enez à Plouguerneau »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -5742,33 +5802,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:aberildut"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée le 2018-10-16)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de pêche – Finistère NORD » cite : « L’embouchure de l’Aber Idult »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -5778,33 +5841,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:goyen"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée le 2018-10-16)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de pêche – Finistère NORD » cite : « Les digue à Audierne »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -5814,33 +5880,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:paluden"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018 (mise à jour 2020 d'après la V2)",
+    "url_lue": "https://mieuxpecher.com/10-coins-de-peche-en-bretagne-1/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Top 10 des Coins de Pêche en Bretagne (1/2) » cite : « Le secteur de Paluden jusqu’au pont du Diable est un secteur à ne pas manquer »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -5850,33 +5919,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:portmanech"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-06-17 (modifiée le 2022-02-28)",
+    "url_lue": "https://mieuxpecher.com/finistere-sud-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de Pêche – Finistère SUD » cite : « Embouchure de l'Aven et du Belon »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -5886,33 +5958,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:trenaouret"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée le 2018-10-16)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de pêche – Finistère NORD » cite : « Pointe de Trénaouret en début de montante »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -5922,34 +5997,37 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:sablesblancs",
     "spot:trevignon"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-06-17 (modifiée le 2022-02-28)",
+    "url_lue": "https://mieuxpecher.com/finistere-sud-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de Pêche – Finistère SUD » cite : « Concarneau : Les bordures de plage » et « La pointe de Trévignon »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -5959,33 +6037,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:espagnols"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée le 2018-10-16)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de pêche – Finistère NORD » cite : « Pointe des Espagnols, à condition de trouver les accès… »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -5995,33 +6076,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:carantec"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée le 2018-10-16)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de pêche – Finistère NORD » cite : « Pointe du Cosmeur à Carantec »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -6031,33 +6115,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:primel"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée le 2018-10-16)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de pêche – Finistère NORD » cite : « Les alentours de la pointe de Primel »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -6067,33 +6154,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:dinan"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée le 2018-10-16)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de pêche – Finistère NORD » cite : « Les environs du château de Dinan à Crozon »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -6103,33 +6193,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:minou"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée le 2018-10-16)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de pêche – Finistère NORD » cite : « Le Grand et le petit Minou »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -6139,33 +6232,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:leyde"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée le 2018-10-16)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de pêche – Finistère NORD » cite : « La Pointe de Leydé »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -6175,33 +6271,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:brezellec"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée le 2018-10-16)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de pêche – Finistère NORD » cite : « La pointe de Brezellec »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -6211,33 +6310,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:feunteunaod"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée le 2018-10-16)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de pêche – Finistère NORD » cite : « Pointe de Feunteun Aod à Plogoff »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -6247,33 +6349,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:locquirec"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée le 2018-10-16)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de pêche – Finistère NORD » cite : « La pointe de Locquirec » et « La digue de Locquirec à la nuit tombée »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -6283,33 +6388,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:rospico"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-06-17 (modifiée le 2022-02-28)",
+    "url_lue": "https://mieuxpecher.com/finistere-sud-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de Pêche – Finistère SUD » cite : « La pointe de Rospico »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -6319,33 +6427,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:laita"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-06-17 (modifiée le 2022-02-28)",
+    "url_lue": "https://mieuxpecher.com/finistere-sud-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de Pêche – Finistère SUD » cite : « L'estuaire de de la Laïta »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -6355,33 +6466,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:morgat"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-05-10 (modifiée le 2018-10-16)",
+    "url_lue": "https://mieuxpecher.com/finistere-nord-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de pêche – Finistère NORD » cite : « La Pointe et les abords du port de plaisance de Morgat »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -6391,33 +6505,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:mousterlin"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-06-17 (modifiée le 2022-02-28)",
+    "url_lue": "https://mieuxpecher.com/finistere-sud-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de Pêche – Finistère SUD » cite : « Pointe de Mousterlin à Fouesnant »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -6427,33 +6544,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:aberbenoit"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018 (mise à jour 2020 d'après la V2)",
+    "url_lue": "https://mieuxpecher.com/10-coins-de-peche-en-bretagne-1/",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Top 10 des Coins de Pêche en Bretagne (1/2) » cite : « Les abers sont réputés assez faciles à pêcher du bord et pleins de bars et de mulets » ; « trois Abers principaux : Benoit, Wrac’h et Idult »",
+    "bar_au_poste": true
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },
@@ -6463,33 +6583,36 @@
    "editeur": "mieuxpecher.com",
    "url": null,
    "type": "site, guide ou presse spécialisée",
-   "famille": null,
+   "famille": 4,
    "niveau_v2": null,
    "utilise_par": [
     "spot:saintguenole"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Norbert (mieuxpecher.com)",
+    "date": "2018-06-17 (modifiée le 2022-02-28)",
+    "url_lue": "https://mieuxpecher.com/finistere-sud-coins-de-peche/",
+    "lecture": "page entière (outil de lecture)",
+    "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée ; « pas exhaustive » selon la page",
+    "precision": "nom du lieu seulement ; ni poste, ni marée, ni date d'observation (sauf mention jointe à l'élément)",
+    "independance": "éditeur mieuxpecher.com (groupe propre) ; source d'origine de nombreux spots V2",
+    "limites": "liste ancienne et non sourcée ; ne prouve qu'une réputation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Coins de Pêche – Finistère SUD » cite : « Île Conq à Saint Guénolé »",
+    "bar_au_poste": false
    },
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
-    "nature": "site spécialisé de pêche (spots et conseils)",
+    "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
     "domaines": [
      "halieutique",
      "spots"
     ],
-    "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+    "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)",
-    "famille_inferee": null,
+    "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée",
     "classe_le": "2026-11-23"
    }
   },

@@ -422,13 +422,15 @@
   "carnet-de-peche.com": {
    "famille": 4,
    "groupe": null,
-   "nature": "blog ou site de pêcheurs (auteur souvent sous pseudonyme)",
+   "nature": "base de spots de pêche du bord rédigée par l'éditeur (632 fiches annoncées), avec carnet de prises des utilisateurs",
    "domaines": [
     "halieutique",
-    "accès"
+    "spots",
+    "technique"
    ],
-   "limites": "auteur et date souvent absents ; observations non reproductibles ; à recouper",
-   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
+   "limites": "méthode de sélection non publiée ; descriptions sans date d'observation ; positions floutées en accès gratuit, précises pour les abonnés (jamais reprises)",
+   "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur) ; contenu payant jamais repris",
+   "constat": "fiches lues le 23 nov. 2026 par le moteur de recherche (Penmarc'h, Mousterlin, Cap Coz, etc.)"
   },
   "pecheaubar.com": {
    "famille": 4,
@@ -1019,16 +1021,16 @@
    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)"
   },
   "mieuxpecher.com": {
-   "famille": null,
+   "famille": 4,
    "groupe": null,
-   "nature": "site spécialisé de pêche (spots et conseils)",
+   "nature": "site de pêche : listes de « meilleurs coins de pêche du bord » par département, par un auteur nommé (Norbert), 2018-2022",
    "domaines": [
     "halieutique",
     "spots"
    ],
-   "limites": "mode de production (rédaction, contributions, contenu généré) non établi : aucune page lue, la V2 cite sans adresse ; mieuxpecher.com compte pour une seule voix malgré 35 pages",
+   "limites": "listes sans méthode ni date d'observation ; nomment des lieux, rarement l'espèce ou la marée ; source d'origine de nombreux spots V2",
    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-   "constat": "recherche du 23 nov. 2026 : aucune page de ces sites retrouvée par la recherche ; famille non fixée (INCONNU)"
+   "constat": "pages lues le 23 nov. 2026 : Finistère NORD (2018-05-10, modifiée le 2018-10-16), Finistère SUD (2018-06-17, modifiée le 2022-02-28), Normandie (2019-06-30, modifiée le 2019-09-05) ; aucune méthode publiée"
   },
   "peche-poissons.com": {
    "famille": null,
