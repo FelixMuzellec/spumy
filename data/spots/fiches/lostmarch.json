@@ -532,10 +532,32 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
+  "statut": "INFÉRÉ",
   "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
   "verifie_le": "2026-11-23",
-  "raison": "Aucune photo géolocalisée de Wikimedia Commons à 400 m du point (inventaire du 2026-11-23)."
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Pointe de Lostmarc'h.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Lostmarc%27h.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Berrucomons",
+    "date": "2015-08-28 10:15:41",
+    "distance_m": 71
+   },
+   {
+    "titre": "Küste bei Lostmarc`h - panoramio (1).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:K%C3%BCste_bei_Lostmarc%60h_-_panoramio_(1).jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Besenbinder",
+    "date": "Taken on 28 June 2011",
+    "distance_m": 243
+   }
+  ],
+  "texte": "2 photos libres de Wikimedia Commons, à 243 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -549,7 +571,8 @@
    "src-ign-itineraire-pieton",
    "src-legifrance-tailles-minimales-2026",
    "src-mieuxpecher-com-4a6bbb",
-   "src-reserve-naturelle-regionale-de-l-1cff81"
+   "src-reserve-naturelle-regionale-de-l-1cff81",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : pointe de Lostmarc'h",
@@ -578,7 +601,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": "2026-11-23",
-  "completude": 0.79,
+  "completude": 0.81,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -587,8 +610,7 @@
    "safety.coef_max",
    "safety.acces_maree",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": [],
   "criteres": {

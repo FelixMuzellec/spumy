@@ -482,10 +482,64 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
+  "statut": "INFÉRÉ",
   "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
   "verifie_le": "2026-11-23",
-  "raison": "Aucune photo géolocalisée de Wikimedia Commons à 400 m du point (inventaire du 2026-11-23)."
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Plouezoc’h - Cairn de Barnenez - Objets datant du Néolithique - Fusaïoles ou pesons de métier à tisser.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Plouezoc%E2%80%99h_-_Cairn_de_Barnenez_-_Objets_datant_du_N%C3%A9olithique_-_Fusa%C3%AFoles_ou_pesons_de_m%C3%A9tier_%C3%A0_tisser.jpg",
+    "licence": "CC0",
+    "auteur": "Romainbehar",
+    "date": "2023-02-09 15:33:56",
+    "distance_m": 122
+   },
+   {
+    "titre": "Plouezoc’h - Cairn de Barnenez - 25-09-2021 - 01.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Plouezoc%E2%80%99h_-_Cairn_de_Barnenez_-_25-09-2021_-_01.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Quoique",
+    "date": "2021-09-25 16:20:57",
+    "distance_m": 180
+   },
+   {
+    "titre": "Cairn of Barnenez - Back.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Cairn_of_Barnenez_-_Back.JPG",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Florent Ls",
+    "date": "2012-07-01",
+    "distance_m": 233
+   },
+   {
+    "titre": "Cairn of Barnenez - Front.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Cairn_of_Barnenez_-_Front.JPG",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Florent Ls",
+    "date": "2012-07-01",
+    "distance_m": 233
+   },
+   {
+    "titre": "Cairn of Barnenez - Chamber entrance.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Cairn_of_Barnenez_-_Chamber_entrance.JPG",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Florent Ls",
+    "date": "2012-07-01",
+    "distance_m": 233
+   },
+   {
+    "titre": "Cairn of Barnenez - 20th century quarrying..JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Cairn_of_Barnenez_-_20th_century_quarrying..JPG",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Florent Ls",
+    "date": "2012-07-10",
+    "distance_m": 233
+   }
+  ],
+  "texte": "6 photos libres de Wikimedia Commons, à 233 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -500,7 +554,8 @@
    "src-legifrance-tailles-minimales-2026",
    "src-peche-poissons-com-44c3a2",
    "src-portbooker-com-eae758",
-   "src-visorando-com-656214"
+   "src-visorando-com-656214",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "baiedemorlaix.bzh — office de tourisme : pointe de Barnenez, zones ostréicoles de la rive est",
@@ -531,7 +586,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": "2026-11-23",
-  "completude": 0.8,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -540,8 +595,7 @@
    "safety.coef_max",
    "safety.mouvements_terrain",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": [],
   "criteres": {

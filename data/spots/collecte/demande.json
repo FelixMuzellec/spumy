@@ -1,15 +1,8 @@
 {
- "//": "Demande CI (5.12) : accès IGN, risques Géorisques et photos Commons des six fiches candidates créées par la passe exhaustive.",
- "ids": [
-  "percho",
-  "conguel",
-  "saintcolomban",
-  "plougrescant",
-  "querqueville",
-  "caplevi"
- ],
+ "//": "Demande de collecte pour la CI : vide (fin de 5.12).",
+ "ids": [],
  "requetes": {},
- "photos": true,
- "risques": true,
+ "photos": false,
+ "risques": false,
  "candidats": false
 }

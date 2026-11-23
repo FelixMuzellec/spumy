@@ -12,7 +12,7 @@
    "candidate": 6,
    "TOP_TIER": 2
   },
-  "stationnementConnu": 60
+  "stationnementConnu": 66
  },
  "spots": [
   {
@@ -110,13 +110,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 12,
+   "sources": 13,
    "sources_v2": 5,
    "derniere_verification": "2026-11-23",
-   "completude": 0.8,
-   "inconnus": 9,
+   "completude": 0.82,
+   "inconnus": 8,
    "anomalies": 0,
    "guide_v2": "carantec"
   },
@@ -254,16 +254,16 @@
    "lat": 49.695877,
    "lon": -1.473208,
    "precision_m": 1000,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.32,
+   "inconnus": 23,
    "anomalies": 1
   },
   {
@@ -316,16 +316,16 @@
    "lat": 47.469286,
    "lon": -3.080425,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 11,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.35,
+   "inconnus": 22,
    "anomalies": 1
   },
   {
@@ -612,13 +612,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 2
+    "plus_faible": 4
    },
-   "sources": 13,
+   "sources": 14,
    "sources_v2": 5,
    "derniere_verification": "2026-11-23",
-   "completude": 0.78,
-   "inconnus": 9,
+   "completude": 0.8,
+   "inconnus": 8,
    "anomalies": 0,
    "guide_v2": "logonna"
   },
@@ -696,13 +696,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 3,
    "derniere_verification": "2026-11-23",
-   "completude": 0.79,
-   "inconnus": 9,
+   "completude": 0.81,
+   "inconnus": 8,
    "anomalies": 0,
    "guide_v2": "crozon"
   },
@@ -780,13 +780,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 13,
+   "sources": 14,
    "sources_v2": 5,
    "derniere_verification": "2026-11-23",
-   "completude": 0.79,
-   "inconnus": 9,
+   "completude": 0.81,
+   "inconnus": 8,
    "anomalies": 0,
    "guide_v2": "concarneau"
   },
@@ -987,16 +987,16 @@
    "lat": 47.523535,
    "lon": -3.159879,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 11,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.35,
+   "inconnus": 22,
    "anomalies": 1
   },
   {
@@ -1028,16 +1028,16 @@
    "lat": 48.869558,
    "lon": -3.22477,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.32,
+   "inconnus": 23,
    "anomalies": 1
   },
   {
@@ -1111,16 +1111,16 @@
    "lat": 49.66929,
    "lon": -1.679844,
    "precision_m": 1000,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.32,
+   "inconnus": 23,
    "anomalies": 1
   },
   {
@@ -1236,16 +1236,16 @@
    "lat": 47.563799,
    "lon": -3.095855,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 6,
+   "sources": 11,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.19,
-   "inconnus": 25,
+   "completude": 0.35,
+   "inconnus": 22,
    "anomalies": 1
   },
   {

@@ -471,10 +471,56 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
+  "statut": "INFÉRÉ",
   "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
   "verifie_le": "2026-11-23",
-  "raison": "Aucune photo géolocalisée de Wikimedia Commons à 400 m du point (inventaire du 2026-11-23)."
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Landevennec panoramic.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Landevennec_panoramic.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "MartinD",
+    "date": "2018-07-16",
+    "distance_m": 92
+   },
+   {
+    "titre": "Cimetière de Landévennec - panoramio.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Cimeti%C3%A8re_de_Land%C3%A9vennec_-_panoramio.jpg",
+    "licence": "CC BY 3.0",
+    "auteur": "Fabrice VAN MULLEM",
+    "date": "Taken on 27 June 2007",
+    "distance_m": 171
+   },
+   {
+    "titre": "Landévennec (29) Église Notre-Dame 03.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Land%C3%A9vennec_(29)_%C3%89glise_Notre-Dame_03.JPG",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "GO69",
+    "date": "2012-03-24 11:32:20",
+    "distance_m": 173
+   },
+   {
+    "titre": "Cimetiere Landevennec.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Cimetiere_Landevennec.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Schorle",
+    "date": "2018-08-17 16:15:11",
+    "distance_m": 182
+   },
+   {
+    "titre": "Landevennec pub and library.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Landevennec_pub_and_library.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "MartinD",
+    "date": "2018-07-16 12:06:06",
+    "distance_m": 238
+   }
+  ],
+  "texte": "5 photos libres de Wikimedia Commons, à 238 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -490,7 +536,8 @@
    "src-peche-com-6ce21a",
    "src-peche-com-e8b658",
    "src-peche-poissons-com-0a9fa0",
-   "src-voileaviron-org-f9f46c"
+   "src-voileaviron-org-f9f46c",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "peche.com — À la recherche du bar du côté du cimetière de bateaux en fond de rade de Brest",
@@ -521,7 +568,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": "2026-11-23",
-  "completude": 0.78,
+  "completude": 0.8,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -530,8 +577,7 @@
    "safety.acces_maree",
    "safety.mouvements_terrain",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": [],
   "criteres": {

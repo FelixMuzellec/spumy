@@ -45,10 +45,10 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   for (const { fichier, fiche: f } of lireFiches()) {
     const avant = JSON.stringify(f);
     const g = nettoyer(f);
-    g.provenance.sources_v2 = (g.provenance.sources_v2 || []).filter((s) => !/^Ton journal\b/i.test(s));
+    if (g.provenance.sources_v2) g.provenance.sources_v2 = g.provenance.sources_v2.filter((s) => !/^Ton journal\b/i.test(s));
     g.provenance.sources = g.provenance.sources.filter((id) => !id.startsWith("src-ton-journal-"));
     if (JSON.stringify(g) === avant) continue;
-    g.legacy.champs_non_repris = { ...g.legacy.champs_non_repris,
+    if (g.legacy) g.legacy.champs_non_repris = { ...g.legacy.champs_non_repris,
       texte_prive: `Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le ${JOUR} (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json.` };
     const q = qualite(g); g.quality.inconnus = q.inconnus; g.quality.completude = q.completude;
     fs.writeFileSync(path.join(DIR_FICHES, fichier), JSON.stringify(g, null, 1) + "\n");

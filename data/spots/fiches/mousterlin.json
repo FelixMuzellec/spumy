@@ -485,10 +485,48 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
+  "statut": "INFÉRÉ",
   "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
   "verifie_le": "2026-11-23",
-  "raison": "Aucune photo géolocalisée de Wikimedia Commons à 400 m du point (inventaire du 2026-11-23)."
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Pointe de Mousterlin (panorama à 360°) - panoramio.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Mousterlin_(panorama_%C3%A0_360%C2%B0)_-_panoramio.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "superp1errot",
+    "date": "Taken on 5 April 2011",
+    "distance_m": 17
+   },
+   {
+    "titre": "W4724 Fouesnant Mousterlin 23460XA2.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:W4724_Fouesnant_Mousterlin_23460XA2.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Llann Wé²",
+    "date": "2024-06-02 18:18:21",
+    "distance_m": 135
+   },
+   {
+    "titre": "Aplysie à la Pointe de Mousterlin, en Bretagne (Ifremer 00959-107117 - 55914).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Aplysie_%C3%A0_la_Pointe_de_Mousterlin,_en_Bretagne_(Ifremer_00959-107117_-_55914).jpg",
+    "licence": "CC BY 4.0",
+    "auteur": "Gregory Rocher (IFREMER, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France)",
+    "date": "Taken on 30 May 2002",
+    "distance_m": 201
+   },
+   {
+    "titre": "Ponte d'aplysie à la Pointe de Mousterlin, en Bretagne (Ifremer 00959-107122).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Ponte_d%27aplysie_%C3%A0_la_Pointe_de_Mousterlin,_en_Bretagne_(Ifremer_00959-107122).jpg",
+    "licence": "CC BY 4.0",
+    "auteur": "Gregory Rocher (IFREMER, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France)",
+    "date": "Taken on 30 May 2002",
+    "distance_m": 201
+   }
+  ],
+  "texte": "4 photos libres de Wikimedia Commons, à 201 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -504,7 +542,8 @@
    "src-ign-itineraire-pieton",
    "src-legifrance-tailles-minimales-2026",
    "src-mieuxpecher-com-e73489",
-   "src-visorando-com-4845a1"
+   "src-visorando-com-4845a1",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : pointe de Mousterlin",
@@ -543,7 +582,7 @@
  "quality": {
   "statut": "TOP_TIER",
   "derniere_verification": "2026-11-23",
-  "completude": 0.79,
+  "completude": 0.81,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -552,8 +591,7 @@
    "tide_approaches.descendante",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": [],
   "criteres": {
