@@ -23,7 +23,7 @@ const git = (...a) => execFileSync("git", a, { cwd: root, maxBuffer: 64 << 20 })
 
 // Version publiée : les fichiers du site à la racine de la référence (pages, scripts, fiches, icônes, manifeste).
 const OLD = fs.mkdtempSync(path.join(os.tmpdir(), "spumy-publie-"));
-const NOT_SITE = new Set(["package.json", "package-lock.json", ".eslintrc.json"]);
+const NOT_SITE = new Set(["package.json", "package-lock.json", ".eslintrc.json", "eslint.config.js", "tsconfig.typecheck.json"]);
 const oldFiles = git("ls-tree", "--name-only", FROM).toString().split("\n").filter((f) => /\.(html|js|json|png)$/.test(f) && !NOT_SITE.has(f));
 for (const f of oldFiles) fs.writeFileSync(path.join(OLD, f), git("show", `${FROM}:${f}`));
 const oldBuild = (fs.readFileSync(path.join(OLD, "sw.js"), "utf8").match(/guide-bar-([0-9a-f]+)/) || [])[1];

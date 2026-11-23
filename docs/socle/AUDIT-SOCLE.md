@@ -89,5 +89,5 @@ Méthode : références statiques (`git grep`, y compris scripts, tests, CI et d
 2. Erreurs typées communes (codes, messages en français, cause gardée) et validation des entrées aux frontières.
 3. CI : contrôle de types, `tests/brand.py`, attente des polices dans les tests de mise en page, `.gitignore` complété.
 4. Détection de secrets dans la CI (arbre et nouveaux commits).
-5. Proposition à Félix : passer à ESLint 9 ou 10 (configuration « flat ») ; épingler les actions par empreinte.
+5. Proposition à Félix : passer à ESLint 9 ou 10 (configuration « flat ») ; épingler les actions par empreinte. **Suite** (23 nov., accord de Félix à 14 h 54) : ESLint 10.15.0, ESLint 9 étant lui aussi en fin de vie depuis le 6 août 2026 (4.12) ; actions épinglées par empreinte (4.13). Voir `docs/socle/MAINTENANCE-OUTILS.md`.
 6. Nettoyage : le seul élément mort sûr (`map.jsx`, supprimé en 4.7) ; le reste en registre (`docs/socle/NETTOYAGE.md`).
