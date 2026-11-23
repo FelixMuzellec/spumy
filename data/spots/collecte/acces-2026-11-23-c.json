@@ -1,0 +1,119 @@
+{
+ "//": "Collecte ciblée du 23 nov. 2026 (Régnéville, position corrigée). Données IGN seulement, Licence Ouverte.",
+ "date": "2026-11-23",
+ "passage": 45257199422,
+ "spots": [
+  {
+   "id": "regneville",
+   "point": {
+    "lat": 49.007977,
+    "lon": -1.566781,
+    "precision_m": 300
+   },
+   "toponymes": [
+    {
+     "source": "ign",
+     "nom": "Église Notre-Dame",
+     "categorie": "culte chrétien, zone d'activité ou d'intérêt",
+     "lat": 49.008372,
+     "lon": -1.552461,
+     "ecart_m": 1045
+    },
+    {
+     "source": "ign",
+     "nom": "Regnéville-sur-Mer",
+     "categorie": "lieu-dit habité, zone d'habitation",
+     "lat": 49.013086,
+     "lon": -1.551402,
+     "ecart_m": 1257
+    },
+    {
+     "source": "ign",
+     "nom": "Écomusée des Fours à Chaux du Rey Musée Maritime",
+     "categorie": "ecomusée, zone d'activité ou d'intérêt",
+     "lat": 49.002953,
+     "lon": -1.542257,
+     "ecart_m": 1874
+    },
+    {
+     "source": "ign",
+     "nom": "Regnéville-sur-Mer",
+     "categorie": "administratif, commune",
+     "lat": 49.014478,
+     "lon": -1.542051,
+     "ecart_m": 1943
+    },
+    {
+     "source": "ign",
+     "nom": "Église Saint-Étienne",
+     "categorie": "culte chrétien, zone d'activité ou d'intérêt",
+     "lat": 49.020831,
+     "lon": -1.540306,
+     "ecart_m": 2402
+    }
+   ],
+   "parkings": [
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.50016",
+     "lon": -1.575052774,
+     "lat": 49.001777505999996,
+     "ecart_m": 916,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.67681",
+     "lon": -1.555420796,
+     "lat": 49.013620751999994,
+     "ecart_m": 1039,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.82012",
+     "lon": -1.55457335,
+     "lat": 49.01499497,
+     "ecart_m": 1184,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.50014",
+     "lon": -1.582767688,
+     "lat": 49.016697633999996,
+     "ecart_m": 1516,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    }
+   ],
+   "marche": [
+    {
+     "parking": "equipement_de_transport.50016",
+     "resource": "bdtopo-pgr",
+     "minutes": 11.6,
+     "km": 0.77
+    },
+    {
+     "parking": "equipement_de_transport.67681",
+     "resource": "bdtopo-pgr",
+     "minutes": 212.7,
+     "km": 14.17
+    },
+    {
+     "parking": "equipement_de_transport.82012",
+     "resource": "bdtopo-pgr",
+     "minutes": 209.7,
+     "km": 13.98
+    }
+   ]
+  }
+ ]
+}

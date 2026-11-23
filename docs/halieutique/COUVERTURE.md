@@ -20,8 +20,8 @@ Phase 5 V3, livrable 5, sous-tâche 5.10. **Version intermédiaire du 23 novembr
 | Contrôle | Résultat |
 | --- | --- |
 | Inventaire et sauvegarde des spots V2 | 66 sur 66, empreintes vérifiées à chaque test |
-| Stationnement (BD TOPO de l'IGN) et temps de marche (itinéraire piéton de l'IGN) | **59 sur 66** ; médiane de 5 min de marche, maximum 37 min |
-| Position contrôlée par un toponyme officiel de même nom | 60 ; **3 positions corrigées** (Agon, Carteret, Portbail, plus Régnéville en cours) |
+| Stationnement (BD TOPO de l'IGN) et temps de marche (itinéraire piéton de l'IGN) | **60 sur 66** ; médiane de 5 min de marche, maximum 37 min |
+| Position contrôlée par un toponyme officiel de même nom | 60 ; **4 positions corrigées** (Agon, Carteret, Portbail, Régnéville) |
 | Réglementation du bar 2026, sur les textes officiels | 66 sur 66 (52 en zone CIEM 7, 14 en zone CIEM 8) |
 | Approches par phase de marée | 133 phases documentées sur 264 (fenêtres V2) ; les autres restent inconnues |
 

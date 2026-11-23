@@ -31,13 +31,39 @@
    "lat": null,
    "lon": null,
    "texte": "49°01'N 1°34'W"
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Regnéville-sur-Mer",
+    "ecart_m": 1257
+   },
+   "texte": "Toponyme officiel « Regnéville-sur-Mer » (lieu-dit habité, zone d'habitation) à 1257 m de la position de la fiche."
   }
  },
  "access": {
   "stationnement": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v3",
-   "raison": "Position corrigée le 23 nov. 2026 : le parking et la marche sont à recalculer sur la nouvelle position (prochaine collecte)."
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 49.001778,
+    "lon": -1.575053,
+    "ign": "equipement_de_transport.50016",
+    "nature": "Parking touristique",
+    "ecart_m": 916
+   },
+   "texte": "Parking touristique recensé par la BD TOPO de l'IGN, à 916 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
   },
   "approche": {
    "statut": "INFÉRÉ",
@@ -46,9 +72,15 @@
    "verifie_le": null
   },
   "marche_min": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v3",
-   "raison": "À recalculer sur la position corrigée (prochaine collecte)."
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 12,
+   "texte": "12 min à pied (0,77 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
   },
   "difficulte": {
    "statut": "INCONNU",
@@ -432,7 +464,9 @@
    "src-arrete-peche-loisir-2026-recfishing",
    "src-cirkwi-com-f9fb38",
    "src-cpiecotentin-com-c65abb",
+   "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
    "src-legifrance-tailles-minimales-2026",
    "src-peche-com-66aceb",
    "src-sylco-peche-brehal-fr-54c906"
@@ -453,10 +487,8 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.76,
+  "completude": 0.81,
   "inconnus": [
-   "access.stationnement",
-   "access.marche_min",
    "access.difficulte",
    "access.restrictions",
    "tide_approaches.basse",

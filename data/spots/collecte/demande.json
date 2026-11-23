@@ -1,7 +1,5 @@
 {
- "//": "Spots à collecter au prochain passage de la CI (scripts/collecte-acces.mjs). Après le 23 nov. (passages 45255151172 et 45256513674) : regneville, position corrigée (havre), parking et marche à recalculer ; pirou, gouville et surtainville restent à la minute près (aucun toponyme naturel de même nom).",
- "ids": [
-  "regneville"
- ],
+ "//": "Spots à collecter au prochain passage de la CI (scripts/collecte-acces.mjs). Rien en attente après le 23 nov. 2026 (Régnéville intégrée).",
+ "ids": [],
  "requetes": {}
 }
