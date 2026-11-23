@@ -10,6 +10,7 @@ on:
       - "data/spots/collecte/demande.json"
       - "scripts/collecte-photos.mjs"
       - "scripts/collecte-risques.mjs"
+      - "scripts/collecte-candidats.mjs"
       - ".github/workflows/collecte-spots.yml"
 
 permissions:
@@ -30,6 +31,9 @@ jobs:
       - name: Inventaire des photos libres (Wikimedia Commons)
         run: |
           if node -e "process.exit(require('./data/spots/collecte/demande.json').photos?0:1)"; then node scripts/collecte-photos.mjs; else echo "inventaire des photos non demandé"; fi
+      - name: Position des candidats (géocodage IGN)
+        run: |
+          if node -e "process.exit(require('./data/spots/collecte/demande.json').candidats?0:1)"; then node scripts/collecte-candidats.mjs; else echo "candidats non demandés"; fi
       - name: Risques naturels officiels (Géorisques)
         run: |
           if node -e "process.exit(require('./data/spots/collecte/demande.json').risques?0:1)"; then node scripts/collecte-risques.mjs; else echo "risques non demandés"; fi

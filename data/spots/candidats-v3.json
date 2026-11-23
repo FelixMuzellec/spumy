@@ -1,0 +1,11 @@
+{
+ "//": "Candidats de la passe exhaustive (5.12, 23 nov. 2026) : postes des quatre zones sans fiche, nommés par au moins deux éditeurs indépendants dans des pages lues. Les positions viennent du géocodage IGN (collecte CI), jamais des sources de pêche.",
+ "candidats": [
+  { "id": "percho", "nom": "Pointe du Percho", "requete": "Pointe du Percho", "departement": "56", "milieu": "pointe rocheuse de côte exposée (côte sauvage de Quiberon)" },
+  { "id": "conguel", "nom": "Pointe du Conguel", "requete": "Pointe du Conguel", "departement": "56", "milieu": "pointe rocheuse au sud de la presqu'île de Quiberon" },
+  { "id": "saintcolomban", "nom": "Pointe de Saint-Colomban", "requete": "Pointe de Saint-Colomban", "departement": "56", "milieu": "pointe rocheuse (Carnac)" },
+  { "id": "plougrescant", "nom": "Pointe du Château (Plougrescant)", "requete": "Pointe du Château", "departement": "22", "milieu": "pointe rocheuse de la côte du Trégor" },
+  { "id": "querqueville", "nom": "Pointe et digue de Querqueville", "requete": "Querqueville", "departement": "50", "milieu": "pointe et digue de la rade de Cherbourg" },
+  { "id": "caplevi", "nom": "Cap Lévi", "requete": "Cap Lévi", "departement": "50", "milieu": "cap rocheux du nord-est du Cotentin (Fermanville)" }
+ ]
+}
