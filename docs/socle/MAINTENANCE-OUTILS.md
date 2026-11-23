@@ -105,7 +105,12 @@ Les deux cas négatifs ont été essayés (`@v7`, `ubuntu-latest`) : code de sor
 3. Attendre qu'elle ait au moins sept jours.
 4. Remplacer l'empreinte et le commentaire de version, puis faire passer la CI sur une proposition.
 
-Une option reste possible : Dependabot, pour proposer ces mises à jour tout seul. **Non activé** : il ouvrirait des propositions sur le dépôt de lui-même, et c'est à Félix d'en décider.
+**Dependabot** (décision de Félix, 23 nov. 2026, 19 h 07) : `.github/dependabot.yml`, pour les actions GitHub seulement.
+- Une proposition par mois au plus, toutes les actions ensemble.
+- Une version n'est proposée qu'après 7 jours d'attente : Dependabot sait appliquer ce délai aux actions GitHub.
+- Dependabot met à jour l'empreinte **et** le commentaire de version.
+- Il ne lit sa configuration que dans la branche par défaut : **il sera actif à la fusion de la V3 dans `main`**. Ses propositions viseront `main` et devront passer `tests` et `contrat`, comme toutes les autres.
+- La procédure manuelle ci-dessus reste valable d'ici là.
 
 ### Retour arrière
 
