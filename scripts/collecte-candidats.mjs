@@ -7,9 +7,9 @@ import path from "node:path";
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const { candidats } = JSON.parse(fs.readFileSync(path.join(root, "data/spots/candidats-v3.json"), "utf8"));
 const pause = (ms) => new Promise((r) => setTimeout(r, ms));
-for (const c of candidats) {
-  const url = `https://data.geopf.fr/geocodage/search?index=poi&limit=10&q=${encodeURIComponent(c.requete)}`;
-  let res = { erreur: null, toponymes: [] };
+async function chercher(c, requete) {
+  const url = `https://data.geopf.fr/geocodage/search?index=poi&limit=10&q=${encodeURIComponent(requete)}`;
+  const res = { erreur: null, toponymes: [] };
   try {
     const r = await fetch(url, { headers: { Accept: "application/json" }, signal: AbortSignal.timeout(15000) });
     const j = r.ok ? await r.json() : null;
@@ -20,6 +20,17 @@ for (const c of candidats) {
         commune: [].concat(p.city || [])[0] || null, citycode: [].concat(p.citycode || [])[0] || null, lat: x.geometry?.coordinates?.[1], lon: x.geometry?.coordinates?.[0] };
     }).filter((t) => t.lat != null && String(t.postcode || t.citycode || "").startsWith(c.departement));
   } catch (e) { res.erreur = e?.cause?.code || e?.message; }
+  return res;
+}
+// « requete » d'abord, puis les « autres_requetes » éventuelles (variantes du même nom) : les toponymes sont réunis sans doublon.
+for (const c of candidats) {
+  const res = { erreur: null, toponymes: [] };
+  const vus = new Set();
+  for (const q of [c.requete, ...(c.autres_requetes || [])]) {
+    const r = await chercher(c, q);
+    res.erreur ??= r.erreur;
+    for (const t of r.toponymes) { const k = `${t.nom}|${t.lat}|${t.lon}`; if (!vus.has(k)) { vus.add(k); res.toponymes.push(t); } }
+    await pause(300);
+  }
   console.log(`CANDIDAT ${JSON.stringify({ id: c.id, requete: c.requete, departement: c.departement, ...res })}`);
-  await pause(300);
 }

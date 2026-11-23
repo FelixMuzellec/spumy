@@ -61,7 +61,11 @@
    "requete": "Pointe du Berchis",
    "departement": "56",
    "milieu": "pointe rocheuse du golfe du Morbihan (Larmor-Baden)",
-   "sans_position": "aucun toponyme IGN de ce nom (géocodage du 23 nov. 2026) : pas de fiche tant que la position n'est pas sourcée"
+   "sans_position": "aucun toponyme IGN de ce nom (géocodage du 23 nov. 2026) : pas de fiche tant que la position n'est pas sourcée",
+   "autres_requetes": [
+    "Le Berchis",
+    "Berchis"
+   ]
   },
   {
    "id": "begenaud",
@@ -96,7 +100,11 @@
    "requete": "Pointe du Dourven",
    "departement": "22",
    "milieu": "pointe rocheuse de la baie de Lannion (Trédrez-Locquémeau)",
-   "sans_position": "aucun toponyme IGN de ce nom (géocodage du 23 nov. 2026) : pas de fiche tant que la position n'est pas sourcée"
+   "sans_position": "aucun toponyme IGN de ce nom (géocodage du 23 nov. 2026) : pas de fiche tant que la position n'est pas sourcée",
+   "autres_requetes": [
+    "Le Dourven",
+    "Dourven"
+   ]
   },
   {
    "id": "brehec",
@@ -139,21 +147,33 @@
    "nom": "Saint-Malo : Grand Bé et Petit Bé",
    "requete": "Grand Bé",
    "departement": "35",
-   "milieu": "îlots rocheux reliés à la côte à basse mer (embouchure de la Rance)"
+   "milieu": "îlots rocheux reliés à la côte à basse mer (embouchure de la Rance)",
+   "toponyme": "le Grand Bé",
+   "commune": "Saint-Malo"
   },
   {
    "id": "rosaires",
    "nom": "Plage des Rosaires et pointe de Pordic",
    "requete": "Plage des Rosaires",
    "departement": "22",
-   "milieu": "plage et pointe rocheuse de la baie de Saint-Brieuc"
+   "milieu": "plage et pointe rocheuse de la baie de Saint-Brieuc",
+   "autres_requetes": [
+    "Les Rosaires",
+    "Rosaires",
+    "Pointe de Pordic"
+   ]
   },
   {
    "id": "etel",
    "nom": "Étel : embouchure et estuaire",
    "requete": "Barre d'Étel",
    "departement": "56",
-   "milieu": "embouchure de la ria d'Étel et sa barre"
+   "milieu": "embouchure de la ria d'Étel et sa barre",
+   "autres_requetes": [
+    "Barre d'Etel",
+    "Embouchure de la rivière d'Étel",
+    "Plage de Kervégant"
+   ]
   }
  ]
 }

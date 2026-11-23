@@ -4,7 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import Ajv2020 from "ajv/dist/2020.js";
 import { lireFiches, texteRegistre, F_REGISTRE } from "../scripts/registre-spots.mjs";
-import { CLASSEMENT } from "../scripts/securite-maree.mjs";
+import { CLASSEMENT, CLASSEMENT_V3 } from "../scripts/securite-maree.mjs";
 import { qualifier, sourcesParSpot } from "../scripts/qualifier-fiches.mjs";
 import { PRIVE } from "../scripts/retirer-texte-prive.mjs";
 import { qualite } from "../scripts/fiches-v3-depuis-v2.mjs";
@@ -71,6 +71,9 @@ for (const { fiche: f } of fiches) {
   t(`${f.id} : contrainte d'accès liée à la marée renseignée`, !!am);
   if (c) t(`${f.id} : contrainte de marée = classement relu (${c[0].join(", ")})`, am?.statut !== "INCONNU" && JSON.stringify(am?.valeur) === JSON.stringify(c[0]) && f.safety.consignes.some((x) => x.texte.includes(c[1])));
   else if (am?.origine === "v2") t(`${f.id} : sans consigne de marée, la contrainte est INCONNU (jamais « sans risque »)`, am.statut === "INCONNU");
+  const v3 = CLASSEMENT_V3[f.id];
+  if (v3) t(`${f.id} : contrainte de marée V3 = classement relu, chaque consigne sourcée et au registre`, am?.origine === "v3" && JSON.stringify(am.valeur) === JSON.stringify(v3.codes) && am.sources?.length && am.verifie_le
+    && v3.consignes.every((x) => f.safety.consignes.some((y) => y.texte === x.texte && y.origine === "v3" && y.sources?.length && y.sources.every((id) => ids.has(id)))));
   if (am?.valeur?.length) t(`${f.id} : contrainte de marée, fenêtre de sécurité inconnue ou sourcée`, f.windows.securite.statut === "INCONNU" || (f.windows.securite.sources?.length && f.windows.securite.verifie_le));
   if (f.photos.statut !== "INCONNU") t(`${f.id} : chaque photo gardée a sa page, sa licence libre et sa distance`, Array.isArray(f.photos.valeur) && f.photos.valeur.length > 0 && f.photos.valeur.every((p) => /^https:\/\/commons\.wikimedia\.org\//.test(p.page) && /^(CC0|Public domain|CC BY(-SA)? [0-9.]+)$/.test(p.licence) && p.distance_m <= 400));
 }
