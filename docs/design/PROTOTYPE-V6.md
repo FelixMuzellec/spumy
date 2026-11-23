@@ -18,16 +18,16 @@ Félix ne veut pas revenir sur ce qui a été validé : ce document et le journa
 
 Dans les deux cas, chaque effet annoncé donne son explication, sa source et son niveau de preuve (1 à 5, `data/knowledge/bar-bord.json`). Une hypothèse est marquée comme telle. Sans connaissance sourcée, aucun effet n'est annoncé.
 
-**Toujours du général au spécifique**, sur la Carte, la Météo et partout ailleurs :
+**Toujours du général au spécifique**, sur la Carte, la Météo et partout ailleurs (Félix, 7 h 03 et 7 h 47) :
 
 | Niveau | Carte | Météo |
 | --- | --- | --- |
-| 1. Vue d'ensemble | Typologie de la côte de la zone : rochers, sable, havres et estuaires, courants | Synthèse des conditions du jour pour la pêche, en une phrase |
-| 2. Le spot | Verdict du terrain en une ligne dans la bulle | Verdict des conditions en tête du panneau |
-| 3. Les éléments | Fond, terrain, structure, exposition, courant, chacun avec son effet | Vent, houle, pression, eau, ciel, pluie, marée, chacun avec son effet |
-| 4. Le détail, à déplier | Pourquoi, source, niveau de preuve | Pourquoi, source, niveau de preuve |
+| 1. Le point de vue global | La carte des spots telle que définie : terrain, pastilles, filtres | La carte du vent telle que définie : vent animé, pastilles, jours |
+| 2. Le spot | Toucher un spot : la bulle, avec sa note | Toucher un spot : le panneau, avec sa note |
+| 3. La justification | **Pourquoi ce spot est bon aujourd'hui par son terrain** : fond, structure, exposition, courant, croisés avec la marée et les conditions du jour, chacun avec son effet | **Comment la météo a pesé dans la note** : chaque élément (vent selon la côte, houle, pression, eau, ciel, pluie, marée, coefficient), le sens et le poids de son effet |
+| 4. Le détail, à déplier | La règle générale, la source, le niveau de preuve | La règle générale, la source, le niveau de preuve |
 
-Chaque explication part de la règle générale, ce que l'on sait du bar, avant de dire ce qu'elle donne pour ce spot, à cette heure.
+La justification rend compte de la note affichée, jamais par une décomposition inventée. Le poids exact viendra du moteur ; dans le prototype, ce sont des valeurs de démonstration cohérentes avec la note, marquées comme telles. Chaque explication part de la règle générale, ce que l'on sait du bar, avant de dire ce qu'elle donne pour ce spot, à cette heure.
 
 ## 1. Exigences de finition
 

@@ -372,10 +372,11 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
     2. **Météo** : pour chaque élément, l'effet favorable ou défavorable, pourquoi en mots simples, la source et le niveau de preuve, tirés des connaissances sourcées : vent-exposition, rafales-penalite, houle-turbidite, pression, eau-chaude, seuils-thermiques, ciel-couvert, lumiere-basse, pluie-turbidite, maree-flot, coefficient-plage-utile, courant-coefficient, gros-coefficient-turbidite. Sans connaissance sourcée, la valeur s'affiche sans effet annoncé.
     3. Rien n'est inventé. Les effets et les explications viennent des données et des connaissances sourcées du dépôt. L'audit biologique et halieutique de la phase 5 les revalidera.
     4. **Toujours du général au spécifique** (Félix, 7 h 03 : « Mais toujours de façon générale pour aller vers le spécifique ») :
-        - chaque écran montre d'abord la vue d'ensemble : sur la Carte, la typologie de la côte de la zone ; sur la Météo, la synthèse des conditions du jour pour la pêche ;
-        - puis le spot : son verdict en une ligne ;
-        - puis chaque élément avec son effet ;
-        - enfin, à déplier, l'explication, la source et le niveau de preuve ;
-        - chaque explication part de la règle générale (ce que l'on sait du bar) avant de dire ce qu'elle donne pour ce spot, à cette heure.
+        - précision de Félix (7 h 47) : « Pour les 2 tu commences de la carte qui ont été définies ensemble, c'est le point de vue global et après on étudie tous les points spécifiques pour arriver à justifier ton approche terrain, pourquoi ce spot est bon aujourd'hui, et ton approche météo, comment tu as pris ces indications dans ta note » ;
+        - le point de vue global, c'est la carte de chaque onglet telle que définie (Carte : les spots sur le terrain ; Météo : le vent sur la zone) ;
+        - puis le spot touché, avec sa note ;
+        - puis la justification : sur la Carte, pourquoi ce spot est bon aujourd'hui par son terrain (fond, structure, exposition, courant, croisés avec la marée et les conditions du jour) ; sur la Météo, comment chaque élément météo a pesé dans la note (dans quel sens et avec quel poids) ;
+        - enfin, à déplier, la règle générale, la source et le niveau de preuve ;
+        - la justification doit rendre compte de la note affichée : jamais une décomposition inventée. Le poids exact vient du moteur ; dans le prototype, des valeurs de démonstration cohérentes avec la note, marquées comme telles.
 - **Ce que cela modifie dans le référentiel** : il ne fixait pas cette finalité aux onglets ; elle devient la règle de conception de la Carte et de la Météo. Exigences ajoutées : MAP-09, MET-05.
 
