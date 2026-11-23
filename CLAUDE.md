@@ -7,6 +7,7 @@
 1. Lire ce fichier, `SPUMY_AUDIT_CONTINUITY.md`, `docs/DECISIONS_LOG.md` et les exigences applicables (`docs/REQUIREMENTS.md`).
 2. Vérifier l'état réel : `git status`, branche, branches distantes, derniers commits, propositions ouvertes.
 3. Identifier la dernière phase autorisée par un jeton `APPROVED — PROCEED TO PHASE X` et reprendre sa prochaine tâche non terminée. Sans jeton, aucune phase suivante ne démarre.
+   - Jetons conditionnels de Félix (23 nov. 2026, 23 h 15, `docs/DECISIONS_LOG.md` ; modifie l'arrêt obligatoire du référentiel) : la phase 6 démarre seulement quand la phase 5 est close avec tous ses gates PASS ; la phase 7 seulement quand la phase 6 est close après trois passes de challenge (au moins une par un relecteur qui n'a pas produit le travail). Gate en échec ou question bloquante : arrêt, question à Félix. Jamais de phase 8 sans son jeton.
 4. Fin de phase : rapport en 14 parties (§ 16 du référentiel), puis arrêt.
 
 ## Règles absolues (résumé du § 0.2)

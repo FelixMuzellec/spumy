@@ -123,7 +123,7 @@ Référentiel § 15 (phase 5), § 7 (sources, pipeline, préservation V2, schém
 
 ## Prochaine action
 
-Phase 5 rouverte pour la sous-tâche 5.13 (passe forums et listes complètes, demande de Félix du 23 nov., 23 h 10) : accès, risques et photos des nouvelles candidates par la CI, puis lots suivants (Ille-et-Vilaine, Côtes-d'Armor, Morbihan, Cotentin), requalification, tests complets sur clone neuf, troisième complément du rapport, **arrêt**. Aucune tâche de phase 6 sans le jeton `APPROVED — PROCEED TO PHASE 6`.
+Phase 5 rouverte pour la sous-tâche 5.13 (passe forums et listes complètes, demande de Félix du 23 nov., 23 h 10) : accès, risques et photos des nouvelles candidates par la CI, puis lots suivants (Ille-et-Vilaine, Côtes-d'Armor, Morbihan, Cotentin), requalification, tests complets sur clone neuf, troisième complément du rapport, **arrêt**. Puis, selon les jetons conditionnels de Félix (23 nov., 23 h 15, `docs/DECISIONS_LOG.md`) : phase 6 seulement si la phase 5 est close avec tous ses gates PASS ; phase 7 seulement si la phase 6 est close après trois passes de challenge ; sinon arrêt et question. Reprises planifiées dans cette session (messages différés de la nuit du 23 au 24 nov.). Outil de sauvegarde des passages CI : `scripts/sauver-collecte.mjs` (remplace les aides hors dépôt).
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
