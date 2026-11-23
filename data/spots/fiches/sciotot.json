@@ -606,11 +606,11 @@
   "criteres": {
    "QUAL-1": {
     "ok": false,
-    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : peche-com-bateaux-com"
+    "detail": "0 groupe d'indépendance halieutique (famille 1 à 4)"
    },
    "QUAL-2": {
     "ok": false,
-    "detail": "0 source halieutique évaluée page par page sur 1"
+    "detail": "0 source halieutique évaluée page par page sur 0"
    },
    "QUAL-3": {
     "ok": false,
@@ -634,7 +634,7 @@
    }
   },
   "raisons": [
-   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : peche-com-bateaux-com",
+   "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4)",
    "QUAL-3 : Position V2 à 1,5 km du toponyme officiel « Anse de Sciotot » (baie, détail hydrographique, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme).",
    "QUAL-6 : règle locale à vérifier au poste (plage de Sciotot (Les Pieux))"
   ]

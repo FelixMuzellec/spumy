@@ -518,12 +518,12 @@
   "anomalies": [],
   "criteres": {
    "QUAL-1": {
-    "ok": true,
-    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:hisse-et-oh-com, peche-com-bateaux-com"
+    "ok": false,
+    "detail": "0 groupe d'indépendance halieutique (famille 1 à 4)"
    },
    "QUAL-2": {
     "ok": false,
-    "detail": "0 source halieutique évaluée page par page sur 2"
+    "detail": "0 source halieutique évaluée page par page sur 0"
    },
    "QUAL-3": {
     "ok": false,
@@ -547,6 +547,7 @@
    }
   },
   "raisons": [
+   "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4)",
    "QUAL-3 : position non contrôlée",
    "QUAL-5 : engagement 1, 0 consigne, contrainte de marée non documentée, mouvements de terrain 1"
   ]

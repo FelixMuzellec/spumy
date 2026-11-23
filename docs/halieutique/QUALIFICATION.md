@@ -6,7 +6,7 @@ Phase 5 V3, sous-tâche 5.9 (référentiel § 7.2 : « qualifier chaque fiche (c
 
 | Critère | Exigence | Pourquoi |
 | --- | --- | --- |
-| QUAL-1 Intérêt halieutique corroboré | au moins **deux groupes d'indépendance** parmi les sources de la fiche : famille 1 à 4, éditeur dont le domaine couvre la pêche, source non privée. Une citation qui parle de pêche en bateau, de navigation, ou dit ne pas parler du bar ne compte pas pour un poste du bord. | § 7.1 : deux pages qui recopient la même source ne comptent pas double ; § 7.2 : l'intérêt pour l'espèce doit être documenté pour le mode |
+| QUAL-1 Intérêt halieutique corroboré | au moins **deux groupes d'indépendance** parmi les sources de la fiche : famille 1 à 4, éditeur dont le domaine couvre la pêche, source non privée, **citation qui nomme le spot**. Un article général (« les plateaux rocheux ») ne prouve rien d'un lieu ; une citation qui parle de pêche en bateau, de navigation, ou dit ne pas parler du bar ne compte pas pour un poste du bord. | § 7.1 : deux pages qui recopient la même source ne comptent pas double ; § 7.2 : l'intérêt pour l'espèce doit être documenté pour le mode |
 | QUAL-2 Qualité des sources examinée | chaque source retenue en QUAL-1 a été **lue et évaluée page par page** (§ 7.1) | § 7.2 : « dont la qualité est examinée » ; le seul nombre de sources ne suffit pas |
 | QUAL-3 Position contrôlée | position corrigée sur un toponyme officiel, ou toponyme officiel de même nom à 1,5 km au plus, sans anomalie de position | un poste mal placé fausse l'accès, la marée et la sécurité |
 | QUAL-4 Accès documenté | stationnement et temps de marche connus (IGN) | § 7.2, étape 9 |
@@ -26,12 +26,13 @@ La qualification ne change ni la Favorabilité ni le rang : c'est un statut de v
 
 ## 2. Résultat (VÉRIFIÉ, recalculé par le test)
 
-- **Corroborées : 9** (Pointe d'Agon, Plage des Blancs-Sablons, Pointe de Brézellec, Pointe de Dinan, Granville, Pointe de Mousterlin, Pointe de Penmarc'h, Plage de Pentrez, Régnéville).
-- **À vérifier : 57.**
-- **TOP_TIER : 0.** Aucune source halieutique n'a encore été lue page par page (QUAL-2 manque partout). On ne force pas la qualification : le niveau inférieur est retenu, avec sa raison.
+- **Corroborées : 5** (Pointe d'Agon, Pointe de Brézellec, Pointe de Dinan, Pointe de Mousterlin, Pointe de Penmarc'h).
+- **À vérifier : 61.**
+- **TOP_TIER : 0.** QUAL-2 manque partout. Des 10 sources qui corroborent ces cinq fiches, une seule a pu être lue (Le Figaro Nautisme, pour Penmarc'h) ; trois ont été cherchées sans succès (la V2 les cite sans adresse) et sont marquées `inaccessible`. On ne force pas la qualification : le niveau inférieur est retenu, avec sa raison.
 - Réglementées, inaccessibles : 0. Aucune interdiction n'est confirmée au poste ; 18 fiches ont une règle locale ou une zone CIEM à vérifier.
+- Correction en cours de route : une première version comptait les articles généraux et les guides de pêche en bateau (14, puis 9 fiches corroborées). La règle « la citation nomme le spot » ramène le total à 5 : par exemple, Granville reposait sur deux articles sur le courant et les plateaux rocheux en général.
 
-Critères non remplis (nombre de fiches) : QUAL-1 46, QUAL-2 66, QUAL-3 15, QUAL-6 18, QUAL-5 9, QUAL-4 6, QUAL-7 1.
+Critères non remplis (nombre de fiches) : QUAL-1 59, QUAL-2 66, QUAL-3 15, QUAL-4 6, QUAL-5 9, QUAL-6 18, QUAL-7 1.
 
 ## 3. Limites
 
@@ -50,7 +51,7 @@ Critères non remplis (nombre de fiches) : QUAL-1 46, QUAL-2 66, QUAL-3 15, QUAL
 | Barnénez – Dourduff | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Pointe de Beg Meil | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Pointe du Bendy | à vérifier | ✗ | ✗ | ✗ | ✓ | ✗ | ✗ | ✓ |
-| Plage des Blancs-Sablons | **corroborée** | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Plage des Blancs-Sablons | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Pointe de Brézellec | **corroborée** | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | L'Hôpital-Camfrout | à vérifier | ✗ | ✗ | ✗ | ✓ | ✓ | ✗ | ✓ |
 | Pointe du Cap Coz | à vérifier | ✓ | ✗ | ✗ | ✓ | ✓ | ✗ | ✓ |
@@ -61,45 +62,45 @@ Critères non remplis (nombre de fiches) : QUAL-1 46, QUAL-2 66, QUAL-3 15, QUAL
 | Pointe des Espagnols | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Feunteun Aod | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✗ | ✓ |
 | Goury | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Gouville-sur-Mer | à vérifier | ✓ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ |
+| Gouville-sur-Mer | à vérifier | ✗ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ |
 | Embouchure du Goyen | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✗ | ✓ |
-| Granville | **corroborée** | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Granville | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Pointe de Kerjean | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Kerlouan : Enez Amann ar Rouz | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Pointe de Kermorvan | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Baie du Kernic | à vérifier | ✓ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ |
+| Baie du Kernic | à vérifier | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ |
 | Estuaire de la Laïta | à vérifier | ✗ | ✗ | ✗ | ✓ | ✓ | ✗ | ✓ |
 | Landévennec | à vérifier | ✗ | ✗ | ✓ | ✓ | ✗ | ✗ | ✓ |
-| Sillon de Lauberlac'h | à vérifier | ✓ | ✗ | ✗ | ✓ | ✗ | ✓ | ✓ |
+| Sillon de Lauberlac'h | à vérifier | ✗ | ✗ | ✗ | ✓ | ✗ | ✓ | ✓ |
 | Pointe de Leydé | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Locquirec : pointe et digue | à vérifier | ✗ | ✗ | ✗ | ✓ | ✓ | ✗ | ✓ |
 | Pointe de Lostmarc'h | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Pointe du Petit Minou | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Pointe de Morgat | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✗ | ✓ |
-| Moulin Mer | à vérifier | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✗ |
+| Moulin Mer | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✗ |
 | Pointe de Mousterlin | **corroborée** | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Embouchure de l'Odet | à vérifier | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ |
 | Aber Wrac'h : Paluden – pont du Diable | à vérifier | ✗ | ✗ | ✗ | ✓ | ✓ | ✗ | ✓ |
 | Pointe de Roc'h Pelguent | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Pointe de Pen-Hir | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Penhors | à vérifier | ✓ | ✗ | ✓ | ✓ | ✗ | ✓ | ✓ |
+| Penhors | à vérifier | ✗ | ✗ | ✓ | ✓ | ✗ | ✓ | ✓ |
 | Pointe de Penmarc'h | **corroborée** | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Penn Enez – Grève Blanche | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✗ | ✓ |
-| Plage de Pentrez | **corroborée** | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Plage de Pentrez | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Embouchure de la Penzé | à vérifier | ✗ | ✗ | ✗ | ✓ | ✓ | ✗ | ✓ |
-| Pirou Plage | à vérifier | ✓ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ |
+| Pirou Plage | à vérifier | ✗ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ |
 | Portbail | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Embouchures de l'Aven et du Bélon | à vérifier | ✗ | ✗ | ✗ | ✓ | ✓ | ✗ | ✓ |
 | Pointe de Primel | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Pointe du Raz | à vérifier | ✗ | ✗ | ✓ | ✗ | ✓ | ✓ | ✓ |
-| Régnéville | **corroborée** | ✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Régnéville | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Pointe de Rospico | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Rostiviec | à vérifier | ✗ | ✗ | ✓ | ✗ | ✓ | ✓ | ✓ |
-| Concarneau : sud des Sables Blancs | à vérifier | ✓ | ✗ | ✓ | ✓ | ✗ | ✓ | ✓ |
+| Concarneau : sud des Sables Blancs | à vérifier | ✗ | ✗ | ✓ | ✓ | ✗ | ✓ | ✓ |
 | Dunes de Sainte-Marguerite | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Rochers de Saint-Guénolé | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Saint-Jean-du-Doigt | à vérifier | ✗ | ✗ | ✓ | ✓ | ✗ | ✓ | ✓ |
-| Plage de Saint-Tugen | à vérifier | ✓ | ✗ | ✓ | ✓ | ✗ | ✗ | ✓ |
+| Plage de Saint-Tugen | à vérifier | ✗ | ✗ | ✓ | ✓ | ✗ | ✗ | ✓ |
 | Anse de Sciotot | à vérifier | ✗ | ✗ | ✗ | ✓ | ✓ | ✗ | ✓ |
 | Surtainville | à vérifier | ✗ | ✗ | ✗ | ✗ | ✓ | ✓ | ✓ |
 | Île de Térénez | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
@@ -107,7 +108,7 @@ Critères non remplis (nombre de fiches) : QUAL-1 46, QUAL-2 66, QUAL-3 15, QUAL
 | Pointe de Trénaouret | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Baie des Trépassés | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | Pointe de Trévignon | à vérifier | ✓ | ✗ | ✓ | ✓ | ✓ | ✗ | ✓ |
-| Plage de Trez Bellec | à vérifier | ✓ | ✗ | ✓ | ✓ | ✗ | ✓ | ✓ |
+| Plage de Trez Bellec | à vérifier | ✗ | ✗ | ✓ | ✓ | ✗ | ✓ | ✓ |
 | Pointe du Van | à vérifier | ✗ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
 
 ✓ critère rempli, ✗ non rempli ; le détail de chaque critère est dans `quality.criteres` de la fiche.

@@ -83,13 +83,14 @@ for (const { fiche: f } of fiches) {
   if (["corroboree", "TOP_TIER"].includes(f.quality.statut)) t(`${f.id} : corroborée sans règle locale à vérifier ni anomalie de position`, q.criteres["QUAL-3"].ok && q.criteres["QUAL-6"].ok);
 }
 {
-  const g = (groupe, extra = {}) => ({ id: `src-t-${groupe}`, texte: "t", groupe, famille: 4, editeur_classe: { domaines: ["halieutique"] }, evaluation: { statut: "à évaluer" }, ...extra });
   const ref = fiches.find(({ fiche }) => fiche.quality.statut === "corroboree")?.fiche;
+  const g = (groupe, extra = {}) => ({ id: `src-t-${groupe}`, texte: `site — ${ref?.name}`, groupe, famille: 4, editeur_classe: { domaines: ["halieutique"] }, evaluation: { statut: "à évaluer" }, ...extra });
   if (ref) {
     const deux = [g("a"), g("b")];
     t("qualification : deux groupes indépendants et le reste documenté donnent « corroborée »", qualifier(ref, deux).statut === "corroboree");
     t("qualification : deux pages du même éditeur ne corroborent pas", qualifier(ref, [g("a"), g("a")]).statut === "a_verifier");
-    t("qualification : une citation de pêche en bateau ne compte pas pour le bord", qualifier(ref, [g("a"), g("b", { texte: "guide de pêche en bateau" })]).statut === "a_verifier");
+    t("qualification : une citation de pêche en bateau ne compte pas pour le bord", qualifier(ref, [g("a"), g("b", { texte: `guide de pêche en bateau — ${ref.name}` })]).statut === "a_verifier");
+    t("qualification : un article général qui ne nomme pas le spot ne corrobore pas", qualifier(ref, [g("a"), g("b", { texte: "peche.com — les plateaux rocheux" })]).statut === "a_verifier");
     t("qualification : une source privée bloque", qualifier(ref, [...deux, g("c", { prive: true })]).statut === "a_verifier");
     t("qualification : sans évaluation page par page, jamais TOP_TIER", qualifier(ref, deux).statut !== "TOP_TIER");
     t("qualification : sources lues et tout documenté donnent TOP_TIER", qualifier(ref, deux.map((x) => ({ ...x, evaluation: { statut: "évaluée" } }))).statut === "TOP_TIER");

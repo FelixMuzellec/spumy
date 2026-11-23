@@ -523,12 +523,12 @@
   "anomalies": [],
   "criteres": {
    "QUAL-1": {
-    "ok": true,
-    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:carnalor-com, editeur:chtipecheur-com"
+    "ok": false,
+    "detail": "0 groupe d'indépendance halieutique (famille 1 à 4)"
    },
    "QUAL-2": {
     "ok": false,
-    "detail": "0 source halieutique évaluée page par page sur 2"
+    "detail": "0 source halieutique évaluée page par page sur 0"
    },
    "QUAL-3": {
     "ok": true,
@@ -552,6 +552,7 @@
    }
   },
   "raisons": [
+   "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4)",
    "QUAL-5 : engagement 1, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0"
   ]
  }

@@ -535,11 +535,11 @@
   "criteres": {
    "QUAL-1": {
     "ok": false,
-    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : peche-com-bateaux-com"
+    "detail": "0 groupe d'indépendance halieutique (famille 1 à 4)"
    },
    "QUAL-2": {
     "ok": false,
-    "detail": "0 source halieutique évaluée page par page sur 1"
+    "detail": "0 source halieutique évaluée page par page sur 0"
    },
    "QUAL-3": {
     "ok": false,
@@ -563,7 +563,7 @@
    }
   },
   "raisons": [
-   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : peche-com-bateaux-com",
+   "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4)",
    "QUAL-3 : Coordonnées V2 seulement en texte, à la minute près (jusqu'à 1,85 km d'écart) : à vérifier en priorité.",
    "QUAL-4 : stationnement ou temps de marche inconnu"
   ]

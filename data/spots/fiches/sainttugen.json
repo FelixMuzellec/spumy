@@ -525,12 +525,12 @@
   ],
   "criteres": {
    "QUAL-1": {
-    "ok": true,
-    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:cannes-peche-blog4ever-com, editeur:peche-rando-bar"
+    "ok": false,
+    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:cannes-peche-blog4ever-com"
    },
    "QUAL-2": {
     "ok": false,
-    "detail": "0 source halieutique évaluée page par page sur 2"
+    "detail": "0 source halieutique évaluée page par page sur 1"
    },
    "QUAL-3": {
     "ok": true,
@@ -554,6 +554,7 @@
    }
   },
   "raisons": [
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:cannes-peche-blog4ever-com",
    "QUAL-5 : engagement 1, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0",
    "QUAL-6 : zone CIEM 7 ou 8 incertaine (48ᵉ parallèle)"
   ]

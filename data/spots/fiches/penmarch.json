@@ -578,7 +578,7 @@
    },
    "QUAL-2": {
     "ok": false,
-    "detail": "0 source halieutique évaluée page par page sur 2"
+    "detail": "1 source halieutique évaluée page par page sur 2"
    },
    "QUAL-3": {
     "ok": true,
@@ -602,7 +602,7 @@
    }
   },
   "raisons": [
-   "QUAL-2 : 0 source halieutique évaluée page par page sur 2"
+   "QUAL-2 : 1 source halieutique évaluée page par page sur 2"
   ]
  }
 }

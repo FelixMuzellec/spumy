@@ -529,11 +529,11 @@
   "criteres": {
    "QUAL-1": {
     "ok": false,
-    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : meteo-consult-figaro-nautisme ; 1 source d'éditeur non classé, non comptée"
+    "detail": "0 groupe d'indépendance halieutique (famille 1 à 4) ; 1 source d'éditeur non classé, non comptée"
    },
    "QUAL-2": {
     "ok": false,
-    "detail": "0 source halieutique évaluée page par page sur 1"
+    "detail": "0 source halieutique évaluée page par page sur 0"
    },
    "QUAL-3": {
     "ok": false,
@@ -557,7 +557,7 @@
    }
   },
   "raisons": [
-   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : meteo-consult-figaro-nautisme ; 1 source d'éditeur non classé, non comptée",
+   "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4) ; 1 source d'éditeur non classé, non comptée",
    "QUAL-3 : position non contrôlée",
    "QUAL-6 : règle locale à vérifier au poste (Finistère)"
   ]

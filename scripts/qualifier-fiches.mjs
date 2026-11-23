@@ -7,11 +7,14 @@
 import fs from "node:fs";
 import path from "node:path";
 import { lireFiches, DIR_FICHES, ecrireRegistre } from "./registre-spots.mjs";
+import { texteNommeLeSpot } from "./noms.mjs";
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const JOUR = "2026-11-23";
 /** Domaines d'éditeur qui peuvent porter l'intérêt halieutique d'un spot (data/sources/editeurs.json). */
 const HALIEUTIQUE = /halieutique|spots|technique|conditions locales|présence d'espèces/;
+/** Une source ne corrobore un spot que si sa citation le nomme : un article général (« les plateaux rocheux ») ne prouve
+ *  rien d'un lieu précis. */
 /** Citation qui parle de pêche en bateau, de navigation, ou dit ne pas parler du bar : n'atteste pas un poste du bord. */
 const PAS_BORD = /en bateau|pêche en bateau|navigation|voilier|ne parle ni/i;
 const ANOMALIE_POSITION = /^Position V2 |^Coordonnées V2 seulement en texte|^Aucun toponyme/;
@@ -26,7 +29,7 @@ const connu = (i) => i && i.statut !== "INCONNU";
 
 /** Critères QUAL-1 à QUAL-7 et statut d'une fiche. Fonction pure : même résultat dans le script et dans le test. */
 export function qualifier(f, sources) {
-  const hal = sources.filter((s) => !s.prive && s.famille != null && s.famille <= 4 && HALIEUTIQUE.test((s.editeur_classe?.domaines || []).join(" ")) && !PAS_BORD.test(s.texte));
+  const hal = sources.filter((s) => !s.prive && s.famille != null && s.famille <= 4 && HALIEUTIQUE.test((s.editeur_classe?.domaines || []).join(" ")) && !PAS_BORD.test(s.texte) && texteNommeLeSpot(f.name, s.texte));
   const groupes = [...new Set(hal.map((s) => s.groupe))].sort();
   const nonClasses = sources.filter((s) => !s.prive && s.famille == null).length;
   const lues = hal.filter((s) => s.evaluation?.statut === "évaluée");

@@ -672,11 +672,11 @@
   "criteres": {
    "QUAL-1": {
     "ok": true,
-    "detail": "3 groupes d'indépendance halieutique (famille 1 à 4) : editeur:carnalor-com, editeur:carnet-de-peche-com, editeur:lechasseursousmarin-com ; 1 source d'éditeur non classé, non comptée"
+    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:carnet-de-peche-com, editeur:lechasseursousmarin-com ; 1 source d'éditeur non classé, non comptée"
    },
    "QUAL-2": {
     "ok": false,
-    "detail": "0 source halieutique évaluée page par page sur 3"
+    "detail": "0 source halieutique évaluée page par page sur 2"
    },
    "QUAL-3": {
     "ok": true,
@@ -700,7 +700,7 @@
    }
   },
   "raisons": [
-   "QUAL-2 : 0 source halieutique évaluée page par page sur 3"
+   "QUAL-2 : 0 source halieutique évaluée page par page sur 2"
   ]
  }
 }

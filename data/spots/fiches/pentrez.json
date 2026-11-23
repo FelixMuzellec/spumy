@@ -548,7 +548,7 @@
   ]
  },
  "quality": {
-  "statut": "corroboree",
+  "statut": "a_verifier",
   "derniere_verification": "2026-11-23",
   "completude": 0.81,
   "inconnus": [
@@ -564,12 +564,12 @@
   "anomalies": [],
   "criteres": {
    "QUAL-1": {
-    "ok": true,
-    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:chtipecheur-com, editeur:pecheaubar-com"
+    "ok": false,
+    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:pecheaubar-com"
    },
    "QUAL-2": {
     "ok": false,
-    "detail": "0 source halieutique évaluée page par page sur 2"
+    "detail": "0 source halieutique évaluée page par page sur 1"
    },
    "QUAL-3": {
     "ok": true,
@@ -593,7 +593,7 @@
    }
   },
   "raisons": [
-   "QUAL-2 : 0 source halieutique évaluée page par page sur 2"
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:pecheaubar-com"
   ]
  }
 }

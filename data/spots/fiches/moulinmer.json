@@ -571,12 +571,12 @@
   ],
   "criteres": {
    "QUAL-1": {
-    "ok": true,
-    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:desperadiens, peche-com-bateaux-com"
+    "ok": false,
+    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:desperadiens"
    },
    "QUAL-2": {
     "ok": false,
-    "detail": "0 source halieutique évaluée page par page sur 2"
+    "detail": "0 source halieutique évaluée page par page sur 1"
    },
    "QUAL-3": {
     "ok": true,
@@ -600,6 +600,7 @@
    }
   },
   "raisons": [
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:desperadiens",
    "QUAL-7 : cite le journal personnel de Félix : à retirer de la fiche publique"
   ]
  }

@@ -546,12 +546,12 @@
   ],
   "criteres": {
    "QUAL-1": {
-    "ok": true,
-    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:pechemercotentin-forumactif-org, peche-com-bateaux-com"
+    "ok": false,
+    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:pechemercotentin-forumactif-org"
    },
    "QUAL-2": {
     "ok": false,
-    "detail": "0 source halieutique évaluée page par page sur 3"
+    "detail": "0 source halieutique évaluée page par page sur 1"
    },
    "QUAL-3": {
     "ok": false,
@@ -575,6 +575,7 @@
    }
   },
   "raisons": [
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:pechemercotentin-forumactif-org",
    "QUAL-3 : Coordonnées V2 seulement en texte, à la minute près (jusqu'à 1,85 km d'écart) : à vérifier en priorité. Position V2 à la minute près, non corrigée : le seul toponyme de même nom est un lieu habité (« Pirou Plage »), pas le poste.",
    "QUAL-4 : stationnement ou temps de marche inconnu"
   ]

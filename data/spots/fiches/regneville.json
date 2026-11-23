@@ -559,7 +559,7 @@
   ]
  },
  "quality": {
-  "statut": "corroboree",
+  "statut": "a_verifier",
   "derniere_verification": "2026-11-23",
   "completude": 0.8,
   "inconnus": [
@@ -576,12 +576,12 @@
   "anomalies": [],
   "criteres": {
    "QUAL-1": {
-    "ok": true,
-    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:sylco-peche-brehal-fr, peche-com-bateaux-com"
+    "ok": false,
+    "detail": "0 groupe d'indépendance halieutique (famille 1 à 4)"
    },
    "QUAL-2": {
     "ok": false,
-    "detail": "0 source halieutique évaluée page par page sur 2"
+    "detail": "0 source halieutique évaluée page par page sur 0"
    },
    "QUAL-3": {
     "ok": true,
@@ -605,7 +605,7 @@
    }
   },
   "raisons": [
-   "QUAL-2 : 0 source halieutique évaluée page par page sur 2"
+   "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4)"
   ]
  }
 }

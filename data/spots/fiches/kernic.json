@@ -557,12 +557,12 @@
   ],
   "criteres": {
    "QUAL-1": {
-    "ok": true,
-    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:atout-pecheur-fr, editeur:cannes-peche-blog4ever-com"
+    "ok": false,
+    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:cannes-peche-blog4ever-com"
    },
    "QUAL-2": {
     "ok": false,
-    "detail": "0 source halieutique évaluée page par page sur 2"
+    "detail": "0 source halieutique évaluée page par page sur 1"
    },
    "QUAL-3": {
     "ok": false,
@@ -586,6 +586,7 @@
    }
   },
   "raisons": [
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:cannes-peche-blog4ever-com",
    "QUAL-3 : Position V2 à 1,8 km du toponyme officiel « la Baie du Kernic » (camping, zone d'activité ou d'intérêt) : à vérifier (le poste peut être ailleurs que le point du toponyme)."
   ]
  }

@@ -6,8 +6,8 @@
    "v2_preserved": 66
   },
   "parStatut": {
-   "a_verifier": 57,
-   "corroboree": 9
+   "a_verifier": 61,
+   "corroboree": 5
   },
   "stationnementConnu": 60
  },
@@ -163,7 +163,7 @@
    "id": "blancssablons",
    "name": "Plage des Blancs-Sablons",
    "origin": "v2_preserved",
-   "statut": "corroboree",
+   "statut": "a_verifier",
    "lat": 48.3690944,
    "lon": -4.7640023,
    "precision_m": null,
@@ -436,7 +436,7 @@
    "id": "granville",
    "name": "Granville",
    "origin": "v2_preserved",
-   "statut": "corroboree",
+   "statut": "a_verifier",
    "lat": 48.834018,
    "lon": -1.614315,
    "precision_m": null,
@@ -898,7 +898,7 @@
    "id": "pentrez",
    "name": "Plage de Pentrez",
    "origin": "v2_preserved",
-   "statut": "corroboree",
+   "statut": "a_verifier",
    "lat": 48.195427,
    "lon": -4.304321,
    "precision_m": null,
@@ -1045,7 +1045,7 @@
    "id": "regneville",
    "name": "Régnéville",
    "origin": "v2_preserved",
-   "statut": "corroboree",
+   "statut": "a_verifier",
    "lat": 49.007977,
    "lon": -1.566781,
    "precision_m": 300,

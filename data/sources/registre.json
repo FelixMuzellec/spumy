@@ -2,7 +2,7 @@
  "//": "Registre des sources (phase 5, 5.4 ; § 7.1). Généré par scripts/sources-registre.mjs ; les champs « evaluation » se complètent à la main et ne sont jamais écrasés.",
  "totaux": {
   "sources": 297,
-  "aEvaluer": 284,
+  "aEvaluer": 280,
   "avecUrl": 53,
   "editeurs": 102,
   "editeurClasse": 297,
@@ -1519,15 +1519,15 @@
     "spot:penmarch"
    ],
    "evaluation": {
-    "statut": "à évaluer",
+    "statut": "inaccessible",
     "auteur": null,
     "date": null,
     "methode": null,
     "precision": null,
     "independance": null,
-    "limites": null,
+    "limites": "page citée par la V2 sans adresse, non retrouvée par la recherche du 23 nov. 2026 : l'affirmation de la V2 n'a pas pu être relue",
     "droits": null,
-    "consulte_le": null
+    "consulte_le": "2026-11-23"
    },
    "groupe": "editeur:carnet-de-peche-com",
    "editeur_classe": {
@@ -1538,7 +1538,6 @@
     ],
     "limites": "auteur et date souvent absents ; observations non reproductibles ; à recouper",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "famille_inferee": 4,
     "classe_le": "2026-11-23"
    }
   },
@@ -3689,15 +3688,15 @@
     "spot:agon"
    ],
    "evaluation": {
-    "statut": "à évaluer",
+    "statut": "inaccessible",
     "auteur": null,
     "date": null,
     "methode": null,
     "precision": null,
     "independance": null,
-    "limites": null,
+    "limites": "page citée par la V2 sans adresse, non retrouvée par la recherche du 23 nov. 2026 : l'affirmation de la V2 n'a pas pu être relue",
     "droits": null,
-    "consulte_le": null
+    "consulte_le": "2026-11-23"
    },
    "groupe": "editeur:guide-peche-latitude-manche",
    "editeur_classe": {
@@ -3708,7 +3707,6 @@
     ],
     "limites": "intérêt commercial ; secteurs plutôt que postes ; à recouper",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "famille_inferee": 4,
     "classe_le": "2026-11-23"
    }
   },
@@ -4335,15 +4333,17 @@
     "spot:penmarch"
    ],
    "evaluation": {
-    "statut": "à évaluer",
-    "auteur": null,
-    "date": null,
-    "methode": null,
-    "precision": null,
-    "independance": null,
-    "limites": null,
-    "droits": null,
-    "consulte_le": null
+    "statut": "évaluée",
+    "auteur": "Le Figaro Nautisme (rédaction, avec Météo Consult)",
+    "date": "2026-03-01 (première publication 2025-05-15)",
+    "methode": "palmarès journalistique « Top 10 des spots de pêche en mer en France métropolitaine », sans méthode publiée",
+    "precision": "la pointe est nommée ; aucun poste, aucune date d'observation",
+    "independance": "groupe meteo-consult-figaro-nautisme",
+    "limites": "réputation générale ; mêle pêche du bord et en bateau ; ne dit rien de la marée ni des conditions",
+    "droits": "droit de citation",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« la Pointe de Penmarc'h est réputée pour la pêche au bar, mais aussi pour la capture de lieu, vieille et tacaud » (recherche du 23 nov. 2026)",
+    "url_lue": "https://figaronautisme.meteoconsult.fr/actus-nautisme-loisirs/2025-05-15/78013-top-10-des-spots-de-peche-en-mer-en-france-metropolitaine"
    },
    "groupe": "meteo-consult-figaro-nautisme",
    "editeur_classe": {
@@ -4355,7 +4355,6 @@
     "limites": "articles de synthèse souvent généraux, sans poste précis",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
     "constat": "articles signés « Le Figaro Nautisme » ou d'un auteur ; site édité avec Météo Consult (recherche du 23 nov. 2026)",
-    "famille_inferee": 4,
     "classe_le": "2026-11-23"
    }
   },
@@ -4406,15 +4405,15 @@
     "spot:brezellec"
    ],
    "evaluation": {
-    "statut": "à évaluer",
+    "statut": "inaccessible",
     "auteur": null,
     "date": null,
     "methode": null,
     "precision": null,
     "independance": null,
-    "limites": null,
+    "limites": "page citée par la V2 sans adresse, non retrouvée par la recherche du 23 nov. 2026 : l'affirmation de la V2 n'a pas pu être relue",
     "droits": null,
-    "consulte_le": null
+    "consulte_le": "2026-11-23"
    },
    "groupe": "editeur:lechasseursousmarin-com",
    "editeur_classe": {
@@ -4425,7 +4424,6 @@
     ],
     "limites": "observation sous l'eau, pas de la pêche du bord",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
-    "famille_inferee": 4,
     "classe_le": "2026-11-23"
    }
   },
