@@ -14,7 +14,7 @@ Suivi unique du chantier V3. Il dit où en est le travail, pourquoi il s'est arr
 | 1. Audit initial V2 (lecture seule) | TESTED, avec une réserve : P1-14 (site en ligne dans un vrai navigateur) BLOCKED, aucun navigateur relié | démarrage (§ 18) | Rapport https://claude.ai/artifact/62UYfGbGKJtRvo6rAF9QrK ; copie `docs/rapports/v3/PHASE-1.md` |
 | 2. Vision produit, exigences et architecture cible | VALIDATED (jeton de phase 3) | « APPROVED — PROCEED TO PHASE 2 », 20 nov. 2026, 1 h 24 | Rapport https://claude.ai/artifact/JWzDnppc1u7Wf6SPEgceDn ; copie `docs/rapports/v3/PHASE-2.md` ; branche `claude/v3-phase-2`, proposition n° 16 (brouillon) |
 | 3. Conception UX/UI, direction artistique, Design System, prototypes | VALIDATED (jeton de phase 4 ; version 6.2 du prototype acceptée par la demande du jeton, INFÉRÉ) | « APPROVED — PROCEED TO PHASE 3 », 20 nov. 2026, 4 h 25 | Rapport https://claude.ai/artifact/MUeZdUAtxSDqAKQxML511A ; copie `docs/rapports/v3/PHASE-3.md` ; branche `claude/v3-phase-3` (partie de `claude/v3-phase-2`), proposition n° 17 (brouillon) |
-| 4. Architecture détaillée, socle technique et assainissement contrôlé | IN PROGRESS | « APPROVED — PROCEED TO PHASE 4 », 23 nov. 2026, 13 h 50 | branche `claude/v3-phase-4` (depuis `claude/v3-phase-3`, 080d5e3) |
+| 4. Architecture détaillée, socle technique et assainissement contrôlé | TESTED, hors 4.8 (BLOCKED — action de Félix) ; validation de Félix attendue | « APPROVED — PROCEED TO PHASE 4 », 23 nov. 2026, 13 h 50 | Rapport `docs/rapports/v3/PHASE-4.md` ; branche `claude/v3-phase-4` (depuis `claude/v3-phase-3`, 080d5e3), proposition n° 18 (brouillon) |
 | 5 à 15 | NOT STARTED | — | — |
 
 Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposait de passer outre la réserve P1-14. Il vaut acceptation de cette réserve (INFÉRÉ) ; le contrôle sera refait dès qu'un navigateur sera relié.
@@ -55,14 +55,14 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 | 4.1 Audit du socle (stack réelle, dépendances, sécurité des dépendances, CI, reproductibilité, inventaire de nettoyage) | IMPLEMENTED (`npm audit` 0 vulnérabilité ; historique sans secret ; ESLint 8 non maintenu ; CI sans typecheck ni brand.py) | `docs/socle/AUDIT-SOCLE.md` |
 | 4.2 Architecture détaillée (modules, frontières V3 / services communs / héritage V2, flux, erreurs, migration) | IMPLEMENTED (ARCHITECTURE-V3 § 11 ; mesure AVANT des performances et budgets) | `docs/ARCHITECTURE-V3.md`, `scripts/mesure-perf.mjs`, `docs/socle/perf-avant.json` |
 | 4.3 Contrats typés (JSDoc) et `tsc --checkJs` ; erreurs typées ; validation des entrées | TESTED (`npm run typecheck` 0, TypeScript 6.0.3 épinglé ; `tests/socle.mjs` 16/16 ; couches 0 écart) | `src/core/contracts/index.js`, `src/core/errors.js`, `src/core/validate.js`, `tsconfig.typecheck.json`, `tests/socle.mjs`, `src/prototype-v3/modele.js` (types), `tests/layers.mjs` |
-| 4.4 Tests et CI : fixtures déterministes (heure, fuseau, polices), contrôles manquants en CI (typecheck, marque) | IMPLEMENTED (CI : typecheck, secrets, socle, marque avec versions Python épinglées ; tests du prototype V3 attendent les polices ; `npm test` 0, prototype-v3 224/224 ; CI à confirmer) | `.github/workflows/`, `tests/` |
+| 4.4 Tests et CI : fixtures déterministes (heure, fuseau, polices), contrôles manquants en CI (typecheck, marque) | TESTED (CI : typecheck, secrets, socle, marque avec versions Python épinglées ; tests du prototype V3 attendent les polices ; accessibilité à heure fixe ; `npm test` 0, prototype-v3 224/224 ; CI verte sur d32fe82 : Tests 45185341523, Contrat 45185341453) | `.github/workflows/`, `tests/` |
 | 4.5 Configuration reproductible et secrets (`.env.example`, détection de secrets, `.gitignore`) | TESTED (`tests/secrets.mjs` : 544 fichiers et 173 commits, aucun secret ; `.env.example` ; `.gitignore` complété) | `.env.example`, `tests/secrets.mjs` |
 | 4.6 Conventions et qualité de code | IMPLEMENTED (conventions V3 dans CONTRIBUTING ; ESLint 8 non maintenu : passage à ESLint 9 ou 10 proposé à Félix, pas fait d'office) | `CONTRIBUTING.md`, `.eslintrc.json` |
 | 4.7 Nettoyage autorisé (registre, suppressions sûres seulement, restauration) | TESTED (`map.jsx` supprimé après audit ; lint 0, couches 0, construction identique ; reste en registre ; branches : V3-019, rien supprimé) | `docs/socle/NETTOYAGE.md` |
 | 4.8 Protection de `main` (accord de Félix, 23 nov., 13 h 55 : protection complète) | BLOCKED — action de Félix : le relais GitHub de la session refuse l'écriture des rulesets (HTTP 403), non contourné ; règle et commande prêtes | `docs/socle/PROTECTION-MAIN.md`, `docs/socle/protection-main.json` |
 | 4.9 Documentation opérationnelle, README et fichiers de pilotage | IMPLEMENTED (EXPLOITATION : installer, publier, revenir en arrière, surveiller, incident, secrets, sauvegardes, coûts ; README et CHANGELOG à jour) | `README.md`, `docs/socle/EXPLOITATION.md`, `CHANGELOG.md` |
 | 4.10 Installation et lancement reproductibles (clone neuf) | TESTED (clone neuf de 8118388 : `npm ci` 0, build sans écart, `npm test` 0, upgrade 12/12, prototype 244/244, prototype-v3 224/224, marque 35/35, secrets 177 commits ; deux défauts trouvés et corrigés : esbuild lisait `tsconfig.json`, test a11y dépendant de l'heure) | — |
-| 4.11 Red-team, rapport en 14 parties, arrêt | NOT STARTED | `docs/rapports/v3/PHASE-4.md` |
+| 4.11 Red-team, rapport en 14 parties, arrêt | TESTED (red-team : 2 constats majeurs ouverts, protection de `main` et étalonnage IGN, 7 mineurs ou observations ; preuves § 7 du rapport) | `docs/rapports/v3/PHASE-4.md` |
 
 ## Questions et décisions (registre)
 
@@ -90,14 +90,14 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 
 ## Checkpoint
 
-- Branche : `claude/v3-phase-3`, partie de `claude/v3-phase-2` (05cbcc0), elle-même partie de `main` (bb4f940). La phase 2 n'est pas fusionnée.
+- Branche : `claude/v3-phase-4`, partie de `claude/v3-phase-3` (080d5e3), elle-même partie de `claude/v3-phase-2`, partie de `main` (bb4f940). Aucune des phases 2 à 4 n'est fusionnée.
 - Dernier commit : voir `git log` ; ce fichier est mis à jour à chaque sous-tâche.
-- Tests : suite de clôture relancée le 23 nov. 2026 (version 6.2), tous les codes de sortie à 0 : `npm ci`, `npm run build` sans écart, `npm test`, `test:a11y`, `test:upgrade` 12/12, `test:prototype` 244/244, `test:prototype-v3` 224/224, `tests/brand.py` 35/35 ; CI verte sur 8844312.
-- Rien n'est fusionné ; `main` reste à bb4f940 ; V3-019 non exécuté.
+- Tests : clone neuf de 8118388 le 23 nov. 2026, tous les codes de sortie à 0 : `npm ci`, `npm run build` sans écart, `npm test` (e2e 846/846), `test:upgrade` 12/12, `test:prototype` 244/244, `test:prototype-v3` 224/224, `tests/brand.py` 35/35, secrets sur 177 commits ; `test:a11y` 0 violation sur d32fe82 ; CI verte sur d32fe82.
+- Rien n'est fusionné ; `main` reste à bb4f940 et sans protection (4.8) ; V3-019 non exécuté.
 
 ## Prochaine action
 
-Phase 4 IN PROGRESS sur `claude/v3-phase-4`. Prochaine sous-tâche : 4.11, red-team et rapport de phase 4 (après la CI verte).
+Phase 4 TESTED (hors 4.8) : rapport remis à Félix, arrêt. Attendus de Félix : activer la protection de `main` (`docs/socle/PROTECTION-MAIN.md`), répondre aux décisions du § 12 du rapport, puis le jeton `APPROVED — PROCEED TO PHASE 5`. Aucune tâche de la phase 5 ne démarre sans lui.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
