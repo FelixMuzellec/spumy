@@ -1,5 +1,5 @@
 {
-  "//": "Contrôle de types JSDoc (ADR-V3-020) : `npm run typecheck`. Périmètre : les modules communs de la V3 ; il s'étend lot par lot.",
+  "//": "Contrôle de types JSDoc (ADR-V3-020) : `npm run typecheck`. Périmètre : les modules communs de la V3 ; il s'étend lot par lot. Nom volontairement différent de tsconfig.json : esbuild lit tsconfig.json et ajouterait « use strict » au site publié.",
   "compilerOptions": {
     "allowJs": true,
     "checkJs": true,

@@ -1069,7 +1069,9 @@ if (E.SITE.id === "pirou-plage") {
   const m = readme.match(/avec les (\d+) fichiers du site\n\(([^)]*)\)/);
   const listed = m ? [...m[2].matchAll(/`([^`]+)`/g)].map((x) => x[1]) : [];
   t("README : la liste des fichiers à déposer est celle du site (nombre et noms)", m && +m[1] === SITE_FILES.length && listed.join() === SITE_FILES.join(), m ? listed.join() : "liste absente");
-  t("README : version courante", /Version 9\.2 /.test(readme));
+  // Version affichée = version de package.json sans le « .0 » final (scripts/build.mjs).
+  const VERSION_PUBLIEE = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8")).version.replace(/\.0$/, "");
+  t("README : version courante", readme.includes(`Version ${VERSION_PUBLIEE} `), VERSION_PUBLIEE);
 }
 
 // ── 16 septies. v8.9 : corrections de l'audit complet (moteur, interface, sécurité) ──
