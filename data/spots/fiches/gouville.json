@@ -489,9 +489,7 @@
    "photos"
   ],
   "anomalies": [
-   "Coordonnées V2 seulement en texte, à la minute près (jusqu'à 1,85 km d'écart) : à vérifier en priorité.",
-   "Position V2 à 1,7 km du toponyme officiel « Gouville-sur-Mer » (lieu-dit habité, zone d'habitation) : à vérifier (le poste peut être ailleurs que le point du toponyme).",
-   "Position V2 à la minute près, non corrigée : le seul toponyme de même nom est un lieu habité (« Gouville-sur-Mer »), pas le poste."
+   "Coordonnées V2 seulement en texte, à la minute près (jusqu'à 1,85 km d'écart) : à vérifier en priorité."
   ]
  }
 }

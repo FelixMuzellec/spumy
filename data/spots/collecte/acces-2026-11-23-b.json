@@ -1,0 +1,835 @@
+{
+ "//": "Collecte ciblée du 23 nov. 2026 (passage CI 45256513674) : positions corrigées et positions V2 imprécises. Données IGN seulement, Licence Ouverte.",
+ "date": "2026-11-23",
+ "passage": 45256513674,
+ "spots": [
+  {
+   "id": "agon",
+   "point": {
+    "lat": 49.001654,
+    "lon": -1.575506,
+    "precision_m": 300
+   },
+   "toponymes": [
+    {
+     "source": "ign",
+     "nom": "Pointe d'Agon",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "lat": 49.001654,
+     "lon": -1.575506,
+     "ecart_m": 0
+    },
+    {
+     "source": "ign",
+     "nom": "Détail hydrographique",
+     "categorie": "point d'eau, détail hydrographique, hydrographie",
+     "lat": 49.04092,
+     "lon": -1.559964,
+     "ecart_m": 4511
+    },
+    {
+     "source": "ign",
+     "nom": "Détail hydrographique",
+     "categorie": "point d'eau, détail hydrographique, hydrographie",
+     "lat": 49.057552,
+     "lon": -1.582704,
+     "ecart_m": 6238
+    }
+   ],
+   "parkings": [
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.50016",
+     "lon": -1.575052774,
+     "lat": 49.001777505999996,
+     "ecart_m": 36,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.50015",
+     "lon": -1.556628234,
+     "lat": 48.990652080000004,
+     "ecart_m": 1842,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.67681",
+     "lon": -1.555420796,
+     "lat": 49.013620751999994,
+     "ecart_m": 1979,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    }
+   ],
+   "marche": [
+    {
+     "parking": "equipement_de_transport.50016",
+     "resource": "bdtopo-pgr",
+     "minutes": 0.3,
+     "km": 0.02
+    },
+    {
+     "parking": "equipement_de_transport.50015",
+     "resource": "bdtopo-pgr",
+     "minutes": 242,
+     "km": 16.12
+    },
+    {
+     "parking": "equipement_de_transport.67681",
+     "resource": "bdtopo-pgr",
+     "minutes": 224.7,
+     "km": 14.97
+    }
+   ]
+  },
+  {
+   "id": "carteret",
+   "point": {
+    "lat": 49.37264,
+    "lon": -1.808779,
+    "precision_m": 300
+   },
+   "toponymes": [
+    {
+     "source": "ign",
+     "nom": "Cap de Carteret",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "lat": 49.37264,
+     "lon": -1.808779,
+     "ecart_m": 0
+    }
+   ],
+   "parkings": [
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.65649",
+     "lon": -1.806181708,
+     "lat": 49.373605804,
+     "ecart_m": 217,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.85345",
+     "lon": -1.8054500279999999,
+     "lat": 49.375799794,
+     "ecart_m": 426,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.49995",
+     "lon": -1.8033321880000002,
+     "lat": 49.37488895399999,
+     "ecart_m": 467,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.77826",
+     "lon": -1.798590076,
+     "lat": 49.379617884,
+     "ecart_m": 1071,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.77521",
+     "lon": -1.7932702300000003,
+     "lat": 49.371853194,
+     "ecart_m": 1126,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.77827",
+     "lon": -1.797118222,
+     "lat": 49.379823134000006,
+     "ecart_m": 1162,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.77520",
+     "lon": -1.791237126,
+     "lat": 49.372086057999994,
+     "ecart_m": 1272,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.69607",
+     "lon": -1.7903163119999999,
+     "lat": 49.371704744,
+     "ecart_m": 1341,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    }
+   ],
+   "marche": [
+    {
+     "parking": "equipement_de_transport.65649",
+     "resource": "bdtopo-pgr",
+     "minutes": 7.1,
+     "km": 0.47
+    },
+    {
+     "parking": "equipement_de_transport.85345",
+     "resource": "bdtopo-pgr",
+     "minutes": 9.5,
+     "km": 0.63
+    },
+    {
+     "parking": "equipement_de_transport.49995",
+     "resource": "bdtopo-pgr",
+     "minutes": 10.5,
+     "km": 0.7
+    }
+   ]
+  },
+  {
+   "id": "gouville",
+   "point": {
+    "lat": 49.0833,
+    "lon": -1.6,
+    "precision_m": 1850
+   },
+   "toponymes": [
+    {
+     "source": "ign",
+     "nom": "Plage de Gonneville",
+     "categorie": "plage, élément topographique ou forestier, détail orographique",
+     "lat": 49.085032,
+     "lon": -1.609937,
+     "ecart_m": 749
+    },
+    {
+     "source": "ign",
+     "nom": "les Cabines de Plages de Gouville",
+     "categorie": "lieu-dit habité, zone d'habitation",
+     "lat": 49.095871,
+     "lon": -1.609684,
+     "ecart_m": 1566
+    },
+    {
+     "source": "ign",
+     "nom": "la Plage",
+     "categorie": "lieu-dit habité, zone d'habitation",
+     "lat": 49.099745,
+     "lon": -1.609309,
+     "ecart_m": 1950
+    },
+    {
+     "source": "ign",
+     "nom": "la Plage",
+     "categorie": "lieu-dit non habité, élément topographique ou forestier",
+     "lat": 49.101311,
+     "lon": -1.608731,
+     "ecart_m": 2101
+    },
+    {
+     "source": "ign",
+     "nom": "la Plage",
+     "categorie": "quartier, zone d'habitation",
+     "lat": 49.127339,
+     "lon": -1.594506,
+     "ecart_m": 4913
+    }
+   ],
+   "parkings": [
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.69224",
+     "lon": -1.6094135999999999,
+     "lat": 49.08263032000001,
+     "ecart_m": 690,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.82263",
+     "lon": -1.608017388,
+     "lat": 49.092708246,
+     "ecart_m": 1198,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.66520",
+     "lon": -1.6082676660000002,
+     "lat": 49.098996002,
+     "ecart_m": 1846,
+     "nom": "Place Fête de la Mer René K'Dual",
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.173448",
+     "lon": -1.5942142524999998,
+     "lat": 49.065447095,
+     "ecart_m": 2029,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.69779",
+     "lon": -1.582548288,
+     "lat": 49.09758428799999,
+     "ecart_m": 2034,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.85170",
+     "lon": -1.608658484,
+     "lat": 49.1010543,
+     "ecart_m": 2072,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.69226",
+     "lon": -1.579262388,
+     "lat": 49.096594624000005,
+     "ecart_m": 2113,
+     "nom": "Place d'Harburg",
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.69225",
+     "lon": -1.580629982,
+     "lat": 49.097480936000004,
+     "ecart_m": 2116,
+     "nom": "Place de l'Église",
+     "nature": "Parking",
+     "detail": null
+    }
+   ],
+   "marche": [
+    {
+     "parking": "equipement_de_transport.69224",
+     "resource": "bdtopo-pgr",
+     "minutes": 11.7,
+     "km": 0.78
+    },
+    {
+     "parking": "equipement_de_transport.82263",
+     "resource": "bdtopo-pgr",
+     "minutes": 23.8,
+     "km": 1.58
+    },
+    {
+     "parking": "equipement_de_transport.66520",
+     "resource": "bdtopo-pgr",
+     "minutes": 34.2,
+     "km": 2.28
+    }
+   ]
+  },
+  {
+   "id": "pirou",
+   "point": {
+    "lat": 49.1667,
+    "lon": -1.5833,
+    "precision_m": 1850
+   },
+   "toponymes": [
+    {
+     "source": "ign",
+     "nom": "Pirou Plage",
+     "categorie": "lieu-dit habité, zone d'habitation",
+     "lat": 49.164628,
+     "lon": -1.589875,
+     "ecart_m": 531
+    }
+   ],
+   "parkings": [
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.174730",
+     "lon": -1.5896912899999998,
+     "lat": 49.165652422,
+     "ecart_m": 479,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Aire de camping-cars"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.69262",
+     "lon": -1.589904186,
+     "lat": 49.171502538000006,
+     "ecart_m": 718,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.69236",
+     "lon": -1.5952769700000002,
+     "lat": 49.16647288285714,
+     "ecart_m": 871,
+     "nom": "Place du 3 Juillet 1944",
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.84961",
+     "lon": -1.57129845,
+     "lat": 49.167114735999995,
+     "ecart_m": 874,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.69235",
+     "lon": -1.5957481055555556,
+     "lat": 49.16699966444444,
+     "ecart_m": 906,
+     "nom": "Place des Bocagers",
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.69261",
+     "lon": -1.5957961936363638,
+     "lat": 49.167608617272734,
+     "ecart_m": 914,
+     "nom": "Place du Général de Gaulle",
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.69248",
+     "lon": -1.5683582,
+     "lat": 49.165047978000004,
+     "ecart_m": 1102,
+     "nom": "Pkg des Ecoles",
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.50010",
+     "lon": -1.5932760940000001,
+     "lat": 49.151336736000005,
+     "ecart_m": 1856,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    }
+   ],
+   "marche": [
+    {
+     "parking": "equipement_de_transport.174730",
+     "resource": "bdtopo-pgr",
+     "minutes": 11.5,
+     "km": 0.77
+    },
+    {
+     "parking": "equipement_de_transport.69262",
+     "resource": "bdtopo-pgr",
+     "minutes": 16.7,
+     "km": 1.11
+    },
+    {
+     "parking": "equipement_de_transport.69236",
+     "resource": "bdtopo-pgr",
+     "minutes": 15.8,
+     "km": 1.05
+    }
+   ]
+  },
+  {
+   "id": "portbail",
+   "point": {
+    "lat": 49.330815,
+    "lon": -1.702099,
+    "precision_m": 300
+   },
+   "toponymes": [
+    {
+     "source": "ign",
+     "nom": "Havre de Portbail",
+     "categorie": "embouchure, détail hydrographique, hydrographie",
+     "lat": 49.330815,
+     "lon": -1.702099,
+     "ecart_m": 0
+    },
+    {
+     "source": "ign",
+     "nom": "Mairie de la Commune Déléguée de Portbail",
+     "categorie": "mairie, zone d'activité ou d'intérêt",
+     "lat": 49.335533,
+     "lon": -1.699891,
+     "ecart_m": 548
+    },
+    {
+     "source": "ign",
+     "nom": "Poste de Portbail",
+     "categorie": "poste, zone d'activité ou d'intérêt",
+     "lat": 49.335039,
+     "lon": -1.696848,
+     "ecart_m": 604
+    },
+    {
+     "source": "ign",
+     "nom": "Portbail",
+     "categorie": "lieu-dit habité, zone d'habitation",
+     "lat": 49.33774,
+     "lon": -1.693914,
+     "ecart_m": 972
+    },
+    {
+     "source": "ign",
+     "nom": "Gare Touristique de Portbail",
+     "categorie": "arrêt voyageurs, transport, équipement de transport",
+     "lat": 49.337443,
+     "lon": -1.692389,
+     "ecart_m": 1019
+    }
+   ],
+   "parkings": [
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.85205",
+     "lon": -1.70591511,
+     "lat": 49.330351612,
+     "ecart_m": 281,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.73039",
+     "lon": -1.699173236,
+     "lat": 49.334944822,
+     "ecart_m": 506,
+     "nom": "Place Edmond Laquaine",
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.73038",
+     "lon": -1.70095813375,
+     "lat": 49.335931703750006,
+     "ecart_m": 575,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.74319",
+     "lon": -1.6997686260000002,
+     "lat": 49.336046176,
+     "ecart_m": 606,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.80172",
+     "lon": -1.7220144344444444,
+     "lat": 49.32771206222222,
+     "ecart_m": 1484,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    }
+   ],
+   "marche": [
+    {
+     "parking": "equipement_de_transport.85205",
+     "resource": "bdtopo-pgr",
+     "minutes": 3.8,
+     "km": 0.26
+    },
+    {
+     "parking": "equipement_de_transport.73039",
+     "resource": "bdtopo-pgr",
+     "minutes": 9.7,
+     "km": 0.64
+    },
+    {
+     "parking": "equipement_de_transport.73038",
+     "resource": "bdtopo-pgr",
+     "minutes": 12.1,
+     "km": 0.81
+    }
+   ]
+  },
+  {
+   "id": "regneville",
+   "point": {
+    "lat": 49.0167,
+    "lon": -1.5667,
+    "precision_m": 1850
+   },
+   "toponymes": [
+    {
+     "source": "ign",
+     "nom": "Havre de Regnéville",
+     "categorie": "embouchure, détail hydrographique, hydrographie",
+     "lat": 49.007977,
+     "lon": -1.566781,
+     "ecart_m": 970
+    },
+    {
+     "source": "ign",
+     "nom": "le Havre de Régeneville",
+     "categorie": "camping, zone d'activité ou d'intérêt",
+     "lat": 49.008827,
+     "lon": -1.555062,
+     "ecart_m": 1219
+    }
+   ],
+   "parkings": [
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.67681",
+     "lon": -1.555420796,
+     "lat": 49.013620751999994,
+     "ecart_m": 891,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.82012",
+     "lon": -1.55457335,
+     "lat": 49.01499497,
+     "ecart_m": 904,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.50014",
+     "lon": -1.582767688,
+     "lat": 49.016697633999996,
+     "ecart_m": 1172,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.50016",
+     "lon": -1.575052774,
+     "lat": 49.001777505999996,
+     "ecart_m": 1768,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.81681",
+     "lon": -1.5421115519999997,
+     "lat": 49.004159564000005,
+     "ecart_m": 2272,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.67255",
+     "lon": -1.595397908,
+     "lat": 49.030907686,
+     "ecart_m": 2622,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.67253",
+     "lon": -1.5963416185714288,
+     "lat": 49.03687296,
+     "ecart_m": 3115,
+     "nom": "Place Edouard Leroux",
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.67254",
+     "lon": -1.5973480719999997,
+     "lat": 49.037022382,
+     "ecart_m": 3178,
+     "nom": "Place du Marechal Leclerc",
+     "nature": "Parking",
+     "detail": null
+    }
+   ],
+   "marche": [
+    {
+     "parking": "equipement_de_transport.67681",
+     "resource": "bdtopo-pgr",
+     "minutes": 4.7,
+     "km": 0.31
+    },
+    {
+     "parking": "equipement_de_transport.82012",
+     "resource": "bdtopo-pgr",
+     "minutes": 5.3,
+     "km": 0.35
+    },
+    {
+     "parking": "equipement_de_transport.50014",
+     "resource": "bdtopo-pgr",
+     "minutes": 203.4,
+     "km": 13.56
+    }
+   ]
+  },
+  {
+   "id": "surtainville",
+   "point": {
+    "lat": 49.45,
+    "lon": -1.8167,
+    "precision_m": 1850
+   },
+   "toponymes": [
+    {
+     "source": "ign",
+     "nom": "la Plage",
+     "categorie": "quartier, zone d'habitation",
+     "lat": 49.46123,
+     "lon": -1.826518,
+     "ecart_m": 1436
+    }
+   ],
+   "parkings": [
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.91444",
+     "lon": -1.809782388,
+     "lat": 49.453941532,
+     "ecart_m": 665,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.80036",
+     "lon": -1.813138344,
+     "lat": 49.458214892,
+     "ecart_m": 949,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.87332",
+     "lon": -1.812478398,
+     "lat": 49.458676061999995,
+     "ecart_m": 1012,
+     "nom": "Place Giguet-Lefillastre",
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.184043",
+     "lon": -1.827907154,
+     "lat": 49.463941378,
+     "ecart_m": 1749,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Aire de camping-cars"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.87039",
+     "lon": -1.8201997079999999,
+     "lat": 49.429365342000004,
+     "ecart_m": 2308,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.85187",
+     "lon": -1.7876090400000002,
+     "lat": 49.470982017999994,
+     "ecart_m": 3141,
+     "nom": "Aire de Covoiturage de Pierreville-les Bauvais",
+     "nature": "Parking",
+     "detail": "Aire de covoiturage"
+    }
+   ],
+   "marche": [
+    {
+     "parking": "equipement_de_transport.91444",
+     "resource": "bdtopo-pgr",
+     "minutes": 11.3,
+     "km": 0.75
+    },
+    {
+     "parking": "equipement_de_transport.80036",
+     "resource": "bdtopo-pgr",
+     "minutes": 18.7,
+     "km": 1.24
+    },
+    {
+     "parking": "equipement_de_transport.87332",
+     "resource": "bdtopo-pgr",
+     "minutes": 20.2,
+     "km": 1.34
+    }
+   ]
+  }
+ ]
+}

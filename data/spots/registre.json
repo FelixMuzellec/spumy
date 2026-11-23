@@ -8,7 +8,7 @@
   "parStatut": {
    "a_verifier": 66
   },
-  "stationnementConnu": 56
+  "stationnementConnu": 59
  },
  "spots": [
   {
@@ -61,16 +61,16 @@
    "lat": 49.001654,
    "lon": -1.575506,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 9,
+   "sources": 11,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.76,
-   "inconnus": 10,
+   "completude": 0.81,
+   "inconnus": 8,
    "anomalies": 0,
    "guide_v2": "pirou"
   },
@@ -271,16 +271,16 @@
    "lat": 49.37264,
    "lon": -1.808779,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 7,
+   "sources": 9,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.78,
-   "inconnus": 9,
+   "completude": 0.83,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "pirou"
   },
@@ -407,7 +407,7 @@
    "derniere_verification": null,
    "completude": 0.75,
    "inconnus": 10,
-   "anomalies": 3,
+   "anomalies": 1,
    "guide_v2": "pirou"
   },
   {
@@ -964,16 +964,16 @@
    "lat": 49.330815,
    "lon": -1.702099,
    "precision_m": 300,
-   "stationnement_connu": false,
+   "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 6,
+   "sources": 8,
    "sources_v2": 2,
    "derniere_verification": null,
-   "completude": 0.74,
-   "inconnus": 10,
+   "completude": 0.8,
+   "inconnus": 8,
    "anomalies": 0,
    "guide_v2": "pirou"
   },
@@ -1045,9 +1045,9 @@
    "name": "Régnéville",
    "origin": "v2_preserved",
    "statut": "a_verifier",
-   "lat": 49.0167,
-   "lon": -1.5667,
-   "precision_m": 1850,
+   "lat": 49.007977,
+   "lon": -1.566781,
+   "precision_m": 300,
    "stationnement_connu": false,
    "niveau_preuve": {
     "meilleur": 1,
@@ -1058,7 +1058,7 @@
    "derniere_verification": null,
    "completude": 0.76,
    "inconnus": 10,
-   "anomalies": 2,
+   "anomalies": 0,
    "guide_v2": "pirou"
   },
   {
@@ -1247,7 +1247,7 @@
    "derniere_verification": null,
    "completude": 0.75,
    "inconnus": 10,
-   "anomalies": 2,
+   "anomalies": 1,
    "guide_v2": "pirou"
   },
   {
