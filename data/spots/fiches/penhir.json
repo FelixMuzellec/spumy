@@ -432,9 +432,56 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Pointe de Pen-Hir, Camaret-sur-Mer, France (Unsplash).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Pen-Hir,_Camaret-sur-Mer,_France_(Unsplash).jpg",
+    "licence": "CC0",
+    "auteur": "J Ahrndt joah",
+    "date": "2016-07-10",
+    "distance_m": 45
+   },
+   {
+    "titre": "Pointe de Pen-Hir, les Tas de Pois.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Pen-Hir,_les_Tas_de_Pois.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "PIERRE ANDRE LECLERCQ",
+    "date": "2009-05-19 15:36:30",
+    "distance_m": 165
+   },
+   {
+    "titre": "Camaret-sur-Mer - Pointe de Pen-hir - Borne avec ancre 02.jpeg",
+    "page": "https://commons.wikimedia.org/wiki/File:Camaret-sur-Mer_-_Pointe_de_Pen-hir_-_Borne_avec_ancre_02.jpeg",
+    "licence": "CC0",
+    "auteur": "Romainbehar",
+    "date": "2021-07-16 17:08:36",
+    "distance_m": 187
+   },
+   {
+    "titre": "GR34 1000 km milestone at Pointe de Pen-Hir.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:GR34_1000_km_milestone_at_Pointe_de_Pen-Hir.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "MartinD",
+    "date": "2026-07-11 13:57:30",
+    "distance_m": 217
+   },
+   {
+    "titre": "Pointe de Pen-Hir (26525345985).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Pen-Hir_(26525345985).jpg",
+    "licence": "CC BY-SA 2.0",
+    "auteur": "Maëlick",
+    "date": "Taken on 14 August 2015, 16:47",
+    "distance_m": 218
+   }
+  ],
+  "texte": "5 photos libres de Wikimedia Commons, à 218 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -445,7 +492,8 @@
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
    "src-legifrance-tailles-minimales-2026",
-   "src-peche-com-945709"
+   "src-peche-com-945709",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "brestfishing.fr — guide de pêche en bateau : récif prolongé, succession de basses",
@@ -455,7 +503,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.79,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -463,8 +511,7 @@
    "tide_approaches.montante",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

@@ -420,9 +420,32 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "105 Aber Wrac'h Paluden.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:105_Aber_Wrac%27h_Paluden.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Moreau.henri",
+    "date": "2018-06-28 13:46:07",
+    "distance_m": 13
+   },
+   {
+    "titre": "Bateau en manoeuvre au port de Paluden 2.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Bateau_en_manoeuvre_au_port_de_Paluden_2.jpg",
+    "licence": "CC0",
+    "auteur": "Romscape",
+    "date": "2006-06-23",
+    "distance_m": 104
+   }
+  ],
+  "texte": "2 photos libres de Wikimedia Commons, à 104 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -435,7 +458,8 @@
    "src-mieuxpecher-com-613cb6",
    "src-peche-poissons-com-5a9560",
    "src-sitytrail-com-4b79fd",
-   "src-voileaviron-org-a382c4"
+   "src-voileaviron-org-a382c4",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "mieuxpecher.com — « Top 10 des coins de pêche en Bretagne (1/2) » (Norbert, 2018, mis à jour 2020)",
@@ -461,7 +485,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.79,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -469,8 +493,7 @@
    "tide_approaches.haute",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": [
    "Position V2 à 4,1 km du toponyme officiel « Aber Wrac'h » (embouchure, détail hydrographique, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme)."

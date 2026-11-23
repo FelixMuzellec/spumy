@@ -442,9 +442,64 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Pointe du Raz-coucher de soleil du 23 mars 2012.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_du_Raz-coucher_de_soleil_du_23_mars_2012.jpg",
+    "licence": "CC BY 2.0",
+    "auteur": "blue eyes photographies",
+    "date": "2012-03-23 20:32",
+    "distance_m": 20
+   },
+   {
+    "titre": "Pointe Du Raz - panoramio - cisko66.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_Du_Raz_-_panoramio_-_cisko66.jpg",
+    "licence": "CC BY 3.0",
+    "auteur": "cisko66",
+    "date": "Taken on 6 September 2007",
+    "distance_m": 38
+   },
+   {
+    "titre": "Pointe du Raz - panoramio - Hans Hagenaars (1).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_du_Raz_-_panoramio_-_Hans_Hagenaars_(1).jpg",
+    "licence": "CC BY 3.0",
+    "auteur": "Hans Hagenaars",
+    "date": "Taken on 20 July 2005",
+    "distance_m": 69
+   },
+   {
+    "titre": "20121004 Bretagne PointeDuRaz IleDeSein DSC00397 PtrQs.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:20121004_Bretagne_PointeDuRaz_IleDeSein_DSC00397_PtrQs.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "PtrQs",
+    "date": "2012-10-04 18:55:19",
+    "distance_m": 70
+   },
+   {
+    "titre": "Pointe du Raz - panoramio (1).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_du_Raz_-_panoramio_(1).jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Lamberto Zannotti",
+    "date": "Taken on 14 August 2010",
+    "distance_m": 195
+   },
+   {
+    "titre": "Pertusaria excludens Raz.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pertusaria_excludens_Raz.jpg",
+    "licence": "Public domain",
+    "auteur": "Jymm",
+    "date": "2010-02-03",
+    "distance_m": 215
+   }
+  ],
+  "texte": "6 photos libres de Wikimedia Commons, à 215 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -456,6 +511,7 @@
    "src-lordjimcroisieres-com-fa2f6e",
    "src-peche-poissons-com-fac8ff",
    "src-toutcommenceenfinistere-com-a81d39",
+   "src-wikimedia-commons-geo",
    "src-wikipedia-en-5c33f9"
   ],
   "sources_v2": [
@@ -487,7 +543,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.76,
+  "completude": 0.79,
   "inconnus": [
    "access.stationnement",
    "access.marche_min",
@@ -497,8 +553,7 @@
    "tide_approaches.descendante",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": [
    "Aucun parking de la BD TOPO à 1,5 km du point : accès à documenter autrement."

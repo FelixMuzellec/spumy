@@ -422,9 +422,48 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Pointe de la Torche (panorama à 360°) - panoramio.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_la_Torche_(panorama_%C3%A0_360%C2%B0)_-_panoramio.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "superp1errot",
+    "date": "Taken on 23 March 2011",
+    "distance_m": 12
+   },
+   {
+    "titre": "Plomeur Pointe de la Torche Dolmen.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Plomeur_Pointe_de_la_Torche_Dolmen.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Heinrich Stürzl",
+    "date": "2026-10-13",
+    "distance_m": 22
+   },
+   {
+    "titre": "Surfing Pointe de la Torche 01.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Surfing_Pointe_de_la_Torche_01.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Schorle",
+    "date": "2018-08-20 18:36:06",
+    "distance_m": 112
+   },
+   {
+    "titre": "Finistere Pointe Torche - panoramio.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Finistere_Pointe_Torche_-_panoramio.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "rene boulay",
+    "date": "29 January 2015 (original upload date)",
+    "distance_m": 279
+   }
+  ],
+  "texte": "4 photos libres de Wikimedia Commons, à 279 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -437,6 +476,7 @@
    "src-legifrance-tailles-minimales-2026",
    "src-surf-report-com-b82135",
    "src-visorando-com-3782fe",
+   "src-wikimedia-commons-geo",
    "src-wikipedia-en-278e87"
   ],
   "sources_v2": [
@@ -463,7 +503,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.8,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -471,8 +511,7 @@
    "tide_approaches.haute",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

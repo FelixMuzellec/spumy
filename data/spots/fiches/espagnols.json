@@ -445,9 +445,64 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Goulet de Brest , la Pointe des Espagnols - panoramio.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Goulet_de_Brest_,_la_Pointe_des_Espagnols_-_panoramio.jpg",
+    "licence": "CC BY 3.0",
+    "auteur": "cisko66",
+    "date": "Taken on 6 September 2007",
+    "distance_m": 23
+   },
+   {
+    "titre": "Goulet de Brest , la Pointe des Espagnols - panoramio - cisko66.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Goulet_de_Brest_,_la_Pointe_des_Espagnols_-_panoramio_-_cisko66.jpg",
+    "licence": "CC BY 3.0",
+    "auteur": "cisko66",
+    "date": "1 December 2007 (original upload date)",
+    "distance_m": 38
+   },
+   {
+    "titre": "Pointe des Espagnols - Vue côté mer.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_des_Espagnols_-_Vue_c%C3%B4t%C3%A9_mer.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Michael Rapp",
+    "date": "2010-07-07",
+    "distance_m": 52
+   },
+   {
+    "titre": "POINTE DES ESPAGNOLS - panoramio.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:POINTE_DES_ESPAGNOLS_-_panoramio.jpg",
+    "licence": "CC BY 3.0",
+    "auteur": "cisko66",
+    "date": "Taken on 6 September 2007",
+    "distance_m": 119
+   },
+   {
+    "titre": "Le fort de la pointe des Espagnols - panoramio.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Le_fort_de_la_pointe_des_Espagnols_-_panoramio.jpg",
+    "licence": "CC BY 3.0",
+    "auteur": "cisko66",
+    "date": "Taken on 6 September 2007",
+    "distance_m": 274
+   },
+   {
+    "titre": "Tour-modele pointe espagnols.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Tour-modele_pointe_espagnols.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Michael Rapp",
+    "date": "2007-07-04",
+    "distance_m": 278
+   }
+  ],
+  "texte": "6 photos libres de Wikimedia Commons, à 278 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -463,7 +518,8 @@
    "src-lordjimcroisieres-com-3eb6ca",
    "src-mieuxpecher-com-8efb4c",
    "src-rebent-ifremer-fr-465f02",
-   "src-voileaviron-org-f9f46c"
+   "src-voileaviron-org-f9f46c",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "rebent.ifremer.fr — FL05 lieux des herbiers de Zostera marina (Roscanvel)",
@@ -488,14 +544,13 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.84,
+  "completude": 0.87,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
    "tide_approaches.montante",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

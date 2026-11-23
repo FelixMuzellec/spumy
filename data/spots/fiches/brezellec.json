@@ -419,9 +419,48 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Dry grass and white flowers (Unsplash).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dry_grass_and_white_flowers_(Unsplash).jpg",
+    "licence": "CC0",
+    "auteur": "Brina Blum brina_blum",
+    "date": "2016-08-28",
+    "distance_m": 32
+   },
+   {
+    "titre": "E9 European hiking route near Pointe de Brezellec.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:E9_European_hiking_route_near_Pointe_de_Brezellec.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "MartinD",
+    "date": "2018-07-17 14:42:30",
+    "distance_m": 96
+   },
+   {
+    "titre": "Finistere Cleden-Cap-Sizun Pointe Brezellec Vue Cote Est - panoramio.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Finistere_Cleden-Cap-Sizun_Pointe_Brezellec_Vue_Cote_Est_-_panoramio.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "rene boulay",
+    "date": "Taken on 6 March 2014",
+    "distance_m": 171
+   },
+   {
+    "titre": "Finistere Cleden-Cap-Sizun Pointe Brezellec Vue Cote Ouest Vue Pointe Van - panoramio.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Finistere_Cleden-Cap-Sizun_Pointe_Brezellec_Vue_Cote_Ouest_Vue_Pointe_Van_-_panoramio.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "rene boulay",
+    "date": "Taken on 6 March 2014",
+    "distance_m": 193
+   }
+  ],
+  "texte": "4 photos libres de Wikimedia Commons, à 193 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -435,7 +474,8 @@
    "src-legifrance-tailles-minimales-2026",
    "src-mieuxpecher-com-ba6412",
    "src-park4night-com-af9169",
-   "src-patrimoine-bzh-bbbe27"
+   "src-patrimoine-bzh-bbbe27",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "cannes-peche.blog4ever.com — « Pointe de Brézellec et Pointe du Van et leurs roches escarpées »",
@@ -462,7 +502,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.79,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -470,8 +510,7 @@
    "tide_approaches.descendante",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

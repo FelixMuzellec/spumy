@@ -433,9 +433,24 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Feu de l'Aber-Ildut.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Feu_de_l%27Aber-Ildut.JPG",
+    "licence": "CC BY 3.0",
+    "auteur": "A.Dechorgnat",
+    "date": "2003-07-13 18:18:16",
+    "distance_m": 156
+   }
+  ],
+  "texte": "1 photo libre de Wikimedia Commons, à 156 m au plus du point, porte le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -448,7 +463,8 @@
    "src-legifrance-tailles-minimales-2026",
    "src-mieuxpecher-com-5f7545",
    "src-peche-poissons-com-8d94f7",
-   "src-visorando-com-f5e1fa"
+   "src-visorando-com-f5e1fa",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : « L'embouchure de l'Aber Idult » ; Top 10 Bretagne",
@@ -474,7 +490,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.8,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -482,8 +498,7 @@
    "tide_approaches.haute",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

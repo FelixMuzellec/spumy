@@ -422,9 +422,40 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Rochers de Saint Guénolé (panorama à 360°) - panoramio.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Rochers_de_Saint_Gu%C3%A9nol%C3%A9_(panorama_%C3%A0_360%C2%B0)_-_panoramio.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "superp1errot",
+    "date": "Taken on 23 March 2011",
+    "distance_m": 35
+   },
+   {
+    "titre": "Finistere Saint-Guenole - panoramio.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Finistere_Saint-Guenole_-_panoramio.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "rene boulay",
+    "date": "28 January 2015 (original upload date)",
+    "distance_m": 219
+   },
+   {
+    "titre": "Triceratops - Dino - Saint Guénolé - Bretagne - France (24544881784).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Triceratops_-_Dino_-_Saint_Gu%C3%A9nol%C3%A9_-_Bretagne_-_France_(24544881784).jpg",
+    "licence": "CC BY-SA 2.0",
+    "auteur": "Armin S Kowalski",
+    "date": "2006-06-28 18:56",
+    "distance_m": 222
+   }
+  ],
+  "texte": "3 photos libres de Wikimedia Commons, à 222 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -439,6 +470,7 @@
    "src-mieuxpecher-com-fd2285",
    "src-surf-report-com-23b53f",
    "src-visorando-com-3782fe",
+   "src-wikimedia-commons-geo",
    "src-wikipedia-en-9707ad"
   ],
   "sources_v2": [
@@ -471,7 +503,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.8,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -479,8 +511,7 @@
    "tide_approaches.descendante",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

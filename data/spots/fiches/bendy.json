@@ -430,9 +430,40 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Pointe de Bendy.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Bendy.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Laemito",
+    "date": "28 August 2022 (according to Exif data)",
+    "distance_m": 43
+   },
+   {
+    "titre": "Grève ouest pointe de Bendy.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Gr%C3%A8ve_ouest_pointe_de_Bendy.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Laemito",
+    "date": "28 August 2022 (according to Exif data)",
+    "distance_m": 168
+   },
+   {
+    "titre": "Folded Schist and Quartzite Logonna-Daoulas Brittany France.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Folded_Schist_and_Quartzite_Logonna-Daoulas_Brittany_France.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Mimi http://www.geodiversite.net/auteur158",
+    "date": "2013-08-18",
+    "distance_m": 357
+   }
+  ],
+  "texte": "3 photos libres de Wikimedia Commons, à 357 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -445,7 +476,8 @@
    "src-legifrance-tailles-minimales-2026",
    "src-peche-com-746b42",
    "src-tourisme-landerneau-daoulas-fr-9e6a1d",
-   "src-voileaviron-org-f9f46c"
+   "src-voileaviron-org-f9f46c",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "fr.wikipedia.org — Logonna-Daoulas",
@@ -472,7 +504,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.79,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -480,8 +512,7 @@
    "tide_approaches.haute",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

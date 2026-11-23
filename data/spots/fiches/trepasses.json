@@ -438,9 +438,56 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "20150924 Baie des Trepasses Sunset Brittany DSC07026-2 PtrQs.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:20150924_Baie_des_Trepasses_Sunset_Brittany_DSC07026-2_PtrQs.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "PtrQs",
+    "date": "2015-09-24 19:07:49",
+    "distance_m": 26
+   },
+   {
+    "titre": "20120926 Baie des Trepasses surferKids Brittany DSC08332 PtrQs.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:20120926_Baie_des_Trepasses_surferKids_Brittany_DSC08332_PtrQs.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "PtrQs",
+    "date": "2012-09-26 16:14:24",
+    "distance_m": 114
+   },
+   {
+    "titre": "20150924 Baie des Trepasses surfer Brittany DSC07077 PtrQs.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:20150924_Baie_des_Trepasses_surfer_Brittany_DSC07077_PtrQs.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "PtrQs",
+    "date": "2015-09-24 19:13:59",
+    "distance_m": 122
+   },
+   {
+    "titre": "Finistere Plogoff Baie Trepasses Vue Pointe Raz - panoramio.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Finistere_Plogoff_Baie_Trepasses_Vue_Pointe_Raz_-_panoramio.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "rene boulay",
+    "date": "Taken on 6 March 2014",
+    "distance_m": 123
+   },
+   {
+    "titre": "Baie des Trépassés - Hôtel-Restaurant 2.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Baie_des_Tr%C3%A9pass%C3%A9s_-_H%C3%B4tel-Restaurant_2.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Selmoval",
+    "date": "2012-08-06 13:42:39",
+    "distance_m": 154
+   }
+  ],
+  "texte": "5 photos libres de Wikimedia Commons, à 154 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -453,6 +500,7 @@
    "src-peche-rando-bar-aef607",
    "src-surf-forecast-com-fd94dd",
    "src-surf-report-com-96bbf2",
+   "src-wikimedia-commons-geo",
    "src-wikipedia-en-c550ed"
   ],
   "sources_v2": [
@@ -479,7 +527,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.8,
+  "completude": 0.83,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -487,8 +535,7 @@
    "tide_approaches.haute",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

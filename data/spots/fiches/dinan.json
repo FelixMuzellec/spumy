@@ -433,9 +433,64 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Pointe de Dinan (35916947104).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Dinan_(35916947104).jpg",
+    "licence": "CC BY 2.0",
+    "auteur": "OliBac from FRANCE",
+    "date": "2017-07-29 14:25",
+    "distance_m": 64
+   },
+   {
+    "titre": "Château de Dinan - Prèsqu`ile de Crozon - France - 20110628 (23672645310).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_de_Dinan_-_Pr%C3%A8squ%60ile_de_Crozon_-_France_-_20110628_(23672645310).jpg",
+    "licence": "CC BY-SA 2.0",
+    "auteur": "Armin S Kowalski",
+    "date": "2011-06-28 12:41",
+    "distance_m": 78
+   },
+   {
+    "titre": "Pointe de Dinan, Presqu'île de Crozon, Finistère (51888481266).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Dinan,_Presqu%27%C3%AEle_de_Crozon,_Finist%C3%A8re_(51888481266).jpg",
+    "licence": "CC BY-SA 2.0",
+    "auteur": "Pom' from France, European Union",
+    "date": "2022-02-17 16:31",
+    "distance_m": 208
+   },
+   {
+    "titre": "Le château de Dinan - panoramio.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Le_ch%C3%A2teau_de_Dinan_-_panoramio.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Besenbinder",
+    "date": "Taken on 28 June 2011",
+    "distance_m": 211
+   },
+   {
+    "titre": "Crozon, Pointe de Dinan.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Crozon,_Pointe_de_Dinan.JPG",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Gilbert RIBOULET",
+    "date": "2013-05-05 16:22:35",
+    "distance_m": 324
+   },
+   {
+    "titre": "Crozon, à la Pointe de Dinan.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Crozon,_%C3%A0_la_Pointe_de_Dinan.JPG",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Gilbert RIBOULET",
+    "date": "2013-05-05 16:44:50",
+    "distance_m": 324
+   }
+  ],
+  "texte": "6 photos libres de Wikimedia Commons, à 324 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -449,7 +504,8 @@
    "src-ign-itineraire-pieton",
    "src-lechasseursousmarin-com-f96b13",
    "src-legifrance-tailles-minimales-2026",
-   "src-mieuxpecher-com-b0f79e"
+   "src-mieuxpecher-com-b0f79e",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : château de Dinan",
@@ -488,7 +544,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.8,
+  "completude": 0.83,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -496,8 +552,7 @@
    "tide_approaches.haute",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

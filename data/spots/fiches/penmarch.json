@@ -435,9 +435,40 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Pointe de Penmarc'h - panoramio.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Penmarc%27h_-_panoramio.jpg",
+    "licence": "CC BY 3.0",
+    "auteur": "Nigel Boundy",
+    "date": "Taken on 28 August 2015",
+    "distance_m": 5
+   },
+   {
+    "titre": "Penmarch Phare d'Eckmühl.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Penmarch_Phare_d%27Eckm%C3%BChl.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Heinrich Stürzl",
+    "date": "2023-06-25",
+    "distance_m": 45
+   },
+   {
+    "titre": "Phare d'Eckmuhl.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Phare_d%27Eckmuhl.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Jacquym",
+    "date": "2016-08-08 14:50:16",
+    "distance_m": 78
+   }
+  ],
+  "texte": "3 photos libres de Wikimedia Commons, à 78 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -451,6 +482,7 @@
    "src-legifrance-tailles-minimales-2026",
    "src-mieuxpecher-com-2baae9",
    "src-toutcommenceenfinistere-com-7530a0",
+   "src-wikimedia-commons-geo",
    "src-wikipedia-en-151517"
   ],
   "sources_v2": [
@@ -486,7 +518,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.8,
+  "completude": 0.83,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -494,8 +526,7 @@
    "tide_approaches.haute",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

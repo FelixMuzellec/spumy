@@ -413,9 +413,24 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Coucher du soleil a la plage de Trez-Bellec.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Coucher_du_soleil_a_la_plage_de_Trez-Bellec.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Schorle",
+    "date": "2018-08-17 20:20:33",
+    "distance_m": 203
+   }
+  ],
+  "texte": "1 photo libre de Wikimedia Commons, à 203 m au plus du point, porte le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -428,7 +443,8 @@
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
    "src-legifrance-tailles-minimales-2026",
-   "src-plages-tv-c7368d"
+   "src-plages-tv-c7368d",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "chtipecheur.com — « Spots de pêche de Bretagne » : plages de la baie de Douarnenez",
@@ -458,7 +474,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.79,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -466,8 +482,7 @@
    "tide_approaches.haute",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

@@ -43,13 +43,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.8,
-   "inconnus": 8,
+   "completude": 0.82,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "plouguerneau"
   },
@@ -127,13 +127,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 8,
+   "sources": 9,
    "sources_v2": 2,
    "derniere_verification": null,
-   "completude": 0.79,
-   "inconnus": 8,
+   "completude": 0.82,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "concarneau"
   },
@@ -148,13 +148,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.79,
-   "inconnus": 8,
+   "completude": 0.82,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "logonna"
   },
@@ -169,13 +169,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.79,
-   "inconnus": 8,
+   "completude": 0.82,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "plouguerneau"
   },
@@ -190,13 +190,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.79,
-   "inconnus": 8,
+   "completude": 0.82,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "audierne"
   },
@@ -274,13 +274,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 9,
+   "sources": 10,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.83,
-   "inconnus": 7,
+   "completude": 0.85,
+   "inconnus": 6,
    "anomalies": 0,
    "guide_v2": "pirou"
   },
@@ -295,13 +295,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 9,
+   "sources": 10,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.79,
-   "inconnus": 8,
+   "completude": 0.82,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "plouguerneau"
   },
@@ -316,13 +316,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.8,
-   "inconnus": 8,
+   "completude": 0.83,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "crozon"
   },
@@ -337,13 +337,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 13,
+   "sources": 14,
    "sources_v2": 7,
    "derniere_verification": null,
-   "completude": 0.84,
-   "inconnus": 6,
+   "completude": 0.87,
+   "inconnus": 5,
    "anomalies": 0,
    "guide_v2": "logonna"
   },
@@ -379,13 +379,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.85,
-   "inconnus": 6,
+   "completude": 0.88,
+   "inconnus": 5,
    "anomalies": 0,
    "guide_v2": "pirou"
   },
@@ -442,13 +442,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 9,
+   "sources": 10,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.82,
-   "inconnus": 7,
+   "completude": 0.85,
+   "inconnus": 6,
    "anomalies": 0,
    "guide_v2": "pirou"
   },
@@ -505,13 +505,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.8,
-   "inconnus": 8,
+   "completude": 0.83,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "plouguerneau"
   },
@@ -547,13 +547,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 12,
+   "sources": 13,
    "sources_v2": 6,
    "derniere_verification": null,
-   "completude": 0.8,
-   "inconnus": 8,
+   "completude": 0.82,
+   "inconnus": 7,
    "anomalies": 1,
    "guide_v2": "concarneau"
   },
@@ -610,13 +610,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 9,
+   "sources": 10,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.79,
-   "inconnus": 8,
+   "completude": 0.82,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "crozon"
   },
@@ -673,13 +673,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 9,
+   "sources": 10,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.79,
-   "inconnus": 8,
+   "completude": 0.82,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "logonna"
   },
@@ -694,13 +694,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.79,
-   "inconnus": 8,
+   "completude": 0.82,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "crozon"
   },
@@ -778,13 +778,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.79,
-   "inconnus": 8,
+   "completude": 0.82,
+   "inconnus": 7,
    "anomalies": 1,
    "guide_v2": "plouguerneau"
   },
@@ -820,13 +820,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 8,
+   "sources": 9,
    "sources_v2": 2,
    "derniere_verification": null,
-   "completude": 0.79,
-   "inconnus": 8,
+   "completude": 0.82,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "logonna"
   },
@@ -841,13 +841,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.79,
-   "inconnus": 8,
+   "completude": 0.82,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "audierne"
   },
@@ -862,13 +862,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.8,
-   "inconnus": 8,
+   "completude": 0.83,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "audierne"
   },
@@ -883,13 +883,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 9,
+   "sources": 10,
    "sources_v2": 3,
    "derniere_verification": null,
-   "completude": 0.8,
-   "inconnus": 8,
+   "completude": 0.83,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "plouguerneau"
   },
@@ -904,13 +904,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.79,
-   "inconnus": 8,
+   "completude": 0.82,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "crozon"
   },
@@ -967,13 +967,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 8,
+   "sources": 9,
    "sources_v2": 2,
    "derniere_verification": null,
-   "completude": 0.8,
-   "inconnus": 8,
+   "completude": 0.82,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "pirou"
   },
@@ -1009,13 +1009,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.8,
-   "inconnus": 8,
+   "completude": 0.82,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "carantec"
   },
@@ -1030,13 +1030,13 @@
    "stationnement_connu": false,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 9,
+   "sources": 10,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.76,
-   "inconnus": 10,
+   "completude": 0.79,
+   "inconnus": 9,
    "anomalies": 1,
    "guide_v2": "audierne"
   },
@@ -1093,13 +1093,13 @@
    "stationnement_connu": false,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 9,
+   "sources": 10,
    "sources_v2": 5,
    "derniere_verification": null,
-   "completude": 0.74,
-   "inconnus": 10,
+   "completude": 0.77,
+   "inconnus": 9,
    "anomalies": 1,
    "guide_v2": "logonna"
   },
@@ -1156,13 +1156,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 12,
+   "sources": 13,
    "sources_v2": 6,
    "derniere_verification": null,
-   "completude": 0.8,
-   "inconnus": 8,
+   "completude": 0.82,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "audierne"
   },
@@ -1282,13 +1282,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.8,
-   "inconnus": 8,
+   "completude": 0.82,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "audierne"
   },
@@ -1324,13 +1324,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.8,
-   "inconnus": 8,
+   "completude": 0.83,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "audierne"
   },
@@ -1345,13 +1345,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.79,
-   "inconnus": 8,
+   "completude": 0.82,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "concarneau"
   },
@@ -1366,13 +1366,13 @@
    "stationnement_connu": true,
    "niveau_preuve": {
     "meilleur": 1,
-    "plus_faible": 1
+    "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 4,
    "derniere_verification": null,
-   "completude": 0.79,
-   "inconnus": 8,
+   "completude": 0.82,
+   "inconnus": 7,
    "anomalies": 0,
    "guide_v2": "crozon"
   },

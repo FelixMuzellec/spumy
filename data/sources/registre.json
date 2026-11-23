@@ -1,10 +1,10 @@
 {
  "//": "Registre des sources (phase 5, 5.4 ; § 7.1). Généré par scripts/sources-registre.mjs ; les champs « evaluation » se complètent à la main et ne sont jamais écrasés.",
  "totaux": {
-  "sources": 292,
+  "sources": 293,
   "aEvaluer": 284,
-  "avecUrl": 48,
-  "editeurs": 99,
+  "avecUrl": 49,
+  "editeurs": 100,
   "parType": {
    "site, guide ou presse spécialisée": 221,
    "texte réglementaire": 3,
@@ -14,7 +14,8 @@
    "encyclopédie collaborative": 12,
    "cartographie": 4,
    "cartographie ouverte": 2,
-   "journal personnel (Félix)": 1
+   "journal personnel (Félix)": 1,
+   "communautaire": 1
   }
  },
  "sources": [
@@ -6987,6 +6988,60 @@
     "droits": null,
     "consulte_le": null
    }
+  },
+  {
+   "id": "src-wikimedia-commons-geo",
+   "texte": "Wikimedia Commons, recherche géographique des fichiers (API MediaWiki, list=geosearch, 400 m) et métadonnées de licence (imageinfo, extmetadata)",
+   "editeur": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/w/api.php",
+   "type": "communautaire",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "contributeurs de Wikimedia Commons (auteur propre à chaque fichier)",
+    "date": "2026-11-23",
+    "methode": "fichiers géolocalisés à 400 m au plus du point de chaque spot ; gardés seulement si le titre ou la description porte le nom du spot et si la licence est libre ; passage CI 45261223894",
+    "precision": "géolocalisation déclarée par le contributeur (position de prise de vue ou de l'objet, selon le fichier)",
+    "independance": "indépendante des sources de pêche",
+    "limites": "une photo nommée d'après le lieu ne montre pas forcément le poste ; date de prise de vue souvent absente ; à vérifier image par image avant affichage",
+    "droits": "licence propre à chaque fichier (CC0, domaine public, CC BY, CC BY-SA) : attribution de l'auteur et mention de la licence obligatoires, partage à l'identique pour CC BY-SA ; aucune image copiée dans le dépôt",
+    "consulte_le": "2026-11-23"
+   },
+   "manuelle": true,
+   "utilise_par": [
+    "spot:aberildut",
+    "spot:begmeil",
+    "spot:bendy",
+    "spot:blancssablons",
+    "spot:brezellec",
+    "spot:carteret",
+    "spot:corsen",
+    "spot:dinan",
+    "spot:espagnols",
+    "spot:goury",
+    "spot:granville",
+    "spot:kermorvan",
+    "spot:laita",
+    "spot:leyde",
+    "spot:minou",
+    "spot:morgat",
+    "spot:paluden",
+    "spot:penhir",
+    "spot:penhors",
+    "spot:penmarch",
+    "spot:pennenez",
+    "spot:pentrez",
+    "spot:portbail",
+    "spot:primel",
+    "spot:raz",
+    "spot:rostiviec",
+    "spot:saintguenole",
+    "spot:torche",
+    "spot:trepasses",
+    "spot:trevignon",
+    "spot:trezbellec"
+   ]
   },
   {
    "id": "src-wikipedia-en-151517",

@@ -9,6 +9,7 @@ on:
       - "scripts/collecte-acces.mjs"
       - "data/spots/collecte/demande.json"
       - "scripts/collecte-photos.mjs"
+      - "scripts/collecte-risques.mjs"
       - ".github/workflows/collecte-spots.yml"
 
 permissions:
@@ -29,6 +30,9 @@ jobs:
       - name: Inventaire des photos libres (Wikimedia Commons)
         run: |
           if node -e "process.exit(require('./data/spots/collecte/demande.json').photos?0:1)"; then node scripts/collecte-photos.mjs; else echo "inventaire des photos non demandé"; fi
+      - name: Risques naturels officiels (Géorisques)
+        run: |
+          if node -e "process.exit(require('./data/spots/collecte/demande.json').risques?0:1)"; then node scripts/collecte-risques.mjs; else echo "risques non demandés"; fi
       - if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:

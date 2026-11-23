@@ -435,9 +435,24 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Pointe et phare de Kermorvan (Ifremer 00682-79414 - 32188).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_et_phare_de_Kermorvan_(Ifremer_00682-79414_-_32188).jpg",
+    "licence": "CC BY 4.0",
+    "auteur": "Stephane Lesbats",
+    "date": "2 March 2021 (upload date)",
+    "distance_m": 30
+   }
+  ],
+  "texte": "1 photo libre de Wikimedia Commons, à 30 m au plus du point, porte le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -451,7 +466,8 @@
    "src-lhdigest-com-764c7f",
    "src-mieuxpecher-com-11a42d",
    "src-patrimoine-iroise-fr-3bcbe7",
-   "src-visorando-com-7d424b"
+   "src-visorando-com-7d424b",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : « Pointe de Kermorvan »",
@@ -486,7 +502,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.8,
+  "completude": 0.83,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -494,8 +510,7 @@
    "tide_approaches.haute",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

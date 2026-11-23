@@ -460,9 +460,32 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Une épave de bateau à Portbail.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Une_%C3%A9pave_de_bateau_%C3%A0_Portbail.jpg",
+    "licence": "CC0",
+    "auteur": "Rc1959",
+    "date": "17 August 2025 (according to Exif data)",
+    "distance_m": 147
+   },
+   {
+    "titre": "Le port de Portbail.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Le_port_de_Portbail.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "JackyM59",
+    "date": "19 August 2026 (according to Exif data)",
+    "distance_m": 236
+   }
+  ],
+  "texte": "2 photos libres de Wikimedia Commons, à 236 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -473,7 +496,8 @@
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
    "src-legifrance-tailles-minimales-2026",
-   "src-peche-com-18cc55"
+   "src-peche-com-18cc55",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "cpiecotentin.com — 'À Portbail, le platier rocheux offre moule, coquille Saint-Jacques, étrille et bouquet' ; havre appartenant aux quatre havres de la côte ouest",
@@ -489,7 +513,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.8,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -497,8 +521,7 @@
    "tide_approaches.haute",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

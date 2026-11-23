@@ -421,9 +421,48 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Morgat.-Rochers du Beg ar Kador.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Morgat.-Rochers_du_Beg_ar_Kador.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "PIERRE ANDRE LECLERCQ",
+    "date": "2009-05-28 15:56:03",
+    "distance_m": 26
+   },
+   {
+    "titre": "Les grottes de Morgat à Crozon - 027.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Les_grottes_de_Morgat_%C3%A0_Crozon_-_027.JPG",
+    "licence": "CC BY-SA 2.5",
+    "auteur": "Thesupermat",
+    "date": "2009-08-18",
+    "distance_m": 79
+   },
+   {
+    "titre": "Les grottes de Morgat à Crozon - la pointe du Kador - 002.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Les_grottes_de_Morgat_%C3%A0_Crozon_-_la_pointe_du_Kador_-_002.JPG",
+    "licence": "CC BY-SA 2.5",
+    "auteur": "Thesupermat",
+    "date": "2009-08-18",
+    "distance_m": 93
+   },
+   {
+    "titre": "Polyplacophora Chiton Morgat Baie Douarnenezété 2015 F Lamiot 01.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Polyplacophora_Chiton_Morgat_Baie_Douarnenez%C3%A9t%C3%A9_2015_F_Lamiot_01.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Lamiot",
+    "date": "2015-08-18 13:37:18",
+    "distance_m": 113
+   }
+  ],
+  "texte": "4 photos libres de Wikimedia Commons, à 113 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -436,7 +475,8 @@
    "src-ign-itineraire-pieton",
    "src-lechasseursousmarin-com-fc423e",
    "src-legifrance-tailles-minimales-2026",
-   "src-mieuxpecher-com-df233a"
+   "src-mieuxpecher-com-df233a",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : pointe et port de Morgat",
@@ -466,7 +506,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.79,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -474,8 +514,7 @@
    "tide_approaches.descendante",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

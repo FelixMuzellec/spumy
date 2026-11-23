@@ -416,9 +416,32 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Beg-Meil-06.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Beg-Meil-06.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Wayne77",
+    "date": "2015-03-22 12:54:25",
+    "distance_m": 64
+   },
+   {
+    "titre": "Coupole acier du regelbau 502 Beg Meil.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Coupole_acier_du_regelbau_502_Beg_Meil.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Semaphorique",
+    "date": "2020-06-29",
+    "distance_m": 122
+   }
+  ],
+  "texte": "2 photos libres de Wikimedia Commons, à 122 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -429,7 +452,8 @@
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
    "src-legifrance-tailles-minimales-2026",
-   "src-mieuxpecher-com-11af92"
+   "src-mieuxpecher-com-11af92",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : Beg Meil",
@@ -449,7 +473,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.79,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -457,8 +481,7 @@
    "tide_approaches.descendante",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

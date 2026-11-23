@@ -460,9 +460,64 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Station de sauvetage en mer Goury-0787.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Station_de_sauvetage_en_mer_Goury-0787.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Raimond Spekking",
+    "date": "2024-08-21",
+    "distance_m": 26
+   },
+   {
+    "titre": "Port de Goury - Station de Sauvetage (2).JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Port_de_Goury_-_Station_de_Sauvetage_(2).JPG",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Xfigpower",
+    "date": "2015-01-01 16:30:50",
+    "distance_m": 33
+   },
+   {
+    "titre": "Port de Goury - Quai.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Port_de_Goury_-_Quai.JPG",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Xfigpower",
+    "date": "2015-01-01 16:31:36",
+    "distance_m": 39
+   },
+   {
+    "titre": "Port de Goury - Vue sur la mer depuis la rampe de lancement de la station (3).JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Port_de_Goury_-_Vue_sur_la_mer_depuis_la_rampe_de_lancement_de_la_station_(3).JPG",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Xfigpower",
+    "date": "2015-01-01 16:29:12",
+    "distance_m": 40
+   },
+   {
+    "titre": "SNS 067 Mona Rigolet in Station de sauvetage en mer Goury-093025342.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:SNS_067_Mona_Rigolet_in_Station_de_sauvetage_en_mer_Goury-093025342.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Raimond Spekking",
+    "date": "2024-08-21",
+    "distance_m": 60
+   },
+   {
+    "titre": "Port of Goury during strong wind-8026.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Port_of_Goury_during_strong_wind-8026.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Raimond Spekking",
+    "date": "2021-12-28",
+    "distance_m": 61
+   }
+  ],
+  "texte": "6 photos libres de Wikimedia Commons, à 61 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -475,7 +530,8 @@
    "src-legifrance-tailles-minimales-2026",
    "src-peche-com-3ab835",
    "src-peche-com-7b01a1",
-   "src-peche-com-f2e8bf"
+   "src-peche-com-f2e8bf",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "peche.com — Sortie de pêche estivale à la recherche des bars du Cotentin",
@@ -497,14 +553,13 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.85,
+  "completude": 0.88,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
    "tide_approaches.basse",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

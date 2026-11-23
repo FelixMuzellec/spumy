@@ -420,9 +420,24 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "213 Saint-Nic.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:213_Saint-Nic.jpg",
+    "licence": "Public domain",
+    "auteur": "Jean-Marie Le Doaré",
+    "date": "2016-09-13 16:45:34",
+    "distance_m": 47
+   }
+  ],
+  "texte": "1 photo libre de Wikimedia Commons, à 47 m au plus du point, porte le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -435,7 +450,8 @@
    "src-ign-itineraire-pieton",
    "src-legifrance-tailles-minimales-2026",
    "src-pecheaubar-com-b1883e",
-   "src-plages-tv-6209c9"
+   "src-plages-tv-6209c9",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "pecheaubar.com — « La Pêche au bar en Bretagne : Douarnenez » : Pentrez",
@@ -465,7 +481,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.79,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -473,8 +489,7 @@
    "tide_approaches.haute",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

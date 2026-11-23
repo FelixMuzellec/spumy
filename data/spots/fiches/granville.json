@@ -453,9 +453,56 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Granville - Batterie du Roc (observatoire).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Granville_-_Batterie_du_Roc_(observatoire).jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Kev22",
+    "date": "2015-02-13 15:45:25",
+    "distance_m": 22
+   },
+   {
+    "titre": "Granville 08 2017 17.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Granville_08_2017_17.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Mirek237",
+    "date": "2017-08-15 13:33:06",
+    "distance_m": 24
+   },
+   {
+    "titre": "Granville - Vue depuis la promenade du Roc (4).JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Granville_-_Vue_depuis_la_promenade_du_Roc_(4).JPG",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Xfigpower",
+    "date": "2012-08-17 10:42:51",
+    "distance_m": 36
+   },
+   {
+    "titre": "Granville - Cap Lihou et Guérite de l'Empire.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Granville_-_Cap_Lihou_et_Gu%C3%A9rite_de_l%27Empire.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Kev22",
+    "date": "2015-02-13 15:46:09",
+    "distance_m": 36
+   },
+   {
+    "titre": "Pointe du Roc Granville 2014 01.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_du_Roc_Granville_2014_01.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "VT98Fan",
+    "date": "2014-05-11 10:42:27",
+    "distance_m": 54
+   }
+  ],
+  "texte": "5 photos libres de Wikimedia Commons, à 54 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -467,7 +514,8 @@
    "src-ign-itineraire-pieton",
    "src-legifrance-tailles-minimales-2026",
    "src-peche-com-59bdb6",
-   "src-shom-fr-maree-info-d55b87"
+   "src-shom-fr-maree-info-d55b87",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "shom.fr / maree.info — Granville, port de référence du secteur, parmi les plus forts marnages d'Europe continentale",
@@ -478,15 +526,14 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.82,
+  "completude": 0.85,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
    "tide_approaches.basse",
    "tide_approaches.haute",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

@@ -415,9 +415,56 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Penhors Pouldreuzic Viaouest.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Penhors_Pouldreuzic_Viaouest.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Viaouest",
+    "date": "2015-03-19 08:56:33",
+    "distance_m": 104
+   },
+   {
+    "titre": "Baie d'Audierne 101.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Baie_d%27Audierne_101.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Moreau.henri",
+    "date": "2021-11-16 14:40:42",
+    "distance_m": 150
+   },
+   {
+    "titre": "Penhors.- Plage de Bretz Armor.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Penhors.-_Plage_de_Bretz_Armor.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "PIERRE ANDRE LECLERCQ",
+    "date": "2006-05-23 21:16:11",
+    "distance_m": 241
+   },
+   {
+    "titre": "Chapelle de Penhors ViaOuest.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Chapelle_de_Penhors_ViaOuest.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Viaouest",
+    "date": "2014-06-29 14:57:22",
+    "distance_m": 285
+   },
+   {
+    "titre": "Pouldreuzic (29) Chapelle Notre-Dame-de-Penhors 03.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Pouldreuzic_(29)_Chapelle_Notre-Dame-de-Penhors_03.JPG",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "GO69",
+    "date": "2013-07-21 10:35:58",
+    "distance_m": 286
+   }
+  ],
+  "texte": "5 photos libres de Wikimedia Commons, à 286 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -430,7 +477,8 @@
    "src-ign-itineraire-pieton",
    "src-legifrance-tailles-minimales-2026",
    "src-peche-rando-bar-93aa8f",
-   "src-surf-forecast-com-726c6a"
+   "src-surf-forecast-com-726c6a",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "cannes-peche.blog4ever.com — Pouldreuzic : « Plage de Penhors »",
@@ -456,7 +504,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.79,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -464,8 +512,7 @@
    "tide_approaches.haute",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

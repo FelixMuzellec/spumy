@@ -160,6 +160,26 @@
     "droits": "Licence Ouverte de la Géoplateforme (attribution « IGN ») — à confirmer",
     "consulte_le": "2026-11-23"
    }
+  },
+  {
+   "id": "src-wikimedia-commons-geo",
+   "texte": "Wikimedia Commons, recherche géographique des fichiers (API MediaWiki, list=geosearch, 400 m) et métadonnées de licence (imageinfo, extmetadata)",
+   "editeur": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/w/api.php",
+   "type": "communautaire",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "contributeurs de Wikimedia Commons (auteur propre à chaque fichier)",
+    "date": "2026-11-23",
+    "methode": "fichiers géolocalisés à 400 m au plus du point de chaque spot ; gardés seulement si le titre ou la description porte le nom du spot et si la licence est libre ; passage CI 45261223894",
+    "precision": "géolocalisation déclarée par le contributeur (position de prise de vue ou de l'objet, selon le fichier)",
+    "independance": "indépendante des sources de pêche",
+    "limites": "une photo nommée d'après le lieu ne montre pas forcément le poste ; date de prise de vue souvent absente ; à vérifier image par image avant affichage",
+    "droits": "licence propre à chaque fichier (CC0, domaine public, CC BY, CC BY-SA) : attribution de l'auteur et mention de la licence obligatoires, partage à l'identique pour CC BY-SA ; aucune image copiée dans le dépôt",
+    "consulte_le": "2026-11-23"
+   }
   }
  ]
 }

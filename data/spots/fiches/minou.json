@@ -444,9 +444,64 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Le Petit Minou lighthouse under renovation.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Le_Petit_Minou_lighthouse_under_renovation.jpg",
+    "licence": "CC BY 4.0",
+    "auteur": "Animalculum",
+    "date": "2026-08-08 19:15:25",
+    "distance_m": 18
+   },
+   {
+    "titre": "Phare du Petit Minou, Plouzané, France (Unsplash).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Phare_du_Petit_Minou,_Plouzan%C3%A9,_France_(Unsplash).jpg",
+    "licence": "CC0",
+    "auteur": "William Bout williambout",
+    "date": "2016-06-18",
+    "distance_m": 35
+   },
+   {
+    "titre": "Phare du Petit Minou, Plouzané, France (Unsplash uFNElcqa6D0).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Phare_du_Petit_Minou,_Plouzan%C3%A9,_France_(Unsplash_uFNElcqa6D0).jpg",
+    "licence": "CC0",
+    "auteur": "William Bout williambout",
+    "date": "2016-06-26",
+    "distance_m": 35
+   },
+   {
+    "titre": "Phare du Petit Minou 2.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Phare_du_Petit_Minou_2.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Einaz80",
+    "date": "24-06-2022",
+    "distance_m": 44
+   },
+   {
+    "titre": "Rade de Brest, Finistère, France - Flickr - pom'..jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Rade_de_Brest,_Finist%C3%A8re,_France_-_Flickr_-_pom%27..jpg",
+    "licence": "CC BY-SA 2.0",
+    "auteur": "Pom' from France, European Union",
+    "date": "Taken on 30 October 2023, 13:41",
+    "distance_m": 71
+   },
+   {
+    "titre": "Le Petit Minou (58532282).jpeg",
+    "page": "https://commons.wikimedia.org/wiki/File:Le_Petit_Minou_(58532282).jpeg",
+    "licence": "CC BY 3.0",
+    "auteur": "Christophe Thibault",
+    "date": "28 July 2010, 22:36:21 (UTC)",
+    "distance_m": 77
+   }
+  ],
+  "texte": "6 photos libres de Wikimedia Commons, à 77 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -458,7 +513,8 @@
    "src-ign-itineraire-pieton",
    "src-legifrance-tailles-minimales-2026",
    "src-mieuxpecher-com-b185a3",
-   "src-peche-com-9ab318"
+   "src-peche-com-9ab318",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "brestfishing.fr — Goulet de Brest (pêche en bateau : principes généraux, plateaux rocheux)",
@@ -469,7 +525,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.79,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -477,8 +533,7 @@
    "tide_approaches.haute",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

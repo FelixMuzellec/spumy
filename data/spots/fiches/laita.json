@@ -424,9 +424,24 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "L'embouchure de la Laïta, vu depuis Guidel Plages - panoramio.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:L%27embouchure_de_la_La%C3%AFta,_vu_depuis_Guidel_Plages_-_panoramio.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Gilles Guillamot",
+    "date": "17 March 2014 (original upload date)",
+    "distance_m": 287
+   }
+  ],
+  "texte": "1 photo libre de Wikimedia Commons, à 287 m au plus du point, porte le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -441,7 +456,8 @@
    "src-mieuxpecher-com-ceb5da",
    "src-peche-poissons-com-c865ad",
    "src-visorando-com-fb7f7e",
-   "src-waterways-navship-org-f7e5bc"
+   "src-waterways-navship-org-f7e5bc",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : estuaire de la Laïta",
@@ -477,7 +493,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.8,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -485,8 +501,7 @@
    "tide_approaches.haute",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": [
    "Position V2 à 4,7 km du toponyme officiel « la Laïta » (cours d'eau, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme)."

@@ -11,6 +11,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { lireFiches, DIR_FICHES, ecrireRegistre } from "./registre-spots.mjs";
 import { qualite } from "./fiches-v3-depuis-v2.mjs";
+import { memeNom } from "./noms.mjs";
 
 const fichierCollecte = process.argv[2];
 if (!fichierCollecte) throw new Error("usage : node scripts/integrer-acces.mjs <collecte.json>");
@@ -18,14 +19,6 @@ const collecte = JSON.parse(fs.readFileSync(fichierCollecte, "utf8"));
 const JOUR = collecte.date;
 const parId = new Map(collecte.spots.map((s) => [s.id, s]));
 
-const GENERIQUES = new Set(["de", "du", "des", "la", "le", "les", "l", "d", "et", "sur", "a", "au", "aux", "en", "pointe", "plage", "anse", "baie", "embouchure", "embouchures", "estuaire", "rochers", "dunes", "sillon", "ile", "cap", "havre", "greve", "pont", "digue"]);
-const mots = (s) => (s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().split(" ").filter((w) => w && !GENERIQUES.has(w));
-/** Le toponyme porte-t-il le nom du spot ? Tous ses mots significatifs sont dans le nom du spot, ou l'inverse. */
-function memeNom(spot, topo) {
-  const a = mots(spot), b = mots(topo);
-  if (!a.length || !b.length) return false;
-  return b.every((w) => a.includes(w)) || a.every((w) => b.includes(w));
-}
 const KM = (m) => (m / 1000).toFixed(1).replace(".", ",");
 
 let n = 0;

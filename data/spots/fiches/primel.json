@@ -433,9 +433,40 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Primel - Finistère (52381216861).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Primel_-_Finist%C3%A8re_(52381216861).jpg",
+    "licence": "CC BY-SA 2.0",
+    "auteur": "Nicolas Torquet",
+    "date": "2022-07-27 17:52",
+    "distance_m": 231
+   },
+   {
+    "titre": "Pointe de Primel - Plougasnou - Finistère (52391370624).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Primel_-_Plougasnou_-_Finist%C3%A8re_(52391370624).jpg",
+    "licence": "CC BY-SA 2.0",
+    "auteur": "Nicolas Torquet",
+    "date": "2022-07-27 17:49",
+    "distance_m": 238
+   },
+   {
+    "titre": "Cabane des douaniers - Primel (52360542429).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Cabane_des_douaniers_-_Primel_(52360542429).jpg",
+    "licence": "CC BY-SA 2.0",
+    "auteur": "Nicolas Torquet",
+    "date": "2022-07-27 17:50",
+    "distance_m": 242
+   }
+  ],
+  "texte": "3 photos libres de Wikimedia Commons, à 242 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -449,7 +480,8 @@
    "src-legifrance-tailles-minimales-2026",
    "src-mieuxpecher-com-ac5a35",
    "src-oblyk-org-2ee5af",
-   "src-patrimoine-bzh-15d60c"
+   "src-patrimoine-bzh-15d60c",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "baiedemorlaix.bzh — office de tourisme : pointe de Primel (menhir), surfcasting",
@@ -484,7 +516,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.8,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -492,8 +524,7 @@
    "tide_approaches.descendante",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

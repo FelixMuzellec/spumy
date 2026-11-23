@@ -417,9 +417,56 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Pointe de Trévignon, (panorama à 360°) - panoramio (1).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Tr%C3%A9vignon,_(panorama_%C3%A0_360%C2%B0)_-_panoramio_(1).jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "superp1errot",
+    "date": "Taken on 22 April 2011",
+    "distance_m": 48
+   },
+   {
+    "titre": "Finistere Pointe Trevignon - panoramio.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Finistere_Pointe_Trevignon_-_panoramio.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "rene boulay",
+    "date": "28 January 2015 (original upload date)",
+    "distance_m": 99
+   },
+   {
+    "titre": "Trevignon - panoramio (1).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Trevignon_-_panoramio_(1).jpg",
+    "licence": "CC BY 3.0",
+    "auteur": "PJMarriott",
+    "date": "Taken on 18 July 2010",
+    "distance_m": 158
+   },
+   {
+    "titre": "Phare de Trévignon.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Phare_de_Tr%C3%A9vignon.jpg",
+    "licence": "CC0",
+    "auteur": "Ronan1944335",
+    "date": "2024-08-13 14:56:07",
+    "distance_m": 244
+   },
+   {
+    "titre": "Pointe de trévignon - la jetée (10175501433).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_tr%C3%A9vignon_-_la_jet%C3%A9e_(10175501433).jpg",
+    "licence": "CC BY 2.0",
+    "auteur": "Jean-Jacques Abalain from Melgven (près de Concarneau)",
+    "date": "2013-10-06 19:44",
+    "distance_m": 282
+   }
+  ],
+  "texte": "5 photos libres de Wikimedia Commons, à 282 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -432,7 +479,8 @@
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
    "src-legifrance-tailles-minimales-2026",
-   "src-mieuxpecher-com-8716b2"
+   "src-mieuxpecher-com-8716b2",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "cannes-peche.blog4ever.com — Trégunc : pointe de Trévignon, roches",
@@ -462,7 +510,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.79,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -470,8 +518,7 @@
    "tide_approaches.descendante",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

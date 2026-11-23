@@ -478,9 +478,64 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Cap de Carteret (2).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Cap_de_Carteret_(2).jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Xfigpower",
+    "date": "2011-09-17",
+    "distance_m": 11
+   },
+   {
+    "titre": "Sémaphore de Carteret (2).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:S%C3%A9maphore_de_Carteret_(2).jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Xfigpower",
+    "date": "2011-09-17",
+    "distance_m": 144
+   },
+   {
+    "titre": "Manche Cap De Carteret Plage Dunes 041996 - panoramio.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Manche_Cap_De_Carteret_Plage_Dunes_041996_-_panoramio.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "rene boulay",
+    "date": "15 February 2015 (original upload date)",
+    "distance_m": 164
+   },
+   {
+    "titre": "Carteret plage de la vieille eglise.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Carteret_plage_de_la_vieille_eglise.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Velvet",
+    "date": "2022-05-05 13:47:03",
+    "distance_m": 196
+   },
+   {
+    "titre": "Phare de Carteret.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Phare_de_Carteret.jpg",
+    "licence": "CC0",
+    "auteur": "Rc1959",
+    "date": "14 August 2025 (according to Exif data)",
+    "distance_m": 202
+   },
+   {
+    "titre": "Cap de Carteret et ruines de l'église Saint-Germain le Scot.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Cap_de_Carteret_et_ruines_de_l%27%C3%A9glise_Saint-Germain_le_Scot.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Xfigpower",
+    "date": "2011-09-17",
+    "distance_m": 214
+   }
+  ],
+  "texte": "6 photos libres de Wikimedia Commons, à 214 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -492,7 +547,8 @@
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
    "src-legifrance-tailles-minimales-2026",
-   "src-peche-com-59bdb6"
+   "src-peche-com-59bdb6",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "cpiecotentin.com — 'Plus au nord, de Carteret à Urville-Nacqueville, alternent baies sableuses et caps rocheux au pied desquels se trouvent des platiers rocheux'",
@@ -509,15 +565,14 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.83,
+  "completude": 0.85,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
    "tide_approaches.basse",
    "tide_approaches.haute",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

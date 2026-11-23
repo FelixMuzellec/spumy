@@ -433,8 +433,9 @@
  },
  "photos": {
   "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "origine": "v3",
+  "verifie_le": "2026-11-23",
+  "raison": "Aucune des 12 photos libres de Wikimedia Commons à 400 m du point ne porte le nom du lieu : aucune n'est présentée comme une photo du spot (inventaire du 2026-11-23)."
  },
  "provenance": {
   "sources": [

@@ -420,9 +420,64 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Le Conquet, Plage des Blancs-Sablons 02.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Le_Conquet,_Plage_des_Blancs-Sablons_02.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "El Funcionario",
+    "date": "2010-05-23 18:06:14",
+    "distance_m": 103
+   },
+   {
+    "titre": "Huîtriers pie en vol - plage des Blancs Sablons - Finistère (2).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu%C3%AEtriers_pie_en_vol_-_plage_des_Blancs_Sablons_-_Finist%C3%A8re_(2).jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "JackyM59",
+    "date": "2023-04-24 14:57:02",
+    "distance_m": 113
+   },
+   {
+    "titre": "Huîtriers pie - plage des Blancs Sablons - Finistère.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu%C3%AEtriers_pie_-_plage_des_Blancs_Sablons_-_Finist%C3%A8re.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "JackyM59",
+    "date": "2023-04-24 15:25:08",
+    "distance_m": 113
+   },
+   {
+    "titre": "Plage des Blancs Sablons - panoramio.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Plage_des_Blancs_Sablons_-_panoramio.jpg",
+    "licence": "CC BY 3.0",
+    "auteur": "Rhöntommy",
+    "date": "12 August 2009 (original upload date)",
+    "distance_m": 153
+   },
+   {
+    "titre": "013 Kermorvan.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:013_Kermorvan.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Moreau.henri",
+    "date": "2019-07-24 14:05:36",
+    "distance_m": 192
+   },
+   {
+    "titre": "Blancs Sablons 03.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Blancs_Sablons_03.JPG",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "G.Mannaerts",
+    "date": "2015-06-30",
+    "distance_m": 238
+   }
+  ],
+  "texte": "6 photos libres de Wikimedia Commons, à 238 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -436,7 +491,8 @@
    "src-ign-itineraire-pieton",
    "src-iroise-bretagne-bzh-9ab293",
    "src-legifrance-tailles-minimales-2026",
-   "src-mieuxpecher-com-30bb60"
+   "src-mieuxpecher-com-30bb60",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "mieuxpecher.com — « Coins de pêche – Finistère NORD » : « Plage des Blancs-Sablons au Conquet »",
@@ -467,7 +523,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.79,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -475,8 +531,7 @@
    "tide_approaches.haute",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": []
  }

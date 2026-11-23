@@ -427,9 +427,24 @@
   }
  },
  "photos": {
-  "statut": "INCONNU",
-  "origine": "v2",
-  "raison": "Photos réelles du spot non inventoriées ; les photos V2 sont des illustrations, jamais le lieu."
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Loperhet (7).JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Loperhet_(7).JPG",
+    "licence": "CC BY 3.0",
+    "auteur": "Gaëlle Fily",
+    "date": "2011-09-26 15:35:18",
+    "distance_m": 141
+   }
+  ],
+  "texte": "1 photo libre de Wikimedia Commons, à 141 m au plus du point, porte le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
  },
  "provenance": {
   "sources": [
@@ -441,7 +456,8 @@
    "src-pays-landerneau-daoulas-fr-e39423",
    "src-tourisme-landerneau-daoulas-fr-9bb519",
    "src-tourisme-landerneau-daoulas-fr-d92841",
-   "src-voileaviron-org-f9f46c"
+   "src-voileaviron-org-f9f46c",
+   "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
    "voileaviron.org — livret des sites de la rade de Brest",
@@ -464,7 +480,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.74,
+  "completude": 0.77,
   "inconnus": [
    "access.stationnement",
    "access.marche_min",
@@ -474,8 +490,7 @@
    "tide_approaches.haute",
    "safety.coef_max",
    "windows.habituelles",
-   "windows.securite",
-   "photos"
+   "windows.securite"
   ],
   "anomalies": [
    "Aucun parking de la BD TOPO à 1,5 km du point : accès à documenter autrement."
