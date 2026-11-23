@@ -25,6 +25,7 @@
         "lon": { "type": "number", "minimum": -6, "maximum": 10 },
         "precision_m": { "type": ["number", "null"], "minimum": 0 },
         "info": { "$ref": "#/$defs/info" },
+        "controle": { "$ref": "#/$defs/info", "description": "Contrôle de la position par une source indépendante (toponyme officiel)." },
         "avant_v2": { "type": "object", "additionalProperties": false, "required": ["lat", "lon"], "description": "Coordonnées V2 d'origine, gardées quand une vérification V3 les corrige.", "properties": { "lat": { "type": ["number", "null"] }, "lon": { "type": ["number", "null"] }, "texte": { "type": ["string", "null"] } } }
       }
     },

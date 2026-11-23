@@ -18,7 +18,13 @@ const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..")
 const DIR = path.join(root, "data/spots/fiches");
 const UA = "SPUMY-audit-spots/1.0 (https://github.com/FelixMuzellec/spumy ; audit ponctuel de 66 lieux publics)";
 const pause = (ms) => new Promise((r) => setTimeout(r, ms));
-const filtre = (process.argv.find((a) => a.startsWith("--ids=")) || "").slice(6).split(",").filter(Boolean);
+// Spots à collecter : --ids=a,b,c, sinon la demande data/spots/collecte/demande.json ({ "ids": [...] }), sinon tous.
+const F_DEMANDE = path.join(root, "data/spots/collecte/demande.json");
+let filtre = (process.argv.find((a) => a.startsWith("--ids=")) || "").slice(6).split(",").filter(Boolean);
+const DEMANDE = fs.existsSync(F_DEMANDE) ? JSON.parse(fs.readFileSync(F_DEMANDE, "utf8")) : {};
+if (!filtre.length) filtre = DEMANDE.ids || [];
+/** Requêtes de nom proposées à la main pour un spot (demande.requetes[id]), essayées avant les variantes. */
+const requetes = (f) => [...(DEMANDE.requetes?.[f.id] || []), ...variantes(f.name)].filter((q, i, a) => a.indexOf(q) === i);
 
 /** Distance en mètres (haversine). */
 const dist = (a, b) => {
@@ -56,7 +62,7 @@ async function lieuxNommes(f) {
   const d = f.coordinates.precision_m && f.coordinates.precision_m > 1000 ? 0.06 : 0.04;
   const essais = [];
   let osm = [];
-  for (const q of variantes(f.name)) {
+  for (const q of requetes(f)) {
     const url = `https://nominatim.openstreetmap.org/search?format=jsonv2&limit=6&bounded=1&accept-language=fr&viewbox=${lon - d * 1.5},${lat + d},${lon + d * 1.5},${lat - d}&q=${encodeURIComponent(q)}`;
     const r = await json(url);
     await pause(1100);
@@ -68,7 +74,7 @@ async function lieuxNommes(f) {
   }
   // Toponymes officiels de l'IGN (index « poi » du géocodage de la Géoplateforme), autour du point.
   let ignPoi = [];
-  for (const q of variantes(f.name).slice(0, 2)) {
+  for (const q of requetes(f).slice(0, 4)) {
     const r = await json(`https://data.geopf.fr/geocodage/search?index=poi&limit=5&lat=${lat}&lon=${lon}&q=${encodeURIComponent(q)}`);
     await pause(250);
     essais.push({ requete: `ign:${q}`, statut: r.statut, erreur: r.erreur, n: r.json?.features?.length || 0 });

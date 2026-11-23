@@ -22,13 +22,27 @@
    "origine": "v2",
    "texte": "Coordonnées V2 en texte à la minute près (49°05'N 1°36'W), converties en degrés décimaux : jusqu'à 1,85 km d'écart.",
    "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Gouville-sur-Mer",
+    "ecart_m": 1747
+   },
+   "texte": "Toponyme officiel « Gouville-sur-Mer » (lieu-dit habité, zone d'habitation) à 1747 m de la position de la fiche."
   }
  },
  "access": {
   "stationnement": {
    "statut": "INCONNU",
-   "origine": "v2",
-   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+   "origine": "v3",
+   "raison": "Position V2 à la minute près (jusqu'à 1,85 km d'écart) : un parking calculé sur ce point ne serait pas fiable. À reprendre après correction de la position."
   },
   "approche": {
    "statut": "INFÉRÉ",
@@ -38,8 +52,8 @@
   },
   "marche_min": {
    "statut": "INCONNU",
-   "origine": "v2",
-   "raison": "Temps de marche non documenté en V2."
+   "origine": "v3",
+   "raison": "Position du spot trop imprécise pour un temps de marche."
   },
   "difficulte": {
    "statut": "INCONNU",
@@ -429,6 +443,7 @@
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
    "src-cpiecotentin-com-6c5656",
+   "src-ign-geocodage-poi",
    "src-inpn-mnhn-fr-e9f612",
    "src-legifrance-tailles-minimales-2026",
    "src-peche-com-bc916e",
@@ -460,7 +475,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.74,
+  "completude": 0.75,
   "inconnus": [
    "access.stationnement",
    "access.marche_min",
@@ -474,7 +489,9 @@
    "photos"
   ],
   "anomalies": [
-   "Coordonnées V2 seulement en texte, à la minute près (jusqu'à 1,85 km d'écart) : à vérifier en priorité."
+   "Coordonnées V2 seulement en texte, à la minute près (jusqu'à 1,85 km d'écart) : à vérifier en priorité.",
+   "Position V2 à 1,7 km du toponyme officiel « Gouville-sur-Mer » (lieu-dit habité, zone d'habitation) : à vérifier (le poste peut être ailleurs que le point du toponyme).",
+   "Position V2 à la minute près, non corrigée : le seul toponyme de même nom est un lieu habité (« Gouville-sur-Mer »), pas le poste."
   ]
  }
 }

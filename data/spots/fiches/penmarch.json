@@ -22,13 +22,39 @@
    "origine": "v2",
    "texte": "Coordonnées de la fiche V2 (47°47,9'N 4°22,4'W) ; précision non documentée.",
    "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Pointe de Penmarc'h",
+    "ecart_m": 89
+   },
+   "texte": "Toponyme officiel « Pointe de Penmarc'h » (cap, élément topographique ou forestier, détail orographique) à 89 m de la position de la fiche."
   }
  },
  "access": {
   "stationnement": {
-   "statut": "INCONNU",
-   "origine": "v2",
-   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 47.798743,
+    "lon": -4.371554,
+    "ign": "equipement_de_transport.68519",
+    "nature": "Parking",
+    "ecart_m": 102
+   },
+   "texte": "Parking recensé par la BD TOPO de l'IGN, à 102 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
   },
   "approche": {
    "statut": "INFÉRÉ",
@@ -37,9 +63,15 @@
    "verifie_le": null
   },
   "marche_min": {
-   "statut": "INCONNU",
-   "origine": "v2",
-   "raison": "Temps de marche non documenté en V2."
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 2,
+   "texte": "2 min à pied (0,11 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
   },
   "difficulte": {
    "statut": "INCONNU",
@@ -412,6 +444,9 @@
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
    "src-carnet-de-peche-com-10c969",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
    "src-le-figaro-nautisme-523b6e",
    "src-legifrance-tailles-minimales-2026",
    "src-mieuxpecher-com-2baae9",
@@ -451,10 +486,8 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.75,
+  "completude": 0.8,
   "inconnus": [
-   "access.stationnement",
-   "access.marche_min",
    "access.difficulte",
    "access.restrictions",
    "tide_approaches.basse",

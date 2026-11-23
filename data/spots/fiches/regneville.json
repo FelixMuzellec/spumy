@@ -22,13 +22,27 @@
    "origine": "v2",
    "texte": "Coordonnées V2 en texte à la minute près (49°01'N 1°34'W), converties en degrés décimaux : jusqu'à 1,85 km d'écart.",
    "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Regnéville-sur-Mer",
+    "ecart_m": 1186
+   },
+   "texte": "Toponyme officiel « Regnéville-sur-Mer » (lieu-dit habité, zone d'habitation) à 1186 m de la position de la fiche."
   }
  },
  "access": {
   "stationnement": {
    "statut": "INCONNU",
-   "origine": "v2",
-   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+   "origine": "v3",
+   "raison": "Position V2 à la minute près (jusqu'à 1,85 km d'écart) : un parking calculé sur ce point ne serait pas fiable. À reprendre après correction de la position."
   },
   "approche": {
    "statut": "INFÉRÉ",
@@ -38,8 +52,8 @@
   },
   "marche_min": {
    "statut": "INCONNU",
-   "origine": "v2",
-   "raison": "Temps de marche non documenté en V2."
+   "origine": "v3",
+   "raison": "Position du spot trop imprécise pour un temps de marche."
   },
   "difficulte": {
    "statut": "INCONNU",
@@ -423,6 +437,7 @@
    "src-arrete-peche-loisir-2026-recfishing",
    "src-cirkwi-com-f9fb38",
    "src-cpiecotentin-com-c65abb",
+   "src-ign-geocodage-poi",
    "src-legifrance-tailles-minimales-2026",
    "src-peche-com-66aceb",
    "src-sylco-peche-brehal-fr-54c906"
@@ -457,7 +472,8 @@
    "photos"
   ],
   "anomalies": [
-   "Coordonnées V2 seulement en texte, à la minute près (jusqu'à 1,85 km d'écart) : à vérifier en priorité."
+   "Coordonnées V2 seulement en texte, à la minute près (jusqu'à 1,85 km d'écart) : à vérifier en priorité.",
+   "Position V2 à la minute près, non corrigée : le seul toponyme de même nom est un lieu habité (« Regnéville-sur-Mer »), pas le poste."
   ]
  }
 }

@@ -22,13 +22,39 @@
    "origine": "v2",
    "texte": "Coordonnées de la fiche V2 (48°13,3'N 4°29,6'W) ; précision non documentée.",
    "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Pointe de Morgat ou Beg ar Gador",
+    "ecart_m": 6
+   },
+   "texte": "Toponyme officiel « Pointe de Morgat ou Beg ar Gador » (cap, élément topographique ou forestier, détail orographique) à 6 m de la position de la fiche."
   }
  },
  "access": {
   "stationnement": {
-   "statut": "INCONNU",
-   "origine": "v2",
-   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 48.223063,
+    "lon": -4.496647,
+    "ign": "equipement_de_transport.6063",
+    "nature": "Parking",
+    "ecart_m": 353
+   },
+   "texte": "Parking recensé par la BD TOPO de l'IGN, à 353 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
   },
   "approche": {
    "statut": "INFÉRÉ",
@@ -37,9 +63,15 @@
    "verifie_le": null
   },
   "marche_min": {
-   "statut": "INCONNU",
-   "origine": "v2",
-   "raison": "Temps de marche non documenté en V2."
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 12,
+   "texte": "12 min à pied (0,8 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
   },
   "difficulte": {
    "statut": "INCONNU",
@@ -399,6 +431,9 @@
    "src-arrete-peche-loisir-2026-recfishing",
    "src-cncm-2c6418",
    "src-google-maps-20182f",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
    "src-lechasseursousmarin-com-fc423e",
    "src-legifrance-tailles-minimales-2026",
    "src-mieuxpecher-com-df233a"
@@ -431,10 +466,8 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.74,
+  "completude": 0.79,
   "inconnus": [
-   "access.stationnement",
-   "access.marche_min",
    "access.difficulte",
    "access.restrictions",
    "tide_approaches.basse",

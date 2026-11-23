@@ -22,13 +22,39 @@
    "origine": "v2",
    "texte": "Coordonnées de la fiche V2 (49°42,9'N 1°56,7'W) ; précision non documentée.",
    "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Port de Goury",
+    "ecart_m": 10
+   },
+   "texte": "Toponyme officiel « Port de Goury » (port, transport, équipement de transport) à 10 m de la position de la fiche."
   }
  },
  "access": {
   "stationnement": {
-   "statut": "INCONNU",
-   "origine": "v2",
-   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 49.716086,
+    "lon": -1.946377,
+    "ign": "equipement_de_transport.49982",
+    "nature": "Parking touristique",
+    "ecart_m": 143
+   },
+   "texte": "Parking touristique recensé par la BD TOPO de l'IGN, à 143 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
   },
   "approche": {
    "statut": "INFÉRÉ",
@@ -37,9 +63,15 @@
    "verifie_le": null
   },
   "marche_min": {
-   "statut": "INCONNU",
-   "origine": "v2",
-   "raison": "Temps de marche non documenté en V2."
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 3,
+   "texte": "3 min à pied (0,16 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
   },
   "difficulte": {
    "statut": "INCONNU",
@@ -437,6 +469,9 @@
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
    "src-despoissonssigrands-com-ec7905",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
    "src-legifrance-tailles-minimales-2026",
    "src-peche-com-3ab835",
    "src-peche-com-7b01a1",
@@ -462,10 +497,8 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.79,
+  "completude": 0.85,
   "inconnus": [
-   "access.stationnement",
-   "access.marche_min",
    "access.difficulte",
    "access.restrictions",
    "tide_approaches.basse",

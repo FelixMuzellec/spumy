@@ -23,13 +23,39 @@
    "origine": "v2",
    "texte": "Coordonnées de la fiche V2 (47°52,9'N 4°06,9'W) ; précision non documentée.",
    "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Centre d'Incendie et de Secours Odet",
+    "ecart_m": 2399
+   },
+   "texte": "Toponyme officiel « Centre d'Incendie et de Secours Odet » (caserne de pompiers, zone d'activité ou d'intérêt) à 2399 m de la position de la fiche."
   }
  },
  "access": {
   "stationnement": {
-   "statut": "INCONNU",
-   "origine": "v2",
-   "raison": "La fiche V2 ne donne pas de point de stationnement géolocalisé (RTE-04) : à vérifier en 5.7."
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 47.881705,
+    "lon": -4.114947,
+    "ign": "equipement_de_transport.79041",
+    "nature": "Parking",
+    "ecart_m": 29
+   },
+   "texte": "Parking recensé par la BD TOPO de l'IGN, à 29 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
   },
   "approche": {
    "statut": "INFÉRÉ",
@@ -38,9 +64,15 @@
    "verifie_le": null
   },
   "marche_min": {
-   "statut": "INCONNU",
-   "origine": "v2",
-   "raison": "Temps de marche non documenté en V2."
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 1,
+   "texte": "1 min à pied (0,03 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
   },
   "difficulte": {
    "statut": "INCONNU",
@@ -412,6 +444,9 @@
   "sources": [
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
    "src-legifrance-tailles-minimales-2026",
    "src-mieuxpecher-com-06c6f4",
    "src-peche-poissons-com-c865ad",
@@ -450,10 +485,8 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": null,
-  "completude": 0.75,
+  "completude": 0.8,
   "inconnus": [
-   "access.stationnement",
-   "access.marche_min",
    "access.difficulte",
    "access.restrictions",
    "tide_approaches.haute",
@@ -463,6 +496,8 @@
    "windows.securite",
    "photos"
   ],
-  "anomalies": []
+  "anomalies": [
+   "Position V2 à 2,4 km du toponyme officiel « Centre d'Incendie et de Secours Odet » (caserne de pompiers, zone d'activité ou d'intérêt) : à vérifier (le poste peut être ailleurs que le point du toponyme)."
+  ]
  }
 }

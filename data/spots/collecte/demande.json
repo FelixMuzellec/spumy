@@ -1,0 +1,10 @@
+{
+ "//": "Spots à collecter au prochain passage de la CI (scripts/collecte-acces.mjs). 23 nov. 2026 : agon, carteret et portbail ont une position corrigée (parking et marche à recalculer) ; pirou, gouville, regneville et surtainville ont une position V2 à la minute près, à retrouver par le nom du lieu de pêche (requêtes ci-dessous, tirées du milieu décrit par la fiche V2).",
+ "ids": ["agon", "carteret", "portbail", "pirou", "gouville", "regneville", "surtainville"],
+ "requetes": {
+  "pirou": ["Plage de Pirou", "Pirou Plage"],
+  "gouville": ["Plage de Gouville", "Gouville-sur-Mer Plage"],
+  "regneville": ["Havre de Regnéville", "Havre de la Sienne", "Pointe du Banc"],
+  "surtainville": ["Plage de Surtainville", "Les Mielles"]
+ }
+}

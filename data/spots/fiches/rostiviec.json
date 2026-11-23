@@ -22,6 +22,20 @@
    "origine": "v2",
    "texte": "Coordonnées de la fiche V2 (48°20,9'N 4°19,6'W) ; précision non documentée.",
    "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Pointe de Rostiviec",
+    "ecart_m": 953
+   },
+   "texte": "Toponyme officiel « Pointe de Rostiviec » (cap, élément topographique ou forestier, détail orographique) à 953 m de la position de la fiche."
   }
  },
  "access": {
@@ -422,6 +436,7 @@
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
    "src-despoissonssigrands-com-3be706",
+   "src-ign-geocodage-poi",
    "src-legifrance-tailles-minimales-2026",
    "src-pays-landerneau-daoulas-fr-e39423",
    "src-tourisme-landerneau-daoulas-fr-9bb519",
@@ -462,6 +477,8 @@
    "windows.securite",
    "photos"
   ],
-  "anomalies": []
+  "anomalies": [
+   "Aucun parking de la BD TOPO à 1,5 km du point : accès à documenter autrement."
+  ]
  }
 }

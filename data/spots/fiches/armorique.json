@@ -22,6 +22,20 @@
    "origine": "v2",
    "texte": "Coordonnées de la fiche V2 (48°19,6'N 4°27,5'W) ; précision non documentée.",
    "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Pointe de l'Armorique",
+    "ecart_m": 4
+   },
+   "texte": "Toponyme officiel « Pointe de l'Armorique » (cap, élément topographique ou forestier, détail orographique) à 4 m de la position de la fiche."
   }
  },
  "access": {
@@ -429,6 +443,7 @@
   "sources": [
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
+   "src-ign-geocodage-poi",
    "src-legifrance-tailles-minimales-2026",
    "src-lordjimcroisieres-com-7a0836",
    "src-peche-com-5c77d5",
@@ -456,6 +471,8 @@
    "windows.securite",
    "photos"
   ],
-  "anomalies": []
+  "anomalies": [
+   "Aucun parking de la BD TOPO à 1,5 km du point : accès à documenter autrement."
+  ]
  }
 }
