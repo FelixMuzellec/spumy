@@ -13,5 +13,5 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/core/contracts/**/*.js", "src/core/errors.js", "src/core/validate.js", "src/prototype-v3/modele.js"]
+  "include": ["src/core/contracts/**/*.js", "src/core/errors.js", "src/core/validate.js", "src/core/ign/reponses.js", "src/prototype-v3/modele.js"]
 }

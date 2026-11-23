@@ -81,6 +81,7 @@ Les champs V2 dépréciés (`v2.pert`, `V2.pert`, `bar:boite-complete`, `bar:tra
 3. **Filtre** : un spot est admissible si son accès est dans le polygone, avec la mention « temps vérifié par l'IGN ».
     - **Point ouvert (red-team de la phase 2)** : l'isochrone suit le réseau routier. Un poste sur une pointe, loin de la route, peut tomber hors du polygone alors que son stationnement y est. Le test d'appartenance se fait donc sur le point d'accès (RTE-04). Tant qu'il manque, il se fait sur le point routier le plus proche, donné par l'itinéraire.
     - **Étalonnage** sur les 66 spots, en comparant isochrone et itinéraire, **après la phase 5** (points d'accès audités) et avec l'adaptateur IGN, par un passage de CI qui atteint l'IGN (décision de Félix, 23 nov. 2026, 14 h 54 ; prévu d'abord en phase 4). Aucun spot n'est écarté sur le seul polygone sans ce contrôle.
+    - **Marge autour de la limite** (décision de Félix, 23 nov. 2026, 19 h 07) : un spot dont l'accès est à moins de 3 km du bord du polygone, dedans ou dehors, n'est pas tranché par le polygone. Son itinéraire est demandé, et il est admissible si l'IGN donne 60 min ou moins. La largeur de 3 km est une HYPOTHÈSE, fixée par l'étalonnage.
 4. **Temps exact** : un appel « itinéraire » pour chaque spot montré (Top 3 à 5, fiche ouverte), au rythme de 5 appels par seconde au plus ; gardé en cache 24 h.
 5. **Dégradé** :
     - hors ligne ou service en échec : estimation par la distance à vol d'oiseau × 1,4, sur 60 km/h, pour lister des spots plausibles ;
@@ -88,6 +89,14 @@ Les champs V2 dépréciés (`v2.pert`, `V2.pert`, `bar:boite-complete`, `bar:tra
 
    Le coefficient de 1,4 est une HYPOTHÈSE à étalonner sur les temps IGN des 66 spots (même étalonnage, après la phase 5).
 6. **Changement de position** : nouvelle isochrone, puis tout est recalculé (POS-06).
+7. **Protocole d'étalonnage** (après la phase 5 ; décision de Félix, 23 nov. 2026, 19 h 07). Positions de départ : des centres-villes publics, jamais un domicile. Le passage de CI mesure :
+    - (a) l'accord du polygone et de l'itinéraire hors de la marge, attendu à 98 % au moins ; il fixe aussi la largeur de la marge ;
+    - (b) l'écart médian et l'écart au 90ᵉ centile de l'estimation dégradée (vol d'oiseau × 1,4) par rapport à l'IGN : il fixe le coefficient ;
+    - (c) l'écart de l'IGN par rapport aux temps réels de Félix, sur une dizaine de trajets qu'il note.
+
+   Si l'IGN s'écarte en moyenne de plus de 15 % des temps réels, la correction est une décision de Félix (À DÉCIDER). Elle n'est jamais appliquée en silence, et un temps corrigé n'est plus « vérifié par l'IGN ».
+
+   Premier repère, un seul trajet : Coutances → Granville (centres), 30,0 km en 48 min selon l'IGN, soit 37 km/h de moyenne.
 
 En BATEAU, aucun appel routier (RTE-03). Le temps de navigation n'est calculé que si V3-014 le retient, et seulement avec les données du bateau.
 
@@ -103,7 +112,24 @@ En BATEAU, aucun appel routier (RTE-03). Le temps de navigation n'est calculé q
 | Fond de carte IGN | cache HTTP du navigateur seulement | — | OpenStreetMap ; hors ligne, « carte indisponible hors ligne » |
 | Vigilance (par le relais, V3-011) | par département, 1 h | 1 h | « vigilance inconnue », jamais « aucune » ; rappel et lien |
 
-**Contrôle des services en continu.** Le contrat Open-Meteo réel tourne chaque jour sur GitHub (V2). Le contrat IGN (`.github/workflows/contrat-ign.yml`, phase 4) vérifie chaque jour le géocodage, l'itinéraire, l'isochrone et leur appel par un navigateur depuis l'origine du site publié (CORS). C'est la seule surveillance possible sans serveur. Premier passage : 8/8, CORS ouvert (`Access-Control-Allow-Origin: *`) ; passage 45210735483 du contrat IGN, 23 nov. 2026.
+**Conduite face aux services IGN** (décision de Félix, 23 nov. 2026, 19 h 07 ; adaptateur des phases 9 à 12) :
+
+| Règle | Valeur |
+| --- | --- |
+| Délai par appel (abandon par `AbortController`) | géocodage 5 s ; itinéraire 8 s ; isochrone 10 s → `RESEAU_DELAI` |
+| Nouvel essai | un seul, après 1 s plus un délai aléatoire de 0 à 0,5 s, sur une erreur réseau ou une réponse 502, 503 ou 504. Après une réponse 429, on attend le délai `Retry-After` s'il est de 10 s au plus ; sinon aucun essai (`SERVICE_QUOTA`). Jamais de nouvel essai sur une autre erreur 4xx ni sur une réponse invalide |
+| Débit | une file unique, 4 appels par seconde au plus (marge sous les 5 permis). Ordre de priorité : isochrone, puis itinéraires des spots à l'écran, puis le reste |
+| Annulation | un changement de position annule tous les appels de l'ancienne position ; deux appels identiques en cours n'en font qu'un (même clé de cache) |
+| Validation des réponses | `src/core/ign/reponses.js` (testé) : durée et distance bornées, vitesse moyenne de 3 à 140 km/h, zone fermée, en France métropolitaine et contenant le départ. Une réponse refusée donne `SERVICE_REPONSE_INVALIDE`, puis le mode dégradé |
+| Valeur gardée trop ancienne | au-delà de 24 h, plus « vérifiée » ; en panne, elle peut servir d'estimation, affichée avec sa date |
+
+**Contrôle des services en continu.** Le contrat Open-Meteo réel tourne chaque jour sur GitHub (V2). Le contrat IGN (`.github/workflows/contrat-ign.yml`, phase 4) vérifie chaque jour le géocodage, l'itinéraire, l'isochrone et leur appel par un navigateur depuis l'origine du site publié (CORS). Il contrôle aussi :
+- la validité des réponses, avec les mêmes règles que l'application ;
+- leur temps de réponse, face aux délais ci-dessus ;
+- la cohérence des deux services : Granville, à 48 min par l'itinéraire, est dans la zone des 60 min depuis Coutances, et Paris n'y est pas ;
+- la stabilité du trajet de référence (±20 %).
+
+C'est la seule surveillance possible sans serveur. Premier passage : 8/8, CORS ouvert (`Access-Control-Allow-Origin: *`) ; passage 45210735483 du contrat IGN, 23 nov. 2026.
 
 ## 6. Hors ligne et synchronisation
 
@@ -162,6 +188,7 @@ Mesures de départ : `docs/socle/AUDIT-SOCLE.md`. Règle : pas d'abstraction ava
 | `src/core/contracts/` | **types JSDoc des contrats** du § 3 (Position, Qualified, Spot, Route, Safety, Favorability, Confidence, Ranked, JournalEntry), vérifiés par `tsc --checkJs` | **4** |
 | `src/core/errors.js` | **erreur commune** `SpumyError` : code stable, message en français pour la personne, cause gardée, données de diagnostic sans donnée personnelle | **4** |
 | `src/core/validate.js` | **validation des entrées aux frontières** (coordonnées, heures, coefficients, nombres bornés), qui renvoie un résultat ou une `SpumyError` | **4** |
+| `src/core/ign/reponses.js` | **validation des réponses IGN** (itinéraire, isochrone, géocodage) et appartenance d'un point à une zone ; utilisée par le contrat IGN de la CI, puis par l'adaptateur | **4** |
 | `src/core/position/` | service de position (DEVICE, MANUAL), états, validité | 9 à 12 |
 | `src/core/adapters/` | un adaptateur par service (Open-Meteo, IGN géocodage, isochrone, itinéraire, fonds, vigilance) : requête, normalisation, cache, erreurs, attribution | 9 à 12 |
 | `data/spots/` | catalogue unique des spots (V3-018 : identifiants V2 gardés) | 5 à 7 |

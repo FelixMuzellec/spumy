@@ -10,11 +10,18 @@
 import fs from "node:fs";
 import path from "node:path";
 import { chromium } from "playwright";
+import * as ign from "../src/core/ign/reponses.js";
 
 const here = path.dirname(new URL(import.meta.url).pathname), root = path.resolve(here, "..");
 const ORIGINE = "https://felixmuzellec.github.io";
 const DEPART = { nom: "Coutances, centre", lon: -1.445, lat: 49.048 };
 const ARRIVEE = { nom: "Granville, centre", lon: -1.597, lat: 48.838 };
+const LOIN = { nom: "Paris, centre", lon: 2.352, lat: 48.857 };
+// Trajet de référence (premier passage du 23 nov. 2026, n° 45210735483) : une dérive de plus de 20 % signale un
+// changement des données ou du calcul de l'IGN, à examiner avant l'étalonnage (ARCHITECTURE-V3 § 4).
+const REFERENCE = { minutes: 2899 / 60, km: 30.0322, ecartMax: 0.2 };
+// Délais de l'application (ARCHITECTURE-V3 § 5) : une réponse plus lente serait abandonnée par l'application.
+const DELAI_MS = { capacites: 10000, geocodage: 5000, itineraire: 8000, isochrone: 10000 };
 const BASE = "https://data.geopf.fr";
 const APPELS = {
   capacites: `${BASE}/navigation/getcapabilities`,
@@ -38,10 +45,12 @@ console.log("[ign] services, depuis la CI");
 for (const [nom, url] of Object.entries(APPELS)) {
   const r = { url };
   try {
+    const t0 = performance.now();
     const res = await fetch(url, { headers: { Origin: ORIGINE, Accept: "application/json" } });
     r.statut = res.status;
     r.acao = res.headers.get("access-control-allow-origin");
     const texte = await res.text();
+    r.ms = Math.round(performance.now() - t0);
     try { r.json = JSON.parse(texte); } catch { r.extrait = texte.slice(0, 200); }
   } catch (e) {
     r.erreur = e?.cause?.code || e?.cause?.message || e?.message;
@@ -57,15 +66,31 @@ if (s.capacites.json) {
   compte.ressources = res;
   t("ressources bdtopo-osrm et bdtopo-valhalla annoncées", res.includes("bdtopo-osrm") && res.includes("bdtopo-valhalla"), res.join(", ") || "liste vide");
 }
-const g = s.geocodage.json;
-t("géocodage : un résultat pour « Coutances »", s.geocodage.statut === 200 && (g?.features?.length || 0) > 0,
-  s.geocodage.erreur || `HTTP ${s.geocodage.statut}${g?.features?.[0]?.properties?.label ? ", " + g.features[0].properties.label : ""}`);
-const it = s.itineraire.json;
-t("itinéraire voiture : durée et distance", s.itineraire.statut === 200 && typeof it?.duration === "number" && typeof it?.distance === "number",
-  s.itineraire.erreur || `HTTP ${s.itineraire.statut}${it ? `, durée ${it.duration} ${it.timeUnit || ""}, distance ${it.distance} ${it.distanceUnit || ""}` : ""}${it && typeof it.duration !== "number" ? ", champs : " + Object.keys(it).join(", ") : ""}`);
-const iso = s.isochrone.json;
-t("isochrone voiture 60 min : un polygone", s.isochrone.statut === 200 && /Polygon/.test(iso?.geometry?.type || ""),
-  s.isochrone.erreur || `HTTP ${s.isochrone.statut}${iso?.geometry?.type ? ", " + iso.geometry.type : ""}${iso && !iso.geometry ? ", champs : " + Object.keys(iso).join(", ") : ""}`);
+const geo = ign.geocodage(s.geocodage.json);
+t("géocodage : un lieu valide pour « Coutances »", s.geocodage.statut === 200 && geo.ok,
+  s.geocodage.erreur || `HTTP ${s.geocodage.statut}${geo.ok ? ", " + geo.value.label : ", " + geo.error.details.raison}`);
+const it = ign.itineraire(s.itineraire.json);
+t("itinéraire voiture : réponse valide (durée, distance, vitesse cohérente)", s.itineraire.statut === 200 && it.ok,
+  s.itineraire.erreur || `HTTP ${s.itineraire.statut}${it.ok ? `, ${it.value.minutes.toFixed(1)} min, ${it.value.km.toFixed(1)} km` : ", " + it.error.details.raison}`);
+const iso = ign.isochrone(s.isochrone.json, DEPART);
+t("isochrone voiture 60 min : zone valide (fermée, en France, contenant le départ)", s.isochrone.statut === 200 && iso.ok,
+  s.isochrone.erreur || `HTTP ${s.isochrone.statut}${iso.ok ? ", " + iso.value.type : ", " + iso.error.details.raison}`);
+for (const [nom, r] of Object.entries(s)) {
+  if (r.ms != null) t(`temps de réponse ${nom} sous le délai de l'application (${DELAI_MS[/** @type {keyof typeof DELAI_MS} */ (nom)] / 1000} s)`, r.ms <= DELAI_MS[/** @type {keyof typeof DELAI_MS} */ (nom)], `${r.ms} ms`);
+}
+if (it.ok) {
+  const ecart = it.value.minutes / REFERENCE.minutes - 1;
+  compte.reference = { minutes: +it.value.minutes.toFixed(2), km: +it.value.km.toFixed(3), ecart: +ecart.toFixed(3) };
+  t(`trajet de référence ${DEPART.nom} → ${ARRIVEE.nom} stable (±${REFERENCE.ecartMax * 100} %)`, Math.abs(ecart) <= REFERENCE.ecartMax,
+    `${it.value.minutes.toFixed(1)} min contre ${REFERENCE.minutes.toFixed(1)} (${(ecart * 100).toFixed(1)} %)`);
+}
+if (it.ok && iso.ok) {
+  // Cohérence des deux services : un lieu à moins de 55 min par l'itinéraire est dans la zone des 60 min ; Paris n'y est pas.
+  if (it.value.minutes <= 55) t(`cohérence : ${ARRIVEE.nom} (${it.value.minutes.toFixed(0)} min) est dans la zone des 60 min`, ign.dansZone(ARRIVEE, iso.value));
+  t(`cohérence : ${LOIN.nom} est hors de la zone des 60 min`, !ign.dansZone(LOIN, iso.value));
+  const anneaux = iso.value.type === "Polygon" ? [iso.value.coordinates] : iso.value.coordinates;
+  compte.zone = { type: iso.value.type, polygones: anneaux.length, points: anneaux.flat().reduce((n, a) => n + a.length, 0) };
+}
 for (const nom of Object.keys(APPELS)) compte.serveur[nom].json = compte.serveur[nom].json ? "(reçu)" : undefined;
 console.log("  en-têtes Access-Control-Allow-Origin : " + Object.entries(s).map(([n, r]) => `${n} = ${r.acao ?? "absent"}`).join(" ; "));
 
