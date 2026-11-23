@@ -35,6 +35,7 @@ Format ADR. Le registre des exigences (`docs/REQUIREMENTS.md`) et la vision (`do
 | V3-027 | Jalon 2 : direction visuelle, principes du Design System et prototype version 5.2 ; 6 réserves suivies | VALIDÉE AVEC RÉSERVES (Félix, 20 nov. 2026, 15 h 40) |
 | V3-028 | Prototype version 6 d'après les maquettes de Félix : Home, Carte vue pêche, Météo vue conditions ; slogan autorisé ; Shore / Offshore ; finition et qualité d'information « top tier » ; pas de retour sur ce qui est validé | VALIDÉE (Félix, 23 nov. 2026, 5 h 58 à 6 h 22) ; réalisation au feu vert |
 | V3-029 | Finalité des onglets : Carte = typologie du terrain et ses effets sur la pêche du bar ; Météo = chaque élément météo et son effet, expliqués scientifiquement ; toujours du général au spécifique | VALIDÉE (Félix, 23 nov. 2026, 6 h 59 et 7 h 03) |
+| V3-030 | Juger les notes de SPUMY sur le journal de sorties et faire s'affiner le modèle, par la boucle contrôlée du référentiel | VALIDÉE (Félix, 23 nov. 2026, 8 h 11) |
 
 ## Décisions V2 encore en vigueur
 
@@ -380,4 +381,22 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
         - précision de Félix (7 h 52) : « je ne veux pas toutes les informations au même niveau. La carte est le point de départ et ensuite on scrolle pour avoir plus de détails top tier et un design qui a au moins la même rigueur que ce que j'ai pu designer pour les 3 vues » : la carte occupe le premier écran ; la bulle et le panneau restent courts ; la justification et le détail sont dans des sections sous la carte, atteintes en faisant défiler, dessinées avec au moins la rigueur des trois vues ;
         - la justification doit rendre compte de la note affichée : jamais une décomposition inventée. Le poids exact vient du moteur ; dans le prototype, des valeurs de démonstration cohérentes avec la note, marquées comme telles.
 - **Ce que cela modifie dans le référentiel** : il ne fixait pas cette finalité aux onglets ; elle devient la règle de conception de la Carte et de la Météo. Exigences ajoutées : MAP-09, MET-05.
+
+## V3-030 — Les notes de SPUMY jugées sur le journal, et un modèle qui s'affine
+
+- **Statut** : VALIDÉE par Félix, 23 nov. 2026, 8 h 11 : « Le mieux enfin serait de comparer les notes de Spumy aux résultats notés dans votre journal de sessions : les journées bien notées sont-elles vraiment les bonnes ? Et de pouvoir construire un modèle qui s'affine de lui-même. »
+- **Ce que le référentiel prévoit déjà** (rien à modifier) :
+    - architecture à deux moteurs : un moteur environnemental de comptage (ZINB/GAMM) et une adaptation par le journal de pêche ;
+    - règle anti-biais des bredouilles : un zéro n'est compté que s'il est déclaré ;
+    - boucle d'apprentissage contrôlée (§ 9.3.1) : collecte, qualification, validation hors échantillon, comparaison à la version de référence, approbation, version, retour arrière ;
+    - calibration en phase 8.
+- **Ce que la directive ajoute** : exigence JRN-06.
+    - Chaque sortie garde la note affichée au moment de la sortie : Favorabilité, Confiance, version du modèle. La comparaison porte sur la note d'alors, jamais sur une note recalculée après coup.
+    - Une vue compare les notes aux résultats.
+- **Lecture de « s'affine de lui-même »**, d'après le référentiel validé :
+    - le modèle calcule seul ses mises à jour ;
+    - aucune n'est activée automatiquement après une prise ;
+    - chacune est évaluée sur des sorties qu'elle n'a pas vues, puis proposée à Félix, qui l'approuve ; elle reste réversible.
+    - Une activation sans approbation serait un changement du référentiel, à présenter avec son impact.
+- **Prototype version 6** : le Journal montre, pour chaque sortie, la note d'alors face au résultat, et une synthèse « Les notes de SPUMY face à tes sorties », avec des données de démonstration marquées comme telles ; aucune conclusion sous le seuil de sorties.
 

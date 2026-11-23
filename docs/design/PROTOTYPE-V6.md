@@ -136,6 +136,13 @@ La justification rend compte de la note affichée, jamais par une décomposition
 
 Fiche spot, Comparaison, Journal, Profil, Home Offshore et ses vues, feuille de position, écran de lancement, et le thème clair (« plein soleil »), redessiné dans le même style.
 
+**Journal** (V3-030, JRN-06) :
+- chaque sortie montre la note de SPUMY au moment de la sortie face à son résultat ;
+- une synthèse « Les notes de SPUMY face à tes sorties » compare les journées bien et mal notées à ce que tu as pris ;
+- sous le seuil de sorties, aucune conclusion, seulement le nombre de sorties qui manquent ;
+- les bredouilles ne comptent que si elles sont déclarées ;
+- données de démonstration marquées comme telles.
+
 ## 6. Corrections des maquettes (validées par Félix)
 
 1. Le panneau montre le spot touché. Dans la vidéo, toucher Baie de Sienne (54) ouvre Pointe d'Agon (84).

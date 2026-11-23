@@ -2,7 +2,7 @@
 
 Phase 2 V3, 20 novembre 2026. Format du référentiel, § 5.2.
 
-**Version 3** (23 nov. 2026, V3-029) : 97 exigences ; MAP-09 et MET-05 ajoutées, UX-03 modifiée (V3-028).
+**Version 3** (23 nov. 2026, V3-029 et V3-030) : 98 exigences ; MAP-09, MET-05 et JRN-06 ajoutées, UX-03 modifiée (V3-028).
 
 **Version 2** (20 nov. 2026, jalon 1 de la phase 3) : 95 exigences ; MET-01 à MET-04, UX-08, UX-09, PRO-03, SPOT-09, BAT-09, BAT-10 et MAP-08 ajoutées, UX-05 modifiée (V3-023).
 
@@ -106,6 +106,7 @@ Validation : registre validé par le jeton de la phase 3 (20 nov. 2026, 4 h 25).
 | JRN-03 | Journal V2 (BORD et BATEAU) migré sans perte | IND | § 0.2 ; Gate C | test de mise à jour avec un journal V2 réel anonymisé | U | — | 4, 13 |
 | JRN-04 | Export du journal ; point d'entrée à décider | IMP | § 4.3 | format et emplacement décidés, puis testés | E | Partiel (Transfert, dans les réglages) | 13 |
 | JRN-05 | Apprentissage personnel : aucune conclusion sur trop peu de sorties ; séparé par mode et par espèce | IND | § 9.1.9 | seuils de sessions testés | U | Conforme (BORD : 5 sessions dont 2 avec prise ; BATEAU : 8 sorties) | 6, 13 |
+| JRN-06 | Les notes de SPUMY face au journal : chaque sortie garde la note affichée au moment de la sortie (Favorabilité, Confiance, version du modèle) ; une vue compare notes et résultats (prises par heure de pêche, bredouilles déclarées, résultats inconnus à part) ; aucune conclusion sous le seuil de sorties ; le modèle s'affine par la boucle contrôlée du § 9.3.1 (calcul automatique, validation hors échantillon, approbation, version, retour arrière) | IND | V3-030 ; § 9.3.1 ; phase 8 | instantané de la note testé ; vue de comparaison avec et sans assez de sorties | U, E | Absent | 3, 6, 8, 13 |
 | PRO-01 | Profil : informations facultatives, préférences, statistiques personnelles ; aucun onglet Statistiques | IMP | § 4.3, § 6.4 | onglet Profil présent, sans page de statistiques séparée | V | Absent | 13 |
 | PRO-02 | Indicateurs du Profil choisis après étude et validation, pas figés d'avance | IMP | § 4.3 | liste validée par Félix | R | — | 13 |
 | PRO-03 | Profil, Affichage : ordre des onglets de la barre, photo de fond de Home, thème, mode terrain ; Profil, Mes bateaux : un ou plusieurs profils, l'un par défaut | IMP | V3-023 | réglages enregistrés sur l'appareil et rétablis | E | Absent | 3, 13 |
