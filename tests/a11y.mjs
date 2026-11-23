@@ -24,8 +24,15 @@ async function run(pg, label) {
   total += res.length;
   console.log(`== ${label} (${res.length})`); for (const x of res) console.log("  ", x);
 }
+// Phase 4 V3 — heure fixe, comme les parcours (tests/e2e.mjs) : aujourd'hui à 06 h 30 à Paris, l'horloge avançant ensuite.
+// Sans elle, le contenu (créneaux, statuts, couleurs) dépendait de l'heure du passage : le 23 nov., un passage de l'après-midi
+// a trouvé deux contrastes insuffisants qu'un passage du matin ne voyait pas (registre des défauts du rapport de phase 4).
+const parisToday = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+const parisOffsetMs = (ms) => Date.parse(new Date(ms).toLocaleString("sv-SE", { timeZone: "Europe/Paris" }).replace(" ", "T") + "Z") - ms;
+const FIXED_NOW = (() => { const guess = Date.parse(`${parisToday}T06:30:00Z`); return guess - parisOffsetMs(guess); })();
 const mk = async (theme) => {
   const ctx = await b.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2, locale: "fr-FR", timezoneId: "Europe/Paris", serviceWorkers: "block" });
+  await ctx.clock.install({ time: FIXED_NOW });
   if (theme) await ctx.addInitScript((t) => localStorage.setItem("bar:theme", t), theme);
   await ctx.route(/open-meteo/, async (rt) => { const x = omRespond(rt.request().url(), "nominal"); await rt.fulfill({ status: x.status, contentType: "application/json", body: JSON.stringify(x.body) }); });
   await ctx.route(/openstreetmap/, (rt) => rt.fulfill({ status: 200, contentType: "image/png", body: png }));

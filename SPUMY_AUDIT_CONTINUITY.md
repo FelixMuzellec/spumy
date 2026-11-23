@@ -61,7 +61,7 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 | 4.7 Nettoyage autorisé (registre, suppressions sûres seulement, restauration) | TESTED (`map.jsx` supprimé après audit ; lint 0, couches 0, construction identique ; reste en registre ; branches : V3-019, rien supprimé) | `docs/socle/NETTOYAGE.md` |
 | 4.8 Protection de `main` (accord de Félix, 23 nov., 13 h 55 : protection complète) | BLOCKED — action de Félix : le relais GitHub de la session refuse l'écriture des rulesets (HTTP 403), non contourné ; règle et commande prêtes | `docs/socle/PROTECTION-MAIN.md`, `docs/socle/protection-main.json` |
 | 4.9 Documentation opérationnelle, README et fichiers de pilotage | IMPLEMENTED (EXPLOITATION : installer, publier, revenir en arrière, surveiller, incident, secrets, sauvegardes, coûts ; README et CHANGELOG à jour) | `README.md`, `docs/socle/EXPLOITATION.md`, `CHANGELOG.md` |
-| 4.10 Installation et lancement reproductibles (clone neuf) | NOT STARTED | — |
+| 4.10 Installation et lancement reproductibles (clone neuf) | TESTED (clone neuf de 8118388 : `npm ci` 0, build sans écart, `npm test` 0, upgrade 12/12, prototype 244/244, prototype-v3 224/224, marque 35/35, secrets 177 commits ; deux défauts trouvés et corrigés : esbuild lisait `tsconfig.json`, test a11y dépendant de l'heure) | — |
 | 4.11 Red-team, rapport en 14 parties, arrêt | NOT STARTED | `docs/rapports/v3/PHASE-4.md` |
 
 ## Questions et décisions (registre)
@@ -97,7 +97,7 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 
 ## Prochaine action
 
-Phase 4 IN PROGRESS sur `claude/v3-phase-4`. Prochaine sous-tâche : 4.10, installation reproductible depuis un clone neuf.
+Phase 4 IN PROGRESS sur `claude/v3-phase-4`. Prochaine sous-tâche : 4.11, red-team et rapport de phase 4 (après la CI verte).
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
