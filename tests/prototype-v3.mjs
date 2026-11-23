@@ -37,6 +37,8 @@ async function open(view, scheme, hash, launch = false, motion = false) {
   page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
   await page.goto(`${BASE}#${hash}`);
   await page.waitForSelector(".app");
+  // Mesures de mise en page avec les vraies polices, jamais la police de secours (CI du 23 nov. : 5 px de débordement).
+  await page.evaluate(() => document.fonts.ready);
   // Le prototype s'ouvre en « nuit marine » ; le thème clair est imposé comme le ferait Profil, Affichage.
   await page.evaluate((s) => document.documentElement.setAttribute("data-theme", s), scheme);
   return { ctx, page, errors };

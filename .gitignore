@@ -4,3 +4,10 @@ tests/.build/
 studio-build/
 tests/tmp/
 __pycache__/
+# Phase 4 V3 : environnement local (seul .env.example est suivi), sorties de l'épreuve, fichiers système
+.env
+.env.*
+!.env.example
+out/
+.venv*/
+.DS_Store

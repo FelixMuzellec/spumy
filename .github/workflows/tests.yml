@@ -36,8 +36,14 @@ jobs:
           test -z "$changes"
       - name: Contrôle du code
         run: npm run -s lint
+      - name: Contrôle de types (JSDoc, tsc --checkJs, ADR-V3-020)
+        run: npm run -s typecheck
+      - name: Aucun secret dans le dépôt
+        run: node tests/secrets.mjs
       - name: Règles de couches (bord, bateau, commun, design)
         run: npm run -s test:layers
+      - name: Socle commun (erreur commune, validation des entrées)
+        run: npm run -s test:socle
       - name: Fiches des sites (schéma, données pures, empreinte de chaque spot)
         run: npm run -s test:data
       - name: Connaissances halieutiques (niveaux de preuve, sources, rubriques des spots)
@@ -66,6 +72,11 @@ jobs:
         run: npm run -s test:prototype
       - name: Prototype V3 (parcours, règles, 4 largeurs, deux thèmes, axe)
         run: npm run -s test:prototype-v3
+      - name: Logo de marque (poisson et orange intacts dans tous les exports)
+        run: |
+          python3 -m venv .venv-marque
+          .venv-marque/bin/pip install --quiet -r tests/requirements-marque.txt
+          .venv-marque/bin/python tests/brand.py
       - if: failure()
         uses: actions/upload-artifact@v4
         with:

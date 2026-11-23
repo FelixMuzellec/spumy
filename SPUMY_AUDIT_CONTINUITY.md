@@ -55,8 +55,8 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 | 4.1 Audit du socle (stack réelle, dépendances, sécurité des dépendances, CI, reproductibilité, inventaire de nettoyage) | IMPLEMENTED (`npm audit` 0 vulnérabilité ; historique sans secret ; ESLint 8 non maintenu ; CI sans typecheck ni brand.py) | `docs/socle/AUDIT-SOCLE.md` |
 | 4.2 Architecture détaillée (modules, frontières V3 / services communs / héritage V2, flux, erreurs, migration) | IMPLEMENTED (ARCHITECTURE-V3 § 11 ; mesure AVANT des performances et budgets) | `docs/ARCHITECTURE-V3.md`, `scripts/mesure-perf.mjs`, `docs/socle/perf-avant.json` |
 | 4.3 Contrats typés (JSDoc) et `tsc --checkJs` ; erreurs typées ; validation des entrées | TESTED (`npm run typecheck` 0, TypeScript 6.0.3 épinglé ; `tests/socle.mjs` 16/16 ; couches 0 écart) | `src/core/contracts/index.js`, `src/core/errors.js`, `src/core/validate.js`, `tsconfig.json`, `tests/socle.mjs`, `src/prototype-v3/modele.js` (types), `tests/layers.mjs` |
-| 4.4 Tests et CI : fixtures déterministes (heure, fuseau, polices), contrôles manquants en CI (typecheck, marque) | NOT STARTED | `.github/workflows/`, `tests/` |
-| 4.5 Configuration reproductible et secrets (`.env.example`, détection de secrets, `.gitignore`) | NOT STARTED | `.env.example`, `tests/secrets.mjs` |
+| 4.4 Tests et CI : fixtures déterministes (heure, fuseau, polices), contrôles manquants en CI (typecheck, marque) | IMPLEMENTED (CI : typecheck, secrets, socle, marque avec versions Python épinglées ; tests du prototype V3 attendent les polices ; `npm test` 0, prototype-v3 224/224 ; CI à confirmer) | `.github/workflows/`, `tests/` |
+| 4.5 Configuration reproductible et secrets (`.env.example`, détection de secrets, `.gitignore`) | TESTED (`tests/secrets.mjs` : 544 fichiers et 173 commits, aucun secret ; `.env.example` ; `.gitignore` complété) | `.env.example`, `tests/secrets.mjs` |
 | 4.6 Conventions et qualité de code | NOT STARTED | `CONTRIBUTING.md`, `.eslintrc.json` |
 | 4.7 Nettoyage autorisé (registre, suppressions sûres seulement, restauration) | NOT STARTED | `docs/socle/NETTOYAGE.md` |
 | 4.8 Protection de `main` (accord de Félix, 23 nov., 13 h 55 : protection complète) | BLOCKED — action de Félix : le relais GitHub de la session refuse l'écriture des rulesets (HTTP 403), non contourné ; règle et commande prêtes | `docs/socle/PROTECTION-MAIN.md`, `docs/socle/protection-main.json` |
@@ -97,7 +97,7 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 
 ## Prochaine action
 
-Phase 4 IN PROGRESS sur `claude/v3-phase-4`. Prochaine sous-tâche : 4.4, tests et CI.
+Phase 4 IN PROGRESS sur `claude/v3-phase-4`. Prochaine sous-tâche : 4.6, conventions et qualité de code.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
