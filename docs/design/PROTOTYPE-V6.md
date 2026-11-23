@@ -23,9 +23,9 @@ Dans les deux cas, chaque effet annoncé donne son explication, sa source et son
 | Niveau | Carte | Météo |
 | --- | --- | --- |
 | 1. Le point de vue global | La carte des spots telle que définie : terrain, pastilles, filtres | La carte du vent telle que définie : vent animé, pastilles, jours |
-| 2. Le spot | Toucher un spot : la bulle, avec sa note | Toucher un spot : le panneau, avec sa note |
-| 3. La justification | **Pourquoi ce spot est bon aujourd'hui par son terrain** : fond, structure, exposition, courant, croisés avec la marée et les conditions du jour, chacun avec son effet | **Comment la météo a pesé dans la note** : chaque élément (vent selon la côte, houle, pression, eau, ciel, pluie, marée, coefficient), le sens et le poids de son effet |
-| 4. Le détail, à déplier | La règle générale, la source, le niveau de preuve | La règle générale, la source, le niveau de preuve |
+| 2. Le spot, sur la carte | Toucher un spot : la bulle, courte, avec sa note | Toucher un spot : le panneau, court, avec sa note et ses valeurs |
+| 3. La justification, **sous la carte, en faisant défiler** | **Pourquoi ce spot est bon aujourd'hui par son terrain** : fond, structure, exposition, courant, croisés avec la marée et les conditions du jour, chacun avec son effet | **Comment la météo a pesé dans la note** : chaque élément (vent selon la côte, houle, pression, eau, ciel, pluie, marée, coefficient), le sens et le poids de son effet |
+| 4. Le détail, plus bas ou à déplier | La règle générale, la source, le niveau de preuve | La règle générale, la source, le niveau de preuve |
 
 La justification rend compte de la note affichée, jamais par une décomposition inventée. Le poids exact viendra du moteur ; dans le prototype, ce sont des valeurs de démonstration cohérentes avec la note, marquées comme telles. Chaque explication part de la règle générale, ce que l'on sait du bar, avant de dire ce qu'elle donne pour ce spot, à cette heure.
 
@@ -86,10 +86,15 @@ La justification rend compte de la note affichée, jamais par une décomposition
   - « Meilleur moment : 07:10–10:20 ».
 
   Retoucher le spot ferme la bulle. Un bouton de fermeture et la touche Échap la ferment aussi.
-- **Terrain du spot** (V3-029), sous les lignes validées de la bulle, à déplier :
-  - fond, terrain, structure, exposition, courant, d'après les rubriques des spots ;
-  - pour chacun : effet favorable ou défavorable sur le bar, pourquoi en mots simples, source et niveau de preuve ;
-  - une rubrique de niveau 4 ou 5 est marquée « hypothèse ».
+- **Sous la carte, en faisant défiler** (V3-029, Félix 7 h 52 : « La carte est le point de départ et ensuite on scrolle pour avoir plus de détails ») :
+  - la carte occupe le premier écran ; le haut de la première section dépasse en bas de l'écran, pour inviter à faire défiler ;
+  - un doigt sur la carte la déplace ; on fait défiler la page depuis les sections, hors de la carte ;
+  - les sections portent sur le spot choisi (par défaut, le premier du classement) :
+    1. « Pourquoi ce spot est bon aujourd'hui » : le verdict du terrain en une phrase ;
+    2. fond, terrain, structure, exposition, courant, d'après les rubriques des spots, chacun avec son effet favorable ou défavorable, croisé avec la marée et les conditions du jour ;
+    3. le détail : règle générale, source, niveau de preuve ; une rubrique de niveau 4 ou 5 est marquée « hypothèse » ;
+  - la bulle reste courte : elle ne contient que les lignes validées (distance, sorties, poissons, meilleur moment) et sa note ;
+  - ces sections ont au moins la rigueur de dessin des trois vues de référence.
 - **Couches de terrain** dans le bouton Couches : natures de fonds, profondeurs, estran découvrant, courants, chacune seulement si des données réelles existent, avec la source et la mention « ne pas utiliser pour la navigation ».
 - **Boutons à droite** : Me localiser, Couches, Vue d'ensemble, avec un + et − discrets.
 - **Légende** dépliable : les 6 paliers.
@@ -117,9 +122,14 @@ La justification rend compte de la note affichée, jamais par une décomposition
     8. pression ;
     9. marée (montante ou descendante, avec l'heure).
   - Chaque valeur a sa source et son heure, sans aucune ligne en double.
-  - **Effet sur la pêche** (V3-029) : chaque élément porte son effet, favorable, défavorable ou neutre, par un mot et un pictogramme, pas par la couleur seule. On le déplie pour lire pourquoi, en mots simples, avec la source et le niveau de preuve. Les connaissances viennent de `data/knowledge/bar-bord.json` (vent-exposition, rafales-penalite, houle-turbidite, pression, eau-chaude, seuils-thermiques, ciel-couvert, lumiere-basse, pluie-turbidite, maree-flot, coefficient-plage-utile, courant-coefficient, gros-coefficient-turbidite).
-  - Le vent est jugé selon son orientation par rapport à la côte du spot, pas seulement sa force.
-  - Sans connaissance sourcée, la valeur s'affiche sans effet annoncé.
+  - Dans le panneau, chaque valeur ne porte que le signe de son effet (favorable, défavorable ou neutre), par un mot court et un pictogramme, pas par la couleur seule.
+- **Sous la carte, en faisant défiler** (V3-029, Félix 7 h 52) : la carte occupe le premier écran ; le haut de la première section dépasse en bas de l'écran ; un doigt sur la carte la déplace, on fait défiler depuis les sections. Les sections portent sur le spot choisi (par défaut, le premier du classement) :
+  1. « Comment la météo a pesé dans la note » : le bilan en une phrase ;
+  2. chaque élément, le sens et le poids de son effet dans la note ; le vent est jugé selon son orientation par rapport à la côte du spot, pas seulement sa force ;
+  3. le détail : règle générale, source (`data/knowledge/bar-bord.json` : vent-exposition, rafales-penalite, houle-turbidite, pression, eau-chaude, seuils-thermiques, ciel-couvert, lumiere-basse, pluie-turbidite, maree-flot, coefficient-plage-utile, courant-coefficient, gros-coefficient-turbidite), niveau de preuve ;
+  - sans connaissance sourcée, la valeur s'affiche sans effet annoncé ;
+  - la somme des poids rend compte de la note affichée ; dans le prototype, ce sont des valeurs de démonstration marquées comme telles ;
+  - ces sections ont au moins la rigueur de dessin des trois vues de référence.
 - **Boutons et légende** : comme sur la Carte.
 
 ## 5. Reste de l'application, au même standard

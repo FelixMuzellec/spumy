@@ -63,6 +63,7 @@ Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposai
 | Q13 (finalité) | 23 nov., 6 h 59 | Directive de Félix sur le but des onglets Carte et Météo | Carte = typologie du terrain et ses effets sur la pêche du bar ; Météo = effet de chaque élément expliqué scientifiquement | V3-029 VALIDÉE ; MAP-09 et MET-05 ajoutées ; `PROTOTYPE-V6.md` § 0, 3, 4 |
 | Q14 (ordre de l'information) | 23 nov., 7 h 03 | Précision de Félix : « toujours de façon générale pour aller vers le spécifique » | Vue d'ensemble, puis le spot, puis chaque élément, puis le détail sourcé ; explication de la règle générale vers le cas du spot | V3-029 complétée ; `CLAUDE.md` ; `PROTOTYPE-V6.md` § 0 |
 | Q15 (justification) | 23 nov., 7 h 47 | Précision de Félix : partir de la carte de chaque onglet, puis justifier | Carte : pourquoi ce spot est bon aujourd'hui par son terrain ; Météo : comment chaque élément a pesé dans la note | V3-029 complétée ; MAP-09, MET-05 ; `CLAUDE.md` ; `PROTOTYPE-V6.md` § 0 |
+| Q16 (niveaux) | 23 nov., 7 h 52 | Précision de Félix : pas toute l'information au même niveau | La carte au premier écran ; bulle et panneau courts ; justification et détail sous la carte, en faisant défiler, avec au moins la rigueur des trois vues | V3-029 complétée ; `CLAUDE.md` ; `PROTOTYPE-V6.md` § 0, 3, 4 |
 
 ## Checkpoint
 

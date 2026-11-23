@@ -377,6 +377,7 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
         - puis le spot touché, avec sa note ;
         - puis la justification : sur la Carte, pourquoi ce spot est bon aujourd'hui par son terrain (fond, structure, exposition, courant, croisés avec la marée et les conditions du jour) ; sur la Météo, comment chaque élément météo a pesé dans la note (dans quel sens et avec quel poids) ;
         - enfin, à déplier, la règle générale, la source et le niveau de preuve ;
+        - précision de Félix (7 h 52) : « je ne veux pas toutes les informations au même niveau. La carte est le point de départ et ensuite on scrolle pour avoir plus de détails top tier et un design qui a au moins la même rigueur que ce que j'ai pu designer pour les 3 vues » : la carte occupe le premier écran ; la bulle et le panneau restent courts ; la justification et le détail sont dans des sections sous la carte, atteintes en faisant défiler, dessinées avec au moins la rigueur des trois vues ;
         - la justification doit rendre compte de la note affichée : jamais une décomposition inventée. Le poids exact vient du moteur ; dans le prototype, des valeurs de démonstration cohérentes avec la note, marquées comme telles.
 - **Ce que cela modifie dans le référentiel** : il ne fixait pas cette finalité aux onglets ; elle devient la règle de conception de la Carte et de la Météo. Exigences ajoutées : MAP-09, MET-05.
 
