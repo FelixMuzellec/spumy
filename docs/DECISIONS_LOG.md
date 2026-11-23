@@ -37,6 +37,7 @@ Format ADR. Le registre des exigences (`docs/REQUIREMENTS.md`) et la vision (`do
 | V3-029 | Finalité des onglets : Carte = typologie du terrain et ses effets sur la pêche du bar ; Météo = chaque élément météo et son effet, expliqués scientifiquement ; toujours du général au spécifique | VALIDÉE (Félix, 23 nov. 2026, 6 h 59 et 7 h 03) |
 | V3-030 | Juger les notes de SPUMY sur le journal de sorties et faire s'affiner le modèle, par la boucle contrôlée du référentiel | VALIDÉE (Félix, 23 nov. 2026, 8 h 11) |
 | — | Jeton « APPROVED — PROCEED TO PHASE 4 » (23 nov. 2026, 13 h 50) : phase 3 VALIDATED, version 6.2 du prototype comprise (accord lu dans la demande du jeton, INFÉRÉ) ; critères de recette CR-01 à CR-16 du prototype pris comme critères de l'intégration (phases 10 à 12) | VALIDÉE |
+| — | Réponses de Félix au rapport de phase 4 (23 nov. 2026, 14 h 54) : protection de `main` « oui » (pose toujours refusée par le relais de la session, HTTP 403, à faire par Félix) ; étalonnage IGN reporté « si c'est la meilleure option » (oui : il exige les points d'accès audités en phase 5 et l'adaptateur IGN ; le test CORS et joignabilité de l'IGN, promis en phase 4 par le rapport de phase 2, n'est pas reporté) ; ESLint et épinglage des actions maintenant « si c'est la meilleure solution technique » (oui : ESLint 10, la 9 étant en fin de vie depuis le 6 août 2026) ; fusions des phases 2 à 4 attendues jusqu'à l'intégration de la V3 « oui » | VALIDÉE |
 
 ## Décisions V2 encore en vigueur
 
