@@ -12,7 +12,7 @@
     "build": "node scripts/build.mjs",
     "icons": "node scripts/icons.mjs",
     "build:prototype": "node scripts/build-prototype.mjs",
-    "lint": "eslint src data scripts tests && node tests/lint-regles.mjs",
+    "lint": "eslint src data scripts tests && node tests/lint-regles.mjs && node tests/actions-epinglees.mjs",
     "typecheck": "tsc -p tsconfig.typecheck.json",
     "test:layers": "node tests/layers.mjs",
     "test:socle": "node tests/socle.mjs",

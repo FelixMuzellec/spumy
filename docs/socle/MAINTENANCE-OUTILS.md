@@ -68,3 +68,45 @@ Ces cas ne sont plus signalés. C'était un avertissement, et aucun ne se prése
 1. `git checkout 22e705b -- .eslintrc.json package.json package-lock.json tests/upgrade.mjs` ;
 2. supprimer `eslint.config.js` et `tests/lint-regles.mjs` ;
 3. `npm ci`.
+
+## 2. Actions GitHub épinglées par empreinte (sous-tâche 4.13)
+
+### Pourquoi
+
+- **Empreinte plutôt qu'étiquette.** Le guide de sécurité de GitHub Actions recommande d'épingler une action sur l'empreinte complète de son commit : c'est la seule façon d'utiliser une version immuable. Une étiquette (`@v4`) peut être déplacée vers un autre code, par erreur ou après une compromission du dépôt de l'action.
+- **Versions à jour.** Node 20 a été retiré des runners de GitHub le 23 sept. 2026. Les actions v4 tournaient de force sous Node 24, d'où l'avertissement dans les journaux. Les versions retenues sont écrites pour Node 24 (`runs.using: node24`, vérifié dans leur `action.yml`).
+
+### Versions retenues
+
+Empreintes lues le 23 nov. 2026 sur les dépôts officiels (`git ls-remote`) et contrôlées par une copie à l'étiquette :
+
+| Action | Avant | Après | Publiée le | Changements qui nous touchent |
+| --- | --- | --- | --- | --- |
+| actions/checkout | `@v4` | `@3d3c42e5aac5ba805825da76410c181273ba90b1` (v7.0.1) | 17 juil. 2026 | aucun : identifiants gardés hors de `.git/config` (v6) ; refus des PR de forks pour `pull_request_target` et `workflow_run` (v7), déclencheurs que nous n'utilisons pas |
+| actions/setup-node | `@v4` | `@949feb2413d6458794dcd2491c4babbbce0c15c1` (v7.1.0) | 7 oct. 2026 | aucun : `cache: npm` reste explicite ; `always-auth` et le faux `NODE_AUTH_TOKEN` retirés (v6, v7), options que nous n'utilisons pas |
+| actions/upload-artifact | `@v4` | `@cf430e030ddbb5b0abf93d22962f4752f3646cd9` (v7.0.2) | 7 oct. 2026 | aucun : `name`, `path`, `retention-days`, `if-no-files-found` inchangés ; archive zip par défaut |
+
+Toutes ces versions ont plus de six semaines : aucune n'est trop récente pour avoir été éprouvée.
+
+Le contrat Open-Meteo tournait sur `ubuntu-latest`, qui change d'image sans prévenir. Il tourne désormais sur `ubuntu-24.04`, comme les autres passages. Les noms des passages `tests` et `contrat` ne changent pas : ce sont les contrôles exigés par la protection de `main`.
+
+### Contrôle permanent
+
+`tests/actions-epinglees.mjs`, lancé dans `npm run lint` (donc dans `npm test` et dans la CI), refuse :
+- une action sans empreinte de 40 caractères suivie de sa version en commentaire ;
+- une image de runner `*-latest`.
+
+Les deux cas négatifs ont été essayés (`@v7`, `ubuntu-latest`) : code de sortie 1.
+
+### Mettre à jour une action
+
+1. `git ls-remote --tags https://github.com/actions/<action>` : empreinte de l'étiquette voulue.
+2. Lire ses notes de version, et `runs.using` dans `action.yml`.
+3. Attendre qu'elle ait au moins sept jours.
+4. Remplacer l'empreinte et le commentaire de version, puis faire passer la CI sur une proposition.
+
+Une option reste possible : Dependabot, pour proposer ces mises à jour tout seul. **Non activé** : il ouvrirait des propositions sur le dépôt de lui-même, et c'est à Félix d'en décider.
+
+### Retour arrière
+
+`git revert` du commit de la sous-tâche 4.13.
