@@ -361,6 +361,10 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
 - **Corrections des maquettes acceptées par Félix** : 11 points, listés au § 6 du cahier des charges (spot touché, lignes en double, panneau qui masque, jaune pour 62, sécurité, vraies positions, onglet de la vidéo, « Meilleur moment », couleurs de la bande de 24 h, noms cachés au dézoom, « km · min »).
 - **Ce qui ne change pas** : tout ce qui a été validé, listé au § 7 du cahier des charges. Félix ne veut pas y revenir.
 - **Documents à mettre à jour à la réalisation** : Design System, UX-V3, PROTOTYPE-V3, revues, galerie AVANT/CIBLE, exigences MAP-02, MET-01, UX-05, UX-09.
+- **Précision du 23 nov. 2026, 12 h 07** (Félix : « Tu ne respectes pas les modèles présentés. Tu dois être top tier. ») : les trois maquettes font foi pour la composition, les proportions et les couleurs, écran par écran. Conséquences appliquées dans la version 6 :
+    1. Carte et Météo occupent tout l'écran ; l'en-tête, le champ et les puces sont posés sur la carte ; le bandeau « Prototype · données de démonstration » quitte le haut d'écran : la mention « démo » reste sur la photo de Home, en pied de carte, dans la bulle et dans le panneau.
+    2. **Changement d'un point validé au jalon 2 (version 5 : regroupement des pastilles trop proches)** : en vue d'ensemble, les pastilles forment une colonne le long de la côte, noms à gauche, comme sur la maquette ; deux spots trop proches sont écartés verticalement, un trait pointillé les relie à leur vraie position. Le regroupement « +N » ne reste qu'en dernier recours, sur les écrans trop courts. Impact : tous les spots restent visibles et comptés ; aucune position n'est faussée (le vrai point reste marqué).
+    3. Bulle sans croix (second toucher, Échap ou toucher du fond de carte) ; boutons en colonne en bas à droite ; panneau Météo en lignes « Libellé : valeur », les effets de chaque élément passant sous la carte (V3-029).
 
 ## V3-029 — Finalité scientifique des onglets Carte et Météo
 

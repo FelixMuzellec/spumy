@@ -76,6 +76,8 @@ body, .app { background: var(--v6-bg); color: var(--v6-ink); }
 .wind-field { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .55; filter: blur(14px); transform: scale(1.06); pointer-events: none; }
 :root[data-theme="dark"] .wind-field { opacity: .92; }
 .wind-parts { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+@keyframes windin6 { from { opacity: 0; } }
+.wind-field, .wind-parts { animation: windin6 1.2s var(--ease) both; }
 .coast6 { pointer-events: none; } .coast6 path { fill: none; stroke: var(--v6-coast); stroke-width: 1; opacity: .7; }
 .ref6 { position: absolute; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; background: var(--v6-orange); box-shadow: 0 0 0 4px color-mix(in srgb, var(--v6-orange) 30%, transparent), 0 0 0 12px color-mix(in srgb, var(--v6-orange) 10%, transparent); pointer-events: none; }
 .mk6 { position: absolute; inset: 0; pointer-events: none; }
@@ -227,7 +229,7 @@ body, .app { background: var(--v6-bg); color: var(--v6-ink); }
 .nav a[aria-current="page"]::before { top: -1px; width: 38px; height: 4px; border-radius: 0 0 3px 3px; background: var(--v6-orange); }
 .nav svg { width: 28px; height: 28px; }
 
-@media (prefers-reduced-motion: reduce) { .ring .ripple, .pop6, .panel6 { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .ring .ripple, .pop6, .panel6, .wind-field, .wind-parts { animation: none; } }
 
 
 /* Home (maquette de Félix) */

@@ -63,6 +63,13 @@ Vraies photos de spots : abandonnées (V3-026). Le fond IGN réel arrive aux pha
 - **Journal (JRN-06)** : chaque sortie garde la note affichée ce jour-là ; une vue met les notes de SPUMY face aux résultats (prises par heure), sans conclusion sous le seuil de 5 sorties dont 2 avec prise ; la boucle d'affinage reste contrôlée (§ 9.3.1 : calculée, approuvée par Félix, réversible).
 - **Autres écrans** à la palette V6, vent en nœuds partout ; Pointe A à Pointe G remplacées par les vrais noms.
 
+**Version 6.1** (23 nov., 12 h 07, « Tu ne respectes pas les modèles présentés. Tu dois être top tier. ») : les trois vues recalées sur les maquettes, au même cadrage, planches `docs/design/comparaison-v6/` :
+- Carte et Météo en plein écran, en-tête, champ et puces posés sur la carte ; plus de bandeau en haut ; la carte occupe tout le premier écran, les détails viennent dessous ;
+- pastilles de 46 px, noms à gauche, colonne le long de la côte ; spots trop proches écartés avec un trait vers leur vraie position (regroupement « +N » seulement sur écran trop court) ;
+- boutons en colonne en bas à droite ; halo du spot choisi ; bulle sans croix ; la carte revient à sa place quand on referme ;
+- Météo : panneau étroit sous le champ, lignes « Libellé : valeur », sécurité d'abord, rafales ; couleurs du vent relevées sur la vidéo, traînées courtes, apparition en fondu, côte tracée par-dessus ;
+- Home : cartes de mode, champ à épingle, jours de même largeur, synthèse plus grande ; couleurs relevées sur les maquettes.
+
 | Donnée | Réelle | De démonstration |
 | --- | --- | --- |
 | Spots, positions (à la minute près), temps de route, fenêtres de marée des fiches, terrain, sécurité, sources | oui (fiches V2, `data/sites/pirou.config.js`) | — |
@@ -75,8 +82,8 @@ Vraies photos de spots : abandonnées (V3-026). Le fond IGN réel arrive aux pha
 
 - **Page de revue** : artefact « Prototype SPUMY V3 » (privé), construit avec `node scripts/build-prototype-v3.mjs --revue <dossier>`.
 - **Dans le dépôt** : `prototype-v3/`, construit par `npm run build:prototype-v3`. Les photos et le logo sont lus dans `../assets`. Ce dossier sera publié avec le site seulement si Félix accepte la fusion.
-- **Captures** à 390 × 844 : `docs/design/prototype-v3/*.webp`, 14 images, nuit marine (et deux en plein jour), plus le bureau ; dont les premiers écrans avec la bulle de la Carte (12), le panneau de la Météo (13) et le haut de Home resserré (14).
-- **Maquette contre prototype** : `docs/design/comparaison-v6/{home,carte,meteo}.webp`.
+- **Captures** à 390 × 844 : `docs/design/prototype-v3/*.webp`, 15 images, nuit marine (et deux en plein jour), plus le bureau ; dont les premiers écrans avec la bulle de la Carte (12), le panneau de la Météo (13), le haut de Home resserré (14) et le vent animé (15).
+- **Maquette contre prototype**, même largeur : `docs/design/comparaison-v6/{home,carte,meteo,meteo-vent}.webp`.
 
 ## Ce qu'on peut faire
 
@@ -108,7 +115,7 @@ Il n'existe pas dans l'application.
 
 | Commande | Code de sortie | Résultat |
 | --- | --- | --- |
-| `npm run test:prototype-v3` (construction, puis `tests/prototype-v3.mjs --axe`), version 6 | 0 | 216/216 |
+| `npm run test:prototype-v3` (construction, puis `tests/prototype-v3.mjs --axe`), version 6.1 | 0 | 219/219 |
 | `npm test` (lint, couches, données, connaissances, design, moteur v2, unitaires, e2e, contrat simulé) | 0 | tout vert ; 0 couleur en dur ajoutée |
 | `npm run test:a11y` ; `npm run test:upgrade` ; `npm run test:prototype` | 0 ; 0 ; 0 | 0 violation ; 12/12 ; 244/244 |
 | `node scripts/connaissances-v6.mjs --check` | 0 | `connaissances.js` à jour |
@@ -135,7 +142,7 @@ Il n'existe pas dans l'application.
 - Version 6 : trait de côte réel, mais notes, marée du jour, vent et journal **de démonstration** : aucune décision ne doit s'appuyer sur ces chiffres.
 - Courbes de profondeur : absentes faute de données réelles joignables (Félix, 23 nov. : rien d'inventé).
 - Offshore (Carte et Météo) : un avis remplace encore la vue ; pas au niveau V6.
-- En vue large, les spots proches se regroupent (« +N ») : les 8 vrais spots couvrent environ 70 km de côte, la maquette en montrait 4 sur quelques kilomètres.
+- Les 8 vrais spots couvrent environ 70 km de côte : en vue d'ensemble, certains sont écartés de leur vraie position (trait pointillé) ; sur un écran de moins de ~780 px de haut, les deux plus proches peuvent encore se regrouper (« +1 »). Quand la bulle ou le panneau est ouvert, quelques noms se masquent faute de place.
 - Glisser-déposer des onglets : seules les flèches fonctionnent ; les poignées sont dessinées.
 - Demain et 7 jours : seule la journée d'aujourd'hui est remplie.
 - Les composantes de « Pourquoi ? », la réglementation et les sources sont des textes d'exemple.

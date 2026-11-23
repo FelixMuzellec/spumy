@@ -312,6 +312,7 @@ Même méthode que les revues 3.7 (heuristiques, accessibilité, contenu), appli
 | Général → spécifique | Premier écran = carte ; bulle ou panneau au toucher ; sections « pourquoi » sous la carte ; détail sourcé avec niveau de preuve | Testé |
 | Accessibilité | axe : aucune violation grave dans les deux thèmes après correction de l'orange (3,9 → 5,1:1) et du vert (4,3 → 5,9:1) en plein jour, des libellés d'effet et des pastilles décoratives | Testé |
 | Cibles | Liens de sources portés à 44 px ; boutons de carte 44 px ; pastilles 52 px | Testé |
-| Vue large | Spots proches regroupés (« +N ») : les vrais spots couvrent ~70 km, la maquette 4 spots rapprochés | Écart assumé, à confirmer par Félix |
+| Vue large | Colonne le long de la côte comme la maquette ; spots trop proches écartés avec un trait vers leur vraie position ; « +N » seulement sur écran court (version 6.1) | Changement d'un point du jalon 2, consigné (V3-028, précision de 12 h 07) |
+| Fidélité (version 6.1) | Planches au même cadrage : plein écran sous l'en-tête, pastilles, boutons, bulle, panneau, vent, Home et barre du bas recalés ; couleurs relevées sur les maquettes | Revalidation par Félix |
 | Offshore | Carte et Météo Offshore : un avis, pas encore la vue V6 | À faire |
 | Mouvement | Vent animé en pause onglet caché ; flèches fixes si le mouvement est réduit | Testé (mouvement réduit) |

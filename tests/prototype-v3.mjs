@@ -28,8 +28,8 @@ const browser = await chromium.launch();
 const ROUTES = ["home", "carte", "meteo", "profil", "journal", "spot-agon", "spot-portbail", "spot-surtainville", "comparer-carteret-agon", "comparer-carteret-portbail"];
 const VIEWS = [["320", { width: 320, height: 640 }], ["375", { width: 375, height: 812 }], ["390", { width: 390, height: 844 }], ["bureau", { width: 1280, height: 800 }]];
 
-async function open(view, scheme, hash, launch = false) {
-  const ctx = await browser.newContext({ viewport: view, colorScheme: scheme, reducedMotion: "reduce" });
+async function open(view, scheme, hash, launch = false, motion = false) {
+  const ctx = await browser.newContext({ viewport: view, colorScheme: scheme, reducedMotion: motion ? "no-preference" : "reduce" });
   if (!launch) await ctx.addInitScript(() => { window.__NO_LAUNCH__ = true; });
   const page = await ctx.newPage();
   const errors = [];
@@ -351,11 +351,11 @@ if (CAP) {
   await page.screenshot({ path: path.join(CAP, "10-home-bateau.png"), fullPage: true });
   await ctx.close();
   // Premiers écrans, comme les maquettes de Félix : bulle de la Carte, panneau de la Météo, haut de Home resserré.
-  for (const [r, name, act] of [["carte", "12-carte-bulle", "tap"], ["meteo", "13-meteo-panneau", "tap"], ["home", "14-home-defile", "scroll"]]) {
-    const o = await open({ width: 390, height: 844 }, "dark", r);
-    if (act === "tap") { await o.page.waitForSelector(".map6 .ring"); await o.page.getByRole("button", { name: /^Pirou Plage, / }).click(); }
-    else await o.page.evaluate(() => scrollTo(0, 900));
-    await o.page.waitForTimeout(400);
+  for (const [r, name, act] of [["carte", "12-carte-bulle", "tap"], ["meteo", "13-meteo-panneau", "tap"], ["home", "14-home-defile", "scroll"], ["meteo", "15-meteo-vent", "none"]]) {
+    const o = await open({ width: 390, height: 844 }, "dark", r, false, r === "meteo"); // Météo : vent animé, comme la maquette vidéo
+    if (act === "tap") { await o.page.waitForSelector(".map6 .ring"); await o.page.getByRole("button", { name: /^Pointe d'Agon, / }).first().click(); }
+    else if (act === "scroll") await o.page.evaluate(() => scrollTo(0, 900));
+    await o.page.waitForTimeout(r === "meteo" ? 1800 : 400);
     await o.page.screenshot({ path: path.join(CAP, `${name}.png`) });
     await o.ctx.close();
   }
