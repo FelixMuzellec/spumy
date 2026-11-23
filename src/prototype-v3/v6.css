@@ -258,7 +258,8 @@ body, .app { background: var(--v6-bg); color: var(--v6-ink); }
 .hbrand6 img { width: 60px; height: 60px; margin: -4px -2px -4px -4px; flex: none; }
 .hbrand6 .word6 { font-size: 28px; }
 .sep6 { flex: none; width: 1px; height: 46px; margin: 0 4px 0 6px; background: var(--v6-line-2); }
-.slogan6 { margin: 0; display: flex; flex-direction: column; font: 300 17px/1.24 var(--font-text); min-width: 0; white-space: nowrap; letter-spacing: .005em; }
+.slogan6 { margin: 0; display: flex; flex-direction: column; font: 300 clamp(14px, 4.36vw, 17px)/1.24 var(--font-text); min-width: 0; overflow: hidden; white-space: nowrap; letter-spacing: .005em; }
+.hbrand6 { max-width: 100%; }
 .slogan6 .o { color: var(--v6-orange); }
 @media (max-width: 380px) { .hbrand6 .word6 { font-size: 22px; letter-spacing: .08em; } .hbrand6 img { width: 46px; height: 46px; } .slogan6 { font-size: 14px; } .hbrand6 { gap: 10px; } }
 .modes6 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
