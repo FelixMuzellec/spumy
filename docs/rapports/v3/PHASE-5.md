@@ -1,0 +1,194 @@
+# Rapport de phase 5 — SPUMY V3 : audit BORD et référentiel halieutique des spots
+
+23 novembre 2026 · branche `claude/v3-phase-5` (depuis `claude/v3-phase-4`) · proposition n° 19 (brouillon). Format du référentiel, § 16.
+
+## 1. Objectif et périmètre
+
+Jeton « APPROVED — PROCEED TO PHASE 5 » (Félix, 23 nov. 2026, 20 h 02), puis « Continue et accentue tes efforts de façon drastique ». Référentiel § 15 (phase 5), § 7 (sources, pipeline, préservation V2, schéma des fiches, marée, fenêtres), § 9.1.2 et § 9.1.3.
+
+Cinq livrables :
+1. audit fonctionnel BORD ;
+2. audit halieutique BORD ;
+3. base de spots enrichie ;
+4. registre de sources ;
+5. rapport de couverture, limites, contradictions et anomalies.
+
+Hors périmètre : aucune fonction de l'application, aucun changement du site publié, aucun secteur géographique dans le produit, aucune fusion.
+
+## 2. Synthèse
+
+Les 66 spots de la V2 sont sauvegardés, inventoriés avec leur empreinte et repris en 66 fiches au schéma du § 7.4. Aucun spot n'est perdu, et le test le vérifie à chaque passage. L'IGN et Géorisques ne sont pas joignables depuis la session : la CI de GitHub les a interrogés, et ses résultats ont été intégrés avec leur source et leur date.
+
+Ce que les fiches gagnent (VÉRIFIÉ par le test et les journaux de la CI) :
+- **Accès** : stationnement et temps de marche de l'IGN pour 60 spots ; 60 positions contrôlées, dont 4 corrigées.
+- **Réglementation** : règles du bar 2026 sur les textes officiels pour les 66 spots ; règles locales sourcées pour 17 spots.
+- **Sécurité** :
+    - contrainte d'accès liée à la marée classée à la main pour 22 spots ;
+    - mouvements de terrain du BRGM à 500 m pour 26 spots, dont 13 avec chutes de blocs ;
+    - risques de la commune pour les 66.
+- **Photos** : 107 photos libres de Wikimedia Commons, pour 31 spots, à vérifier avant affichage.
+- **Sources** : 297 au registre ; 102 éditeurs classés en 87 groupes d'indépendance.
+- **Qualification** : sept critères explicites et testés. **5 fiches corroborées, 61 à vérifier, aucune `TOP_TIER`.**
+
+Deux limites dominent :
+- **Les sources V2 ne se relisent pas.** 244 des 297 sources sont des citations sans adresse, et les pages cherchées sont introuvables. Aucune fiche ne peut donc atteindre `TOP_TIER`, qui exige des sources relues.
+- **Le catalogue ne s'étend pas honnêtement.** Deux passes de recherche sur les quatre zones sans spot (Manche nord et est, Ille-et-Vilaine, Côtes-d'Armor, Morbihan) n'ont trouvé aucun poste nommé par une source citable : 13 candidats, aucun promu.
+
+## 3. Travail réalisé
+
+| Sous-tâche | Statut | Livrable |
+| --- | --- | --- |
+| 5.0 Jeton, branche, plan | IMPLEMENTED | `SPUMY_AUDIT_CONTINUITY.md`, `docs/DECISIONS_LOG.md` |
+| 5.1 Inventaire et sauvegarde des spots V2 | TESTED | `scripts/inventaire-spots-v2.mjs`, `data/spots/v2/` |
+| 5.2 Audit fonctionnel V2, BORD et BATEAU — livrable 1 | IMPLEMENTED | `docs/audit/AUDIT-FONCTIONNEL-V2.md` |
+| 5.3 Registre central au schéma § 7.4 | TESTED | `data/schema/spot-v3.schema.json`, `data/spots/fiches/`, `data/spots/registre.json` |
+| 5.4 Registre de sources — livrable 4 | IMPLEMENTED (14 pages évaluées, 3 introuvables, 280 à lire) | `data/sources/`, `docs/halieutique/REGISTRE-SOURCES.md` |
+| 5.5 Référentiel biologique — livrable 2 | IMPLEMENTED, version 1 (lacunes : lieu noir, atlas des frayères) | `docs/halieutique/REFERENTIEL-BIOLOGIQUE.md` |
+| 5.6 et 5.8 Recherche de spots, deux passes | TESTED pour la phase (13 candidats, aucun promu) | `data/spots/candidats.json`, `COUVERTURE.md` § 1 |
+| 5.7 Vérification par spot — livrable 3 | TESTED pour ce qui est fait ; restes au § 10 | scripts `collecte-*`, `integrer-*`, `securite-maree`, `reglementation-*` ; `data/spots/collecte/` |
+| 5.9 Qualification | TESTED | `scripts/qualifier-fiches.mjs`, `docs/halieutique/QUALIFICATION.md` |
+| 5.10 Couverture — livrable 5 | IMPLEMENTED | `docs/halieutique/COUVERTURE.md` |
+| 5.11 Red-team et rapport | ce document | — |
+
+## 4. Changements significatifs
+
+1. **Collecte par la CI** (`.github/workflows/collecte-spots.yml`). Une demande écrite dans `data/spots/collecte/demande.json` lance, sur la proposition :
+    - les toponymes, parkings et itinéraires piétons de l'IGN ;
+    - l'inventaire géographique de Wikimedia Commons ;
+    - les mouvements de terrain et les risques communaux de Géorisques.
+
+    Seules les données sous Licence Ouverte sont gardées dans le dépôt, avec le numéro du passage. Les résultats d'OpenStreetMap ne le sont pas.
+2. **Sécurité** (§ 0.2) :
+    - `safety.acces_maree` : contrainte classée à la main, chaque classement citant sa consigne ;
+    - `safety.mouvements_terrain` et `safety.risques_commune` : données officielles avec leur portée ;
+    - zéro événement ou aucune consigne donne INCONNU, jamais « sans risque » ;
+    - fenêtre de sécurité (§ 7.6) INCONNU partout, faute de durée praticable sourcée, avec la contrainte dans sa raison.
+3. **Réglementation locale** (`scripts/reglementation-locale.mjs`), toujours « à vérifier au poste » :
+    - limites des ports et herbiers de zostères du Finistère ;
+    - cantonnement « Le Cochon » à Port-Manec'h ;
+    - arrêté municipal de Sciotot.
+4. **Photos** : une photo proche n'est pas une photo du lieu. Seules sont gardées les images à 400 m au plus dont le titre ou la description nomme le spot, une par série, avec leur licence et leur auteur.
+5. **Classement des éditeurs** (`data/sources/editeurs.json`) : nature, domaines, groupe d'indépendance, limites et droits. Exemple : peche.com et bateaux.com comptent pour une seule voix.
+6. **Qualification QUAL-1 à QUAL-7** : un spot n'est corroboré que si deux éditeurs indépendants le **nomment** pour la pêche du bord. Une première version comptait les articles généraux et les guides en bateau ; corrigée, elle est passée de 14 à 5 fiches corroborées.
+7. **Lieu jaune 2026 confirmé** (synthèse DDTM 29, avril 2026) : aucune détention du 1er janvier au 30 avril ; 2 par pêcheur et par jour ensuite ; relâcher interdit.
+
+## 5. Livrables
+
+| Livrable | Où |
+| --- | --- |
+| 1. Audit fonctionnel BORD (et BATEAU) | `docs/audit/AUDIT-FONCTIONNEL-V2.md` |
+| 2. Audit halieutique BORD | `docs/halieutique/REFERENTIEL-BIOLOGIQUE.md` ; connaissances `data/knowledge/` |
+| 3. Base de spots enrichie | `data/spots/fiches/` (66), `data/spots/registre.json`, `data/spots/collecte/`, `data/spots/candidats.json` |
+| 4. Registre de sources | `data/sources/registre.json`, `editeurs.json`, `manuelles.json` ; `docs/halieutique/REGISTRE-SOURCES.md` |
+| 5. Couverture, limites, contradictions, anomalies | `docs/halieutique/COUVERTURE.md`, `docs/halieutique/QUALIFICATION.md` |
+
+## 6. Git
+
+- `main` est inchangée et protégée ; le site en ligne n'a pas changé.
+- Commits atomiques sur `claude/v3-phase-5` : 25 avant ce rapport. 107 fichiers ; l'essentiel des lignes vient des données (fiches, collectes, sauvegarde V2).
+- La proposition n° 19 reste en brouillon vers `claude/v3-phase-4`.
+- Aucune branche supprimée. Aucun spot V2 supprimé ni modifié dans sa sauvegarde, et aucun secret.
+
+## 7. Preuves (23 nov. 2026)
+
+Toutes les commandes ont été lancées depuis un **clone neuf** de 9514c43.
+
+| Commande | Code | Résultat |
+| --- | --- | --- |
+| `npm ci` | 0 | — |
+| `npm run build`, puis `git status --short` | 0 | aucun écart |
+| `npm test` | 0 | <ul><li>lint 19/19, actions épinglées, types, secrets, couches</li><li>socle 25/25, données 69/69</li><li>spots V2 identiques, **spots V3 871/871**</li><li>connaissances 27/27, design 41/41, design V3 186/186</li><li>moteur v2 56/56, unitaires des guides</li><li>e2e 846/846, contrat simulé 28/28</li></ul> |
+| `npm run test:a11y` | 0 | 0 violation |
+| `npm run test:upgrade` | 0 | 12/12 |
+| `npm run test:prototype` | 0 | 244/244 |
+| `npm run test:prototype-v3` | 0 | 224/224 |
+| `tests/brand.py` | 0 | 35/35 |
+
+Passages de la CI qui ont produit les données :
+- 45255151172 et suivants : accès IGN ;
+- 45261223894 : Wikimedia Commons ;
+- 45262736236 : Géorisques, avec le repli communal.
+
+Les tests de la CI étaient verts sur a17ee99 ; l'état sur le commit du rapport figure dans la proposition.
+
+## 8. Résultats
+
+| Mesure | Valeur |
+| --- | --- |
+| Spots V2 gardés | 66/66, empreintes identiques |
+| Stationnement et marche (IGN) | 60/66, médiane 5 min |
+| Positions contrôlées, dont corrigées | 60, dont 4 |
+| Réglementation du bar 2026 | 66/66 ; règles locales : 17 spots |
+| Contrainte de marée classée | 22 ; aucune consigne : 44, en INCONNU |
+| Mouvements de terrain à 500 m | 26 spots, dont 13 avec chutes de blocs |
+| Photos libres retenues | 31 spots, 107 photos (INFÉRÉ) |
+| Phases de marée documentées | 133/264 |
+| Sources ; groupes d'indépendance | 297 ; 87 |
+| Qualification | 5 corroborées, 61 à vérifier, 0 `TOP_TIER`, 0 réglementée, 0 inaccessible |
+| Candidats hors V2 | 13, aucun promu |
+
+## 9. Exigences
+
+Touchées :
+- le catalogue unique V3-018 ;
+- les exigences de sécurité : une donnée de sécurité inconnue n'est jamais « au vert » ;
+- la fenêtre horaire § 7.6 : INCONNU avec sa raison, aucun créneau générique ;
+- les sources et les niveaux de preuve (§ 7.1) ;
+- l'absence de découpage géographique (repères d'audit seulement) ;
+- la préservation V2 (§ 7.3).
+
+Aucune exigence d'interface n'est intégrée : la qualification et les nouvelles données seront lues par le moteur et l'écran aux phases 9 à 12.
+
+## 10. Red-team et risques
+
+| Constat | Gravité | Traitement |
+| --- | --- | --- |
+| 244 sources V2 sans adresse, pages introuvables : la preuve halieutique des fiches reste celle de la V2, INFÉRÉE | MAJEURE pour la Confiance | QUAL-2 bloque `TOP_TIER` ; la Confiance devra le refléter ; à Félix de dire s'il peut fournir les adresses ou ses propres observations (§ 12) |
+| Aucune fenêtre de sécurité documentée, alors que 6 spots ne sont praticables qu'à basse mer | MAJEURE | fenêtre INCONNU et contrainte classée : le moteur ne doit jamais présenter ces spots comme praticables sans fenêtre (à intégrer aux phases 9 à 12) |
+| 18 fiches avec une règle locale ou une zone CIEM à vérifier au poste | MAJEURE | statut « à vérifier », jamais dans les trois cartes principales (§ 6.7.4) ; périmètres des ports et du cantonnement à obtenir |
+| Conseils V2 visant les herbiers de zostères, où la pêche est interdite dans le Finistère (Bendy, Hôpital-Camfrout) | MAJEURE | règle ajoutée aux fiches ; conseils à revoir avant publication |
+| 28 fiches s'adressent à Félix (« ton journal ») ; une cite ses propres sessions (Moulin Mer) | MAJEURE (confidentialité) | QUAL-7 la signale ; retrait du texte privé des fiches publiques à décider (§ 12) ; la sauvegarde V2 le garde |
+| Positions de Pirou, Gouville et Surtainville toujours à la minute près (jusqu'à 1,85 km d'écart) | MAJEURE pour l'accès et la sécurité | aucun stationnement calculé sur un point faux ; poste réel à fournir |
+| Famille des sources INFÉRÉE de l'éditeur | MINEURE | séparée de la qualité examinée (QUAL-2) ; mieuxpecher.com et peche-poissons.com non classés |
+| Photos retenues sur leur nom, pas sur leur contenu | MINEURE | statut INFÉRÉ ; vérification image par image avant affichage |
+| Recensement du BRGM non exhaustif, dates souvent absentes | MINEURE | zéro événement en INCONNU ; textes explicites |
+| Corroboration d'abord surestimée (14 fiches) | corrigé | règle « la citation nomme le spot », testée |
+| Revue faite par l'auteur | OBSERVATION | revue indépendante prévue au référentiel avant la production |
+
+Les contrôles du red-team, tous passés :
+- aucun spot `user_manual` ;
+- aucune donnée OpenStreetMap gardée ;
+- aucune incohérence de sécurité (contrainte, mouvements, fenêtre) sur les 66 fiches ;
+- la qualification se recalcule à l'identique ;
+- les blocages sont testés : même éditeur, citation « bateau », article général, source privée, règle à vérifier, anomalie de position, interdiction confirmée.
+
+## 11. Qualité et conformité
+
+- **Aucune fabrication** : chaque donnée a son statut, sa source et sa date. Les comptages viennent des journaux de la CI ou du test, et les citations des pages lues.
+- **Droits** : seules les données sous Licence Ouverte sont gardées. Pour Wikimedia Commons, le dépôt garde les métadonnées seulement, sans aucune image. Ailleurs, de courtes citations ; aucun paywall ni espace réservé contourné.
+- **§ 0.2** : sécurité jamais compensée ; deux scores seulement ; la qualification ne touche ni la Favorabilité ni le rang.
+- **§ 12.3** : commandes réellement lancées, codes de sortie consignés (§ 7).
+
+## 12. Décisions attendues
+
+1. **Sources de terrain** : peux-tu fournir les adresses des pages citées par la V2 ? Ou bien veux-tu verser tes propres observations comme source identifiée (et non privée) pour certains spots publics ? C'est la seule voie vers `TOP_TIER`.
+2. **Texte privé dans les fiches publiques** (28 fiches, dont une avec tes sessions) : le retirer des fiches V3 et ne le garder que dans la sauvegarde V2 ? Recommandé.
+3. **Spots sans source citable** (Manche nord et est, Ille-et-Vilaine, Côtes-d'Armor, Morbihan) : laisser ces zones vides, ou proposer des spots publics que tu connais ?
+4. **Postes de Pirou, Gouville et Surtainville** : connais-tu le poste réel (public) ?
+5. **Fusion des phases 2 à 5** (= publication) : recommandation inchangée, attendre l'intégration V3.
+
+## 13. Prochaine phase
+
+**Phase 6 : conception et validation du moteur BORD** (référentiel § 15). Elle commence par l'audit scientifique et mathématique du moteur existant et formule des options, sans rien verrouiller ni implémenter. Elle partira de ce que la phase 5 a établi :
+- les 66 fiches qualifiées et leurs raisons, pour le statut « À vérifier » ;
+- la contrainte de marée et les risques, pour le contrat de sécurité BORD indépendant ;
+- les groupes d'indépendance des sources, pour les critères de Confiance ;
+- les temps de marche de l'IGN, pour le trajet de 60 minutes au plus.
+
+## 14. Arrêt
+
+Phase 5 **TESTED** pour les livrables 1, 3 et 5 et la qualification. Les livrables 2 et 4 sont **IMPLEMENTED avec lacunes déclarées** :
+- lieu noir, atlas des frayères ;
+- 280 pages de sources à lire, la plupart introuvables.
+
+Aucune tâche de la phase 6 n'a commencé. Jeton attendu : `APPROVED — PROCEED TO PHASE 6`.

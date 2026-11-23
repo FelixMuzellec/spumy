@@ -1,7 +1,7 @@
 {
- "//": "Demande de collecte pour la CI. 23 nov. 2026 (soir) : risques naturels officiels (Géorisques : mouvements de terrain à 500 m, risques de la commune) pour les 66 spots.",
+ "//": "Demande de collecte pour la CI : vide (fin de la phase 5). Écrire des ids, « photos »: true ou « risques »: true pour relancer une collecte.",
  "ids": [],
  "requetes": {},
  "photos": false,
- "risques": true
+ "risques": false
 }

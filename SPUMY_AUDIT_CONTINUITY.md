@@ -80,14 +80,14 @@ Référentiel § 15 (phase 5), § 7 (sources, pipeline, préservation V2, schém
 | 5.1 Inventaire exhaustif et sauvegarde logique des spots V2, empreintes, comparaison avant/après | TESTED (32a36a3 : 66 spots, 7 guides, 66 identifiants uniques ; 7 spots du guide Pirou sans coordonnées numériques (texte à la minute près) ; `--verifier` 0, dans `npm test` et la CI) | `scripts/inventaire-spots-v2.mjs`, `data/spots/` |
 | 5.2 Audit fonctionnel V2, BORD et BATEAU (parcours, moteurs, espèces, spots, données, sécurité, matériel, localisation, UX) — livrable 1 | IMPLEMENTED (espèces réelles : bar en BORD ; lieu jaune, lieu noir, maquereau, bar, vieille, saint-pierre en BATEAU ; aucun point d'accès dans les fiches ; 8 écarts pour la phase 5) | `docs/audit/` |
 | 5.3 Registre central des spots au schéma § 7.4 (66 fiches `v2_preserved`, identifiants V3-018, statut, provenance, preuve, dernière vérification, lacunes) | TESTED (schéma `data/schema/spot-v3.schema.json` ; 66 fiches `data/spots/fiches/`, toutes « à vérifier », 0 stationnement connu ; registre `data/spots/registre.json` généré ; `tests/spots-v3.mjs` 404/404, dans `npm test` et la CI ; 28 fiches V2 citent le journal personnel : anomalie à revoir) | `data/schema/`, `data/spots/`, tests |
-| 5.4 Registre de sources (évaluation § 7.1, indépendance, droits, CGU) — livrable 4 | IN PROGRESS (297 sources ; 13 évaluées page par page (textes officiels 2026, IGN, OSM, Géorisques, Wikimedia Commons, DDTM 29, Attitude Manche) ; 102 éditeurs classés dans `data/sources/editeurs.json` : famille INFÉRÉE, groupe d'indépendance, domaines, limites, droits ; famille fixée pour 254 sources, non fixée pour mieuxpecher.com et peche-poissons.com (43) ; 284 pages V2 encore à lire) | `data/sources/`, `docs/halieutique/REGISTRE-SOURCES.md` |
+| 5.4 Registre de sources (évaluation § 7.1, indépendance, droits, CGU) — livrable 4 | IMPLEMENTED avec lacunes (297 sources, 102 éditeurs classés en 87 groupes ; 14 pages évaluées, 3 introuvables, 280 à lire, la plupart sans adresse) | `data/sources/`, `docs/halieutique/REGISTRE-SOURCES.md` |
 | 5.5 Référentiel biologique par espèce, région et saison (espèces réelles de la V2), fiches de preuve, lacunes et contradictions | IMPLEMENTED, version 1 (bar : deux stocks, cycle d'après Fritsch 2005, juvéniles, marée, rythme, température, régime ; lieu jaune, maquereau, vieille, saint-pierre ; lieu noir en lacune ; réglementation BATEAU ; à lire : atlas des frayères de l'Ifremer 2024, mois des frayères Manche) | `docs/halieutique/REFERENTIEL-BIOLOGIQUE.md` |
 | 5.6 Recherche systématique des spots, Bretagne → Cherbourg, première passe | IMPLEMENTED (9 candidats : 3 candidats, 1 doublon probable de goury, 2 hors BORD, 2 zones, 1 à accès restreint ; aucun au niveau d'une fiche ; lacunes : Manche nord et est, Ille-et-Vilaine, Côtes-d'Armor, Morbihan) | `data/spots/candidats.json` |
-| 5.7 Vérification par spot : coordonnées, accès et stationnement, marche, milieu, marée en quatre phases, conditions, sécurité, réglementation, fenêtres, photos | IN PROGRESS (stationnement et marche 60/66 ; positions contrôlées 60, corrigées 4 ; réglementation bar 66/66 + règles locales : ports et zostères du Finistère, cantonnement « Le Cochon », Sciotot (17 spots) ; marée 133/264 phases ; sécurité : contrainte de marée classée à la main (22 spots), mouvements de terrain BRGM à 500 m (26 spots, 13 avec chutes de blocs), risques communaux 66/66 ; fenêtres de sécurité INCONNU avec raison (aucune durée sourcée) ; photos libres Commons 31/66 (INFÉRÉ) ; reste : poste réel de pirou, gouville, surtainville, écarts > 1,5 km) | `scripts/collecte-*.mjs`, `scripts/integrer-*.mjs`, `scripts/securite-maree.mjs`, `scripts/reglementation-*.mjs`, `data/spots/collecte/` |
+| 5.7 Vérification par spot | TESTED pour ce qui est fait (accès 60/66, positions 60 dont 4 corrigées, réglementation 66/66 + locale 17, contrainte de marée 22, BRGM 26, risques communaux 66, photos 31) ; restes déclarés : postes de pirou, gouville, surtainville, écarts > 1,5 km, fenêtres non documentables | `scripts/`, `data/spots/collecte/` |
 | 5.8 Deuxième passe : spots oubliés, déséquilibres de couverture | TESTED pour cette phase (deux passes, 13 candidats, aucun promu : sources publiques sans poste nommé ; conclusion chiffrée dans COUVERTURE) | `data/spots/candidats.json` |
-| 5.9 Qualification des fiches (critères explicites) et facteurs complémentaires documentés | NOT STARTED | `data/spots/`, `docs/halieutique/` |
-| 5.10 Rapport de couverture, limites, contradictions et anomalies — livrable 5 | IN PROGRESS (version intermédiaire) | `docs/halieutique/COUVERTURE.md` |
-| 5.11 Red-team, rapport en 14 parties, arrêt | NOT STARTED | `docs/rapports/v3/PHASE-5.md` |
+| 5.9 Qualification des fiches (critères explicites) | TESTED (QUAL-1 à QUAL-7 ; 5 corroborées, 61 à vérifier, 0 TOP_TIER ; recalcul et blocages testés) | `scripts/qualifier-fiches.mjs`, `docs/halieutique/QUALIFICATION.md` |
+| 5.10 Rapport de couverture, limites, contradictions et anomalies — livrable 5 | IMPLEMENTED (version finale) | `docs/halieutique/COUVERTURE.md` |
+| 5.11 Red-team, rapport en 14 parties, arrêt | IMPLEMENTED (clone neuf de 9514c43 : tous les tests à 0) | `docs/rapports/v3/PHASE-5.md` |
 
 ## Questions et décisions (registre)
 
@@ -117,15 +117,11 @@ Référentiel § 15 (phase 5), § 7 (sources, pipeline, préservation V2, schém
 
 - Branche : `claude/v3-phase-5`, partie de `claude/v3-phase-4` ; aucune des phases 2 à 5 n'est fusionnée ; `main` protégée (ensemble de règles 27906963, contrôles `tests` et `contrat`) ; étiquette `v2-final` publiée par Félix.
 - Dernier commit : voir `git log` ; ce fichier est mis à jour à chaque sous-tâche.
-- Tests de la phase 5 : `node tests/spots-v3.mjs` 790/790 ; CI verte sur a17ee99 (collectes Commons 45261223894 et Géorisques 45262736236 lues dans le journal du passage).
+- Tests de la phase 5 (clone neuf de 9514c43, codes 0) : `npm ci`, build sans écart, `npm test` (spots V3 871/871, e2e 846/846), `test:a11y` 0 violation, `test:upgrade` 12/12, `test:prototype` 244/244, `test:prototype-v3` 224/224, `tests/brand.py` 35/35.
 
 ## Prochaine action
 
-Phase 5 IN PROGRESS sur `claude/v3-phase-5` (proposition n° 19). Ordre de reprise :
-1. (Méthode de collecte : écrire la demande dans `data/spots/collecte/demande.json` — `ids` pour l'accès, `photos: true`, `risques: true` — et pousser ; lire les lignes COLLECTE, PHOTOS ou RISQUES du journal ; enregistrer dans `data/spots/collecte/`, puis `node scripts/integrer-acces.mjs|integrer-photos.mjs|integrer-risques.mjs <fichier>`, `node scripts/sources-registre.mjs`, `node tests/spots-v3.mjs`.)
-2. 5.9 qualification des 66 fiches (critères explicites ; TOP_TIER : au moins deux groupes indépendants, aucune règle locale « à vérifier », aucune anomalie de position) ;
-3. 5.10 rapport de couverture final ; 5.4 : mise à jour de REGISTRE-SOURCES.md ;
-4. 5.11 red-team, rapport en 14 parties `docs/rapports/v3/PHASE-5.md`, arrêt.
+Phase 5 terminée (rapport `docs/rapports/v3/PHASE-5.md`) ; **arrêt**. Attendre les réponses de Félix au § 12 du rapport et le jeton `APPROVED — PROCEED TO PHASE 6`. Aucune tâche de la phase 6 ne commence avant.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
