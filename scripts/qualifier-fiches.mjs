@@ -18,7 +18,7 @@ const HALIEUTIQUE = /halieutique|spots|technique|conditions locales|présence d'
  *  rien d'un lieu précis. */
 /** Citation qui parle de pêche en bateau, de navigation, ou dit ne pas parler du bar : n'atteste pas un poste du bord. */
 const PAS_BORD = /en bateau|pêche en bateau|navigation|voilier|ne parle ni/i;
-const ANOMALIE_POSITION = /^Position V2 |^Coordonnées V2 seulement en texte|^Aucun toponyme|^Position d'un lieu habité|^Position d'un équipement de loisirs/;
+const ANOMALIE_POSITION = /^Position V2 |^Position de la fiche à |^Coordonnées V2 seulement en texte|^Aucun toponyme|^Position d'un lieu habité|^Position d'un équipement de loisirs/;
 const ANOMALIE_ZONE = /48ᵉ parallèle/;
 
 export function sourcesParSpot(registre) {

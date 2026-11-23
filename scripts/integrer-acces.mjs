@@ -27,7 +27,8 @@ for (const { fichier, fiche: f } of lireFiches()) {
   const c = parId.get(f.id);
   if (!c) continue;
   n++;
-  const anomalies = f.quality.anomalies.filter((a) => !a.startsWith("Position V2 à ") && !a.startsWith("Aucun parking de la BD TOPO"));
+  const anomalies = f.quality.anomalies.filter((a) => !a.startsWith("Position V2 à ") && !a.startsWith("Position de la fiche à ") && !a.startsWith("Aucun parking de la BD TOPO"));
+  const qui = f.origin === "v2_preserved" ? "Position V2" : "Position de la fiche";
   // 1. Position : contrôle par le toponyme officiel de même nom.
   // Seuls les toponymes d'éléments naturels (cap, pointe, plage, embouchure, havre…) servent à corriger une position :
   // un village ou une commune n'est pas le poste de pêche.
@@ -49,7 +50,7 @@ for (const { fichier, fiche: f } of lireFiches()) {
     f.coordinates.controle = { statut: "VÉRIFIÉ", origine: "v3", sources: ["src-ign-geocodage-poi"], verifie_le: JOUR, niveau: 1, valeur: { toponyme: topo.nom, ecart_m: topo.ecart_m },
       texte: `Toponyme officiel « ${topo.nom} » (${topo.categorie}) à ${topo.ecart_m} m de la position de la fiche.` };
     bilan.controlees++;
-    if (topo.ecart_m > 1500) { anomalies.push(`Position V2 à ${KM(topo.ecart_m)} km du toponyme officiel « ${topo.nom} » (${topo.categorie}) : à vérifier (le poste peut être ailleurs que le point du toponyme).`); bilan.ecarts.push(`${f.id} (${KM(topo.ecart_m)} km${topoNaturel ? "" : ", toponyme habité"})`); }
+    if (topo.ecart_m > 1500) { anomalies.push(`${qui} à ${KM(topo.ecart_m)} km du toponyme officiel « ${topo.nom} » (${topo.categorie}) : à vérifier (le poste peut être ailleurs que le point du toponyme).`); bilan.ecarts.push(`${f.id} (${KM(topo.ecart_m)} km${topoNaturel ? "" : ", toponyme habité"})`); }
     if (imprecise) anomalies.push(`Position V2 à la minute près, non corrigée : le seul toponyme de même nom est un lieu habité (« ${topo.nom} »), pas le poste.`);
   } else bilan.sansToponyme.push(f.id);
 

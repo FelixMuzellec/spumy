@@ -413,7 +413,7 @@
   "anomalies": [
    "Fiche créée par la passe exhaustive (5.12) : sécurité, accès et conditions à documenter avant tout affichage.",
    "Position d'un lieu habité (« Merrien »), pas du poste : à positionner sur le poste réel.",
-   "Position V2 à 3,3 km du toponyme officiel « le Merrien » (cours d'eau, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme)."
+   "Position de la fiche à 3,3 km du toponyme officiel « le Merrien » (cours d'eau, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme)."
   ],
   "criteres": {
    "QUAL-1": {
@@ -426,7 +426,7 @@
    },
    "QUAL-3": {
     "ok": false,
-    "detail": "Position d'un lieu habité (« Merrien »), pas du poste : à positionner sur le poste réel. Position V2 à 3,3 km du toponyme officiel « le Merrien » (cours d'eau, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme)."
+    "detail": "Position d'un lieu habité (« Merrien »), pas du poste : à positionner sur le poste réel. Position de la fiche à 3,3 km du toponyme officiel « le Merrien » (cours d'eau, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme)."
    },
    "QUAL-4": {
     "ok": true,
@@ -446,7 +446,7 @@
    }
   },
   "raisons": [
-   "QUAL-3 : Position d'un lieu habité (« Merrien »), pas du poste : à positionner sur le poste réel. Position V2 à 3,3 km du toponyme officiel « le Merrien » (cours d'eau, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme).",
+   "QUAL-3 : Position d'un lieu habité (« Merrien »), pas du poste : à positionner sur le poste réel. Position de la fiche à 3,3 km du toponyme officiel « le Merrien » (cours d'eau, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme).",
    "QUAL-5 : engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 7"
   ]
  }
