@@ -81,7 +81,7 @@ Référentiel § 15 (phase 5), § 7 (sources, pipeline, préservation V2, schém
 | 5.2 Audit fonctionnel V2, BORD et BATEAU (parcours, moteurs, espèces, spots, données, sécurité, matériel, localisation, UX) — livrable 1 | IMPLEMENTED (espèces réelles : bar en BORD ; lieu jaune, lieu noir, maquereau, bar, vieille, saint-pierre en BATEAU ; aucun point d'accès dans les fiches ; 8 écarts pour la phase 5) | `docs/audit/` |
 | 5.3 Registre central des spots au schéma § 7.4 (66 fiches `v2_preserved`, identifiants V3-018, statut, provenance, preuve, dernière vérification, lacunes) | TESTED (schéma `data/schema/spot-v3.schema.json` ; 66 fiches `data/spots/fiches/`, toutes « à vérifier », 0 stationnement connu ; registre `data/spots/registre.json` généré ; `tests/spots-v3.mjs` 404/404, dans `npm test` et la CI ; 28 fiches V2 citent le journal personnel : anomalie à revoir) | `data/schema/`, `data/spots/`, tests |
 | 5.4 Registre de sources (évaluation § 7.1, indépendance, droits, CGU) — livrable 4 | IN PROGRESS (inventaire fait : 284 sources, 95 éditeurs, 66 fiches reliées, test d'intégrité ; droits et indépendance par éditeur décrits ; **évaluation § 7.1 de chaque source : 0/284**, à faire avec 5.7 ; Google Maps à re-sourcer sur IGN ou OSM) | `data/sources/` |
-| 5.5 Référentiel biologique par espèce, région et saison (espèces réelles de la V2), fiches de preuve, lacunes et contradictions | NOT STARTED | `docs/halieutique/`, `data/knowledge/` |
+| 5.5 Référentiel biologique par espèce, région et saison (espèces réelles de la V2), fiches de preuve, lacunes et contradictions | IN PROGRESS (bar : version 1, `docs/halieutique/REFERENTIEL-BIOLOGIQUE.md` ; deux stocks séparés au 48ᵉ parallèle ; frai Gascogne janvier à mars ; aucune étude d'activité jour et nuit en milieu naturel ni de régime côtier des adultes ; à lire : thèse Fritsch 2005, mois des frayères Manche ; **reste : lieu jaune, lieu noir, maquereau, vieille, saint-pierre**) | `docs/halieutique/`, `data/knowledge/` |
 | 5.6 Recherche systématique des spots, Bretagne → Cherbourg, première passe | NOT STARTED | `data/spots/` |
 | 5.7 Vérification par spot : coordonnées, accès et stationnement, marche, milieu, marée en quatre phases, conditions, sécurité, réglementation, fenêtres, photos | NOT STARTED | `data/spots/` |
 | 5.8 Deuxième passe : spots oubliés, déséquilibres de couverture | NOT STARTED | `data/spots/` |
@@ -122,7 +122,10 @@ Référentiel § 15 (phase 5), § 7 (sources, pipeline, préservation V2, schém
 
 ## Prochaine action
 
-Phase 5 IN PROGRESS sur `claude/v3-phase-5`. Prochaine sous-tâche : 5.5, référentiel biologique (bar d'abord, puis les cinq autres espèces BATEAU) ; l'évaluation des sources (5.4) se fait avec la vérification des spots (5.7).
+Phase 5 IN PROGRESS sur `claude/v3-phase-5` (proposition n° 19). Fait : 5.0 à 5.3 ; 5.4 et 5.5 commencés. Prochaines actions, dans l'ordre :
+1. 5.5 : lire la thèse Fritsch 2005 (régime côtier, saisons) et les mois des frayères Manche (Sextant) ; puis les cinq espèces BATEAU, à partir de `data/knowledge/bateau.json` ;
+2. 5.7, en commençant par les 7 spots du guide Pirou sans coordonnées numériques : coordonnées (IGN ou OSM, pas Google Maps), stationnement, marche, quatre phases de marée, sécurité, réglementation datée ; évaluation § 7.1 des sources lues au passage (5.4) ;
+3. 5.6 et 5.8 : recherche de nouveaux spots, Bretagne → Cherbourg.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
