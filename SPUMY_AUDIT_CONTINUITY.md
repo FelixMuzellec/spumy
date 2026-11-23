@@ -14,8 +14,9 @@ Suivi unique du chantier V3. Il dit où en est le travail, pourquoi il s'est arr
 | 1. Audit initial V2 (lecture seule) | TESTED, avec une réserve : P1-14 (site en ligne dans un vrai navigateur) BLOCKED, aucun navigateur relié | démarrage (§ 18) | Rapport https://claude.ai/artifact/62UYfGbGKJtRvo6rAF9QrK ; copie `docs/rapports/v3/PHASE-1.md` |
 | 2. Vision produit, exigences et architecture cible | VALIDATED (jeton de phase 3) | « APPROVED — PROCEED TO PHASE 2 », 20 nov. 2026, 1 h 24 | Rapport https://claude.ai/artifact/JWzDnppc1u7Wf6SPEgceDn ; copie `docs/rapports/v3/PHASE-2.md` ; branche `claude/v3-phase-2`, proposition n° 16 (brouillon) |
 | 3. Conception UX/UI, direction artistique, Design System, prototypes | VALIDATED (jeton de phase 4 ; version 6.2 du prototype acceptée par la demande du jeton, INFÉRÉ) | « APPROVED — PROCEED TO PHASE 3 », 20 nov. 2026, 4 h 25 | Rapport https://claude.ai/artifact/MUeZdUAtxSDqAKQxML511A ; copie `docs/rapports/v3/PHASE-3.md` ; branche `claude/v3-phase-3` (partie de `claude/v3-phase-2`), proposition n° 17 (brouillon) |
-| 4. Architecture détaillée, socle technique et assainissement contrôlé | TESTED, hors 4.8 (BLOCKED — action de Félix) ; validation de Félix attendue | « APPROVED — PROCEED TO PHASE 4 », 23 nov. 2026, 13 h 50 | Rapport `docs/rapports/v3/PHASE-4.md` ; branche `claude/v3-phase-4` (depuis `claude/v3-phase-3`, 080d5e3), proposition n° 18 (brouillon) |
-| 5 à 15 | NOT STARTED | — | — |
+| 4. Architecture détaillée, socle technique et assainissement contrôlé | VALIDATED (jeton de phase 5) | « APPROVED — PROCEED TO PHASE 4 », 23 nov. 2026, 13 h 50 | Rapport `docs/rapports/v3/PHASE-4.md` ; branche `claude/v3-phase-4` (depuis `claude/v3-phase-3`, 080d5e3), proposition n° 18 (brouillon) |
+| 5. Audit BORD et référentiel halieutique des spots | IN PROGRESS | « APPROVED — PROCEED TO PHASE 5 », 23 nov. 2026, 20 h 02 | branche `claude/v3-phase-5` (depuis `claude/v3-phase-4`) |
+| 6 à 15 | NOT STARTED | — | — |
 
 Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposait de passer outre la réserve P1-14. Il vaut acceptation de cette réserve (INFÉRÉ) ; le contrôle sera refait dès qu'un navigateur sera relié.
 
@@ -69,6 +70,25 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 | 4.15 Complément du rapport, CI verte, arrêt | TESTED (complément du rapport, red-team mise à jour, CHANGELOG ; test de mise à jour : échec rare de `page.reload` sur 90eaf1b, puis blocage de 34 min ; blocage corrigé, échec simulé en 8 s, code 1 ; local 12/12) | `docs/rapports/v3/PHASE-4.md`, `CHANGELOG.md`, `tests/upgrade.mjs` |
 | 4.16 Décisions du 23 nov. (19 h 07) : V3-019, D-11, D-15, Dependabot, IGN | TESTED (b125156, 648d8cc, 3e624b7 ; étiquette `v2-final` publiée par Félix à 20 h 00, vérifiée (bb4f940) ; D-11 consigné, appliqué à l'intégration ; D-15 dans le prototype, 224/224 ; `src/core/ign/reponses.js`, socle 25/25 ; contrat IGN 15/15 en CI ; `npm test` 0) | `docs/DECISIONS_LOG.md`, `docs/ARCHITECTURE-V3.md`, `src/core/ign/reponses.js`, `tests/contrat-ign.mjs`, `.github/dependabot.yml`, prototype |
 
+## Phase 5 — sous-tâches
+
+Référentiel § 15 (phase 5), § 7 (sources, pipeline, préservation V2, schéma des fiches, marée, fenêtres horaires), § 9.1.2 et § 9.1.3 (audit biologique et variables). Livrables : (1) audit fonctionnel BORD ; (2) audit halieutique BORD ; (3) base de spots enrichie ; (4) registre de sources ; (5) couverture, limites, contradictions et anomalies. Aucun spot V2 supprimé, aucune donnée de personne écrasée, aucune coordonnée personnelle dans le dépôt, aucun secteur dans le produit ; paywalls et CGU respectés. La phase demandera plusieurs sessions : chaque sous-tâche est commitée et notée ici.
+
+| Sous-tâche | Statut | Fichiers |
+| --- | --- | --- |
+| 5.0 Jeton, branche, plan | IMPLEMENTED | ce fichier, `docs/DECISIONS_LOG.md` |
+| 5.1 Inventaire exhaustif et sauvegarde logique des spots V2, empreintes, comparaison avant/après | NOT STARTED | `scripts/inventaire-spots-v2.mjs`, `data/spots/` |
+| 5.2 Audit fonctionnel V2, BORD et BATEAU (parcours, moteurs, espèces, spots, données, sécurité, matériel, localisation, UX) — livrable 1 | NOT STARTED | `docs/audit/` |
+| 5.3 Registre central des spots au schéma § 7.4 (66 fiches `v2_preserved`, identifiants V3-018, statut, provenance, preuve, dernière vérification, lacunes) | NOT STARTED | `data/schema/`, `data/spots/`, tests |
+| 5.4 Registre de sources (évaluation § 7.1, indépendance, droits, CGU) — livrable 4 | NOT STARTED | `data/sources/` |
+| 5.5 Référentiel biologique par espèce, région et saison (espèces réelles de la V2), fiches de preuve, lacunes et contradictions | NOT STARTED | `docs/halieutique/`, `data/knowledge/` |
+| 5.6 Recherche systématique des spots, Bretagne → Cherbourg, première passe | NOT STARTED | `data/spots/` |
+| 5.7 Vérification par spot : coordonnées, accès et stationnement, marche, milieu, marée en quatre phases, conditions, sécurité, réglementation, fenêtres, photos | NOT STARTED | `data/spots/` |
+| 5.8 Deuxième passe : spots oubliés, déséquilibres de couverture | NOT STARTED | `data/spots/` |
+| 5.9 Qualification des fiches (critères explicites) et facteurs complémentaires documentés | NOT STARTED | `data/spots/`, `docs/halieutique/` |
+| 5.10 Rapport de couverture, limites, contradictions et anomalies — livrable 5 | NOT STARTED | `docs/halieutique/` |
+| 5.11 Red-team, rapport en 14 parties, arrêt | NOT STARTED | `docs/rapports/v3/PHASE-5.md` |
+
 ## Questions et décisions (registre)
 
 | N° | Date | Question | Réponse | Effet |
@@ -102,10 +122,7 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 
 ## Prochaine action
 
-Phase 4 **TESTED** (rapport, complément et second complément remis), arrêt. Attendus de Félix :
-- donner le jeton `APPROVED — PROCEED TO PHASE 5`.
-
-Aucune tâche de la phase 5 ne démarre sans ce jeton. Branche `claude/v3-phase-4` ; `main` inchangé (bb4f940), protégé depuis le 23 nov., 15 h 31 (contrôles `tests` et `contrat`, corrigés à 19 h 47).
+Phase 5 IN PROGRESS sur `claude/v3-phase-5`. Prochaine sous-tâche : 5.1, inventaire et sauvegarde logique des 66 spots V2.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
