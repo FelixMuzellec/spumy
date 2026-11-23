@@ -94,7 +94,7 @@ export function HomeBord({ st, go, heroPhoto, openPos, openJournal }) {
             <section className="sect" aria-labelledby="h-next">
               <h2 className="sect-h" id="h-next">Et ensuite</h2>
               <div className="row">
-                <button className="btn grow" onClick={() => go("comparer", `${cards[2]?.id || "c"}-${cards[1]?.id || "a"}`)}>Comparer deux spots</button>
+                <button className="btn grow" onClick={() => go("comparer", `${cards[2]?.id || "carteret"}-${cards[1]?.id || "agon"}`)}>Comparer deux spots</button>
                 <button className="btn primary grow" onClick={openJournal}><Icon name="plus" size={18} />Noter une sortie</button>
               </div>
             </section>

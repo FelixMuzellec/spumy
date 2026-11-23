@@ -81,7 +81,7 @@ function App() {
   useEffect(() => { const f = () => { setRoute(parse()); window.scrollTo(0, 0); }; window.addEventListener("hashchange", f); return () => window.removeEventListener("hashchange", f); }, []);
   // Titre de la page propre à chaque écran (WCAG 2.4.2), lu par les lecteurs d'écran au changement de vue.
   useEffect(() => {
-    const t = route.page === "spot" ? (SPOT[route.arg] || SPOT.a).name : route.page === "comparer" ? "Comparaison" : TAB_LABEL[route.page] || "Home";
+    const t = route.page === "spot" ? (SPOT[route.arg] || SPOT.agon).name : route.page === "comparer" ? "Comparaison" : TAB_LABEL[route.page] || "Home";
     document.title = `${t} · SPUMY`;
   }, [route]);
   useEffect(() => { const r = document.documentElement; if (st.theme === "system") r.removeAttribute("data-theme"); else r.setAttribute("data-theme", st.theme); }, [st.theme]);
@@ -100,7 +100,7 @@ function App() {
     : p.state === "pending" ? "Position…" : p.state === "refused" ? "Position refusée · choisir" : "Choisir une position";
   const page = route.page;
   const saveTrip = (state) => {
-    const item = { id: `n${Date.now()}`, date: "Aujourd'hui", spot: "Pointe A", state, catches: state === "capture" ? "bar 44 cm" : null };
+    const item = { id: `n${Date.now()}`, date: "Aujourd'hui", spot: "Pointe d'Agon", state, catches: state === "capture" ? "bar 44 cm" : null };
     setJournal((j) => [item, ...j]); setSheet(null);
     notify("Sortie enregistrée sur cet appareil", () => setJournal((j) => j.filter((x) => x.id !== item.id)));
   };

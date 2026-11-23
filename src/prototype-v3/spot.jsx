@@ -39,13 +39,13 @@ function TideCurve({ s }) {
 }
 
 export function Fiche({ id, go, back }) {
-  const s = SPOT[id] || SPOT.a;
+  const s = SPOT[id] || SPOT.agon;
   const status = s.status === "verify" ? "À vérifier" : s.status === "nr" ? "Non recommandé" : undefined;
   return (
     <div className="screen flush">
       <div className="row between" style={{ padding: "8px var(--gutter)" }}>
         <button className="btn small" onClick={back}><Icon name="left" size={18} />Retour</button>
-        <button className="btn small" onClick={() => go("comparer", `c-${s.id === "c" ? "a" : s.id}`)}>Comparer</button>
+        <button className="btn small" onClick={() => go("comparer", `carteret-${s.id === "carteret" ? "agon" : s.id}`)}>Comparer</button>
       </div>
       <div style={{ position: "relative", height: 190, overflow: "hidden" }}>
         <img src={photoSrc(s.photo, 720)} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
@@ -90,7 +90,7 @@ export function Fiche({ id, go, back }) {
 }
 
 export function Comparaison({ ids, back }) {
-  const [a, b] = (ids || "c-a").split("-").map((k) => SPOT[k] || SPOT.a);
+  const [a, b] = (ids || "carteret-agon").split("-").map((k) => SPOT[k] || SPOT.agon);
   const comparable = a.win && b.win && a.fav !== null && b.fav !== null && !a.status && !b.status;
   const rows = [
     ["Sécurité", (s) => <Safety s={s} />],
