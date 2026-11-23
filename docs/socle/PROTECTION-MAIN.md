@@ -16,7 +16,16 @@ Ruleset « Protéger main (fusion = publication du site) », sur la branche par 
 
 ## État
 
-**BLOCKED — action de Félix.** La session Claude a les droits d'administration, mais son relais vers GitHub refuse l'écriture des rulesets (HTTP 403, « Write access to this GitHub API path is not permitted through this proxy »). Le relais n'est pas contourné.
+**ACTIVE depuis le 23 nov. 2026, 15 h 31**, posée par Félix (ruleset 27906963). Lecture du 23 nov., 18 h 50 :
+- règles présentes : `deletion`, `non_fast_forward`, `pull_request` (0 approbation), `required_status_checks` ;
+- contournement : rôle administrateur, par proposition seulement ;
+- cible : la branche par défaut.
+
+**Une correction reste à faire.** Le contrôle exigé s'appelle `contract`, sans source. Or le passage du contrat Open-Meteo s'appelle `contrat`, et GitHub Actions publie bien `contrat`, `tests` et `ign`. Un contrôle `contract` ne sera donc jamais rendu : toute fusion dans `main` attendrait sans fin, sauf contournement par l'administrateur. Félix corrige (la session ne peut pas écrire les rulesets, HTTP 403) :
+1. Settings → Rules → Rulesets → « Protéger main… » → Require status checks to pass ;
+2. retirer `contract` ;
+3. Add checks → `contrat`, source GitHub Actions ;
+4. Save changes.
 
 ## Pour l'activer (Félix, une minute)
 
