@@ -1,26 +1,26 @@
 {
  "//": "Registre des sources (phase 5, 5.4 ; § 7.1). Généré par scripts/sources-registre.mjs ; les champs « evaluation » se complètent à la main et ne sont jamais écrasés.",
  "totaux": {
-  "sources": 304,
+  "sources": 309,
   "aEvaluer": 242,
-  "avecUrl": 61,
+  "avecUrl": 66,
   "editeurs": 101,
-  "editeurClasse": 304,
+  "editeurClasse": 309,
   "groupes": 86,
   "parFamille": {
    "1": 21,
    "2": 40,
    "3": 8,
-   "4": 208,
+   "4": 213,
    "6": 19,
    "non fixée": 8
   },
   "parType": {
-   "site, guide ou presse spécialisée": 229,
+   "site, guide ou presse spécialisée": 232,
    "texte réglementaire": 3,
    "collectivité ou tourisme": 20,
    "institutionnel ou scientifique": 29,
-   "forum ou communauté": 4,
+   "forum ou communauté": 6,
    "encyclopédie collaborative": 12,
    "cartographie": 4,
    "cartographie ouverte": 2,
@@ -89,12 +89,16 @@
     "spot:agon",
     "spot:armorique",
     "spot:barnenez",
+    "spot:begenaud",
     "spot:begmeil",
     "spot:bendy",
+    "spot:bihit",
     "spot:blancssablons",
+    "spot:brehec",
     "spot:brezellec",
     "spot:camfrout",
     "spot:capcoz",
+    "spot:capfrehel",
     "spot:caplevi",
     "spot:carantec",
     "spot:carteret",
@@ -103,6 +107,7 @@
     "spot:dinan",
     "spot:espagnols",
     "spot:feunteunaod",
+    "spot:gattemare",
     "spot:goury",
     "spot:gouville",
     "spot:goyen",
@@ -147,10 +152,12 @@
     "spot:saintguenole",
     "spot:saintjean",
     "spot:sainttugen",
+    "spot:saintvaast",
     "spot:sciotot",
     "spot:surtainville",
     "spot:terenez",
     "spot:torche",
+    "spot:toulhars",
     "spot:trenaouret",
     "spot:trepasses",
     "spot:trevignon",
@@ -185,12 +192,16 @@
     "spot:agon",
     "spot:armorique",
     "spot:barnenez",
+    "spot:begenaud",
     "spot:begmeil",
     "spot:bendy",
+    "spot:bihit",
     "spot:blancssablons",
+    "spot:brehec",
     "spot:brezellec",
     "spot:camfrout",
     "spot:capcoz",
+    "spot:capfrehel",
     "spot:caplevi",
     "spot:carantec",
     "spot:carteret",
@@ -199,6 +210,7 @@
     "spot:dinan",
     "spot:espagnols",
     "spot:feunteunaod",
+    "spot:gattemare",
     "spot:goury",
     "spot:gouville",
     "spot:goyen",
@@ -243,10 +255,12 @@
     "spot:saintguenole",
     "spot:saintjean",
     "spot:sainttugen",
+    "spot:saintvaast",
     "spot:sciotot",
     "spot:surtainville",
     "spot:terenez",
     "spot:torche",
+    "spot:toulhars",
     "spot:trenaouret",
     "spot:trepasses",
     "spot:trevignon",
@@ -1500,7 +1514,7 @@
     "limites": "étiquettes d'espèces seulement ; page orientée surfcasting",
     "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
     "consulte_le": "2026-11-23",
-    "affirmation": "liste des spots à bar du Morbihan : « Pointe du Conguel POINTE ROCHEUSE · BAR · LIEU JAUNE · VIEILLE », « Pointe Saint-Colomban POINTE ROCHEUSE · BAR · DORADE ROYALE · SAR »",
+    "affirmation": "liste des spots à bar du Morbihan : « Pointe du Conguel POINTE ROCHEUSE · BAR · LIEU JAUNE · VIEILLE », « Pointe Saint-Colomban POINTE ROCHEUSE · BAR · DORADE ROYALE · SAR » ; « Pointe de Beg en Aud POINTE ROCHEUSE · BAR · LIEU JAUNE · VIEILLE »",
     "bar_au_poste": true
    },
    "type": "site, guide ou presse spécialisée",
@@ -1508,8 +1522,50 @@
    "niveau_v2": null,
    "manuelle": true,
    "utilise_par": [
+    "spot:begenaud",
     "spot:conguel",
     "spot:saintcolomban"
+   ],
+   "groupe": "editeur:carnet-de-peche-com",
+   "editeur_classe": {
+    "nature": "base de spots de pêche du bord rédigée par l'éditeur (632 fiches annoncées), avec carnet de prises des utilisateurs",
+    "domaines": [
+     "halieutique",
+     "spots",
+     "technique"
+    ],
+    "limites": "méthode de sélection non publiée ; descriptions sans date d'observation ; positions floutées en accès gratuit, précises pour les abonnés (jamais reprises)",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur) ; contenu payant jamais repris",
+    "constat": "fiches lues le 23 nov. 2026 par le moteur de recherche (Penmarc'h, Mousterlin, Cap Coz, etc.)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-carnet-de-peche-berchis",
+   "texte": "carnet-de-peche.com — Pointe du Berchis (fiche de spot)",
+   "editeur": "carnet-de-peche.com",
+   "url": "https://www.carnet-de-peche.com/spots/pointe-du-berchis-larmor-baden",
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "équipe Carnet de Pêche",
+    "date": "2026",
+    "url_lue": "https://www.carnet-de-peche.com/spots/pointe-du-berchis-larmor-baden",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "fiche rédigée par l'éditeur",
+    "precision": "lieu nommé",
+    "independance": "groupe de l'éditeur",
+    "limites": "position floutée ; aucune date d'observation",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "Pointe du Berchis : « Le courant du golfe passe devant la pointe et creuse les bordures : c'est un poste à bar aux leurres sur la descendante » ; la page liste aussi « Plage de Toulhars · Bar »",
+    "bar_au_poste": true
+   },
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "manuelle": true,
+   "utilise_par": [
+    "spot:toulhars"
    ],
    "groupe": "editeur:carnet-de-peche-com",
    "editeur_classe": {
@@ -1683,6 +1739,47 @@
    }
   },
   {
+   "id": "src-carnet-de-peche-dorade-manche",
+   "texte": "carnet-de-peche.com — « Pêche de la dorade royale au surfcasting dans la Manche »",
+   "editeur": "carnet-de-peche.com",
+   "url": "https://www.carnet-de-peche.com/peche/dorade-royale/surfcasting/manche",
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "équipe Carnet de Pêche",
+    "date": "2026",
+    "url_lue": "https://www.carnet-de-peche.com/peche/dorade-royale/surfcasting/manche",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "page départementale qui liste les spots de sa carte",
+    "precision": "lieu nommé",
+    "independance": "groupe de l'éditeur",
+    "limites": "étiquettes d'espèces seulement",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "liste des spots de la Manche : « Saint-Vaast-la-Hougue — digue de la Hougue DIGUE · BAR · MAQUEREAU · DORADE ROYALE »",
+    "bar_au_poste": true
+   },
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "manuelle": true,
+   "utilise_par": [
+    "spot:saintvaast"
+   ],
+   "groupe": "editeur:carnet-de-peche-com",
+   "editeur_classe": {
+    "nature": "base de spots de pêche du bord rédigée par l'éditeur (632 fiches annoncées), avec carnet de prises des utilisateurs",
+    "domaines": [
+     "halieutique",
+     "spots",
+     "technique"
+    ],
+    "limites": "méthode de sélection non publiée ; descriptions sans date d'observation ; positions floutées en accès gratuit, précises pour les abonnés (jamais reprises)",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur) ; contenu payant jamais repris",
+    "constat": "fiches lues le 23 nov. 2026 par le moteur de recherche (Penmarc'h, Mousterlin, Cap Coz, etc.)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
    "id": "src-carnet-de-peche-guide-bretagne",
    "texte": "carnet-de-peche.com — « Les meilleurs spots de pêche en Bretagne » (guide)",
    "editeur": "carnet-de-peche.com",
@@ -1740,7 +1837,7 @@
     "limites": "ne parle pas du bar à ce poste",
     "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
     "consulte_le": "2026-11-23",
-    "affirmation": "liste des spots à lieu noir de la Manche : « Digue de Querqueville DIGUE »",
+    "affirmation": "liste des spots à lieu noir de la Manche : « Digue de Querqueville DIGUE » ; Côtes-d'Armor : « Cap Fréhel — plateformes basses POINTE ROCHEUSE »",
     "bar_au_poste": false
    },
    "type": "site, guide ou presse spécialisée",
@@ -1748,6 +1845,7 @@
    "niveau_v2": null,
    "manuelle": true,
    "utilise_par": [
+    "spot:capfrehel",
     "spot:querqueville"
    ],
    "groupe": "editeur:carnet-de-peche-com",
@@ -1781,7 +1879,7 @@
     "limites": "nom et espèce seulement ; la fiche du spot elle-même n'a pas été lue",
     "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
     "consulte_le": "2026-11-23",
-    "affirmation": "liste qui cite « Pointe du Château — Gouffre de Plougrescant · Bar »",
+    "affirmation": "liste « Autres spots dans les Côtes-d'Armor » qui cite « Pointe du Château — Gouffre de Plougrescant · Bar », « Plage de Bréhec · Bar », « Pointe du Dourven · Bar »",
     "bar_au_poste": true
    },
    "type": "site, guide ou presse spécialisée",
@@ -1789,7 +1887,49 @@
    "niveau_v2": null,
    "manuelle": true,
    "utilise_par": [
+    "spot:brehec",
     "spot:plougrescant"
+   ],
+   "groupe": "editeur:carnet-de-peche-com",
+   "editeur_classe": {
+    "nature": "base de spots de pêche du bord rédigée par l'éditeur (632 fiches annoncées), avec carnet de prises des utilisateurs",
+    "domaines": [
+     "halieutique",
+     "spots",
+     "technique"
+    ],
+    "limites": "méthode de sélection non publiée ; descriptions sans date d'observation ; positions floutées en accès gratuit, précises pour les abonnés (jamais reprises)",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur) ; contenu payant jamais repris",
+    "constat": "fiches lues le 23 nov. 2026 par le moteur de recherche (Penmarc'h, Mousterlin, Cap Coz, etc.)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-carnet-de-peche-liste-cotes-darmor-2",
+   "texte": "carnet-de-peche.com — liste « Autres spots dans les Côtes-d'Armor » (fiche Pointe de la Garde)",
+   "editeur": "carnet-de-peche.com",
+   "url": "https://www.carnet-de-peche.com/spots/pointe-de-la-garde-saint-cast",
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "équipe Carnet de Pêche",
+    "date": "2026 (page vue il y a 105 jours)",
+    "url_lue": "https://www.carnet-de-peche.com/spots/pointe-de-la-garde-saint-cast",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "lien vers une fiche de spot, avec l'espèce",
+    "precision": "lieu nommé",
+    "independance": "groupe de l'éditeur",
+    "limites": "nom et espèce seulement",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "liste qui cite « Pointe de Bihit · Bar »",
+    "bar_au_poste": true
+   },
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "manuelle": true,
+   "utilise_par": [
+    "spot:bihit"
    ],
    "groupe": "editeur:carnet-de-peche-com",
    "editeur_classe": {
@@ -2479,7 +2619,7 @@
     "limites": "observation sous l'eau, pas de la pêche du bord",
     "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
     "consulte_le": "2026-11-23",
-    "affirmation": "anse du cap Lévi (Fermanville) : « Pour les bars, on attend plutôt que la marée remonte. Ensuite, on se rapproche du bord vers la première pointe. »",
+    "affirmation": "anse du cap Lévi (Fermanville) : « Pour les bars, on attend plutôt que la marée remonte. Ensuite, on se rapproche du bord vers la première pointe. » ; la même sélection cite « Saint-Pierre-Quiberon : pointe de Beg an Aud »",
     "bar_au_poste": true
    },
    "type": "site, guide ou presse spécialisée",
@@ -2487,6 +2627,7 @@
    "niveau_v2": null,
    "manuelle": true,
    "utilise_par": [
+    "spot:begenaud",
     "spot:caplevi"
    ],
    "groupe": "editeur:lechasseursousmarin-com",
@@ -4176,10 +4317,14 @@
     "spot:agon",
     "spot:armorique",
     "spot:barnenez",
+    "spot:begenaud",
     "spot:begmeil",
+    "spot:bihit",
     "spot:blancssablons",
+    "spot:brehec",
     "spot:brezellec",
     "spot:camfrout",
+    "spot:capfrehel",
     "spot:caplevi",
     "spot:carantec",
     "spot:carteret",
@@ -4188,6 +4333,7 @@
     "spot:dinan",
     "spot:espagnols",
     "spot:feunteunaod",
+    "spot:gattemare",
     "spot:goury",
     "spot:gouville",
     "spot:goyen",
@@ -4228,10 +4374,12 @@
     "spot:saintguenole",
     "spot:saintjean",
     "spot:sainttugen",
+    "spot:saintvaast",
     "spot:sciotot",
     "spot:surtainville",
     "spot:terenez",
     "spot:torche",
+    "spot:toulhars",
     "spot:trenaouret",
     "spot:trepasses",
     "spot:trevignon",
@@ -4784,12 +4932,16 @@
     "spot:agon",
     "spot:armorique",
     "spot:barnenez",
+    "spot:begenaud",
     "spot:begmeil",
     "spot:bendy",
+    "spot:bihit",
     "spot:blancssablons",
+    "spot:brehec",
     "spot:brezellec",
     "spot:camfrout",
     "spot:capcoz",
+    "spot:capfrehel",
     "spot:caplevi",
     "spot:carantec",
     "spot:carteret",
@@ -4798,6 +4950,7 @@
     "spot:dinan",
     "spot:espagnols",
     "spot:feunteunaod",
+    "spot:gattemare",
     "spot:goury",
     "spot:gouville",
     "spot:goyen",
@@ -4842,10 +4995,12 @@
     "spot:saintguenole",
     "spot:saintjean",
     "spot:sainttugen",
+    "spot:saintvaast",
     "spot:sciotot",
     "spot:surtainville",
     "spot:terenez",
     "spot:torche",
+    "spot:toulhars",
     "spot:trenaouret",
     "spot:trepasses",
     "spot:trevignon",
@@ -6874,16 +7029,16 @@
    "evaluation": {
     "statut": "évaluée",
     "auteur": "Norbert (mieuxpecher.com)",
-    "date": "2021 environ (page vue par le moteur il y a 1 729 jours)",
+    "date": "2018-09-06 (modifiée le 2022-02-28)",
     "url_lue": "https://mieuxpecher.com/cotes-darmor-coins-de-peche/",
-    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "lecture": "page entière (outil de lecture)",
     "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée",
     "precision": "lieu nommé",
     "independance": "groupe de l'éditeur",
     "limites": "liste ancienne ; nom seul",
     "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
     "consulte_le": "2026-11-23",
-    "affirmation": "liste qui cite « La Pointe du Château et ses environs à Plougrescant »",
+    "affirmation": "liste qui cite « La Pointe du Château à Plougrescant », « La Pointe de Bihit à Trébeurden », « Pointe du Dourvin », « Les Alentours de Bréhec », « Cap Fréhél »",
     "bar_au_poste": false
    },
    "type": "site, guide ou presse spécialisée",
@@ -6891,6 +7046,9 @@
    "niveau_v2": null,
    "manuelle": true,
    "utilise_par": [
+    "spot:bihit",
+    "spot:brehec",
+    "spot:capfrehel",
     "spot:plougrescant"
    ],
    "groupe": "editeur:mieuxpecher-com",
@@ -6914,16 +7072,16 @@
    "evaluation": {
     "statut": "évaluée",
     "auteur": "Norbert (mieuxpecher.com)",
-    "date": "2019 environ (page vue par le moteur il y a 2 682 jours)",
+    "date": "2018-05-27 (modifiée le 2019-07-21)",
     "url_lue": "https://mieuxpecher.com/morbihan-spots-de-peche/",
-    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "lecture": "page entière (outil de lecture)",
     "methode": "liste de « meilleurs coins de pêche du bord » sans méthode publiée",
     "precision": "lieu nommé",
     "independance": "groupe de l'éditeur",
     "limites": "liste ancienne ; nom seul",
     "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
     "consulte_le": "2026-11-23",
-    "affirmation": "liste qui cite « Pointe du Percho ❤ », « Pointe du Conguel », « La pointe de Saint Colomban »",
+    "affirmation": "liste qui cite « Pointe du Percho », « Pointe du Conguel », « La pointe de Saint Colomban », « Pointe du Berchis », « Roches de Toulhars » (Larmor-Plage)",
     "bar_au_poste": false
    },
    "type": "site, guide ou presse spécialisée",
@@ -6933,7 +7091,8 @@
    "utilise_par": [
     "spot:conguel",
     "spot:percho",
-    "spot:saintcolomban"
+    "spot:saintcolomban",
+    "spot:toulhars"
    ],
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
@@ -6965,7 +7124,7 @@
     "limites": "liste ancienne ; nom seul ; « pas exhaustive » selon la page",
     "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
     "consulte_le": "2026-11-23",
-    "affirmation": "liste qui cite, pour le nord et l'est du Cotentin, « Pointe et digue de Querqueville » et « Cap Levi »",
+    "affirmation": "liste qui cite « Pointe et digue de Querqueville », « Cap Levi », « Anse de Gattemare » et, à Saint-Vaast-la-Hougue, « Tour Vauban près des parcs au leurre de surface »",
     "bar_au_poste": false
    },
    "type": "site, guide ou presse spécialisée",
@@ -6974,7 +7133,9 @@
    "manuelle": true,
    "utilise_par": [
     "spot:caplevi",
-    "spot:querqueville"
+    "spot:gattemare",
+    "spot:querqueville",
+    "spot:saintvaast"
    ],
    "groupe": "editeur:mieuxpecher-com",
    "editeur_classe": {
@@ -9140,6 +9301,84 @@
     "limites": "messages anonymes, souvent anciens ; jamais une source seule ; aucune lecture réservée aux membres",
     "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
     "famille_inferee": 4,
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-pechemercotentin-gattemare",
+   "texte": "Forum « Pêche en mer Cotentin » (pechemercotentin.forumactif.org), sujet « nouveau a bord »",
+   "editeur": "pechemercotentin.forumactif.org",
+   "url": "https://pechemercotentin.forumactif.org/t234-nouveau-a-bord",
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "membres du forum (pseudonymes)",
+    "date": "2015 environ (page vue il y a 4 172 jours)",
+    "url_lue": "https://pechemercotentin.forumactif.org/t234-nouveau-a-bord",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "messages publics de forum",
+    "precision": "lieu nommé",
+    "independance": "groupe de l'éditeur",
+    "limites": "messages anonymes et anciens ; espèce non dite ; jamais une source seule",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« J'ai déjà pêché à Gattemare !!! C'est au coude à coude, là-bas !!! » ; « Gattemare est le nom du lieu-dit. C'est une plage de sable entre Gatteville et Gouberville »",
+    "bar_au_poste": false
+   },
+   "type": "forum ou communauté",
+   "famille": 4,
+   "niveau_v2": null,
+   "manuelle": true,
+   "utilise_par": [
+    "spot:gattemare"
+   ],
+   "groupe": "editeur:pechemercotentin-forumactif-org",
+   "editeur_classe": {
+    "nature": "forum de pêcheurs ou de plaisanciers",
+    "domaines": [
+     "halieutique",
+     "conditions"
+    ],
+    "limites": "messages anonymes, souvent anciens ; jamais une source seule ; aucune lecture réservée aux membres",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
+   "id": "src-pechemercotentin-saint-vaast",
+   "texte": "Forum « Pêche en mer Cotentin » (pechemercotentin.forumactif.org), sujet « rolling Shad et sayori shad »",
+   "editeur": "pechemercotentin.forumactif.org",
+   "url": "https://pechemercotentin.forumactif.org/t192-rolling-shad-et-sayori-shad",
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "membres du forum (pseudonymes)",
+    "date": "2015 environ (page vue il y a 4 090 jours)",
+    "url_lue": "https://pechemercotentin.forumactif.org/t192-rolling-shad-et-sayori-shad",
+    "lecture": "extrait de la page renvoyé par le moteur de recherche",
+    "methode": "messages publics de forum",
+    "precision": "lieu nommé",
+    "independance": "groupe de l'éditeur",
+    "limites": "poste non précisé dans Saint-Vaast ; espèce non dite",
+    "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
+    "consulte_le": "2026-11-23",
+    "affirmation": "« Il y a deux coloris qui marchent très bien sur St Vaast. » (leurres souples)",
+    "bar_au_poste": false
+   },
+   "type": "forum ou communauté",
+   "famille": 4,
+   "niveau_v2": null,
+   "manuelle": true,
+   "utilise_par": [
+    "spot:saintvaast"
+   ],
+   "groupe": "editeur:pechemercotentin-forumactif-org",
+   "editeur_classe": {
+    "nature": "forum de pêcheurs ou de plaisanciers",
+    "domaines": [
+     "halieutique",
+     "conditions"
+    ],
+    "limites": "messages anonymes, souvent anciens ; jamais une source seule ; aucune lecture réservée aux membres",
+    "droits": "droit de citation : référence, courte citation et faits tirés ; pas de copie (contenu sous droits de l'éditeur)",
     "classe_le": "2026-11-23"
    }
   },

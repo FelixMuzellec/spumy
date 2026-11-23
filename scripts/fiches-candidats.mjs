@@ -11,7 +11,8 @@ import { qualite } from "./fiches-v3-depuis-v2.mjs";
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const JOUR = "2026-11-23";
 const inconnu = (raison) => ({ statut: "INCONNU", origine: "v3", raison });
-const NATUREL = /orograph|hydrograph|cap|pointe|plage|baie|anse|rocher|estran|île/i;
+const NATUREL = /orograph|hydrograph|cap|pointe|plage|baie|anse|rocher|estran|île|\bile\b/i;
+const HABITE = /habit|quartier/i;
 
 /** Ce que les pages lues affirment de chaque candidat (sources de data/sources/manuelles.json). */
 export const PREUVES = {
@@ -21,6 +22,15 @@ export const PREUVES = {
   plougrescant: [["src-mieuxpecher-cotes-darmor", "« La Pointe du Château et ses environs à Plougrescant »"], ["src-carnet-de-peche-liste-cotes-darmor", "« Pointe du Château — Gouffre de Plougrescant · Bar » (liste des spots des Côtes-d'Armor)"]],
   querqueville: [["src-mieuxpecher-normandie", "« Pointe et digue de Querqueville »"], ["src-carnet-de-peche-lieu-noir", "« Digue de Querqueville DIGUE » (spots à lieu noir)"]],
   caplevi: [["src-mieuxpecher-normandie", "« Cap Levi »"], ["src-decathlon-chasse-cap-levi", "« Pour les bars, on attend plutôt que la marée remonte » (anse du cap Lévi, chasse sous-marine)"]],
+  berchis: [["src-mieuxpecher-morbihan", "« Pointe du Berchis »"], ["src-carnet-de-peche-berchis", "« c'est un poste à bar aux leurres sur la descendante »"]],
+  begenaud: [["src-carnet-de-peche-bar-surfcasting-morbihan", "« Pointe de Beg en Aud POINTE ROCHEUSE · BAR »"], ["src-decathlon-chasse-cap-levi", "« Saint-Pierre-Quiberon : pointe de Beg an Aud » (sélection de chasse sous-marine)"]],
+  toulhars: [["src-mieuxpecher-morbihan", "« Roches de Toulhars »"], ["src-carnet-de-peche-berchis", "« Plage de Toulhars · Bar » (liste des spots du Morbihan)"]],
+  bihit: [["src-mieuxpecher-cotes-darmor", "« La Pointe de Bihit à Trébeurden »"], ["src-carnet-de-peche-liste-cotes-darmor-2", "« Pointe de Bihit · Bar »"]],
+  dourven: [["src-mieuxpecher-cotes-darmor", "« Pointe du Dourvin »"], ["src-carnet-de-peche-liste-cotes-darmor", "« Pointe du Dourven · Bar »"]],
+  brehec: [["src-mieuxpecher-cotes-darmor", "« Les Alentours de Bréhec »"], ["src-carnet-de-peche-liste-cotes-darmor", "« Plage de Bréhec · Bar »"]],
+  capfrehel: [["src-mieuxpecher-cotes-darmor", "« Cap Fréhél »"], ["src-carnet-de-peche-lieu-noir", "« Cap Fréhel — plateformes basses POINTE ROCHEUSE » (spots à lieu noir)"]],
+  saintvaast: [["src-mieuxpecher-normandie", "« Tour Vauban près des parcs au leurre de surface » (Saint-Vaast-la-Hougue)"], ["src-carnet-de-peche-dorade-manche", "« Saint-Vaast-la-Hougue — digue de la Hougue DIGUE · BAR »"], ["src-pechemercotentin-saint-vaast", "« Il y a deux coloris qui marchent très bien sur St Vaast »"]],
+  gattemare: [["src-mieuxpecher-normandie", "« Anse de Gattemare »"], ["src-pechemercotentin-gattemare", "« J'ai déjà pêché à Gattemare !!! C'est au coude à coude, là-bas !!! »"]],
 };
 
 if (import.meta.url === `file://${process.argv[1]}`) {
@@ -59,7 +69,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       windows: { habituelles: inconnu("Aucune fenêtre de fonctionnement documentée (§ 7.6)."), securite: inconnu("Aucune fenêtre d'accessibilité documentée (§ 7.6).") },
       photos: inconnu("Photos non inventoriées."),
       provenance: { sources: [...new Set(["src-ign-geocodage-poi", ...preuves.map(([s]) => s)])].sort() },
-      quality: { statut: "candidate", derniere_verification: JOUR, completude: 0, inconnus: [], anomalies: ["Fiche créée par la passe exhaustive (5.12) : sécurité, accès et conditions à documenter avant tout affichage."] },
+      quality: { statut: "candidate", derniere_verification: JOUR, completude: 0, inconnus: [], anomalies: ["Fiche créée par la passe exhaustive (5.12) : sécurité, accès et conditions à documenter avant tout affichage.",
+        ...(HABITE.test(topo.categorie || "") ? [`Position d'un lieu habité (« ${topo.nom} »), pas du poste : à positionner sur le poste réel.`] : []),
+        ...(!NATUREL.test(topo.categorie || "") && !HABITE.test(topo.categorie || "") ? [`Position repérée sur « ${topo.nom} » (${topo.categorie}), à proximité du poste : précision 1 km.`] : [])] },
     };
     const q = qualite(f); f.quality.inconnus = q.inconnus; f.quality.completude = q.completude;
     fs.writeFileSync(f_, JSON.stringify(f, null, 1) + "\n");

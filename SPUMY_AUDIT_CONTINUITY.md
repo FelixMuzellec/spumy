@@ -89,6 +89,7 @@ Référentiel § 15 (phase 5), § 7 (sources, pipeline, préservation V2, schém
 | 5.10 Rapport de couverture, limites, contradictions et anomalies — livrable 5 | IMPLEMENTED (version finale) | `docs/halieutique/COUVERTURE.md` |
 | 5.11 Red-team, rapport en 14 parties, arrêt | IMPLEMENTED (clone neuf de 9514c43 : tous les tests à 0) | `docs/rapports/v3/PHASE-5.md` |
 | 5.12 Passe exhaustive (réouverture du 23 nov., 22 h 33) | TESTED (60 sources lues page par page ; 72 fiches dont 6 candidates nouvelles ; 2 TOP_TIER, 7 corroborées ; tests des fiches 1007/1007) ; reste déclaré au second complément du rapport | `scripts/evaluer-pages.mjs`, `scripts/fiches-candidats.mjs`, `scripts/collecte-candidats.mjs`, `data/spots/candidats-v3.json`, `data/sources/` |
+| 5.13 Passe forums et listes complètes (demande du 23 nov., 23 h 10) | IN PROGRESS (lot 1 : 7 fiches candidates de plus, 79 fiches, tests des fiches 1070/1070 ; Pointe du Berchis et Pointe du Dourven sans toponyme IGN, sans fiche) | `data/spots/candidats-v3.json`, `scripts/fiches-candidats.mjs`, `scripts/qualifier-fiches.mjs`, `data/sources/manuelles.json`, `data/spots/fiches/` |
 
 ## Questions et décisions (registre)
 
@@ -122,7 +123,7 @@ Référentiel § 15 (phase 5), § 7 (sources, pipeline, préservation V2, schém
 
 ## Prochaine action
 
-Phase 5 terminée après la passe exhaustive (second complément de `docs/rapports/v3/PHASE-5.md`) ; **arrêt**. Attendre le jeton `APPROVED — PROCEED TO PHASE 6`. Restes déclarés (pages V2 à lire, sécurité des six candidates, Ille-et-Vilaine) : à reprendre seulement sur demande de Félix.
+Phase 5 rouverte pour la sous-tâche 5.13 (passe forums et listes complètes, demande de Félix du 23 nov., 23 h 10) : accès, risques et photos des nouvelles candidates par la CI, puis lots suivants (Ille-et-Vilaine, Côtes-d'Armor, Morbihan, Cotentin), requalification, tests complets sur clone neuf, troisième complément du rapport, **arrêt**. Aucune tâche de phase 6 sans le jeton `APPROVED — PROCEED TO PHASE 6`.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 

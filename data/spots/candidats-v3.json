@@ -60,63 +60,79 @@
    "nom": "Pointe du Berchis",
    "requete": "Pointe du Berchis",
    "departement": "56",
-   "milieu": "pointe rocheuse du golfe du Morbihan (Larmor-Baden)"
+   "milieu": "pointe rocheuse du golfe du Morbihan (Larmor-Baden)",
+   "sans_position": "aucun toponyme IGN de ce nom (géocodage du 23 nov. 2026) : pas de fiche tant que la position n'est pas sourcée"
   },
   {
    "id": "begenaud",
    "nom": "Pointe de Beg en Aud",
    "requete": "Beg en Aud",
    "departement": "56",
-   "milieu": "pointe rocheuse (Saint-Pierre-Quiberon)"
+   "milieu": "pointe rocheuse (Saint-Pierre-Quiberon)",
+   "toponyme": "Tumulus de Beg-en-Aud",
+   "commune": "Saint-Pierre-Quiberon"
   },
   {
    "id": "toulhars",
    "nom": "Toulhars (Larmor-Plage)",
    "requete": "Toulhars",
    "departement": "56",
-   "milieu": "plage et roches de l'entrée de la rade de Lorient"
+   "milieu": "plage et roches de l'entrée de la rade de Lorient",
+   "toponyme": "Toulhars",
+   "commune": "Larmor-Plage"
   },
   {
    "id": "bihit",
    "nom": "Pointe de Bihit",
    "requete": "Pointe de Bihit",
    "departement": "22",
-   "milieu": "pointe rocheuse (Trébeurden)"
+   "milieu": "pointe rocheuse (Trébeurden)",
+   "toponyme": "Pointe de Bihit",
+   "commune": "Trébeurden"
   },
   {
    "id": "dourven",
    "nom": "Pointe du Dourven",
    "requete": "Pointe du Dourven",
    "departement": "22",
-   "milieu": "pointe rocheuse de la baie de Lannion (Trédrez-Locquémeau)"
+   "milieu": "pointe rocheuse de la baie de Lannion (Trédrez-Locquémeau)",
+   "sans_position": "aucun toponyme IGN de ce nom (géocodage du 23 nov. 2026) : pas de fiche tant que la position n'est pas sourcée"
   },
   {
    "id": "brehec",
    "nom": "Bréhec",
    "requete": "Bréhec",
    "departement": "22",
-   "milieu": "anse et plage de la côte du Goëlo (Plouha)"
+   "milieu": "anse et plage de la côte du Goëlo (Plouha)",
+   "toponyme": "Bréhec",
+   "commune": "Plouha"
   },
   {
    "id": "capfrehel",
    "nom": "Cap Fréhel",
    "requete": "Cap Fréhel",
    "departement": "22",
-   "milieu": "cap rocheux à falaises"
+   "milieu": "cap rocheux à falaises",
+   "toponyme": "Cap Fréhel",
+   "commune": "Plévenon"
   },
   {
    "id": "saintvaast",
    "nom": "Saint-Vaast-la-Hougue : la Hougue",
    "requete": "La Hougue",
    "departement": "50",
-   "milieu": "presqu'île, tour et digue de la Hougue"
+   "milieu": "presqu'île, tour et digue de la Hougue",
+   "toponyme": "la Hougue",
+   "commune": "Saint-Vaast-la-Hougue"
   },
   {
    "id": "gattemare",
    "nom": "Anse de Gattemare",
    "requete": "Gattemare",
    "departement": "50",
-   "milieu": "plage de sable du nord-est du Cotentin (Gatteville, Gouberville)"
+   "milieu": "plage de sable du nord-est du Cotentin (Gatteville, Gouberville)",
+   "toponyme": "Étang de Gattemare",
+   "commune": "Gatteville-le-Phare"
   }
  ]
 }

@@ -1,15 +1,15 @@
 {
  "//": "Registre central des spots V3 (phase 5). Généré par scripts/registre-spots.mjs à partir de data/spots/fiches/ ; ne pas modifier à la main.",
  "totaux": {
-  "spots": 72,
+  "spots": 79,
   "parOrigine": {
    "v2_preserved": 66,
-   "v3_researched": 6
+   "v3_researched": 13
   },
   "parStatut": {
    "a_verifier": 57,
    "corroboree": 7,
-   "candidate": 6,
+   "candidate": 13,
    "TOP_TIER": 2
   },
   "stationnementConnu": 66
@@ -121,6 +121,26 @@
    "guide_v2": "carantec"
   },
   {
+   "id": "begenaud",
+   "name": "Pointe de Beg en Aud",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 47.528064,
+   "lon": -3.15923,
+   "precision_m": 1000,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 2
+  },
+  {
    "id": "begmeil",
    "name": "Pointe de Beg Meil",
    "origin": "v2_preserved",
@@ -163,6 +183,26 @@
    "guide_v2": "logonna"
   },
   {
+   "id": "bihit",
+   "name": "Pointe de Bihit",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 48.758144,
+   "lon": -3.582882,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
+  },
+  {
    "id": "blancssablons",
    "name": "Plage des Blancs-Sablons",
    "origin": "v2_preserved",
@@ -182,6 +222,26 @@
    "inconnus": 8,
    "anomalies": 0,
    "guide_v2": "plouguerneau"
+  },
+  {
+   "id": "brehec",
+   "name": "Bréhec",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 48.724321,
+   "lon": -2.951262,
+   "precision_m": 1000,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 2
   },
   {
    "id": "brezellec",
@@ -245,6 +305,26 @@
    "inconnus": 9,
    "anomalies": 0,
    "guide_v2": "concarneau"
+  },
+  {
+   "id": "capfrehel",
+   "name": "Cap Fréhel",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 48.688309,
+   "lon": -2.318132,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
   },
   {
    "id": "caplevi",
@@ -411,6 +491,26 @@
    "inconnus": 10,
    "anomalies": 0,
    "guide_v2": "audierne"
+  },
+  {
+   "id": "gattemare",
+   "name": "Anse de Gattemare",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 49.69124,
+   "lon": -1.298871,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
   },
   {
    "id": "goury",
@@ -1333,6 +1433,26 @@
    "guide_v2": "audierne"
   },
   {
+   "id": "saintvaast",
+   "name": "Saint-Vaast-la-Hougue : la Hougue",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 49.575126,
+   "lon": -1.274349,
+   "precision_m": 300,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 7,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 1
+  },
+  {
    "id": "sciotot",
    "name": "Anse de Sciotot",
    "origin": "v2_preserved",
@@ -1415,6 +1535,26 @@
    "inconnus": 8,
    "anomalies": 0,
    "guide_v2": "audierne"
+  },
+  {
+   "id": "toulhars",
+   "name": "Toulhars (Larmor-Plage)",
+   "origin": "v3_researched",
+   "statut": "candidate",
+   "lat": 47.709759,
+   "lon": -3.380621,
+   "precision_m": 1000,
+   "stationnement_connu": false,
+   "niveau_preuve": {
+    "meilleur": 1,
+    "plus_faible": 4
+   },
+   "sources": 6,
+   "sources_v2": 0,
+   "derniere_verification": "2026-11-23",
+   "completude": 0.19,
+   "inconnus": 25,
+   "anomalies": 2
   },
   {
    "id": "trenaouret",
