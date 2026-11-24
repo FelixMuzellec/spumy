@@ -19,6 +19,10 @@ for (const f of fs.readdirSync(dir).filter((n) => /\.ya?ml$/.test(n)).sort()) {
       actions += 1;
       if (!EPINGLE.test(l) && !LOCAL.test(l)) ecarts.push(`${f}:${i + 1} action non épinglée par empreinte : ${l}`);
     }
+    // Une valeur YAML non entre guillemets ne peut pas contenir « : » suivi d'une espace : le fichier entier devient
+    // invalide et le passage échoue sans rien lancer (phase 6, nom d'étape « phase 6 V3 : … »).
+    const nom = l.match(/^(?:-\s+)?name:\s+(.*)$/);
+    if (nom && !/^["']/.test(nom[1]) && /:\s/.test(nom[1].split(" #")[0])) ecarts.push(`${f}:${i + 1} nom non entre guillemets contenant « : » : ${l}`);
     if (/^runs-on:/.test(l)) {
       passages += 1;
       if (/-latest\b/.test(l.split("#")[0])) ecarts.push(`${f}:${i + 1} image de runner non fixée : ${l}`);
