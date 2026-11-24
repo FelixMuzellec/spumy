@@ -123,7 +123,7 @@ Référentiel § 15 (phase 5), § 7 (sources, pipeline, préservation V2, schém
 
 ## Prochaine action
 
-**Phase 5 close (TESTED, 24 nov. 2026, 5 h 20)**, tous les gates PASS. Phase 6 ouverte par le jeton conditionnel de Félix (23 nov., 23 h 15) : branche `claude/v3-phase-6` partie de `claude/v3-phase-5`, état dans la section « Phase 6 » ci-dessous. Phase 7 seulement si la phase 6 est close après trois passes de challenge ; jamais de phase 8 sans son jeton. Outil de sauvegarde des passages CI : `scripts/sauver-collecte.mjs`.
+**Phase 5 close (TESTED, 24 nov. 2026, 5 h 05)**, tous les gates PASS. Phase 6 ouverte par le jeton conditionnel de Félix (23 nov., 23 h 15) : branche `claude/v3-phase-6` partie de `claude/v3-phase-5`, état dans la section « Phase 6 » ci-dessous. Phase 7 seulement si la phase 6 est close après trois passes de challenge ; jamais de phase 8 sans son jeton. Outil de sauvegarde des passages CI : `scripts/sauver-collecte.mjs`.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 

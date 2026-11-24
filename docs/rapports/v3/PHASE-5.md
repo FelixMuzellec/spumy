@@ -265,7 +265,7 @@ Félix (23 nov., 23 h 10) : « Je pense que tu peux faire beaucoup mieux. J'avai
 ### 6. Git
 Branche `claude/v3-phase-5`, proposition n° 19 en brouillon (base `claude/v3-phase-4`), rien fusionné, rien sur `main`. Commits de ae76b5b à la tête de la branche.
 
-### 7. Preuves — gate de clôture (clone neuf de 4b12b31, 24 nov. 2026, 4 h 50 à 5 h 20)
+### 7. Preuves — gate de clôture (clone neuf de 4b12b31, 24 nov. 2026, 4 h 35 à 5 h 05)
 
 | Commande | Code | Résultat |
 | --- | --- | --- |
@@ -313,4 +313,4 @@ Huit tests de plus dans `tests/spots-v3.mjs`, un par correction de la revue. Cit
 Phase 6 (conception du moteur BORD), seulement si tous les gates ci-dessous sont PASS (jeton conditionnel de Félix du 23 nov., 23 h 15).
 
 ### 14. Arrêt
-**Phase 5 : TESTED, close le 24 nov. 2026 (5 h 20)** : tous les gates PASS (tableau du § 7, risque e2e consigné), trois passes de challenge dont une par un relecteur séparé, contre-vérification « la phase 5 peut être close ». Le jeton conditionnel de Félix (23 nov., 23 h 15) ouvre la phase 6 sur la branche `claude/v3-phase-6`. Rien n'est fusionné.
+**Phase 5 : TESTED, close le 24 nov. 2026 (5 h 05)** : tous les gates PASS (tableau du § 7, risque e2e consigné), trois passes de challenge dont une par un relecteur séparé, contre-vérification « la phase 5 peut être close ». Le jeton conditionnel de Félix (23 nov., 23 h 15) ouvre la phase 6 sur la branche `claude/v3-phase-6`. Rien n'est fusionné.
