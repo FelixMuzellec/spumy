@@ -237,3 +237,65 @@ Félix : « je veux que tu respectes les consignes et que tu rouvres la phase 5 
 - les consignes de sécurité des six candidates (sources officielles : communes, préfectures) ;
 - un second éditeur pour l'Ille-et-Vilaine.
 
+
+## Troisième complément : passe forums et listes complètes, revue contradictoire (23-24 novembre 2026)
+
+### 1. Objectif et périmètre
+Félix (23 nov., 23 h 10) : « Je pense que tu peux faire beaucoup mieux. J'avais trouvé beaucoup de spots. Tu penses que tu peux t'améliorer en essayant de chercher sur les forums ou autres ». Sous-tâche 5.13, même jeton de phase 5. Puis (23 h 15) les jetons conditionnels des phases 6 et 7 (`docs/DECISIONS_LOG.md`) : la phase 6 ne démarre que si la phase 5 est close avec tous ses gates PASS.
+
+### 2. Synthèse
+- **98 fiches** (66 V2, 32 candidates nouvelles, dont 26 de cette passe) : 2 TOP_TIER (Mousterlin, Penmarc'h), 1 corroborée (Sainte-Marguerite), 63 à vérifier, 32 candidates.
+- Zones pauvres : Ille-et-Vilaine 5 fiches, Côtes-d'Armor 9, Morbihan 7, Manche nord et est 7 ; Finistère 4 de plus.
+- Une revue contradictoire par un relecteur séparé a fait tomber 4 TOP_TIER et 4 corroborées : les règles ont été corrigées, pas les statuts à la main.
+
+### 3. Travail réalisé
+- Listes complètes de mieuxpecher.com (Ille-et-Vilaine, Côtes-d'Armor, Morbihan, Basse-Normandie, Finistère nord et sud) croisées avec le catalogue complet de lechasseursousmarin.com (335 zones), les listes vues de carnet-de-peche.com, deux forums publics, un blog de première main, la presse et un office de tourisme. Chaque poste des quatre listes a été croisé (`docs/halieutique/COUVERTURE.md`, § 6).
+- Positions IGN par la CI (passages 45277426432, 45279668913, 45280113766, 45281095177) ; accès IGN, risques Géorisques et photos libres de toutes les fiches (passage 45281418941).
+- Règles locales : synthèse de la DIRM Nord Atlantique – Manche Ouest (avril 2024) lue ; fermeture du bar au large du cap Fréhel du 1er mars au 31 mai (arrêté n° 116/2005) ajoutée à la fiche « Cap Fréhel ».
+
+### 4. Changements significatifs
+- QUAL-5 : contrainte de marée documentée et consigne de source externe exigées. QUAL-2 : le bar au poste vient d'une source de pêche, plus de la seule chasse sous-marine. QUAL-3 : un village ou un camping ne contrôle pas une position. QUAL-6 : règles locales du département recherchées (Manche non couverte). Règle de nommage : la commune ne nomme pas le poste.
+- Présence du bar « VÉRIFIÉ » de la V2 sans date ni page : 3 confirmées et sourcées, 46 ramenées à INFÉRÉ.
+- Pointe du Dourven et Saint-Vaast-la-Hougue retirées (règle d'entrée non démontrée) ; preuves gardées dans `data/spots/candidats-v3.json`.
+- Test d'accessibilité à date fixe (23 nov. 2026) : le passage CI du 24 nov. avait retrouvé les deux contrastes V2 déjà consignés en phase 4 (MINEURE, héritage V2, corrigés à l'intégration V3).
+
+### 5. Livrables
+`data/spots/fiches/` (98), `data/spots/candidats-v3.json`, `data/sources/manuelles.json`, `data/sources/editeurs.json`, `data/spots/collecte/` (IGN, Géorisques et métadonnées Commons seulement), `scripts/sauver-collecte.mjs`, `scripts/sources-complementaires.mjs`, `scripts/presence-bar-v2.mjs`, `docs/halieutique/QUALIFICATION.md`, `COUVERTURE.md`, `REGISTRE-SOURCES.md`.
+
+### 6. Git
+Branche `claude/v3-phase-5`, proposition n° 19 en brouillon (base `claude/v3-phase-4`), rien fusionné, rien sur `main`. Commits de ae76b5b à la tête de la branche.
+
+### 7. Preuves
+Voir la ligne « Gate de clôture » ci-dessous (clone neuf, codes de sortie).
+
+### 8. Résultats
+
+| | Fin de 5.12 | Avant la revue | Après la revue |
+| --- | --- | --- | --- |
+| Fiches | 72 | 100 | **98** |
+| TOP_TIER | 2 | 6 | **2** |
+| Corroborées | 7 | 5 | **1** |
+| Sources au registre | 304 | 351 | **352** |
+| Sources évaluées | 60 | 107 | **108** |
+
+### 9. Exigences
+Inchangées : deux éditeurs indépendants nomment le poste ; sécurité jamais compensée ; aucune donnée OpenStreetMap stockée ; aucune page réservée aux membres ou aux abonnés ; aucun texte privé ; positions payantes de carnet-de-peche.com jamais reprises.
+
+### 10. Red-team (trois passes)
+- **Passe 1 (sources et réglementation)** : l'absence de règle locale était lue comme une absence de règle hors Finistère. Corrigé (QUAL-6) ; la fermeture du bar au cap Fréhel a été trouvée et ajoutée.
+- **Passe 2 (positions et sécurité)** : aucune donnée de sécurité « au vert » sans source, aucune fenêtre calculée ; l'écart de position d'une fiche V3 était libellé « Position V2 » (corrigé).
+- **Passe 3 (relecteur séparé, qui n'a pas produit le travail)** : aucun bloquant ; cinq majeurs (QUAL-5 sans contrôle de la marée ; bar attesté par la seule chasse sous-marine ; présence V2 « VÉRIFIÉ » contredite par la page lue ; contrôle de position par un village ; commune prise pour le poste), corrigés et testés ; mineurs corrigés (règle unique des graphies, sources hors pêche, mode de lecture, doublons des documents) ou consignés (§ 3 de `QUALIFICATION.md`). Citations vérifiées en ligne par le relecteur : conformes.
+
+### 11. Qualité et conformité
+Huit tests de plus dans `tests/spots-v3.mjs`, un par correction de la revue. Citations courtes, attribuées.
+
+### 12. Décisions attendues de Félix (non bloquantes)
+- Les niveaux d'engagement de la V2 (1 à 3) sont des jugements : à valider, ou à recalculer à partir des consignes sourcées.
+- Une zone de chasse sous-marine peut-elle attester le bar pour la pêche du bord ? Réponse actuelle : non pour QUAL-2.
+- Lire l'arrêté n° 34/2021 de la Manche et son projet de 2026 pour couvrir les règles locales du Cotentin.
+
+### 13. Prochaine phase
+Phase 6 (conception du moteur BORD), seulement si tous les gates ci-dessous sont PASS (jeton conditionnel de Félix du 23 nov., 23 h 15).
+
+### 14. Arrêt
+Sous-tâche 5.13 close à la tête de la branche ; statut de la phase dans `SPUMY_AUDIT_CONTINUITY.md`.

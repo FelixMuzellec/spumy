@@ -4,14 +4,14 @@ Phase 5 V3, livrable 5, sous-tâche 5.10, **mise à jour par la passe exhaustive
 
 ## 1. Couverture actuelle
 
-| Repère littoral (audit seulement) | Fiches V2 vérifiées en partie | Candidats de la 1ʳᵉ passe | État |
+| Repère littoral (audit seulement) | Fiches V2 vérifiées en partie | Candidats de la 1ʳᵉ passe | État (après 5.13 et la revue du 24 nov.) |
 | --- | --- | --- | --- |
 | Manche, côte ouest (Granville → la Hague) | 10 | 3 (Écalgrain ; cap de la Hague, doublon probable de Goury ; Jobourg, en bateau) | couvert ; positions à finir |
-| Manche, nord et est (Cherbourg → Barfleur → Saint-Vaast) | 0 | 1 (pointe de Barfleur, en bateau seulement) | **lacune** |
-| Ille-et-Vilaine (baie du Mont-Saint-Michel → Saint-Malo → Saint-Briac) | 0 | 1 (pointe de la Chaîne, source très faible) | **lacune** |
-| Côtes-d'Armor | 0 | 2 zones (granit rose ; Goëlo et baie de Saint-Brieuc), sans poste nommé | **lacune** |
+| Manche, nord et est (Cherbourg → Barfleur → Saint-Vaast) | 0 | 1 (pointe de Barfleur, en bateau seulement) | 7 fiches candidates (§ 5 et § 6) ; Saint-Vaast non retenu |
+| Ille-et-Vilaine (baie du Mont-Saint-Michel → Saint-Malo → Saint-Briac) | 0 | 1 (pointe de la Chaîne, source très faible) | 5 fiches candidates (§ 6) |
+| Côtes-d'Armor | 0 | 2 zones (granit rose ; Goëlo et baie de Saint-Brieuc), sans poste nommé | 9 fiches candidates (§ 5 et § 6) ; Dourven non retenu |
 | Finistère | 56 | — | couvert |
-| Morbihan | 0, hors Laïta, à la limite du Finistère | 2 (rade de Lorient et Gâvres, source très faible ; côte sauvage de Quiberon, accès restreint) | **lacune** |
+| Morbihan | 0, hors Laïta, à la limite du Finistère | 2 (rade de Lorient et Gâvres, source très faible ; côte sauvage de Quiberon, accès restreint) | 7 fiches candidates (§ 5 et § 6) |
 
 **Constat principal** : la V2 couvre deux tronçons, le Finistère et la côte ouest du Cotentin. Les sources publiques lues le 23 novembre nomment des **zones** plutôt que des postes : les pêcheurs du bord publient rarement leurs postes exacts. Aucun candidat de la première passe n'atteint encore le niveau d'une fiche (§ 7.2). La deuxième passe (5.8), ci-dessous, a visé les sources locales.
 
@@ -95,18 +95,18 @@ Sources locales recherchées sur les quatre zones vides : guides professionnels,
 
 **Méthode.** Chaque poste nommé par les listes de mieuxpecher.com des quatre zones pauvres a été croisé avec le catalogue complet de lechasseursousmarin.com (335 zones, lu en entier), les listes de carnet-de-peche.com vues dans les pages lues (catalogue de 632 fiches : vu en partie seulement), les forums publics (pechemercotentin.forumactif.org, carnalor.com), un blog de première main (oupecher.fr) et la presse. Aucune page réservée aux membres ou aux abonnés n'a été lue ; aucune connexion. Le croisement est automatique (règle de nommage `texteNommeLeSpot`), puis relu.
 
-| Zone (repère d'audit) | Postes de la liste | Avec fiche | Second éditeur, sans position IGN | Sans second éditeur trouvé |
-| --- | --- | --- | --- | --- |
-| Ille-et-Vilaine | 22 | 5 (Meinga, Moulière, Varde, Décollé, Grand Bé et Petit Bé) | 0 | 17 |
-| Côtes-d'Armor | 31 | 7 (cap Fréhel, Rosaires, Bec de Vir, Bréhec, pointe du Château, Bihit, Dourven) | 1 (anse des Sévignés) | 23 |
-| Morbihan | 41 | 6 (Laïta, Toulhars, pointe des Chats, Conguel, Percho, Saint-Colomban) | 3 (Étel, Berchis, Penvins) | 32 |
-| Manche, Basse-Normandie | 34 | 15 postes, 13 fiches (dont Saint-Vaast, Tatihou, Saire, Gatteville, Gattemare, la Loge, cap Lévi, Querqueville, et 5 fiches V2) | 1 (pointe de Néville) | 18 |
+| Zone (repère d'audit) | Postes de la liste | Avec fiche | Second éditeur, sans position IGN | Non retenu (règle de nommage stricte) | Sans second éditeur trouvé |
+| --- | --- | --- | --- | --- | --- |
+| Ille-et-Vilaine | 22 | 5 (Meinga, Moulière, Varde, Décollé, Grand Bé et Petit Bé) | 0 | 1 (Garde Guérin, « Guarde » chez mieuxpecher.com) | 16 |
+| Côtes-d'Armor | 31 | 6 (cap Fréhel, Rosaires, Bec de Vir, Bréhec, pointe du Château, Bihit) | 1 (anse des Sévignés) | 1 (Dourven, « Dourvin ») | 23 |
+| Morbihan | 41 | 6 (Laïta, Toulhars, pointe des Chats, Conguel, Percho, Saint-Colomban) | 3 (Étel, Berchis, Penvins) | 0 | 32 |
+| Manche, Basse-Normandie | 34 | 13 postes, 12 fiches (Tatihou, Saire, Gatteville, Gattemare, la Loge, cap Lévi, Querqueville ; V2 : Goury, Carteret, Portbail, Agon, Granville) | 1 (pointe de Néville) | 2 postes (Saint-Vaast-la-Hougue) | 18 |
 
 Hors listes de mieuxpecher.com, deux autres éditeurs indépendants ont suffi pour : la pointe de la Latte, Gwin Zégal, la pointe de Séhar, la pointe des Poulains (carnet-de-peche.com et lechasseursousmarin.com) ; la pointe de Perhérel, l'embouchure du Merrien, Beg an Fry, l'île Percée (mieuxpecher.com Finistère avec carnet-de-peche.com ou lechasseursousmarin.com).
 
 **Écartés, avec la raison :**
 - pointe du Grouin, pointe de la Varde et pointe du Décollé chez bretagne-peche-et-nature.fr et a-babord.com : éditeurs anonymes ou sans source, classés famille 6, qui ne comptent jamais (la Varde et le Décollé ont trouvé leur second éditeur ailleurs) ;
-- pointe de la Garde Guérin : écrite « Guarde Guérin » chez mieuxpecher.com, la règle de nommage ne rapproche pas les deux graphies ; pointe du Dourven : « Dourvin » chez mieuxpecher.com, une seule source de pêche compte (fiche gardée, candidate) ;
+- pointe de la Garde Guérin (« Guarde Guérin ») et pointe du Dourven (« Dourvin ») chez mieuxpecher.com : la règle de nommage ne rapproche pas les deux graphies ; Saint-Vaast-la-Hougue : mieuxpecher.com ne nomme que la « Tour Vauban près des parcs » (deux tours Vauban, la Hougue et Tatihou). Règle unique depuis la revue du 24 nov. : aucune fiche (les fiches Dourven et Saint-Vaast, créées avant la revue, sont retirées ; les preuves restent dans `data/spots/candidats-v3.json`, champ `non_retenu`) ;
 - môle de Saint-Malo et cale Solidor : oupecher.fr les nomme pour le maquereau, l'encornet et la dorade, pas pour le bar ; non retenus comme postes à bar ;
 - « Le Dibenn » de carnet-de-peche.com : une digue près de Brest, pas la pointe du Diben de Plougasnou ;
 - île Tatihou chez lechasseursousmarin.com : parcours en dérive depuis la cale de Jonville ; la fiche existe, mais l'accès à pied du pêcheur du bord n'est pas documenté ;
@@ -114,6 +114,8 @@ Hors listes de mieuxpecher.com, deux autres éditeurs indépendants ont suffi po
 
 **Sécurité nouvelle.** Grand Bé et Petit Bé : accès seulement autour de la basse mer, isolement au flot (office de tourisme de Saint-Malo, oupecher.fr, Le Figaro Nautisme) ; anse des Sévignés : sentier à fort dénivelé et stationnement interdit en haut de la falaise (lechasseursousmarin.com) ; Dinard : un sentier côtier fermé après un éboulement (photo d'un avis municipal sur decathlon-outdoor.com : INFÉRÉ, lieu exact non établi).
 
-**Restes.** Ces 90 postes sans second éditeur restent hors du catalogue tant qu'une seconde voix indépendante ne les nomme pas. La couverture de carnet-de-peche.com n'est pas exhaustive (pages refusées à la lecture directe ; extraits du moteur seulement). La phase 7 est prévue pour reprendre ces lacunes par d'autres sources locales.
+**Restes.** Ces 89 postes sans second éditeur restent hors du catalogue tant qu'une seconde voix indépendante ne les nomme pas. La couverture de carnet-de-peche.com n'est pas exhaustive (pages refusées à la lecture directe ; extraits du moteur seulement). La phase 7 est prévue pour reprendre ces lacunes par d'autres sources locales.
 
 **Règles locales (contrôle de la passe 5.13).** QUAL-6 exige désormais que les règles locales du département aient été recherchées dans un texte officiel lu : Finistère (synthèse de la DDTM, avril 2026), Côtes-d'Armor, Ille-et-Vilaine et Morbihan (synthèse de la DIRM Nord Atlantique – Manche Ouest, avril 2024 : état 2026 à vérifier). Sans cette recherche, l'absence de règle locale n'est plus lue comme une absence de règle. Conséquences : la fermeture du bar du 1er mars au 31 mai au large du cap Fréhel (arrêté n° 116/2005, rectangle qui contient le point de la fiche) est ajoutée à la fiche « Cap Fréhel », à vérifier au poste ; la Manche n'est pas couverte, donc Pointe d'Agon passe de corroborée à « à vérifier ». Pistes pour la Manche : arrêté n° 34/2021 de la pêche à pied et sous-marine de loisir et son projet de remplacement de 2026 (consultation close le 18 mai 2026), à lire. Dans le Morbihan, la pêche à pied de loisir des poissons est interdite à moins de 15 m des concessions conchylicoles (même synthèse, p. 10) : la distance des postes aux concessions n'est pas documentée.
+
+**Revue contradictoire (24 nov. 2026).** Un relecteur séparé, qui n'avait pas produit le travail, a contrôlé les statuts, les preuves, des citations en ligne et les règles de données. Ses constats et leurs corrections sont dans `docs/halieutique/QUALIFICATION.md` (§ 2) et dans le troisième complément du rapport de phase. Aucune donnée OpenStreetMap stockée, aucun texte privé, aucune source famille 6 comptée, aucune fenêtre de sécurité calculée : confirmé par le relecteur.
