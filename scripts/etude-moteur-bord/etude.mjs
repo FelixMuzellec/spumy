@@ -48,33 +48,53 @@ function e1() {
 function e2() {
   const b0 = 2;
   const sessions = [[2, 1.1], [0, 0.9], [1, 0.8], [0, 1.4], [3, 1.6], [0, 0.6], [1, 1.0], [0, 1.2]].map(([y, Lbase]) => ({ y, Lbase }));
+  const actives = sessions.map((s) => ({ ...s, q: 1 }));   // ψ = 1 connu : chaque session relève du comptage
   const sansExces = [Infinity, 10, 2, 0.5].map((k) => {
     const ex = thetaPosterieur(b0, sessions, { psi: 1, k });
-    return { k: Number.isFinite(k) ? k : "∞ (Poisson)", ratio: r3(thetaRatio(b0, sessions)), moyenneExacte: r3(ex.moyenne), ecartTypeExact: r3(ex.ecartType),
+    if (ex.densiteAuBord > 1e-9) throw new Error("posterior tronqué");
+    return { k: Number.isFinite(k) ? k : "∞ (Poisson)", ratio: r3(thetaRatio(b0, actives)), moyenneExacte: r3(ex.moyenne), ecartTypeExact: r3(ex.ecartType),
       ecartTypeGammaPoisson: r3(Math.sqrt((b0 + sessions.reduce((a, s) => a + s.y, 0))) / (b0 + sessions.reduce((a, s) => a + s.Lbase, 0))), q05: r3(ex.q05), q95: r3(ex.q95) };
   });
   // Avec excès de zéros (ψ = 0,6, k = 2) : ratio naïf (sans q), ratio de travail (q par session), posterior exact.
   const psi = 0.6, k = 2;
-  const naif = thetaRatio(b0, sessions);
+  const naif = thetaRatio(b0, actives);   // ratio naïf : chaque bredouille comptée comme un zéro de comptage
   let th = 1, q = [];
   for (let it = 0; it < 50; it++) {             // point fixe de type EM : q_i dépend de θ courant
     q = sessions.map((s) => (s.y > 0 ? 1 : 1 - zeroStructurel(psi, th * s.Lbase, k)));
     th = thetaRatio(b0, sessions.map((s, i) => ({ ...s, q: q[i] })));
   }
   const ex = thetaPosterieur(b0, sessions, { psi, k });
-  const psiTravail = psiBeta(2, 2, sessions.map((s, i) => ({ q: q[i] })));
+  const psiTravail = psiBeta(2, 2, sessions.map((s, i) => ({ y: s.y, q: q[i] })));
   return { b0, sessions, sansExces, avecExces: { psi, k, ratioNaif: r3(naif), ratioTravailAvecQ: r3(th), q: q.map(r3), moyenneExacte: r3(ex.moyenne), ecartTypeExact: r3(ex.ecartType), psiTravailBeta22: r3(psiTravail) } };
+}
+
+// ── E2b : biais du ratio naïf et écart du ratio de travail au posterior exact, sur 400 jeux simulés (θ = 1, ψ = 0,6, k = 2) ──
+function e2b() {
+  const u = alea(777), psi = 0.6, k = 2, b0 = 2, lambda = 0.45, R = 400, out = [];
+  for (const N of [8, 40]) {
+    const naif = [], travail = [], exact = [], ecart = [];
+    for (let r = 0; r < R; r++) {
+      const S = Array.from({ length: N }, () => { const L = lambda * (1 + 3 * u()); return { Lbase: L, y: tirerZINB(u, psi, L, k) }; });
+      naif.push(thetaRatio(b0, S.map((s) => ({ ...s, q: 1 }))));
+      let th = 1, q = [];
+      for (let it = 0; it < 50; it++) { q = S.map((s) => (s.y > 0 ? 1 : 1 - zeroStructurel(psi, th * s.Lbase, k))); th = thetaRatio(b0, S.map((s, i) => ({ ...s, q: q[i] }))); }
+      const ex = thetaPosterieur(b0, S, { psi, k, max: 8, pas: 0.005 }).moyenne;
+      travail.push(th); exact.push(ex); ecart.push(Math.abs(th - ex));
+    }
+    out.push({ sessions: N, naifMoyen: r3(moy(naif)), travailMoyen: r3(moy(travail)), exactMoyen: r3(moy(exact)), ecartTravailExactMoyen: r3(moy(ecart)), ecartTravailExactMax: r3(Math.max(...ecart)) });
+  }
+  return { thetaVrai: 1, psi, k, b0, lambdaParHeure: lambda, jeux: R, graine: 777, resultats: out };
 }
 
 // ── E3 : identifiabilité de ψ et k selon le nombre de sessions (vraisemblance sur grille, θ = 1, Λ_i connues) ──
 function e3() {
-  const u = alea(20261124), psiVrai = 0.6, kVrai = 2, lambda = 0.45;
+  const u = alea(20261124), psiVrai = 0.6, kVrai = 2;
   const grillePsi = Array.from({ length: 49 }, (_, i) => 0.04 + i * 0.02);
   const grilleK = [0.2, 0.3, 0.5, 0.7, 1, 1.5, 2, 3, 5, 8, 13, 20, 50, 1e6];
   const res = [];
-  for (const N of [3, 10, 40, 200]) {
+  for (const lambda of [0.45, 1.5]) for (const N of [3, 10, 40, 80, 120, 200]) {
     const psis = [], ks = [], poisson = [];
-    for (let r = 0; r < 120; r++) {
+    for (let r = 0; r < 100; r++) {
       const S = Array.from({ length: N }, () => { const E = 1 + 3 * u(), L = lambda * E; return { L, y: tirerZINB(u, psiVrai, L, kVrai) }; });
       let best = -Infinity, bp = null, bk = null;
       for (const p of grillePsi) for (const k of grilleK) {
@@ -84,11 +104,25 @@ function e3() {
       }
       psis.push(bp); ks.push(bk); poisson.push(bk >= 50 ? 1 : 0);
     }
-    res.push({ sessions: N, psiMediane: r3(quantile(psis, 0.5)), psiQ05: r3(quantile(psis, 0.05)), psiQ95: r3(quantile(psis, 0.95)),
+    res.push({ lambdaParHeure: lambda, sessions: N, psiMediane: r3(quantile(psis, 0.5)), psiQ05: r3(quantile(psis, 0.05)), psiQ95: r3(quantile(psis, 0.95)),
       partPsiA015: r3(psis.filter((p) => Math.abs(p - psiVrai) <= 0.15).length / psis.length),
-      kMediane: quantile(ks, 0.5), kQ05: quantile(ks, 0.05), kQ95: quantile(ks, 0.95), partKPoisson: r3(moy(poisson)) });
+      kMediane: quantile(ks, 0.5), kQ05: quantile(ks, 0.05), kQ95: quantile(ks, 0.95), partKSup50: r3(moy(poisson)) });
   }
-  return { psiVrai, kVrai, lambdaParHeure: lambda, effortHeures: "1 à 4", replications: 120, graine: 20261124, resultats: res };
+  // Variante : ψ et θ_x estimés ensemble (k = 2 connu), pour l'identifiabilité entre l'état actif et l'effet de poste.
+  const grilleT = Array.from({ length: 25 }, (_, i) => 0.25 * Math.pow(16, i / 24)), grilleP = Array.from({ length: 25 }, (_, i) => 0.04 * (i + 1));
+  const joint = [];
+  for (const N of [10, 40, 200]) {
+    const ps = [], ts = [];
+    for (let r = 0; r < 60; r++) {
+      const S = Array.from({ length: N }, () => { const L = 0.45 * (1 + 3 * u()); return { L, y: tirerZINB(u, psiVrai, L, kVrai) }; });
+      let best = -Infinity, bp = null, bt = null;
+      for (const p of grilleP) for (const t of grilleT) { let l = 0; for (const s of S) l += Math.log(pZINB(s.y, p, t * s.L, kVrai)); if (l > best) { best = l; bp = p; bt = t; } }
+      ps.push(bp); ts.push(bt);
+    }
+    joint.push({ sessions: N, partPsiA015: r3(ps.filter((p) => Math.abs(p - psiVrai) <= 0.15).length / ps.length), partThetaA25pc: r3(ts.filter((t) => Math.abs(t - 1) <= 0.25).length / ts.length),
+      correlationPsiTheta: r3(spearmanPearson(ps, ts)) });
+  }
+  return { psiVrai, kVrai, effortHeures: "1 à 4", replications: 100, graine: 20261124, resultats: res, psiEtThetaEnsemble: { k: kVrai, replications: 60, resultats: joint } };
 }
 
 // ── Grille de créneaux sur les 66 spots V2 ──
@@ -269,11 +303,19 @@ function e8(moteurs) {
     const zw = { wind_dir: dir, wind_force: o.wind_force, windKnown: o.windKnown, houle: o.houle, houleKnown: o.houleKnown, sky: o.sky };
     const ctx = o.sst == null ? { month: o.month } : { month: o.month, sst: o.sst, sstConf: "modele" };
     const f = E.favorability(s, win, zw, ctx), c = composantes(f), A = a1(c);
-    const force = Math.max(o.wind_force, o.wind_force_alt ?? 0, o.wind_force_pire ?? 0);   // D6-14 et pire moment du créneau
-    const sec = etatSecurite({ ventConnu: o.windKnown, force, rafalesKmh: 40, directionConnue: true, coteOuverte: E.regimeOf(s) !== "abri", houleConnue: o.houleKnown,
-      houleM: o.houle, houleMaxM: s.houleMax ?? null, engagement: "engagement" in o ? o.engagement : s.dangerLevel, coef: o.coeff, coefMaxDur: s.coefHardMax ?? null,
-      isolement: false, nuit: o.band === "nuit", fermetureOfficielle: false });
-    return { fav: f.fav, conditions: f.cond, presence: f.pres.factor, points: c.pts, exclus: [...c.exclus], a1: { bas: A.bas, haut: A.haut, publication: A.publication }, securite: sec.etat };
+    // Données de sécurité du poste : fiche V3 (connu ou INCONNU) et consignes V2 du guide, actives pour ce coefficient.
+    const fiche = JSON.parse(fs.readFileSync(path.join(root, "data/spots/fiches", `${s.id}.json`), "utf8")).safety;
+    const fq = JSON.parse(fs.readFileSync(path.join(root, "data/spots/fiches", `${s.id}.json`), "utf8")).quality;
+    const connu = (x) => (x && x.statut !== "INCONNU" ? x.valeur : null);
+    const regles = E.securityFor(s, { coeff: o.coeff });
+    const isolement = fiche.acces_maree?.statut === "INCONNU" ? null : regles.some((a) => a.isolement && a.active);
+    const forces = [o.wind_force, o.wind_force_alt, ...(o.wind_force_heures || [])].filter((x) => x != null);   // D6-14 et pire heure
+    const sec = etatSecurite({ ventConnu: o.windKnown, force: forces, rafalesKmh: 40, directionConnue: true, rade: E.SITE.zones?.[s.zone]?.sea === "rade",
+      houleConnue: o.houleKnown, houleM: o.houle, houleMaxM: connu(fiche.houle_max_m), engagement: "engagement" in o ? o.engagement : connu(fiche.engagement),
+      coef: o.coeff, coefMaxDur: s.coefHardMax ?? null, isolement, consignesActives: regles.filter((a) => a.active && !a.isolement).map((a) => a.t),
+      nuit: o.band === "nuit", fermetureOfficielle: fq.criteres["QUAL-6"].ok ? false : null });
+    return { fav: f.fav, conditions: f.cond, presence: f.pres.factor, points: c.pts, exclus: [...c.exclus], a1: { bas: A.bas, haut: A.haut, publication: A.publication },
+      securite: sec.etat, regles: sec.raisons.map((x) => `${x.regle}:${x.etat}`), prudences: sec.prudences.length };
   };
   const R = {};
   for (const sc of F.scenarios) R[sc.id] = jouer(sc);
@@ -292,23 +334,48 @@ function e8(moteurs) {
     S07: R.S03.fav - R.S07.fav >= 9,
     S08: R.S08.points.coef === 0 && R.S08.fav >= 65,
     S09: R.S09.exclus.includes("vent") && R.S09.a1.bas <= R.S09.fav && R.S09.fav <= R.S09.a1.haut && R.S09.a1.publication !== "nombre",
-    S10: R.S10.exclus.includes("vent") && ["INSUFFICIENT_DATA", "DANGER"].includes(R.S10.securite),
+    S10: R.S10.exclus.includes("vent") && R.S10.securite === "DANGER" && R.S10.regles.includes("houle:DANGER"),
     S11: R.S11.fav > R.S11.avecEauReelle,
-    S12: R.S12.securite === "CAUTION",
-    S13: R.S13.securite === "CAUTION",
+    S12: R.S12.securite === "CAUTION" && R.S21.securite === "SAFE",
+    S13: R.S13.securite === "CAUTION" && R.S21.securite === "SAFE",
     S14: R.S14.securite === "INSUFFICIENT_DATA",
-    S15: R.S15.securite === "DANGER" && !classer([{ id: "S15", securite: R.S15.securite, trajetMin: 10, trajetVerifie: true, fav: R.S15.fav }]).top.length,
+    S15: R.S15.securite === "DANGER" && R.S15.fav >= 75 && !classer([{ id: "S15", securite: R.S15.securite, trajetMin: 10, trajetVerifie: true, fav: R.S15.fav }]).top.length,
     S16: [...R.S16.parMois].sort((a, b) => a.presence - b.presence).every((x, i, a) => i === 0 || x.fav >= a[i - 1].fav),
     S17: R.S03.fav > R.S17.fav,
     S18: ordre(base) === ordre(avecPert),
+    S19: R.S19.securite === "INSUFFICIENT_DATA" && R.S19.regles.includes("isolement:INSUFFICIENT_DATA") && R.S19.fav != null,
+    S20: R.S20.regles.includes("houle:INSUFFICIENT_DATA"),
+    S21: R.S21.securite === "SAFE" && R.S21.prudences >= 0,
   };
   return { scenarios: F.scenarios.length, resultats: R, proprietesTenues: tenue };
+}
+
+// ── E9 : combien de fiches peuvent être SAFE un jour, quelle que soit la météo (données de sécurité de la fiche, D6-15) ──
+function e9(moteurs) {
+  const zoneRade = new Map();
+  for (const [g, E] of moteurs) for (const s of E.SPOTS) zoneRade.set(`${g}/${s.id}`, E.SITE.zones?.[s.zone]?.sea === "rade");
+  const raisons = { engagement: 0, accesMaree: 0, houleMax: 0, reglementation: 0 }, combos = {};
+  let fiches = 0, documentables = 0, v2 = 0, v2Doc = 0; const liste = [];
+  for (const f of fs.readdirSync(path.join(root, "data/spots/fiches")).filter((x) => x.endsWith(".json")).sort()) {
+    const s = JSON.parse(fs.readFileSync(path.join(root, "data/spots/fiches", f), "utf8")), S = s.safety;
+    const rade = s.legacy?.guide ? zoneRade.get(`${s.legacy.guide}/${s.id}`) === true : false;   // inconnu : côte ouverte
+    const r = [];
+    if (S.engagement?.statut === "INCONNU") r.push("engagement");
+    if (S.acces_maree?.statut === "INCONNU") r.push("accesMaree");
+    if (S.houle_max_m?.statut === "INCONNU" && !rade) r.push("houleMax");
+    if (!s.quality?.criteres?.["QUAL-6"]?.ok) r.push("reglementation");
+    fiches++; if (s.origin === "v2_preserved") v2++;
+    for (const k of r) raisons[k]++;
+    combos[r.join("+") || "aucune"] = (combos[r.join("+") || "aucune"] || 0) + 1;
+    if (!r.length) { documentables++; liste.push(s.id); if (s.origin === "v2_preserved") v2Doc++; }
+  }
+  return { fiches, fichesV2: v2, peuventEtreSAFE: documentables, dontV2: v2Doc, lesquelles: liste, raisonsParFiche: raisons, combinaisons: combos };
 }
 
 export async function etude() {
   const { lignes: G, classement: G6, moteurs } = await grille();
   return { "//": "Étude PROVISOIRE de la phase 6 V3 : structure et robustesse, jamais une précision terrain (aucune vérité terrain ici). Régénérer : node scripts/etude-moteur-bord/etude.mjs",
-    e1_identitesZINB: e1(), e2_gammaPoissonContreExact: e2(), e3_identifiabilite: e3(), e4_architectures: e4(G), e5_sensibilite: e5(G), e6_stabiliteClassement: e6(G6), e7_defautsMoteurV2: e7(moteurs), e8_scenarios: e8(moteurs) };
+    e1_identitesZINB: e1(), e2_gammaPoissonContreExact: e2(), e2b_biaisSimule: e2b(), e3_identifiabilite: e3(), e4_architectures: e4(G), e5_sensibilite: e5(G), e6_stabiliteClassement: e6(G6), e7_defautsMoteurV2: e7(moteurs), e8_scenarios: e8(moteurs), e9_admissibiliteStatique: e9(moteurs) };
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

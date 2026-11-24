@@ -43,20 +43,25 @@ export function bSimple(c) {
   return { valeur: Math.round(((c.pts.fenetre + c.pts.lumiere) / (MAX.fenetre + MAX.lumiere)) * 100 * c.saison) };
 }
 
+/** Plancher de la présence V2 : borne basse de P quand l'eau est inconnue et qu'aucune climatologie sourcée ne la resserre (D6-03). */
+export const PRESENCE_PLANCHER = 0.3;
+
 /**
- * A1 — mêmes composantes, sans imputation cachée : un critère manquant donne un intervalle (critère à 0 ou à son
- * maximum), jamais une renormalisation. Publication encadrée par la largeur de l'intervalle :
- * nombre si la largeur est ≤ `largeurMax` points, fourchette jusqu'à 2 × `largeurMax`, sinon qualitatif ou « — ».
+ * A1 — mêmes composantes, sans imputation : un critère manquant donne un intervalle (critère à 0 ou à son maximum),
+ * jamais une renormalisation ; une eau inconnue donne P entre le plancher et la saison (D6-03). La note n'existe que si
+ * tout est connu (largeur 0) : c'est alors elle qui est publiée et qui sert au rang. Sinon : fourchette jusqu'à
+ * `largeurMax` points, qualitatif au-delà, « — » sous la moitié des maximums connue.
  */
-export function a1(c, { largeurMax = 10 } = {}) {
+export function a1(c, { largeurMax = 20 } = {}) {
   let got = 0, manque = 0;
   for (const [k, m] of Object.entries(MAX)) {
     if (c.exclus.has(k) || c.pts[k] == null) manque += m; else got += c.pts[k];
   }
-  const bas = Math.round(got * c.presence), haut = Math.round((got + manque) * c.presence);
+  const pHaut = c.eauConnue === false ? c.saison : c.presence, pBas = c.eauConnue === false ? Math.min(PRESENCE_PLANCHER, pHaut) : c.presence;
+  const bas = Math.round(got * pBas), haut = Math.round((got + manque) * pHaut);
   const largeur = haut - bas;
-  const publication = largeur <= largeurMax ? "nombre" : largeur <= 2 * largeurMax ? "fourchette" : got + manque > 0 && manque <= 50 ? "qualitatif" : "aucune";
-  return { valeur: largeur <= largeurMax ? Math.round((bas + haut) / 2) : null, bas, haut, largeur, publication };
+  const publication = manque > 50 ? "aucune" : largeur === 0 ? "nombre" : largeur <= largeurMax ? "fourchette" : "qualitatif";
+  return { valeur: largeur === 0 && manque <= 50 ? bas : null, bas, haut, largeur, publication };
 }
 
 /**

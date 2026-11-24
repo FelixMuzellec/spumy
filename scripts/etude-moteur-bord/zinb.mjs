@@ -65,7 +65,11 @@ export function poidsTemporel({ long = 1, saison = 1, ageJours, demiVieJours }) 
  */
 export function thetaRatio(b0, sessions) {
   let n = b0, d = b0;
-  for (const s of sessions) { const w = s.w ?? 1, q = s.q ?? 1; n += w * q * s.y; d += w * q * s.Lbase; }
+  for (const s of sessions) {
+    // Une bredouille sans q n'est jamais comptée active par défaut : q doit être donné (q = 1 seulement si ψ = 1 est connu).
+    if (s.y === 0 && s.q == null) throw new Error("q manquant pour une bredouille");
+    const w = s.w ?? 1, q = s.y > 0 ? 1 : s.q; n += w * q * s.y; d += w * q * s.Lbase;
+  }
   return n / d;
 }
 
@@ -86,13 +90,17 @@ export function thetaPosterieur(b0, sessions, { psi = 1, k = Infinity, max = 12,
   const sd = Math.sqrt(xs.reduce((a, x, i) => a + (x - moy) ** 2 * p[i], 0) / z);
   let c = 0, q05 = null, q95 = null;
   for (let i = 0; i < xs.length; i++) { c += p[i] / z; if (q05 == null && c >= 0.05) q05 = xs[i]; if (q95 == null && c >= 0.95) q95 = xs[i]; }
-  return { moyenne: moy, ecartType: sd, q05, q95 };
+  // Densité relative au bord de la grille : contrôle de troncature (doit rester négligeable, sinon élargir `max`).
+  return { moyenne: moy, ecartType: sd, q05, q95, densiteAuBord: p[p.length - 1] };
 }
 
 /** Posterior de travail de ψ (Beta, poids fractionnaires, § 9.1.9) : (a_ψ + Σ ω q) / (a_ψ + b_ψ + Σ ω). */
 export function psiBeta(a, b, sessions) {
   let n = a, d = a + b;
-  for (const s of sessions) { const w = s.w ?? 1; n += w * (s.q ?? 1); d += w; }
+  for (const s of sessions) {
+    if (s.q == null && !(s.y > 0)) throw new Error("q manquant pour une bredouille");
+    const w = s.w ?? 1; n += w * (s.y > 0 ? 1 : s.q); d += w;
+  }
   return n / d;
 }
 

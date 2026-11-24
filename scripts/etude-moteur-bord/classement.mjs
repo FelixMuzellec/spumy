@@ -8,10 +8,11 @@ export const AFFICHES = 3, AFFICHES_MAX = 5;   // § 9.1.7 : trois, étendus à 
 const NON_RECOMMANDE = new Set(["DANGER", "BLOCKED"]);
 
 /**
- * spots : [{ id, securite: "SAFE"|"CAUTION"|"DANGER"|"BLOCKED"|"INSUFFICIENT_DATA", aVerifier, accesFerme, interdit,
- *            trajetMin, trajetVerifie, fav (valeur de rang, entier ou null), confiance }]
- * `fav` est la valeur qui sert au rang : la borne basse de l'intervalle de Favorabilité (provisoire, 01-CONTRAT § 4),
- * égale à la note quand tous les critères sont connus. Un temps estimé (hors ligne) sert au filtre des 60 min, marqué
+ * spots : [{ id, securite: "SAFE"|"CAUTION"|"DANGER"|"BLOCKED"|"INSUFFICIENT_DATA", aVerifier, accesFerme,
+ *            trajetMin, trajetVerifie, fav (note, entier ou null), favLargeur (largeur de l'intervalle, 0 si tout est connu), confiance }]
+ * Seule une note complète (largeur 0) est classée parmi les spots documentés ; un spot dont la note est un intervalle va
+ * dans « à vérifier », où `fav` est sa borne basse et sert seulement à l'ordre d'affichage (D6-01). Une interdiction
+ * réglementaire passe par la sécurité (BLOCKED), pas par un filtre de plus. Un temps estimé (hors ligne) sert au filtre des 60 min, marqué
  * « estimation » à l'écran (RTE-02) ; la place réservée exige un temps vérifié (V3-016).
  * Renvoie { documentes, aVerifier, nonRecommandes, exclus, top, autresAEgalite, deplacesParLaPlaceReservee }.
  * La Confiance n'est jamais lue pour l'éligibilité ni pour l'ordre (§ 9.1 ; V3-006).
@@ -21,10 +22,9 @@ export function classer(spots, { trajetMax = TRAJET_MAX_MIN } = {}) {
   for (const s of spots) {
     if (NON_RECOMMANDE.has(s.securite)) { nonRecommandes.push({ id: s.id, raison: `sécurité ${s.securite}` }); continue; }
     if (s.accesFerme) { exclus.push({ id: s.id, raison: "accès fermé" }); continue; }
-    if (s.interdit) { exclus.push({ id: s.id, raison: "pêche interdite au poste à cette date" }); continue; }
     if (!(s.trajetMin <= trajetMax)) { exclus.push({ id: s.id, raison: s.trajetMin == null ? "temps de route inconnu" : `${s.trajetMin} min de route > ${trajetMax}` }); continue; }
     // INSUFFICIENT_DATA ne vaut jamais SAFE ; CAUTION reprend le « à vérifier » validé en V2 (Félix, 13 nov. 2026).
-    (s.securite === "SAFE" && !s.aVerifier ? documentes : aVerifier).push(s);
+    (s.securite === "SAFE" && !s.aVerifier && (s.favLargeur ?? 0) === 0 ? documentes : aVerifier).push(s);
   }
   const ordre = (a, b) => ((b.fav ?? -1) - (a.fav ?? -1)) || ((a.trajetMin ?? 999) - (b.trajetMin ?? 999)) || String(a.id).localeCompare(String(b.id));
   documentes.sort(ordre); aVerifier.sort(ordre);
