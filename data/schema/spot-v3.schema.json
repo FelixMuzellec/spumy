@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spumy.local/data/schema/spot-v3.schema.json",
+  "title": "Fiche de spot SPUMY V3 (référentiel § 7.4)",
+  "description": "Une fiche par spot, data/spots/fiches/<id>.json. Chaque information porte son statut (VÉRIFIÉ, OBSERVATION LOCALE, CONNAISSANCE GÉNÉRALE, INFÉRÉ, HYPOTHÈSE, INCONNU) et son origine (v2 : reprise de la fiche V2, non revérifiée tant que verifie_le est nul ; v3 : recherche de la phase 5). Une information inconnue reste inconnue, avec sa raison ; elle n'est jamais remplie artificiellement. Contrôlé par tests/spots-v3.mjs.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "origin", "coordinates", "access", "environment", "tide_approaches", "conditions", "species", "strategies", "lure_guidance", "safety", "regulations", "windows", "photos", "provenance", "quality"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "name": { "type": "string", "minLength": 2 },
+    "origin": { "enum": ["v2_preserved", "v3_researched"] },
+    "legacy": {
+      "type": "object", "additionalProperties": false, "required": ["guide", "empreinte_v2", "champs_non_repris"],
+      "properties": {
+        "guide": { "type": "string" },
+        "empreinte_v2": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "champs_non_repris": { "type": "object", "additionalProperties": { "type": "string" } }
+      }
+    },
+    "coordinates": {
+      "type": "object", "additionalProperties": false, "required": ["lat", "lon", "precision_m", "info"],
+      "properties": {
+        "lat": { "type": "number", "minimum": 41, "maximum": 52 },
+        "lon": { "type": "number", "minimum": -6, "maximum": 10 },
+        "precision_m": { "type": ["number", "null"], "minimum": 0 },
+        "info": { "$ref": "#/$defs/info" },
+        "controle": { "$ref": "#/$defs/info", "description": "Contrôle de la position par une source indépendante (toponyme officiel)." },
+        "avant_v2": { "type": "object", "additionalProperties": false, "required": ["lat", "lon"], "description": "Coordonnées V2 d'origine, gardées quand une vérification V3 les corrige.", "properties": { "lat": { "type": ["number", "null"] }, "lon": { "type": ["number", "null"] }, "texte": { "type": ["string", "null"] } } }
+      }
+    },
+    "access": {
+      "type": "object", "additionalProperties": false, "required": ["stationnement", "approche", "marche_min", "difficulte", "restrictions"],
+      "properties": {
+        "stationnement": { "$ref": "#/$defs/info" }, "approche": { "$ref": "#/$defs/info" }, "marche_min": { "$ref": "#/$defs/info" },
+        "difficulte": { "$ref": "#/$defs/info" }, "restrictions": { "$ref": "#/$defs/info" }
+      }
+    },
+    "environment": {
+      "type": "object", "additionalProperties": false, "required": ["milieu", "fond", "exposition", "profondeur", "structures", "courant"],
+      "properties": {
+        "milieu": { "$ref": "#/$defs/info" }, "fond": { "$ref": "#/$defs/info" }, "exposition": { "$ref": "#/$defs/info" },
+        "profondeur": { "$ref": "#/$defs/info" }, "structures": { "$ref": "#/$defs/info" }, "courant": { "$ref": "#/$defs/info" }
+      }
+    },
+    "tide_approaches": {
+      "type": "object", "additionalProperties": false, "required": ["basse", "montante", "haute", "descendante", "coefficients"],
+      "properties": {
+        "basse": { "$ref": "#/$defs/info" }, "montante": { "$ref": "#/$defs/info" }, "haute": { "$ref": "#/$defs/info" },
+        "descendante": { "$ref": "#/$defs/info" }, "coefficients": { "$ref": "#/$defs/info" },
+        "port_maree": { "$ref": "#/$defs/info" },
+        "v2": { "type": "object", "description": "Règles de marée de la fiche V2, telles quelles (non séparées par phase)." }
+      }
+    },
+    "conditions": {
+      "type": "object", "additionalProperties": false, "required": ["favorables", "defavorables", "dangereuses"],
+      "properties": { "favorables": { "$ref": "#/$defs/info" }, "defavorables": { "$ref": "#/$defs/info" }, "dangereuses": { "$ref": "#/$defs/info" } }
+    },
+    "species": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false, "required": ["espece", "priorite", "presence"],
+        "properties": { "espece": { "type": "string" }, "priorite": { "type": "integer", "minimum": 1 }, "presence": { "$ref": "#/$defs/info" } }
+      }
+    },
+    "strategies": { "type": "array", "items": { "$ref": "#/$defs/info" } },
+    "lure_guidance": { "type": "array", "items": { "$ref": "#/$defs/info" } },
+    "safety": {
+      "type": "object", "additionalProperties": false, "required": ["engagement", "consignes", "houle_max_m", "coef_max"],
+      "properties": {
+        "engagement": { "$ref": "#/$defs/info" }, "consignes": { "type": "array", "items": { "$ref": "#/$defs/info" } },
+        "houle_max_m": { "$ref": "#/$defs/info" }, "coef_max": { "$ref": "#/$defs/info" },
+        "acces_maree": {
+          "description": "Contrainte d'accès liée à la marée, classée à la main depuis les consignes de sécurité (§ 7.6, fenêtre de sécurité/accessibilité). Absente = non classée ; INCONNU = aucune contrainte documentée, jamais « sans risque ».",
+          "allOf": [{ "$ref": "#/$defs/info" }, { "properties": { "valeur": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["praticable_a_basse_mer_seulement", "isolement_au_flot", "submersible_a_pleine_mer", "acces_selon_maree"] } } } }]
+        },
+        "mouvements_terrain": { "description": "Mouvements de terrain recensés par le BRGM (base BDMvt, Géorisques) à 500 m du point : faits d'une base officielle non exhaustive ; zéro n'est jamais « sans risque ».", "$ref": "#/$defs/info" },
+        "risques_commune": { "description": "Risques recensés pour la commune du point (base GASPAR, Géorisques) : portée communale, pas le poste.", "$ref": "#/$defs/info" }
+      }
+    },
+    "regulations": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/info" } },
+    "windows": {
+      "type": "object", "additionalProperties": false, "required": ["habituelles", "securite"],
+      "properties": { "habituelles": { "$ref": "#/$defs/info" }, "securite": { "$ref": "#/$defs/info" } }
+    },
+    "photos": { "$ref": "#/$defs/info" },
+    "provenance": {
+      "type": "object", "additionalProperties": false, "required": ["sources"],
+      "properties": {
+        "sources": { "type": "array", "items": { "type": "string", "pattern": "^src-[a-z0-9-]+$" }, "description": "Identifiants du registre data/sources/registre.json." },
+        "sources_v2": { "type": "array", "items": { "type": "string" }, "description": "Sources de la fiche V2, texte exact." },
+        "faits_v2": { "type": "array", "description": "Citations et faits sourcés de la fiche V2, tels quels." }
+      }
+    },
+    "quality": {
+      "type": "object", "additionalProperties": false, "required": ["statut", "derniere_verification", "completude", "inconnus", "anomalies"],
+      "properties": {
+        "statut": { "enum": ["candidate", "a_verifier", "corroboree", "TOP_TIER", "inaccessible", "reglementee"] },
+        "criteres": { "type": "object", "description": "Critères de qualification QUAL-1 à QUAL-7 (docs/halieutique/QUALIFICATION.md) : vrai, faux, avec le détail.", "additionalProperties": { "type": "object", "required": ["ok", "detail"], "properties": { "ok": { "type": "boolean" }, "detail": { "type": "string" } }, "additionalProperties": false } },
+        "raisons": { "type": "array", "items": { "type": "string" }, "description": "Pourquoi la fiche n'atteint pas le niveau supérieur." },
+        "derniere_verification": { "type": ["string", "null"], "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+        "completude": { "type": "number", "minimum": 0, "maximum": 1 },
+        "inconnus": { "type": "array", "items": { "type": "string" } },
+        "anomalies": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "$defs": {
+    "info": {
+      "type": "object", "additionalProperties": false, "required": ["statut", "origine"],
+      "properties": {
+        "statut": { "enum": ["VÉRIFIÉ", "OBSERVATION LOCALE", "CONNAISSANCE GÉNÉRALE", "INFÉRÉ", "HYPOTHÈSE", "INCONNU"] },
+        "origine": { "enum": ["v2", "v3"] },
+        "texte": { "type": "string" },
+        "valeur": {},
+        "sources": { "type": "array", "items": { "type": "string", "pattern": "^src-[a-z0-9-]+$" } },
+        "source_texte": { "type": "string", "description": "Source citée par la fiche V2, texte exact." },
+        "niveau": { "type": "integer", "minimum": 1, "maximum": 6, "description": "Niveau de preuve du § 7.1 (1 scientifique ou institutionnel … 6 heuristique)." },
+        "quand": { "type": "object", "description": "Condition d'application (fiche V2 : phase de marée, coefficient…)." },
+        "verifie_le": { "type": ["string", "null"], "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+        "raison": { "type": "string", "minLength": 5 }
+      },
+      "allOf": [
+        { "if": { "properties": { "statut": { "const": "INCONNU" } } }, "then": { "required": ["raison"], "not": { "anyOf": [{ "required": ["valeur"] }, { "required": ["texte"] }] } } },
+        { "if": { "properties": { "statut": { "not": { "const": "INCONNU" } } } }, "then": { "anyOf": [{ "required": ["texte"] }, { "required": ["valeur"] }] } },
+        { "if": { "properties": { "origine": { "const": "v3" }, "statut": { "not": { "const": "INCONNU" } } } }, "then": { "required": ["sources", "verifie_le"], "properties": { "sources": { "minItems": 1 } } } }
+      ]
+    }
+  }
+}

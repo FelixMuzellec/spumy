@@ -1,0 +1,585 @@
+{
+ "id": "goyen",
+ "name": "Embouchure du Goyen",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "audierne",
+  "empreinte_v2": "d67ef2ce33983c64889f9f145aea57aa164d1181bb9c65ec14d0ae883eff7cd0",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2",
+   "riviere": "indicateur V2 repris dans environment.milieu si utile ; valeur gardée dans la sauvegarde",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
+  }
+ },
+ "coordinates": {
+  "lat": 48.016666,
+  "lon": -4.532755,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°01,0'N 4°32,0'W) ; précision non documentée.",
+   "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "EHPAD la Vallée du Goyen",
+    "ecart_m": 755
+   },
+   "texte": "Toponyme officiel « EHPAD la Vallée du Goyen » (maison de retraite, zone d'activité ou d'intérêt) à 755 m de la position de la fiche."
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 48.018294,
+    "lon": -4.532315,
+    "ign": "equipement_de_transport.175970",
+    "nature": "Parking",
+    "ecart_m": 184
+   },
+   "texte": "Parking recensé par la BD TOPO de l'IGN, à 184 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Parking près de l'église de Poulgoazec (Plouhinec) ou quais d'Audierne ; digue du Raoulic à pied (visorando).",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 4,
+   "texte": "4 min à pied (0,25 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "EMBOUCHURE + DIGUE — Digues d'Audierne et de Poulgoazec",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Chenal d'entrée du port entre digues et môles ; embouchure du Goyen, plage de Trescadec (visorando). Nature du fond non décrite.",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 2,
+    "gratter": "texan",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Ouvert au sud sur la baie. Déduit de la carte.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Chenal de port à l'embouchure, bordures qui découvrent (déduit, aucune sonde).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "peu"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Digue du Raoulic, vieux môle, chenal ; estuaire en amont.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Courant d'estuaire entrant et sortant, maximal à mi-marée (règle des douzièmes).",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : 3 premières heures de montante (BM +0 h → BM +3 h, prioritaire).",
+   "valeur": [
+    {
+     "id": "gy1",
+     "libelle": "3 premières heures de montante",
+     "reference": "BM",
+     "debut_h": 0,
+     "fin_h": 3,
+     "priorite": "prime",
+     "type_v2": "montant",
+     "note": "Règle générale de la source (Vidal). Pied des enrochements, souple texan."
+    }
+   ]
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la pleine mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée descendante) : 3 dernières heures de descendante (BM −3 h → BM +0 h, prioritaire).",
+   "valeur": [
+    {
+     "id": "gy2",
+     "libelle": "3 dernières heures de descendante",
+     "reference": "BM",
+     "debut_h": -3,
+     "fin_h": 0,
+     "priorite": "prime",
+     "type_v2": "descendant",
+     "note": "Règle générale de la source (Vidal). Veine du chenal."
+    }
+   ]
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    35,
+    50,
+    80,
+    100
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "audierne",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Embouchure de port : le flot fait entrer le poisson le long des digues, le jusant le fait ressortir par le chenal.",
+   "lifeHack": "Le marégraphe de référence est dans le port même : l'heure de marée est celle du poste.",
+   "montantOuDescendant": "Règle générale de la source pour le bar (« souvent » les 3 premières heures de montante et les 3 dernières de descendante ; « les phases de marée […] vont dépendre de chaque coin ») : Vidal, 2026. Non propre à ce poste : à recaler avec le journal de pêche.",
+   "typeHeure": "3 PREMIÈRES HEURES DE MONTANTE · 3 DERNIÈRES DE DESCENDANTE (RÈGLE GÉNÉRALE)",
+   "windows": [
+    {
+     "id": "gy1",
+     "label": "3 premières heures de montante",
+     "note": "Règle générale de la source (Vidal). Pied des enrochements, souple texan.",
+     "offsetAfter": 3,
+     "offsetBefore": 0,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "gy2",
+     "label": "3 dernières heures de descendante",
+     "note": "Règle générale de la source (Vidal). Veine du chenal.",
+     "offsetAfter": 0,
+     "offsetBefore": -3,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "descendant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     0,
+     22.5,
+     337.5
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     180,
+     202.5,
+     225
+    ]
+   },
+   "texte": "Embouchure ouverte au sud sur la baie d'Audierne : la houle de sud-ouest entre dans le chenal, le vent de nord est de dos. Orientation déduite de la carte.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.8
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Digues citées (mieuxpecher) ; estuaire du Goyen cité pour le bar à vue (Vidal). Statut V2 « VÉRIFIÉ » sans date ni page : ramené à INFÉRÉ, aucune page de pêche lue en phase 5 n'attachant le bar au poste (revue contradictoire du 24 nov. 2026).",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Texan ou tête légère le long des enrochements ; imitation de crabe dans l'estuaire.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Les digues sont le poste cité (mieuxpecher) : pêcher le pied des enrochements et la veine du chenal.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Ne pas gêner les ligneurs et fileyeurs du port.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Le marégraphe de référence est dans le port même : l'heure de marée est celle du poste.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Vert / brun",
+    "name": "Imitation de crabe",
+    "technique": "Bars d'estuaire (Vidal, 2026).",
+    "weight": "texan 5-10 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel",
+    "name": "Shad 9-10 cm tête plombée",
+    "technique": "Veine du chenal. Repère d'un guide du cap : Nitro Shad 90 sur tête de 15 g.",
+    "weight": "tête 10-15 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / sardine",
+    "name": "Stickbait 110-130 mm",
+    "technique": "Au crépuscule le long des digues, mer calme.",
+    "weight": "14-27 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Digue du Raoulic : « Ne pas s'y aventurer par gros temps ».",
+    "verifie_le": null,
+    "source_texte": "visorando.com"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.8,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune contrainte d'accès liée à la marée dans les consignes de la fiche : non documentée, ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "raison": "Aucun mouvement de terrain recensé par le BRGM à 500 m du point (Géorisques, 2026-11-23) ; le recensement n'est pas exhaustif, ce qui ne prouve pas l'absence de risque."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "PLOUHINEC",
+     "code_insee": "29197",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (PLOUHINEC) : Par submersion marine ; Mouvement de terrain. Portée communale : ne décrit pas le poste."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 7 : du 1er février au 31 mars, pêche en relâcher seulement, à la canne ou à la ligne à main ; en janvier et du 1er avril au 31 décembre, 3 bars au plus par pêcheur et par jour. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 7 (Manche, au nord du 48ᵉ parallèle)",
+    "limite_jour": 3,
+    "relacher_seul": {
+     "du": "02-01",
+     "au": "03-31"
+    }
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ddtm29-synthese-peche-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 2,
+   "valeur": {
+    "portee": "Finistère",
+    "application_au_poste": "à vérifier"
+   },
+   "texte": "Finistère : il est interdit « de pêcher à l'intérieur des limites administratives des ports » (synthèse de la DDTM du Finistère, avril 2026, p. 4). Le poste décrit touche un port, une digue ou une cale : avant toute recommandation, vérifier qu'il est hors de ces limites."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v3",
+  "verifie_le": "2026-11-23",
+  "raison": "Aucune des 6 photos libres de Wikimedia Commons à 400 m du point ne porte le nom du lieu : aucune n'est présentée comme une photo du spot (inventaire du 2026-11-23)."
+ },
+ "provenance": {
+  "sources": [
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-ddtm29-synthese-peche-loisir-2026",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
+   "src-legifrance-tailles-minimales-2026",
+   "src-mieuxpecher-com-604583",
+   "src-peche-poissons-com-44a77f",
+   "src-visorando-com-6ce7a8"
+  ],
+  "sources_v2": [
+   "mieuxpecher.com — « Coins de pêche – Finistère NORD » (liste jusqu'au Cap Sizun) : « Les digue à Audierne »",
+   "peche-poissons.com — J.-B. Vidal (19/10/2026) : estuaire du Goyen",
+   "visorando.com — « Port d'Audierne depuis le quartier maritime de Poulgoazec à Plouhinec »"
+  ],
+  "faits_v2": [
+   {
+    "s": "visorando.com — « Port d'Audierne depuis le quartier maritime de Poulgoazec à Plouhinec »",
+    "t": "Une digue mène au phare du Raoulic, « marquant l'entrée du port d'Audierne » ; « Ne pas s'y aventurer par gros temps »."
+   },
+   {
+    "s": "visorando.com — même circuit (départ 48,016666 / -4,532755)",
+    "t": "Activité principale du port : « les ligneurs et les fileyeurs » ; criée à Poulgoazec."
+   },
+   {
+    "s": "peche-poissons.com — J.-B. Vidal (19/10/2026)",
+    "t": "Le Goyen figure parmi « les estuaires bretons et notamment finistériens » « très prisés par les pêcheurs de bars notamment à vue » ; imitations de crabe « très efficaces sur les bars d'estuaire »."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.77,
+  "inconnus": [
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.haute",
+   "safety.coef_max",
+   "safety.acces_maree",
+   "safety.mouvements_terrain",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": [
+   "Spot à moins de 2,2 km du 48ᵉ parallèle : la zone CIEM (7 ou 8) dépend du poste exact ; à vérifier sur place."
+  ],
+  "criteres": {
+   "QUAL-1": {
+    "ok": false,
+    "detail": "0 groupe d'indépendance halieutique (famille 1 à 4) ; 1 source d'éditeur non classé, non comptée"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "0 groupe d'indépendance parmi les sources lues page par page (0 sur 0) ; aucune n'attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": false,
+    "detail": "position contrôlée par un toponyme qui n'est pas un lieu naturel (maison de retraite, zone d'activité ou d'intérêt), pas par le poste"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (4 min)"
+   },
+   "QUAL-5": {
+    "ok": false,
+    "detail": "engagement 1 (jugement V2), 1 consigne sourcée sur 1, contrainte de marée non documentée, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": false,
+    "detail": "règle locale à vérifier au poste (Finistère) ; zone CIEM 7 ou 8 incertaine (48ᵉ parallèle)"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4) ; 1 source d'éditeur non classé, non comptée",
+   "QUAL-3 : position contrôlée par un toponyme qui n'est pas un lieu naturel (maison de retraite, zone d'activité ou d'intérêt), pas par le poste",
+   "QUAL-5 : engagement 1 (jugement V2), 1 consigne sourcée sur 1, contrainte de marée non documentée, mouvements de terrain 0",
+   "QUAL-6 : règle locale à vérifier au poste (Finistère) ; zone CIEM 7 ou 8 incertaine (48ᵉ parallèle)"
+  ]
+ }
+}

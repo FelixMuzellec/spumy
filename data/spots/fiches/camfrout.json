@@ -1,0 +1,610 @@
+{
+ "id": "camfrout",
+ "name": "L'Hôpital-Camfrout",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "logonna",
+  "empreinte_v2": "db91726236ec4e14ca70000b2c4c8184ea321811bbe4c600a237a1d19d7febc3",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
+  }
+ },
+ "coordinates": {
+  "lat": 48.300126,
+  "lon": -4.247263,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°18,0'N 4°14,8'W) ; précision non documentée.",
+   "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Hôpital-Camfrout",
+    "ecart_m": 2388
+   },
+   "texte": "Toponyme officiel « Hôpital-Camfrout » (administratif, commune) à 2388 m de la position de la fiche."
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 48.301734,
+    "lon": -4.248951,
+    "ign": "equipement_de_transport.79040",
+    "nature": "Parking touristique",
+    "ecart_m": 218
+   },
+   "texte": "Parking touristique recensé par la BD TOPO de l'IGN, à 218 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Depuis Logonna : D770 vers L'Hôpital-Camfrout. Parkings du bourg et de Kerhascoët. Accès à Troaon, Kerdreolet et au cordon de Tibidy (l'îlot de Tibidy est privé : ne pas y monter). Bottes ou waders selon le poste.",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 6,
+   "texte": "6 min à pied (0,37 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "ESTUAIRE / TOMBOLO — Rivière du Camfrout, Tibidy, Troaon",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Vase-sable dans l'estuaire, roche et cailloux vers Tibidy, parcs à huîtres et herbiers en bordure.",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 2,
+    "gratter": "texan",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Double abri : replié au fond de la ria, et Tibidy masque la sortie. Quasi inattaquable par vent d'O/SO. Le NO remonte l'estuaire et rend l'eau moins lisible.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Bordures peu profondes ; veines plus profondes dans le chenal (fiche).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "peu"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Deux structures superposées : l'estuaire de la rivière du Camfrout, et l'îlot de Tibidy relié au continent par un cordon littoral, à l'embouchure de la rivière du Faou. Le cordon est une barrière physique qui dévie le flux et crée un poste d'embuscade franc.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Chenalisation nette. Courant modéré dans l'estuaire, sensiblement plus marqué autour du cordon de Tibidy où le flux est resserré.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : 3 premières heures de montant (BM +0 h 30 → BM +3 h, prioritaire).",
+   "valeur": [
+    {
+     "id": "hc1",
+     "libelle": "3 premières heures de montant",
+     "reference": "BM",
+     "debut_h": 0.5,
+     "fin_h": 3,
+     "priorite": "prime",
+     "type_v2": "montant",
+     "note": "Règle la plus universelle en estuaire. Se poster sur les bordures du chenal ou le long du cordon de Tibidy."
+    }
+   ]
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la pleine mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée descendante) : Fin de descendant (sortie d'estuaire) (BM −2 h → BM −0 h 30, bonne) ; Début de descendant (postage chenal) (PM +0 h 30 → PM +2 h 30, bonne).",
+   "valeur": [
+    {
+     "id": "hc2",
+     "libelle": "Fin de descendant (sortie d'estuaire)",
+     "reference": "BM",
+     "debut_h": -2,
+     "fin_h": -0.5,
+     "priorite": "bon",
+     "type_v2": "descendant",
+     "note": "Les bars quittent l'estuaire par le resserrement de Tibidy : embuscade en sortie."
+    },
+    {
+     "id": "hc3",
+     "libelle": "Début de descendant (postage chenal)",
+     "reference": "PM",
+     "debut_h": 0.5,
+     "fin_h": 2.5,
+     "priorite": "bon",
+     "type_v2": "descendant",
+     "note": "Shad plombé dans les veines profondes du chenal."
+    }
+   ]
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    25,
+    45,
+    85,
+    108
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Règle classique d'estuaire : trois premières heures de montant depuis BM+0h30. Les gros bars remontent avec la marée puis redescendent avec le jusant.",
+   "lifeHack": "Repérer les postes à basse mer : fosses du chenal, bordures herbeuses, parcs à huîtres. Texan indispensable pour ne pas s'accrocher dans les parcs.",
+   "montantOuDescendant": "Montant dominant — les bars entrent avec le flot pour chasser dans le chenal et autour des parcs. Fin de descendant exploitable en postage à la sortie.",
+   "typeHeure": "3 PREMIÈRES HEURES DE MONTANT (règle estuaire)",
+   "windows": [
+    {
+     "id": "hc1",
+     "label": "3 premières heures de montant",
+     "note": "Règle la plus universelle en estuaire. Se poster sur les bordures du chenal ou le long du cordon de Tibidy.",
+     "offsetAfter": 3,
+     "offsetBefore": 0.5,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "hc2",
+     "label": "Fin de descendant (sortie d'estuaire)",
+     "note": "Les bars quittent l'estuaire par le resserrement de Tibidy : embuscade en sortie.",
+     "offsetAfter": -0.5,
+     "offsetBefore": -2,
+     "phase": "bm",
+     "priority": "bon",
+     "tidePhaseType": "descendant"
+    },
+    {
+     "id": "hc3",
+     "label": "Début de descendant (postage chenal)",
+     "note": "Shad plombé dans les veines profondes du chenal.",
+     "offsetAfter": 2.5,
+     "offsetBefore": 0.5,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "descendant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     202.5,
+     225,
+     247.5
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     292.5,
+     315,
+     337.5
+    ]
+   },
+   "texte": "Estuaire encastré en fond de rade, abrité des vents d'O/SO par la géographie ; le vent de NO remonte la ria. Orientation déduite de la carte.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.3
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Biotope euryhalin classique du bar en fond de rade : gradient de salinité, proies concentrées, bars résidents doublés de poissons de passage sur le montant.",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Texan anti-accroche sur les parcs et les herbiers ; weightless à vue dans les bordures peu profondes.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Côté Tibidy (roche), remonter d'une couche : sous-surface plutôt que fond.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Spot des guides V2 d'origine : aucune source publiée ne le cite pour le bar (vérifié le 29/10/2026) ; à confirmer par le journal de pêche.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Repérer les postes à basse mer : fosses du chenal, bordures herbeuses, parcs à huîtres. Texan indispensable pour ne pas s'accrocher dans les parcs.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Natural / Smoke / Motor Oil",
+    "name": "Shad souple 10-12 cm en texan",
+    "technique": "Référence estuaire. Texan anti-accrochage essentiel sur les parcs et les herbiers.",
+    "weight": "10-16 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ayu / Mullet / Crystal",
+    "name": "Jerkbait suspending 100-110 mm",
+    "technique": "Twitch lent dans les zones dégagées du chenal.",
+    "weight": "12-16 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "White UV / Natural",
+    "name": "Pintail / slug weightless",
+    "technique": "Pêche à vue dans les bordures peu profondes, si l'eau du jour le permet.",
+    "weight": "5-10 g sans plomb"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 2,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "L'îlot de Tibidy est privé : ne pas y monter.",
+    "verifie_le": null,
+    "source_texte": "fiche du spot (accès)"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.3,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune contrainte d'accès liée à la marée dans les consignes de la fiche : non documentée, ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "rayon_m": 500,
+    "total": 1,
+    "types": {
+     "Erosion de berges": 1
+    },
+    "plus_recent": null,
+    "evenements": [
+     {
+      "id": "10600875",
+      "type": "Erosion de berges",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 104
+     }
+    ]
+   },
+   "texte": "1 mouvement de terrain recensé par le BRGM à 500 m du point : Erosion de berges (1). 1 événement sans date. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "HOPITAL-CAMFROUT",
+     "code_insee": "29080",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (HOPITAL-CAMFROUT) : Par submersion marine. Portée communale : ne décrit pas le poste."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 7 : du 1er février au 31 mars, pêche en relâcher seulement, à la canne ou à la ligne à main ; en janvier et du 1er avril au 31 décembre, 3 bars au plus par pêcheur et par jour. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 7 (Manche, au nord du 48ᵉ parallèle)",
+    "limite_jour": 3,
+    "relacher_seul": {
+     "du": "02-01",
+     "au": "03-31"
+    }
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ddtm29-synthese-peche-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 2,
+   "valeur": {
+    "portee": "Finistère",
+    "application_au_poste": "à vérifier"
+   },
+   "texte": "Finistère : « La pêche dans les herbiers de zostères est interdite » (synthèse de la DDTM du Finistère, avril 2026, p. 4 ; le barème des sanctions vise la « pêche à pied »). La fiche décrit des herbiers : ne pas pêcher ni marcher dedans ; les conseils qui visent les herbiers sont à revoir."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v3",
+  "verifie_le": "2026-11-23",
+  "raison": "Aucune photo géolocalisée de Wikimedia Commons à 400 m du point (inventaire du 2026-11-23)."
+ },
+ "provenance": {
+  "sources": [
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-ddtm29-synthese-peche-loisir-2026",
+   "src-despoissonssigrands-com-089f42",
+   "src-en-wikipedia-org-wiki-ile-de-tib-7fb085",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
+   "src-legifrance-tailles-minimales-2026",
+   "src-tourisme-landerneau-daoulas-fr-38d978",
+   "src-tourisme-landerneau-daoulas-fr-75d373",
+   "src-voileaviron-org-6589d4"
+  ],
+  "sources_v2": [
+   "voileaviron.org — livret des sites de la rade de Brest (Tibidy privé)",
+   "en.wikipedia.org/wiki/Île_de_Tibidy — Tibidy est un îlot à l'embouchure de la rivière du Faou, en fond de rade de Brest, sur des terres appartenant à la commune de L'Hôpital-Camfrout, relié au continent par un cordon littoral",
+   "tourisme-landerneau-daoulas.fr — Sites de L'Hôpital-Camfrout : Tibidy, Kerdreolet, Troaon, Kerhascoët (listés distinctement de ceux de Loperhet)",
+   "tourisme-landerneau-daoulas.fr — Kerhascoët, ancien port coquillier de la commune, vue sur la presqu'île de Logonna",
+   "despoissonssigrands.com — Pêche du bar en estuaire (principes)"
+  ],
+  "faits_v2": [
+   {
+    "s": "Voile-Aviron, livret « 50 sites de la rade de Brest »",
+    "t": "L'îlot de Tibidy est privé ; on ne peut aborder que côté est du tombolo."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.79,
+  "inconnus": [
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.haute",
+   "safety.coef_max",
+   "safety.acces_maree",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": [
+   "Position V2 à 2,4 km du toponyme officiel « Hôpital-Camfrout » (administratif, commune) : à vérifier (le poste peut être ailleurs que le point du toponyme)."
+  ],
+  "criteres": {
+   "QUAL-1": {
+    "ok": false,
+    "detail": "0 groupe d'indépendance halieutique (famille 1 à 4)"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "0 groupe d'indépendance parmi les sources lues page par page (0 sur 0) ; aucune n'attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": false,
+    "detail": "Position V2 à 2,4 km du toponyme officiel « Hôpital-Camfrout » (administratif, commune) : à vérifier (le poste peut être ailleurs que le point du toponyme)."
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (6 min)"
+   },
+   "QUAL-5": {
+    "ok": false,
+    "detail": "engagement 2 (jugement V2), 0 consigne sourcée sur 1, contrainte de marée non documentée, mouvements de terrain 1"
+   },
+   "QUAL-6": {
+    "ok": false,
+    "detail": "règle locale à vérifier au poste (Finistère)"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4)",
+   "QUAL-3 : Position V2 à 2,4 km du toponyme officiel « Hôpital-Camfrout » (administratif, commune) : à vérifier (le poste peut être ailleurs que le point du toponyme).",
+   "QUAL-5 : engagement 2 (jugement V2), 0 consigne sourcée sur 1, contrainte de marée non documentée, mouvements de terrain 1",
+   "QUAL-6 : règle locale à vérifier au poste (Finistère)"
+  ]
+ }
+}

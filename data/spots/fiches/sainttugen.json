@@ -1,0 +1,568 @@
+{
+ "id": "sainttugen",
+ "name": "Plage de Saint-Tugen",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "audierne",
+  "empreinte_v2": "a283a0c201e84b6ae222900b3a33c345fa52a6d78c38392f238a93910dd9d7ae",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
+  }
+ },
+ "coordinates": {
+  "lat": 48.01219,
+  "lon": -4.597628,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°00,7'N 4°35,9'W) ; précision non documentée.",
+   "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Chapelle Saint-Tugen",
+    "ecart_m": 1155
+   },
+   "texte": "Toponyme officiel « Chapelle Saint-Tugen » (culte chrétien, zone d'activité ou d'intérêt) à 1155 m de la position de la fiche."
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 48.014106,
+    "lon": -4.592947,
+    "ign": "equipement_de_transport.94260",
+    "nature": "Parking touristique",
+    "ecart_m": 408
+   },
+   "texte": "Parking touristique recensé par la BD TOPO de l'IGN, à 408 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Village de Saint-Tugen, suivre « la plage » jusqu'au parking (mondo.surf).",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 3,
+   "texte": "3 min à pied (0,2 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "PLAGE + ROCHER — Primelin, baie d'Audierne",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Sable, avec un rocher au centre de la baie à pleine mer (mondo.surf).",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 1,
+    "gratter": "oui",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Tournée vers le SO : houle d'OSO directe (surf-forecast).",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Plage de sable exposée, vagues déferlantes : peu d'eau au bord (déduit).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "peu"
+   }
+  },
+  "structures": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Petite baie encadrée de roches, rocher central.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Courants de plage et de baïne par houle ; pas de mesure.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : Montant (BM+1 → BM+5,5) (BM +1 h → BM +5 h 30, prioritaire).",
+   "valeur": [
+    {
+     "id": "st1",
+     "libelle": "Montant (BM+1 → BM+5,5)",
+     "reference": "BM",
+     "debut_h": 1,
+     "fin_h": 5.5,
+     "priorite": "prime",
+     "type_v2": "montant",
+     "note": "Le flot couvre le sable et le rocher. Souple sur tête de 10-15 g dans l'écume."
+    }
+   ]
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la pleine mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée descendante) : Début de descendant (PM +0 h → PM +2 h, bonne).",
+   "valeur": [
+    {
+     "id": "st2",
+     "libelle": "Début de descendant",
+     "reference": "PM",
+     "debut_h": 0,
+     "fin_h": 2,
+     "priorite": "bon",
+     "type_v2": "descendant",
+     "note": "Sortie du rocher central."
+    }
+   ]
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    30,
+    45,
+    85,
+    105
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "audierne",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Plage de baie exposée : l'écume et le rocher central sont les postes.",
+   "lifeHack": "Repère du journal à construire : note pour chaque sortie la phase de marée et le résultat, c'est la règle de la source.",
+   "montantOuDescendant": "Sur chaque plage, le bon moment s'apprend (Vidal) : le guide part du flot, qui couvre le sable et le rocher, et des sorties au lever du jour (Pêche-Rando Bar : meilleurs poissons tôt le matin).",
+   "typeHeure": "FLOT + MATIN TÔT",
+   "windows": [
+    {
+     "id": "st1",
+     "label": "Montant (BM+1 → BM+5,5)",
+     "note": "Le flot couvre le sable et le rocher. Souple sur tête de 10-15 g dans l'écume.",
+     "offsetAfter": 5.5,
+     "offsetBefore": 1,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "st2",
+     "label": "Début de descendant",
+     "note": "Sortie du rocher central.",
+     "offsetAfter": 2,
+     "offsetBefore": 0,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "descendant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     22.5,
+     45,
+     67.5
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     202.5,
+     225,
+     247.5
+    ]
+   },
+   "texte": "Plage tournée vers le sud-ouest (houle idéale OSO, vent de terre NE d'après surf-forecast). Clapot de sud-ouest de face.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.8
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Plage citée pour le bar du bord (cannes-peche) ; « toutes les plages tiennent du poisson » dans le Finistère sud (Vidal). Statut V2 « VÉRIFIÉ » sans date ni page : ramené à INFÉRÉ, aucune page de pêche lue en phase 5 n'attachant le bar au poste (revue contradictoire du 24 nov. 2026).",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Souple sur tête plombée ou slug sur le sable ; weightless près du rocher.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pêcher l'écume des premières vagues et le rocher central quand il se couvre.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Waders utiles sur les plages de la baie (Pêche-Rando Bar).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Une seule source pêche (cannes-peche : « plage de Saint-Tugen ») ; à confirmer par le journal de pêche.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Repère du journal à construire : note pour chaque sortie la phase de marée et le résultat, c'est la règle de la source.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Blanc / naturel",
+    "name": "Souple 12 cm tête plombée",
+    "technique": "Dans l'écume des premières vagues. Repère du guide : Sand Eel sur tête de 21 g.",
+    "weight": "tête 10-21 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / sardine",
+    "name": "Stickbait 110-130 mm",
+    "technique": "Mer calme, aube.",
+    "weight": "14-27 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.8,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune contrainte d'accès liée à la marée dans les consignes de la fiche : non documentée, ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "raison": "Aucun mouvement de terrain recensé par le BRGM à 500 m du point (Géorisques, 2026-11-23) ; le recensement n'est pas exhaustif, ce qui ne prouve pas l'absence de risque."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "AUDIERNE",
+     "code_insee": "29003",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Eboulement ou chutes de pierres et de blocs",
+      "Séisme",
+      "Radon"
+     ]
+    },
+    {
+     "commune": "PRIMELIN",
+     "code_insee": "29228",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour les communes à 1 km du point (le point est hors des limites communales) (AUDIERNE, PRIMELIN) : Par submersion marine ; Mouvement de terrain ; Eboulement ou chutes de pierres et de blocs. Portée communale : ne décrit pas le poste."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 7 : du 1er février au 31 mars, pêche en relâcher seulement, à la canne ou à la ligne à main ; en janvier et du 1er avril au 31 décembre, 3 bars au plus par pêcheur et par jour. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 7 (Manche, au nord du 48ᵉ parallèle)",
+    "limite_jour": 3,
+    "relacher_seul": {
+     "du": "02-01",
+     "au": "03-31"
+    }
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v3",
+  "verifie_le": "2026-11-23",
+  "raison": "Aucune photo géolocalisée de Wikimedia Commons à 400 m du point (inventaire du 2026-11-23)."
+ },
+ "provenance": {
+  "sources": [
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-cannes-peche-blog4ever-com-0f51b4",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
+   "src-legifrance-tailles-minimales-2026",
+   "src-mondo-surf-b11376",
+   "src-peche-rando-bar-a9c57d",
+   "src-surf-forecast-com-f133fa"
+  ],
+  "sources_v2": [
+   "cannes-peche.blog4ever.com — Primelin : « plage de Saint-Tugen »",
+   "mondo.surf — Saint Tugen (fond, rocher, accès, coordonnées)",
+   "surf-forecast.com — St Tugen (houle et vent idéaux)",
+   "Pêche-Rando Bar — plages de la baie d'Audierne, waders"
+  ],
+  "faits_v2": [
+   {
+    "s": "mondo.surf — Saint Tugen (48,012190 / -4,597628)",
+    "t": "Fond de sable, un rocher au centre de la baie à pleine mer ; « all tides are good » pour le surf ; parking au bout de la route de la plage."
+   },
+   {
+    "s": "surf-forecast.com — St Tugen",
+    "t": "« An exposed beach break » ; houle idéale d'ouest-sud-ouest, meilleur vent de nord-est."
+   },
+   {
+    "s": "cannes-peche.blog4ever.com (Alain, 07/11/2016)",
+    "t": "Plage de Saint-Tugen citée parmi les coins à bar du bord."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.76,
+  "inconnus": [
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.haute",
+   "safety.coef_max",
+   "safety.acces_maree",
+   "safety.mouvements_terrain",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": [
+   "Spot à moins de 2,2 km du 48ᵉ parallèle : la zone CIEM (7 ou 8) dépend du poste exact ; à vérifier sur place."
+  ],
+  "criteres": {
+   "QUAL-1": {
+    "ok": false,
+    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:cannes-peche-blog4ever-com"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "0 groupe d'indépendance parmi les sources lues page par page (0 sur 1) ; aucune n'attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": false,
+    "detail": "position contrôlée par un toponyme qui n'est pas un lieu naturel (culte chrétien, zone d'activité ou d'intérêt), pas par le poste"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (3 min)"
+   },
+   "QUAL-5": {
+    "ok": false,
+    "detail": "engagement 1 (jugement V2), 0 consigne sourcée sur 0, contrainte de marée non documentée, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": false,
+    "detail": "zone CIEM 7 ou 8 incertaine (48ᵉ parallèle)"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:cannes-peche-blog4ever-com",
+   "QUAL-3 : position contrôlée par un toponyme qui n'est pas un lieu naturel (culte chrétien, zone d'activité ou d'intérêt), pas par le poste",
+   "QUAL-5 : engagement 1 (jugement V2), 0 consigne sourcée sur 0, contrainte de marée non documentée, mouvements de terrain 0",
+   "QUAL-6 : zone CIEM 7 ou 8 incertaine (48ᵉ parallèle)"
+  ]
+ }
+}

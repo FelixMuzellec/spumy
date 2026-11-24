@@ -1,0 +1,559 @@
+{
+ "id": "van",
+ "name": "Pointe du Van",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "audierne",
+  "empreinte_v2": "028b3bb177f68fd27c9321c8e7e9871cbd7650da5e95c8f7b1e8380252d508ff",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
+  }
+ },
+ "coordinates": {
+  "lat": 48.0644,
+  "lon": -4.715,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°03,9'N 4°42,9'W) ; précision non documentée.",
+   "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Pointe du Van",
+    "ecart_m": 95
+   },
+   "texte": "Toponyme officiel « Pointe du Van » (cap, élément topographique ou forestier, détail orographique) à 95 m de la position de la fiche."
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 48.059655,
+    "lon": -4.707788,
+    "ign": "equipement_de_transport.94252",
+    "nature": "Parking touristique",
+    "ecart_m": 752
+   },
+   "texte": "Parking touristique recensé par la BD TOPO de l'IGN, à 752 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Sentier côtier (GR34) depuis la pointe de Brézellec ou les parkings du cap ; chemin escarpé (visorando).",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 13,
+   "texte": "13 min à pied (0,8 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "POINTE ROCHEUSE / FALAISE — Cléden-Cap-Sizun, mer d'Iroise",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pointe très étalée, nombreux éperons rocheux et rochers monumentaux ; roche plus friable qu'à la pointe du Raz (Wikipédia).",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 3,
+    "gratter": "non",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Face à l'Iroise, d'OSO à NO. Déduit de la carte.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pointe à falaises sur l'Iroise : eau profonde au pied (déduit, aucune sonde).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "tombant"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Pointe étalée entre la baie des Trépassés et la baie de Douarnenez.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Courants de l'Iroise ; le Raz de Sein est au sud. Heure non estimée (côte ouverte).",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : Montant établi (BM +1 h 30 → BM +4 h, prioritaire).",
+   "valeur": [
+    {
+     "id": "va1",
+     "libelle": "Montant établi",
+     "reference": "BM",
+     "debut_h": 1.5,
+     "fin_h": 4,
+     "priorite": "prime",
+     "type_v2": "montant",
+     "note": "Pied des éperons, courant établi."
+    }
+   ]
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la pleine mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée descendante) : Descendant établi (PM +1 h 30 → PM +4 h, bonne).",
+   "valeur": [
+    {
+     "id": "va2",
+     "libelle": "Descendant établi",
+     "reference": "PM",
+     "debut_h": 1.5,
+     "fin_h": 4,
+     "priorite": "bon",
+     "type_v2": "descendant",
+     "note": "L'autre flanc de la pointe."
+    }
+   ]
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    30,
+    50,
+    85,
+    105
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "audierne",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Pointe engagée : la houle décide d'abord.",
+   "lifeHack": "Un bar de 93 cm du guide du cap est venu d'un fond de crique rocheuse par très forte houle (Pêche-Rando Bar) : les criques abritées d'une pointe exposée sont à voir quand la pointe elle-même n'est pas pêchable.",
+   "montantOuDescendant": "Pointe océanique : courant établi et lumière faible (principe général). Aucune source propre au poste.",
+   "typeHeure": "MI-MARÉE + CRÉPUSCULES",
+   "windows": [
+    {
+     "id": "va1",
+     "label": "Montant établi",
+     "note": "Pied des éperons, courant établi.",
+     "offsetAfter": 4,
+     "offsetBefore": 1.5,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "va2",
+     "label": "Descendant établi",
+     "note": "L'autre flanc de la pointe.",
+     "offsetAfter": 4,
+     "offsetBefore": 1.5,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "descendant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     90,
+     112.5,
+     135
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     247.5,
+     270,
+     292.5,
+     315
+    ]
+   },
+   "texte": "Pointe nord-ouest du cap face à l'Iroise : exposée d'OSO à NO. Abri relatif d'un flanc à l'autre selon le vent.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.5
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Roches citées pour le bar du bord (cannes-peche). Statut V2 « VÉRIFIÉ » sans date ni page : ramené à INFÉRÉ, aucune page de pêche lue en phase 5 n'attachant le bar au poste (revue contradictoire du 24 nov. 2026).",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Surface, weightless, ou souple plombé tenu au-dessus des roches.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Roches escarpées (cannes-peche) : choisir un poste où l'on peut remonter le poisson.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Le flanc sud (baie des Trépassés) ou nord (baie de Douarnenez) selon le vent.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Une seule source pêche (cannes-peche : pointe du Van « et ses roches escarpées ») ; à confirmer par le journal de pêche.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Un bar de 93 cm du guide du cap est venu d'un fond de crique rocheuse par très forte houle (Pêche-Rando Bar) : les criques abritées d'une pointe exposée sont à voir quand la pointe elle-même n'est pas pêchable.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / sardine",
+    "name": "Stickbait 130-150 mm",
+    "technique": "Lancer loin face au vent, mer calme.",
+    "weight": "25-32 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Blanc",
+    "name": "Souple 12 cm tête plombée",
+    "technique": "Au-dessus des roches, dans les criques par mer formée.",
+    "weight": "tête 15-21 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 3,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Roches escarpées et friables : jamais seul, gilet, mer calme.",
+    "verifie_le": null,
+    "source_texte": "cannes-peche (roches escarpées) · Wikipédia (roche friable) · prudence du guide"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.5,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune contrainte d'accès liée à la marée dans les consignes de la fiche : non documentée, ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "raison": "Aucun mouvement de terrain recensé par le BRGM à 500 m du point (Géorisques, 2026-11-23) ; le recensement n'est pas exhaustif, ce qui ne prouve pas l'absence de risque."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "CLEDEN-CAP-SIZUN",
+     "code_insee": "29028",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour les communes à 1 km du point (le point est hors des limites communales) (CLEDEN-CAP-SIZUN) : Par submersion marine ; Mouvement de terrain. Portée communale : ne décrit pas le poste."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 7 : du 1er février au 31 mars, pêche en relâcher seulement, à la canne ou à la ligne à main ; en janvier et du 1er avril au 31 décembre, 3 bars au plus par pêcheur et par jour. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 7 (Manche, au nord du 48ᵉ parallèle)",
+    "limite_jour": 3,
+    "relacher_seul": {
+     "du": "02-01",
+     "au": "03-31"
+    }
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v3",
+  "verifie_le": "2026-11-23",
+  "raison": "Aucune photo géolocalisée de Wikimedia Commons à 400 m du point (inventaire du 2026-11-23)."
+ },
+ "provenance": {
+  "sources": [
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-cannes-peche-blog4ever-com-e4338e",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
+   "src-legifrance-tailles-minimales-2026",
+   "src-visorando-com-1d7838",
+   "src-wikipedia-fr-65af58"
+  ],
+  "sources_v2": [
+   "cannes-peche.blog4ever.com — Cléden-Cap-Sizun : « Pointe de Brézellec et Pointe du Van et leurs roches escarpées »",
+   "Wikipédia (fr) — Pointe du Van",
+   "visorando.com — « De la pointe de Brézellec à la pointe du Van et la chapelle Saint-They »"
+  ],
+  "faits_v2": [
+   {
+    "s": "Wikipédia (fr), via wikimonde.com — Pointe du Van (48°03′52″N 4°42′54″W)",
+    "t": "La pointe ferme le nord de la baie des Trépassés ; roche « plus friable que celle de la pointe du Raz » ; nombreux éperons, quelques rochers monumentaux (rocher Morgane)."
+   },
+   {
+    "s": "cannes-peche.blog4ever.com (Alain, 07/11/2016)",
+    "t": "« Pointe de Brézellec et Pointe du Van et leurs roches escarpées » citées pour le bar du bord."
+   },
+   {
+    "s": "visorando.com — « De la pointe de Brézellec à la pointe du Van »",
+    "t": "Accès par un sentier côtier escarpé."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.77,
+  "inconnus": [
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.haute",
+   "safety.coef_max",
+   "safety.acces_maree",
+   "safety.mouvements_terrain",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": [],
+  "criteres": {
+   "QUAL-1": {
+    "ok": false,
+    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:cannes-peche-blog4ever-com"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "0 groupe d'indépendance parmi les sources lues page par page (0 sur 1) ; aucune n'attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": true,
+    "detail": "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (13 min)"
+   },
+   "QUAL-5": {
+    "ok": false,
+    "detail": "engagement 3 (jugement V2), 1 consigne sourcée sur 1, contrainte de marée non documentée, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": true,
+    "detail": "réglementation nationale ; règles locales du département recherchées, aucune à vérifier au poste"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:cannes-peche-blog4ever-com",
+   "QUAL-5 : engagement 3 (jugement V2), 1 consigne sourcée sur 1, contrainte de marée non documentée, mouvements de terrain 0"
+  ]
+ }
+}

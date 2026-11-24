@@ -1,0 +1,611 @@
+{
+ "id": "moulinmer",
+ "name": "Moulin Mer",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "logonna",
+  "empreinte_v2": "3a8fea980055a56a21f64c6e147c7d0f3cd5518cb437cb1a39074507d14559a9",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
+  }
+ },
+ "coordinates": {
+  "lat": 48.3159,
+  "lon": -4.2862,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°19'N 4°17'W) ; précision non documentée.",
+   "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Moulin Mer",
+    "ecart_m": 98
+   },
+   "texte": "Toponyme officiel « Moulin Mer » (port, transport, équipement de transport) à 98 m de la position de la fiche."
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 48.318605,
+    "lon": -4.284668,
+    "ign": "equipement_de_transport.95532",
+    "nature": "Parking touristique",
+    "ecart_m": 321
+   },
+   "texte": "Parking touristique recensé par la BD TOPO de l'IGN, à 321 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Depuis Logonna-Daoulas bourg, direction Moulin Mer/Pointe du Château. Parking devant le centre nautique. Accès direct aux bordures rocheuses à pied. Bottes suffisent, semelles crantées utiles sur goémon humide.",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 26,
+   "texte": "26 min à pied (1,7 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "BORDURES GOÉMON — Anse de Moulin-Mer, Logonna-Daoulas",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "OBSERVATION LOCALE",
+   "origine": "v2",
+   "texte": "Roches et goémon sur toutes les bordures ; sable-vase seulement au cœur de l'anse.",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 3,
+    "gratter": "non",
+    "couches": [
+     "surface",
+     "sous-surface"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Rive sud de la presqu'île, ouverte sur la ria du Camfrout (Wikipédia). Abritée des vents de N à NE par la presqu'île ; exposée au S-SO. La version d'origine la disait « orientée NO » : contredit par la géographie, à confirmer sur place.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "OBSERVATION LOCALE",
+   "origine": "v2",
+   "texte": "Hauts-fonds qui s'étendent loin à basse mer (fiche).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "estran"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Source Desperadiens/Relec29 : 'les bordures de moulin mer en Logonna Daoulas' figurent parmi les zones encombrées typiques où le leurre souple en surface (weightless) sur goémon donne de beaux bars. Ancien moulin à marée, petit étier, pointe rocheuse plongeante.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Courant faible à modéré, accélération légère autour de la pointe. La rade de Brest a des courants globaux de 0.5 à 3 nds (source navigation-croisiere), Logonna est dans la tranche basse.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : 2e moitié de montant (PM −3 h → PM −0 h 30, prioritaire) ; Début de flot (BM → BM+2,5) (BM +0 h → BM +2 h 30, prioritaire).",
+   "valeur": [
+    {
+     "id": "mm1",
+     "libelle": "2e moitié de montant",
+     "reference": "PM",
+     "debut_h": -3,
+     "fin_h": -0.5,
+     "priorite": "prime",
+     "type_v2": "montant",
+     "note": "Les tapis de goémons sont recouverts, bars en chasse dans les bordures. Lancer parallèle à la côte, leurre souple weightless type Gambit 120mm."
+    },
+    {
+     "id": "mm3",
+     "libelle": "Début de flot (BM → BM+2,5)",
+     "reference": "BM",
+     "debut_h": 0,
+     "fin_h": 2.5,
+     "priorite": "prime",
+     "type_v2": "montant",
+     "note": "Justification V2 tirée d'observations privées, retirée de la fiche publique : fenêtre à confirmer. Stickbait ou souple weightless sur les premières bordures couvertes."
+    }
+   ]
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la pleine mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée descendante) : Début de descendant (PM +0 h 30 → PM +2 h 30, prioritaire).",
+   "valeur": [
+    {
+     "id": "mm2",
+     "libelle": "Début de descendant",
+     "reference": "PM",
+     "debut_h": 0.5,
+     "fin_h": 2.5,
+     "priorite": "prime",
+     "type_v2": "descendant",
+     "note": "Eau qui se retire des goémons, proies exposées. Même approche, possible switch stickbait/pencil surface si chasses visibles."
+    }
+   ]
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    25,
+    40,
+    80,
+    105
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Bordure classique : on pêche le flot quand les goémons sont recouverts (bars postés dedans) et le début de descendant quand les proies quittent les herbiers. Pêche à vue possible par eau claire et temps calme.",
+   "lifeHack": "Approche silencieuse. Leurre souple weightless dans les goémons (coût faible = on les envoie où on ne lance pas un stickbait à 30 €). Canne courte, 2 m à 2,10 m (Relec29), puissance 5-15 g (peche.com) ; bas de ligne nylon 30 à 35/100, plus fort sur le goémon (Relec29).",
+   "montantOuDescendant": "Montant dominant pour les bordures de goémon (le flot noie les tapis et active les bars). Le descendant peut marcher côté pointe avec courant léger. Étales peu productives sauf en pêche à vue.",
+   "typeHeure": "MONTANT PLEIN + CRÉPUSCULES",
+   "windows": [
+    {
+     "id": "mm1",
+     "label": "2e moitié de montant",
+     "note": "Les tapis de goémons sont recouverts, bars en chasse dans les bordures. Lancer parallèle à la côte, leurre souple weightless type Gambit 120mm.",
+     "offsetAfter": -0.5,
+     "offsetBefore": -3,
+     "phase": "pm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "mm2",
+     "label": "Début de descendant",
+     "note": "Eau qui se retire des goémons, proies exposées. Même approche, possible switch stickbait/pencil surface si chasses visibles.",
+     "offsetAfter": 2.5,
+     "offsetBefore": 0.5,
+     "phase": "pm",
+     "priority": "prime",
+     "tidePhaseType": "descendant"
+    },
+    {
+     "id": "mm3",
+     "label": "Début de flot (BM → BM+2,5)",
+     "note": "Justification V2 tirée d'observations privées, retirée de la fiche publique : fenêtre à confirmer. Stickbait ou souple weightless sur les premières bordures couvertes.",
+     "offsetAfter": 2.5,
+     "offsetBefore": 0,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     0,
+     22.5,
+     337.5
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     180,
+     202.5,
+     225
+    ]
+   },
+   "texte": "Rive sud de la presqu'île de Logonna, à l'embouchure de la rivière de l'Hôpital-Camfrout (Wikipédia). La presqu'île abrite des vents de nord ; c'est le secteur sud-ouest qui lève un clapot dans l'anse. Orientation à confirmer sur place.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.2
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "OBSERVATION LOCALE",
+    "origine": "v2",
+    "texte": "Relec29 cite « les bordures de moulin mer en Logonna Daoulas » pour le souple de surface ; ses bars de 70+ ont été pris sur les berges du Relecq-Kerhuon (Élorn), pas ici.",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "OBSERVATION LOCALE",
+   "origine": "v2",
+   "texte": "Weightless ou texan (hameçon texan 3/0 à 4/0). Pas de tête plombée nue : elle finit dans les rochers.",
+   "verifie_le": null
+  },
+  {
+   "statut": "OBSERVATION LOCALE",
+   "origine": "v2",
+   "texte": "Lancer parallèle aux bordures et faire nager le leurre au-dessus du goémon, jamais dedans.",
+   "verifie_le": null
+  },
+  {
+   "statut": "OBSERVATION LOCALE",
+   "origine": "v2",
+   "texte": "Respecter les parcs à huîtres (concessions de Moulin-Mer à Kervella) : ne pas les traverser ni lancer dedans.",
+   "verifie_le": null
+  },
+  {
+   "statut": "OBSERVATION LOCALE",
+   "origine": "v2",
+   "texte": "À marée basse, repérer les couloirs de sable entre les rochers : c'est par là que le bar entre au flot.",
+   "verifie_le": null
+  },
+  {
+   "statut": "OBSERVATION LOCALE",
+   "origine": "v2",
+   "texte": "Quand la pression pousse le poisson vers le fond, rester au ras du goémon avec un leurre lent plutôt que gratter.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Approche silencieuse. Leurre souple weightless dans les goémons (coût faible = on les envoie où on ne lance pas un stickbait à 30 €). Canne courte, 2 m à 2,10 m (Relec29), puissance 5-15 g (peche.com) ; bas de ligne nylon 30 à 35/100, plus fort sur le goémon (Relec29).",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ayu / Motor Oil / Natural",
+    "name": "Leurre souple weightless dans goémon",
+    "technique": "Source Desperadiens directe : Gambit method shad d'Illex ou équivalent 12cm, weightless, promené à fleur d'eau sur le goémon. L'arme absolue de Moulin Mer.",
+    "weight": "7-10g monté sans plomb ou tête 3-5g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / Sardine / Iwashi",
+    "name": "Stickbait / pencil 110-130mm",
+    "technique": "Walk-the-dog en surface au crépuscule sur montante. Asturie 110 ou Patchinko 125 en référence perso.",
+    "weight": "14-22g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ayu / Mullet",
+    "name": "Jerkbait suspending 110mm",
+    "technique": "Sur les zones moins encombrées côté pointe. Twitch lent, pauses longues.",
+    "weight": "12-16g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Goémon humide glissant : semelles crantées.",
+    "verifie_le": null,
+    "source_texte": "fiche du spot (accès)"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.2,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune contrainte d'accès liée à la marée dans les consignes de la fiche : non documentée, ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "raison": "Aucun mouvement de terrain recensé par le BRGM à 500 m du point (Géorisques, 2026-11-23) ; le recensement n'est pas exhaustif, ce qui ne prouve pas l'absence de risque."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "HOPITAL-CAMFROUT",
+     "code_insee": "29080",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Séisme",
+      "Radon"
+     ]
+    },
+    {
+     "commune": "LOGONNA-DAOULAS",
+     "code_insee": "29137",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour les communes à 1 km du point (le point est hors des limites communales) (HOPITAL-CAMFROUT, LOGONNA-DAOULAS) : Par submersion marine. Portée communale : ne décrit pas le poste."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 7 : du 1er février au 31 mars, pêche en relâcher seulement, à la canne ou à la ligne à main ; en janvier et du 1er avril au 31 décembre, 3 bars au plus par pêcheur et par jour. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 7 (Manche, au nord du 48ᵉ parallèle)",
+    "limite_jour": 3,
+    "relacher_seul": {
+     "du": "02-01",
+     "au": "03-31"
+    }
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v3",
+  "verifie_le": "2026-11-23",
+  "raison": "Aucune photo géolocalisée de Wikimedia Commons à 400 m du point (inventaire du 2026-11-23)."
+ },
+ "provenance": {
+  "sources": [
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-desperadiens-a52c90",
+   "src-fr-wikipedia-org-bb7caa",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
+   "src-legifrance-tailles-minimales-2026",
+   "src-peche-com-265478",
+   "src-tourisme-landerneau-daoulas-fr-959a10",
+   "src-voileaviron-org-f9f46c"
+  ],
+  "sources_v2": [
+   "fr.wikipedia.org — Logonna-Daoulas (géographie : Moulin-Mer, rive sud, embouchure de la rivière de l'Hôpital)",
+   "tourisme-landerneau-daoulas.fr — sentier littoral de Logonna et escapade en rade",
+   "voileaviron.org — livret des sites de la rade de Brest",
+   "Desperadiens — 'Pêche aux leurres de surface par Relec29' (mentionne explicitement les bordures de Moulin Mer comme spot référence LS en goémon)",
+   "peche.com — « La rade de Brest, un formidable terrain de jeu… » (Benjamin Le Provost)"
+  ],
+  "faits_v2": [
+   {
+    "s": "Wikipédia — Logonna-Daoulas (géographie)",
+    "t": "Moulin-Mer est sur la rive SUD de la presqu'île de Logonna, à l'embouchure de la rivière de l'Hôpital (ria du Camfrout)."
+   },
+   {
+    "s": "Wikipédia — Logonna-Daoulas (géographie)",
+    "t": "Concessions ostréicoles « de Moulin-Mer à Kervella au sud »."
+   },
+   {
+    "s": "Wikipédia — Logonna-Daoulas (géographie)",
+    "t": "Le terre-plein du centre nautique a été construit avec les déblais des carrières de kersanton voisines."
+   },
+   {
+    "s": "Office de tourisme Landerneau-Daoulas",
+    "t": "Le moulin à marée est « à l'abri des vagues de la rade »."
+   },
+   {
+    "s": "Voile-Aviron, livret « 50 sites de la rade de Brest »",
+    "t": "Cale étroite et en virage, utilisable à mi-marée."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.77,
+  "inconnus": [
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.haute",
+   "safety.coef_max",
+   "safety.acces_maree",
+   "safety.mouvements_terrain",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": [
+   "La fiche V2 cite le journal personnel de Félix (sessions, prises) : à revoir avant publication d'une fiche V3."
+  ],
+  "criteres": {
+   "QUAL-1": {
+    "ok": false,
+    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:desperadiens"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "0 groupe d'indépendance parmi les sources lues page par page (0 sur 1) ; aucune n'attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": false,
+    "detail": "position contrôlée par un toponyme qui n'est pas un lieu naturel (port, transport, équipement de transport), pas par le poste"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (26 min)"
+   },
+   "QUAL-5": {
+    "ok": false,
+    "detail": "engagement 1 (jugement V2), 0 consigne sourcée sur 1, contrainte de marée non documentée, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": true,
+    "detail": "réglementation nationale ; règles locales du département recherchées, aucune à vérifier au poste"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:desperadiens",
+   "QUAL-3 : position contrôlée par un toponyme qui n'est pas un lieu naturel (port, transport, équipement de transport), pas par le poste",
+   "QUAL-5 : engagement 1 (jugement V2), 0 consigne sourcée sur 1, contrainte de marée non documentée, mouvements de terrain 0"
+  ]
+ }
+}

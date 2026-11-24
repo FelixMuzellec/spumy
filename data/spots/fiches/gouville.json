@@ -1,0 +1,588 @@
+{
+ "id": "gouville",
+ "name": "Gouville-sur-Mer",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "pirou",
+  "empreinte_v2": "6acf78b1bf6cbfed890a0c1f6c6993d43afd64140ce1ac0495d478a141ff000f",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
+  }
+ },
+ "coordinates": {
+  "lat": 49.0833,
+  "lon": -1.6,
+  "precision_m": 1850,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées V2 en texte à la minute près (49°05'N 1°36'W), converties en degrés décimaux : jusqu'à 1,85 km d'écart.",
+   "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Gouville-sur-Mer",
+    "ecart_m": 1747
+   },
+   "texte": "Toponyme officiel « Gouville-sur-Mer » (lieu-dit habité, zone d'habitation) à 1747 m de la position de la fiche."
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Position V2 à la minute près (jusqu'à 1,85 km d'écart) : un parking calculé sur ce point ne serait pas fiable. À reprendre après correction de la position."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Nombreux accès plage à Gouville, parkings des cabines. Marche variable selon le coefficient.",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Position du spot trop imprécise pour un temps de marche."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "PARCS + ESTRAN ROCHEUX — Parcs et estran (le Sénéquet est au large : pas un poste du bord)",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Estran mixte : sable, roches affleurantes, parcs ostréicoles étendus. Le phare du Sénéquet est « situé à plusieurs kilomètres du rivage » (Tendance Ouest).",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 2,
+    "gratter": "texan",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "OBSERVATION LOCALE",
+   "origine": "v2",
+   "texte": "Ouest franc. Vent d'E/NE terrestre = mer plate et eau claire, exigeant de la discrétion. Vent d'O = houle courte sur l'estran, souvent favorable jusqu'à 4 Beaufort.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "« Vaste estran rocheux et sableux » de 3 866 ha (INPN) : très peu d'eau à marée basse.",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "estran"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Les tables ostréicoles structurent l'estran côté terre. Le Sénéquet, à plusieurs kilomètres au large, n'est accessible qu'aux grandes marées : ce n'est pas un poste du guide.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Courant parallèle à la côte, accéléré autour du plateau et entre les rangées de parcs.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : Mi-montant → PM-1h (PM −3 h 30 → PM −1 h, prioritaire) ; Début de flot (BM+0,5 → BM+2,5) (BM +0 h 30 → BM +2 h 30, prioritaire).",
+   "valeur": [
+    {
+     "id": "go1",
+     "libelle": "Mi-montant → PM-1h",
+     "reference": "PM",
+     "debut_h": -3.5,
+     "fin_h": -1,
+     "priorite": "prime",
+     "type_v2": "montant",
+     "note": "Parcs recouverts, bars en chasse le long des rangées. Souple weightless ou tête plombée très légère pour éviter les croches."
+    },
+    {
+     "id": "go3",
+     "libelle": "Début de flot (BM+0,5 → BM+2,5)",
+     "reference": "BM",
+     "debut_h": 0.5,
+     "fin_h": 2.5,
+     "priorite": "prime",
+     "type_v2": "montant",
+     "note": "Premiers centimètres sur l'estran, depuis le haut de plage. La lumière du créneau est calculée à part."
+    }
+   ]
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la pleine mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée descendante) : Mi-descendant, roches proches du bord (PM +1 h 30 → PM +3 h 30, bonne).",
+   "valeur": [
+    {
+     "id": "go2",
+     "libelle": "Mi-descendant, roches proches du bord",
+     "reference": "PM",
+     "debut_h": 1.5,
+     "fin_h": 3.5,
+     "priorite": "bon",
+     "type_v2": "descendant",
+     "note": "L'eau se retire des roches affleurantes proches du bord (déduit). Ne pas suivre la mer vers le large."
+    }
+   ]
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    50,
+    70,
+    90,
+    110
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "gouville",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Les parcs se pêchent au flot en suivant l'eau ; au jusant, les roches affleurantes proches du bord (déduit). Jamais vers le Sénéquet.",
+   "lifeHack": "Les parcs coupent : semelles épaisses obligatoires. Et le flot remonte entre les tables plus vite qu'il n'y paraît — garder toujours une ligne de retraite dégagée.",
+   "montantOuDescendant": "Montant dominant pour les parcs et l'estran (guides V2 d'origine).",
+   "typeHeure": "MONTANT SUR LES PARCS",
+   "windows": [
+    {
+     "id": "go1",
+     "label": "Mi-montant → PM-1h",
+     "note": "Parcs recouverts, bars en chasse le long des rangées. Souple weightless ou tête plombée très légère pour éviter les croches.",
+     "offsetAfter": -1,
+     "offsetBefore": -3.5,
+     "phase": "pm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "go2",
+     "label": "Mi-descendant, roches proches du bord",
+     "note": "L'eau se retire des roches affleurantes proches du bord (déduit). Ne pas suivre la mer vers le large.",
+     "offsetAfter": 3.5,
+     "offsetBefore": 1.5,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "descendant"
+    },
+    {
+     "id": "go3",
+     "label": "Début de flot (BM+0,5 → BM+2,5)",
+     "note": "Premiers centimètres sur l'estran, depuis le haut de plage. La lumière du créneau est calculée à part.",
+     "offsetAfter": 2.5,
+     "offsetBefore": 0.5,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     67.5,
+     90
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     247.5,
+     270,
+     292.5
+    ]
+   },
+   "texte": "Exposition ouest franche. Les parcs cassent partiellement le clapot par vent modéré.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.8
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "OBSERVATION LOCALE",
+    "origine": "v2",
+    "texte": "Spot des guides V2 d'origine, cité comme apprécié des pêcheurs locaux (sylco, non revérifié). Le bar longe les rangées de tables au flot comme il longerait une bordure rocheuse (déduit).",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Weightless entre les tables ; tête plombée légère seulement sur le sable dégagé, près du bord.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "La zone des parcs interdit le plombé : on y pêche en surface ou juste dessous.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Les parcs coupent : semelles épaisses obligatoires. Et le flot remonte entre les tables plus vite qu'il n'y paraît — garder toujours une ligne de retraite dégagée.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel / Ayu",
+    "name": "Souple weightless entre les tables",
+    "technique": "Passage à fleur d'eau au-dessus des structures. La zone encombrée interdit le plombé.",
+    "weight": "7-10 g sans plomb"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel",
+    "name": "Shad 10-12 cm tête plombée",
+    "technique": "Sur le sable dégagé près du bord. Récupération lente avec pauses.",
+    "weight": "10-18 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / Iwashi",
+    "name": "Stickbait 120-140 mm",
+    "technique": "Surface au crépuscule sur les parcs recouverts, quand des chasses marquent.",
+    "weight": "16-25 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 3,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Ne pas suivre la mer vers le Sénéquet : le phare est « à plusieurs kilomètres du rivage », accessible seulement aux grandes marées ; une personne y est morte le 1er mars 2025, le groupe menacé d'être isolé par la marée montante.",
+    "verifie_le": null,
+    "source_texte": "tendanceouest.com (02/03/2025)"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Le flot remonte entre les tables plus vite qu'il n'y paraît : garder une ligne de retraite dégagée. Parcs coupants : semelles épaisses.",
+    "verifie_le": null,
+    "source_texte": "fiche du spot (conseil)"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.8,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    "isolement_au_flot"
+   ],
+   "verifie_le": null,
+   "texte": "Le flot peut couper le retour. Classement relu à la main depuis la consigne de la fiche : « Le flot remonte entre les tables plus vite qu'il n'y paraît : garder une ligne de retraite dégagée. Parcs coupants : semelles épaisses. »",
+   "source_texte": "fiche du spot (conseil)"
+  },
+  "mouvements_terrain": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "raison": "Aucun mouvement de terrain recensé par le BRGM à 500 m du point (Géorisques, 2026-11-23) ; le recensement n'est pas exhaustif, ce qui ne prouve pas l'absence de risque."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "BLAINVILLE-SUR-MER",
+     "code_insee": "50058",
+     "risques": [
+      "Inondation",
+      "Par une crue à débordement lent de cours d'eau",
+      "Par remontées de nappes naturelles",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Eboulement ou chutes de pierres et de blocs",
+      "Tassements différentiels",
+      "Séisme",
+      "Phénomène lié à l'atmosphère",
+      "Tempête et grains (vent)",
+      "Foudre",
+      "Grêle",
+      "Neige et pluies verglaçantes",
+      "Radon",
+      "Engins de guerre"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (BLAINVILLE-SUR-MER) : Par submersion marine ; Mouvement de terrain ; Eboulement ou chutes de pierres et de blocs ; Tempête et grains (vent) ; Engins de guerre. Portée communale : ne décrit pas le poste."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 7 : du 1er février au 31 mars, pêche en relâcher seulement, à la canne ou à la ligne à main ; en janvier et du 1er avril au 31 décembre, 3 bars au plus par pêcheur et par jour. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 7 (Manche, au nord du 48ᵉ parallèle)",
+    "limite_jour": 3,
+    "relacher_seul": {
+     "du": "02-01",
+     "au": "03-31"
+    }
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Contrainte de marée documentée (le flot peut couper le retour), mais aucune durée praticable n'est sourcée : aucun intervalle HH:MM ne peut être calculé (§ 7.6). Le spot ne peut pas être présenté comme praticable sans fenêtre documentée."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v3",
+  "verifie_le": "2026-11-23",
+  "raison": "Aucune photo géolocalisée de Wikimedia Commons à 400 m du point (inventaire du 2026-11-23)."
+ },
+ "provenance": {
+  "sources": [
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-cpiecotentin-com-6c5656",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-ign-geocodage-poi",
+   "src-inpn-mnhn-fr-e9f612",
+   "src-legifrance-tailles-minimales-2026",
+   "src-peche-com-bc916e",
+   "src-sylco-peche-brehal-fr-87fa95",
+   "src-tendanceouest-com-77bced"
+  ],
+  "sources_v2": [
+   "inpn.mnhn.fr — ZNIEFF marine 25M000020 Estran rocheux de Gouville à Agon-Coutainville",
+   "sylco-peche-brehal.fr — 'Le Sénéquet à Gouville-sur-Mer' cité comme très apprécié des pêcheurs locaux (page non revérifiée le 29/10/2026)",
+   "tendanceouest.com — accident du Sénéquet (02/03/2025)",
+   "cpiecotentin.com — estrans rocheux découvrant à marée basse sur ce linéaire",
+   "peche.com — principes des plateaux rocheux et du flot sur estran"
+  ],
+  "faits_v2": [
+   {
+    "s": "INPN — ZNIEFF 25M000020",
+    "t": "ZNIEFF marine « Estran rocheux de Gouville à Agon-Coutainville » : « vaste estran rocheux et sableux » de 3 866 ha, du phare du Sénéquet à la tour du Ronquet."
+   },
+   {
+    "s": "INPN — ZNIEFF 25M000020",
+    "t": "On y trouve des herbiers de zostères (Zostera marina et noltei), des récifs d'hermelles temporaires et des platiers à algues rouges ; granulométrie de la vase aux blocs."
+   },
+   {
+    "s": "tendanceouest.com — C. Caradec, « Manche. Grandes marées : une personne retrouvée morte près du phare du Sénéquet » (02/03/2025)",
+    "t": "Le phare du Sénéquet est « situé à plusieurs kilomètres du rivage de Gouville », « accessible uniquement lors des épisodes de grandes marées » ; le 1er mars 2025, une personne y a été retrouvée morte dans les rochers, la marée montante menaçant d'isoler le groupe."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.74,
+  "inconnus": [
+   "access.stationnement",
+   "access.marche_min",
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.haute",
+   "safety.coef_max",
+   "safety.mouvements_terrain",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": [
+   "Coordonnées V2 seulement en texte, à la minute près (jusqu'à 1,85 km d'écart) : à vérifier en priorité."
+  ],
+  "criteres": {
+   "QUAL-1": {
+    "ok": false,
+    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:sylco-peche-brehal-fr"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "0 groupe d'indépendance parmi les sources lues page par page (0 sur 1) ; aucune n'attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": false,
+    "detail": "Coordonnées V2 seulement en texte, à la minute près (jusqu'à 1,85 km d'écart) : à vérifier en priorité."
+   },
+   "QUAL-4": {
+    "ok": false,
+    "detail": "stationnement ou temps de marche inconnu"
+   },
+   "QUAL-5": {
+    "ok": true,
+    "detail": "engagement 3 (jugement V2), 1 consigne sourcée sur 2, contrainte de marée isolement_au_flot, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": false,
+    "detail": "règles locales du département 50 non recherchées dans un texte officiel"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:sylco-peche-brehal-fr",
+   "QUAL-3 : Coordonnées V2 seulement en texte, à la minute près (jusqu'à 1,85 km d'écart) : à vérifier en priorité.",
+   "QUAL-4 : stationnement ou temps de marche inconnu",
+   "QUAL-6 : règles locales du département 50 non recherchées dans un texte officiel"
+  ]
+ }
+}

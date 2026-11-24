@@ -1,0 +1,589 @@
+{
+ "id": "aberbenoit",
+ "name": "Embouchure de l'Aber Benoît",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "plouguerneau",
+  "empreinte_v2": "f92bcd9f6d34fca60cdb5978c713487cb21ae09c3ee40d8e9917c7fc736344e5",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2",
+   "riviere": "indicateur V2 repris dans environment.milieu si utile ; valeur gardée dans la sauvegarde",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
+  }
+ },
+ "coordinates": {
+  "lat": 48.575815,
+  "lon": -4.598854,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°34,5'N 4°35,9'W) ; précision non documentée.",
+   "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Aber Benoît",
+    "ecart_m": 594
+   },
+   "texte": "Toponyme officiel « Aber Benoît » (embouchure, détail hydrographique, hydrographie) à 594 m de la position de la fiche."
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 48.575605,
+    "lon": -4.598948,
+    "ign": "equipement_de_transport.100066",
+    "nature": "Parking touristique",
+    "ecart_m": 24
+   },
+   "texte": "Parking touristique recensé par la BD TOPO de l'IGN, à 24 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Parking avant la jetée de Beg ar Vilh (visorando), puis GR34 vers l'embouchure.",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 1,
+   "texte": "1 min à pied (0,04 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "EMBOUCHURE — Beg ar Vilh, Landéda",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Ria large et profonde à l'embouchure ; à basse mer, le lit vaseux et des bancs de sable se découvrent (saint-pabu.bzh).",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 2,
+    "gratter": "texan",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Ouverte au NO ; roches au large. Orientation déduite de la carte.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Embouchure large et profonde au chenal, mais bordures qui découvrent à basse mer (saint-pabu.bzh) ; déduit pour le bord.",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "peu"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Bordures d'embouchure, port de Beg ar Vilh, chenal ; parcs ostréicoles et mytilicoles.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Dans l'axe de l'aber à l'intérieur, en travers au large (jusqu'à 3 nœuds au Libenter, SHOM via Voile-Aviron).",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : 3 premières heures de montante (BM +0 h → BM +3 h, prioritaire).",
+   "valeur": [
+    {
+     "id": "ab1",
+     "libelle": "3 premières heures de montante",
+     "reference": "BM",
+     "debut_h": 0,
+     "fin_h": 3,
+     "priorite": "prime",
+     "type_v2": "montant",
+     "note": "Règle générale de la source (Vidal). Bordures qui se couvrent, souple texan."
+    }
+   ]
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la pleine mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée descendante) : 3 dernières heures de descendante (BM −3 h → BM +0 h, prioritaire).",
+   "valeur": [
+    {
+     "id": "ab2",
+     "libelle": "3 dernières heures de descendante",
+     "reference": "BM",
+     "debut_h": -3,
+     "fin_h": 0,
+     "priorite": "prime",
+     "type_v2": "descendant",
+     "note": "Règle générale de la source (Vidal). Sorties de chenal, leurre qui dérive avec le jusant."
+    }
+   ]
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    35,
+    50,
+    80,
+    100
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "aberwrach",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Embouchure : le flot entre sur les bancs, le jusant ressort par le chenal.",
+   "lifeHack": "Marée de l'embouchure : l'heure affichée est celle du port de L'Aber Wrac'h, à 5 km (non contrôlé à Beg ar Vilh).",
+   "montantOuDescendant": "Règle générale de la source pour le bar (« souvent » les 3 premières heures de montante et les 3 dernières de descendante ; « les phases de marée […] vont dépendre de chaque coin ») : Vidal, 2026. Non propre à ce poste : à recaler avec le journal de pêche Le courant d'embouchure est maximal à mi-marée (douzièmes).",
+   "typeHeure": "3 PREMIÈRES HEURES DE MONTANTE · 3 DERNIÈRES DE DESCENDANTE (RÈGLE GÉNÉRALE)",
+   "windows": [
+    {
+     "id": "ab1",
+     "label": "3 premières heures de montante",
+     "note": "Règle générale de la source (Vidal). Bordures qui se couvrent, souple texan.",
+     "offsetAfter": 3,
+     "offsetBefore": 0,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "ab2",
+     "label": "3 dernières heures de descendante",
+     "note": "Règle générale de la source (Vidal). Sorties de chenal, leurre qui dérive avec le jusant.",
+     "offsetAfter": 0,
+     "offsetBefore": -3,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "descendant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     112.5,
+     135,
+     157.5
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     292.5,
+     315,
+     337.5
+    ]
+   },
+   "texte": "Embouchure ouverte au NO. Houle d'ouest amortie par les roches du large ; brisants dès 1 m (Voile-Aviron). Orientation déduite de la carte.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.5
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Bordures citées pour le bar (cannes-peche) ; estuaires riches en crustacés (Vidal). Statut V2 « VÉRIFIÉ » sans date ni page : ramené à INFÉRÉ, aucune page de pêche lue en phase 5 n'attachant le bar au poste (revue contradictoire du 24 nov. 2026).",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Texan ou tête légère sur les bordures ; plus lourd seulement dans le chenal en plein courant.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Les bordures de l'embouchure sont le poste cité (cannes-peche).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Respecter les parcs ostréicoles et mytilicoles de l'aber.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Marée de l'embouchure : l'heure affichée est celle du port de L'Aber Wrac'h, à 5 km (non contrôlé à Beg ar Vilh).",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Vert / brun",
+    "name": "Imitation de crabe",
+    "technique": "Bars d'estuaire (Vidal, 2026).",
+    "weight": "texan 5-10 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel",
+    "name": "Shad 10 cm tête plombée",
+    "technique": "Dans la veine du chenal au plus fort du courant.",
+    "weight": "tête 10-20 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost",
+    "name": "Stickbait 110-130 mm",
+    "technique": "Au crépuscule sur les bordures, mer calme.",
+    "weight": "14-27 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 2,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Vasières et bancs découverts à basse mer : la mer remonte vite sur les bancs.",
+    "verifie_le": null,
+    "source_texte": "saint-pabu.bzh · prudence du guide"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.5,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    "isolement_au_flot"
+   ],
+   "verifie_le": null,
+   "texte": "Le flot peut couper le retour. Classement relu à la main depuis la consigne de la fiche : « Vasières et bancs découverts à basse mer : la mer remonte vite sur les bancs. »",
+   "source_texte": "saint-pabu.bzh · prudence du guide"
+  },
+  "mouvements_terrain": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "raison": "Aucun mouvement de terrain recensé par le BRGM à 500 m du point (Géorisques, 2026-11-23) ; le recensement n'est pas exhaustif, ce qui ne prouve pas l'absence de risque."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "LANDEDA",
+     "code_insee": "29101",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (LANDEDA) : Par submersion marine ; Mouvement de terrain. Portée communale : ne décrit pas le poste."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 7 : du 1er février au 31 mars, pêche en relâcher seulement, à la canne ou à la ligne à main ; en janvier et du 1er avril au 31 décembre, 3 bars au plus par pêcheur et par jour. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 7 (Manche, au nord du 48ᵉ parallèle)",
+    "limite_jour": 3,
+    "relacher_seul": {
+     "du": "02-01",
+     "au": "03-31"
+    }
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ddtm29-synthese-peche-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 2,
+   "valeur": {
+    "portee": "Finistère",
+    "application_au_poste": "à vérifier"
+   },
+   "texte": "Finistère : il est interdit « de pêcher à l'intérieur des limites administratives des ports » (synthèse de la DDTM du Finistère, avril 2026, p. 4). Le poste décrit touche un port, une digue ou une cale : avant toute recommandation, vérifier qu'il est hors de ces limites."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Contrainte de marée documentée (le flot peut couper le retour), mais aucune durée praticable n'est sourcée : aucun intervalle HH:MM ne peut être calculé (§ 7.6). Le spot ne peut pas être présenté comme praticable sans fenêtre documentée."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v3",
+  "verifie_le": "2026-11-23",
+  "raison": "Aucune des 1 photos libres de Wikimedia Commons à 400 m du point ne porte le nom du lieu : aucune n'est présentée comme une photo du spot (inventaire du 2026-11-23)."
+ },
+ "provenance": {
+  "sources": [
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-cannes-peche-blog4ever-com-03a3c7",
+   "src-ddtm29-synthese-peche-loisir-2026",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
+   "src-legifrance-tailles-minimales-2026",
+   "src-mieuxpecher-com-f242a9",
+   "src-peche-poissons-com-8d94f7",
+   "src-saint-pabu-bzh-dd6ee3",
+   "src-voileaviron-org-bc2c89"
+  ],
+  "sources_v2": [
+   "mieuxpecher.com — Top 10 Bretagne : « la côte à proximité de l'estuaire peut être intéressante » (Brenduff, plus en amont, est aussi cité)",
+   "cannes-peche.blog4ever.com — « Les coins de pêche à bar / loup (du bord) » (Alain, 07/11/2016) : Landéda, « bordures de l'embouchure de l'Aber Vrac'h et de l'Aber Benoit »",
+   "peche-poissons.com — J.-B. Vidal (19/10/2026) : estuaires des abers",
+   "saint-pabu.bzh — « La perle des Abers »",
+   "voileaviron.org — topo FVA n° 43"
+  ],
+  "faits_v2": [
+   {
+    "s": "saint-pabu.bzh — « La perle des Abers »",
+    "t": "L'Aber Benoît se jette dans la mer à 5 km au sud de l'Aber Wrac'h, entre Saint-Pabu et Landéda ; ria d'environ 8 km, « large et profonde » à l'estuaire ; vasière et bancs de sable découverts à basse mer."
+   },
+   {
+    "s": "saint-pabu.bzh · visorando.com — « Entre Beg ar Vilh et Sainte-Marguerite » (parking avant la jetée : 48,575815 / -4,598854)",
+    "t": "Huîtres et moules élevées dans l'aber ; port ostréicole de Beg ar Vilh."
+   },
+   {
+    "s": "voileaviron.org — topo FVA n° 43",
+    "t": "Courant traversier au Libenter jusqu'à 3 nœuds (SHOM) ; brisants sur les roches dès 1 m de houle."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.8,
+  "inconnus": [
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.haute",
+   "safety.coef_max",
+   "safety.mouvements_terrain",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": [],
+  "criteres": {
+   "QUAL-1": {
+    "ok": false,
+    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:cannes-peche-blog4ever-com ; 1 source d'éditeur non classé, non comptée"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "0 groupe d'indépendance parmi les sources lues page par page (0 sur 1) ; aucune n'attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": true,
+    "detail": "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (1 min)"
+   },
+   "QUAL-5": {
+    "ok": true,
+    "detail": "engagement 2 (jugement V2), 1 consigne sourcée sur 1, contrainte de marée isolement_au_flot, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": false,
+    "detail": "règle locale à vérifier au poste (Finistère)"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:cannes-peche-blog4ever-com ; 1 source d'éditeur non classé, non comptée",
+   "QUAL-6 : règle locale à vérifier au poste (Finistère)"
+  ]
+ }
+}

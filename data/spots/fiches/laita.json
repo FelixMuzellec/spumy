@@ -1,0 +1,635 @@
+{
+ "id": "laita",
+ "name": "Estuaire de la Laïta",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "concarneau",
+  "empreinte_v2": "111c757cf30ee384a245f816073096cca04fa5db413ae4feca7a2469d7bb6717",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2",
+   "riviere": "indicateur V2 repris dans environment.milieu si utile ; valeur gardée dans la sauvegarde",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
+  }
+ },
+ "coordinates": {
+  "lat": 47.77255,
+  "lon": -3.5298,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (47°46,4'N 3°31,8'W) ; précision non documentée.",
+   "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "la Laïta",
+    "ecart_m": 4737
+   },
+   "texte": "Toponyme officiel « la Laïta » (cours d'eau, hydrographie) à 4737 m de la position de la fiche."
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 47.773054,
+    "lon": -3.528738,
+    "ign": "equipement_de_transport.68967",
+    "nature": "Parking touristique",
+    "ecart_m": 97
+   },
+   "texte": "Parking touristique recensé par la BD TOPO de l'IGN, à 97 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Port du Pouldu (Clohars-Carnoët), sentier côtier vers le belvédère de l'embouchure (visorando).",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 2,
+   "texte": "2 min à pied (0,09 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "ESTUAIRE (LAÏTA) — Port du Pouldu, Clohars-Carnoët",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Estuaire de la Laïta et son embouchure, barre de sable à l'est de l'embouchure, bancs et chenal qui évoluent « parfois rapidement » ; zone rocheuse à l'ouest, où passe le chenal (association des pêcheurs plaisanciers de Clohars-Carnoët).",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 2,
+    "gratter": "texan",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Sud-ouest. Déduit de la carte.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Estuaire à barre de sable ; le chenal d'accès est « complètement fermé » quand la hauteur d'eau calculée à Concarneau descend à 0,55 m (APPPCC) : peu d'eau à marée basse.",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "peu"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Estuaire, port du Pouldu, embouchure, plages (visorando, APPPCC).",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Courant d'estuaire ; la barre dépend « du débit de la rivière, des courants, du vent et de l'état de la mer » (APPPCC).",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : 3 premières heures de montante (BM +0 h → BM +3 h, prioritaire).",
+   "valeur": [
+    {
+     "id": "la1",
+     "libelle": "3 premières heures de montante",
+     "reference": "BM",
+     "debut_h": 0,
+     "fin_h": 3,
+     "priorite": "prime",
+     "type_v2": "montant",
+     "note": "Règle générale de la source (Vidal). Bordures de l'estuaire, imitation de crabe."
+    }
+   ]
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la pleine mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée descendante) : 3 dernières heures de descendante (BM −3 h → BM +0 h, prioritaire).",
+   "valeur": [
+    {
+     "id": "la2",
+     "libelle": "3 dernières heures de descendante",
+     "reference": "BM",
+     "debut_h": -3,
+     "fin_h": 0,
+     "priorite": "prime",
+     "type_v2": "descendant",
+     "note": "Règle générale de la source (Vidal). Sortie du chenal."
+    }
+   ]
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    30,
+    45,
+    80,
+    100
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "lepouldu",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Estuaire à barre : le flot fait entrer le poisson par le chenal, le jusant le fait ressortir.",
+   "lifeHack": "Le port de marée est Le Pouldu même : l'heure de marée est celle du poste.",
+   "montantOuDescendant": "Règle générale de la source pour le bar (« souvent » les 3 premières heures de montante et les 3 dernières de descendante ; « les phases de marée […] vont dépendre de chaque coin ») : Vidal, 2026. Non propre à ce poste : à recaler avec le journal de pêche.",
+   "typeHeure": "3 PREMIÈRES HEURES DE MONTANTE · 3 DERNIÈRES DE DESCENDANTE (RÈGLE GÉNÉRALE)",
+   "windows": [
+    {
+     "id": "la1",
+     "label": "3 premières heures de montante",
+     "note": "Règle générale de la source (Vidal). Bordures de l'estuaire, imitation de crabe.",
+     "offsetAfter": 3,
+     "offsetBefore": 0,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "la2",
+     "label": "3 dernières heures de descendante",
+     "note": "Règle générale de la source (Vidal). Sortie du chenal.",
+     "offsetAfter": 0,
+     "offsetBefore": -3,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "descendant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     0,
+     22.5,
+     45
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     180,
+     202.5,
+     225
+    ]
+   },
+   "texte": "Embouchure ouverte au sud-ouest (déduit de la carte) : la houle de SO bute sur la barre, le vent de NE descend la rivière.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 2
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Estuaire cité (mieuxpecher) et réputé pour le bar (Vidal). Statut V2 « VÉRIFIÉ » sans date ni page : ramené à INFÉRÉ, aucune page de pêche lue en phase 5 n'attachant le bar au poste (revue contradictoire du 24 nov. 2026).",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Imitation de crabe ou souple léger le long des bordures de l'estuaire.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Règle générale de Vidal pour le bar : souvent les trois premières heures de montante et les trois dernières de descendante, à recaler sur place.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Depuis le port du Pouldu, belvédère sur l'embouchure par le sentier côtier (visorando).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Le port de marée est Le Pouldu même : l'heure de marée est celle du poste.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Vert / brun",
+    "name": "Imitation de crabe",
+    "technique": "Bars d'estuaire (Vidal, 2026).",
+    "weight": "texan 5-10 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel",
+    "name": "Souple 10 cm tête légère",
+    "technique": "Bordures du chenal.",
+    "weight": "tête 5-10 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 2,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Courants violents dans le chenal de la Laïta : la baignade y est interdite, « en raison de courants violents signalés par des panneaux ». Ne pas entrer dans l'eau à l'embouchure.",
+    "verifie_le": null,
+    "source_texte": "lorientbretagnesudtourisme.fr — Plage du Bas Pouldu (Guidel), rive est de l'embouchure"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Roches à fleur d'eau et roches sous l'eau à l'ouest de l'embouchure (Beg ar Kergouaranton) ; bancs de sable mobiles.",
+    "verifie_le": null,
+    "source_texte": "apppcc.jimdofree.com — « L'embouchure de la Laïta »"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 2,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune contrainte d'accès liée à la marée dans les consignes de la fiche : non documentée, ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "rayon_m": 500,
+    "total": 1,
+    "types": {
+     "Erosion de berges": 1
+    },
+    "plus_recent": null,
+    "evenements": [
+     {
+      "id": "10602184",
+      "type": "Erosion de berges",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": "LE POULDU . RD 152 fiche ptolémée n°344",
+      "distance_m": 286
+     }
+    ]
+   },
+   "texte": "1 mouvement de terrain recensé par le BRGM à 500 m du point : Erosion de berges (1). 1 événement sans date. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "CLOHARS-CARNOET",
+     "code_insee": "29031",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon"
+     ]
+    },
+    {
+     "commune": "GUIDEL",
+     "code_insee": "56078",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Tassements différentiels",
+      "Séisme",
+      "Phénomène lié à l'atmosphère",
+      "Tempête et grains (vent)"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour les communes à 1 km du point (le point est hors des limites communales) (CLOHARS-CARNOET, GUIDEL) : Par submersion marine ; Mouvement de terrain ; Tempête et grains (vent). Portée communale : ne décrit pas le poste."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 8 : 2 bars au plus par pêcheur et par jour, toute l'année. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 8 (golfe de Gascogne, au sud du 48ᵉ parallèle)",
+    "limite_jour": 2
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ddtm29-synthese-peche-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 2,
+   "valeur": {
+    "portee": "Finistère",
+    "application_au_poste": "à vérifier"
+   },
+   "texte": "Finistère : il est interdit « de pêcher à l'intérieur des limites administratives des ports » (synthèse de la DDTM du Finistère, avril 2026, p. 4). Le poste décrit touche un port, une digue ou une cale : avant toute recommandation, vérifier qu'il est hors de ces limites."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "L'embouchure de la Laïta, vu depuis Guidel Plages - panoramio.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:L%27embouchure_de_la_La%C3%AFta,_vu_depuis_Guidel_Plages_-_panoramio.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Gilles Guillamot",
+    "date": "17 March 2014 (original upload date)",
+    "distance_m": 287
+   }
+  ],
+  "texte": "1 photo libre de Wikimedia Commons, à 287 m au plus du point, porte le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
+ },
+ "provenance": {
+  "sources": [
+   "src-apppcc-jimdofree-com-81109f",
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-ddtm29-synthese-peche-loisir-2026",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
+   "src-legifrance-tailles-minimales-2026",
+   "src-lorientbretagnesudtourisme-fr-627c6a",
+   "src-mieuxpecher-com-ceb5da",
+   "src-peche-poissons-com-c865ad",
+   "src-visorando-com-fb7f7e",
+   "src-waterways-navship-org-f7e5bc",
+   "src-wikimedia-commons-geo"
+  ],
+  "sources_v2": [
+   "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : estuaire de la Laïta",
+   "peche-poissons.com — J.-B. Vidal (19/10/2026) : estuaires",
+   "apppcc.jimdofree.com — « L'embouchure de la Laïta »",
+   "visorando.com — « Terre et mer par le Pouldu »",
+   "waterways.navship.org — Laïta (position du port)",
+   "lorientbretagnesudtourisme.fr — Plage du Bas Pouldu (courants du chenal)"
+  ],
+  "faits_v2": [
+   {
+    "s": "mieuxpecher.com — « Coins de Pêche – Finistère SUD »",
+    "t": "« L'estuaire de de la Laïta » (sic) parmi les coins de pêche du Finistère sud."
+   },
+   {
+    "s": "peche-poissons.com — J.-B. Vidal (19/10/2026)",
+    "t": "La Laïta parmi « les estuaires bretons et notamment finistériens » « très prisés par les pêcheurs de bars notamment à vue » ; imitations de crabe « très efficaces sur les bars d'estuaire »."
+   },
+   {
+    "s": "apppcc.jimdofree.com — Association des pêcheurs plaisanciers de Clohars-Carnoët, « L'embouchure de la Laïta »",
+    "t": "« La présence d'une barre à l'embouchure de la rivière Laïta limite l'entrée au port du Pouldu » ; la barre est à l'est de l'embouchure, le chenal dans la zone rocheuse à l'ouest ; bancs et chenal « subissent des évolutions parfois rapides »."
+   },
+   {
+    "s": "visorando.com — « Terre et mer par le Pouldu »",
+    "t": "Port du Pouldu sur la Laïta, passeur vers Guidel-Plages de mai à septembre ; belvédère sur l'embouchure, mât de pilote (1847), fort, plage des Grands Sables."
+   },
+   {
+    "s": "waterways.navship.org — Laïta",
+    "t": "Port du Pouldu : 47,77255 / -3,5298."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.82,
+  "inconnus": [
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.haute",
+   "safety.coef_max",
+   "safety.acces_maree",
+   "windows.habituelles",
+   "windows.securite"
+  ],
+  "anomalies": [
+   "Position V2 à 4,7 km du toponyme officiel « la Laïta » (cours d'eau, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme)."
+  ],
+  "criteres": {
+   "QUAL-1": {
+    "ok": true,
+    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:apppcc-jimdofree-com, editeur:mieuxpecher-com ; 1 source d'éditeur non classé, non comptée"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "1 groupe d'indépendance parmi les sources lues page par page (1 sur 2) ; aucune n'attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": false,
+    "detail": "Position V2 à 4,7 km du toponyme officiel « la Laïta » (cours d'eau, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme)."
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (2 min)"
+   },
+   "QUAL-5": {
+    "ok": false,
+    "detail": "engagement 2 (jugement V2), 2 consignes sourcées sur 2, contrainte de marée non documentée, mouvements de terrain 1"
+   },
+   "QUAL-6": {
+    "ok": false,
+    "detail": "règle locale à vérifier au poste (Finistère)"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-3 : Position V2 à 4,7 km du toponyme officiel « la Laïta » (cours d'eau, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme).",
+   "QUAL-5 : engagement 2 (jugement V2), 2 consignes sourcées sur 2, contrainte de marée non documentée, mouvements de terrain 1",
+   "QUAL-6 : règle locale à vérifier au poste (Finistère)"
+  ]
+ }
+}

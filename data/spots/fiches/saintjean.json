@@ -1,0 +1,570 @@
+{
+ "id": "saintjean",
+ "name": "Saint-Jean-du-Doigt",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "carantec",
+  "empreinte_v2": "aa31a7831b1ba0d8befdcff7b6c745b935090dccdf48951751735a07cb9eb969",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
+  }
+ },
+ "coordinates": {
+  "lat": 48.7005284,
+  "lon": -3.785285,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°42,0'N 3°47,1'W) ; précision non documentée.",
+   "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Saint-Jean-du-Doigt",
+    "ecart_m": 1434
+   },
+   "texte": "Toponyme officiel « Saint-Jean-du-Doigt » (lieu-dit habité, zone d'habitation) à 1434 m de la position de la fiche."
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 48.701125,
+    "lon": -3.78297,
+    "ign": "equipement_de_transport.54954",
+    "nature": "Parking",
+    "ecart_m": 182
+   },
+   "texte": "Parking recensé par la BD TOPO de l'IGN, à 182 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Route de la plage (Plougasnou), parking gratuit (tourismebretagne).",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 3,
+   "texte": "3 min à pied (0,19 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "PLAGE + ROCHERS — Rochers à droite de la plage, Plougasnou",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Très grande plage de sable et de galets (tourismebretagne) ; rochers à droite de la plage (office de tourisme).",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 2,
+    "gratter": "texan",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Nord. Déduit de la carte.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Plage de sable et galets : peu d'eau au bord (déduit, aucune sonde).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "peu"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Grande plage, rochers sur sa droite (office de tourisme).",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Courants de plage par houle ; pas de mesure.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : Montant (BM+1 → BM+5,5) (BM +1 h → BM +5 h 30, prioritaire).",
+   "valeur": [
+    {
+     "id": "sj1",
+     "libelle": "Montant (BM+1 → BM+5,5)",
+     "reference": "BM",
+     "debut_h": 1,
+     "fin_h": 5.5,
+     "priorite": "prime",
+     "type_v2": "montant",
+     "note": "Le flot couvre le pied des rochers de droite."
+    }
+   ]
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la pleine mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée descendante) : Début de descendant (PM +0 h → PM +2 h, bonne).",
+   "valeur": [
+    {
+     "id": "sj2",
+     "libelle": "Début de descendant",
+     "reference": "PM",
+     "debut_h": 0,
+     "fin_h": 2,
+     "priorite": "bon",
+     "type_v2": "descendant",
+     "note": "Sortie des rochers."
+    }
+   ]
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    35,
+    50,
+    80,
+    100
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "primel",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Plage de la côte nord : les rochers de droite sont le poste.",
+   "lifeHack": "Note chaque sortie dans le journal : c'est le seul moyen de confirmer l'heure de ce poste.",
+   "montantOuDescendant": "Aucune source propre au poste : flot qui couvre le pied des rochers, comme sur les autres plages du guide.",
+   "typeHeure": "FLOT",
+   "windows": [
+    {
+     "id": "sj1",
+     "label": "Montant (BM+1 → BM+5,5)",
+     "note": "Le flot couvre le pied des rochers de droite.",
+     "offsetAfter": 5.5,
+     "offsetBefore": 1,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "sj2",
+     "label": "Début de descendant",
+     "note": "Sortie des rochers.",
+     "offsetAfter": 2,
+     "offsetBefore": 0,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "descendant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     135,
+     157.5,
+     180,
+     202.5
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     315,
+     337.5,
+     0,
+     22.5
+    ]
+   },
+   "texte": "Grande plage de la côte nord ouverte sur la Manche : houle et vent de nord de face. Orientation déduite de la carte.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.8
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "« Très bon lieu du bar » selon un pêcheur local (office de tourisme) — seule source. Statut V2 « VÉRIFIÉ » sans date ni page : ramené à INFÉRÉ, aucune page de pêche lue en phase 5 n'attachant le bar au poste (revue contradictoire du 24 nov. 2026).",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Souple plombé sur le sable ; texan ou weightless le long des rochers.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Le poste est la droite de la plage, côté rochers (office de tourisme).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Une seule source pour ce spot : à confirmer par le journal de pêche.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Note chaque sortie dans le journal : c'est le seul moyen de confirmer l'heure de ce poste.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Blanc / naturel",
+    "name": "Souple 12 cm tête plombée",
+    "technique": "Sur le sable devant les rochers.",
+    "weight": "tête 10-15 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / sardine",
+    "name": "Stickbait 110-130 mm",
+    "technique": "Mer calme, aube ou crépuscule.",
+    "weight": "14-27 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.8,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune contrainte d'accès liée à la marée dans les consignes de la fiche : non documentée, ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "rayon_m": 500,
+    "total": 2,
+    "types": {
+     "Chute de blocs / Eboulement": 2
+    },
+    "plus_recent": "1999-12-01",
+    "evenements": [
+     {
+      "id": "62900213",
+      "type": "Chute de blocs / Eboulement",
+      "date": "1995-01-01",
+      "fiabilite": "Fort",
+      "precision": "Décamètre",
+      "lieu": null,
+      "distance_m": 87
+     },
+     {
+      "id": "62900214",
+      "type": "Chute de blocs / Eboulement",
+      "date": "1999-12-01",
+      "fiabilite": "Fort",
+      "precision": "Décamètre",
+      "lieu": null,
+      "distance_m": 446
+     }
+    ]
+   },
+   "texte": "2 mouvements de terrain recensés par le BRGM à 500 m du point : Chute de blocs / Eboulement (2). Le plus récent daté : 1999 ; Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "PLOUGASNOU",
+     "code_insee": "29188",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (PLOUGASNOU) : Par submersion marine ; Mouvement de terrain. Portée communale : ne décrit pas le poste."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 7 : du 1er février au 31 mars, pêche en relâcher seulement, à la canne ou à la ligne à main ; en janvier et du 1er avril au 31 décembre, 3 bars au plus par pêcheur et par jour. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 7 (Manche, au nord du 48ᵉ parallèle)",
+    "limite_jour": 3,
+    "relacher_seul": {
+     "du": "02-01",
+     "au": "03-31"
+    }
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v3",
+  "verifie_le": "2026-11-23",
+  "raison": "Aucune photo géolocalisée de Wikimedia Commons à 400 m du point (inventaire du 2026-11-23)."
+ },
+ "provenance": {
+  "sources": [
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-baiedemorlaix-wordpress-com-baie-5c25ce",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
+   "src-legifrance-tailles-minimales-2026",
+   "src-tourismebretagne-com-f3ec4a"
+  ],
+  "sources_v2": [
+   "baiedemorlaix.wordpress.com / baiedemorlaix.bzh — office de tourisme (pêcheur local de Plougasnou)",
+   "tourismebretagne.com — Plage de Plougasnou – Saint-Jean-du-Doigt"
+  ],
+  "faits_v2": [
+   {
+    "s": "baiedemorlaix.wordpress.com — office de tourisme (11/07/2014) · baiedemorlaix.bzh",
+    "t": "« À droite de la plage de St-Jean-du-Doigt (très bon lieu du bar). » ; La Roche Large à Saint-Jean-du-Doigt, lieu « privilégié pour le surfcasting »."
+   },
+   {
+    "s": "tourismebretagne.com — Plage de Plougasnou – Saint-Jean-du-Doigt (48,7005284 / -3,785285)",
+    "t": "Très grande plage de sable et de galets entre le centre de Plougasnou et le village de Saint-Jean-du-Doigt ; non surveillée ; parking gratuit ; connue pour la pêche à pied."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.78,
+  "inconnus": [
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.haute",
+   "safety.coef_max",
+   "safety.acces_maree",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": [],
+  "criteres": {
+   "QUAL-1": {
+    "ok": false,
+    "detail": "0 groupe d'indépendance halieutique (famille 1 à 4)"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "0 groupe d'indépendance parmi les sources lues page par page (0 sur 0) ; aucune n'attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": false,
+    "detail": "position contrôlée par un toponyme qui n'est pas un lieu naturel (lieu-dit habité, zone d'habitation), pas par le poste"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (3 min)"
+   },
+   "QUAL-5": {
+    "ok": false,
+    "detail": "engagement 1 (jugement V2), 0 consigne sourcée sur 0, contrainte de marée non documentée, mouvements de terrain 2"
+   },
+   "QUAL-6": {
+    "ok": true,
+    "detail": "réglementation nationale ; règles locales du département recherchées, aucune à vérifier au poste"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4)",
+   "QUAL-3 : position contrôlée par un toponyme qui n'est pas un lieu naturel (lieu-dit habité, zone d'habitation), pas par le poste",
+   "QUAL-5 : engagement 1 (jugement V2), 0 consigne sourcée sur 0, contrainte de marée non documentée, mouvements de terrain 2"
+  ]
+ }
+}

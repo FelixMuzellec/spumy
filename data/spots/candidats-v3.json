@@ -1,0 +1,408 @@
+{
+ "//": "Candidats de la passe exhaustive (5.12, 23 nov. 2026) : postes des quatre zones sans fiche, nommés par au moins deux éditeurs indépendants dans des pages lues. Les positions viennent du géocodage IGN (collecte CI), jamais des sources de pêche. Le toponyme retenu (nom exact et commune) est choisi à la main parmi les résultats de l'IGN : Querqueville n'a pas de toponyme naturel, le port sert de repère (précision 1 km) ; au cap Lévi, le phare marque la pointe.",
+ "candidats": [
+  {
+   "id": "percho",
+   "nom": "Pointe du Percho",
+   "requete": "Pointe du Percho",
+   "departement": "56",
+   "milieu": "pointe rocheuse de côte exposée (côte sauvage de Quiberon)",
+   "toponyme": "Pointe du Percho",
+   "commune": "Saint-Pierre-Quiberon"
+  },
+  {
+   "id": "conguel",
+   "nom": "Pointe du Conguel",
+   "requete": "Pointe du Conguel",
+   "departement": "56",
+   "milieu": "pointe rocheuse au sud de la presqu'île de Quiberon",
+   "toponyme": "Pointe du Conguel",
+   "commune": "Quiberon"
+  },
+  {
+   "id": "saintcolomban",
+   "nom": "Pointe de Saint-Colomban",
+   "requete": "Pointe de Saint-Colomban",
+   "departement": "56",
+   "milieu": "pointe rocheuse (Carnac)",
+   "toponyme": "Pointe Saint-Colomban",
+   "commune": "Carnac"
+  },
+  {
+   "id": "plougrescant",
+   "nom": "Pointe du Château (Plougrescant)",
+   "requete": "Pointe du Château",
+   "departement": "22",
+   "milieu": "pointe rocheuse de la côte du Trégor",
+   "toponyme": "Pointe du Château",
+   "commune": "Plougrescant"
+  },
+  {
+   "id": "querqueville",
+   "nom": "Pointe et digue de Querqueville",
+   "requete": "Querqueville",
+   "departement": "50",
+   "milieu": "pointe et digue de la rade de Cherbourg",
+   "toponyme": "Port de Querqueville",
+   "commune": "Cherbourg-en-Cotentin"
+  },
+  {
+   "id": "caplevi",
+   "nom": "Cap Lévi",
+   "requete": "Cap Lévi",
+   "departement": "50",
+   "milieu": "cap rocheux du nord-est du Cotentin (Fermanville)",
+   "toponyme": "Phare du Cap Lévi",
+   "commune": "Fermanville"
+  },
+  {
+   "id": "berchis",
+   "nom": "Pointe du Berchis",
+   "requete": "Pointe du Berchis",
+   "departement": "56",
+   "milieu": "pointe rocheuse du golfe du Morbihan (Larmor-Baden)",
+   "sans_position": "aucun toponyme IGN de ce nom ni de ses variantes (géocodage du 23 nov. 2026) : pas de fiche tant que la position n'est pas sourcée",
+   "autres_requetes": [
+    "Le Berchis",
+    "Berchis"
+   ]
+  },
+  {
+   "id": "begenaud",
+   "nom": "Pointe de Beg en Aud",
+   "requete": "Beg en Aud",
+   "departement": "56",
+   "milieu": "pointe rocheuse (Saint-Pierre-Quiberon)",
+   "toponyme": "Tumulus de Beg-en-Aud",
+   "commune": "Saint-Pierre-Quiberon"
+  },
+  {
+   "id": "toulhars",
+   "nom": "Larmor-Plage : Toulhars",
+   "requete": "Toulhars",
+   "departement": "56",
+   "milieu": "plage et roches de l'entrée de la rade de Lorient",
+   "toponyme": "Toulhars",
+   "commune": "Larmor-Plage"
+  },
+  {
+   "id": "bihit",
+   "nom": "Pointe de Bihit",
+   "requete": "Pointe de Bihit",
+   "departement": "22",
+   "milieu": "pointe rocheuse (Trébeurden)",
+   "toponyme": "Pointe de Bihit",
+   "commune": "Trébeurden"
+  },
+  {
+   "id": "dourven",
+   "nom": "Pointe du Dourven",
+   "requete": "Pointe du Dourven",
+   "departement": "22",
+   "milieu": "pointe rocheuse de la baie de Lannion (Trédrez-Locquémeau)",
+   "autres_requetes": [
+    "Le Dourven",
+    "Dourven"
+   ],
+   "toponyme": "an Dourven",
+   "commune": "Trédrez-Locquémeau",
+   "graphie_mieuxpecher": "« Pointe du Dourvin » (graphie de mieuxpecher.com) : la règle de nommage ne la rapproche pas de « Dourven » ; une seule source de pêche compte pour QUAL-1",
+   "non_retenu": "Règle d'entrée non démontrée (revue contradictoire du 24 nov. 2026) : mieuxpecher.com écrit « Pointe du Dourvin » ; selon la règle de nommage stricte, un seul éditeur de pêche (carnet-de-peche.com) nomme le poste. Fiche retirée ; même règle que la pointe de la Garde Guérin (« Guarde »)."
+  },
+  {
+   "id": "brehec",
+   "nom": "Bréhec",
+   "requete": "Bréhec",
+   "departement": "22",
+   "milieu": "anse et plage de la côte du Goëlo (Plouha)",
+   "toponyme": "Bréhec",
+   "commune": "Plouha"
+  },
+  {
+   "id": "capfrehel",
+   "nom": "Cap Fréhel",
+   "requete": "Cap Fréhel",
+   "departement": "22",
+   "milieu": "cap rocheux à falaises",
+   "toponyme": "Cap Fréhel",
+   "commune": "Plévenon"
+  },
+  {
+   "id": "saintvaast",
+   "nom": "Saint-Vaast-la-Hougue : la Hougue",
+   "requete": "La Hougue",
+   "departement": "50",
+   "milieu": "presqu'île, tour et digue de la Hougue",
+   "toponyme": "la Hougue",
+   "commune": "Saint-Vaast-la-Hougue",
+   "non_retenu": "Règle d'entrée non démontrée (revue contradictoire du 24 nov. 2026) : mieuxpecher.com dit « Tour Vauban près des parcs » sans nommer la Hougue (deux tours Vauban : la Hougue et Tatihou) et le forum dit « St Vaast » ; seul carnet-de-peche.com nomme la digue de la Hougue. Fiche retirée."
+  },
+  {
+   "id": "gattemare",
+   "nom": "Anse de Gattemare",
+   "requete": "Gattemare",
+   "departement": "50",
+   "milieu": "plage de sable du nord-est du Cotentin (Gatteville, Gouberville)",
+   "toponyme": "Étang de Gattemare",
+   "commune": "Gatteville-le-Phare"
+  },
+  {
+   "id": "grandbe",
+   "nom": "Saint-Malo : Grand Bé et Petit Bé",
+   "requete": "Grand Bé",
+   "departement": "35",
+   "milieu": "îlots rocheux reliés à la côte à basse mer (embouchure de la Rance)",
+   "toponyme": "le Grand Bé",
+   "commune": "Saint-Malo"
+  },
+  {
+   "id": "rosaires",
+   "nom": "Plage des Rosaires et pointe de Pordic",
+   "requete": "Plage des Rosaires",
+   "departement": "22",
+   "milieu": "plage et pointe rocheuse de la baie de Saint-Brieuc",
+   "autres_requetes": [
+    "Les Rosaires",
+    "Rosaires",
+    "Pointe de Pordic"
+   ],
+   "toponyme": "les Rosaires",
+   "commune": "Plérin",
+   "categorie": "camping"
+  },
+  {
+   "id": "etel",
+   "nom": "Étel : embouchure et estuaire",
+   "requete": "Barre d'Étel",
+   "departement": "56",
+   "milieu": "embouchure de la ria d'Étel et sa barre",
+   "autres_requetes": [
+    "Barre d'Etel",
+    "Embouchure de la rivière d'Étel",
+    "Plage de Kervégant"
+   ],
+   "sans_position": "aucun toponyme IGN de ce nom ni de ses variantes (géocodage du 23 nov. 2026) : pas de fiche tant que la position n'est pas sourcée"
+  },
+  {
+   "id": "perherel",
+   "nom": "Pointe de Perhérel",
+   "requete": "Pointe de Perhérel",
+   "departement": "29",
+   "milieu": "pointe rocheuse de la baie de Morlaix (Plougasnou)",
+   "toponyme": "Pointe de Perhérel",
+   "commune": "Plougasnou"
+  },
+  {
+   "id": "ilepercee",
+   "nom": "Île Percée (Moëlan-sur-Mer)",
+   "requete": "Île Percée",
+   "departement": "29",
+   "milieu": "îlot rocheux percé devant la plage de Trénez",
+   "toponyme": "Île Percée",
+   "commune": "Moëlan-sur-Mer",
+   "categorie": "ile"
+  },
+  {
+   "id": "meinga",
+   "nom": "Pointe du Meinga",
+   "requete": "Pointe du Meinga",
+   "departement": "35",
+   "milieu": "pointe rocheuse de 900 m (Saint-Coulomb)",
+   "toponyme": "Pointe du Meinga",
+   "commune": "Saint-Coulomb"
+  },
+  {
+   "id": "mouliere",
+   "nom": "Pointe de la Moulière",
+   "requete": "Pointe de la Moulière",
+   "departement": "35",
+   "milieu": "pointe rocheuse au bord de la plage du Saussaye (Cancale)",
+   "toponyme": "Pointe de la Moulière",
+   "commune": "Cancale"
+  },
+  {
+   "id": "decolle",
+   "nom": "Pointe du Décollé",
+   "requete": "Pointe du Décollé",
+   "departement": "35",
+   "milieu": "pointe rocheuse (Saint-Lunaire)",
+   "autres_requetes": [
+    "Pointe du Décolle"
+   ],
+   "toponyme": "Pointe du Décollé",
+   "commune": "Saint-Lunaire"
+  },
+  {
+   "id": "varde",
+   "nom": "Pointe de la Varde",
+   "requete": "Pointe de la Varde",
+   "departement": "35",
+   "milieu": "pointe rocheuse (Saint-Malo, Rothéneuf)",
+   "toponyme": "Pointe de la Varde",
+   "commune": "Saint-Malo"
+  },
+  {
+   "id": "becdevir",
+   "nom": "Pointe du Bec de Vir",
+   "requete": "Pointe du Bec de Vir",
+   "departement": "22",
+   "milieu": "pointe rocheuse de la côte du Goëlo (Tréveneuc)",
+   "autres_requetes": [
+    "Bec de Vir"
+   ],
+   "toponyme": "Pointe du Bec de Vir",
+   "commune": "Tréveneuc"
+  },
+  {
+   "id": "sevignes",
+   "nom": "Anse des Sévignés",
+   "requete": "Anse des Sévignés",
+   "departement": "22",
+   "milieu": "anse au pied des falaises du cap Fréhel (Plévenon)",
+   "autres_requetes": [
+    "Les Sévignés"
+   ],
+   "sans_position": "aucun toponyme IGN de ce nom ni de ses variantes dans le département (géocodage du 23 nov. 2026) : pas de fiche tant que la position n'est pas sourcée"
+  },
+  {
+   "id": "latte",
+   "nom": "Plévenon : pointe de la Latte",
+   "requete": "Pointe de la Latte",
+   "departement": "22",
+   "milieu": "pointe rocheuse sous le fort la Latte",
+   "autres_requetes": [
+    "Fort la Latte",
+    "Fort de la Latte"
+   ],
+   "toponyme": "Pointe de la Latte",
+   "commune": "Plévenon"
+  },
+  {
+   "id": "gwinzegal",
+   "nom": "Plouha : Gwin Zégal",
+   "requete": "Gwin Zégal",
+   "departement": "22",
+   "milieu": "presqu'île rocheuse et port-abri (Plouha)",
+   "autres_requetes": [
+    "Pointe de Gwin Zégal",
+    "Port de Gwin Zégal"
+   ],
+   "toponyme": "Gwin Zégal",
+   "commune": "Plouha"
+  },
+  {
+   "id": "sehar",
+   "nom": "Pointe de Séhar",
+   "requete": "Pointe de Séhar",
+   "departement": "22",
+   "milieu": "pointe rocheuse de la baie de Lannion (Trédrez-Locquémeau)",
+   "autres_requetes": [
+    "Séhar"
+   ],
+   "toponyme": "Pointe de Séhar",
+   "commune": "Trédrez-Locquémeau"
+  },
+  {
+   "id": "penvins",
+   "nom": "Pointe de Penvins",
+   "requete": "Pointe de Penvins",
+   "departement": "56",
+   "milieu": "éperon rocheux entre la plage et la sortie de la rivière de Pénerf (Sarzeau)",
+   "sans_position": "aucun toponyme IGN de ce nom ni de ses variantes dans le département (géocodage du 23 nov. 2026) : pas de fiche tant que la position n'est pas sourcée"
+  },
+  {
+   "id": "chatsgroix",
+   "nom": "Groix : pointe des Chats",
+   "requete": "Pointe des Chats",
+   "departement": "56",
+   "milieu": "pointe rocheuse du sud-est de l'île de Groix",
+   "toponyme": "Phare de la Pointe des Chats",
+   "commune": "Groix"
+  },
+  {
+   "id": "poulains",
+   "nom": "Belle-Île : pointe des Poulains",
+   "requete": "Pointe des Poulains",
+   "departement": "56",
+   "milieu": "pointe rocheuse du nord-ouest de Belle-Île (Sauzon)",
+   "toponyme": "Pointe des Poulains",
+   "commune": "Sauzon"
+  },
+  {
+   "id": "merrien",
+   "nom": "Moëlan-sur-Mer : embouchure du Merrien",
+   "requete": "Merrien",
+   "departement": "29",
+   "milieu": "embouchure de la ria de Merrien",
+   "autres_requetes": [
+    "Port de Merrien",
+    "Rivière de Merrien"
+   ],
+   "toponyme": "Merrien",
+   "commune": "Moëlan-sur-Mer"
+  },
+  {
+   "id": "begnafry",
+   "nom": "Pointe de Beg an Fry",
+   "requete": "Beg an Fry",
+   "departement": "29",
+   "milieu": "pointe rocheuse (Guimaëc)",
+   "autres_requetes": [
+    "Pointe de Beg an Fry"
+   ],
+   "toponyme": "Beg an Fry",
+   "commune": "Guimaëc"
+  },
+  {
+   "id": "saire",
+   "nom": "Pointe de Saire",
+   "requete": "Pointe de Saire",
+   "departement": "50",
+   "milieu": "pointe rocheuse du Val de Saire (Réville)",
+   "toponyme": "Pointe de Saire",
+   "commune": "Réville"
+  },
+  {
+   "id": "neville",
+   "nom": "Pointe de Néville",
+   "requete": "Pointe de Néville",
+   "departement": "50",
+   "milieu": "pointe rocheuse isolée dans un cordon de plage (Néville-sur-Mer)",
+   "sans_position": "aucun toponyme IGN de ce nom ni de ses variantes dans le département (géocodage du 23 nov. 2026) : pas de fiche tant que la position n'est pas sourcée"
+  },
+  {
+   "id": "loge",
+   "nom": "Cosqueville : pointe de la Loge",
+   "requete": "Pointe de la Loge",
+   "departement": "50",
+   "milieu": "éperon rocheux du nord du Cotentin (Cosqueville)",
+   "toponyme": "Pointe de la Loge",
+   "commune": "Vicq-sur-Mer",
+   "note_position": "trois « Pointe de la Loge » à l'IGN dans la Manche : celle de Vicq-sur-Mer (commune nouvelle qui réunit Cosqueville) est retenue, comme l'ordre de la liste de mieuxpecher.com (entre Rethoville et le cap Lévi) et la commune de lechasseursousmarin.com"
+  },
+  {
+   "id": "gatteville",
+   "nom": "Phare de Gatteville",
+   "requete": "Phare de Gatteville",
+   "departement": "50",
+   "milieu": "pointe de Barfleur, au pied du phare",
+   "autres_requetes": [
+    "Pointe de Barfleur"
+   ],
+   "toponyme": "Phare de Gatteville",
+   "commune": "Gatteville-le-Phare"
+  },
+  {
+   "id": "tatihou",
+   "nom": "Saint-Vaast-la-Hougue : île Tatihou",
+   "requete": "Île de Tatihou",
+   "departement": "50",
+   "milieu": "île reliée à la côte à basse mer",
+   "autres_requetes": [
+    "Tatihou"
+   ],
+   "toponyme": "Île Tatihou",
+   "commune": "Saint-Vaast-la-Hougue"
+  }
+ ]
+}

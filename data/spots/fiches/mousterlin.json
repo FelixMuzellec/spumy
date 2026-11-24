@@ -1,0 +1,633 @@
+{
+ "id": "mousterlin",
+ "name": "Pointe de Mousterlin",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "concarneau",
+  "empreinte_v2": "4cf59679d3b0323f90797704b45c32b229464d6a553a1ed55d9c933a81599486",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 47.844487,
+  "lon": -4.040351,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (47°50,7'N 4°02,4'W) ; précision non documentée.",
+   "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Pointe de Mousterlin",
+    "ecart_m": 16
+   },
+   "texte": "Toponyme officiel « Pointe de Mousterlin » (cap, élément topographique ou forestier, détail orographique) à 16 m de la position de la fiche."
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 47.850912,
+    "lon": -4.04616,
+    "ign": "equipement_de_transport.76438",
+    "nature": "Parking touristique",
+    "ecart_m": 836
+   },
+   "texte": "Parking touristique recensé par la BD TOPO de l'IGN, à 836 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Parking de la pointe de Mousterlin, à Fouesnant, puis sentier côtier (carnet-de-peche.com).",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 14,
+   "texte": "14 min à pied (0,89 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "POINTE + PLATIER ROCHEUX — Platier rocheux, Fouesnant",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Dunes, marais et « un vaste platier rocheux » qui découvre largement dès le coefficient 75 ; sable vers Bénodet (carnet-de-peche.com).",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 3,
+    "gratter": "non",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Sud à sud-ouest. Déduit de la carte.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Platier qui « découvre très loin aux grandes marées » (carnet-de-peche.com) : très peu d'eau à marée basse.",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "estran"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Pointe, platier, dunes et marais ; tombolo (carnet-de-peche, visorando).",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pas de mesure.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : Début de montante (BM → BM+2,5) (BM +0 h → BM +2 h 30, prioritaire) ; Montant (BM +2 h 30 → BM +5 h, bonne).",
+   "valeur": [
+    {
+     "id": "mo1",
+     "libelle": "Début de montante (BM → BM+2,5)",
+     "reference": "BM",
+     "debut_h": 0,
+     "fin_h": 2.5,
+     "priorite": "prime",
+     "type_v2": "montant",
+     "note": "Bordures du platier, souple léger ou surface. Repartir avant d'être coupé."
+    },
+    {
+     "id": "mo2",
+     "libelle": "Montant",
+     "reference": "BM",
+     "debut_h": 2.5,
+     "fin_h": 5,
+     "priorite": "bon",
+     "type_v2": "montant",
+     "note": "Depuis le haut de l'estran, la mer couvre le platier."
+    }
+   ]
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la pleine mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre marée descendante dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    30,
+    45,
+    80,
+    100
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "benodet",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Le platier découvre loin : le début du flot ramène le bar sur ses bordures, puis coupe le retour.",
+   "lifeHack": "Par grand coefficient, le platier découvre « très loin » : la marche du retour compte dans le créneau.",
+   "montantOuDescendant": "« Les bordures du platier au début de la montante » (carnet-de-peche.com).",
+   "typeHeure": "DÉBUT DE MONTANTE SUR LE PLATIER",
+   "windows": [
+    {
+     "id": "mo1",
+     "label": "Début de montante (BM → BM+2,5)",
+     "note": "Bordures du platier, souple léger ou surface. Repartir avant d'être coupé.",
+     "offsetAfter": 2.5,
+     "offsetBefore": 0,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "mo2",
+     "label": "Montant",
+     "note": "Depuis le haut de l'estran, la mer couvre le platier.",
+     "offsetAfter": 5,
+     "offsetBefore": 2.5,
+     "phase": "bm",
+     "priority": "bon",
+     "tidePhaseType": "montant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     0,
+     22.5,
+     45
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     180,
+     202.5,
+     225
+    ]
+   },
+   "texte": "Pointe sud de Fouesnant, ouverte au sud et au sud-ouest (déduit de la carte) : houle de SO de face, vent de NE de dos.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.6
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "VÉRIFIÉ",
+    "origine": "v2",
+    "texte": "« Réputé pour le bar et le congre » (carnet-de-peche) ; « renommée pour la pêche du bar et du congre », pêcheurs à l'exutoire des eaux pluviales (chtipecheur) ; cité par mieuxpecher.",
+    "verifie_le": "2026-11-23",
+    "sources": [
+     "src-carnet-de-peche-com-f09448"
+    ]
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Souple léger ou surface sur les bordures du platier ; pas de pêche au fond sur la roche.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "« Les bordures du platier au début de la montante » (carnet-de-peche.com).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Toujours garder une porte de sortie : la mer qui monte coupe le retour.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Par grand coefficient, le platier découvre « très loin » : la marche du retour compte dans le créneau.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel",
+    "name": "Souple 10-12 cm weightless ou tête légère",
+    "technique": "Bordures du platier au début du flot.",
+    "weight": "sans plomb à 5 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / sardine",
+    "name": "Stickbait 110-130 mm",
+    "technique": "Mer calme, aube ou crépuscule.",
+    "weight": "14-27 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 2,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Le platier découvre très loin aux grandes marées et la mer qui monte coupe le retour : garder une porte de sortie.",
+    "verifie_le": null,
+    "source_texte": "carnet-de-peche.com — Pointe de Mousterlin (le platier « découvre largement dès les coefficients de 75 »)",
+    "quand": {
+     "coefAbove": 75
+    }
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Vives et raies possibles sur le sable : regarder où l'on marche.",
+    "verifie_le": null,
+    "source_texte": "fishipedia.fr — Plage de Mousterlin"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.6,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    "isolement_au_flot"
+   ],
+   "verifie_le": null,
+   "texte": "Le flot peut couper le retour. Classement relu à la main depuis la consigne de la fiche : « Le platier découvre très loin aux grandes marées et la mer qui monte coupe le retour : garder une porte de sortie. »",
+   "source_texte": "carnet-de-peche.com — Pointe de Mousterlin (le platier « découvre largement dès les coefficients de 75 »)"
+  },
+  "mouvements_terrain": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "rayon_m": 500,
+    "total": 1,
+    "types": {
+     "Erosion de berges": 1
+    },
+    "plus_recent": "2006-01-01",
+    "evenements": [
+     {
+      "id": "62900226",
+      "type": "Erosion de berges",
+      "date": "2006-01-01",
+      "fiabilite": "Fort",
+      "precision": "Décamètre",
+      "lieu": "Mousterlin Ouest route de la pointe",
+      "distance_m": 240
+     }
+    ]
+   },
+   "texte": "1 mouvement de terrain recensé par le BRGM à 500 m du point : Erosion de berges (1). Le plus récent daté : 2006 ; Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "FOUESNANT",
+     "code_insee": "29058",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (FOUESNANT) : Par submersion marine ; Mouvement de terrain. Portée communale : ne décrit pas le poste."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 8 : 2 bars au plus par pêcheur et par jour, toute l'année. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 8 (golfe de Gascogne, au sud du 48ᵉ parallèle)",
+    "limite_jour": 2
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Contrainte de marée documentée (le flot peut couper le retour), mais aucune durée praticable n'est sourcée : aucun intervalle HH:MM ne peut être calculé (§ 7.6). Le spot ne peut pas être présenté comme praticable sans fenêtre documentée."
+  }
+ },
+ "photos": {
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Pointe de Mousterlin (panorama à 360°) - panoramio.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Mousterlin_(panorama_%C3%A0_360%C2%B0)_-_panoramio.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "superp1errot",
+    "date": "Taken on 5 April 2011",
+    "distance_m": 17
+   },
+   {
+    "titre": "W4724 Fouesnant Mousterlin 23460XA2.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:W4724_Fouesnant_Mousterlin_23460XA2.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Llann Wé²",
+    "date": "2024-06-02 18:18:21",
+    "distance_m": 135
+   },
+   {
+    "titre": "Aplysie à la Pointe de Mousterlin, en Bretagne (Ifremer 00959-107117 - 55914).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Aplysie_%C3%A0_la_Pointe_de_Mousterlin,_en_Bretagne_(Ifremer_00959-107117_-_55914).jpg",
+    "licence": "CC BY 4.0",
+    "auteur": "Gregory Rocher (IFREMER, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France)",
+    "date": "Taken on 30 May 2002",
+    "distance_m": 201
+   },
+   {
+    "titre": "Ponte d'aplysie à la Pointe de Mousterlin, en Bretagne (Ifremer 00959-107122).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Ponte_d%27aplysie_%C3%A0_la_Pointe_de_Mousterlin,_en_Bretagne_(Ifremer_00959-107122).jpg",
+    "licence": "CC BY 4.0",
+    "auteur": "Gregory Rocher (IFREMER, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France)",
+    "date": "Taken on 30 May 2002",
+    "distance_m": 201
+   }
+  ],
+  "texte": "4 photos libres de Wikimedia Commons, à 201 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
+ },
+ "provenance": {
+  "sources": [
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-carnet-de-peche-com-f09448",
+   "src-chtipecheur-com-70a00d",
+   "src-fishipedia-fr-a4e273",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
+   "src-lcsm-pointe-de-mousterlin",
+   "src-legifrance-tailles-minimales-2026",
+   "src-mieuxpecher-com-e73489",
+   "src-visorando-com-4845a1",
+   "src-wikimedia-commons-geo"
+  ],
+  "sources_v2": [
+   "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : pointe de Mousterlin",
+   "carnet-de-peche.com — Pointe de Mousterlin",
+   "fishipedia.fr — Plage de Mousterlin",
+   "visorando.com — « Tour de Bénodet »",
+   "chtipecheur.com — « Spots de pêche de Bretagne » : pointe de Mousterlin"
+  ],
+  "faits_v2": [
+   {
+    "s": "mieuxpecher.com — « Coins de Pêche – Finistère SUD »",
+    "t": "« Pointe de Mousterlin à Fouesnant » parmi les coins de pêche du Finistère sud."
+   },
+   {
+    "s": "chtipecheur.com — « Spots de pêche de Bretagne » (JC59110, 06/03/2022)",
+    "t": "« La pointe de Mousterlin est renommée pour la pêche du bar et du congre » ; « c'est à l'exutoire des eaux pluviales que l'on retrouve les pêcheurs » (47°50'52\"N 4°02'08\"O)."
+   },
+   {
+    "s": "carnet-de-peche.com — Pointe de Mousterlin (page sans auteur)",
+    "t": "« Le poste est réputé pour le bar et le congre » ; leurres sur « les bordures du platier au début de la montante » ; « le sable qui part vers Bénodet donne du terrain au surfcasting »."
+   },
+   {
+    "s": "carnet-de-peche.com — Pointe de Mousterlin",
+    "t": "« Le platier découvre très loin aux grandes marées et la remontée d'eau coupe le retour » : « garde toujours une porte de sortie »."
+   },
+   {
+    "s": "fishipedia.fr — Plage de Mousterlin (47,848434 / -4,0458173)",
+    "t": "Plage de Mousterlin : marée importante, baignade non surveillée ; vives et raies possibles."
+   },
+   {
+    "s": "visorando.com — « Tour de Bénodet »",
+    "t": "Le tombolo de Mousterlin se voit depuis la pointe de Groasguen, à Bénodet."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "TOP_TIER",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.81,
+  "inconnus": [
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "windows.habituelles",
+   "windows.securite"
+  ],
+  "anomalies": [],
+  "criteres": {
+   "QUAL-1": {
+    "ok": true,
+    "detail": "4 groupes d'indépendance halieutique (famille 1 à 4) : editeur:carnet-de-peche-com, editeur:chtipecheur-com, editeur:lechasseursousmarin-com, editeur:mieuxpecher-com"
+   },
+   "QUAL-2": {
+    "ok": true,
+    "detail": "3 groupes d'indépendance parmi les sources lues page par page (3 sur 4) ; au moins une attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": true,
+    "detail": "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (14 min)"
+   },
+   "QUAL-5": {
+    "ok": true,
+    "detail": "engagement 2 (jugement V2), 2 consignes sourcées sur 2, contrainte de marée isolement_au_flot, mouvements de terrain 1"
+   },
+   "QUAL-6": {
+    "ok": true,
+    "detail": "réglementation nationale ; règles locales du département recherchées, aucune à vérifier au poste"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": []
+ }
+}

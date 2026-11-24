@@ -1,0 +1,541 @@
+{
+ "id": "kerjean",
+ "name": "Pointe de Kerjean",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "concarneau",
+  "empreinte_v2": "5be143a688e101743949f40647eec509027902cfb5e14458939fa8e0aeb99f3d",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 47.793678,
+  "lon": -3.828032,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (47°47,6'N 3°49,7'W) ; précision non documentée.",
+   "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Pointe de Kerjean",
+    "ecart_m": 4
+   },
+   "texte": "Toponyme officiel « Pointe de Kerjean » (cap, élément topographique ou forestier, détail orographique) à 4 m de la position de la fiche."
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 47.796964,
+    "lon": -3.826901,
+    "ign": "equipement_de_transport.31441",
+    "nature": "Parking touristique",
+    "ecart_m": 375
+   },
+   "texte": "Parking touristique recensé par la BD TOPO de l'IGN, à 375 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pointe de Kerjean, à Trégunc, par le sentier côtier (GR34) ; plage de Don à côté.",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 7,
+   "texte": "7 min à pied (0,44 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "POINTE ROCHEUSE — Pointe rocheuse et plage de Don, Trégunc",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pointe rocheuse (office de tourisme) entre les plages de Kersidan et de Don (déduit de la carte).",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 3,
+    "gratter": "non",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Sud. Déduit de la carte.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Roches de pointe : profondeur non décrite (déduit, aucune sonde).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "peu"
+   }
+  },
+  "structures": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pointe entre deux plages (déduit de la carte).",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Eau brassée par le courant ou les vagues sur les pointes (office de tourisme) ; heure non estimée.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : Montant (BM+1 → BM+5) (BM +1 h → BM +5 h, prioritaire).",
+   "valeur": [
+    {
+     "id": "kj1",
+     "libelle": "Montant (BM+1 → BM+5)",
+     "reference": "BM",
+     "debut_h": 1,
+     "fin_h": 5,
+     "priorite": "prime",
+     "type_v2": "montant",
+     "note": "Conseil de la source : montante, aube ou crépuscule. Stickbait dans l'écume."
+    }
+   ]
+  },
+  "haute": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (autour de la pleine mer) : Pleine mer (PM−1 → PM+1) (PM −1 h → PM +1 h, bonne).",
+   "valeur": [
+    {
+     "id": "kj2",
+     "libelle": "Pleine mer (PM−1 → PM+1)",
+     "reference": "PM",
+     "debut_h": -1,
+     "fin_h": 1,
+     "priorite": "bon",
+     "type_v2": "variable",
+     "note": "Roches couvertes, depuis un poste haut."
+    }
+   ]
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre marée descendante dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    30,
+    45,
+    85,
+    105
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "concarneau",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Pointe rocheuse : l'eau brassée et la lumière faible font le poste.",
+   "lifeHack": "Vise un montant qui tombe au lever ou au coucher du soleil : c'est la règle de la source.",
+   "montantOuDescendant": "Conseil de l'office de tourisme pour cette pointe et ses voisines : marée montante, au lever ou au coucher du soleil.",
+   "typeHeure": "MONTANTE + LEVER ET COUCHER DU SOLEIL",
+   "windows": [
+    {
+     "id": "kj1",
+     "label": "Montant (BM+1 → BM+5)",
+     "note": "Conseil de la source : montante, aube ou crépuscule. Stickbait dans l'écume.",
+     "offsetAfter": 5,
+     "offsetBefore": 1,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "kj2",
+     "label": "Pleine mer (PM−1 → PM+1)",
+     "note": "Roches couvertes, depuis un poste haut.",
+     "offsetAfter": 1,
+     "offsetBefore": -1,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "variable"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     337.5,
+     0,
+     22.5
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     157.5,
+     180,
+     202.5,
+     225
+    ]
+   },
+   "texte": "Pointe de la côte sud de Trégunc, tournée vers le large (déduit de la carte) : exposée du sud-sud-est au sud-ouest, abritée par vent de nord.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.6
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Nommée pour le bar par l'office de tourisme ; citée par mieuxpecher et cannes-peche. Statut V2 « VÉRIFIÉ » sans date ni page : ramené à INFÉRÉ, aucune page de pêche lue en phase 5 n'attachant le bar au poste (revue contradictoire du 24 nov. 2026).",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Stickbait ou souple tenu au-dessus des roches ; pas de pêche au fond.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pointes rocheuses : l'eau « brassée par le courant ou les vagues », au lever ou au coucher du soleil, à marée montante (office de tourisme).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Vise un montant qui tombe au lever ou au coucher du soleil : c'est la règle de la source.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / sardine",
+    "name": "Stickbait 110-130 mm",
+    "technique": "Dans l'eau brassée, aube ou crépuscule.",
+    "weight": "14-27 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Blanc / naturel",
+    "name": "Souple 12 cm tête plombée",
+    "technique": "Tenu au-dessus des roches.",
+    "weight": "tête 10-21 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 2,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Roches de pointe : jamais au ras de l'eau par houle.",
+    "verifie_le": null,
+    "source_texte": "prudence du guide (pointe rocheuse exposée)"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.6,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune contrainte d'accès liée à la marée dans les consignes de la fiche : non documentée, ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "raison": "Aucun mouvement de terrain recensé par le BRGM à 500 m du point (Géorisques, 2026-11-23) ; le recensement n'est pas exhaustif, ce qui ne prouve pas l'absence de risque."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "TREGUNC",
+     "code_insee": "29293",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (TREGUNC) : Par submersion marine ; Mouvement de terrain. Portée communale : ne décrit pas le poste."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 8 : 2 bars au plus par pêcheur et par jour, toute l'année. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 8 (golfe de Gascogne, au sud du 48ᵉ parallèle)",
+    "limite_jour": 2
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v3",
+  "verifie_le": "2026-11-23",
+  "raison": "Aucune des 1 photos libres de Wikimedia Commons à 400 m du point ne porte le nom du lieu : aucune n'est présentée comme une photo du spot (inventaire du 2026-11-23)."
+ },
+ "provenance": {
+  "sources": [
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-cannes-peche-blog4ever-com-42e7ea",
+   "src-deconcarneauapontaven-com-df8eba",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
+   "src-legifrance-tailles-minimales-2026",
+   "src-mieuxpecher-com-278e6e"
+  ],
+  "sources_v2": [
+   "deconcarneauapontaven.com — « Les trois univers pêche » : pointes rocheuses (Kerjean, la Jument, Rospico)",
+   "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : pointe de Kerjean",
+   "cannes-peche.blog4ever.com — Kerjean (plage de Don)"
+  ],
+  "faits_v2": [
+   {
+    "s": "deconcarneauapontaven.com — « Les trois univers pêche »",
+    "t": "Le bar préfère les « pointes rocheuses (Kerjean, la Jument, Rospico) », à l'eau « brassée par le courant ou les vagues » ; « au lever du jour ou à la tombée de la nuit, et à marée montante »."
+   },
+   {
+    "s": "mieuxpecher.com — « Coins de Pêche – Finistère SUD »",
+    "t": "« Pointe de Kerjean » parmi les coins de pêche du Finistère sud."
+   },
+   {
+    "s": "cannes-peche.blog4ever.com — « Les coins de pêche à bar / loup (du bord) » (Alain, 07/11/2016)",
+    "t": "« Kerjean (Plage de Don) » parmi les coins à bar du bord."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.76,
+  "inconnus": [
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "safety.acces_maree",
+   "safety.mouvements_terrain",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": [],
+  "criteres": {
+   "QUAL-1": {
+    "ok": true,
+    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:cannes-peche-blog4ever-com, editeur:mieuxpecher-com"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "1 groupe d'indépendance parmi les sources lues page par page (1 sur 2) ; aucune n'attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": true,
+    "detail": "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (7 min)"
+   },
+   "QUAL-5": {
+    "ok": false,
+    "detail": "engagement 2 (jugement V2), 0 consigne sourcée sur 1, contrainte de marée non documentée, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": true,
+    "detail": "réglementation nationale ; règles locales du département recherchées, aucune à vérifier au poste"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-5 : engagement 2 (jugement V2), 0 consigne sourcée sur 1, contrainte de marée non documentée, mouvements de terrain 0"
+  ]
+ }
+}

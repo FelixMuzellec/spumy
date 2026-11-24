@@ -1,0 +1,711 @@
+{
+ "id": "morgat",
+ "name": "Pointe de Morgat",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "crozon",
+  "empreinte_v2": "d721cbdceb75ab729f5ee4282e7c76103ca72b94b60257ff0c464a9113f139ad",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 48.2210367,
+  "lon": -4.492986,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°13,3'N 4°29,6'W) ; précision non documentée.",
+   "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Pointe de Morgat ou Beg ar Gador",
+    "ecart_m": 6
+   },
+   "texte": "Toponyme officiel « Pointe de Morgat ou Beg ar Gador » (cap, élément topographique ou forestier, détail orographique) à 6 m de la position de la fiche."
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 48.223063,
+    "lon": -4.496647,
+    "ign": "equipement_de_transport.6063",
+    "nature": "Parking",
+    "ecart_m": 353
+   },
+   "texte": "Parking recensé par la BD TOPO de l'IGN, à 353 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Depuis le port de Morgat : le GR34 part face au vieux môle (escalier) et monte au fort et à la maison-phare du Kador (CNCM).",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 12,
+   "texte": "12 min à pied (0,8 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "POINTE ROCHEUSE + PORT — Pointe du Kador et abords du port, Crozon",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Îlots et pied de falaise, limite roche–sable, de 2 à 10 m de fond (lechasseursousmarin.com) ; grottes marines en contrebas de la pointe (CNCM, « Les sentiers de Morgat »).",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 2,
+    "gratter": "texan",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Est à sud-est, abritée de l'ouest. Déduit de la carte.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "« Profondeur 2 à 10 m » le long de la pointe (lechasseursousmarin.com) : peu d'eau près des roches, davantage au large des îlots.",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "peu"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Pointe à falaises et grottes, îlots, port de plaisance (CNCM, lechasseursousmarin).",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "« Faible » (lechasseursousmarin).",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : Montant, règle générale (BM → BM+3) (BM +0 h → BM +3 h, bonne).",
+   "valeur": [
+    {
+     "id": "mg2",
+     "libelle": "Montant, règle générale (BM → BM+3)",
+     "reference": "BM",
+     "debut_h": 0,
+     "fin_h": 3,
+     "priorite": "bon",
+     "type_v2": "montant",
+     "note": "Règle générale du bar en Bretagne (Vidal), non propre à ce poste."
+    }
+   ]
+  },
+  "haute": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (autour de la pleine mer) : Pleine mer (PM−2 → PM+1) (PM −2 h → PM +1 h, prioritaire).",
+   "valeur": [
+    {
+     "id": "mg1",
+     "libelle": "Pleine mer (PM−2 → PM+1)",
+     "reference": "PM",
+     "debut_h": -2,
+     "fin_h": 1,
+     "priorite": "prime",
+     "type_v2": "variable",
+     "note": "Pied des îlots et limite roche–sable (lechasseursousmarin.com)."
+    }
+   ]
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre marée descendante dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    30,
+    45,
+    80,
+    100
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "morgat",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Pointe abritée, peu de courant : la pleine mer remplit le pied des îlots et des roches.",
+   "lifeHack": "Marée de Morgat : le port de référence est au pied du poste.",
+   "montantOuDescendant": "Bars « notamment à pleine mer » au pied des îlots (lechasseursousmarin.com) ; le reste du cycle n'est pas documenté.",
+   "typeHeure": "AUTOUR DE LA PLEINE MER",
+   "windows": [
+    {
+     "id": "mg1",
+     "label": "Pleine mer (PM−2 → PM+1)",
+     "note": "Pied des îlots et limite roche–sable (lechasseursousmarin.com).",
+     "offsetAfter": 1,
+     "offsetBefore": -2,
+     "phase": "pm",
+     "priority": "prime",
+     "tidePhaseType": "variable"
+    },
+    {
+     "id": "mg2",
+     "label": "Montant, règle générale (BM → BM+3)",
+     "note": "Règle générale du bar en Bretagne (Vidal), non propre à ce poste.",
+     "offsetAfter": 3,
+     "offsetBefore": 0,
+     "phase": "bm",
+     "priority": "bon",
+     "tidePhaseType": "montant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     270,
+     292.5,
+     315
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     90,
+     112.5,
+     135,
+     157.5
+    ]
+   },
+   "texte": "La pointe ferme l'anse de Morgat, ouverte à l'est et au sud-est sur la baie de Douarnenez (déduit de la carte) : vent d'est de face, vent d'ouest abrité par la presqu'île.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 2
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Pointe et abords du port cités (mieuxpecher) ; bars notamment à pleine mer (lechasseursousmarin). Statut V2 « VÉRIFIÉ » sans date ni page : ramené à INFÉRÉ, aucune page de pêche lue en phase 5 n'attachant le bar au poste (revue contradictoire du 24 nov. 2026).",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Souple sur tête légère ou texan le long de la limite roche–sable ; surface au pied des îlots.",
+   "verifie_le": null
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "« Bars et mulets en vadrouille, notamment à pleine mer » au pied des îlots (lechasseursousmarin.com).",
+   "verifie_le": null
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Courant faible : un poste abrité de la presqu'île quand l'ouest est trop fort (déduit de la carte).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Marée de Morgat : le port de référence est au pied du poste.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel",
+    "name": "Souple 10-12 cm tête plombée",
+    "technique": "Limite roche–sable, à pleine mer.",
+    "weight": "tête 7-15 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / sardine",
+    "name": "Stickbait 110-130 mm",
+    "technique": "Au pied des îlots, aube ou crépuscule.",
+    "weight": "14-27 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 2,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Sentier côtier dévié à cause de l'érosion des « cheminées » (grottes verticales) : suivre les déviations sur place.",
+    "verifie_le": null,
+    "source_texte": "CNCM — « Les sentiers de Morgat » ; visorando — « Tour du cap de la Chèvre depuis Morgat »"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 2,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune contrainte d'accès liée à la marée dans les consignes de la fiche : non documentée, ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "rayon_m": 500,
+    "total": 9,
+    "types": {
+     "Chute de blocs / Eboulement": 8,
+     "Effondrement / Affaissement": 1
+    },
+    "plus_recent": "2002-12-29",
+    "evenements": [
+     {
+      "id": "62900075",
+      "type": "Chute de blocs / Eboulement",
+      "date": "1983-01-01",
+      "fiabilite": "Fort",
+      "precision": "Décamètre",
+      "lieu": "Arche du Kador",
+      "distance_m": 80
+     },
+     {
+      "id": "62900074",
+      "type": "Chute de blocs / Eboulement",
+      "date": "2002-12-29",
+      "fiabilite": "Fort",
+      "precision": "Décamètre",
+      "lieu": "Grève du Kador",
+      "distance_m": 211
+     },
+     {
+      "id": "10601251",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 226
+     },
+     {
+      "id": "62900073",
+      "type": "Chute de blocs / Eboulement",
+      "date": "1993-01-01",
+      "fiabilite": "Fort",
+      "precision": "Décamètre",
+      "lieu": "Porzh Naye   à MORGAT",
+      "distance_m": 252
+     },
+     {
+      "id": "10601252",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 256
+     },
+     {
+      "id": "10601253",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 297
+     },
+     {
+      "id": "62900076",
+      "type": "Chute de blocs / Eboulement",
+      "date": "1988-01-01",
+      "fiabilite": "Fort",
+      "precision": "Décamètre",
+      "lieu": "Grottes Sainte Marine et Cheminées du Diable",
+      "distance_m": 342
+     },
+     {
+      "id": "10601254",
+      "type": "Effondrement / Affaissement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 351
+     },
+     {
+      "id": "10601681",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 434
+     }
+    ]
+   },
+   "texte": "9 mouvements de terrain recensés par le BRGM à 500 m du point : Chute de blocs / Eboulement (8), Effondrement / Affaissement (1). Le plus récent daté : 2002 ; 5 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "CROZON",
+     "code_insee": "29042",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon",
+      "Risque industriel",
+      "Effet thermique",
+      "Effet de surpression",
+      "Effet toxique",
+      "Effet de projection",
+      "Nucléaire"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour les communes à 1 km du point (le point est hors des limites communales) (CROZON) : Par submersion marine ; Mouvement de terrain. Portée communale : ne décrit pas le poste."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 7 : du 1er février au 31 mars, pêche en relâcher seulement, à la canne ou à la ligne à main ; en janvier et du 1er avril au 31 décembre, 3 bars au plus par pêcheur et par jour. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 7 (Manche, au nord du 48ᵉ parallèle)",
+    "limite_jour": 3,
+    "relacher_seul": {
+     "du": "02-01",
+     "au": "03-31"
+    }
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ddtm29-synthese-peche-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 2,
+   "valeur": {
+    "portee": "Finistère",
+    "application_au_poste": "à vérifier"
+   },
+   "texte": "Finistère : il est interdit « de pêcher à l'intérieur des limites administratives des ports » (synthèse de la DDTM du Finistère, avril 2026, p. 4). Le poste décrit touche un port, une digue ou une cale : avant toute recommandation, vérifier qu'il est hors de ces limites."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Morgat.-Rochers du Beg ar Kador.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Morgat.-Rochers_du_Beg_ar_Kador.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "PIERRE ANDRE LECLERCQ",
+    "date": "2009-05-28 15:56:03",
+    "distance_m": 26
+   },
+   {
+    "titre": "Les grottes de Morgat à Crozon - 027.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Les_grottes_de_Morgat_%C3%A0_Crozon_-_027.JPG",
+    "licence": "CC BY-SA 2.5",
+    "auteur": "Thesupermat",
+    "date": "2009-08-18",
+    "distance_m": 79
+   },
+   {
+    "titre": "Les grottes de Morgat à Crozon - la pointe du Kador - 002.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Les_grottes_de_Morgat_%C3%A0_Crozon_-_la_pointe_du_Kador_-_002.JPG",
+    "licence": "CC BY-SA 2.5",
+    "auteur": "Thesupermat",
+    "date": "2009-08-18",
+    "distance_m": 93
+   },
+   {
+    "titre": "Polyplacophora Chiton Morgat Baie Douarnenezété 2015 F Lamiot 01.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Polyplacophora_Chiton_Morgat_Baie_Douarnenez%C3%A9t%C3%A9_2015_F_Lamiot_01.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Lamiot",
+    "date": "2015-08-18 13:37:18",
+    "distance_m": 113
+   }
+  ],
+  "texte": "4 photos libres de Wikimedia Commons, à 113 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
+ },
+ "provenance": {
+  "sources": [
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-cncm-2c6418",
+   "src-ddtm29-synthese-peche-loisir-2026",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-google-maps-20182f",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
+   "src-lcsm-pointe-de-morgat",
+   "src-lechasseursousmarin-com-fc423e",
+   "src-legifrance-tailles-minimales-2026",
+   "src-mieuxpecher-com-df233a",
+   "src-wikimedia-commons-geo"
+  ],
+  "sources_v2": [
+   "mieuxpecher.com — « Coins de pêche – Finistère NORD » : pointe et port de Morgat",
+   "lechasseursousmarin.com — Pointe de Morgat",
+   "CNCM — « Les sentiers de Morgat »",
+   "Google Maps — position"
+  ],
+  "faits_v2": [
+   {
+    "s": "mieuxpecher.com — « Coins de pêche – Finistère NORD » (Norbert, 2018)",
+    "t": "« La Pointe et les abords du port de plaisance de Morgat » parmi les coins de pêche du bord."
+   },
+   {
+    "s": "lechasseursousmarin.com — Pointe de Morgat (H. Maldent, 25/11/2025)",
+    "t": "« bars et mulets en vadrouille, notamment à pleine mer » au pied des îlots ; « Profondeur 2 à 10 m » ; « Force du courant faible » ; prospection « proche de la limite roche sable »."
+   },
+   {
+    "s": "CNCM — « Les sentiers de Morgat » (2020)",
+    "t": "Le GR34 part du port de Morgat, face au vieux môle, et monte au fort et à la maison-phare du Kador ; en contrebas, des grottes marines (grotte Sainte-Marine, grotte des Normands, cheminées du diable) ; sentier « dévié en raison de l'érosion de ces cheminées »."
+   },
+   {
+    "s": "Google Maps — Pointe de Morgat ou Beg ar Gador",
+    "t": "Position de la pointe (Beg ar Gador) : 48,2210367 / -4,492986."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.81,
+  "inconnus": [
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "safety.acces_maree",
+   "windows.habituelles",
+   "windows.securite"
+  ],
+  "anomalies": [],
+  "criteres": {
+   "QUAL-1": {
+    "ok": true,
+    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:lechasseursousmarin-com, editeur:mieuxpecher-com"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "2 groupes d'indépendance parmi les sources lues page par page (2 sur 3) ; aucune n'attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": true,
+    "detail": "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (12 min)"
+   },
+   "QUAL-5": {
+    "ok": false,
+    "detail": "engagement 2 (jugement V2), 1 consigne sourcée sur 1, contrainte de marée non documentée, mouvements de terrain 9"
+   },
+   "QUAL-6": {
+    "ok": false,
+    "detail": "règle locale à vérifier au poste (Finistère)"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-5 : engagement 2 (jugement V2), 1 consigne sourcée sur 1, contrainte de marée non documentée, mouvements de terrain 9",
+   "QUAL-6 : règle locale à vérifier au poste (Finistère)"
+  ]
+ }
+}

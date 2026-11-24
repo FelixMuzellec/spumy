@@ -1,0 +1,651 @@
+{
+ "id": "lostmarch",
+ "name": "Pointe de Lostmarc'h",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "crozon",
+  "empreinte_v2": "64ab9cd1dca644e13398daaa6f2eaa48c78148f31d6372d2053473e0684b2535",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
+  }
+ },
+ "coordinates": {
+  "lat": 48.212332,
+  "lon": -4.55735,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°12,7'N 4°33,4'W) ; précision non documentée.",
+   "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Pointe de Lostmarc'h ou Kastell Lostmarc'h",
+    "ecart_m": 4
+   },
+   "texte": "Toponyme officiel « Pointe de Lostmarc'h ou Kastell Lostmarc'h » (cap, élément topographique ou forestier, détail orographique) à 4 m de la position de la fiche."
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 48.217128,
+    "lon": -4.551892,
+    "ign": "equipement_de_transport.60362",
+    "nature": "Parking touristique",
+    "ecart_m": 669
+   },
+   "texte": "Parking touristique recensé par la BD TOPO de l'IGN, à 669 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Parking de la plage de Lostmarc'h, puis le sentier vers la pointe (Google Maps) ; la fiche de la réserve donne l'accès depuis Crozon par la route du cap de la Chèvre, puis Kerglintin et Lostmarc'h.",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 11,
+   "texte": "11 min à pied (0,71 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "POINTE ROCHEUSE / FALAISE — Éperon entre deux plages, Crozon, côte atlantique",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pointe de laves sous-marines en coussins et de brèches, avec une plage de galets suspendue dans des cavités (réserve naturelle) ; plages de sable de part et d'autre (Google Maps). Fond devant la pointe non décrit.",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 2,
+    "gratter": "non",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Ouest à sud-ouest. Déduit de la carte.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pointe à falaises de la côte atlantique : eau profonde au pied supposée (déduit, aucune sonde).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "tombant"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Éperon rocheux entre deux plages (réserve, Google Maps).",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pas de source.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : Montant, règle générale (BM → BM+3) (BM +0 h → BM +3 h, prioritaire).",
+   "valeur": [
+    {
+     "id": "lm1",
+     "libelle": "Montant, règle générale (BM → BM+3)",
+     "reference": "BM",
+     "debut_h": 0,
+     "fin_h": 3,
+     "priorite": "prime",
+     "type_v2": "montant",
+     "note": "Règle générale (Vidal), non propre à ce poste."
+    }
+   ]
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la pleine mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée descendante) : Fin de descendant, règle générale (BM−3 → BM) (BM −3 h → BM +0 h, bonne).",
+   "valeur": [
+    {
+     "id": "lm2",
+     "libelle": "Fin de descendant, règle générale (BM−3 → BM)",
+     "reference": "BM",
+     "debut_h": -3,
+     "fin_h": 0,
+     "priorite": "bon",
+     "type_v2": "descendant",
+     "note": "Règle générale (Vidal), non propre à ce poste."
+    }
+   ]
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    30,
+    50,
+    80,
+    100
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "morgat",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Pointe sans source sur la marée : créneaux de la règle générale.",
+   "lifeHack": "Noter dans le journal de pêche la phase des touches : c'est la seule façon de recaler ce poste.",
+   "montantOuDescendant": "Aucune source locale : règle générale du bar en Bretagne (Vidal), les 3 premières heures de montante et les 3 dernières de descendante.",
+   "typeHeure": "RÈGLE GÉNÉRALE (À RECALER)",
+   "windows": [
+    {
+     "id": "lm1",
+     "label": "Montant, règle générale (BM → BM+3)",
+     "note": "Règle générale (Vidal), non propre à ce poste.",
+     "offsetAfter": 3,
+     "offsetBefore": 0,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "lm2",
+     "label": "Fin de descendant, règle générale (BM−3 → BM)",
+     "note": "Règle générale (Vidal), non propre à ce poste.",
+     "offsetAfter": 0,
+     "offsetBefore": -3,
+     "phase": "bm",
+     "priority": "bon",
+     "tidePhaseType": "descendant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     45,
+     67.5,
+     90
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     225,
+     247.5,
+     270,
+     292.5
+    ]
+   },
+   "texte": "Éperon de la côte atlantique tourné vers l'ouest et le sud-ouest (déduit de la carte) : houle d'ouest de face. Houle maximale de 1,5 m : seuil prudent du guide (falaises, aucune source sur la houle).",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.5
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Une seule source, sans détail (mieuxpecher).",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Leurres de passage qui peignent la couche d'eau (règle des pointes du secteur, pecheaubar) ; pas de grattage sur un fond non décrit.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Une seule source de pêche (mieuxpecher, liste sans détail) : poste à confirmer sur place.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Réserve naturelle : la pêche y est autorisée selon la réglementation en vigueur ; ne rien prélever sur les roches.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Noter dans le journal de pêche la phase des touches : c'est la seule façon de recaler ce poste.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel",
+    "name": "Poisson nageur à bavette 120-140 mm",
+    "technique": "Balayer la zone de passage devant la pointe (règle des pointes, pecheaubar).",
+    "weight": "18-25 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / sardine",
+    "name": "Stickbait 110-130 mm",
+    "technique": "Aube ou crépuscule, mer maniable.",
+    "weight": "14-27 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 3,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "« De nombreux secteurs sont dangereux : risques de chute depuis la falaise ou déferlantes méchantes… » (secteur de Douarnenez et Crozon).",
+    "verifie_le": null,
+    "source_texte": "pecheaubar.com — « La Pêche au bar en Bretagne : Douarnenez »"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.5,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune contrainte d'accès liée à la marée dans les consignes de la fiche : non documentée, ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "rayon_m": 500,
+    "total": 6,
+    "types": {
+     "Chute de blocs / Eboulement": 3,
+     "Glissement": 2,
+     "Erosion de berges": 1
+    },
+    "plus_recent": null,
+    "evenements": [
+     {
+      "id": "10601298",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 124
+     },
+     {
+      "id": "10601035",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 152
+     },
+     {
+      "id": "10601037",
+      "type": "Glissement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 208
+     },
+     {
+      "id": "10601297",
+      "type": "Erosion de berges",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 218
+     },
+     {
+      "id": "10601036",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 224
+     },
+     {
+      "id": "10601033",
+      "type": "Glissement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 477
+     }
+    ]
+   },
+   "texte": "6 mouvements de terrain recensés par le BRGM à 500 m du point : Chute de blocs / Eboulement (3), Glissement (2), Erosion de berges (1). 6 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "CROZON",
+     "code_insee": "29042",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon",
+      "Risque industriel",
+      "Effet thermique",
+      "Effet de surpression",
+      "Effet toxique",
+      "Effet de projection",
+      "Nucléaire"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (CROZON) : Par submersion marine ; Mouvement de terrain. Portée communale : ne décrit pas le poste."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 7 : du 1er février au 31 mars, pêche en relâcher seulement, à la canne ou à la ligne à main ; en janvier et du 1er avril au 31 décembre, 3 bars au plus par pêcheur et par jour. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 7 (Manche, au nord du 48ᵉ parallèle)",
+    "limite_jour": 3,
+    "relacher_seul": {
+     "du": "02-01",
+     "au": "03-31"
+    }
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Fenêtre d'accessibilité non documentée en V2 ; voir les consignes de sécurité."
+  }
+ },
+ "photos": {
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Pointe de Lostmarc'h.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Lostmarc%27h.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Berrucomons",
+    "date": "2015-08-28 10:15:41",
+    "distance_m": 71
+   },
+   {
+    "titre": "Küste bei Lostmarc`h - panoramio (1).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:K%C3%BCste_bei_Lostmarc%60h_-_panoramio_(1).jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Besenbinder",
+    "date": "Taken on 28 June 2011",
+    "distance_m": 243
+   }
+  ],
+  "texte": "2 photos libres de Wikimedia Commons, à 243 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
+ },
+ "provenance": {
+  "sources": [
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-google-maps-902434",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
+   "src-legifrance-tailles-minimales-2026",
+   "src-mieuxpecher-com-4a6bbb",
+   "src-reserve-naturelle-regionale-de-l-1cff81",
+   "src-wikimedia-commons-geo"
+  ],
+  "sources_v2": [
+   "mieuxpecher.com — « Coins de pêche – Finistère NORD » : pointe de Lostmarc'h",
+   "Réserve naturelle régionale de la presqu'île de Crozon — fiche Lostmarc'h",
+   "Google Maps — positions"
+  ],
+  "faits_v2": [
+   {
+    "s": "mieuxpecher.com — « Coins de pêche – Finistère NORD » (Norbert, 2018)",
+    "t": "« Les abords de la Pointe de Lostmarc'h à Crozon » parmi les coins de pêche du bord (liste sans détail)."
+   },
+   {
+    "s": "Réserve naturelle régionale de la presqu'île de Crozon — fiche du site de Lostmarc'h (2018)",
+    "t": "« La pêche (à pied, sous-marine, …) est autorisée selon la réglementation en vigueur » ; interdits : « Extraction et prélèvement de roches », feu, camping, véhicules à moteur."
+   },
+   {
+    "s": "Réserve naturelle régionale de la presqu'île de Crozon — fiche du site de Lostmarc'h",
+    "t": "« coulées de lave sous-marines avec un débit en « coussins » » et brèches sur l'éperon sud ; plage de galets suspendue dans des cavités karstiques."
+   },
+   {
+    "s": "Google Maps — Pointe de Lostmarc'h, Parking plage de Lostmarc'h",
+    "t": "Position de la pointe : 48,212332 / -4,55735 ; parking de la plage de Lostmarc'h à 48,2145 / -4,5454."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.81,
+  "inconnus": [
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.haute",
+   "safety.coef_max",
+   "safety.acces_maree",
+   "windows.habituelles",
+   "windows.securite"
+  ],
+  "anomalies": [],
+  "criteres": {
+   "QUAL-1": {
+    "ok": false,
+    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:mieuxpecher-com"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "1 groupe d'indépendance parmi les sources lues page par page (1 sur 1) ; aucune n'attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": true,
+    "detail": "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (11 min)"
+   },
+   "QUAL-5": {
+    "ok": false,
+    "detail": "engagement 3 (jugement V2), 1 consigne sourcée sur 1, contrainte de marée non documentée, mouvements de terrain 6"
+   },
+   "QUAL-6": {
+    "ok": true,
+    "detail": "réglementation nationale ; règles locales du département recherchées, aucune à vérifier au poste"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:mieuxpecher-com",
+   "QUAL-5 : engagement 3 (jugement V2), 1 consigne sourcée sur 1, contrainte de marée non documentée, mouvements de terrain 6"
+  ]
+ }
+}

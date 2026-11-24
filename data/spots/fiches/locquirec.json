@@ -1,0 +1,569 @@
+{
+ "id": "locquirec",
+ "name": "Locquirec : pointe et digue",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "carantec",
+  "empreinte_v2": "5247b9cb8aa00198827b9ac3e2f4f77f57d02d692acb1bb5b69ecbef30f8ec2d",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 48.6898,
+  "lon": -3.6469,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°41,4'N 3°38,8'W) ; précision non documentée.",
+   "verifie_le": null
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 48.691078,
+    "lon": -3.646178,
+    "ign": "equipement_de_transport.67921",
+    "nature": "Parking",
+    "ecart_m": 152
+   },
+   "texte": "Parking recensé par la BD TOPO de l'IGN, à 152 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Port de Locquirec (sea-seek) ; la digue et la pointe à pied (mieuxpecher).",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 3,
+   "texte": "3 min à pied (0,18 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "POINTE + DIGUE — Port de Locquirec, baie de Locquirec",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pointe rocheuse et digue du port (mieuxpecher, office de tourisme) ; sable et roches (fiche de surf de Locquirec, mondo.surf). Nature du fond devant la digue non décrite.",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 2,
+    "gratter": "texan",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Port abrité des vents d'ouest et de nord, fort clapot par vents de nord-ouest à nord-est (fiche du port).",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "« Port d'échouage » ; en dedans de la jetée, le fond « assèche de 5 à 6 m » (fiche du port, Météo Consult) : très peu d'eau à marée basse.",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "estran"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Pointe rocheuse, digue du port, baie de Locquirec (mieuxpecher, office de tourisme).",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Courant de marée en bout de pointe ; heure non estimée (aucune source).",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : Montant (BM +2 h → BM +5 h 30, prioritaire).",
+   "valeur": [
+    {
+     "id": "lq1",
+     "libelle": "Montant",
+     "reference": "BM",
+     "debut_h": 2,
+     "fin_h": 5.5,
+     "priorite": "prime",
+     "type_v2": "montant",
+     "note": "Le long de la digue quand le port se remplit ; idéalement à la nuit tombée (mieuxpecher)."
+    }
+   ]
+  },
+  "haute": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (autour de la pleine mer) : Pleine mer → début de descendant (PM −1 h → PM +2 h, bonne).",
+   "valeur": [
+    {
+     "id": "lq2",
+     "libelle": "Pleine mer → début de descendant",
+     "reference": "PM",
+     "debut_h": -1,
+     "fin_h": 2,
+     "priorite": "bon",
+     "type_v2": "variable",
+     "note": "Bout de la pointe et digue."
+    }
+   ]
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre marée descendante dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    35,
+    50,
+    80,
+    100
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "locquirec",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "La digue se pêche au crépuscule ; le port d'échouage (bouées d'échouage, sea-seek) découvre en partie à marée basse : le flot et la pleine mer sont retenus (déduit).",
+   "lifeHack": "Pour la digue, vise un créneau de marée qui tombe au crépuscule : c'est la consigne de la source.",
+   "montantOuDescendant": "La seule consigne datée est l'heure de la journée : la digue « à la nuit tombée » (mieuxpecher). Marée : flot et pleine mer, port d'échouage (déduit).",
+   "typeHeure": "FLOT + NUIT TOMBANTE",
+   "windows": [
+    {
+     "id": "lq1",
+     "label": "Montant",
+     "note": "Le long de la digue quand le port se remplit ; idéalement à la nuit tombée (mieuxpecher).",
+     "offsetAfter": 5.5,
+     "offsetBefore": 2,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "lq2",
+     "label": "Pleine mer → début de descendant",
+     "note": "Bout de la pointe et digue.",
+     "offsetAfter": 2,
+     "offsetBefore": -1,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "variable"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     202.5,
+     225,
+     247.5
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     315,
+     337.5,
+     0,
+     22.5,
+     45
+    ]
+   },
+   "texte": "Le port est « Abrité des vents d'W et N », avec « Fort clapot par vents de NW à NE » ; « une jetée débordée au N par des rochers », fond qui « assèche de 5 à 6 m » en dedans (fiche du port, Météo Consult). La digue prend donc le clapot de nord-ouest à nord-est ; le vent de sud-ouest est de dos.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.8
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Pointe et digue (mieuxpecher), baie et pointes rocheuses (office de tourisme). Statut V2 « VÉRIFIÉ » sans date ni page : ramené à INFÉRÉ, aucune page de pêche lue en phase 5 n'attachant le bar au poste (revue contradictoire du 24 nov. 2026).",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Stickbait ou souple léger le long de la digue ; texan sur les roches de la pointe.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "La digue « à la nuit tombée » (mieuxpecher).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "La baie de Locquirec est citée pour la profondeur de son estuaire, où chassent les bars (office de tourisme).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pour la digue, vise un créneau de marée qui tombe au crépuscule : c'est la consigne de la source.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel / ghost",
+    "name": "Stickbait 110-130 mm",
+    "technique": "À la nuit tombée le long de la digue.",
+    "weight": "14-27 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Blanc / naturel",
+    "name": "Souple 12 cm tête plombée",
+    "technique": "Pied de la digue et roches de la pointe.",
+    "weight": "tête 10-15 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Criques de la côte sauvage « accessibles en fonction des marées » : vérifier l'heure de la marée avant d'y descendre.",
+    "verifie_le": null,
+    "source_texte": "office de tourisme"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.8,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    "acces_selon_maree"
+   ],
+   "verifie_le": null,
+   "texte": "Accès dépendant de la marée. Classement relu à la main depuis la consigne de la fiche : « Criques de la côte sauvage « accessibles en fonction des marées » : vérifier l'heure de la marée avant d'y descendre. »",
+   "source_texte": "office de tourisme"
+  },
+  "mouvements_terrain": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "raison": "Aucun mouvement de terrain recensé par le BRGM à 500 m du point (Géorisques, 2026-11-23) ; le recensement n'est pas exhaustif, ce qui ne prouve pas l'absence de risque."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "LOCQUIREC",
+     "code_insee": "29133",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour les communes à 1 km du point (le point est hors des limites communales) (LOCQUIREC) : Par submersion marine. Portée communale : ne décrit pas le poste."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 7 : du 1er février au 31 mars, pêche en relâcher seulement, à la canne ou à la ligne à main ; en janvier et du 1er avril au 31 décembre, 3 bars au plus par pêcheur et par jour. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 7 (Manche, au nord du 48ᵉ parallèle)",
+    "limite_jour": 3,
+    "relacher_seul": {
+     "du": "02-01",
+     "au": "03-31"
+    }
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ddtm29-synthese-peche-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 2,
+   "valeur": {
+    "portee": "Finistère",
+    "application_au_poste": "à vérifier"
+   },
+   "texte": "Finistère : il est interdit « de pêcher à l'intérieur des limites administratives des ports » (synthèse de la DDTM du Finistère, avril 2026, p. 4). Le poste décrit touche un port, une digue ou une cale : avant toute recommandation, vérifier qu'il est hors de ces limites."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Contrainte de marée documentée (accès dépendant de la marée), mais aucune durée praticable n'est sourcée : aucun intervalle HH:MM ne peut être calculé (§ 7.6). Le spot ne peut pas être présenté comme praticable sans fenêtre documentée."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v3",
+  "verifie_le": "2026-11-23",
+  "raison": "Aucune des 7 photos libres de Wikimedia Commons à 400 m du point ne porte le nom du lieu : aucune n'est présentée comme une photo du spot (inventaire du 2026-11-23)."
+ },
+ "provenance": {
+  "sources": [
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-baiedemorlaix-bzh-149505",
+   "src-ddtm29-synthese-peche-loisir-2026",
+   "src-figaronautisme-meteoconsult-fr-86f2d9",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
+   "src-ign-itineraire-pieton",
+   "src-legifrance-tailles-minimales-2026",
+   "src-mieuxpecher-com-bed4e8",
+   "src-mondo-surf-48c8cd",
+   "src-sea-seek-com-15204b"
+  ],
+  "sources_v2": [
+   "mieuxpecher.com — « Coins de pêche – Finistère NORD » : pointe et digue de Locquirec",
+   "baiedemorlaix.bzh — « La pêche au bar avec un guide pêche » ; office de tourisme",
+   "sea-seek.com — Locquirec (port, coordonnées)",
+   "mondo.surf — Locquirec (fond, houle et vent)",
+   "figaronautisme.meteoconsult.fr — informations du port de Locquirec (abri, clapot, échouage)"
+  ],
+  "faits_v2": [
+   {
+    "s": "mieuxpecher.com — « Coins de pêche – Finistère NORD » (Norbert, 2018)",
+    "t": "« La pointe de Locquirec » et « La digue de Locquirec à la nuit tombée » citées parmi les coins de pêche du Finistère nord."
+   },
+   {
+    "s": "baiedemorlaix.bzh — « La pêche au bar avec un guide pêche »",
+    "t": "Guide de pêche du bord jusqu'« aux pointes rocheuses de Locquirec » ; les bars chassent dans « la profondeur des estuaires (… baie de Locquirec) »."
+   },
+   {
+    "s": "sea-seek.com — Locquirec",
+    "t": "Port de Locquirec : 304 bouées d'échouage, 26 en pleine eau ; 48,6898 / -3,6469."
+   },
+   {
+    "s": "mondo.surf — Locquirec (48,694933 / -3,650467)",
+    "t": "Fiche de surf « Locquirec » : fond de sable et de roches, houle idéale d'ouest, vent idéal de sud-ouest, marée moyenne à haute."
+   },
+   {
+    "s": "baiedemorlaix.bzh — office de tourisme",
+    "t": "Moulin de la Rive à Locquirec, lieu « privilégié pour le surfcasting » ; criques de la côte sauvage de Locquirec à Barnenez « accessibles en fonction des marées »."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.79,
+  "inconnus": [
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "safety.mouvements_terrain",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": [],
+  "criteres": {
+   "QUAL-1": {
+    "ok": false,
+    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:mieuxpecher-com"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "1 groupe d'indépendance parmi les sources lues page par page (1 sur 1) ; aucune n'attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": false,
+    "detail": "position non contrôlée"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (3 min)"
+   },
+   "QUAL-5": {
+    "ok": true,
+    "detail": "engagement 1 (jugement V2), 1 consigne sourcée sur 1, contrainte de marée acces_selon_maree, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": false,
+    "detail": "règle locale à vérifier au poste (Finistère)"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:mieuxpecher-com",
+   "QUAL-3 : position non contrôlée",
+   "QUAL-6 : règle locale à vérifier au poste (Finistère)"
+  ]
+ }
+}

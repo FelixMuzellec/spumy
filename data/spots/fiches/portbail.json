@@ -1,0 +1,620 @@
+{
+ "id": "portbail",
+ "name": "Portbail",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "pirou",
+  "empreinte_v2": "1e48de3b2c679c01a41032cb66fe516500fda74e93b00844e8719e3ce04111e9",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
+  }
+ },
+ "coordinates": {
+  "lat": 49.330815,
+  "lon": -1.702099,
+  "precision_m": 300,
+  "info": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Position du toponyme officiel « Havre de Portbail » (embouchure, détail hydrographique, hydrographie) ; un lieu étendu sur quelques centaines de mètres, d'où une précision estimée à 300 m. Le poste exact reste à confirmer."
+  },
+  "avant_v2": {
+   "lat": null,
+   "lon": null,
+   "texte": "49°20'N 1°43'W"
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Havre de Portbail",
+    "ecart_m": 0
+   },
+   "texte": "Toponyme officiel « Havre de Portbail » (embouchure, détail hydrographique, hydrographie) à 0 m de la position de la fiche."
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 49.330352,
+    "lon": -1.705915,
+    "ign": "equipement_de_transport.85205",
+    "nature": "Parking touristique",
+    "ecart_m": 281
+   },
+   "texte": "Parking touristique recensé par la BD TOPO de l'IGN, à 281 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Parkings du havre et du bourg. Berges praticables, platier accessible à basse mer.",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 4,
+   "texte": "4 min à pied (0,26 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "HAVRE + PLATIER — Havre, chenal et platier rocheux",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Chenal sableux étroit bordé de platiers rocheux.",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 2,
+    "gratter": "texan",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Partie interne bien abritée par le cordon dunaire. La sortie de chenal reste ouverte au secteur ouest.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Chenal sableux étroit bordé de platiers (fiche).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "peu"
+   }
+  },
+  "structures": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Havre plus étroit que celui de la Sienne : le flux de vidange y est plus concentré, donc les postes sont plus lisibles. Le pont marque un étranglement supplémentaire.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Soutenu dans le chenal, faible sur les platiers. L'écart entre les deux crée les postes.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : Fin de flot sur platier (PM−2,5 → PM−0,5) (PM −2 h 30 → PM −0 h 30, bonne) ; Basse mer et premier flot (BM−0,5 → BM+1,5) (BM −0 h 30 → BM +1 h 30, bonne).",
+   "valeur": [
+    {
+     "id": "po2",
+     "libelle": "Fin de flot sur platier (PM−2,5 → PM−0,5)",
+     "reference": "PM",
+     "debut_h": -2.5,
+     "fin_h": -0.5,
+     "priorite": "bon",
+     "type_v2": "montant",
+     "note": "Platier recouvert de peu d'eau, bars en chasse sur les cassures. Souple léger ou minnow."
+    },
+    {
+     "id": "po3",
+     "libelle": "Basse mer et premier flot (BM−0,5 → BM+1,5)",
+     "reference": "BM",
+     "debut_h": -0.5,
+     "fin_h": 1.5,
+     "priorite": "bon",
+     "type_v2": "montant",
+     "note": "Le chenal concentre mécaniquement le poisson quand le reste est à découvert."
+    }
+   ]
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la pleine mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée descendante) : PM+1h → PM+4h30 (PM +1 h → PM +4 h 30, prioritaire).",
+   "valeur": [
+    {
+     "id": "po1",
+     "libelle": "PM+1h → PM+4h30",
+     "reference": "PM",
+     "debut_h": 1,
+     "fin_h": 4.5,
+     "priorite": "prime",
+     "type_v2": "descendant",
+     "note": "Vidange du havre par le chenal. Dérive de souple, contact permanent."
+    }
+   ]
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    50,
+    70,
+    90,
+    108
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "portbail",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Même logique que Régnéville, à échelle plus réduite et plus lisible. Bon spot de repli quand l'ouest souffle trop pour les pointes.",
+   "lifeHack": "Repérer le platier à basse mer par grand coefficient : les cassures et cuvettes qu'on y voit sont exactement les postes qu'on pêchera à mi-marée.",
+   "montantOuDescendant": "Descendant dominant sur le chenal. Le platier se pêche à mi-marée dans les deux sens.",
+   "typeHeure": "DESCENDANT ÉTABLI + PLATIER À MI-MARÉE",
+   "windows": [
+    {
+     "id": "po1",
+     "label": "PM+1h → PM+4h30",
+     "note": "Vidange du havre par le chenal. Dérive de souple, contact permanent.",
+     "offsetAfter": 4.5,
+     "offsetBefore": 1,
+     "phase": "pm",
+     "priority": "prime",
+     "tidePhaseType": "descendant"
+    },
+    {
+     "id": "po2",
+     "label": "Fin de flot sur platier (PM−2,5 → PM−0,5)",
+     "note": "Platier recouvert de peu d'eau, bars en chasse sur les cassures. Souple léger ou minnow.",
+     "offsetAfter": -0.5,
+     "offsetBefore": -2.5,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "po3",
+     "label": "Basse mer et premier flot (BM−0,5 → BM+1,5)",
+     "note": "Le chenal concentre mécaniquement le poisson quand le reste est à découvert.",
+     "offsetAfter": 1.5,
+     "offsetBefore": -0.5,
+     "phase": "bm",
+     "priority": "bon",
+     "tidePhaseType": "montant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     67.5,
+     90,
+     112.5
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     247.5,
+     270
+    ]
+   },
+   "texte": "Havre abrité côté interne, sortie de chenal exposée à l'ouest.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.6
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Configuration d'entonnoir favorable au postage. La richesse documentée du platier en crustacés soutient une biomasse locale exploitable par le bar.",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Tête plombée dans le chenal sableux ; texan dès qu'on aborde le platier.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Le platier recouvert se pêche au-dessus (minnow à bavette), le chenal au fond.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Spot des guides V2 d'origine : une seule source, qui ne fait que le nommer (mieuxpecher : « L'Olonde près de PortBail »).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Repérer le platier à basse mer par grand coefficient : les cassures et cuvettes qu'on y voit sont exactement les postes qu'on pêchera à mi-marée.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel / blanc",
+    "name": "Shad souple tête plombée",
+    "technique": "Dérive dans le chenal, plombage réglé sur le courant.",
+    "weight": "12-20 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Kaki / Ayu",
+    "name": "Black Minnow 120",
+    "technique": "Référence Cotentin du bord. Texan limitant les croches sur platier.",
+    "weight": "tête 12-18 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel / dos sombre",
+    "name": "Minnow à bavette",
+    "technique": "Sur le platier recouvert, récupération lente.",
+    "weight": "14-20 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 2,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Platier accessible à basse mer seulement : surveiller la montée depuis le platier.",
+    "verifie_le": null,
+    "source_texte": "fiche du spot (accès)"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.6,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    "praticable_a_basse_mer_seulement",
+    "isolement_au_flot"
+   ],
+   "verifie_le": null,
+   "texte": "Accès praticable seulement autour de la basse mer ; le flot peut couper le retour. Classement relu à la main depuis la consigne de la fiche : « Platier accessible à basse mer seulement : surveiller la montée depuis le platier. »",
+   "source_texte": "fiche du spot (accès)"
+  },
+  "mouvements_terrain": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "raison": "Aucun mouvement de terrain recensé par le BRGM à 500 m du point (Géorisques, 2026-11-23) ; le recensement n'est pas exhaustif, ce qui ne prouve pas l'absence de risque."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "PORT-BAIL-SUR-MER",
+     "code_insee": "50412",
+     "risques": [
+      "Inondation",
+      "Par une crue à débordement lent de cours d'eau",
+      "Par remontées de nappes naturelles",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Eboulement ou chutes de pierres et de blocs",
+      "Tassements différentiels",
+      "Séisme",
+      "Phénomène lié à l'atmosphère",
+      "Tempête et grains (vent)",
+      "Foudre",
+      "Grêle",
+      "Neige et pluies verglaçantes",
+      "Radon",
+      "Engins de guerre"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour les communes à 1 km du point (le point est hors des limites communales) (PORT-BAIL-SUR-MER) : Par submersion marine ; Mouvement de terrain ; Eboulement ou chutes de pierres et de blocs ; Tempête et grains (vent) ; Engins de guerre. Portée communale : ne décrit pas le poste."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 7 : du 1er février au 31 mars, pêche en relâcher seulement, à la canne ou à la ligne à main ; en janvier et du 1er avril au 31 décembre, 3 bars au plus par pêcheur et par jour. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 7 (Manche, au nord du 48ᵉ parallèle)",
+    "limite_jour": 3,
+    "relacher_seul": {
+     "du": "02-01",
+     "au": "03-31"
+    }
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Contrainte de marée documentée (accès praticable seulement autour de la basse mer ; le flot peut couper le retour), mais aucune durée praticable n'est sourcée : aucun intervalle HH:MM ne peut être calculé (§ 7.6). Le spot ne peut pas être présenté comme praticable sans fenêtre documentée."
+  }
+ },
+ "photos": {
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Une épave de bateau à Portbail.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Une_%C3%A9pave_de_bateau_%C3%A0_Portbail.jpg",
+    "licence": "CC0",
+    "auteur": "Rc1959",
+    "date": "17 August 2025 (according to Exif data)",
+    "distance_m": 147
+   },
+   {
+    "titre": "Le port de Portbail.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Le_port_de_Portbail.jpg",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "JackyM59",
+    "date": "19 August 2026 (according to Exif data)",
+    "distance_m": 236
+   }
+  ],
+  "texte": "2 photos libres de Wikimedia Commons, à 236 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
+ },
+ "provenance": {
+  "sources": [
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-cpiecotentin-com-1324b8",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
+   "src-legifrance-tailles-minimales-2026",
+   "src-peche-com-18cc55",
+   "src-wikimedia-commons-geo"
+  ],
+  "sources_v2": [
+   "cpiecotentin.com — 'À Portbail, le platier rocheux offre moule, coquille Saint-Jacques, étrille et bouquet' ; havre appartenant aux quatre havres de la côte ouest",
+   "peche.com — principes généraux des embouchures et des plateaux rocheux"
+  ],
+  "faits_v2": [
+   {
+    "s": "CPIE du Cotentin — où pêcher",
+    "t": "À Portbail, le platier rocheux porte moules, coquilles Saint-Jacques et étrilles."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.81,
+  "inconnus": [
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.haute",
+   "safety.coef_max",
+   "safety.mouvements_terrain",
+   "windows.habituelles",
+   "windows.securite"
+  ],
+  "anomalies": [],
+  "criteres": {
+   "QUAL-1": {
+    "ok": false,
+    "detail": "0 groupe d'indépendance halieutique (famille 1 à 4)"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "0 groupe d'indépendance parmi les sources lues page par page (0 sur 0) ; aucune n'attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": true,
+    "detail": "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (4 min)"
+   },
+   "QUAL-5": {
+    "ok": false,
+    "detail": "engagement 2 (jugement V2), 0 consigne sourcée sur 1, contrainte de marée praticable_a_basse_mer_seulement, isolement_au_flot, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": false,
+    "detail": "règles locales du département 50 non recherchées dans un texte officiel"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4)",
+   "QUAL-5 : engagement 2 (jugement V2), 0 consigne sourcée sur 1, contrainte de marée praticable_a_basse_mer_seulement, isolement_au_flot, mouvements de terrain 0",
+   "QUAL-6 : règles locales du département 50 non recherchées dans un texte officiel"
+  ]
+ }
+}

@@ -14,8 +14,9 @@ Suivi unique du chantier V3. Il dit où en est le travail, pourquoi il s'est arr
 | 1. Audit initial V2 (lecture seule) | TESTED, avec une réserve : P1-14 (site en ligne dans un vrai navigateur) BLOCKED, aucun navigateur relié | démarrage (§ 18) | Rapport https://claude.ai/artifact/62UYfGbGKJtRvo6rAF9QrK ; copie `docs/rapports/v3/PHASE-1.md` |
 | 2. Vision produit, exigences et architecture cible | VALIDATED (jeton de phase 3) | « APPROVED — PROCEED TO PHASE 2 », 20 nov. 2026, 1 h 24 | Rapport https://claude.ai/artifact/JWzDnppc1u7Wf6SPEgceDn ; copie `docs/rapports/v3/PHASE-2.md` ; branche `claude/v3-phase-2`, proposition n° 16 (brouillon) |
 | 3. Conception UX/UI, direction artistique, Design System, prototypes | VALIDATED (jeton de phase 4 ; version 6.2 du prototype acceptée par la demande du jeton, INFÉRÉ) | « APPROVED — PROCEED TO PHASE 3 », 20 nov. 2026, 4 h 25 | Rapport https://claude.ai/artifact/MUeZdUAtxSDqAKQxML511A ; copie `docs/rapports/v3/PHASE-3.md` ; branche `claude/v3-phase-3` (partie de `claude/v3-phase-2`), proposition n° 17 (brouillon) |
-| 4. Architecture détaillée, socle technique et assainissement contrôlé | TESTED, hors 4.8 (BLOCKED — action de Félix) ; validation de Félix attendue | « APPROVED — PROCEED TO PHASE 4 », 23 nov. 2026, 13 h 50 | Rapport `docs/rapports/v3/PHASE-4.md` ; branche `claude/v3-phase-4` (depuis `claude/v3-phase-3`, 080d5e3), proposition n° 18 (brouillon) |
-| 5 à 15 | NOT STARTED | — | — |
+| 4. Architecture détaillée, socle technique et assainissement contrôlé | VALIDATED (jeton de phase 5) | « APPROVED — PROCEED TO PHASE 4 », 23 nov. 2026, 13 h 50 | Rapport `docs/rapports/v3/PHASE-4.md` ; branche `claude/v3-phase-4` (depuis `claude/v3-phase-3`, 080d5e3), proposition n° 18 (brouillon) |
+| 5. Audit BORD et référentiel halieutique des spots | IN PROGRESS | « APPROVED — PROCEED TO PHASE 5 », 23 nov. 2026, 20 h 02 | branche `claude/v3-phase-5` (depuis `claude/v3-phase-4`) |
+| 6 à 15 | NOT STARTED | — | — |
 
 Le jeton de la phase 2 a été donné après le rapport de phase 1, qui proposait de passer outre la réserve P1-14. Il vaut acceptation de cette réserve (INFÉRÉ) ; le contrôle sera refait dès qu'un navigateur sera relié.
 
@@ -69,6 +70,27 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 | 4.15 Complément du rapport, CI verte, arrêt | TESTED (complément du rapport, red-team mise à jour, CHANGELOG ; test de mise à jour : échec rare de `page.reload` sur 90eaf1b, puis blocage de 34 min ; blocage corrigé, échec simulé en 8 s, code 1 ; local 12/12) | `docs/rapports/v3/PHASE-4.md`, `CHANGELOG.md`, `tests/upgrade.mjs` |
 | 4.16 Décisions du 23 nov. (19 h 07) : V3-019, D-11, D-15, Dependabot, IGN | TESTED (b125156, 648d8cc, 3e624b7 ; étiquette `v2-final` publiée par Félix à 20 h 00, vérifiée (bb4f940) ; D-11 consigné, appliqué à l'intégration ; D-15 dans le prototype, 224/224 ; `src/core/ign/reponses.js`, socle 25/25 ; contrat IGN 15/15 en CI ; `npm test` 0) | `docs/DECISIONS_LOG.md`, `docs/ARCHITECTURE-V3.md`, `src/core/ign/reponses.js`, `tests/contrat-ign.mjs`, `.github/dependabot.yml`, prototype |
 
+## Phase 5 — sous-tâches
+
+Référentiel § 15 (phase 5), § 7 (sources, pipeline, préservation V2, schéma des fiches, marée, fenêtres horaires), § 9.1.2 et § 9.1.3 (audit biologique et variables). Livrables : (1) audit fonctionnel BORD ; (2) audit halieutique BORD ; (3) base de spots enrichie ; (4) registre de sources ; (5) couverture, limites, contradictions et anomalies. Aucun spot V2 supprimé, aucune donnée de personne écrasée, aucune coordonnée personnelle dans le dépôt, aucun secteur dans le produit ; paywalls et CGU respectés. La phase demandera plusieurs sessions : chaque sous-tâche est commitée et notée ici.
+
+| Sous-tâche | Statut | Fichiers |
+| --- | --- | --- |
+| 5.0 Jeton, branche, plan | IMPLEMENTED | ce fichier, `docs/DECISIONS_LOG.md` |
+| 5.1 Inventaire exhaustif et sauvegarde logique des spots V2, empreintes, comparaison avant/après | TESTED (32a36a3 : 66 spots, 7 guides, 66 identifiants uniques ; 7 spots du guide Pirou sans coordonnées numériques (texte à la minute près) ; `--verifier` 0, dans `npm test` et la CI) | `scripts/inventaire-spots-v2.mjs`, `data/spots/` |
+| 5.2 Audit fonctionnel V2, BORD et BATEAU (parcours, moteurs, espèces, spots, données, sécurité, matériel, localisation, UX) — livrable 1 | IMPLEMENTED (espèces réelles : bar en BORD ; lieu jaune, lieu noir, maquereau, bar, vieille, saint-pierre en BATEAU ; aucun point d'accès dans les fiches ; 8 écarts pour la phase 5) | `docs/audit/` |
+| 5.3 Registre central des spots au schéma § 7.4 (66 fiches `v2_preserved`, identifiants V3-018, statut, provenance, preuve, dernière vérification, lacunes) | TESTED (schéma `data/schema/spot-v3.schema.json` ; 66 fiches `data/spots/fiches/`, toutes « à vérifier », 0 stationnement connu ; registre `data/spots/registre.json` généré ; `tests/spots-v3.mjs` 404/404, dans `npm test` et la CI ; 28 fiches V2 citent le journal personnel : anomalie à revoir) | `data/schema/`, `data/spots/`, tests |
+| 5.4 Registre de sources (évaluation § 7.1, indépendance, droits, CGU) — livrable 4 | IMPLEMENTED avec lacunes (297 sources, 102 éditeurs classés en 87 groupes ; 14 pages évaluées, 3 introuvables, 280 à lire, la plupart sans adresse) | `data/sources/`, `docs/halieutique/REGISTRE-SOURCES.md` |
+| 5.5 Référentiel biologique par espèce, région et saison (espèces réelles de la V2), fiches de preuve, lacunes et contradictions | IMPLEMENTED, version 1 (bar : deux stocks, cycle d'après Fritsch 2005, juvéniles, marée, rythme, température, régime ; lieu jaune, maquereau, vieille, saint-pierre ; lieu noir en lacune ; réglementation BATEAU ; à lire : atlas des frayères de l'Ifremer 2024, mois des frayères Manche) | `docs/halieutique/REFERENTIEL-BIOLOGIQUE.md` |
+| 5.6 Recherche systématique des spots, Bretagne → Cherbourg, première passe | IMPLEMENTED (9 candidats : 3 candidats, 1 doublon probable de goury, 2 hors BORD, 2 zones, 1 à accès restreint ; aucun au niveau d'une fiche ; lacunes : Manche nord et est, Ille-et-Vilaine, Côtes-d'Armor, Morbihan) | `data/spots/candidats.json` |
+| 5.7 Vérification par spot | TESTED pour ce qui est fait (accès 60/66, positions 60 dont 4 corrigées, réglementation 66/66 + locale 17, contrainte de marée 22, BRGM 26, risques communaux 66, photos 31) ; restes déclarés : postes de pirou, gouville, surtainville, écarts > 1,5 km, fenêtres non documentables | `scripts/`, `data/spots/collecte/` |
+| 5.8 Deuxième passe : spots oubliés, déséquilibres de couverture | TESTED pour cette phase (deux passes, 13 candidats, aucun promu : sources publiques sans poste nommé ; conclusion chiffrée dans COUVERTURE) | `data/spots/candidats.json` |
+| 5.9 Qualification des fiches (critères explicites) | TESTED (QUAL-1 à QUAL-7 ; 5 corroborées, 61 à vérifier, 0 TOP_TIER ; recalcul et blocages testés) | `scripts/qualifier-fiches.mjs`, `docs/halieutique/QUALIFICATION.md` |
+| 5.10 Rapport de couverture, limites, contradictions et anomalies — livrable 5 | IMPLEMENTED (version finale) | `docs/halieutique/COUVERTURE.md` |
+| 5.11 Red-team, rapport en 14 parties, arrêt | IMPLEMENTED (clone neuf de 9514c43 : tous les tests à 0) | `docs/rapports/v3/PHASE-5.md` |
+| 5.12 Passe exhaustive (réouverture du 23 nov., 22 h 33) | TESTED (60 sources lues page par page ; 72 fiches dont 6 candidates nouvelles ; 2 TOP_TIER, 7 corroborées ; tests des fiches 1007/1007) ; reste déclaré au second complément du rapport | `scripts/evaluer-pages.mjs`, `scripts/fiches-candidats.mjs`, `scripts/collecte-candidats.mjs`, `data/spots/candidats-v3.json`, `data/sources/` |
+| 5.13 Passe forums et listes complètes (demande du 23 nov., 23 h 10), revue contradictoire (24 nov.) | **TESTED** (98 fiches : 2 TOP_TIER, 1 corroborée, 63 à vérifier, 32 candidates ; gate du rapport de phase, troisième complément § 7 ; CI Tests verte sur 4b12b31) | `data/spots/`, `data/sources/`, `scripts/qualifier-fiches.mjs`, `scripts/noms.mjs`, `scripts/presence-bar-v2.mjs`, `scripts/sources-complementaires.mjs`, `scripts/sauver-collecte.mjs`, `tests/spots-v3.mjs`, `tests/a11y.mjs`, `docs/halieutique/`, `docs/rapports/v3/PHASE-5.md` |
+
 ## Questions et décisions (registre)
 
 | N° | Date | Question | Réponse | Effet |
@@ -95,17 +117,13 @@ Référentiel § 15 (phase 4), § 10, § 11, § 12 ; ARCHITECTURE-V3 (phase 2) ;
 
 ## Checkpoint
 
-- Branche : `claude/v3-phase-4`, partie de `claude/v3-phase-3` (080d5e3), elle-même partie de `claude/v3-phase-2`, partie de `main` (bb4f940). Aucune des phases 2 à 4 n'est fusionnée.
+- Branche : `claude/v3-phase-5`, partie de `claude/v3-phase-4` ; aucune des phases 2 à 5 n'est fusionnée ; `main` protégée (ensemble de règles 27906963, contrôles `tests` et `contrat`) ; étiquette `v2-final` publiée par Félix.
 - Dernier commit : voir `git log` ; ce fichier est mis à jour à chaque sous-tâche.
-- Tests : clone neuf de 8118388 le 23 nov. 2026, tous les codes de sortie à 0 : `npm ci`, `npm run build` sans écart, `npm test` (e2e 846/846), `test:upgrade` 12/12, `test:prototype` 244/244, `test:prototype-v3` 224/224, `tests/brand.py` 35/35, secrets sur 177 commits ; `test:a11y` 0 violation sur d32fe82 ; CI verte sur d32fe82.
-- Rien n'est fusionné ; `main` reste à bb4f940 et sans protection (4.8) ; V3-019 non exécuté.
+- Tests de la phase 5 (clone neuf de 9514c43, codes 0) : `npm ci`, build sans écart, `npm test` (spots V3 871/871, e2e 846/846), `test:a11y` 0 violation, `test:upgrade` 12/12, `test:prototype` 244/244, `test:prototype-v3` 224/224, `tests/brand.py` 35/35.
 
 ## Prochaine action
 
-Phase 4 **TESTED** (rapport, complément et second complément remis), arrêt. Attendus de Félix :
-- donner le jeton `APPROVED — PROCEED TO PHASE 5`.
-
-Aucune tâche de la phase 5 ne démarre sans ce jeton. Branche `claude/v3-phase-4` ; `main` inchangé (bb4f940), protégé depuis le 23 nov., 15 h 31 (contrôles `tests` et `contrat`, corrigés à 19 h 47).
+**Phase 5 close (TESTED, 24 nov. 2026, 5 h 05)**, tous les gates PASS. Phase 6 ouverte par le jeton conditionnel de Félix (23 nov., 23 h 15) : branche `claude/v3-phase-6` partie de `claude/v3-phase-5`, état dans la section « Phase 6 » ci-dessous. Phase 7 seulement si la phase 6 est close après trois passes de challenge ; jamais de phase 8 sans son jeton. Outil de sauvegarde des passages CI : `scripts/sauver-collecte.mjs`.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 

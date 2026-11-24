@@ -1,0 +1,46 @@
+# Phase 5 V3 : collecte des données d'accès des spots (OpenStreetMap et IGN), que le bac à sable de Claude n'atteint
+# pas. Ne tourne que quand le script de collecte change, sur une proposition. Ne publie rien et ne modifie pas le
+# dépôt : le résultat est un artefact et le journal du passage, relus puis intégrés aux fiches avec leurs sources.
+name: Collecte des accès des spots
+
+on:
+  pull_request:
+    paths:
+      - "scripts/collecte-acces.mjs"
+      - "data/spots/collecte/demande.json"
+      - "scripts/collecte-photos.mjs"
+      - "scripts/collecte-risques.mjs"
+      - "scripts/collecte-candidats.mjs"
+      - ".github/workflows/collecte-spots.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  collecte:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+      - name: Collecte (Nominatim, Overpass, itinéraire piéton IGN)
+        run: |
+          if node -e "const d=require('./data/spots/collecte/demande.json');process.exit((d.ids||[]).length?0:1)"; then node scripts/collecte-acces.mjs; else echo "aucun spot demandé pour l'accès"; fi
+      - name: Inventaire des photos libres (Wikimedia Commons)
+        run: |
+          if node -e "process.exit(require('./data/spots/collecte/demande.json').photos?0:1)"; then node scripts/collecte-photos.mjs; else echo "inventaire des photos non demandé"; fi
+      - name: Position des candidats (géocodage IGN)
+        run: |
+          if node -e "process.exit(require('./data/spots/collecte/demande.json').candidats?0:1)"; then node scripts/collecte-candidats.mjs; else echo "candidats non demandés"; fi
+      - name: Risques naturels officiels (Géorisques)
+        run: |
+          if node -e "process.exit(require('./data/spots/collecte/demande.json').risques?0:1)"; then node scripts/collecte-risques.mjs; else echo "risques non demandés"; fi
+      - if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: collecte-acces
+          path: out/collecte-acces.json
+          if-no-files-found: ignore
+          retention-days: 30

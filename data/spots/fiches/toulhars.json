@@ -1,0 +1,408 @@
+{
+ "id": "toulhars",
+ "name": "Larmor-Plage : Toulhars",
+ "origin": "v3_researched",
+ "coordinates": {
+  "lat": 47.709759,
+  "lon": -3.380621,
+  "precision_m": 1000,
+  "info": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Position du toponyme officiel « Toulhars » (quartier, zone d'habitation, Larmor-Plage). Le poste exact reste à confirmer sur place."
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Toulhars",
+    "ecart_m": 0
+   },
+   "texte": "Toponyme officiel « Toulhars » (quartier, zone d'habitation) à 0 m de la position de la fiche."
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 47.709689,
+    "lon": -3.379383,
+    "ign": "equipement_de_transport.31455",
+    "nature": "Parking",
+    "ecart_m": 93
+   },
+   "texte": "Parking recensé par la BD TOPO de l'IGN, à 93 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
+  },
+  "approche": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Aucune source ne décrit l'approche du poste."
+  },
+  "marche_min": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 2,
+   "texte": "2 min à pied (0,12 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Aucune source ne décrit la difficulté de l'accès."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Restrictions d'accès non recherchées au-delà des règles de pêche."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-mieuxpecher-morbihan",
+    "src-carnet-de-peche-berchis"
+   ],
+   "verifie_le": "2026-11-23",
+   "texte": "plage et roches de l'entrée de la rade de Lorient"
+  },
+  "fond": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Nature du fond non décrite par les sources lues."
+  },
+  "exposition": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Exposition non documentée."
+  },
+  "profondeur": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Profondeur non documentée (aucune courbe inventée)."
+  },
+  "structures": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Structures du poste non décrites par les sources lues."
+  },
+  "courant": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Courant non documenté."
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Aucune source ne décrit la basse mer à ce poste."
+  },
+  "montante": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Aucune source ne décrit la montante à ce poste."
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Aucune source ne décrit la pleine mer à ce poste."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Aucune source ne décrit la descendante à ce poste."
+  },
+  "coefficients": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Aucun coefficient documenté pour ce poste."
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Conditions favorables non documentées."
+  },
+  "defavorables": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Conditions défavorables non documentées."
+  },
+  "dangereuses": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Conditions dangereuses non documentées : à rechercher avant tout affichage."
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v3",
+    "sources": [
+     "src-mieuxpecher-morbihan",
+     "src-carnet-de-peche-berchis"
+    ],
+    "verifie_le": "2026-11-23",
+    "niveau": 4,
+    "texte": "Poste nommé par deux éditeurs indépendants : « Roches de Toulhars » ; « Plage de Toulhars · Bar » (liste des spots du Morbihan)."
+   }
+  }
+ ],
+ "strategies": [],
+ "lure_guidance": [],
+ "safety": {
+  "engagement": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Engagement de l'accès non documenté."
+  },
+  "consignes": [],
+  "houle_max_m": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Houle maximale non documentée."
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Coefficient maximal non documenté."
+  },
+  "acces_maree": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Aucune contrainte d'accès liée à la marée documentée : ce qui ne veut pas dire sans risque."
+  },
+  "mouvements_terrain": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "rayon_m": 500,
+    "total": 2,
+    "types": {
+     "Erosion de berges": 2
+    },
+    "plus_recent": null,
+    "evenements": [
+     {
+      "id": "10602174",
+      "type": "Erosion de berges",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": "PLAGE DE TOULHARS fiche ptolémée n°325",
+      "distance_m": 171
+     },
+     {
+      "id": "10602175",
+      "type": "Erosion de berges",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": "PLAGE DE PORT MARIA fiche ptolémée n°326",
+      "distance_m": 474
+     }
+    ]
+   },
+   "texte": "2 mouvements de terrain recensés par le BRGM à 500 m du point : Erosion de berges (2). 2 événements sans date. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "LARMOR-PLAGE",
+     "code_insee": "56107",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Tassements différentiels",
+      "Séisme",
+      "Phénomène lié à l'atmosphère",
+      "Tempête et grains (vent)",
+      "Rupture de barrage"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (LARMOR-PLAGE) : Par submersion marine ; Mouvement de terrain ; Tempête et grains (vent). Portée communale : ne décrit pas le poste."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 8 : 2 bars au plus par pêcheur et par jour, toute l'année. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 8 (golfe de Gascogne, au sud du 48ᵉ parallèle)",
+    "limite_jour": 2
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Aucune fenêtre de fonctionnement documentée (§ 7.6)."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "raison": "Aucune fenêtre d'accessibilité documentée (§ 7.6)."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v3",
+  "verifie_le": "2026-11-23",
+  "raison": "Aucune des 1 photos libres de Wikimedia Commons à 400 m du point ne porte le nom du lieu : aucune n'est présentée comme une photo du spot (inventaire du 2026-11-23)."
+ },
+ "provenance": {
+  "sources": [
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-carnet-de-peche-berchis",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
+   "src-legifrance-tailles-minimales-2026",
+   "src-mieuxpecher-morbihan"
+  ]
+ },
+ "quality": {
+  "statut": "candidate",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.32,
+  "inconnus": [
+   "access.approche",
+   "access.difficulte",
+   "access.restrictions",
+   "environment.fond",
+   "environment.exposition",
+   "environment.profondeur",
+   "environment.structures",
+   "environment.courant",
+   "tide_approaches.basse",
+   "tide_approaches.montante",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "tide_approaches.coefficients",
+   "conditions.favorables",
+   "conditions.defavorables",
+   "conditions.dangereuses",
+   "safety.engagement",
+   "safety.houle_max_m",
+   "safety.coef_max",
+   "safety.acces_maree",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": [
+   "Fiche créée par la passe exhaustive (5.12) : sécurité, accès et conditions à documenter avant tout affichage.",
+   "Position d'un lieu habité (« Toulhars »), pas du poste : à positionner sur le poste réel."
+  ],
+  "criteres": {
+   "QUAL-1": {
+    "ok": true,
+    "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:carnet-de-peche-com, editeur:mieuxpecher-com"
+   },
+   "QUAL-2": {
+    "ok": true,
+    "detail": "2 groupes d'indépendance parmi les sources lues page par page (2 sur 2) ; au moins une attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": false,
+    "detail": "Position d'un lieu habité (« Toulhars »), pas du poste : à positionner sur le poste réel."
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (2 min)"
+   },
+   "QUAL-5": {
+    "ok": false,
+    "detail": "engagement inconnu, 0 consigne sourcée sur 0, contrainte de marée non documentée, mouvements de terrain 2"
+   },
+   "QUAL-6": {
+    "ok": true,
+    "detail": "réglementation nationale ; règles locales du département recherchées, aucune à vérifier au poste"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-3 : Position d'un lieu habité (« Toulhars »), pas du poste : à positionner sur le poste réel.",
+   "QUAL-5 : engagement inconnu, 0 consigne sourcée sur 0, contrainte de marée non documentée, mouvements de terrain 2"
+  ]
+ }
+}

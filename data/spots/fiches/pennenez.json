@@ -1,0 +1,636 @@
+{
+ "id": "pennenez",
+ "name": "Penn Enez – Grève Blanche",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "plouguerneau",
+  "empreinte_v2": "4c7523db5321fc33157636f33376ee5c02b4e3f4c010d2ac33e64eb26d0fc507",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 48.628972,
+  "lon": -4.52667,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°37,7'N 4°31,6'W) ; précision non documentée.",
+   "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Penn Énez",
+    "ecart_m": 1384
+   },
+   "texte": "Toponyme officiel « Penn Énez » (cap, élément topographique ou forestier, détail orographique) à 1384 m de la position de la fiche."
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 48.6287,
+    "lon": -4.526958,
+    "ign": "equipement_de_transport.51394",
+    "nature": "Parking touristique",
+    "ecart_m": 37
+   },
+   "texte": "Parking touristique recensé par la BD TOPO de l'IGN, à 37 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Parking au bout de la Grève Blanche, puis sentier côtier (GR34) vers Penn Enez et le Koréjou (visorando).",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 1,
+   "texte": "1 min à pied (0,04 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "POINTE ROCHEUSE + GRÈVE — Koréjou, Plouguerneau",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Côte basse très découpée : plages de sable blanc, grèves de galets, amas de rochers et dunes (visorando).",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 2,
+    "gratter": "texan",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Côte nord face à la Manche : vents de NO à NE de face, sud de dos. Déduit de la carte.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Côte basse à rochers et grèves, marnage de 3,4 à 6,8 m : peu d'eau au bord (déduit, aucune sonde).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "peu"
+   }
+  },
+  "structures": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Digue de Penn Enez et port du Koréjou ; archipel de Lilia et Île Vierge au large. Chenaux de sable entre les roches, à repérer à basse mer.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Courant de marée côtier, modéré au bord ; au large, le courant traversier peut atteindre 3 nœuds au Libenter (SHOM, cité par Voile-Aviron). Pas de mesure au poste.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : 3 premières heures de montant (BM +0 h → BM +3 h, prioritaire) ; Fin de montant et pleine mer (PM −2 h → PM +0 h 30, bonne).",
+   "valeur": [
+    {
+     "id": "pe1",
+     "libelle": "3 premières heures de montant",
+     "reference": "BM",
+     "debut_h": 0,
+     "fin_h": 3,
+     "priorite": "prime",
+     "type_v2": "montant",
+     "note": "Le flot entre par les couloirs de sable entre les roches. Souple texan ou weightless au ras des algues."
+    },
+    {
+     "id": "pe2",
+     "libelle": "Fin de montant et pleine mer",
+     "reference": "PM",
+     "debut_h": -2,
+     "fin_h": 0.5,
+     "priorite": "bon",
+     "type_v2": "montant",
+     "note": "Les rochers sont couverts : leurre de surface au-dessus des têtes de roche si la mer est calme."
+    }
+   ]
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la pleine mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée descendante) : 3 dernières heures de descendant (BM −3 h → BM +0 h, bonne).",
+   "valeur": [
+    {
+     "id": "pe3",
+     "libelle": "3 dernières heures de descendant",
+     "reference": "BM",
+     "debut_h": -3,
+     "fin_h": 0,
+     "priorite": "bon",
+     "type_v2": "descendant",
+     "note": "L'eau se retire des platiers : postes de sortie, au débouché des couloirs."
+    }
+   ]
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    30,
+    50,
+    85,
+    105
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "aberwrach",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Côte basse à marnage fort : tout se joue sur le mouvement de l'eau. À basse mer, lire le terrain ; au flot, pêcher les couloirs de sable et les rochers qui se couvrent.",
+   "lifeHack": "Repérer à basse mer les cuvettes de sable et les rochers isolés cerclés d'algues : ce sont les postes du flot (Ripault, 2026).",
+   "montantOuDescendant": "Montant dominant : le flot recouvre la grève et les platiers et remet la nourriture en circulation. Les trois dernières heures du descendant sont le second créneau (principe général, peche.com / Delalande).",
+   "typeHeure": "3 PREMIÈRES HEURES DE MONTANT",
+   "windows": [
+    {
+     "id": "pe1",
+     "label": "3 premières heures de montant",
+     "note": "Le flot entre par les couloirs de sable entre les roches. Souple texan ou weightless au ras des algues.",
+     "offsetAfter": 3,
+     "offsetBefore": 0,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "pe2",
+     "label": "Fin de montant et pleine mer",
+     "note": "Les rochers sont couverts : leurre de surface au-dessus des têtes de roche si la mer est calme.",
+     "offsetAfter": 0.5,
+     "offsetBefore": -2,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "pe3",
+     "label": "3 dernières heures de descendant",
+     "note": "L'eau se retire des platiers : postes de sortie, au débouché des couloirs.",
+     "offsetAfter": 0,
+     "offsetBefore": -3,
+     "phase": "bm",
+     "priority": "bon",
+     "tidePhaseType": "descendant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     135,
+     157.5,
+     180
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     315,
+     337.5,
+     0,
+     22.5
+    ]
+   },
+   "texte": "Côte nord, face à la Manche, au pied de l'Île Vierge. Exposée aux vents de NO à NE ; abritée des vents de sud. Orientation déduite de la carte, à confirmer sur place.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.5
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Poste cité parmi les coins de pêche du Finistère nord (mieuxpecher.com). Aucune source sur la taille ou la saison des poissons ici. Statut V2 « VÉRIFIÉ » sans date ni page : ramené à INFÉRÉ, aucune page de pêche lue en phase 5 n'attachant le bar au poste (revue contradictoire du 24 nov. 2026).",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Texan ou tête weedless près des rochers ; tête plombée classique seulement sur les plaques de sable.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "À basse mer, repérer les couloirs de sable entre les roches : le bar y entre avec le flot.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Les rochers isolés cerclés d'algues sont des postes (Ripault, 2026) : lancer au ras, jamais dedans.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Une seule source pêche, qui ne fait que nommer le poste (mieuxpecher, Finistère nord) ; le reste vient du terrain décrit (visorando, Wikipédia) et de déductions.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Repérer à basse mer les cuvettes de sable et les rochers isolés cerclés d'algues : ce sont les postes du flot (Ripault, 2026).",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel / blanc",
+    "name": "Souple weightless ou texan 10-12 cm",
+    "technique": "Au ras des algues sur le flot. Repère d'un guide du cap Sizun : Gambler 5\" sur tête texane 5 g, ou Dolive Shad 4,5\" sans plomb.",
+    "weight": "sans plomb ou tête 5-7 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / sardine",
+    "name": "Stickbait 110-130 mm",
+    "technique": "Walk-the-dog au-dessus des rochers couverts, mer calme, crépuscule.",
+    "weight": "14-27 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel",
+    "name": "Shad 9-10 cm tête plombée",
+    "technique": "Sur les plaques de sable seulement. Repère du même guide : Nitro Shad 90 sur tête de 15 g.",
+    "weight": "tête 10-15 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Marée montante : ne pas se laisser couper le retour sur les platiers et les îlots (marnage de 3,4 à 6,8 m).",
+    "verifie_le": null,
+    "source_texte": "peche-poissons.com, F. Ripault (2026) · marnage calculé"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.5,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    "isolement_au_flot"
+   ],
+   "verifie_le": null,
+   "texte": "Le flot peut couper le retour. Classement relu à la main depuis la consigne de la fiche : « Marée montante : ne pas se laisser couper le retour sur les platiers et les îlots (marnage de 3,4 à 6,8 m). »",
+   "source_texte": "peche-poissons.com, F. Ripault (2026) · marnage calculé"
+  },
+  "mouvements_terrain": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "raison": "Aucun mouvement de terrain recensé par le BRGM à 500 m du point (Géorisques, 2026-11-23) ; le recensement n'est pas exhaustif, ce qui ne prouve pas l'absence de risque."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "PLOUGUERNEAU",
+     "code_insee": "29195",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (PLOUGUERNEAU) : Par submersion marine ; Mouvement de terrain. Portée communale : ne décrit pas le poste."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 7 : du 1er février au 31 mars, pêche en relâcher seulement, à la canne ou à la ligne à main ; en janvier et du 1er avril au 31 décembre, 3 bars au plus par pêcheur et par jour. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 7 (Manche, au nord du 48ᵉ parallèle)",
+    "limite_jour": 3,
+    "relacher_seul": {
+     "du": "02-01",
+     "au": "03-31"
+    }
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ddtm29-synthese-peche-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 2,
+   "valeur": {
+    "portee": "Finistère",
+    "application_au_poste": "à vérifier"
+   },
+   "texte": "Finistère : il est interdit « de pêcher à l'intérieur des limites administratives des ports » (synthèse de la DDTM du Finistère, avril 2026, p. 4). Le poste décrit touche un port, une digue ou une cale : avant toute recommandation, vérifier qu'il est hors de ces limites."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Contrainte de marée documentée (le flot peut couper le retour), mais aucune durée praticable n'est sourcée : aucun intervalle HH:MM ne peut être calculé (§ 7.6). Le spot ne peut pas être présenté comme praticable sans fenêtre documentée."
+  }
+ },
+ "photos": {
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Plouguerneau - Camping de la grève blanche - boîte à livres.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Plouguerneau_-_Camping_de_la_gr%C3%A8ve_blanche_-_bo%C3%AEte_%C3%A0_livres.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Patricia Cugnod",
+    "date": null,
+    "distance_m": 274
+   },
+   {
+    "titre": "Grève blanche-crapaud.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Gr%C3%A8ve_blanche-crapaud.JPG",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Nono du 59",
+    "date": "2010-08-06 12:23:17",
+    "distance_m": 340
+   }
+  ],
+  "texte": "2 photos libres de Wikimedia Commons, à 340 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
+ },
+ "provenance": {
+  "sources": [
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-ddtm29-synthese-peche-loisir-2026",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
+   "src-legifrance-tailles-minimales-2026",
+   "src-mieuxpecher-com-59001e",
+   "src-visorando-com-647b4f",
+   "src-wikimedia-commons-geo",
+   "src-wikipedia-en-fb03cd"
+  ],
+  "sources_v2": [
+   "mieuxpecher.com — « Coins de pêche – Finistère NORD » (Norbert, 10/05/2018) : « Penn Enez à Plouguerneau »",
+   "visorando.com — « Terre et mer autour de la chapelle Saint-Michel à Plouguerneau » (départ : parking au bout de la Grève Blanche, N 48,628972° / O 4,52667°)",
+   "Wikipédia (en) — Plouguerneau"
+  ],
+  "faits_v2": [
+   {
+    "s": "visorando.com — « Terre et mer autour de la chapelle Saint-Michel à Plouguerneau »",
+    "t": "Penn Enez : une digue ; le site servait au séchage, au stockage et au brûlage du goémon."
+   },
+   {
+    "s": "visorando.com — même circuit",
+    "t": "Le port du Koréjou est le plus important de Plouguerneau (plaisance, pêche professionnelle, activités nautiques)."
+   },
+   {
+    "s": "Wikipédia (en) — Plouguerneau",
+    "t": "Plouguerneau a 45 km de côte, îles comprises : le plus long littoral communal de France."
+   },
+   {
+    "s": "visorando.com",
+    "t": "Le phare de l'Île Vierge, haut de 82,5 m, domine la côte."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.82,
+  "inconnus": [
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.haute",
+   "safety.coef_max",
+   "safety.mouvements_terrain",
+   "windows.habituelles",
+   "windows.securite"
+  ],
+  "anomalies": [],
+  "criteres": {
+   "QUAL-1": {
+    "ok": false,
+    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:mieuxpecher-com"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "1 groupe d'indépendance parmi les sources lues page par page (1 sur 1) ; aucune n'attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": true,
+    "detail": "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (1 min)"
+   },
+   "QUAL-5": {
+    "ok": true,
+    "detail": "engagement 1 (jugement V2), 1 consigne sourcée sur 1, contrainte de marée isolement_au_flot, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": false,
+    "detail": "règle locale à vérifier au poste (Finistère)"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:mieuxpecher-com",
+   "QUAL-6 : règle locale à vérifier au poste (Finistère)"
+  ]
+ }
+}

@@ -1,0 +1,597 @@
+{
+ "//": "Collecte du 23 nov. 2026 (soir, 5.12) : les six fiches candidates. Données IGN seulement, Licence Ouverte ; résultats OpenStreetMap retirés.",
+ "date": "2026-11-23",
+ "passage": 45272762215,
+ "spots": [
+  {
+   "id": "caplevi",
+   "point": {
+    "lat": 49.695877,
+    "lon": -1.473208,
+    "precision_m": 1000
+   },
+   "toponymes": [
+    {
+     "source": "ign",
+     "nom": "Phare du Cap Lévi",
+     "categorie": "phare, construction, construction ponctuelle",
+     "lat": 49.695877,
+     "lon": -1.473208,
+     "ecart_m": 0
+    },
+    {
+     "source": "ign",
+     "nom": "Cap Lévi",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "lat": 49.697268,
+     "lon": -1.472681,
+     "ecart_m": 159
+    },
+    {
+     "source": "ign",
+     "nom": "Fort du Cap Lévi",
+     "categorie": "ouvrage militaire, zone d'activité ou d'intérêt",
+     "lat": 49.690132,
+     "lon": -1.476936,
+     "ecart_m": 693
+    },
+    {
+     "source": "ign",
+     "nom": "le Cap Lévi",
+     "categorie": "lieu-dit habité, zone d'habitation",
+     "lat": 49.68913,
+     "lon": -1.474286,
+     "ecart_m": 754
+    },
+    {
+     "source": "ign",
+     "nom": "Anse du Cap Lévi",
+     "categorie": "baie, détail hydrographique, hydrographie",
+     "lat": 49.687736,
+     "lon": -1.475599,
+     "ecart_m": 921
+    }
+   ],
+   "parkings": [
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.94773",
+     "lon": -1.472831772,
+     "lat": 49.696742124000004,
+     "ecart_m": 100,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.49980",
+     "lon": -1.474648708,
+     "lat": 49.689754371999996,
+     "ecart_m": 689,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.87679",
+     "lon": -1.472378968,
+     "lat": 49.687482607999996,
+     "ecart_m": 935,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.83860",
+     "lon": -1.4599075579999998,
+     "lat": 49.68887762000001,
+     "ecart_m": 1233,
+     "nom": "Place d'Inglemare",
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.176392",
+     "lon": -1.4551866080000002,
+     "lat": 49.690978455999996,
+     "ecart_m": 1406,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    }
+   ],
+   "marche": [
+    {
+     "parking": "equipement_de_transport.94773",
+     "resource": "bdtopo-pgr",
+     "minutes": 3.9,
+     "km": 0.26
+    },
+    {
+     "parking": "equipement_de_transport.49980",
+     "resource": "bdtopo-pgr",
+     "minutes": 13.8,
+     "km": 0.92
+    },
+    {
+     "parking": "equipement_de_transport.87679",
+     "resource": "bdtopo-pgr",
+     "minutes": 18.4,
+     "km": 1.23
+    }
+   ]
+  },
+  {
+   "id": "conguel",
+   "point": {
+    "lat": 47.469286,
+    "lon": -3.080425,
+    "precision_m": 300
+   },
+   "toponymes": [
+    {
+     "source": "ign",
+     "nom": "Pointe du Conguel",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "lat": 47.469286,
+     "lon": -3.080425,
+     "ecart_m": 0
+    }
+   ],
+   "parkings": [
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.50197",
+     "lon": -3.091364186,
+     "lat": 47.47326851,
+     "ecart_m": 934,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.104024",
+     "lon": -3.093542168,
+     "lat": 47.477805864000004,
+     "ecart_m": 1367,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.93070",
+     "lon": -3.094585524,
+     "lat": 47.48108,
+     "ecart_m": 1689,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.103051",
+     "lon": -3.094770052,
+     "lat": 47.482067074,
+     "ecart_m": 1784,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.76811",
+     "lon": -3.098167812222222,
+     "lat": 47.48291824666667,
+     "ecart_m": 2019,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    }
+   ],
+   "marche": [
+    {
+     "parking": "equipement_de_transport.50197",
+     "resource": "bdtopo-pgr",
+     "minutes": 14.7,
+     "km": 0.98
+    },
+    {
+     "parking": "equipement_de_transport.104024",
+     "resource": "bdtopo-pgr",
+     "minutes": 22.5,
+     "km": 1.5
+    },
+    {
+     "parking": "equipement_de_transport.93070",
+     "resource": "bdtopo-pgr",
+     "minutes": 29,
+     "km": 1.93
+    }
+   ]
+  },
+  {
+   "id": "percho",
+   "point": {
+    "lat": 47.523535,
+    "lon": -3.159879,
+    "precision_m": 300
+   },
+   "toponymes": [
+    {
+     "source": "ign",
+     "nom": "Pointe du Percho",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "lat": 47.523535,
+     "lon": -3.159879,
+     "ecart_m": 0
+    }
+   ],
+   "parkings": [
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.50198",
+     "lon": -3.1560469191666667,
+     "lat": 47.52663694,
+     "ecart_m": 449,
+     "nom": "Parking des Pluviers",
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.50194",
+     "lon": -3.1540793088888894,
+     "lat": 47.52512090222223,
+     "ecart_m": 470,
+     "nom": "Parking du Percho",
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.87021",
+     "lon": -3.150663602,
+     "lat": 47.527865022,
+     "ecart_m": 843,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.60546",
+     "lon": -3.1506056420000004,
+     "lat": 47.515730475,
+     "ecart_m": 1113,
+     "nom": "Porzh Gwen",
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.87394",
+     "lon": -3.145920832,
+     "lat": 47.530633781999995,
+     "ecart_m": 1312,
+     "nom": "Parking Téviec",
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.60545",
+     "lon": -3.149357144,
+     "lat": 47.512614792,
+     "ecart_m": 1449,
+     "nom": "Parking de Port Bara",
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.91240",
+     "lon": -3.141341518,
+     "lat": 47.533969731999996,
+     "ecart_m": 1812,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    }
+   ],
+   "marche": [
+    {
+     "parking": "equipement_de_transport.50198",
+     "resource": "bdtopo-pgr",
+     "minutes": 7.6,
+     "km": 0.51
+    },
+    {
+     "parking": "equipement_de_transport.50194",
+     "resource": "bdtopo-pgr",
+     "minutes": 6.9,
+     "km": 0.46
+    },
+    {
+     "parking": "equipement_de_transport.87021",
+     "resource": "bdtopo-pgr",
+     "minutes": 14.1,
+     "km": 0.94
+    }
+   ]
+  },
+  {
+   "id": "plougrescant",
+   "point": {
+    "lat": 48.869558,
+    "lon": -3.22477,
+    "precision_m": 300
+   },
+   "toponymes": [
+    {
+     "source": "ign",
+     "nom": "Pointe du Château",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "lat": 48.869558,
+     "lon": -3.22477,
+     "ecart_m": 0
+    },
+    {
+     "source": "ign",
+     "nom": "Détail hydrographique",
+     "categorie": "point d'eau, détail hydrographique, hydrographie",
+     "lat": 48.866707,
+     "lon": -3.231855,
+     "ecart_m": 607
+    }
+   ],
+   "parkings": [
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.49061",
+     "lon": -3.231060494375001,
+     "lat": 48.866130330625005,
+     "ecart_m": 597,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.73307",
+     "lon": -3.2207339063157896,
+     "lat": 48.864591991578955,
+     "ecart_m": 626,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.49063",
+     "lon": -3.218878182,
+     "lat": 48.865115091999996,
+     "ecart_m": 656,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    }
+   ],
+   "marche": [
+    {
+     "parking": "equipement_de_transport.49061",
+     "resource": "bdtopo-pgr",
+     "minutes": 12.8,
+     "km": 0.86
+    },
+    {
+     "parking": "equipement_de_transport.73307",
+     "resource": "bdtopo-pgr",
+     "minutes": 15.5,
+     "km": 1.03
+    },
+    {
+     "parking": "equipement_de_transport.49063",
+     "resource": "bdtopo-pgr",
+     "minutes": 13.8,
+     "km": 0.92
+    }
+   ]
+  },
+  {
+   "id": "querqueville",
+   "point": {
+    "lat": 49.66929,
+    "lon": -1.679844,
+    "precision_m": 1000
+   },
+   "toponymes": [
+    {
+     "source": "ign",
+     "nom": "Pointe de Querqueville",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "lat": 49.67204,
+     "lon": -1.679631,
+     "ecart_m": 306
+    }
+   ],
+   "parkings": [
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.63064",
+     "lon": -1.6846779725,
+     "lat": 49.666247979999994,
+     "ecart_m": 485,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.6219",
+     "lon": -1.68691487,
+     "lat": 49.66603586499999,
+     "ecart_m": 624,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.79683",
+     "lon": -1.6885816419999997,
+     "lat": 49.662901966,
+     "ecart_m": 949,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.26465",
+     "lon": -1.6910994190909092,
+     "lat": 49.66319970909091,
+     "ecart_m": 1056,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.6220",
+     "lon": -1.6894885915789475,
+     "lat": 49.66178894631579,
+     "ecart_m": 1085,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.26500",
+     "lon": -1.6933711519999999,
+     "lat": 49.66428964200001,
+     "ecart_m": 1121,
+     "nom": "Parking Courlis",
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.79682",
+     "lon": -1.6925955560000001,
+     "lat": 49.660929939999995,
+     "ecart_m": 1306,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.79681",
+     "lon": -1.698354862,
+     "lat": 49.668455086,
+     "ecart_m": 1335,
+     "nom": null,
+     "nature": "Parking",
+     "detail": null
+    }
+   ],
+   "marche": [
+    {
+     "parking": "equipement_de_transport.63064",
+     "resource": "bdtopo-pgr",
+     "minutes": 8.6,
+     "km": 0.57
+    },
+    {
+     "parking": "equipement_de_transport.6219",
+     "resource": "bdtopo-pgr",
+     "minutes": 10.8,
+     "km": 0.72
+    },
+    {
+     "parking": "equipement_de_transport.79683",
+     "resource": "bdtopo-pgr",
+     "minutes": 17.2,
+     "km": 1.14
+    }
+   ]
+  },
+  {
+   "id": "saintcolomban",
+   "point": {
+    "lat": 47.563799,
+    "lon": -3.095855,
+    "precision_m": 300
+   },
+   "toponymes": [
+    {
+     "source": "ign",
+     "nom": "Pointe Saint-Colomban",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "lat": 47.563799,
+     "lon": -3.095855,
+     "ecart_m": 0
+    }
+   ],
+   "parkings": [
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.87395",
+     "lon": -3.0968070178947364,
+     "lat": 47.56665995894736,
+     "ecart_m": 326,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.87396",
+     "lon": -3.0890829120000003,
+     "lat": 47.565084414,
+     "ecart_m": 528,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    },
+    {
+     "source": "ign",
+     "ign": "equipement_de_transport.87185",
+     "lon": -3.091618236,
+     "lat": 47.574085574,
+     "ecart_m": 1187,
+     "nom": null,
+     "nature": "Parking",
+     "detail": "Parking touristique"
+    }
+   ],
+   "marche": [
+    {
+     "parking": "equipement_de_transport.87395",
+     "resource": "bdtopo-pgr",
+     "minutes": 6.3,
+     "km": 0.42
+    },
+    {
+     "parking": "equipement_de_transport.87396",
+     "resource": "bdtopo-pgr",
+     "minutes": 10.6,
+     "km": 0.71
+    },
+    {
+     "parking": "equipement_de_transport.87185",
+     "resource": "bdtopo-pgr",
+     "minutes": 23.4,
+     "km": 1.56
+    }
+   ]
+  }
+ ]
+}

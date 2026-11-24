@@ -1,0 +1,639 @@
+{
+ "id": "barnenez",
+ "name": "Barnénez – Dourduff",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "carantec",
+  "empreinte_v2": "b55eb0dd5ee8c6782ce193a7886070fab92f792b93a2f8e35ccc8817f5bf5bb2",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2",
+   "riviere": "indicateur V2 repris dans environment.milieu si utile ; valeur gardée dans la sauvegarde"
+  }
+ },
+ "coordinates": {
+  "lat": 48.667377,
+  "lon": -3.855132,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°40,0'N 3°51,3'W) ; précision non documentée.",
+   "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Pointe de Barnénez",
+    "ecart_m": 811
+   },
+   "texte": "Toponyme officiel « Pointe de Barnénez » (cap, élément topographique ou forestier, détail orographique) à 811 m de la position de la fiche."
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 48.667263,
+    "lon": -3.856796,
+    "ign": "equipement_de_transport.56458",
+    "nature": "Parking",
+    "ecart_m": 123
+   },
+   "texte": "Parking recensé par la BD TOPO de l'IGN, à 123 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Parking du port de Barnénez (quai Louis le Port), puis sentier côtier (GR34) vers Kerarmel et la pointe (visorando).",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 4,
+   "texte": "4 min à pied (0,25 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "PARCS + POINTE (RIVIÈRE) — Parcs et pointe, rive est de la rivière de Morlaix (Plouezoc'h)",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Zones ostréicoles du Dourduff, de Kerarmel et de Barnénez, « mer calme et peu d'eau » (office de tourisme) ; à la pointe, passages rocheux sous le sentier, sans plage (visorando).",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 2,
+    "gratter": "texan",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Abritée de la houle, ouverte au nord sur la baie. Déduit de la carte.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Parcs « peu d'eau » (office de tourisme) ; la rivière et l'anse du Dourduff sont citées pour la « profondeur des estuaires » (office de tourisme) : profondeur non mesurée.",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "peu"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Rivière de Morlaix, anse du Dourduff, presqu'île de Barnénez, île Stérec (office de tourisme, visorando).",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Courant d'estuaire, maximal à mi-marée (règle des douzièmes) ; « passage » entre la pointe et Stérec.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (autour de la basse mer) : Fin de descendant → début de montant (BM −1 h 30 → BM +2 h, prioritaire).",
+   "valeur": [
+    {
+     "id": "bn1",
+     "libelle": "Fin de descendant → début de montant",
+     "reference": "BM",
+     "debut_h": -1.5,
+     "fin_h": 2,
+     "priorite": "prime",
+     "type_v2": "variable",
+     "note": "À vue en bordure des parcs (Vidal, parcs du Morbihan, par déduction)."
+    }
+   ]
+  },
+  "montante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : Montant (BM +2 h → BM +5 h 30, bonne).",
+   "valeur": [
+    {
+     "id": "bn2",
+     "libelle": "Montant",
+     "reference": "BM",
+     "debut_h": 2,
+     "fin_h": 5.5,
+     "priorite": "bon",
+     "type_v2": "montant",
+     "note": "Marée montante sur les parcs ; passage de Stérec à la pointe."
+    }
+   ]
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la pleine mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre marée descendante dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    35,
+    50,
+    80,
+    100
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "chateaudutaureau",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Le flot recouvre les parcs : les bars y entrent avec l'eau.",
+   "lifeHack": "Entre le parking et la pointe, le sentier passe au-dessus de l'estran sans plage : ne pas descendre sur les roches par marée montante (visorando).",
+   "montantOuDescendant": "Zones ostréicoles « à privilégier à marée montante » (office de tourisme) ; à vue en fin de descendante et début de montante (Vidal, à propos des parcs du Morbihan ; appliqué ici par déduction).",
+   "typeHeure": "MARÉE MONTANTE (PARCS) · FIN DE DESCENDANTE À VUE",
+   "windows": [
+    {
+     "id": "bn1",
+     "label": "Fin de descendant → début de montant",
+     "note": "À vue en bordure des parcs (Vidal, parcs du Morbihan, par déduction).",
+     "offsetAfter": 2,
+     "offsetBefore": -1.5,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "variable"
+    },
+    {
+     "id": "bn2",
+     "label": "Montant",
+     "note": "Marée montante sur les parcs ; passage de Stérec à la pointe.",
+     "offsetAfter": 5.5,
+     "offsetBefore": 2,
+     "phase": "bm",
+     "priority": "bon",
+     "tidePhaseType": "montant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     135,
+     157.5,
+     180,
+     202.5
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     315,
+     337.5,
+     0,
+     22.5
+    ]
+   },
+   "texte": "Rive est de la rivière de Morlaix, abritée de la houle ; le vent de nord entre dans l'estuaire. Orientation déduite de la carte.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 2
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Pointe et parcs cités par un pêcheur local (office de tourisme) ; la pêche à vue des parcs est décrite par Vidal pour le Morbihan. Statut V2 « VÉRIFIÉ » sans date ni page : ramené à INFÉRÉ, aucune page de pêche lue en phase 5 n'attachant le bar au poste (revue contradictoire du 24 nov. 2026).",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Surface ou souple léger sur les parcs ; texan ou crabe le long des roches de la pointe.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Parcs : marée montante (office de tourisme), à vue en fin de descendante et début de montante (Vidal, à propos des parcs du Morbihan ; appliqué ici par déduction).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pointe : « le passage entre la pointe et l'île de Stérec » (office de tourisme).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Entre le parking et la pointe, le sentier passe au-dessus de l'estran sans plage : ne pas descendre sur les roches par marée montante (visorando).",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel / ghost",
+    "name": "Stickbait 90-110 mm",
+    "technique": "Surface sur les parcs (mieuxpecher).",
+    "weight": "10-16 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Vert / brun",
+    "name": "Imitation de crabe",
+    "technique": "Bars d'estuaire (Vidal, 2026).",
+    "weight": "texan 5-10 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel",
+    "name": "Shad 9-10 cm",
+    "technique": "Passage de Stérec, au montant.",
+    "weight": "tête 5-10 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 2,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Sentier au-dessus d'un estran sans plage, passages rocheux : prudence avec la marée.",
+    "verifie_le": null,
+    "source_texte": "visorando.com"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "« Gardez un œil sur la marée montante. »",
+    "verifie_le": null,
+    "source_texte": "office de tourisme (2014)"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 2,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    "isolement_au_flot"
+   ],
+   "verifie_le": null,
+   "texte": "Le flot peut couper le retour. Classement relu à la main depuis la consigne de la fiche : « « Gardez un œil sur la marée montante. » »",
+   "source_texte": "office de tourisme (2014)"
+  },
+  "mouvements_terrain": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "raison": "Aucun mouvement de terrain recensé par le BRGM à 500 m du point (Géorisques, 2026-11-23) ; le recensement n'est pas exhaustif, ce qui ne prouve pas l'absence de risque."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "PLOUEZOC'H",
+     "code_insee": "29186",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (PLOUEZOC'H) : Par submersion marine ; Mouvement de terrain. Portée communale : ne décrit pas le poste."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 7 : du 1er février au 31 mars, pêche en relâcher seulement, à la canne ou à la ligne à main ; en janvier et du 1er avril au 31 décembre, 3 bars au plus par pêcheur et par jour. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 7 (Manche, au nord du 48ᵉ parallèle)",
+    "limite_jour": 3,
+    "relacher_seul": {
+     "du": "02-01",
+     "au": "03-31"
+    }
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Contrainte de marée documentée (le flot peut couper le retour), mais aucune durée praticable n'est sourcée : aucun intervalle HH:MM ne peut être calculé (§ 7.6). Le spot ne peut pas être présenté comme praticable sans fenêtre documentée."
+  }
+ },
+ "photos": {
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Plouezoc’h - Cairn de Barnenez - Objets datant du Néolithique - Fusaïoles ou pesons de métier à tisser.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Plouezoc%E2%80%99h_-_Cairn_de_Barnenez_-_Objets_datant_du_N%C3%A9olithique_-_Fusa%C3%AFoles_ou_pesons_de_m%C3%A9tier_%C3%A0_tisser.jpg",
+    "licence": "CC0",
+    "auteur": "Romainbehar",
+    "date": "2023-02-09 15:33:56",
+    "distance_m": 122
+   },
+   {
+    "titre": "Plouezoc’h - Cairn de Barnenez - 25-09-2021 - 01.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Plouezoc%E2%80%99h_-_Cairn_de_Barnenez_-_25-09-2021_-_01.jpg",
+    "licence": "CC BY-SA 4.0",
+    "auteur": "Quoique",
+    "date": "2021-09-25 16:20:57",
+    "distance_m": 180
+   },
+   {
+    "titre": "Cairn of Barnenez - Back.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Cairn_of_Barnenez_-_Back.JPG",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Florent Ls",
+    "date": "2012-07-01",
+    "distance_m": 233
+   },
+   {
+    "titre": "Cairn of Barnenez - Front.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Cairn_of_Barnenez_-_Front.JPG",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Florent Ls",
+    "date": "2012-07-01",
+    "distance_m": 233
+   },
+   {
+    "titre": "Cairn of Barnenez - Chamber entrance.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Cairn_of_Barnenez_-_Chamber_entrance.JPG",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Florent Ls",
+    "date": "2012-07-01",
+    "distance_m": 233
+   },
+   {
+    "titre": "Cairn of Barnenez - 20th century quarrying..JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Cairn_of_Barnenez_-_20th_century_quarrying..JPG",
+    "licence": "CC BY-SA 3.0",
+    "auteur": "Florent Ls",
+    "date": "2012-07-10",
+    "distance_m": 233
+   }
+  ],
+  "texte": "6 photos libres de Wikimedia Commons, à 233 m au plus du point, portent le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
+ },
+ "provenance": {
+  "sources": [
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-baiedemorlaix-bzh-b82923",
+   "src-baiedemorlaix-bzh-c3a451",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
+   "src-legifrance-tailles-minimales-2026",
+   "src-peche-poissons-com-44c3a2",
+   "src-portbooker-com-eae758",
+   "src-visorando-com-656214",
+   "src-wikimedia-commons-geo"
+  ],
+  "sources_v2": [
+   "baiedemorlaix.bzh — office de tourisme : pointe de Barnenez, zones ostréicoles de la rive est",
+   "baiedemorlaix.bzh — « La pêche au bar avec un guide pêche » : anse du Dourduff",
+   "visorando.com — « Presqu'île de Barnenez et anse de Térénez »",
+   "peche-poissons.com — J.-B. Vidal (19/10/2026) : parcs à huîtres (du Morbihan)",
+   "portbooker.com — port du Dourduff (Plouezoc'h)"
+  ],
+  "faits_v2": [
+   {
+    "s": "baiedemorlaix.bzh — office de tourisme, « La pêche du bord de mer en Baie de Morlaix »",
+    "t": "Pointe de Barnenez : « le passage entre la pointe et l'île de Stérec » ; zones ostréicoles Dourduff, Kerarmel et Barnenez (rive est) « à privilégier à marée montante », « mer calme et peu d'eau »."
+   },
+   {
+    "s": "baiedemorlaix.bzh — « La pêche au bar avec un guide pêche »",
+    "t": "Les bars chassent dans « la profondeur des estuaires (rade de Morlaix, anse du Dourduff, baie de Locquirec) » et près des parcs."
+   },
+   {
+    "s": "visorando.com — « Presqu'île de Barnenez et anse de Térénez » (48,667377 / -3,855132)",
+    "t": "Parking du port de Barnénez (quai Louis le Port), sur la rivière de Morlaix ; balcon de Kerarmel sur l'estuaire ; pointe de Barnénez face à l'île Noire et au château du Taureau, puis face à l'île Stérec ; « be careful of the tide », pas de plage sous le sentier, seulement des passages rocheux."
+   },
+   {
+    "s": "peche-poissons.com — J.-B. Vidal (19/10/2026)",
+    "t": "À propos des parcs à huîtres du golfe du Morbihan (La Trinité, Étel) : « On peut y pêcher à vue en fin de descendante et début de montante ». Appliqué ici par déduction."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.82,
+  "inconnus": [
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "safety.mouvements_terrain",
+   "windows.habituelles",
+   "windows.securite"
+  ],
+  "anomalies": [],
+  "criteres": {
+   "QUAL-1": {
+    "ok": false,
+    "detail": "0 groupe d'indépendance halieutique (famille 1 à 4) ; 1 source d'éditeur non classé, non comptée"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "0 groupe d'indépendance parmi les sources lues page par page (0 sur 0) ; aucune n'attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": true,
+    "detail": "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (4 min)"
+   },
+   "QUAL-5": {
+    "ok": true,
+    "detail": "engagement 2 (jugement V2), 2 consignes sourcées sur 2, contrainte de marée isolement_au_flot, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": true,
+    "detail": "réglementation nationale ; règles locales du département recherchées, aucune à vérifier au poste"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4) ; 1 source d'éditeur non classé, non comptée"
+  ]
+ }
+}

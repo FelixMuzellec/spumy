@@ -1,0 +1,3938 @@
+{
+ "//": "Inventaire Wikimedia Commons (recherche géographique, 400 m) ; métadonnées seulement, aucune image copiée. Passage CI 45272762215.",
+ "date": "2026-11-23",
+ "passage_ci": "45272762215",
+ "rayon_m": 400,
+ "spots": [
+  {
+   "id": "aberbenoit",
+   "nom": "Embouchure de l'Aber Benoît",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Diving as a covid vaccine ? (50229030043).jpg",
+     "distance_m": 311,
+     "page": "https://commons.wikimedia.org/wiki/File:Diving_as_a_covid_vaccine_%3F_(50229030043).jpg",
+     "licence": "Public domain",
+     "auteur": "pprd",
+     "date": "2019-08-15 11:37",
+     "description": "Diving as a covid vaccine ?"
+    }
+   ]
+  },
+  {
+   "id": "aberildut",
+   "nom": "Embouchure de l'Aber Ildut",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Lanildut - Port - Vu depuis le bateau Rose Héré.jpg",
+     "distance_m": 125,
+     "page": "https://commons.wikimedia.org/wiki/File:Lanildut_-_Port_-_Vu_depuis_le_bateau_Rose_H%C3%A9r%C3%A9.jpg",
+     "licence": "CC0",
+     "auteur": "Romainbehar",
+     "date": "2022-08-17 09:17:12",
+     "description": "Vu depuis le bateau Rose Héré ."
+    },
+    {
+     "titre": "File:Feu de l'Aber-Ildut.JPG",
+     "distance_m": 156,
+     "page": "https://commons.wikimedia.org/wiki/File:Feu_de_l%27Aber-Ildut.JPG",
+     "licence": "CC BY 3.0",
+     "auteur": "A.Dechorgnat",
+     "date": "2003-07-13 18:18:16",
+     "description": "Feu de guidage de l'Aber-Ildut"
+    },
+    {
+     "titre": "File:Lecture de la marque électronique insérée dans un juvénile de bar dans le cadre des projets JUNO et Recapture (Ifremer 01070-118139).jpg",
+     "distance_m": 209,
+     "page": "https://commons.wikimedia.org/wiki/File:Lecture_de_la_marque_%C3%A9lectronique_ins%C3%A9r%C3%A9e_dans_un_juv%C3%A9nile_de_bar_dans_le_cadre_des_projets_JUNO_et_Recapture_(Ifremer_01070-118139).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Stephane Lesbats (IFREMER, Pôle Images, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France) Stephane Lesbats (IFREMER, Pôle Images, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France)",
+     "date": "Taken on 4 June 2026",
+     "description": "The Recapture project involves catching juvenile sea bass using a beach seine in nursery areas. Once caught, the young fish are measured, weighed, tagged with a small electronic tag, and released. After a certain period, further fishing is carried out, and if a tagged fish is recaptured, it will be "
+    },
+    {
+     "titre": "File:Prélèvement d'écailles sur un juvénile de bar dans le cadre des projets JUNO et Recapture (Ifremer 01070-118137 - 506124).jpg",
+     "distance_m": 210,
+     "page": "https://commons.wikimedia.org/wiki/File:Pr%C3%A9l%C3%A8vement_d%27%C3%A9cailles_sur_un_juv%C3%A9nile_de_bar_dans_le_cadre_des_projets_JUNO_et_Recapture_(Ifremer_01070-118137_-_506124).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Stephane Lesbats (IFREMER, Pôle Images, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France) Stephane Lesbats (IFREMER, Pôle Images, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France)",
+     "date": "Taken on 4 June 2026",
+     "description": "The Recapture project involves catching juvenile sea bass using a beach seine in nursery areas. Once caught, the young fish are measured, weighed, tagged with a small electronic tag, and released. After a certain period, further fishing is carried out, and if a tagged fish is recaptured, it will be "
+    },
+    {
+     "titre": "File:Prélèvement d'écailles sur un juvénile de bar dans le cadre des projets JUNO et Recapture (Ifremer 01070-118137 - 506125).jpg",
+     "distance_m": 210,
+     "page": "https://commons.wikimedia.org/wiki/File:Pr%C3%A9l%C3%A8vement_d%27%C3%A9cailles_sur_un_juv%C3%A9nile_de_bar_dans_le_cadre_des_projets_JUNO_et_Recapture_(Ifremer_01070-118137_-_506125).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Stephane Lesbats (IFREMER, Pôle Images, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France) Stephane Lesbats (IFREMER, Pôle Images, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France)",
+     "date": "Taken on 4 June 2026",
+     "description": "The Recapture project involves catching juvenile sea bass using a beach seine in nursery areas. Once caught, the young fish are measured, weighed, tagged with a small electronic tag, and released. After a certain period, further fishing is carried out, and if a tagged fish is recaptured, it will be "
+    },
+    {
+     "titre": "File:Prélèvement d'écailles sur un juvénile de bar dans le cadre des projets JUNO et Recapture (Ifremer 01070-118137 - 506126).jpg",
+     "distance_m": 210,
+     "page": "https://commons.wikimedia.org/wiki/File:Pr%C3%A9l%C3%A8vement_d%27%C3%A9cailles_sur_un_juv%C3%A9nile_de_bar_dans_le_cadre_des_projets_JUNO_et_Recapture_(Ifremer_01070-118137_-_506126).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Stephane Lesbats (IFREMER, Pôle Images, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France) Stephane Lesbats (IFREMER, Pôle Images, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France)",
+     "date": "Taken on 4 June 2026",
+     "description": "The Recapture project involves catching juvenile sea bass using a beach seine in nursery areas. Once caught, the young fish are measured, weighed, tagged with a small electronic tag, and released. After a certain period, further fishing is carried out, and if a tagged fish is recaptured, it will be "
+    },
+    {
+     "titre": "File:Prélèvement d'écailles sur un juvénile de bar dans le cadre des projets JUNO et Recapture (Ifremer 01070-118137 - 506127).jpg",
+     "distance_m": 210,
+     "page": "https://commons.wikimedia.org/wiki/File:Pr%C3%A9l%C3%A8vement_d%27%C3%A9cailles_sur_un_juv%C3%A9nile_de_bar_dans_le_cadre_des_projets_JUNO_et_Recapture_(Ifremer_01070-118137_-_506127).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Stephane Lesbats (IFREMER, Pôle Images, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France) Stephane Lesbats (IFREMER, Pôle Images, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France)",
+     "date": "Taken on 4 June 2026",
+     "description": "The Recapture project involves catching juvenile sea bass using a beach seine in nursery areas. Once caught, the young fish are measured, weighed, tagged with a small electronic tag, and released. After a certain period, further fishing is carried out, and if a tagged fish is recaptured, it will be "
+    },
+    {
+     "titre": "File:Mesure d'un juvénile de bar capturé dans le cadre des projets JUNO et Recapture (Ifremer 01070-118135 - 506117).jpg",
+     "distance_m": 223,
+     "page": "https://commons.wikimedia.org/wiki/File:Mesure_d%27un_juv%C3%A9nile_de_bar_captur%C3%A9_dans_le_cadre_des_projets_JUNO_et_Recapture_(Ifremer_01070-118135_-_506117).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Stephane Lesbats (IFREMER, Pôle Images, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France) Stephane Lesbats (IFREMER, Pôle Images, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France)",
+     "date": "Taken on 4 June 2026",
+     "description": "The Recapture project involves catching juvenile sea bass using a beach seine in nursery areas. Once caught, the young fish are measured, weighed, tagged with a small electronic tag, and released. After a certain period, further fishing is carried out, and if a tagged fish is recaptured, it will be "
+    },
+    {
+     "titre": "File:Mesure d'un juvénile de bar capturé dans le cadre des projets JUNO et Recapture (Ifremer 01070-118135 - 506119).jpg",
+     "distance_m": 223,
+     "page": "https://commons.wikimedia.org/wiki/File:Mesure_d%27un_juv%C3%A9nile_de_bar_captur%C3%A9_dans_le_cadre_des_projets_JUNO_et_Recapture_(Ifremer_01070-118135_-_506119).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Stephane Lesbats (IFREMER, Pôle Images, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France) Stephane Lesbats (IFREMER, Pôle Images, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France)",
+     "date": "Taken on 4 June 2026",
+     "description": "The Recapture project involves catching juvenile sea bass using a beach seine in nursery areas. Once caught, the young fish are measured, weighed, tagged with a small electronic tag, and released. After a certain period, further fishing is carried out, and if a tagged fish is recaptured, it will be "
+    },
+    {
+     "titre": "File:Mesure d'un juvénile de bar capturé dans le cadre des projets JUNO et Recapture (Ifremer 01070-118135 - 506120).jpg",
+     "distance_m": 223,
+     "page": "https://commons.wikimedia.org/wiki/File:Mesure_d%27un_juv%C3%A9nile_de_bar_captur%C3%A9_dans_le_cadre_des_projets_JUNO_et_Recapture_(Ifremer_01070-118135_-_506120).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Stephane Lesbats (IFREMER, Pôle Images, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France) Stephane Lesbats (IFREMER, Pôle Images, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France)",
+     "date": "Taken on 4 June 2026",
+     "description": "The Recapture project involves catching juvenile sea bass using a beach seine in nursery areas. Once caught, the young fish are measured, weighed, tagged with a small electronic tag, and released. After a certain period, further fishing is carried out, and if a tagged fish is recaptured, it will be "
+    },
+    {
+     "titre": "File:Mesure d'un juvénile de bar capturé dans le cadre des projets JUNO et Recapture (Ifremer 01070-118135 - 506121).jpg",
+     "distance_m": 223,
+     "page": "https://commons.wikimedia.org/wiki/File:Mesure_d%27un_juv%C3%A9nile_de_bar_captur%C3%A9_dans_le_cadre_des_projets_JUNO_et_Recapture_(Ifremer_01070-118135_-_506121).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Stephane Lesbats (IFREMER, Pôle Images, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France) Stephane Lesbats (IFREMER, Pôle Images, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France)",
+     "date": "Taken on 4 June 2026",
+     "description": "The Recapture project involves catching juvenile sea bass using a beach seine in nursery areas. Once caught, the young fish are measured, weighed, tagged with a small electronic tag, and released. After a certain period, further fishing is carried out, and if a tagged fish is recaptured, it will be "
+    },
+    {
+     "titre": "File:Mesure d'un juvénile de bar capturé dans le cadre des projets JUNO et Recapture (Ifremer 01070-118135 - 506122).jpg",
+     "distance_m": 223,
+     "page": "https://commons.wikimedia.org/wiki/File:Mesure_d%27un_juv%C3%A9nile_de_bar_captur%C3%A9_dans_le_cadre_des_projets_JUNO_et_Recapture_(Ifremer_01070-118135_-_506122).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Stephane Lesbats (IFREMER, Pôle Images, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France) Stephane Lesbats (IFREMER, Pôle Images, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France)",
+     "date": "Taken on 4 June 2026",
+     "description": "The Recapture project involves catching juvenile sea bass using a beach seine in nursery areas. Once caught, the young fish are measured, weighed, tagged with a small electronic tag, and released. After a certain period, further fishing is carried out, and if a tagged fish is recaptured, it will be "
+    }
+   ]
+  },
+  {
+   "id": "agon",
+   "nom": "Pointe d'Agon",
+   "erreur": null,
+   "photos": []
+  },
+  {
+   "id": "armorique",
+   "nom": "Pointe de l'Armorique",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Fond à crépidules (Crepidula fornicata) (Ifremer 00623-73510).jpg",
+     "distance_m": 266,
+     "page": "https://commons.wikimedia.org/wiki/File:Fond_%C3%A0_cr%C3%A9pidules_(Crepidula_fornicata)_(Ifremer_00623-73510).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Olivier Dugornay",
+     "date": "20 June 2017 (upload date)",
+     "description": "Photographed in the harbor of Brest, these slipper limpets, also known as sea slippers, are native to the North-West Atlantic, particularly on the Canadian coasts. Particularly abundant in Brittany and Normandy, they are found all along the eastern Atlantic coast and in the English Channel. This spe"
+    }
+   ]
+  },
+  {
+   "id": "barnenez",
+   "nom": "Barnénez – Dourduff",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Plouezoc’h - Cairn de Barnenez - Objets datant du Néolithique - Fusaïoles ou pesons de métier à tisser.jpg",
+     "distance_m": 122,
+     "page": "https://commons.wikimedia.org/wiki/File:Plouezoc%E2%80%99h_-_Cairn_de_Barnenez_-_Objets_datant_du_N%C3%A9olithique_-_Fusa%C3%AFoles_ou_pesons_de_m%C3%A9tier_%C3%A0_tisser.jpg",
+     "licence": "CC0",
+     "auteur": "Romainbehar",
+     "date": "2023-02-09 15:33:56",
+     "description": "Objets datant du Néolithique : fusaïoles ou pesons de métier à tisser."
+    },
+    {
+     "titre": "File:Plouezoc’h - Cairn de Barnenez - 25-09-2021 - 01.jpg",
+     "distance_m": 180,
+     "page": "https://commons.wikimedia.org/wiki/File:Plouezoc%E2%80%99h_-_Cairn_de_Barnenez_-_25-09-2021_-_01.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Quoique",
+     "date": "2021-09-25 16:20:57",
+     "description": "Le cairn de Barnenez vue depuis l'arrivée sur le site."
+    },
+    {
+     "titre": "File:Plouezoc’h - Cairn de Barnenez - 25-09-2021 - 08.jpg",
+     "distance_m": 226,
+     "page": "https://commons.wikimedia.org/wiki/File:Plouezoc%E2%80%99h_-_Cairn_de_Barnenez_-_25-09-2021_-_08.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Quoique",
+     "date": "2021-09-25 16:56:12",
+     "description": "Depuis un point situé au nord, l'extrémité nord ouest du cairn"
+    },
+    {
+     "titre": "File:Cairn of Barnenez - Back.JPG",
+     "distance_m": 233,
+     "page": "https://commons.wikimedia.org/wiki/File:Cairn_of_Barnenez_-_Back.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Florent Ls",
+     "date": "2012-07-01",
+     "description": "Back side of the Cairn of Barnenez (aka Tumulus of Barnenez). The bay of morlaix is in the background."
+    },
+    {
+     "titre": "File:Cairn of Barnenez - Front.JPG",
+     "distance_m": 233,
+     "page": "https://commons.wikimedia.org/wiki/File:Cairn_of_Barnenez_-_Front.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Florent Ls",
+     "date": "2012-07-01",
+     "description": "Frontside of the Cairn of Barnenez (aka Tumulus of Barnenez). The bay of morlaix is in the background."
+    },
+    {
+     "titre": "File:Cairn of Barnenez - Chamber entrance.JPG",
+     "distance_m": 233,
+     "page": "https://commons.wikimedia.org/wiki/File:Cairn_of_Barnenez_-_Chamber_entrance.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Florent Ls",
+     "date": "2012-07-01",
+     "description": "One chamber entrance with broken stone"
+    },
+    {
+     "titre": "File:Cairn of Barnenez - 20th century quarrying..JPG",
+     "distance_m": 233,
+     "page": "https://commons.wikimedia.org/wiki/File:Cairn_of_Barnenez_-_20th_century_quarrying..JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Florent Ls",
+     "date": "2012-07-10",
+     "description": "Qarry destruction done during 20th century"
+    },
+    {
+     "titre": "File:Bay of Morlaix from the Cairn of Barnenez.JPG",
+     "distance_m": 233,
+     "page": "https://commons.wikimedia.org/wiki/File:Bay_of_Morlaix_from_the_Cairn_of_Barnenez.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Florent Ls",
+     "date": "2012-07-01",
+     "description": "Bay of Morlaix with more pricisely Carantec from the Cairn of Barnenez"
+    },
+    {
+     "titre": "File:Plouezoc’h - Cairn de Barnenez - 17-09-2021 - 10.jpg",
+     "distance_m": 240,
+     "page": "https://commons.wikimedia.org/wiki/File:Plouezoc%E2%80%99h_-_Cairn_de_Barnenez_-_17-09-2021_-_10.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Quoique",
+     "date": "2021-09-25 17:10:26",
+     "description": "D'un point située au sud est, vue d'ensemble de la face est avec les entrées des tombes."
+    },
+    {
+     "titre": "File:Plouezoc’h - Cairn de Barnenez - Porte de la gallerie B.jpg",
+     "distance_m": 246,
+     "page": "https://commons.wikimedia.org/wiki/File:Plouezoc%E2%80%99h_-_Cairn_de_Barnenez_-_Porte_de_la_gallerie_B.jpg",
+     "licence": "CC0",
+     "auteur": "Romainbehar",
+     "date": "2023-02-09 16:38:53",
+     "description": "Porte de la gallerie B."
+    },
+    {
+     "titre": "File:Plouezoc’h - Cairn de Barnenez - Porte de la gallerie A.jpg",
+     "distance_m": 251,
+     "page": "https://commons.wikimedia.org/wiki/File:Plouezoc%E2%80%99h_-_Cairn_de_Barnenez_-_Porte_de_la_gallerie_A.jpg",
+     "licence": "CC0",
+     "auteur": "Romainbehar",
+     "date": "2023-02-09 16:47:21",
+     "description": "Porte de la gallerie A."
+    },
+    {
+     "titre": "File:Plouezoc’h - Cairn de Barnenez - Porte de la gallerie A - Dessins sur l'orthostate.jpg",
+     "distance_m": 251,
+     "page": "https://commons.wikimedia.org/wiki/File:Plouezoc%E2%80%99h_-_Cairn_de_Barnenez_-_Porte_de_la_gallerie_A_-_Dessins_sur_l%27orthostate.jpg",
+     "licence": "CC0",
+     "auteur": "Romainbehar",
+     "date": "2023-02-09 16:47:30",
+     "description": "Porte de la gallerie A : dessins sur l'orthostate."
+    }
+   ]
+  },
+  {
+   "id": "begmeil",
+   "nom": "Pointe de Beg Meil",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Fouesnant - Beg Beil - Pointe 05.jpg",
+     "distance_m": 26,
+     "page": "https://commons.wikimedia.org/wiki/File:Fouesnant_-_Beg_Beil_-_Pointe_05.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Kev22",
+     "date": "2024-08-04 12:58:55",
+     "description": "Fouesnant - Beg Beil - Pointe"
+    },
+    {
+     "titre": "File:Beg-Meil-06.jpg",
+     "distance_m": 64,
+     "page": "https://commons.wikimedia.org/wiki/File:Beg-Meil-06.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Wayne77",
+     "date": "2015-03-22 12:54:25",
+     "description": "Terminal coastal path, Pointe Beg-Meil Fouesnant, Finistère, France."
+    },
+    {
+     "titre": "File:Fouesnant - Beg Beil - Pointe 06.jpg",
+     "distance_m": 76,
+     "page": "https://commons.wikimedia.org/wiki/File:Fouesnant_-_Beg_Beil_-_Pointe_06.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Kev22",
+     "date": "2024-08-04 13:00:32",
+     "description": "Fouesnant - Beg Beil - Pointe"
+    },
+    {
+     "titre": "File:Fouesnant - Beg Beil - Pointe 07.jpg",
+     "distance_m": 103,
+     "page": "https://commons.wikimedia.org/wiki/File:Fouesnant_-_Beg_Beil_-_Pointe_07.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Kev22",
+     "date": "2024-08-04 13:01:40",
+     "description": "Fouesnant - Beg Beil - Pointe"
+    },
+    {
+     "titre": "File:Fouesnant - Beg Beil - Pointe 08.jpg",
+     "distance_m": 111,
+     "page": "https://commons.wikimedia.org/wiki/File:Fouesnant_-_Beg_Beil_-_Pointe_08.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Kev22",
+     "date": "2024-08-04 13:01:44",
+     "description": "Fouesnant - Beg Beil - Pointe"
+    },
+    {
+     "titre": "File:Coupole acier du regelbau 502 Beg Meil.jpg",
+     "distance_m": 122,
+     "page": "https://commons.wikimedia.org/wiki/File:Coupole_acier_du_regelbau_502_Beg_Meil.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Semaphorique",
+     "date": "2020-06-29",
+     "description": "Coupole en acier du blockhaus type Regelbau 502 au sémaphore de Beg Meil"
+    },
+    {
+     "titre": "File:Fouesnant - Beg Beil - Pointe 09.jpg",
+     "distance_m": 142,
+     "page": "https://commons.wikimedia.org/wiki/File:Fouesnant_-_Beg_Beil_-_Pointe_09.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Kev22",
+     "date": "2024-08-04 13:02:14",
+     "description": "Fouesnant - Beg Beil - Pointe"
+    },
+    {
+     "titre": "File:Fouesnant - Beg Beil - Pointe 04.jpg",
+     "distance_m": 169,
+     "page": "https://commons.wikimedia.org/wiki/File:Fouesnant_-_Beg_Beil_-_Pointe_04.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Kev22",
+     "date": "2024-08-04 12:58:21",
+     "description": "Fouesnant - Beg Beil - Pointe"
+    },
+    {
+     "titre": "File:Fouesnant - Beg Beil - Pointe 03.jpg",
+     "distance_m": 187,
+     "page": "https://commons.wikimedia.org/wiki/File:Fouesnant_-_Beg_Beil_-_Pointe_03.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Kev22",
+     "date": "2024-08-04 12:54:32",
+     "description": "Fouesnant - Beg Beil - Pointe"
+    },
+    {
+     "titre": "File:Fouesnant - Beg Beil - Pointe 02.jpg",
+     "distance_m": 189,
+     "page": "https://commons.wikimedia.org/wiki/File:Fouesnant_-_Beg_Beil_-_Pointe_02.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Kev22",
+     "date": "2024-08-04 12:51:06",
+     "description": "Fouesnant - Beg Beil - Pointe"
+    },
+    {
+     "titre": "File:Fouesnant - Beg Beil - Pointe 10.jpg",
+     "distance_m": 213,
+     "page": "https://commons.wikimedia.org/wiki/File:Fouesnant_-_Beg_Beil_-_Pointe_10.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Kev22",
+     "date": "2024-08-04 13:04:04",
+     "description": "Fouesnant - Beg Beil - Pointe"
+    },
+    {
+     "titre": "File:Fouesnant - Beg Beil - Pointe 01.jpg",
+     "distance_m": 217,
+     "page": "https://commons.wikimedia.org/wiki/File:Fouesnant_-_Beg_Beil_-_Pointe_01.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Kev22",
+     "date": "2024-08-04 12:50:01",
+     "description": "Fouesnant - Beg Beil - Pointe"
+    }
+   ]
+  },
+  {
+   "id": "bendy",
+   "nom": "Pointe du Bendy",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Pointe de Bendy.jpg",
+     "distance_m": 43,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Bendy.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Laemito",
+     "date": "28 August 2022 (according to Exif data)",
+     "description": "Pointe de Bendy"
+    },
+    {
+     "titre": "File:Grève ouest pointe de Bendy.jpg",
+     "distance_m": 168,
+     "page": "https://commons.wikimedia.org/wiki/File:Gr%C3%A8ve_ouest_pointe_de_Bendy.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Laemito",
+     "date": "28 August 2022 (according to Exif data)",
+     "description": "Grève ouest pointe de Bendy"
+    },
+    {
+     "titre": "File:Folded Schist and Quartzite Logonna-Daoulas Brittany France.jpg",
+     "distance_m": 357,
+     "page": "https://commons.wikimedia.org/wiki/File:Folded_Schist_and_Quartzite_Logonna-Daoulas_Brittany_France.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Mimi http://www.geodiversite.net/auteur158",
+     "date": "2013-08-18",
+     "description": "Folded alternating layers of schist and quartzite of Devonian age near Pointe du Bendy, near Logonna-Daoulas in Brittany, France."
+    }
+   ]
+  },
+  {
+   "id": "blancssablons",
+   "nom": "Plage des Blancs-Sablons",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Panorama of the Presqu'île de Kermorvan2.JPG",
+     "distance_m": 70,
+     "page": "https://commons.wikimedia.org/wiki/File:Panorama_of_the_Presqu%27%C3%AEle_de_Kermorvan2.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Llorenzi",
+     "date": "2012-06-16",
+     "description": "Panorama of the Presqu'île de Kermorvan"
+    },
+    {
+     "titre": "File:Le Conquet, Plage des Blancs-Sablons 02.jpg",
+     "distance_m": 103,
+     "page": "https://commons.wikimedia.org/wiki/File:Le_Conquet,_Plage_des_Blancs-Sablons_02.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "El Funcionario",
+     "date": "2010-05-23 18:06:14",
+     "description": "Le Conquet, Plage des Blancs-Sablons"
+    },
+    {
+     "titre": "File:Panorama sull'Îlette de Kermorvan.jpg",
+     "distance_m": 107,
+     "page": "https://commons.wikimedia.org/wiki/File:Panorama_sull%27%C3%8Elette_de_Kermorvan.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Llorenzi",
+     "date": "2012-06-16",
+     "description": "Panorama sull'Îlette de Kermorvan"
+    },
+    {
+     "titre": "File:Huîtriers pie en vol - plage des Blancs Sablons - Finistère (2).jpg",
+     "distance_m": 113,
+     "page": "https://commons.wikimedia.org/wiki/File:Hu%C3%AEtriers_pie_en_vol_-_plage_des_Blancs_Sablons_-_Finist%C3%A8re_(2).jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "JackyM59",
+     "date": "2023-04-24 14:57:02",
+     "description": "Huîtriers pie en vol - plage des Blancs Sablons - Finistère"
+    },
+    {
+     "titre": "File:Huîtriers pie en vol - plage des Blancs Sablons - Finistère (1).jpg",
+     "distance_m": 113,
+     "page": "https://commons.wikimedia.org/wiki/File:Hu%C3%AEtriers_pie_en_vol_-_plage_des_Blancs_Sablons_-_Finist%C3%A8re_(1).jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "JackyM59",
+     "date": "2023-04-24 15:25:28",
+     "description": "Huîtriers pie en vol - plage des Blancs Sablons - Finistère"
+    },
+    {
+     "titre": "File:Huîtriers pie - plage des Blancs Sablons - Finistère.jpg",
+     "distance_m": 113,
+     "page": "https://commons.wikimedia.org/wiki/File:Hu%C3%AEtriers_pie_-_plage_des_Blancs_Sablons_-_Finist%C3%A8re.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "JackyM59",
+     "date": "2023-04-24 15:25:08",
+     "description": "Huîtriers pie - plage des Blancs Sablons - Finistère"
+    },
+    {
+     "titre": "File:Le Conquet - panoramio (8).jpg",
+     "distance_m": 128,
+     "page": "https://commons.wikimedia.org/wiki/File:Le_Conquet_-_panoramio_(8).jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "Rhöntommy",
+     "date": "Taken on 18 June 2009",
+     "description": "Le Conquet"
+    },
+    {
+     "titre": "File:Le Conquet - panoramio (7).jpg",
+     "distance_m": 138,
+     "page": "https://commons.wikimedia.org/wiki/File:Le_Conquet_-_panoramio_(7).jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "Rhöntommy",
+     "date": "Taken on 18 June 2009",
+     "description": "Le Conquet"
+    },
+    {
+     "titre": "File:Plage des Blancs Sablons - panoramio.jpg",
+     "distance_m": 153,
+     "page": "https://commons.wikimedia.org/wiki/File:Plage_des_Blancs_Sablons_-_panoramio.jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "Rhöntommy",
+     "date": "12 August 2009 (original upload date)",
+     "description": "Plage des Blancs Sablons"
+    },
+    {
+     "titre": "File:Strand Le Conquet - panoramio.jpg",
+     "distance_m": 160,
+     "page": "https://commons.wikimedia.org/wiki/File:Strand_Le_Conquet_-_panoramio.jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "Rhöntommy",
+     "date": "12 August 2009 (original upload date)",
+     "description": "Strand Le Conquet"
+    },
+    {
+     "titre": "File:013 Kermorvan.jpg",
+     "distance_m": 192,
+     "page": "https://commons.wikimedia.org/wiki/File:013_Kermorvan.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Moreau.henri",
+     "date": "2019-07-24 14:05:36",
+     "description": "La plage des Blancs-Sablons vue depuis la presqu'île de Kermorvan."
+    },
+    {
+     "titre": "File:Blancs Sablons 03.JPG",
+     "distance_m": 238,
+     "page": "https://commons.wikimedia.org/wiki/File:Blancs_Sablons_03.JPG",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "G.Mannaerts",
+     "date": "2015-06-30",
+     "description": "Hirondelles de rivage; Plage des Blancs Sablons, le Conquet"
+    }
+   ]
+  },
+  {
+   "id": "brezellec",
+   "nom": "Pointe de Brézellec",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Dry grass and white flowers (Unsplash).jpg",
+     "distance_m": 32,
+     "page": "https://commons.wikimedia.org/wiki/File:Dry_grass_and_white_flowers_(Unsplash).jpg",
+     "licence": "CC0",
+     "auteur": "Brina Blum brina_blum",
+     "date": "2016-08-28",
+     "description": "Pointe de Brezellec, Cléden-Cap-Sizun, France"
+    },
+    {
+     "titre": "File:E9 European hiking route near Pointe de Brezellec.jpg",
+     "distance_m": 96,
+     "page": "https://commons.wikimedia.org/wiki/File:E9_European_hiking_route_near_Pointe_de_Brezellec.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "MartinD",
+     "date": "2018-07-17 14:42:30",
+     "description": "European hiking route E9 (here using the French GR34) at Pointe de Brézellec, Brittany"
+    },
+    {
+     "titre": "File:Near Kermeur - panoramio.jpg",
+     "distance_m": 117,
+     "page": "https://commons.wikimedia.org/wiki/File:Near_Kermeur_-_panoramio.jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "Hans Hagenaars",
+     "date": "Taken on 20 July 2005",
+     "description": "Near Kermeur"
+    },
+    {
+     "titre": "File:Finistere Cleden-Cap-Sizun Pointe Brezellec Vue Cote Est - panoramio.jpg",
+     "distance_m": 171,
+     "page": "https://commons.wikimedia.org/wiki/File:Finistere_Cleden-Cap-Sizun_Pointe_Brezellec_Vue_Cote_Est_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "Taken on 6 March 2014",
+     "description": "Finistere Cleden-Cap-Sizun Pointe Brezellec Vue Cote Est"
+    },
+    {
+     "titre": "File:Finistere Cleden-Cap-Sizun Pointe Brezellec Vue Cote Ouest Vue Pointe Van - panoramio.jpg",
+     "distance_m": 193,
+     "page": "https://commons.wikimedia.org/wiki/File:Finistere_Cleden-Cap-Sizun_Pointe_Brezellec_Vue_Cote_Ouest_Vue_Pointe_Van_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "Taken on 6 March 2014",
+     "description": "Finistere Cleden-Cap-Sizun Pointe Brezellec Vue Cote Ouest Vue Pointe Van"
+    },
+    {
+     "titre": "File:Cléden-Cap-Sizunde, Pointe de Bezellec.jpg",
+     "distance_m": 263,
+     "page": "https://commons.wikimedia.org/wiki/File:Cl%C3%A9den-Cap-Sizunde,_Pointe_de_Bezellec.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Gilbert RIBOULET",
+     "date": "2009-08-18 16:44:18",
+     "description": "GPS de prise vue : 48.071948, -4.664582"
+    }
+   ]
+  },
+  {
+   "id": "camfrout",
+   "nom": "L'Hôpital-Camfrout",
+   "erreur": null,
+   "photos": []
+  },
+  {
+   "id": "capcoz",
+   "nom": "Pointe du Cap Coz",
+   "erreur": null,
+   "photos": []
+  },
+  {
+   "id": "caplevi",
+   "nom": "Cap Lévi",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Fermanville, Phare du Cap Lévi.jpg",
+     "distance_m": 3,
+     "page": "https://commons.wikimedia.org/wiki/File:Fermanville,_Phare_du_Cap_L%C3%A9vi.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Celeda",
+     "date": "2026-04-11 13:57:14",
+     "description": "Phare du Cap Lévi"
+    },
+    {
+     "titre": "File:Phare-cap-du-cap-Lévy.jpg",
+     "distance_m": 64,
+     "page": "https://commons.wikimedia.org/wiki/File:Phare-cap-du-cap-L%C3%A9vy.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "User:Thbz",
+     "date": "2006-04-30",
+     "description": "Phare du Cap Lévy (Cotentin, France, near Cherbourg)"
+    },
+    {
+     "titre": "File:Normandy '12 - Day 4- Phare du Cap Levi (7466902802).jpg",
+     "distance_m": 117,
+     "page": "https://commons.wikimedia.org/wiki/File:Normandy_%2712_-_Day_4-_Phare_du_Cap_Levi_(7466902802).jpg",
+     "licence": "CC BY 2.0",
+     "auteur": "Archangel12",
+     "date": "2012-06-07 14:20",
+     "description": "Normandy '12 - Day 4: Phare du Cap Levi"
+    },
+    {
+     "titre": "File:Normandy '12 - Day 4- Phare du Cap Levi (7466897268).jpg",
+     "distance_m": 117,
+     "page": "https://commons.wikimedia.org/wiki/File:Normandy_%2712_-_Day_4-_Phare_du_Cap_Levi_(7466897268).jpg",
+     "licence": "CC BY 2.0",
+     "auteur": "Archangel12",
+     "date": "2012-06-07 14:21",
+     "description": "Normandy '12 - Day 4: Phare du Cap Levi"
+    },
+    {
+     "titre": "File:Phare du cap Lévi vu de lande.jpg",
+     "distance_m": 181,
+     "page": "https://commons.wikimedia.org/wiki/File:Phare_du_cap_L%C3%A9vi_vu_de_lande.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Lionel BELOT",
+     "date": "2004-10-30 16:17:07",
+     "description": "Phare du Cap Lévi"
+    },
+    {
+     "titre": "File:Cap Lévi paysages.jpg",
+     "distance_m": 311,
+     "page": "https://commons.wikimedia.org/wiki/File:Cap_L%C3%A9vi_paysages.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Martin Leveneur",
+     "date": "2019-05-11 17:01:40",
+     "description": "Paysages du cap Lévi à Fermanville, Normandie"
+    },
+    {
+     "titre": "File:Phare du Cap Lévi 2024.jpg",
+     "distance_m": 352,
+     "page": "https://commons.wikimedia.org/wiki/File:Phare_du_Cap_L%C3%A9vi_2024.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Niki.L",
+     "date": "2024-09-20 11:54:50",
+     "description": "Leuchtturm Phare_du_Cap_Lévi, Normandie, Frankreich"
+    },
+    {
+     "titre": "File:Cap Lévi.jpg",
+     "distance_m": 379,
+     "page": "https://commons.wikimedia.org/wiki/File:Cap_L%C3%A9vi.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Martin Leveneur",
+     "date": "2012-07-29",
+     "description": "Cap Lévi , Normandie, France"
+    }
+   ]
+  },
+  {
+   "id": "carantec",
+   "nom": "Carantec : Penn al Lann – Cosmeur",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Château du taureau et île Louët en baie de Morlaix - 101.JPG",
+     "distance_m": 134,
+     "page": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_du_taureau_et_%C3%AEle_Lou%C3%ABt_en_baie_de_Morlaix_-_101.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Thesupermat",
+     "date": "2010-03-04",
+     "description": "Le château du taureau et l'île Louët en baie de Morlaix à marée basse."
+    },
+    {
+     "titre": "File:Mur de l'Atlantique en baie de Morlaix - 001.JPG",
+     "distance_m": 144,
+     "page": "https://commons.wikimedia.org/wiki/File:Mur_de_l%27Atlantique_en_baie_de_Morlaix_-_001.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Thesupermat",
+     "date": "2010-03-04",
+     "description": "Le mur de l'Atlantique en baie de Morlaix."
+    },
+    {
+     "titre": "File:Baie de Morlaix - Ile Louët - château du Taureau-101.JPG",
+     "distance_m": 151,
+     "page": "https://commons.wikimedia.org/wiki/File:Baie_de_Morlaix_-_Ile_Lou%C3%ABt_-_ch%C3%A2teau_du_Taureau-101.JPG",
+     "licence": "CC BY-SA 2.5",
+     "auteur": "Thesupermat",
+     "date": "2 August 2009, 15:09:13 (according to Exif data)",
+     "description": "Le château du Taureau en baie de Morlaix, à Carantec, vu du sentier cotier à Carantec"
+    },
+    {
+     "titre": "File:Baie de Morlaix - Ile Louët - château du Taureau-102.JPG",
+     "distance_m": 152,
+     "page": "https://commons.wikimedia.org/wiki/File:Baie_de_Morlaix_-_Ile_Lou%C3%ABt_-_ch%C3%A2teau_du_Taureau-102.JPG",
+     "licence": "CC BY-SA 2.5",
+     "auteur": "Thesupermat",
+     "date": "2 August 2009, 15:09:22 (according to Exif data)",
+     "description": "Le château du Taureau en baie de Morlaix, à Carantec, vu du sentier cotier à Carantec"
+    },
+    {
+     "titre": "File:Mur de l'Atlantique en baie de Morlaix - 002.JPG",
+     "distance_m": 179,
+     "page": "https://commons.wikimedia.org/wiki/File:Mur_de_l%27Atlantique_en_baie_de_Morlaix_-_002.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Thesupermat",
+     "date": "2010-03-04",
+     "description": "Le mur de l'Atlantique en baie de Morlaix."
+    },
+    {
+     "titre": "File:Baie de Morlaix - Ile Louët - château du Taureau-110.JPG",
+     "distance_m": 205,
+     "page": "https://commons.wikimedia.org/wiki/File:Baie_de_Morlaix_-_Ile_Lou%C3%ABt_-_ch%C3%A2teau_du_Taureau-110.JPG",
+     "licence": "CC BY-SA 2.5",
+     "auteur": "Thesupermat",
+     "date": "2 August 2009, 15:19:25 (according to Exif data)",
+     "description": "Le château du Taureau en baie de Morlaix, à Carantec, vu du sentier cotier à Carantec"
+    },
+    {
+     "titre": "File:Baie de Morlaix - Ile Louët - château du Taureau-111.JPG",
+     "distance_m": 205,
+     "page": "https://commons.wikimedia.org/wiki/File:Baie_de_Morlaix_-_Ile_Lou%C3%ABt_-_ch%C3%A2teau_du_Taureau-111.JPG",
+     "licence": "CC BY-SA 2.5",
+     "auteur": "Thesupermat",
+     "date": "2 August 2009, 15:19:30 (according to Exif data)",
+     "description": "Le château du Taureau en baie de Morlaix, à Carantec, vu du sentier cotier à Carantec"
+    },
+    {
+     "titre": "File:Baie de Morlaix - Ile Louët - château du Taureau-104.JPG",
+     "distance_m": 211,
+     "page": "https://commons.wikimedia.org/wiki/File:Baie_de_Morlaix_-_Ile_Lou%C3%ABt_-_ch%C3%A2teau_du_Taureau-104.JPG",
+     "licence": "CC BY-SA 2.5",
+     "auteur": "Thesupermat",
+     "date": "2 August 2009, 15:14:29 (according to Exif data)",
+     "description": "Le château du Taureau en baie de Morlaix, à Carantec, vu du sentier cotier à Carantec"
+    },
+    {
+     "titre": "File:Baie de Morlaix - Ile Louët - château du Taureau-105.JPG",
+     "distance_m": 211,
+     "page": "https://commons.wikimedia.org/wiki/File:Baie_de_Morlaix_-_Ile_Lou%C3%ABt_-_ch%C3%A2teau_du_Taureau-105.JPG",
+     "licence": "CC BY-SA 2.5",
+     "auteur": "Thesupermat",
+     "date": "2 August 2009, 15:14:47 (according to Exif data)",
+     "description": "Le château du Taureau en baie de Morlaix, à Carantec, vu du sentier cotier à Carantec"
+    },
+    {
+     "titre": "File:Baie de Morlaix - Ile Louët - château du Taureau-106.JPG",
+     "distance_m": 211,
+     "page": "https://commons.wikimedia.org/wiki/File:Baie_de_Morlaix_-_Ile_Lou%C3%ABt_-_ch%C3%A2teau_du_Taureau-106.JPG",
+     "licence": "CC BY-SA 2.5",
+     "auteur": "Thesupermat",
+     "date": "2 August 2009, 15:14:55 (according to Exif data)",
+     "description": "Le château du Taureau en baie de Morlaix, à Carantec, vu du sentier cotier à Carantec"
+    },
+    {
+     "titre": "File:Baie de Morlaix - Ile Louët - château du Taureau-107.JPG",
+     "distance_m": 211,
+     "page": "https://commons.wikimedia.org/wiki/File:Baie_de_Morlaix_-_Ile_Lou%C3%ABt_-_ch%C3%A2teau_du_Taureau-107.JPG",
+     "licence": "CC BY-SA 2.5",
+     "auteur": "Thesupermat",
+     "date": "2 August 2009, 15:15:57 (according to Exif data)",
+     "description": "Le château du Taureau en baie de Morlaix, à Carantec, vu du sentier cotier à Carantec"
+    },
+    {
+     "titre": "File:Baie de Morlaix - Ile Louët - château du Taureau-109.JPG",
+     "distance_m": 211,
+     "page": "https://commons.wikimedia.org/wiki/File:Baie_de_Morlaix_-_Ile_Lou%C3%ABt_-_ch%C3%A2teau_du_Taureau-109.JPG",
+     "licence": "CC BY-SA 2.5",
+     "auteur": "Thesupermat",
+     "date": "2 August 2009, 15:16:06 (according to Exif data)",
+     "description": "Le château du Taureau en baie de Morlaix, à Carantec, vu du sentier cotier à Carantec"
+    }
+   ]
+  },
+  {
+   "id": "carteret",
+   "nom": "Cap de Carteret",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Cap de Carteret (2).jpg",
+     "distance_m": 11,
+     "page": "https://commons.wikimedia.org/wiki/File:Cap_de_Carteret_(2).jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Xfigpower",
+     "date": "2011-09-17",
+     "description": "cap de carteret et le chemin des douaniers"
+    },
+    {
+     "titre": "File:Cap de Carteret (3).jpg",
+     "distance_m": 11,
+     "page": "https://commons.wikimedia.org/wiki/File:Cap_de_Carteret_(3).jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Xfigpower",
+     "date": "2011-09-17",
+     "description": "Cap de Carteret et le sémaphore"
+    },
+    {
+     "titre": "File:Sémaphore de Carteret (2).jpg",
+     "distance_m": 144,
+     "page": "https://commons.wikimedia.org/wiki/File:S%C3%A9maphore_de_Carteret_(2).jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Xfigpower",
+     "date": "2011-09-17",
+     "description": "Sémaphore de fr:Barneville-Carteret"
+    },
+    {
+     "titre": "File:Cap de Carteret.jpg",
+     "distance_m": 159,
+     "page": "https://commons.wikimedia.org/wiki/File:Cap_de_Carteret.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Sieurcoug",
+     "date": "2008-08-15",
+     "description": "Cap de Carteret, Normandy, France"
+    },
+    {
+     "titre": "File:Manche Cap De Carteret Plage Dunes 041996 - panoramio.jpg",
+     "distance_m": 164,
+     "page": "https://commons.wikimedia.org/wiki/File:Manche_Cap_De_Carteret_Plage_Dunes_041996_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "15 February 2015 (original upload date)",
+     "description": "Manche Cap De Carteret Plage Dunes 041996"
+    },
+    {
+     "titre": "File:Carteret plage de la vieille eglise.jpg",
+     "distance_m": 196,
+     "page": "https://commons.wikimedia.org/wiki/File:Carteret_plage_de_la_vieille_eglise.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Velvet",
+     "date": "2022-05-05 13:47:03",
+     "description": "Vieille église beach, in Carteret."
+    },
+    {
+     "titre": "File:Phare de Carteret.jpg",
+     "distance_m": 202,
+     "page": "https://commons.wikimedia.org/wiki/File:Phare_de_Carteret.jpg",
+     "licence": "CC0",
+     "auteur": "Rc1959",
+     "date": "14 August 2025 (according to Exif data)",
+     "description": "Phare de Carteret, dans la Manche, en France."
+    },
+    {
+     "titre": "File:Phare de Carteret (14827).jpg",
+     "distance_m": 204,
+     "page": "https://commons.wikimedia.org/wiki/File:Phare_de_Carteret_(14827).jpg",
+     "licence": "CC0",
+     "auteur": "Rc1959",
+     "date": "14 August 2025 (according to Exif data)",
+     "description": "Phare de Carteret, dans la Manche, en France."
+    },
+    {
+     "titre": "File:Sémaphore de Carteret.jpg",
+     "distance_m": 210,
+     "page": "https://commons.wikimedia.org/wiki/File:S%C3%A9maphore_de_Carteret.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Xfigpower",
+     "date": "2011-09-17",
+     "description": "Sémaphore de fr:Barneville-Carteret"
+    },
+    {
+     "titre": "File:Phare de Carteret (49623).jpg",
+     "distance_m": 212,
+     "page": "https://commons.wikimedia.org/wiki/File:Phare_de_Carteret_(49623).jpg",
+     "licence": "CC0",
+     "auteur": "Rc1959",
+     "date": "14 August 2025 (according to Exif data)",
+     "description": "Phare de Carteret, dans la Manche, en France."
+    },
+    {
+     "titre": "File:Cap de Carteret et ruines de l'église Saint-Germain le Scot.jpg",
+     "distance_m": 214,
+     "page": "https://commons.wikimedia.org/wiki/File:Cap_de_Carteret_et_ruines_de_l%27%C3%A9glise_Saint-Germain_le_Scot.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Xfigpower",
+     "date": "2011-09-17",
+     "description": "ruines de la vieille église Saint-Germain-de-Carteret"
+    },
+    {
+     "titre": "File:Phare de Carteret (86909).jpg",
+     "distance_m": 225,
+     "page": "https://commons.wikimedia.org/wiki/File:Phare_de_Carteret_(86909).jpg",
+     "licence": "CC0",
+     "auteur": "Rc1959",
+     "date": "14 August 2025 (according to Exif data)",
+     "description": "Phare de Carteret, dans la Manche, en France."
+    }
+   ]
+  },
+  {
+   "id": "conguel",
+   "nom": "Pointe du Conguel",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Morbihan Quiberon Le Conguel Ocean Plage 29012016 - panoramio (3).jpg",
+     "distance_m": 54,
+     "page": "https://commons.wikimedia.org/wiki/File:Morbihan_Quiberon_Le_Conguel_Ocean_Plage_29012016_-_panoramio_(3).jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "Taken on 29 January 2016",
+     "description": "Morbihan Quiberon Le Conguel Ocean Plage 29012016"
+    },
+    {
+     "titre": "File:Morbihan Quiberon Le Conguel Ocean Plage 29012016 - panoramio (1).jpg",
+     "distance_m": 65,
+     "page": "https://commons.wikimedia.org/wiki/File:Morbihan_Quiberon_Le_Conguel_Ocean_Plage_29012016_-_panoramio_(1).jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "Taken on 29 January 2016",
+     "description": "Morbihan Quiberon Le Conguel Ocean Plage 29012016"
+    },
+    {
+     "titre": "File:Morbihan Quiberon Le Conguel Baie Ilot De Toul-Bihan 29012016 - panoramio.jpg",
+     "distance_m": 70,
+     "page": "https://commons.wikimedia.org/wiki/File:Morbihan_Quiberon_Le_Conguel_Baie_Ilot_De_Toul-Bihan_29012016_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "Taken on 29 January 2016",
+     "description": "Morbihan Quiberon Le Conguel Baie Ilot De Toul-Bihan 29012016"
+    },
+    {
+     "titre": "File:Morbihan Quiberon Pointe Conguel 23052015 - panoramio (1).jpg",
+     "distance_m": 81,
+     "page": "https://commons.wikimedia.org/wiki/File:Morbihan_Quiberon_Pointe_Conguel_23052015_-_panoramio_(1).jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "Taken on 23 May 2013",
+     "description": "Morbihan Quiberon Pointe Conguel 23052015"
+    },
+    {
+     "titre": "File:Morbihan Quiberon Le Conguel Ocean Vue Belle-Ile 29012016 - panoramio.jpg",
+     "distance_m": 83,
+     "page": "https://commons.wikimedia.org/wiki/File:Morbihan_Quiberon_Le_Conguel_Ocean_Vue_Belle-Ile_29012016_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "Taken on 29 January 2016",
+     "description": "Morbihan Quiberon Le Conguel Ocean Vue Belle-Ile 29012016"
+    },
+    {
+     "titre": "File:Morbihan Quiberon Le Conguel Ocean Ilot De Toul-Bihan Vue Belle-Ile 29012016 - panoramio.jpg",
+     "distance_m": 83,
+     "page": "https://commons.wikimedia.org/wiki/File:Morbihan_Quiberon_Le_Conguel_Ocean_Ilot_De_Toul-Bihan_Vue_Belle-Ile_29012016_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "Taken on 29 January 2016",
+     "description": "Morbihan Quiberon Le Conguel Ocean Ilot De Toul-Bihan Vue Belle-Ile 29012016"
+    },
+    {
+     "titre": "File:Morbihan Quiberon Pointe Conguel 23052015 - panoramio (3).jpg",
+     "distance_m": 88,
+     "page": "https://commons.wikimedia.org/wiki/File:Morbihan_Quiberon_Pointe_Conguel_23052015_-_panoramio_(3).jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "Taken on 23 May 2013",
+     "description": "Morbihan Quiberon Pointe Conguel 23052015"
+    },
+    {
+     "titre": "File:Morbihan Quiberon Le Conguel Ocean Plage 29012016 - panoramio (5).jpg",
+     "distance_m": 89,
+     "page": "https://commons.wikimedia.org/wiki/File:Morbihan_Quiberon_Le_Conguel_Ocean_Plage_29012016_-_panoramio_(5).jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "Taken on 29 January 2016",
+     "description": "Morbihan Quiberon Le Conguel Ocean Plage 29012016"
+    },
+    {
+     "titre": "File:Morbihan Quiberon Le Conguel Baie Ilot De Toul-Bihan 29012016 - panoramio (1).jpg",
+     "distance_m": 93,
+     "page": "https://commons.wikimedia.org/wiki/File:Morbihan_Quiberon_Le_Conguel_Baie_Ilot_De_Toul-Bihan_29012016_-_panoramio_(1).jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "Taken on 29 January 2016",
+     "description": "Morbihan Quiberon Le Conguel Baie Ilot De Toul-Bihan 29012016"
+    },
+    {
+     "titre": "File:Morbihan Quiberon Le Conguel Ocean Ilot De Toul-Bihan 29012016 - panoramio.jpg",
+     "distance_m": 98,
+     "page": "https://commons.wikimedia.org/wiki/File:Morbihan_Quiberon_Le_Conguel_Ocean_Ilot_De_Toul-Bihan_29012016_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "Taken on 29 January 2016",
+     "description": "Morbihan Quiberon Le Conguel Ocean Ilot De Toul-Bihan 29012016"
+    },
+    {
+     "titre": "File:Morbihan Quiberon Le Conguel Baie Pelouse 29012016 - panoramio.jpg",
+     "distance_m": 104,
+     "page": "https://commons.wikimedia.org/wiki/File:Morbihan_Quiberon_Le_Conguel_Baie_Pelouse_29012016_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "Taken on 29 January 2016",
+     "description": "Morbihan Quiberon Le Conguel Baie Pelouse 29012016"
+    },
+    {
+     "titre": "File:Morbihan Quiberon Pointe Conguel Plage Ocean 27052014 - panoramio.jpg",
+     "distance_m": 130,
+     "page": "https://commons.wikimedia.org/wiki/File:Morbihan_Quiberon_Pointe_Conguel_Plage_Ocean_27052014_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "Taken on 27 May 2014",
+     "description": "Morbihan Quiberon Pointe Conguel Plage Ocean 27052014"
+    }
+   ]
+  },
+  {
+   "id": "corsen",
+   "nom": "Pointe de Corsen",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Abendstimmung und Sonnenuntergang am Pointe de Corsen im August 2025 02.jpg",
+     "distance_m": 61,
+     "page": "https://commons.wikimedia.org/wiki/File:Abendstimmung_und_Sonnenuntergang_am_Pointe_de_Corsen_im_August_2025_02.jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "JensKunstfreund",
+     "date": "2025-08-06 20:56:27",
+     "description": "Evening mood and sunset at the Pointe de Corsen in August 2025"
+    },
+    {
+     "titre": "File:Abendstimmung und Sonnenuntergang am Pointe de Corsen im August 2025 06.jpg",
+     "distance_m": 61,
+     "page": "https://commons.wikimedia.org/wiki/File:Abendstimmung_und_Sonnenuntergang_am_Pointe_de_Corsen_im_August_2025_06.jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "JensKunstfreund",
+     "date": "2025-08-06 20:56:27",
+     "description": "Evening mood and sunset at the Pointe de Corsen in August 2025"
+    },
+    {
+     "titre": "File:Abendstimmung und Sonnenuntergang am Pointe de Corsen im August 2025 07.jpg",
+     "distance_m": 61,
+     "page": "https://commons.wikimedia.org/wiki/File:Abendstimmung_und_Sonnenuntergang_am_Pointe_de_Corsen_im_August_2025_07.jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "JensKunstfreund",
+     "date": "2025-08-06 20:56:27",
+     "description": "Evening mood and sunset at the Pointe de Corsen in August 2025"
+    },
+    {
+     "titre": "File:Abendstimmung und Sonnenuntergang am Pointe de Corsen im August 2025 09.jpg",
+     "distance_m": 61,
+     "page": "https://commons.wikimedia.org/wiki/File:Abendstimmung_und_Sonnenuntergang_am_Pointe_de_Corsen_im_August_2025_09.jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "JensKunstfreund",
+     "date": "2025-08-06 20:56:27",
+     "description": "Evening mood and sunset at the Pointe de Corsen in August 2025"
+    },
+    {
+     "titre": "File:Abendstimmung und Sonnenuntergang am Pointe de Corsen im August 2025 10.jpg",
+     "distance_m": 61,
+     "page": "https://commons.wikimedia.org/wiki/File:Abendstimmung_und_Sonnenuntergang_am_Pointe_de_Corsen_im_August_2025_10.jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "JensKunstfreund",
+     "date": "2025-08-06 20:56:27",
+     "description": "Evening mood and sunset at the Pointe de Corsen in August 2025"
+    },
+    {
+     "titre": "File:Abendstimmung und Sonnenuntergang am Pointe de Corsen im August 2025 12.jpg",
+     "distance_m": 61,
+     "page": "https://commons.wikimedia.org/wiki/File:Abendstimmung_und_Sonnenuntergang_am_Pointe_de_Corsen_im_August_2025_12.jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "JensKunstfreund",
+     "date": "2025-08-06 20:56:27",
+     "description": "Evening mood and sunset at the Pointe de Corsen in August 2025"
+    },
+    {
+     "titre": "File:Abendstimmung und Sonnenuntergang am Pointe de Corsen im August 2025 14.jpg",
+     "distance_m": 61,
+     "page": "https://commons.wikimedia.org/wiki/File:Abendstimmung_und_Sonnenuntergang_am_Pointe_de_Corsen_im_August_2025_14.jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "JensKunstfreund",
+     "date": "2025-08-06 20:56:27",
+     "description": "Evening mood and sunset at the Pointe de Corsen in August 2025"
+    },
+    {
+     "titre": "File:Abendstimmung und Sonnenuntergang am Pointe de Corsen im August 2025 17.jpg",
+     "distance_m": 61,
+     "page": "https://commons.wikimedia.org/wiki/File:Abendstimmung_und_Sonnenuntergang_am_Pointe_de_Corsen_im_August_2025_17.jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "JensKunstfreund",
+     "date": "2025-08-06 20:56:27",
+     "description": "Evening mood and sunset at the Pointe de Corsen in August 2025"
+    },
+    {
+     "titre": "File:Abendstimmung und Sonnenuntergang am Pointe de Corsen im August 2025 23.jpg",
+     "distance_m": 61,
+     "page": "https://commons.wikimedia.org/wiki/File:Abendstimmung_und_Sonnenuntergang_am_Pointe_de_Corsen_im_August_2025_23.jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "JensKunstfreund",
+     "date": "2025-08-06 20:56:27",
+     "description": "Evening mood and sunset at the Pointe de Corsen in August 2025"
+    },
+    {
+     "titre": "File:Abendstimmung und Sonnenuntergang am Pointe de Corsen im August 2025 35.jpg",
+     "distance_m": 61,
+     "page": "https://commons.wikimedia.org/wiki/File:Abendstimmung_und_Sonnenuntergang_am_Pointe_de_Corsen_im_August_2025_35.jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "JensKunstfreund",
+     "date": "2025-08-06 20:56:27",
+     "description": "Evening mood and sunset at the Pointe de Corsen in August 2025"
+    },
+    {
+     "titre": "File:Abendstimmung und Sonnenuntergang am Pointe de Corsen im August 2025 37.jpg",
+     "distance_m": 61,
+     "page": "https://commons.wikimedia.org/wiki/File:Abendstimmung_und_Sonnenuntergang_am_Pointe_de_Corsen_im_August_2025_37.jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "JensKunstfreund",
+     "date": "2025-08-06 20:56:27",
+     "description": "Evening mood and sunset at the Pointe de Corsen in August 2025"
+    },
+    {
+     "titre": "File:Abendstimmung und Sonnenuntergang am Pointe de Corsen im August 2025 27.jpg",
+     "distance_m": 61,
+     "page": "https://commons.wikimedia.org/wiki/File:Abendstimmung_und_Sonnenuntergang_am_Pointe_de_Corsen_im_August_2025_27.jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "JensKunstfreund",
+     "date": "2025-08-06 20:56:27",
+     "description": "Evening mood and sunset at the Pointe de Corsen in August 2025"
+    }
+   ]
+  },
+  {
+   "id": "dinan",
+   "nom": "Pointe de Dinan",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Pointe de Dinan (35916947104).jpg",
+     "distance_m": 64,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Dinan_(35916947104).jpg",
+     "licence": "CC BY 2.0",
+     "auteur": "OliBac from FRANCE",
+     "date": "2017-07-29 14:25",
+     "description": "Lichen"
+    },
+    {
+     "titre": "File:Pointe de Dinan (36751336445).jpg",
+     "distance_m": 68,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Dinan_(36751336445).jpg",
+     "licence": "CC BY 2.0",
+     "auteur": "OliBac from FRANCE",
+     "date": "2017-07-29 14:05",
+     "description": "Pointe de Dinan"
+    },
+    {
+     "titre": "File:Château de Dinan - Prèsqu`ile de Crozon - France - 20110628 (23672645310).jpg",
+     "distance_m": 78,
+     "page": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_de_Dinan_-_Pr%C3%A8squ%60ile_de_Crozon_-_France_-_20110628_(23672645310).jpg",
+     "licence": "CC BY-SA 2.0",
+     "auteur": "Armin S Kowalski",
+     "date": "2011-06-28 12:41",
+     "description": "Château de Dinan - Prèsqu`ile de Crozon - France - 20110628"
+    },
+    {
+     "titre": "File:Pointe de dinan3.jpg",
+     "distance_m": 88,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_dinan3.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Michael Rapp",
+     "date": "2008-07-30",
+     "description": "Pointe de Dinan"
+    },
+    {
+     "titre": "File:Pointe de dinan2.jpg",
+     "distance_m": 114,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_dinan2.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Michael Rapp",
+     "date": "2008-07-30",
+     "description": "Pointe de Dinan"
+    },
+    {
+     "titre": "File:Pointe de Dinan, Presqu'île de Crozon, Finistère (51888481266).jpg",
+     "distance_m": 208,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Dinan,_Presqu%27%C3%AEle_de_Crozon,_Finist%C3%A8re_(51888481266).jpg",
+     "licence": "CC BY-SA 2.0",
+     "auteur": "Pom' from France, European Union",
+     "date": "2022-02-17 16:31",
+     "description": "Pointe de Dinan &lt;a href=\" https://fr.wikipedia.org/wiki/Pointe_de_Dinan \" rel=\"noreferrer nofollow\"&gt;fr.wikipedia.org/wiki/Pointe_de_Dinan&lt;/a&gt; Presqu'île de Crozon &lt;a href=\" https://fr.wikipedia.org/wiki/Presqu'%c3%aele_de_Crozon \" rel=\"noreferrer nofollow\"&gt;fr.wikipedia.org/wiki/Pre"
+    },
+    {
+     "titre": "File:Le château de Dinan - panoramio.jpg",
+     "distance_m": 211,
+     "page": "https://commons.wikimedia.org/wiki/File:Le_ch%C3%A2teau_de_Dinan_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Besenbinder",
+     "date": "Taken on 28 June 2011",
+     "description": "Le château de Dinan"
+    },
+    {
+     "titre": "File:Pointe de Dinan (36611824691).jpg",
+     "distance_m": 262,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Dinan_(36611824691).jpg",
+     "licence": "CC BY 2.0",
+     "auteur": "OliBac from FRANCE",
+     "date": "2017-07-29 16:06",
+     "description": "Bruyères"
+    },
+    {
+     "titre": "File:Crozon, Pointe de Dinan.JPG",
+     "distance_m": 324,
+     "page": "https://commons.wikimedia.org/wiki/File:Crozon,_Pointe_de_Dinan.JPG",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Gilbert RIBOULET",
+     "date": "2013-05-05 16:22:35",
+     "description": "GPS de prise de vue : 48.234741, -4.571820"
+    },
+    {
+     "titre": "File:Crozon, à la Pointe de Dinan.JPG",
+     "distance_m": 324,
+     "page": "https://commons.wikimedia.org/wiki/File:Crozon,_%C3%A0_la_Pointe_de_Dinan.JPG",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Gilbert RIBOULET",
+     "date": "2013-05-05 16:44:50",
+     "description": "GPS de prise de vue : 48.234741, -4.571820"
+    },
+    {
+     "titre": "File:Arche in Bretagne (14923837482).jpg",
+     "distance_m": 330,
+     "page": "https://commons.wikimedia.org/wiki/File:Arche_in_Bretagne_(14923837482).jpg",
+     "licence": "CC BY-SA 2.0",
+     "auteur": "photophilde",
+     "date": "2014-07-19 11:41",
+     "description": "The wild and rocky coast of the Crozon Island in Bretagne (see map) is so nice to walk around. It was sunny and the sea was peacefull that day. Polirizer and HRD applied."
+    },
+    {
+     "titre": "File:Pointe de Dinan (35942207373).jpg",
+     "distance_m": 339,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Dinan_(35942207373).jpg",
+     "licence": "CC BY 2.0",
+     "auteur": "OliBac from FRANCE",
+     "date": "2017-07-29 16:20",
+     "description": "Arche"
+    }
+   ]
+  },
+  {
+   "id": "espagnols",
+   "nom": "Pointe des Espagnols",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Goulet de Brest 2010-07-07.jpg",
+     "distance_m": 17,
+     "page": "https://commons.wikimedia.org/wiki/File:Goulet_de_Brest_2010-07-07.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Michael Rapp",
+     "date": "2010-07-07",
+     "description": "Goulet de Brest ( Strait of Brest )"
+    },
+    {
+     "titre": "File:Goulet de Brest , la Pointe des Espagnols - panoramio.jpg",
+     "distance_m": 23,
+     "page": "https://commons.wikimedia.org/wiki/File:Goulet_de_Brest_,_la_Pointe_des_Espagnols_-_panoramio.jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "cisko66",
+     "date": "Taken on 6 September 2007",
+     "description": "Goulet de Brest , la Pointe des Espagnols"
+    },
+    {
+     "titre": "File:Goulet de Brest , la Pointe des Espagnols - panoramio - cisko66.jpg",
+     "distance_m": 38,
+     "page": "https://commons.wikimedia.org/wiki/File:Goulet_de_Brest_,_la_Pointe_des_Espagnols_-_panoramio_-_cisko66.jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "cisko66",
+     "date": "1 December 2007 (original upload date)",
+     "description": "Goulet de Brest , la Pointe des Espagnols"
+    },
+    {
+     "titre": "File:Char Panhard.jpg",
+     "distance_m": 43,
+     "page": "https://commons.wikimedia.org/wiki/File:Char_Panhard.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "JC Hervé",
+     "date": "2018-03-21",
+     "description": "Roscanvel, char Panhard devant le fort Robert"
+    },
+    {
+     "titre": "File:Pointe des Espagnols - Vue côté mer.jpg",
+     "distance_m": 52,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_des_Espagnols_-_Vue_c%C3%B4t%C3%A9_mer.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Michael Rapp",
+     "date": "2010-07-07",
+     "description": "Pointe des Espagnols ( Spanish Cape ), Roscanvel"
+    },
+    {
+     "titre": "File:POINTE DES ESPAGNOLS - panoramio.jpg",
+     "distance_m": 119,
+     "page": "https://commons.wikimedia.org/wiki/File:POINTE_DES_ESPAGNOLS_-_panoramio.jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "cisko66",
+     "date": "Taken on 6 September 2007",
+     "description": "POINTE DES ESPAGNOLS"
+    },
+    {
+     "titre": "File:Le fort de la pointe des Espagnols - panoramio.jpg",
+     "distance_m": 274,
+     "page": "https://commons.wikimedia.org/wiki/File:Le_fort_de_la_pointe_des_Espagnols_-_panoramio.jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "cisko66",
+     "date": "Taken on 6 September 2007",
+     "description": "Le fort de la pointe des Espagnols"
+    },
+    {
+     "titre": "File:Tour-modele pointe espagnols.jpg",
+     "distance_m": 278,
+     "page": "https://commons.wikimedia.org/wiki/File:Tour-modele_pointe_espagnols.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Michael Rapp",
+     "date": "2007-07-04",
+     "description": "Tour-modèle n°1 type 1811, Pointe des Espagnols, Roscanvel"
+    },
+    {
+     "titre": "File:Diplolepis spinosissimae (Cynipidae) - (gall), Finistère (29), France.jpg",
+     "distance_m": 292,
+     "page": "https://commons.wikimedia.org/wiki/File:Diplolepis_spinosissimae_(Cynipidae)_-_(gall),_Finist%C3%A8re_(29),_France.jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "This image is created by user B. Schoenmakers at Observation.org , a global biodiversity recording project.",
+     "date": "2022-08-12",
+     "description": "Diplolepis spinosissimae ( Cynipidae ) - (gall), Finistère (29), France"
+    },
+    {
+     "titre": "File:Brest vue pointe espagnols.jpg",
+     "distance_m": 322,
+     "page": "https://commons.wikimedia.org/wiki/File:Brest_vue_pointe_espagnols.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Michael Rapp",
+     "date": "2008-08-04",
+     "description": "View of the city of Brest - Image taken from pointe des Espagnols"
+    },
+    {
+     "titre": "File:Symphodus bailloni 228137253.jpg",
+     "distance_m": 346,
+     "page": "https://commons.wikimedia.org/wiki/File:Symphodus_bailloni_228137253.jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Julien Renoult",
+     "date": "2022-09-03",
+     "description": "Baillon's Wrasse ( Symphodus bailloni ) in France"
+    },
+    {
+     "titre": "File:Symphodus bailloni 228137253 cropped.jpg",
+     "distance_m": 346,
+     "page": "https://commons.wikimedia.org/wiki/File:Symphodus_bailloni_228137253_cropped.jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Julien Renoult",
+     "date": "2022-09-03",
+     "description": "Baillon's Wrasse ( Symphodus bailloni ) in France"
+    }
+   ]
+  },
+  {
+   "id": "feunteunaod",
+   "nom": "Feunteun Aod",
+   "erreur": null,
+   "photos": []
+  },
+  {
+   "id": "goury",
+   "nom": "Goury",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Station de sauvetage en mer Goury-0787.jpg",
+     "distance_m": 26,
+     "page": "https://commons.wikimedia.org/wiki/File:Station_de_sauvetage_en_mer_Goury-0787.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Raimond Spekking",
+     "date": "2024-08-21",
+     "description": "Station de sauvetage en mer Goury"
+    },
+    {
+     "titre": "File:Port de Goury - Station de Sauvetage (2).JPG",
+     "distance_m": 33,
+     "page": "https://commons.wikimedia.org/wiki/File:Port_de_Goury_-_Station_de_Sauvetage_(2).JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Xfigpower",
+     "date": "2015-01-01 16:30:50",
+     "description": "Port de Goury"
+    },
+    {
+     "titre": "File:Port de Goury - Quai.JPG",
+     "distance_m": 39,
+     "page": "https://commons.wikimedia.org/wiki/File:Port_de_Goury_-_Quai.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Xfigpower",
+     "date": "2015-01-01 16:31:36",
+     "description": "Port de Goury"
+    },
+    {
+     "titre": "File:Port de Goury - Vue sur la mer depuis la rampe de lancement de la station (3).JPG",
+     "distance_m": 40,
+     "page": "https://commons.wikimedia.org/wiki/File:Port_de_Goury_-_Vue_sur_la_mer_depuis_la_rampe_de_lancement_de_la_station_(3).JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Xfigpower",
+     "date": "2015-01-01 16:29:12",
+     "description": "Port de Goury"
+    },
+    {
+     "titre": "File:Port de Goury - Vue sur la mer depuis la rampe de lancement de la station (2).JPG",
+     "distance_m": 40,
+     "page": "https://commons.wikimedia.org/wiki/File:Port_de_Goury_-_Vue_sur_la_mer_depuis_la_rampe_de_lancement_de_la_station_(2).JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Xfigpower",
+     "date": "2015-01-01 16:29:15",
+     "description": "Port de Goury"
+    },
+    {
+     "titre": "File:Port de Goury - Vue sur la mer depuis la rampe de lancement de la station.JPG",
+     "distance_m": 41,
+     "page": "https://commons.wikimedia.org/wiki/File:Port_de_Goury_-_Vue_sur_la_mer_depuis_la_rampe_de_lancement_de_la_station.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Xfigpower",
+     "date": "2015-01-01 16:29:01",
+     "description": "Port de Goury"
+    },
+    {
+     "titre": "File:Station de sauvetage en mer Goury-0786.jpg",
+     "distance_m": 55,
+     "page": "https://commons.wikimedia.org/wiki/File:Station_de_sauvetage_en_mer_Goury-0786.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Raimond Spekking",
+     "date": "2024-08-21",
+     "description": "Station de sauvetage en mer Goury"
+    },
+    {
+     "titre": "File:SNS 067 Mona Rigolet in Station de sauvetage en mer Goury-093025342.jpg",
+     "distance_m": 60,
+     "page": "https://commons.wikimedia.org/wiki/File:SNS_067_Mona_Rigolet_in_Station_de_sauvetage_en_mer_Goury-093025342.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Raimond Spekking",
+     "date": "2024-08-21",
+     "description": "SNS 067 Mona Rigolet in Station de sauvetage en mer Goury"
+    },
+    {
+     "titre": "File:Port of Goury during strong wind-8026.jpg",
+     "distance_m": 61,
+     "page": "https://commons.wikimedia.org/wiki/File:Port_of_Goury_during_strong_wind-8026.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Raimond Spekking",
+     "date": "2021-12-28",
+     "description": "Port of Goury during strong wind"
+    },
+    {
+     "titre": "File:Port of Goury during strong wind-8027.jpg",
+     "distance_m": 61,
+     "page": "https://commons.wikimedia.org/wiki/File:Port_of_Goury_during_strong_wind-8027.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Raimond Spekking",
+     "date": "2021-12-28",
+     "description": "Port of Goury during strong wind"
+    },
+    {
+     "titre": "File:Port of Goury during strong wind-8028.jpg",
+     "distance_m": 61,
+     "page": "https://commons.wikimedia.org/wiki/File:Port_of_Goury_during_strong_wind-8028.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Raimond Spekking",
+     "date": "2021-12-28",
+     "description": "Port of Goury during strong wind"
+    },
+    {
+     "titre": "File:Port of Goury during strong wind-8029.jpg",
+     "distance_m": 61,
+     "page": "https://commons.wikimedia.org/wiki/File:Port_of_Goury_during_strong_wind-8029.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Raimond Spekking",
+     "date": "2021-12-28",
+     "description": "Port of Goury during strong wind"
+    }
+   ]
+  },
+  {
+   "id": "gouville",
+   "nom": "Gouville-sur-Mer",
+   "erreur": null,
+   "photos": []
+  },
+  {
+   "id": "goyen",
+   "nom": "Embouchure du Goyen",
+   "erreur": null,
+   "photos": []
+  },
+  {
+   "id": "granville",
+   "nom": "Granville",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Granville - Batterie du Roc (observatoire).jpg",
+     "distance_m": 22,
+     "page": "https://commons.wikimedia.org/wiki/File:Granville_-_Batterie_du_Roc_(observatoire).jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Kev22",
+     "date": "2015-02-13 15:45:25",
+     "description": "Granville - Batterie du Roc (observatoire)"
+    },
+    {
+     "titre": "File:Granville 08 2017 17.jpg",
+     "distance_m": 24,
+     "page": "https://commons.wikimedia.org/wiki/File:Granville_08_2017_17.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Mirek237",
+     "date": "2017-08-15 13:33:06",
+     "description": "Granville est une commune française du département de la Manche en Normandie. Bureau centralisateur du canton et siège de la communauté de communes de Granville, terre et mer, c'est une station balnéaire et climatique de la baie du mont Saint-Michel à l’extrémité de la côte des havres, un ancien por"
+    },
+    {
+     "titre": "File:Granville 08 2017 15.jpg",
+     "distance_m": 26,
+     "page": "https://commons.wikimedia.org/wiki/File:Granville_08_2017_15.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Mirek237",
+     "date": "2017-08-15 13:30:00",
+     "description": "Granville est une commune française du département de la Manche en Normandie. Bureau centralisateur du canton et siège de la communauté de communes de Granville, terre et mer, c'est une station balnéaire et climatique de la baie du mont Saint-Michel à l’extrémité de la côte des havres, un ancien por"
+    },
+    {
+     "titre": "File:Granville 08 2017 16.jpg",
+     "distance_m": 26,
+     "page": "https://commons.wikimedia.org/wiki/File:Granville_08_2017_16.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Mirek237",
+     "date": "2017-08-15 13:30:09",
+     "description": "Granville est une commune française du département de la Manche en Normandie. Bureau centralisateur du canton et siège de la communauté de communes de Granville, terre et mer, c'est une station balnéaire et climatique de la baie du mont Saint-Michel à l’extrémité de la côte des havres, un ancien por"
+    },
+    {
+     "titre": "File:Granville 08 2017 18.jpg",
+     "distance_m": 32,
+     "page": "https://commons.wikimedia.org/wiki/File:Granville_08_2017_18.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Mirek237",
+     "date": "2017-08-15 13:33:28",
+     "description": "Granville est une commune française du département de la Manche en Normandie. Bureau centralisateur du canton et siège de la communauté de communes de Granville, terre et mer, c'est une station balnéaire et climatique de la baie du mont Saint-Michel à l’extrémité de la côte des havres, un ancien por"
+    },
+    {
+     "titre": "File:Granville - Vue depuis la promenade du Roc (4).JPG",
+     "distance_m": 36,
+     "page": "https://commons.wikimedia.org/wiki/File:Granville_-_Vue_depuis_la_promenade_du_Roc_(4).JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Xfigpower",
+     "date": "2012-08-17 10:42:51",
+     "description": "fr:Granville"
+    },
+    {
+     "titre": "File:Granville - Cap Lihou et Guérite de l'Empire.jpg",
+     "distance_m": 36,
+     "page": "https://commons.wikimedia.org/wiki/File:Granville_-_Cap_Lihou_et_Gu%C3%A9rite_de_l%27Empire.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Kev22",
+     "date": "2015-02-13 15:46:09",
+     "description": "Granville - Cap Lihou et Guérite de l'Empire"
+    },
+    {
+     "titre": "File:Granville - Vue depuis la promenade du Roc (5).JPG",
+     "distance_m": 40,
+     "page": "https://commons.wikimedia.org/wiki/File:Granville_-_Vue_depuis_la_promenade_du_Roc_(5).JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Xfigpower",
+     "date": "2012-08-17 10:43:05",
+     "description": "fr:Granville"
+    },
+    {
+     "titre": "File:Granville 08 2017 19.jpg",
+     "distance_m": 40,
+     "page": "https://commons.wikimedia.org/wiki/File:Granville_08_2017_19.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Mirek237",
+     "date": "2017-08-15 13:33:44",
+     "description": "Granville est une commune française du département de la Manche en Normandie. Bureau centralisateur du canton et siège de la communauté de communes de Granville, terre et mer, c'est une station balnéaire et climatique de la baie du mont Saint-Michel à l’extrémité de la côte des havres, un ancien por"
+    },
+    {
+     "titre": "File:Granville 08 2017 20.jpg",
+     "distance_m": 43,
+     "page": "https://commons.wikimedia.org/wiki/File:Granville_08_2017_20.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Mirek237",
+     "date": "2017-08-15 13:33:53",
+     "description": "Granville est une commune française du département de la Manche en Normandie. Bureau centralisateur du canton et siège de la communauté de communes de Granville, terre et mer, c'est une station balnéaire et climatique de la baie du mont Saint-Michel à l’extrémité de la côte des havres, un ancien por"
+    },
+    {
+     "titre": "File:Granville 08 2017 21.jpg",
+     "distance_m": 52,
+     "page": "https://commons.wikimedia.org/wiki/File:Granville_08_2017_21.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Mirek237",
+     "date": "2017-08-15 13:34:10",
+     "description": "Granville est une commune française du département de la Manche en Normandie. Bureau centralisateur du canton et siège de la communauté de communes de Granville, terre et mer, c'est une station balnéaire et climatique de la baie du mont Saint-Michel à l’extrémité de la côte des havres, un ancien por"
+    },
+    {
+     "titre": "File:Pointe du Roc Granville 2014 01.jpg",
+     "distance_m": 54,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_du_Roc_Granville_2014_01.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "VT98Fan",
+     "date": "2014-05-11 10:42:27",
+     "description": "Small path at Pointe du Roc , Granville, France."
+    }
+   ]
+  },
+  {
+   "id": "kerjean",
+   "nom": "Pointe de Kerjean",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:2012-09-23 Kerascoêt village (1).jpg",
+     "distance_m": 199,
+     "page": "https://commons.wikimedia.org/wiki/File:2012-09-23_Kerasco%C3%AAt_village_(1).jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "PIERRE ANDRE LECLERCQ",
+     "date": "2012-09-18 16:20:01",
+     "description": "les Chaumières de Kerascoët Névez dans le département du Finistère Région_Bretagne"
+    }
+   ]
+  },
+  {
+   "id": "kerlouan",
+   "nom": "Kerlouan : Enez Amann ar Rouz",
+   "erreur": null,
+   "photos": []
+  },
+  {
+   "id": "kermorvan",
+   "nom": "Pointe de Kermorvan",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Pointe et phare de Kermorvan (Ifremer 00682-79414 - 32188).jpg",
+     "distance_m": 30,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_et_phare_de_Kermorvan_(Ifremer_00682-79414_-_32188).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Stephane Lesbats",
+     "date": "2 March 2021 (upload date)",
+     "description": "The Kermorvan lighthouse is located northwest of the port of Le Conquet, in Finistère in Brittany. The lighthouse was built in 1849 on a rock, at the tip of the Kermorvan peninsula, a listed site belonging to the Conservatoire du littoral."
+    },
+    {
+     "titre": "File:Pointe et phare de Kermorvan (Ifremer 00682-79414 - 47500).jpg",
+     "distance_m": 30,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_et_phare_de_Kermorvan_(Ifremer_00682-79414_-_47500).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Stephane Lesbats",
+     "date": "2 March 2021 (upload date)",
+     "description": "The Kermorvan lighthouse is located northwest of the port of Le Conquet, in Finistère in Brittany. The lighthouse was built in 1849 on a rock, at the tip of the Kermorvan peninsula, a listed site belonging to the Conservatoire du littoral."
+    },
+    {
+     "titre": "File:Pointe et phare de Kermorvan (Ifremer 00682-79414 - 47501).jpg",
+     "distance_m": 30,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_et_phare_de_Kermorvan_(Ifremer_00682-79414_-_47501).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Stephane Lesbats",
+     "date": "2 March 2021 (upload date)",
+     "description": "The Kermorvan lighthouse is located northwest of the port of Le Conquet, in Finistère in Brittany. The lighthouse was built in 1849 on a rock, at the tip of the Kermorvan peninsula, a listed site belonging to the Conservatoire du littoral."
+    },
+    {
+     "titre": "File:Pointe et phare de Kermorvan (Ifremer 00682-79414 - 32187).jpg",
+     "distance_m": 30,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_et_phare_de_Kermorvan_(Ifremer_00682-79414_-_32187).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Stephane Lesbats",
+     "date": "2 March 2021 (upload date)",
+     "description": "The Kermorvan lighthouse is located northwest of the port of Le Conquet, in Finistère in Brittany. The lighthouse was built in 1849 on a rock, at the tip of the Kermorvan peninsula, a listed site belonging to the Conservatoire du littoral."
+    },
+    {
+     "titre": "File:Pointe et phare de Kermorvan (Ifremer 00682-79414 - 47506).jpg",
+     "distance_m": 30,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_et_phare_de_Kermorvan_(Ifremer_00682-79414_-_47506).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Stephane Lesbats",
+     "date": "2 March 2021 (upload date)",
+     "description": "The Kermorvan lighthouse is located northwest of the port of Le Conquet, in Finistère in Brittany. The lighthouse was built in 1849 on a rock, at the tip of the Kermorvan peninsula, a listed site belonging to the Conservatoire du littoral."
+    },
+    {
+     "titre": "File:Pointe et phare de Kermorvan (Ifremer 00682-79414 - 32189).jpg",
+     "distance_m": 30,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_et_phare_de_Kermorvan_(Ifremer_00682-79414_-_32189).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Stephane Lesbats",
+     "date": "2 March 2021 (upload date)",
+     "description": "The Kermorvan lighthouse is located northwest of the port of Le Conquet, in Finistère in Brittany. The lighthouse was built in 1849 on a rock, at the tip of the Kermorvan peninsula, a listed site belonging to the Conservatoire du littoral."
+    },
+    {
+     "titre": "File:Pointe et phare de Kermorvan (Ifremer 00682-79414 - 47502).jpg",
+     "distance_m": 30,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_et_phare_de_Kermorvan_(Ifremer_00682-79414_-_47502).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Stephane Lesbats",
+     "date": "2 March 2021 (upload date)",
+     "description": "The Kermorvan lighthouse is located northwest of the port of Le Conquet, in Finistère in Brittany. The lighthouse was built in 1849 on a rock, at the tip of the Kermorvan peninsula, a listed site belonging to the Conservatoire du littoral."
+    },
+    {
+     "titre": "File:Pointe et phare de Kermorvan (Ifremer 00682-79414 - 47496).jpg",
+     "distance_m": 30,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_et_phare_de_Kermorvan_(Ifremer_00682-79414_-_47496).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Stephane Lesbats",
+     "date": "2 March 2021 (upload date)",
+     "description": "The Kermorvan lighthouse is located northwest of the port of Le Conquet, in Finistère in Brittany. The lighthouse was built in 1849 on a rock, at the tip of the Kermorvan peninsula, a listed site belonging to the Conservatoire du littoral."
+    },
+    {
+     "titre": "File:Pointe et phare de Kermorvan (Ifremer 00682-79414 - 47507).jpg",
+     "distance_m": 30,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_et_phare_de_Kermorvan_(Ifremer_00682-79414_-_47507).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Stephane Lesbats",
+     "date": "2 March 2021 (upload date)",
+     "description": "The Kermorvan lighthouse is located northwest of the port of Le Conquet, in Finistère in Brittany. The lighthouse was built in 1849 on a rock, at the tip of the Kermorvan peninsula, a listed site belonging to the Conservatoire du littoral."
+    },
+    {
+     "titre": "File:Pointe et phare de Kermorvan (Ifremer 00682-79414 - 47505).jpg",
+     "distance_m": 30,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_et_phare_de_Kermorvan_(Ifremer_00682-79414_-_47505).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Stephane Lesbats",
+     "date": "2 March 2021 (upload date)",
+     "description": "The Kermorvan lighthouse is located northwest of the port of Le Conquet, in Finistère in Brittany. The lighthouse was built in 1849 on a rock, at the tip of the Kermorvan peninsula, a listed site belonging to the Conservatoire du littoral."
+    },
+    {
+     "titre": "File:Pointe et phare de Kermorvan (Ifremer 00682-79414 - 47415).jpg",
+     "distance_m": 30,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_et_phare_de_Kermorvan_(Ifremer_00682-79414_-_47415).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Stephane Lesbats",
+     "date": "2 March 2021 (upload date)",
+     "description": "The Kermorvan lighthouse is located northwest of the port of Le Conquet, in Finistère in Brittany. The lighthouse was built in 1849 on a rock, at the tip of the Kermorvan peninsula, a listed site belonging to the Conservatoire du littoral."
+    },
+    {
+     "titre": "File:Pointe et phare de Kermorvan (Ifremer 00682-79414 - 47504).jpg",
+     "distance_m": 30,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_et_phare_de_Kermorvan_(Ifremer_00682-79414_-_47504).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Stephane Lesbats",
+     "date": "2 March 2021 (upload date)",
+     "description": "The Kermorvan lighthouse is located northwest of the port of Le Conquet, in Finistère in Brittany. The lighthouse was built in 1849 on a rock, at the tip of the Kermorvan peninsula, a listed site belonging to the Conservatoire du littoral."
+    }
+   ]
+  },
+  {
+   "id": "kernic",
+   "nom": "Baie du Kernic",
+   "erreur": null,
+   "photos": []
+  },
+  {
+   "id": "laita",
+   "nom": "Estuaire de la Laïta",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:L'embouchure de la Laïta, vu depuis Guidel Plages - panoramio.jpg",
+     "distance_m": 287,
+     "page": "https://commons.wikimedia.org/wiki/File:L%27embouchure_de_la_La%C3%AFta,_vu_depuis_Guidel_Plages_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Gilles Guillamot",
+     "date": "17 March 2014 (original upload date)",
+     "description": "L'embouchure de la Laïta, vue depuis Guidel-Plages."
+    }
+   ]
+  },
+  {
+   "id": "landevennec",
+   "nom": "Landévennec",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Landevennec panoramic.jpg",
+     "distance_m": 92,
+     "page": "https://commons.wikimedia.org/wiki/File:Landevennec_panoramic.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "MartinD",
+     "date": "2018-07-16",
+     "description": "Panoramic from Landévennec, Finistère, France"
+    },
+    {
+     "titre": "File:Cimetière de Landévennec - panoramio.jpg",
+     "distance_m": 171,
+     "page": "https://commons.wikimedia.org/wiki/File:Cimeti%C3%A8re_de_Land%C3%A9vennec_-_panoramio.jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "Fabrice VAN MULLEM",
+     "date": "Taken on 27 June 2007",
+     "description": "Cimetière de Landévennec"
+    },
+    {
+     "titre": "File:Landévennec (29) Église Notre-Dame 03.JPG",
+     "distance_m": 173,
+     "page": "https://commons.wikimedia.org/wiki/File:Land%C3%A9vennec_(29)_%C3%89glise_Notre-Dame_03.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "GO69",
+     "date": "2012-03-24 11:32:20",
+     "description": "Chevet de l'église Notre-Dame de Landévennec (29)."
+    },
+    {
+     "titre": "File:Landévennec (29) Église Notre-Dame 02.JPG",
+     "distance_m": 173,
+     "page": "https://commons.wikimedia.org/wiki/File:Land%C3%A9vennec_(29)_%C3%89glise_Notre-Dame_02.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "GO69",
+     "date": "2012-03-24 11:32:20",
+     "description": "Sacristie et cimetière marin de l'église Notre-Dame de Landévennec (29)."
+    },
+    {
+     "titre": "File:Landévennec (29) Église Notre-Dame 01.JPG",
+     "distance_m": 173,
+     "page": "https://commons.wikimedia.org/wiki/File:Land%C3%A9vennec_(29)_%C3%89glise_Notre-Dame_01.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "GO69",
+     "date": "2012-03-24 11:32:20",
+     "description": "Vue méridionale de l'église Notre-Dame de Landévennec (29)."
+    },
+    {
+     "titre": "File:Landévennec (29) Église Notre-Dame 05.JPG",
+     "distance_m": 173,
+     "page": "https://commons.wikimedia.org/wiki/File:Land%C3%A9vennec_(29)_%C3%89glise_Notre-Dame_05.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "GO69",
+     "date": "2012-03-24 11:32:20",
+     "description": "Clocher de l'église Notre-Dame de Landévennec (29)."
+    },
+    {
+     "titre": "File:Landévennec (29) Église Notre-Dame 04.JPG",
+     "distance_m": 173,
+     "page": "https://commons.wikimedia.org/wiki/File:Land%C3%A9vennec_(29)_%C3%89glise_Notre-Dame_04.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "GO69",
+     "date": "2012-03-24 11:32:20",
+     "description": "Clocher de l'église Notre-Dame de Landévennec (29)."
+    },
+    {
+     "titre": "File:Landévennec (29) Église Notre-Dame 06.JPG",
+     "distance_m": 173,
+     "page": "https://commons.wikimedia.org/wiki/File:Land%C3%A9vennec_(29)_%C3%89glise_Notre-Dame_06.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "GO69",
+     "date": "2012-03-24 11:32:20",
+     "description": "Armes ornant l'église Notre-Dame de Landévennec (29)."
+    },
+    {
+     "titre": "File:Landévennec (29) Église Notre-Dame 08.JPG",
+     "distance_m": 173,
+     "page": "https://commons.wikimedia.org/wiki/File:Land%C3%A9vennec_(29)_%C3%89glise_Notre-Dame_08.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "GO69",
+     "date": "2012-03-24 11:32:20",
+     "description": "Armes ornant l'église Notre-Dame de Landévennec (29)."
+    },
+    {
+     "titre": "File:Landévennec (29) Église Notre-Dame 07.JPG",
+     "distance_m": 173,
+     "page": "https://commons.wikimedia.org/wiki/File:Land%C3%A9vennec_(29)_%C3%89glise_Notre-Dame_07.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "GO69",
+     "date": "2012-03-24 11:32:20",
+     "description": "Armes ornant l'église Notre-Dame de Landévennec (29)."
+    },
+    {
+     "titre": "File:Cimetiere Landevennec.jpg",
+     "distance_m": 182,
+     "page": "https://commons.wikimedia.org/wiki/File:Cimetiere_Landevennec.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Schorle",
+     "date": "2018-08-17 16:15:11",
+     "description": "Blick über den Friedhof von Landévennec auf das Meer."
+    },
+    {
+     "titre": "File:Landevennec pub and library.jpg",
+     "distance_m": 238,
+     "page": "https://commons.wikimedia.org/wiki/File:Landevennec_pub_and_library.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "MartinD",
+     "date": "2018-07-16 12:06:06",
+     "description": "Pub and library in Landévennec, Finistère, France"
+    }
+   ]
+  },
+  {
+   "id": "lauberlach",
+   "nom": "Sillon de Lauberlac'h",
+   "erreur": null,
+   "photos": []
+  },
+  {
+   "id": "leyde",
+   "nom": "Pointe de Leydé",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Pointe de Leydé, baie de Douarnenez, (panorama à 360°) - panoramio.jpg",
+     "distance_m": 191,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Leyd%C3%A9,_baie_de_Douarnenez,_(panorama_%C3%A0_360%C2%B0)_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "superp1errot",
+     "date": "Taken on 28 February 2011",
+     "description": "Pointe de Leydé, baie de Douarnenez, (panorama à 360°)"
+    }
+   ]
+  },
+  {
+   "id": "locquirec",
+   "nom": "Locquirec : pointe et digue",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Motor boats of the Locquirec Sailing School at low tide, Port of Locquirec 2.jpg",
+     "distance_m": 78,
+     "page": "https://commons.wikimedia.org/wiki/File:Motor_boats_of_the_Locquirec_Sailing_School_at_low_tide,_Port_of_Locquirec_2.jpg",
+     "licence": "CC0",
+     "auteur": "PtiBzh",
+     "date": "2019-08-22 18:47:19",
+     "description": "Motor boats of the Locquirec Sailing School at low tide, Port of Locquirec"
+    },
+    {
+     "titre": "File:Motor boats of the Locquirec Sailing School at low tide, Port of Locquirec 1.jpg",
+     "distance_m": 91,
+     "page": "https://commons.wikimedia.org/wiki/File:Motor_boats_of_the_Locquirec_Sailing_School_at_low_tide,_Port_of_Locquirec_1.jpg",
+     "licence": "CC0",
+     "auteur": "PtiBzh",
+     "date": "2019-08-22 18:48:43",
+     "description": "Motor boats of the Locquirec Sailing School at low tide, Port of Locquirec"
+    },
+    {
+     "titre": "File:Locquirec - place du port - boîte à livres.jpg",
+     "distance_m": 150,
+     "page": "https://commons.wikimedia.org/wiki/File:Locquirec_-_place_du_port_-_bo%C3%AEte_%C3%A0_livres.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Dominique Barberye",
+     "date": "",
+     "description": "Boîte à livres à Locquirec"
+    },
+    {
+     "titre": "File:Locquirec - DAE mairie.jpg",
+     "distance_m": 169,
+     "page": "https://commons.wikimedia.org/wiki/File:Locquirec_-_DAE_mairie.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Pyrog",
+     "date": "2020-09-18 21:19:48",
+     "description": "Défibrillateur de la mairie, Locquirec."
+    },
+    {
+     "titre": "File:Locquirec - DAE mairie 2.jpg",
+     "distance_m": 169,
+     "page": "https://commons.wikimedia.org/wiki/File:Locquirec_-_DAE_mairie_2.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Pyrog",
+     "date": "2020-09-18 21:20:39",
+     "description": "Défibrillateur de la mairie, Locquirec."
+    },
+    {
+     "titre": "File:SNS 296 Enez Glaz, french SAR boat 01.jpg",
+     "distance_m": 170,
+     "page": "https://commons.wikimedia.org/wiki/File:SNS_296_Enez_Glaz,_french_SAR_boat_01.jpg",
+     "licence": "CC0",
+     "auteur": "PtiBzh",
+     "date": "2019-08-19 19:36:29",
+     "description": "French SAR boat SNS 296 Enez Glaz, seen in Locquirec bay in summer 2019"
+    },
+    {
+     "titre": "File:SNS 296 Enez Glaz, french SAR boat 02.jpg",
+     "distance_m": 170,
+     "page": "https://commons.wikimedia.org/wiki/File:SNS_296_Enez_Glaz,_french_SAR_boat_02.jpg",
+     "licence": "CC0",
+     "auteur": "PtiBzh",
+     "date": "2019-08-19 19:27:18",
+     "description": "French SAR boat SNS 296 Enez Glaz, seen in Locquirec bay in summer 2019"
+    }
+   ]
+  },
+  {
+   "id": "lostmarch",
+   "nom": "Pointe de Lostmarc'h",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Pillow Lava at Crozon Brittany France.jpg",
+     "distance_m": 70,
+     "page": "https://commons.wikimedia.org/wiki/File:Pillow_Lava_at_Crozon_Brittany_France.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "zarmel https://www.geodiversite.net/auteur2",
+     "date": "2008-10-10",
+     "description": "Basalt pillow lava of late Ordovician age at Crozon in Brittany, France."
+    },
+    {
+     "titre": "File:Pointe de Lostmarc'h.jpg",
+     "distance_m": 71,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Lostmarc%27h.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Berrucomons",
+     "date": "2015-08-28 10:15:41",
+     "description": "The Lostmarc'h cape, near Crozon, in the Finistère département (France). Lostmarc'h cape shown iron age fortification remains."
+    },
+    {
+     "titre": "File:Küste bei Lostmarc`h - panoramio (1).jpg",
+     "distance_m": 243,
+     "page": "https://commons.wikimedia.org/wiki/File:K%C3%BCste_bei_Lostmarc%60h_-_panoramio_(1).jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Besenbinder",
+     "date": "Taken on 28 June 2011",
+     "description": "Küste bei Lostmarc'h"
+    },
+    {
+     "titre": "File:Küste bei Lostmarc`h - panoramio.jpg",
+     "distance_m": 330,
+     "page": "https://commons.wikimedia.org/wiki/File:K%C3%BCste_bei_Lostmarc%60h_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Besenbinder",
+     "date": "Taken on 28 June 2011",
+     "description": "Küste bei Lostmarc'h"
+    },
+    {
+     "titre": "File:Eurydema herbacea (Pentatomidae) - (imago), Crozon, France - 2.jpg",
+     "distance_m": 379,
+     "page": "https://commons.wikimedia.org/wiki/File:Eurydema_herbacea_(Pentatomidae)_-_(imago),_Crozon,_France_-_2.jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "This image is created by user B. Schoenmakers at Observation.org , a global biodiversity recording project.",
+     "date": "2022-08-10",
+     "description": "Eurydema herbacea ( Pentatomidae ) - (imago), Crozon, France"
+    },
+    {
+     "titre": "File:Eurydema herbacea (Pentatomidae) - (imago), Crozon, France.jpg",
+     "distance_m": 379,
+     "page": "https://commons.wikimedia.org/wiki/File:Eurydema_herbacea_(Pentatomidae)_-_(imago),_Crozon,_France.jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "This image is created by user B. Schoenmakers at Observation.org , a global biodiversity recording project.",
+     "date": "2022-08-10",
+     "description": "Eurydema herbacea ( Pentatomidae ) - (imago), Crozon, France"
+    }
+   ]
+  },
+  {
+   "id": "minou",
+   "nom": "Pointe du Petit Minou",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Lighthouse Minou before a storm.jpg",
+     "distance_m": 14,
+     "page": "https://commons.wikimedia.org/wiki/File:Lighthouse_Minou_before_a_storm.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Llorenzi",
+     "date": "2010-05-01",
+     "description": "Lighthouse Minou before a storm"
+    },
+    {
+     "titre": "File:Le Petit Minou lighthouse under renovation.jpg",
+     "distance_m": 18,
+     "page": "https://commons.wikimedia.org/wiki/File:Le_Petit_Minou_lighthouse_under_renovation.jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Animalculum",
+     "date": "2026-08-08 19:15:25",
+     "description": "Le Petit Minou lighthouse, France, under renovation with scaffolding"
+    },
+    {
+     "titre": "File:Minou (258826385).jpeg",
+     "distance_m": 23,
+     "page": "https://commons.wikimedia.org/wiki/File:Minou_(258826385).jpeg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Jb Boucher",
+     "date": "20 May 2018, 14:46:32 (UTC)",
+     "description": "500px provided description: ..... [#flowers ,#sea ,#sun ,#sunlight ,#outdoor ,#seascape ,#seaside ,#seashore ,#bretagne ,#Lighthouse]"
+    },
+    {
+     "titre": "File:Phare du Petit Minou, Plouzané, France (Unsplash).jpg",
+     "distance_m": 35,
+     "page": "https://commons.wikimedia.org/wiki/File:Phare_du_Petit_Minou,_Plouzan%C3%A9,_France_(Unsplash).jpg",
+     "licence": "CC0",
+     "auteur": "William Bout williambout",
+     "date": "2016-06-18",
+     "description": "\"Petit Minou\" lighthouse in Plouzané, France"
+    },
+    {
+     "titre": "File:Phare du Petit Minou, Plouzané, France (Unsplash uFNElcqa6D0).jpg",
+     "distance_m": 35,
+     "page": "https://commons.wikimedia.org/wiki/File:Phare_du_Petit_Minou,_Plouzan%C3%A9,_France_(Unsplash_uFNElcqa6D0).jpg",
+     "licence": "CC0",
+     "auteur": "William Bout williambout",
+     "date": "2016-06-26",
+     "description": "Phare du Petit Minou, Plouzané, France"
+    },
+    {
+     "titre": "File:Phare du Petit Minou 2.jpg",
+     "distance_m": 44,
+     "page": "https://commons.wikimedia.org/wiki/File:Phare_du_Petit_Minou_2.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Einaz80",
+     "date": "24-06-2022",
+     "description": "The Petit Minou Lighthouse (Plouzané, Brittany, France)"
+    },
+    {
+     "titre": "File:Rade de Brest, Finistère, France - Flickr - pom'..jpg",
+     "distance_m": 71,
+     "page": "https://commons.wikimedia.org/wiki/File:Rade_de_Brest,_Finist%C3%A8re,_France_-_Flickr_-_pom%27..jpg",
+     "licence": "CC BY-SA 2.0",
+     "auteur": "Pom' from France, European Union",
+     "date": "Taken on 30 October 2023, 13:41",
+     "description": "Entrée de la Rade de Brest, depuis le phare du Petit Minou. Vue sur la mystérieuse Pyramide du Minou. www.lesvigiesduminou.bzh/index.php/2022/01/02/enquete-en-..."
+    },
+    {
+     "titre": "File:Le Petit Minou (58532282).jpeg",
+     "distance_m": 77,
+     "page": "https://commons.wikimedia.org/wiki/File:Le_Petit_Minou_(58532282).jpeg",
+     "licence": "CC BY 3.0",
+     "auteur": "Christophe Thibault",
+     "date": "28 July 2010, 22:36:21 (UTC)",
+     "description": "500px provided description: Le Petit Minou Bertagne, France [#hdr ,#sea ,#lighthouse ,#france ,#bretagne ,#mer ,#phare]"
+    },
+    {
+     "titre": "File:Miaou (50659141548).jpg",
+     "distance_m": 111,
+     "page": "https://commons.wikimedia.org/wiki/File:Miaou_(50659141548).jpg",
+     "licence": "CC BY 2.0",
+     "auteur": "Claude Attard from Toulouse, France",
+     "date": "2020-07-26 22:35",
+     "description": "Phare du Petit Minou"
+    },
+    {
+     "titre": "File:IMGP6311 copie (2411642124).jpg",
+     "distance_m": 117,
+     "page": "https://commons.wikimedia.org/wiki/File:IMGP6311_copie_(2411642124).jpg",
+     "licence": "CC BY 2.0",
+     "auteur": "jmt-29 from Brest, France",
+     "date": "2008-04-13 16:32",
+     "description": "IMGP6311 copie"
+    },
+    {
+     "titre": "File:Phare du Petit Minou 3.jpg",
+     "distance_m": 120,
+     "page": "https://commons.wikimedia.org/wiki/File:Phare_du_Petit_Minou_3.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Einaz80",
+     "date": "2022-06-24",
+     "description": "The Petit Minou Lighthouse (Plouzané, Brittany, France)"
+    },
+    {
+     "titre": "File:Phare du Petit Minou 4.jpg",
+     "distance_m": 120,
+     "page": "https://commons.wikimedia.org/wiki/File:Phare_du_Petit_Minou_4.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Einaz80",
+     "date": "2022-06-24",
+     "description": "The Petit Minou Lighthouse (Plouzané, Brittany, France)"
+    }
+   ]
+  },
+  {
+   "id": "morgat",
+   "nom": "Pointe de Morgat",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Morgat.-Rochers du Beg ar Kador.jpg",
+     "distance_m": 26,
+     "page": "https://commons.wikimedia.org/wiki/File:Morgat.-Rochers_du_Beg_ar_Kador.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "PIERRE ANDRE LECLERCQ",
+     "date": "2009-05-28 15:56:03",
+     "description": "Les rochers du Beg ar Kador de Morgat semblent former un gigantesque siège, là où la côte s’incurve la grève au sud, en direction du Cap de la Chaise. La légende veut qu‘elle n’ait point existé de tous temps, mais qu’un jour, des pêcheurs, en danger de heurter les récifs, aient eu recours à Sainte M"
+    },
+    {
+     "titre": "File:Les grottes de Morgat à Crozon - 027.JPG",
+     "distance_m": 79,
+     "page": "https://commons.wikimedia.org/wiki/File:Les_grottes_de_Morgat_%C3%A0_Crozon_-_027.JPG",
+     "licence": "CC BY-SA 2.5",
+     "auteur": "Thesupermat",
+     "date": "2009-08-18",
+     "description": "Sur la gauche, la grotte Sainte-Marine."
+    },
+    {
+     "titre": "File:Les grottes de Morgat à Crozon - 028.JPG",
+     "distance_m": 79,
+     "page": "https://commons.wikimedia.org/wiki/File:Les_grottes_de_Morgat_%C3%A0_Crozon_-_028.JPG",
+     "licence": "CC BY-SA 2.5",
+     "auteur": "Thesupermat",
+     "date": "2009-08-18",
+     "description": "Sur la gauche, la grotte Sainte-Marine."
+    },
+    {
+     "titre": "File:Les grottes de Morgat à Crozon - 039.JPG",
+     "distance_m": 93,
+     "page": "https://commons.wikimedia.org/wiki/File:Les_grottes_de_Morgat_%C3%A0_Crozon_-_039.JPG",
+     "licence": "CC BY-SA 2.5",
+     "auteur": "Thesupermat",
+     "date": "2009-08-18",
+     "description": "Visite en bateau des grottes de Morgat."
+    },
+    {
+     "titre": "File:Les grottes de Morgat à Crozon - la pointe du Kador - 002.JPG",
+     "distance_m": 93,
+     "page": "https://commons.wikimedia.org/wiki/File:Les_grottes_de_Morgat_%C3%A0_Crozon_-_la_pointe_du_Kador_-_002.JPG",
+     "licence": "CC BY-SA 2.5",
+     "auteur": "Thesupermat",
+     "date": "2009-08-18",
+     "description": "Visite en bateau des grottes de Morgat."
+    },
+    {
+     "titre": "File:Les grottes de Morgat à Crozon - la pointe du Kador - 001.JPG",
+     "distance_m": 99,
+     "page": "https://commons.wikimedia.org/wiki/File:Les_grottes_de_Morgat_%C3%A0_Crozon_-_la_pointe_du_Kador_-_001.JPG",
+     "licence": "CC BY-SA 2.5",
+     "auteur": "Thesupermat",
+     "date": "2009-08-18",
+     "description": "Visite en bateau des grottes de Morgat."
+    },
+    {
+     "titre": "File:Polyplacophora Chiton Morgat Baie Douarnenezété 2015 F Lamiot 01.jpg",
+     "distance_m": 113,
+     "page": "https://commons.wikimedia.org/wiki/File:Polyplacophora_Chiton_Morgat_Baie_Douarnenez%C3%A9t%C3%A9_2015_F_Lamiot_01.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Lamiot",
+     "date": "2015-08-18 13:37:18",
+     "description": "Unidentified Polyplacophora ; \"Baie de Douarnenez\" in Crozon-Morgat, Western France (perheaps Lepidochitona (Lepidochitona) cinerea Linnaeus, 1767, ?)"
+    },
+    {
+     "titre": "File:Les grottes de Morgat à Crozon - la pointe du Kador - 004.JPG",
+     "distance_m": 114,
+     "page": "https://commons.wikimedia.org/wiki/File:Les_grottes_de_Morgat_%C3%A0_Crozon_-_la_pointe_du_Kador_-_004.JPG",
+     "licence": "CC BY-SA 2.5",
+     "auteur": "Thesupermat",
+     "date": "2009-08-18",
+     "description": "Visite en bateau des grottes de Morgat."
+    },
+    {
+     "titre": "File:Polyplacophora Chiton Morgat Baie Douarnenezété 2015 F Lamiot 03.jpg",
+     "distance_m": 118,
+     "page": "https://commons.wikimedia.org/wiki/File:Polyplacophora_Chiton_Morgat_Baie_Douarnenez%C3%A9t%C3%A9_2015_F_Lamiot_03.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Lamiot",
+     "date": "2015-08-18 13:37:53",
+     "description": "Unidentified Polyplacophora ; \"Baie de Douarnenez\" in Crozon-Morgat, Western France (perheaps Lepidochitona (Lepidochitona) cinerea Linnaeus, 1767, ?)"
+    },
+    {
+     "titre": "File:Polyplacophora Chiton Morgat Baie Douarnenezété 2015 F Lamiot 02.jpg",
+     "distance_m": 118,
+     "page": "https://commons.wikimedia.org/wiki/File:Polyplacophora_Chiton_Morgat_Baie_Douarnenez%C3%A9t%C3%A9_2015_F_Lamiot_02.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Lamiot",
+     "date": "2015-08-18 13:37:25",
+     "description": "Unidentified Polyplacophora ; \"Baie de Douarnenez\" in Crozon-Morgat, Western France (perheaps Lepidochitona (Lepidochitona) cinerea Linnaeus, 1767, ?)"
+    },
+    {
+     "titre": "File:Polyplacophora Chiton Morgat Baie Douarnenezété 2015 F Lamiot 04.jpg",
+     "distance_m": 118,
+     "page": "https://commons.wikimedia.org/wiki/File:Polyplacophora_Chiton_Morgat_Baie_Douarnenez%C3%A9t%C3%A9_2015_F_Lamiot_04.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Lamiot",
+     "date": "2015-08-18 13:38:05",
+     "description": "Unidentified Polyplacophora ; \"Baie de Douarnenez\" in Crozon-Morgat, Western France (perheaps Lepidochitona (Lepidochitona) cinerea Linnaeus, 1767, ?)"
+    },
+    {
+     "titre": "File:Les grottes de Morgat à Crozon - la pointe du Kador - 003.JPG",
+     "distance_m": 123,
+     "page": "https://commons.wikimedia.org/wiki/File:Les_grottes_de_Morgat_%C3%A0_Crozon_-_la_pointe_du_Kador_-_003.JPG",
+     "licence": "CC BY-SA 2.5",
+     "auteur": "Thesupermat",
+     "date": "2009-08-18",
+     "description": "Visite en bateau des grottes de Morgat."
+    }
+   ]
+  },
+  {
+   "id": "moulinmer",
+   "nom": "Moulin Mer",
+   "erreur": null,
+   "photos": []
+  },
+  {
+   "id": "mousterlin",
+   "nom": "Pointe de Mousterlin",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Pointe de Mousterlin (panorama à 360°) - panoramio.jpg",
+     "distance_m": 17,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Mousterlin_(panorama_%C3%A0_360%C2%B0)_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "superp1errot",
+     "date": "Taken on 5 April 2011",
+     "description": "Pointe de Mousterlin (panorama à 360°)"
+    },
+    {
+     "titre": "File:W4724 Fouesnant Mousterlin 23460XA2.jpg",
+     "distance_m": 135,
+     "page": "https://commons.wikimedia.org/wiki/File:W4724_Fouesnant_Mousterlin_23460XA2.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Llann Wé²",
+     "date": "2024-06-02 18:18:21",
+     "description": "Pointe de Mousterlin, Fouesnant"
+    },
+    {
+     "titre": "File:W4725 Fouesnant Mousterlin 23461XA2.jpg",
+     "distance_m": 135,
+     "page": "https://commons.wikimedia.org/wiki/File:W4725_Fouesnant_Mousterlin_23461XA2.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Llann Wé²",
+     "date": "2024-06-02 18:18:23",
+     "description": "Pointe de Mousterlin, Fouesnant"
+    },
+    {
+     "titre": "File:W4727 Fouesnant Mousterlin 23465XA2.jpg",
+     "distance_m": 135,
+     "page": "https://commons.wikimedia.org/wiki/File:W4727_Fouesnant_Mousterlin_23465XA2.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Llann Wé²",
+     "date": "2024-06-02 18:26:15",
+     "description": "Pointe de Mousterlin, Fouesnant"
+    },
+    {
+     "titre": "File:W4726 Fouesnant Mousterlin 23463XA2.jpg",
+     "distance_m": 135,
+     "page": "https://commons.wikimedia.org/wiki/File:W4726_Fouesnant_Mousterlin_23463XA2.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Llann Wé²",
+     "date": "2024-06-02 18:24:06",
+     "description": "Pointe de Mousterlin, Fouesnant"
+    },
+    {
+     "titre": "File:Aplysie à la Pointe de Mousterlin, en Bretagne (Ifremer 00959-107117 - 55914).jpg",
+     "distance_m": 201,
+     "page": "https://commons.wikimedia.org/wiki/File:Aplysie_%C3%A0_la_Pointe_de_Mousterlin,_en_Bretagne_(Ifremer_00959-107117_-_55914).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Gregory Rocher (IFREMER, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France)",
+     "date": "Taken on 30 May 2002",
+     "description": "Aplysia is also called sea hare. It is a gastropod mollusk: the shell is present but internal. Aplysia are found in all the world's seas, particularly on coastlines rich in algae on which they feed, and in eelgrass beds (coastal fringe) where the animals come to lay their eggs. These animals therefo"
+    },
+    {
+     "titre": "File:Aplysie à la Pointe de Mousterlin, en Bretagne (Ifremer 00959-107117 - 55915).jpg",
+     "distance_m": 201,
+     "page": "https://commons.wikimedia.org/wiki/File:Aplysie_%C3%A0_la_Pointe_de_Mousterlin,_en_Bretagne_(Ifremer_00959-107117_-_55915).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Gregory Rocher (IFREMER, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France)",
+     "date": "Taken on 30 May 2002",
+     "description": "Aplysia is also called sea hare. It is a gastropod mollusk: the shell is present but internal. Aplysia are found in all the world's seas, particularly on coastlines rich in algae on which they feed, and in eelgrass beds (coastal fringe) where the animals come to lay their eggs. These animals therefo"
+    },
+    {
+     "titre": "File:Ponte d'aplysie à la Pointe de Mousterlin, en Bretagne (Ifremer 00959-107122).jpg",
+     "distance_m": 201,
+     "page": "https://commons.wikimedia.org/wiki/File:Ponte_d%27aplysie_%C3%A0_la_Pointe_de_Mousterlin,_en_Bretagne_(Ifremer_00959-107122).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Gregory Rocher (IFREMER, Centre Bretagne - ZI de la Pointe du Diable - CS 10070 - 29280 Plouzané, France)",
+     "date": "Taken on 30 May 2002",
+     "description": "Aplysia spawning on the rocks at Pointe de Mousterlin in Brittany. Aplysia is also called sea hare. It is a gastropod mollusk: the shell is present but internal. Aplysia are found in all the world's seas, particularly on coastlines rich in algae on which they feed, and in eelgrass beds (coastal frin"
+    },
+    {
+     "titre": "File:Fouesnant - hotel de la pointe - boîte à livres.jpg",
+     "distance_m": 226,
+     "page": "https://commons.wikimedia.org/wiki/File:Fouesnant_-_hotel_de_la_pointe_-_bo%C3%AEte_%C3%A0_livres.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Lyly",
+     "date": "2025-05-24 16:30:00",
+     "description": "Boîte à livres à Fouesnant"
+    }
+   ]
+  },
+  {
+   "id": "odet",
+   "nom": "Embouchure de l'Odet",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:La vedette de sauvetage de la station de Bénodet, Da Viken.jpg",
+     "distance_m": 48,
+     "page": "https://commons.wikimedia.org/wiki/File:La_vedette_de_sauvetage_de_la_station_de_B%C3%A9nodet,_Da_Viken.jpg",
+     "licence": "CC0",
+     "auteur": "PtiBzh",
+     "date": "2021-08-08 17:05:44",
+     "description": "La vedette de sauvetage de la station de Bénodet, Da Viken"
+    },
+    {
+     "titre": "File:Bénodet , le port - panoramio.jpg",
+     "distance_m": 77,
+     "page": "https://commons.wikimedia.org/wiki/File:B%C3%A9nodet_,_le_port_-_panoramio.jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "Laurent Wattieaux-Ma…",
+     "date": "Taken on 20 July 2016",
+     "description": "Bénodet : le port"
+    },
+    {
+     "titre": "File:Bénodet 060810-009 CPS.jpg",
+     "distance_m": 175,
+     "page": "https://commons.wikimedia.org/wiki/File:B%C3%A9nodet_060810-009_CPS.jpg",
+     "licence": "CC BY 2.0",
+     "auteur": "Chris Sampson",
+     "date": "2010-08-06 10:53",
+     "description": "Boat wrecks at Benodet"
+    },
+    {
+     "titre": "File:Bénodet 060810-008 CPS.jpg",
+     "distance_m": 198,
+     "page": "https://commons.wikimedia.org/wiki/File:B%C3%A9nodet_060810-008_CPS.jpg",
+     "licence": "CC BY 2.0",
+     "auteur": "Chris Sampson",
+     "date": "2010-08-06 10:53",
+     "description": "Boat wrecks at Benodet"
+    },
+    {
+     "titre": "File:Shopping Trolleys (809290640).jpg",
+     "distance_m": 313,
+     "page": "https://commons.wikimedia.org/wiki/File:Shopping_Trolleys_(809290640).jpg",
+     "licence": "CC BY 2.0",
+     "auteur": "Martin Burns",
+     "date": "2007-07-02 09:37",
+     "description": "...in case you come unprepared"
+    },
+    {
+     "titre": "File:Shopping Trolleys (809290640) (cropped).jpg",
+     "distance_m": 313,
+     "page": "https://commons.wikimedia.org/wiki/File:Shopping_Trolleys_(809290640)_(cropped).jpg",
+     "licence": "CC BY 2.0",
+     "auteur": "Martin Burns",
+     "date": "2007-07-02 09:37",
+     "description": "...in case you come unprepared"
+    }
+   ]
+  },
+  {
+   "id": "paluden",
+   "nom": "Aber Wrac'h : Paluden – pont du Diable",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:105 Aber Wrac'h Paluden.jpg",
+     "distance_m": 13,
+     "page": "https://commons.wikimedia.org/wiki/File:105_Aber_Wrac%27h_Paluden.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Moreau.henri",
+     "date": "2018-06-28 13:46:07",
+     "description": "L'Aber Wrac'h : vue vers l'aval depuis le port de Paluden (en Lannilis) ; à droite de la photographie, la rive droite de l'Aber Wrac'h côte Plouguerneau (lieu-dit \"Le Passage\")."
+    },
+    {
+     "titre": "File:Bateau en manoeuvre au port de Paluden 2.jpg",
+     "distance_m": 104,
+     "page": "https://commons.wikimedia.org/wiki/File:Bateau_en_manoeuvre_au_port_de_Paluden_2.jpg",
+     "licence": "CC0",
+     "auteur": "Romscape",
+     "date": "2006-06-23",
+     "description": "Bateau en manœuvre (demi tour) au port de Paluden"
+    },
+    {
+     "titre": "File:Bateau en manoeuvre au port de Paluden.jpg",
+     "distance_m": 105,
+     "page": "https://commons.wikimedia.org/wiki/File:Bateau_en_manoeuvre_au_port_de_Paluden.jpg",
+     "licence": "CC0",
+     "auteur": "Romscape",
+     "date": "2006-06-23",
+     "description": "Bateau en manœuvre (demi tour) au port de Paluden"
+    }
+   ]
+  },
+  {
+   "id": "pelguent",
+   "nom": "Pointe de Roc'h Pelguent",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Sunset over Île Vierge lighthouse, Plouguerneau-183610046.jpg",
+     "distance_m": 9,
+     "page": "https://commons.wikimedia.org/wiki/File:Sunset_over_%C3%8Ele_Vierge_lighthouse,_Plouguerneau-183610046.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Raimond Spekking",
+     "date": "2025-09-07",
+     "description": "Sunset over Île Vierge lighthouse, Plouguerneau, Bretagne"
+    }
+   ]
+  },
+  {
+   "id": "penhir",
+   "nom": "Pointe de Pen-Hir",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Pointe de Pen-Hir, Camaret-sur-Mer, France (Unsplash).jpg",
+     "distance_m": 45,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Pen-Hir,_Camaret-sur-Mer,_France_(Unsplash).jpg",
+     "licence": "CC0",
+     "auteur": "J Ahrndt joah",
+     "date": "2016-07-10",
+     "description": "Pointe de Pen-Hir, Camaret-sur-Mer, France"
+    },
+    {
+     "titre": "File:Pointe de Pen-Hir, les Tas de Pois.jpg",
+     "distance_m": 165,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Pen-Hir,_les_Tas_de_Pois.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "PIERRE ANDRE LECLERCQ",
+     "date": "2009-05-19 15:36:30",
+     "description": "Les \"Tas de pois\" à la Pointe de Pen-Hir Presqu'île de Crozon Réserve naturelle régionale des sites d'intérêt géologique de la presqu'île de Crozon , Finistère France"
+    },
+    {
+     "titre": "File:Camaret-sur-Mer - Pointe de Pen-hir - Borne avec ancre 02.jpeg",
+     "distance_m": 187,
+     "page": "https://commons.wikimedia.org/wiki/File:Camaret-sur-Mer_-_Pointe_de_Pen-hir_-_Borne_avec_ancre_02.jpeg",
+     "licence": "CC0",
+     "auteur": "Romainbehar",
+     "date": "2021-07-16 17:08:36",
+     "description": "Borne avec ancre."
+    },
+    {
+     "titre": "File:GR34 1000 km milestone at Pointe de Pen-Hir.jpg",
+     "distance_m": 217,
+     "page": "https://commons.wikimedia.org/wiki/File:GR34_1000_km_milestone_at_Pointe_de_Pen-Hir.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "MartinD",
+     "date": "2026-07-11 13:57:30",
+     "description": "1000 km milestone on the GR34 hiking route at Pointe de Pen-Hir, dept. Finistère, France"
+    },
+    {
+     "titre": "File:Pointe de Pen-Hir (26525345985).jpg",
+     "distance_m": 218,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Pen-Hir_(26525345985).jpg",
+     "licence": "CC BY-SA 2.0",
+     "auteur": "Maëlick",
+     "date": "Taken on 14 August 2015, 16:47",
+     "description": "Pointe de Pen-Hir"
+    },
+    {
+     "titre": "File:Cm tasdepois 20060925.jpg",
+     "distance_m": 226,
+     "page": "https://commons.wikimedia.org/wiki/File:Cm_tasdepois_20060925.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Michael Rapp",
+     "date": "2006-09-25",
+     "description": "The Tas de Pois (pile of peas) from the Pointe de Penhir at Camaret-sur-Mer"
+    },
+    {
+     "titre": "File:Tas de pois 2007.jpg",
+     "distance_m": 247,
+     "page": "https://commons.wikimedia.org/wiki/File:Tas_de_pois_2007.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Michael Rapp",
+     "date": "2007-07-04",
+     "description": "The Tas de Pois (pile of peas) from the Pointe de Penhir at Camaret-sur-Mer"
+    },
+    {
+     "titre": "File:Tas de pois 2007 2.jpg",
+     "distance_m": 247,
+     "page": "https://commons.wikimedia.org/wiki/File:Tas_de_pois_2007_2.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Michael Rapp",
+     "date": "2007-07-04",
+     "description": "The Tas de Pois (pile of peas) from the Pointe de Penhir at Camaret-sur-Mer"
+    },
+    {
+     "titre": "File:Pointe de Pen-Hir (25936489794).jpg",
+     "distance_m": 263,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Pen-Hir_(25936489794).jpg",
+     "licence": "CC BY-SA 2.0",
+     "auteur": "Maëlick",
+     "date": "Taken on 14 August 2015, 16:53",
+     "description": "Pointe de Pen-Hir"
+    },
+    {
+     "titre": "File:Les Tas de Pois à la Pointe de Penhir, Camaret-sur-Mer, Finistère.ogv",
+     "distance_m": 279,
+     "page": "https://commons.wikimedia.org/wiki/File:Les_Tas_de_Pois_%C3%A0_la_Pointe_de_Penhir,_Camaret-sur-Mer,_Finist%C3%A8re.ogv",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Calcineur",
+     "date": "2010-04-08",
+     "description": "The Tas de Pois (pile of peas) from the Pointe de Penhir at Camaret-sur-Mer, april 8 2010"
+    },
+    {
+     "titre": "File:Tas de pois 2.jpg",
+     "distance_m": 281,
+     "page": "https://commons.wikimedia.org/wiki/File:Tas_de_pois_2.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Michael Rapp",
+     "date": "2008-08-12",
+     "description": "The Tas de Pois (pile of peas) from the Pointe de Penhir at Camaret-sur-Mer"
+    },
+    {
+     "titre": "File:Différents échinodermes sur une moulière (Ifremer 00679-79094).jpg",
+     "distance_m": 281,
+     "page": "https://commons.wikimedia.org/wiki/File:Diff%C3%A9rents_%C3%A9chinodermes_sur_une_mouli%C3%A8re_(Ifremer_00679-79094).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Xavier Caisey",
+     "date": "1 January 2010 (upload date)",
+     "description": "On a mussel bed in front of Camaret-sur-mer (Finistère), numerous starfish, including the species Asterias rubens and Marthasterias glacialis , are feasting."
+    }
+   ]
+  },
+  {
+   "id": "penhors",
+   "nom": "Penhors",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Penhors Pouldreuzic Viaouest.jpg",
+     "distance_m": 104,
+     "page": "https://commons.wikimedia.org/wiki/File:Penhors_Pouldreuzic_Viaouest.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Viaouest",
+     "date": "2015-03-19 08:56:33",
+     "description": "Une vue sur la baie d'audierne du petit port de penhors à marée basse."
+    },
+    {
+     "titre": "File:Baie d'Audierne 101.jpg",
+     "distance_m": 150,
+     "page": "https://commons.wikimedia.org/wiki/File:Baie_d%27Audierne_101.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Moreau.henri",
+     "date": "2021-11-16 14:40:42",
+     "description": "Le recul du trait de côte en raison de l'érosion marine en Baie d'Audierne : blockhaus désormais épars sur la plage de galets à l'ouest de Penhors."
+    },
+    {
+     "titre": "File:20120927 Bretagne Pouldreuzic PoleNautique DSC08808 PtrQs.jpg",
+     "distance_m": 206,
+     "page": "https://commons.wikimedia.org/wiki/File:20120927_Bretagne_Pouldreuzic_PoleNautique_DSC08808_PtrQs.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "PtrQs",
+     "date": "2012-09-27 15:26:47",
+     "description": "Surf school in Pouldreuzic, Brittany/France"
+    },
+    {
+     "titre": "File:20120927 Bretagne Pouldreuzic PoleNautique DSC08811 PtrQs.jpg",
+     "distance_m": 224,
+     "page": "https://commons.wikimedia.org/wiki/File:20120927_Bretagne_Pouldreuzic_PoleNautique_DSC08811_PtrQs.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "PtrQs",
+     "date": "2012-09-27 15:27:39",
+     "description": "Surf school in Pouldreuzic, Brittany/France"
+    },
+    {
+     "titre": "File:Penhors.- Plage de Bretz Armor.jpg",
+     "distance_m": 241,
+     "page": "https://commons.wikimedia.org/wiki/File:Penhors.-_Plage_de_Bretz_Armor.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "PIERRE ANDRE LECLERCQ",
+     "date": "2006-05-23 21:16:11",
+     "description": "Penhors.- Plage de Breizh Armor"
+    },
+    {
+     "titre": "File:Chapelle de Penhors ViaOuest.jpg",
+     "distance_m": 285,
+     "page": "https://commons.wikimedia.org/wiki/File:Chapelle_de_Penhors_ViaOuest.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Viaouest",
+     "date": "2014-06-29 14:57:22",
+     "description": "La chapelle de Penhors, son porche et son calvaire, à Pouldreuzic dans le Pays Bigouden en Bretagne."
+    },
+    {
+     "titre": "File:Pouldreuzic (29) Chapelle Notre-Dame-de-Penhors 03.JPG",
+     "distance_m": 286,
+     "page": "https://commons.wikimedia.org/wiki/File:Pouldreuzic_(29)_Chapelle_Notre-Dame-de-Penhors_03.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "GO69",
+     "date": "2013-07-21 10:35:58",
+     "description": "Chapelle Notre-Dame-de-Penhors en Pouldreuzic (29). Chevet."
+    },
+    {
+     "titre": "File:Pouldreuzic (29) Chapelle Notre-Dame-de-Penhors 07.JPG",
+     "distance_m": 286,
+     "page": "https://commons.wikimedia.org/wiki/File:Pouldreuzic_(29)_Chapelle_Notre-Dame-de-Penhors_07.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "GO69",
+     "date": "2013-07-21 10:58:59",
+     "description": "Chapelle Notre-Dame-de-Penhors en Pouldreuzic (29). Fut du calvaire."
+    },
+    {
+     "titre": "File:Pouldreuzic (29) Chapelle Notre-Dame-de-Penhors 12.JPG",
+     "distance_m": 286,
+     "page": "https://commons.wikimedia.org/wiki/File:Pouldreuzic_(29)_Chapelle_Notre-Dame-de-Penhors_12.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "GO69",
+     "date": "2013-07-21 10:39:59",
+     "description": "Chapelle Notre-Dame-de-Penhors en Pouldreuzic (29). Costale nord du chœur et arc triomphal."
+    },
+    {
+     "titre": "File:Pouldreuzic (29) Chapelle Notre-Dame-de-Penhors 11.JPG",
+     "distance_m": 286,
+     "page": "https://commons.wikimedia.org/wiki/File:Pouldreuzic_(29)_Chapelle_Notre-Dame-de-Penhors_11.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "GO69",
+     "date": "2013-07-21 10:56:06",
+     "description": "Chapelle Notre-Dame-de-Penhors en Pouldreuzic (29). Costale nord de la nef."
+    },
+    {
+     "titre": "File:Pouldreuzic (29) Chapelle Notre-Dame-de-Penhors 17.JPG",
+     "distance_m": 286,
+     "page": "https://commons.wikimedia.org/wiki/File:Pouldreuzic_(29)_Chapelle_Notre-Dame-de-Penhors_17.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "GO69",
+     "date": "2013-07-21 10:53:07",
+     "description": "Chapelle Notre-Dame-de-Penhors en Pouldreuzic (29). Chapiteau de la costale nord du chœur."
+    },
+    {
+     "titre": "File:Pouldreuzic (29) Chapelle Notre-Dame-de-Penhors 18.JPG",
+     "distance_m": 286,
+     "page": "https://commons.wikimedia.org/wiki/File:Pouldreuzic_(29)_Chapelle_Notre-Dame-de-Penhors_18.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "GO69",
+     "date": "2013-07-21 10:53:52",
+     "description": "Chapelle Notre-Dame-de-Penhors en Pouldreuzic (29). Charpente."
+    }
+   ]
+  },
+  {
+   "id": "penmarch",
+   "nom": "Pointe de Penmarc'h",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Pointe de Penmarc'h - panoramio.jpg",
+     "distance_m": 5,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Penmarc%27h_-_panoramio.jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "Nigel Boundy",
+     "date": "Taken on 28 August 2015",
+     "description": "Pointe de Penmarc'h"
+    },
+    {
+     "titre": "File:Eckmuhl - panoramio.jpg",
+     "distance_m": 11,
+     "page": "https://commons.wikimedia.org/wiki/File:Eckmuhl_-_panoramio.jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "cisko66",
+     "date": "Taken on 6 September 2007",
+     "description": "Eckmuhl"
+    },
+    {
+     "titre": "File:Bretagne 2023-07-25 (53920508601).jpg",
+     "distance_m": 11,
+     "page": "https://commons.wikimedia.org/wiki/File:Bretagne_2023-07-25_(53920508601).jpg",
+     "licence": "CC BY 2.0",
+     "auteur": "Maarten Heerlien from Voorschoten, The Netherlands",
+     "date": "2023-07-25 13:30",
+     "description": "Bretagne_20230725_DSC2209"
+    },
+    {
+     "titre": "File:W10479 Penmarch StPierre PhareEckmühl1897 30367EOS.jpg",
+     "distance_m": 13,
+     "page": "https://commons.wikimedia.org/wiki/File:W10479_Penmarch_StPierre_PhareEckm%C3%BChl1897_30367EOS.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Llann Wé²",
+     "date": "2011-08-14 16:41:02",
+     "description": "Phare d'Eckmühl (1897), Saint-Pierre, Penmarch"
+    },
+    {
+     "titre": "File:W10480 Penmarch StPierre PhareEckmühl1897 30359EOS.jpg",
+     "distance_m": 13,
+     "page": "https://commons.wikimedia.org/wiki/File:W10480_Penmarch_StPierre_PhareEckm%C3%BChl1897_30359EOS.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Llann Wé²",
+     "date": "2011-08-14 16:42:12",
+     "description": "Phare d'Eckmühl (1897), Saint-Pierre, Penmarch"
+    },
+    {
+     "titre": "File:Phare d'Eckmühl (16286940058).jpg",
+     "distance_m": 15,
+     "page": "https://commons.wikimedia.org/wiki/File:Phare_d%27Eckm%C3%BChl_(16286940058).jpg",
+     "licence": "CC BY 2.0",
+     "auteur": "Jean-Jacques Abalain from Melgven (près de Concarneau)",
+     "date": "2015-02-07 20:20",
+     "description": "Mme Adélaïde Louise d'Avout, fille du maréchal d'Avout d'Auerstaedt, marquise de Blocqueville va faire un don de 300 000 frs. De son testament, daté du 2 février 1885, est extrait ce qui suit : \"Ma première et ma plus chère volonté est qu'il soit élevé un phare sur un point dangereux des côtes de Fr"
+    },
+    {
+     "titre": "File:Phare d'Eckmühl - panoramio.jpg",
+     "distance_m": 31,
+     "page": "https://commons.wikimedia.org/wiki/File:Phare_d%27Eckm%C3%BChl_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Besenbinder",
+     "date": "Taken on 26 June 2006",
+     "description": "Phare d'Eckmühl"
+    },
+    {
+     "titre": "File:Phare d'Eckmühl.jpg",
+     "distance_m": 34,
+     "page": "https://commons.wikimedia.org/wiki/File:Phare_d%27Eckm%C3%BChl.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Calcineur",
+     "date": "2011-05-14",
+     "description": "Phare d'Eckmühl"
+    },
+    {
+     "titre": "File:Penmarch Phare d'Eckmühl.jpg",
+     "distance_m": 45,
+     "page": "https://commons.wikimedia.org/wiki/File:Penmarch_Phare_d%27Eckm%C3%BChl.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Heinrich Stürzl",
+     "date": "2023-06-25",
+     "description": "Penmarc'h, Finistère, France: Le Phare d’Eckmühl vue du nord-ouest."
+    },
+    {
+     "titre": "File:Bretagne 2023-07-25 (53920508511).jpg",
+     "distance_m": 60,
+     "page": "https://commons.wikimedia.org/wiki/File:Bretagne_2023-07-25_(53920508511).jpg",
+     "licence": "CC BY 2.0",
+     "auteur": "Maarten Heerlien from Voorschoten, The Netherlands",
+     "date": "2023-07-25 13:34",
+     "description": "Bretagne_20230725_DSC2210"
+    },
+    {
+     "titre": "File:Penmarch Phare d'Eckmühl (2).jpg",
+     "distance_m": 63,
+     "page": "https://commons.wikimedia.org/wiki/File:Penmarch_Phare_d%27Eckm%C3%BChl_(2).jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Heinrich Stürzl",
+     "date": "2023-07-04",
+     "description": "Penmarc'h, Finistère, France: Le Phare d’Eckmühl vue du sud-ouest."
+    },
+    {
+     "titre": "File:Phare d'Eckmuhl.jpg",
+     "distance_m": 78,
+     "page": "https://commons.wikimedia.org/wiki/File:Phare_d%27Eckmuhl.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Jacquym",
+     "date": "2016-08-08 14:50:16",
+     "description": "Phares de la pointe de Penmarc'h comprenant le phare d'Eckmühl"
+    }
+   ]
+  },
+  {
+   "id": "pennenez",
+   "nom": "Penn Enez – Grève Blanche",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Plouguerneau - Camping de la grève blanche - boîte à livres.jpg",
+     "distance_m": 274,
+     "page": "https://commons.wikimedia.org/wiki/File:Plouguerneau_-_Camping_de_la_gr%C3%A8ve_blanche_-_bo%C3%AEte_%C3%A0_livres.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Patricia Cugnod",
+     "date": "",
+     "description": "Boîte à livres à Plouguerneau"
+    },
+    {
+     "titre": "File:Iliz-Coz Nécropole médiévale (2).jpg",
+     "distance_m": 304,
+     "page": "https://commons.wikimedia.org/wiki/File:Iliz-Coz_N%C3%A9cropole_m%C3%A9di%C3%A9vale_(2).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Pierre André Leclercq",
+     "date": "2010-05-17 05:41:49",
+     "description": "The medieval necropolis of Iliz Coz, abandoned in 1729, houses the chapel of the lords of Parscau and the cemetery contains nearly a hundred funerary slabs. - Plouguerneau"
+    },
+    {
+     "titre": "File:Iliz-Coz Nécropole médiévale (1).jpg",
+     "distance_m": 304,
+     "page": "https://commons.wikimedia.org/wiki/File:Iliz-Coz_N%C3%A9cropole_m%C3%A9di%C3%A9vale_(1).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Pierre André Leclercq",
+     "date": "2010-05-17 05:43:17",
+     "description": "The medieval necropolis of Iliz Coz, abandoned in 1729, houses the chapel of the lords of Parscau and the cemetery contains nearly a hundred funerary slabs. - Plouguerneau"
+    },
+    {
+     "titre": "File:Iliz-Coz Nécropole médiévale (Coëtivi Family Coat of Arms).jpg",
+     "distance_m": 304,
+     "page": "https://commons.wikimedia.org/wiki/File:Iliz-Coz_N%C3%A9cropole_m%C3%A9di%C3%A9vale_(Co%C3%ABtivi_Family_Coat_of_Arms).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Pierre André Leclercq",
+     "date": "2010-05-17 05:43:02",
+     "description": "Coëtivy Family Coat of Arms in the medieval necropolis of Iliz Coz, near the chapel of the lords of Parscau. - Plouguerneau"
+    },
+    {
+     "titre": "File:Iliz-Coz.- Entrée de la nécropole médiévale.jpg",
+     "distance_m": 304,
+     "page": "https://commons.wikimedia.org/wiki/File:Iliz-Coz.-_Entr%C3%A9e_de_la_n%C3%A9cropole_m%C3%A9di%C3%A9vale.jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Pierre André Leclercq",
+     "date": "2010-05-17 05:47:58",
+     "description": "The medieval necropolis of Iliz Coz, abandoned in 1729, houses the chapel of the lords of Parscau and the cemetery contains nearly a hundred funerary slabs. - Plouguerneau"
+    },
+    {
+     "titre": "File:Iliz-Coz panoramique sur la nécropole médiévale.jpg",
+     "distance_m": 304,
+     "page": "https://commons.wikimedia.org/wiki/File:Iliz-Coz_panoramique_sur_la_n%C3%A9cropole_m%C3%A9di%C3%A9vale.jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Pierre André Leclercq",
+     "date": "2010-05-17 05:41:49",
+     "description": "The medieval necropolis of Iliz Coz, abandoned in 1729, houses the chapel of the lords of Parscau and the cemetery contains nearly a hundred funerary slabs. - Plouguerneau"
+    },
+    {
+     "titre": "File:Iliz-Coz.- Entrée de la nécropole médiévale (2).jpg",
+     "distance_m": 304,
+     "page": "https://commons.wikimedia.org/wiki/File:Iliz-Coz.-_Entr%C3%A9e_de_la_n%C3%A9cropole_m%C3%A9di%C3%A9vale_(2).jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Pierre André Leclercq",
+     "date": "2011-06-01 15:12:56",
+     "description": "The medieval necropolis of Iliz Coz, abandoned in 1729, houses the chapel of the lords of Parscau and the cemetery contains nearly a hundred funerary slabs. - Plouguerneau"
+    },
+    {
+     "titre": "File:Grève blanche-crapaud.JPG",
+     "distance_m": 340,
+     "page": "https://commons.wikimedia.org/wiki/File:Gr%C3%A8ve_blanche-crapaud.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Nono du 59",
+     "date": "2010-08-06 12:23:17",
+     "description": "Vue sur le rocher du Crapaud depuis la Grève Blanche."
+    }
+   ]
+  },
+  {
+   "id": "pentrez",
+   "nom": "Plage de Pentrez",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:213 Saint-Nic.jpg",
+     "distance_m": 47,
+     "page": "https://commons.wikimedia.org/wiki/File:213_Saint-Nic.jpg",
+     "licence": "Public domain",
+     "auteur": "Jean-Marie Le Doaré",
+     "date": "2016-09-13 16:45:34",
+     "description": "La plage de Pentrez-les-Bains à marée haute (carte postale Jean-Marie Le Doaré, vers 1910)."
+    },
+    {
+     "titre": "File:211 Saint-Nic.jpg",
+     "distance_m": 79,
+     "page": "https://commons.wikimedia.org/wiki/File:211_Saint-Nic.jpg",
+     "licence": "Public domain",
+     "auteur": "Inconnu (vers 1910)",
+     "date": "2016-09-13 16:45:14",
+     "description": "La plage de Pentrez-les-Bains vers 1910 (carte postale, auteur inconnu)."
+    },
+    {
+     "titre": "File:214 Saint-Nic.jpg",
+     "distance_m": 110,
+     "page": "https://commons.wikimedia.org/wiki/File:214_Saint-Nic.jpg",
+     "licence": "Public domain",
+     "auteur": "Auteur inconnu (vers 1910)",
+     "date": "circa 1910 date QS:P,+1910-00-00T00:00:00Z/9,P1480,Q5727902",
+     "description": "Le lavoir et la grève de Pentrez au début du XXème siècle (carte postale, auteur inconnu)"
+    },
+    {
+     "titre": "File:Saint-Nic - Chemin des dunes - boîte à livres.jpg",
+     "distance_m": 168,
+     "page": "https://commons.wikimedia.org/wiki/File:Saint-Nic_-_Chemin_des_dunes_-_bo%C3%AEte_%C3%A0_livres.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "ijin",
+     "date": "2026-09-25 15:49:53",
+     "description": "Boîte à livres à Saint-Nic"
+    }
+   ]
+  },
+  {
+   "id": "penze",
+   "nom": "Embouchure de la Penzé",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Oeil situé à Carantec 2.jpg",
+     "distance_m": 72,
+     "page": "https://commons.wikimedia.org/wiki/File:Oeil_situ%C3%A9_%C3%A0_Carantec_2.jpg",
+     "licence": "CC0",
+     "auteur": "Yvan DALIZE",
+     "date": "2020-10-26",
+     "description": "Oeil situé à Carantec"
+    },
+    {
+     "titre": "File:Oeil situé à Carantec.jpg",
+     "distance_m": 72,
+     "page": "https://commons.wikimedia.org/wiki/File:Oeil_situ%C3%A9_%C3%A0_Carantec.jpg",
+     "licence": "CC0",
+     "auteur": "Yvan DALIZE",
+     "date": "2020-10-19",
+     "description": "Oeil situé à Carantec"
+    },
+    {
+     "titre": "File:Route submersible reliant Carantec à l'Ile Callot 05.jpg",
+     "distance_m": 238,
+     "page": "https://commons.wikimedia.org/wiki/File:Route_submersible_reliant_Carantec_%C3%A0_l%27Ile_Callot_05.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Yvan DALIZE",
+     "date": "2020-10-28",
+     "description": "Route submersible reliant Carantec à l'Ile Callot"
+    },
+    {
+     "titre": "File:Carantec, Route Submersible - panoramio (1).jpg",
+     "distance_m": 323,
+     "page": "https://commons.wikimedia.org/wiki/File:Carantec,_Route_Submersible_-_panoramio_(1).jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "cisko66",
+     "date": "29 August 2009 (original upload date)",
+     "description": "Carantec, Route Submersible"
+    },
+    {
+     "titre": "File:Carantec, Route Submersible - panoramio.jpg",
+     "distance_m": 328,
+     "page": "https://commons.wikimedia.org/wiki/File:Carantec,_Route_Submersible_-_panoramio.jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "cisko66",
+     "date": "Taken on 16 June 2009",
+     "description": "Carantec, Route Submersible"
+    },
+    {
+     "titre": "File:Carantec Hdr (45326156).jpeg",
+     "distance_m": 332,
+     "page": "https://commons.wikimedia.org/wiki/File:Carantec_Hdr_(45326156).jpeg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Stefan Dudde",
+     "date": "before 5 September 2013, 19:14:00 (UTC)",
+     "description": "500px provided description: Carantec Hdr [#HDR]"
+    }
+   ]
+  },
+  {
+   "id": "percho",
+   "nom": "Pointe du Percho",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Quiberon - panoramio - cisko66.jpg",
+     "distance_m": 61,
+     "page": "https://commons.wikimedia.org/wiki/File:Quiberon_-_panoramio_-_cisko66.jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "cisko66",
+     "date": "Taken on 5 September 2007",
+     "description": "Quiberon"
+    },
+    {
+     "titre": "File:Quiberon - panoramio - cisko66 (1).jpg",
+     "distance_m": 63,
+     "page": "https://commons.wikimedia.org/wiki/File:Quiberon_-_panoramio_-_cisko66_(1).jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "cisko66",
+     "date": "12 October 2007 (original upload date)",
+     "description": "Quiberon"
+    },
+    {
+     "titre": "File:Quiberon - panoramio.jpg",
+     "distance_m": 185,
+     "page": "https://commons.wikimedia.org/wiki/File:Quiberon_-_panoramio.jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "cisko66",
+     "date": "Taken on 5 September 2007",
+     "description": "Quiberon"
+    },
+    {
+     "titre": "File:Finally Holly Days (88085601).jpeg",
+     "distance_m": 226,
+     "page": "https://commons.wikimedia.org/wiki/File:Finally_Holly_Days_(88085601).jpeg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Brieuc Daniel",
+     "date": "27 October 2014, 06:33:54 (UTC)",
+     "description": "500px provided description: Finally Holly Days [#Nikon ,#Portrait ,#Sky ,#Night ,#Shadow ,#Quiberon ,#D3200]"
+    },
+    {
+     "titre": "File:Dolmen du Port-Blanc.jpg",
+     "distance_m": 325,
+     "page": "https://commons.wikimedia.org/wiki/File:Dolmen_du_Port-Blanc.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "XIIIfromTOKYO",
+     "date": "2017-07-02",
+     "description": "Dolmen du Port-Blanc"
+    },
+    {
+     "titre": "File:Dolmens de Port-Blanc 02.jpg",
+     "distance_m": 326,
+     "page": "https://commons.wikimedia.org/wiki/File:Dolmens_de_Port-Blanc_02.jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Unukorno",
+     "date": "2018-07-16 13:22:19",
+     "description": "Dolmens of Port-Blanc (Porz Guen) in Brittany"
+    },
+    {
+     "titre": "File:Aimer ce n'est pas se regarder l'un l'autre c'est regarder ensemble dans la même direction.jpg",
+     "distance_m": 328,
+     "page": "https://commons.wikimedia.org/wiki/File:Aimer_ce_n%27est_pas_se_regarder_l%27un_l%27autre_c%27est_regarder_ensemble_dans_la_m%C3%AAme_direction.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "TirHen",
+     "date": "2015-11-01 17:45:50",
+     "description": "This photo has been taken in the country: France"
+    },
+    {
+     "titre": "File:Dolmens de Port-Blanc 01.jpg",
+     "distance_m": 333,
+     "page": "https://commons.wikimedia.org/wiki/File:Dolmens_de_Port-Blanc_01.jpg",
+     "licence": "CC BY 4.0",
+     "auteur": "Unukorno",
+     "date": "2018-07-16 13:21:55",
+     "description": "Dolmens of Port-Blanc (Porz Guen) in Brittany"
+    },
+    {
+     "titre": "File:Morbihan Saint-Pierre-Quiberon Portivy Pointe Percho Port Blanc 02022013 - panoramio.jpg",
+     "distance_m": 362,
+     "page": "https://commons.wikimedia.org/wiki/File:Morbihan_Saint-Pierre-Quiberon_Portivy_Pointe_Percho_Port_Blanc_02022013_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "Taken on 2 February 2013",
+     "description": "Morbihan Saint-Pierre-Quiberon Portivy Pointe Percho Port Blanc 02022013"
+    },
+    {
+     "titre": "File:Morbihan Saint-Pierre-Quiberon Cote Sauvage Port-Blanc Plage - panoramio (1).jpg",
+     "distance_m": 371,
+     "page": "https://commons.wikimedia.org/wiki/File:Morbihan_Saint-Pierre-Quiberon_Cote_Sauvage_Port-Blanc_Plage_-_panoramio_(1).jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "19 January 2016 (original upload date)",
+     "description": "Morbihan Saint-Pierre-Quiberon Cote Sauvage Port-Blanc Plage"
+    },
+    {
+     "titre": "File:Morbihan Saint-Pierre-Quiberon Cote Sauvage Port-Blanc Plage - panoramio.jpg",
+     "distance_m": 393,
+     "page": "https://commons.wikimedia.org/wiki/File:Morbihan_Saint-Pierre-Quiberon_Cote_Sauvage_Port-Blanc_Plage_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "19 January 2016 (original upload date)",
+     "description": "Morbihan Saint-Pierre-Quiberon Cote Sauvage Port-Blanc Plage"
+    }
+   ]
+  },
+  {
+   "id": "pirou",
+   "nom": "Pirou Plage",
+   "erreur": null,
+   "photos": []
+  },
+  {
+   "id": "plougrescant",
+   "nom": "Pointe du Château (Plougrescant)",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Côte de Granit Rose - moře a růžové skály - panoramio.jpg",
+     "distance_m": 246,
+     "page": "https://commons.wikimedia.org/wiki/File:C%C3%B4te_de_Granit_Rose_-_mo%C5%99e_a_r%C5%AF%C5%BEov%C3%A9_sk%C3%A1ly_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Martin Cígler",
+     "date": "Taken on 26 October 2014",
+     "description": "Côte de Granit Rose - moře a růžové skály"
+    }
+   ]
+  },
+  {
+   "id": "portbail",
+   "nom": "Portbail",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Une épave de bateau à Portbail.jpg",
+     "distance_m": 147,
+     "page": "https://commons.wikimedia.org/wiki/File:Une_%C3%A9pave_de_bateau_%C3%A0_Portbail.jpg",
+     "licence": "CC0",
+     "auteur": "Rc1959",
+     "date": "17 August 2025 (according to Exif data)",
+     "description": "Une épave de bateau à Portbail"
+    },
+    {
+     "titre": "File:Le port de Portbail.jpg",
+     "distance_m": 236,
+     "page": "https://commons.wikimedia.org/wiki/File:Le_port_de_Portbail.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "JackyM59",
+     "date": "19 August 2026 (according to Exif data)",
+     "description": "Le port de Portbail"
+    },
+    {
+     "titre": "File:Littoral ouest du Cotentin de Saint-Germain-sur-Ay au Rozel.jpg",
+     "distance_m": 353,
+     "page": "https://commons.wikimedia.org/wiki/File:Littoral_ouest_du_Cotentin_de_Saint-Germain-sur-Ay_au_Rozel.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "JackyM59",
+     "date": "19 August 2026 (according to Exif data)",
+     "description": "Littoral ouest du Cotentin de Saint-Germain-sur-Ay au Rozel"
+    }
+   ]
+  },
+  {
+   "id": "portmanech",
+   "nom": "Embouchures de l'Aven et du Bélon",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Saint-Nicolas vue ensemble.jpg",
+     "distance_m": 33,
+     "page": "https://commons.wikimedia.org/wiki/File:Saint-Nicolas_vue_ensemble.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Yann Gwilhoù",
+     "date": "2012-09-30 14:26:20",
+     "description": "Saint Nicholas' chapel, in Port-Manec'h, city of Névez, Finistère, Brittany, France."
+    },
+    {
+     "titre": "File:Saint-Nicolas façade ouest.jpg",
+     "distance_m": 33,
+     "page": "https://commons.wikimedia.org/wiki/File:Saint-Nicolas_fa%C3%A7ade_ouest.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Yann Gwilhoù",
+     "date": "2012-09-30 14:28:12",
+     "description": "Western facade of Saint Nicholas' chapel, in Port-Manec'h, city of Névez, Finistère, Brittany, France."
+    },
+    {
+     "titre": "File:Saint-Nicolas porte est.jpg",
+     "distance_m": 33,
+     "page": "https://commons.wikimedia.org/wiki/File:Saint-Nicolas_porte_est.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Yann Gwilhoù",
+     "date": "2012-09-30 14:27:29",
+     "description": "Eastern door of Saint Nicholas' chapel, in Port-Manec'h, city of Névez, Finistère, Brittany, France."
+    },
+    {
+     "titre": "File:Saint-Nicolas2.jpg",
+     "distance_m": 33,
+     "page": "https://commons.wikimedia.org/wiki/File:Saint-Nicolas2.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Yann Gwilhoù",
+     "date": "2012-09-30 14:26:56",
+     "description": "Saint Nicholas' chapel, in Port-Manec'h, city of Névez, Finistère, Brittany, France."
+    }
+   ]
+  },
+  {
+   "id": "primel",
+   "nom": "Pointe de Primel",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Primel - Finistère (52381216861).jpg",
+     "distance_m": 231,
+     "page": "https://commons.wikimedia.org/wiki/File:Primel_-_Finist%C3%A8re_(52381216861).jpg",
+     "licence": "CC BY-SA 2.0",
+     "auteur": "Nicolas Torquet",
+     "date": "2022-07-27 17:52",
+     "description": "Primel - Finistère"
+    },
+    {
+     "titre": "File:Pointe de Primel - Plougasnou - Finistère (52391370624).jpg",
+     "distance_m": 238,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Primel_-_Plougasnou_-_Finist%C3%A8re_(52391370624).jpg",
+     "licence": "CC BY-SA 2.0",
+     "auteur": "Nicolas Torquet",
+     "date": "2022-07-27 17:49",
+     "description": "Pointe de Primel - Plougasnou - Finistère"
+    },
+    {
+     "titre": "File:Cabane des douaniers - Primel (52360542429).jpg",
+     "distance_m": 242,
+     "page": "https://commons.wikimedia.org/wiki/File:Cabane_des_douaniers_-_Primel_(52360542429).jpg",
+     "licence": "CC BY-SA 2.0",
+     "auteur": "Nicolas Torquet",
+     "date": "2022-07-27 17:50",
+     "description": "Cabane des douaniers - Primel"
+    }
+   ]
+  },
+  {
+   "id": "querqueville",
+   "nom": "Pointe et digue de Querqueville",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Fort de Querqueville.JPG",
+     "distance_m": 94,
+     "page": "https://commons.wikimedia.org/wiki/File:Fort_de_Querqueville.JPG",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "S. Plaine",
+     "date": "2006-07-12 18:45:07",
+     "description": "Photographie du fort de Querqueville , dans la partie ouest de la rade de Cherbourg ."
+    },
+    {
+     "titre": "File:Fort de Querqueville 23.jpg",
+     "distance_m": 335,
+     "page": "https://commons.wikimedia.org/wiki/File:Fort_de_Querqueville_23.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Xfigpower",
+     "date": "2024-09-22 16:47:51",
+     "description": "Fort de Querqueville"
+    },
+    {
+     "titre": "File:Fort de Querqueville 27.jpg",
+     "distance_m": 363,
+     "page": "https://commons.wikimedia.org/wiki/File:Fort_de_Querqueville_27.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Xfigpower",
+     "date": "2024-09-22 17:05:32",
+     "description": "Fort de Querqueville"
+    }
+   ]
+  },
+  {
+   "id": "raz",
+   "nom": "Pointe du Raz",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Courant du Raz de Sein vu de la Pointe du Raz.ogv",
+     "distance_m": 7,
+     "page": "https://commons.wikimedia.org/wiki/File:Courant_du_Raz_de_Sein_vu_de_la_Pointe_du_Raz.ogv",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Calcineur",
+     "date": "2011-04-29",
+     "description": "Courant du Raz de Sein vu de la Pointe du Raz, par fin de montante de petit coefficient de marée (55)"
+    },
+    {
+     "titre": "File:Pointe du Raz-coucher de soleil du 23 mars 2012.jpg",
+     "distance_m": 20,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_du_Raz-coucher_de_soleil_du_23_mars_2012.jpg",
+     "licence": "CC BY 2.0",
+     "auteur": "blue eyes photographies",
+     "date": "2012-03-23 20:32",
+     "description": "Pointe du Raz-coucher de soleil du 23 mars 2012"
+    },
+    {
+     "titre": "File:Pointe Du Raz - panoramio - cisko66.jpg",
+     "distance_m": 38,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_Du_Raz_-_panoramio_-_cisko66.jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "cisko66",
+     "date": "Taken on 6 September 2007",
+     "description": "Pointe Du Raz"
+    },
+    {
+     "titre": "File:XDA PA29000080.jpg",
+     "distance_m": 60,
+     "page": "https://commons.wikimedia.org/wiki/File:XDA_PA29000080.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Xavier D'ABRIGEON",
+     "date": "2018-08-01 11:55:04",
+     "description": "Phare de la Vieille"
+    },
+    {
+     "titre": "File:Pointe du Raz - panoramio - Hans Hagenaars (1).jpg",
+     "distance_m": 69,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_du_Raz_-_panoramio_-_Hans_Hagenaars_(1).jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "Hans Hagenaars",
+     "date": "Taken on 20 July 2005",
+     "description": "Pointe du Raz"
+    },
+    {
+     "titre": "File:20121004 Bretagne PointeDuRaz IleDeSein DSC00397 PtrQs.jpg",
+     "distance_m": 70,
+     "page": "https://commons.wikimedia.org/wiki/File:20121004_Bretagne_PointeDuRaz_IleDeSein_DSC00397_PtrQs.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "PtrQs",
+     "date": "2012-10-04 18:55:19",
+     "description": "Sundown at Point du Raz, Brittany/France"
+    },
+    {
+     "titre": "File:Pointe du Raz - panoramio - Hans Hagenaars.jpg",
+     "distance_m": 75,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_du_Raz_-_panoramio_-_Hans_Hagenaars.jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "Hans Hagenaars",
+     "date": "Taken on 20 July 2005",
+     "description": "Pointe du Raz"
+    },
+    {
+     "titre": "File:20120926 Bretagne CapSizun PhareDeLaVieille DSC08545 PtrQs.jpg",
+     "distance_m": 79,
+     "page": "https://commons.wikimedia.org/wiki/File:20120926_Bretagne_CapSizun_PhareDeLaVieille_DSC08545_PtrQs.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "PtrQs",
+     "date": "2012-09-26 17:10:06",
+     "description": "Phare de la Vieille seen from Cap Sizun, Brittany/France"
+    },
+    {
+     "titre": "File:20121004 Bretagne PointeDuRaz IleDeSein DSC00373 PtrQs.jpg",
+     "distance_m": 138,
+     "page": "https://commons.wikimedia.org/wiki/File:20121004_Bretagne_PointeDuRaz_IleDeSein_DSC00373_PtrQs.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "PtrQs",
+     "date": "Taken on 4 October 2012, 18:36:46",
+     "description": "Point du Raz, Brittany/France"
+    },
+    {
+     "titre": "File:20121004 Bretagne PointeDuRaz IleDeSein DSC00377 PtrQs.jpg",
+     "distance_m": 191,
+     "page": "https://commons.wikimedia.org/wiki/File:20121004_Bretagne_PointeDuRaz_IleDeSein_DSC00377_PtrQs.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "PtrQs",
+     "date": "2012-10-04 18:40:54",
+     "description": "Sundown at Point du Raz, Brittany/France"
+    },
+    {
+     "titre": "File:Pointe du Raz - panoramio (1).jpg",
+     "distance_m": 195,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_du_Raz_-_panoramio_(1).jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Lamberto Zannotti",
+     "date": "Taken on 14 August 2010",
+     "description": "Pointe du Raz"
+    },
+    {
+     "titre": "File:Pertusaria excludens Raz.jpg",
+     "distance_m": 215,
+     "page": "https://commons.wikimedia.org/wiki/File:Pertusaria_excludens_Raz.jpg",
+     "licence": "Public domain",
+     "auteur": "Jymm",
+     "date": "2010-02-03",
+     "description": "Pertusaria excludens , pointe du Raz (Plogoff, Finistère, Bretagne, France)"
+    }
+   ]
+  },
+  {
+   "id": "regneville",
+   "nom": "Régnéville",
+   "erreur": null,
+   "photos": []
+  },
+  {
+   "id": "rospico",
+   "nom": "Pointe de Rospico",
+   "erreur": null,
+   "photos": []
+  },
+  {
+   "id": "rostiviec",
+   "nom": "Rostiviec",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Loperhet (7).JPG",
+     "distance_m": 141,
+     "page": "https://commons.wikimedia.org/wiki/File:Loperhet_(7).JPG",
+     "licence": "CC BY 3.0",
+     "auteur": "Gaëlle Fily",
+     "date": "2011-09-26 15:35:18",
+     "description": "Centre nautique de Rostiviec à Loperhet"
+    },
+    {
+     "titre": "File:Loperhet.JPG",
+     "distance_m": 141,
+     "page": "https://commons.wikimedia.org/wiki/File:Loperhet.JPG",
+     "licence": "CC BY 3.0",
+     "auteur": "Gaëlle Fily",
+     "date": "2011-09-26 15:35:43",
+     "description": "Port de Rostiviec à Loperhet"
+    },
+    {
+     "titre": "File:Loperhet (6).JPG",
+     "distance_m": 282,
+     "page": "https://commons.wikimedia.org/wiki/File:Loperhet_(6).JPG",
+     "licence": "CC BY 3.0",
+     "auteur": "Gaëlle Fily",
+     "date": "2011-09-26 15:32:23",
+     "description": "Vue sur l'Anse de Penfoul à Loperhet"
+    },
+    {
+     "titre": "File:Pempbiz Loperhet Café de l’ancre.jpg",
+     "distance_m": 286,
+     "page": "https://commons.wikimedia.org/wiki/File:Pempbiz_Loperhet_Caf%C3%A9_de_l%E2%80%99ancre.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Kergourlay",
+     "date": "2022-06-17 21:08:24",
+     "description": "Concert de Pempbiz devant le Café de l’ancre à Loperhet le 17 juin 2022."
+    }
+   ]
+  },
+  {
+   "id": "sablesblancs",
+   "nom": "Concarneau : sud des Sables Blancs",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:La baie de Concarneau, plage des Sables Blancs - panoramio.jpg",
+     "distance_m": 332,
+     "page": "https://commons.wikimedia.org/wiki/File:La_baie_de_Concarneau,_plage_des_Sables_Blancs_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Gilles Guillamot",
+     "date": "17 March 2014 (original upload date)",
+     "description": "La baie de Concarneau, plage des Sables Blancs"
+    }
+   ]
+  },
+  {
+   "id": "saintcolomban",
+   "nom": "Pointe de Saint-Colomban",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:W1487-Carnac Saint-Colomban Bunker 80518.JPG",
+     "distance_m": 33,
+     "page": "https://commons.wikimedia.org/wiki/File:W1487-Carnac_Saint-Colomban_Bunker_80518.JPG",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Llann Wé²",
+     "date": "2014-03-08 12:06:45",
+     "description": "Bunker de la pointe Saint-Colomban, Fr-56- Carnac ."
+    },
+    {
+     "titre": "File:Carnac la plage de st colomban - panoramio.jpg",
+     "distance_m": 210,
+     "page": "https://commons.wikimedia.org/wiki/File:Carnac_la_plage_de_st_colomban_-_panoramio.jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "chisloup",
+     "date": "Taken on 21 April 2014",
+     "description": "carnac la plage de st colomban"
+    },
+    {
+     "titre": "File:Carnac la plage de st colomban - panoramio (1).jpg",
+     "distance_m": 250,
+     "page": "https://commons.wikimedia.org/wiki/File:Carnac_la_plage_de_st_colomban_-_panoramio_(1).jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "chisloup",
+     "date": "Taken on 21 April 2014",
+     "description": "carnac la plage de st colomban"
+    }
+   ]
+  },
+  {
+   "id": "saintemarguerite",
+   "nom": "Dunes de Sainte-Marguerite",
+   "erreur": null,
+   "photos": []
+  },
+  {
+   "id": "saintguenole",
+   "nom": "Rochers de Saint-Guénolé",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Rochers de Saint Guénolé (panorama à 360°) - panoramio.jpg",
+     "distance_m": 35,
+     "page": "https://commons.wikimedia.org/wiki/File:Rochers_de_Saint_Gu%C3%A9nol%C3%A9_(panorama_%C3%A0_360%C2%B0)_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "superp1errot",
+     "date": "Taken on 23 March 2011",
+     "description": "Rochers de Saint Guénolé (panorama à 360°)"
+    },
+    {
+     "titre": "File:Rochers de Saint Guénolé, (Penmarc'h) 30 mars 2010.ogv",
+     "distance_m": 132,
+     "page": "https://commons.wikimedia.org/wiki/File:Rochers_de_Saint_Gu%C3%A9nol%C3%A9,_(Penmarc%27h)_30_mars_2010.ogv",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Calcineur",
+     "date": "2010-04-30",
+     "description": "Les rochers de Saint Guénolé , (commune de Penmarc'h ), 30 mars 2010"
+    },
+    {
+     "titre": "File:La Tour (4014035095).jpg",
+     "distance_m": 182,
+     "page": "https://commons.wikimedia.org/wiki/File:La_Tour_(4014035095).jpg",
+     "licence": "CC BY 2.0",
+     "auteur": "el gran flaco",
+     "date": "2009-01-18 14:11",
+     "description": "La Tour"
+    },
+    {
+     "titre": "File:Dino , Triceratops - panoramio.jpg",
+     "distance_m": 217,
+     "page": "https://commons.wikimedia.org/wiki/File:Dino_,_Triceratops_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Besenbinder",
+     "date": "Taken on 28 June 2006",
+     "description": "Dino , Triceratops"
+    },
+    {
+     "titre": "File:Finistere Saint-Guenole - panoramio.jpg",
+     "distance_m": 219,
+     "page": "https://commons.wikimedia.org/wiki/File:Finistere_Saint-Guenole_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "28 January 2015 (original upload date)",
+     "description": "Finistere Saint-Guenole"
+    },
+    {
+     "titre": "File:Triceratops - Dino - Saint Guénolé - Bretagne - France (24544881784).jpg",
+     "distance_m": 222,
+     "page": "https://commons.wikimedia.org/wiki/File:Triceratops_-_Dino_-_Saint_Gu%C3%A9nol%C3%A9_-_Bretagne_-_France_(24544881784).jpg",
+     "licence": "CC BY-SA 2.0",
+     "auteur": "Armin S Kowalski",
+     "date": "2006-06-28 18:56",
+     "description": "MINOLTA DIGITAL CAMERA"
+    },
+    {
+     "titre": "File:France-Bretagne-St Guenolé-panorama.jpg",
+     "distance_m": 238,
+     "page": "https://commons.wikimedia.org/wiki/File:France-Bretagne-St_Guenol%C3%A9-panorama.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Ndesmoul",
+     "date": "2009-08-22",
+     "description": "St_Guenolé (France, Bretagne)"
+    }
+   ]
+  },
+  {
+   "id": "saintjean",
+   "nom": "Saint-Jean-du-Doigt",
+   "erreur": null,
+   "photos": []
+  },
+  {
+   "id": "sainttugen",
+   "nom": "Plage de Saint-Tugen",
+   "erreur": null,
+   "photos": []
+  },
+  {
+   "id": "sciotot",
+   "nom": "Anse de Sciotot",
+   "erreur": null,
+   "photos": []
+  },
+  {
+   "id": "surtainville",
+   "nom": "Surtainville",
+   "erreur": null,
+   "photos": []
+  },
+  {
+   "id": "terenez",
+   "nom": "Île de Térénez",
+   "erreur": null,
+   "photos": []
+  },
+  {
+   "id": "torche",
+   "nom": "Pointe de la Torche",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Pointe de la Torche (panorama à 360°) - panoramio.jpg",
+     "distance_m": 12,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_la_Torche_(panorama_%C3%A0_360%C2%B0)_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "superp1errot",
+     "date": "Taken on 23 March 2011",
+     "description": "Pointe de la Torche (panorama à 360°)"
+    },
+    {
+     "titre": "File:Plomeur Pointe de la Torche Dolmen.jpg",
+     "distance_m": 22,
+     "page": "https://commons.wikimedia.org/wiki/File:Plomeur_Pointe_de_la_Torche_Dolmen.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Heinrich Stürzl",
+     "date": "2026-10-13",
+     "description": "Plomeur , Finistère, France: Dolmen de la Pointe de la Torche, vue du nord."
+    },
+    {
+     "titre": "File:Bretagne 2023-07-25 (53919622847).jpg",
+     "distance_m": 45,
+     "page": "https://commons.wikimedia.org/wiki/File:Bretagne_2023-07-25_(53919622847).jpg",
+     "licence": "CC BY 2.0",
+     "auteur": "Maarten Heerlien from Voorschoten, The Netherlands",
+     "date": "2023-07-25 14:51",
+     "description": "Bretagne_20230725_DSC2227"
+    },
+    {
+     "titre": "File:Surfing Pointe de la Torche 01.jpg",
+     "distance_m": 112,
+     "page": "https://commons.wikimedia.org/wiki/File:Surfing_Pointe_de_la_Torche_01.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Schorle",
+     "date": "2018-08-20 18:36:06",
+     "description": "Surfer on the beach at Pointe de la Torche, Bretagne."
+    },
+    {
+     "titre": "File:Surfing Pointe de la Torche 02.jpg",
+     "distance_m": 112,
+     "page": "https://commons.wikimedia.org/wiki/File:Surfing_Pointe_de_la_Torche_02.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Schorle",
+     "date": "2018-08-20 18:36:07",
+     "description": "Surfer on the beach at Pointe de la Torche, Bretagne."
+    },
+    {
+     "titre": "File:Surfing Pointe de la Torche 03.jpg",
+     "distance_m": 112,
+     "page": "https://commons.wikimedia.org/wiki/File:Surfing_Pointe_de_la_Torche_03.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Schorle",
+     "date": "2018-08-20 18:43:18",
+     "description": "Surfer on the beach at Pointe de la Torche, Bretagne."
+    },
+    {
+     "titre": "File:Finistere Pointe Torche - panoramio.jpg",
+     "distance_m": 279,
+     "page": "https://commons.wikimedia.org/wiki/File:Finistere_Pointe_Torche_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "29 January 2015 (original upload date)",
+     "description": "Finistere Pointe Torche"
+    }
+   ]
+  },
+  {
+   "id": "trenaouret",
+   "nom": "Pointe de Trénaouret",
+   "erreur": null,
+   "photos": []
+  },
+  {
+   "id": "trepasses",
+   "nom": "Baie des Trépassés",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:20150924 Baie des Trepasses Sunset Brittany DSC07026-2 PtrQs.jpg",
+     "distance_m": 26,
+     "page": "https://commons.wikimedia.org/wiki/File:20150924_Baie_des_Trepasses_Sunset_Brittany_DSC07026-2_PtrQs.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "PtrQs",
+     "date": "2015-09-24 19:07:49",
+     "description": "Near sunset in the Baie des Trepasses, Brittany/France."
+    },
+    {
+     "titre": "File:20121004 Bretagne BaieDesTrepasses IleDeSein DSC00353 PtrQs.jpg",
+     "distance_m": 55,
+     "page": "https://commons.wikimedia.org/wiki/File:20121004_Bretagne_BaieDesTrepasses_IleDeSein_DSC00353_PtrQs.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "PtrQs",
+     "date": "2012-10-04 18:03:24",
+     "description": "Baie de Trespasses, Brittany/France"
+    },
+    {
+     "titre": "File:20120926 Baie des Trepasses surferKids Brittany DSC08332 PtrQs.jpg",
+     "distance_m": 114,
+     "page": "https://commons.wikimedia.org/wiki/File:20120926_Baie_des_Trepasses_surferKids_Brittany_DSC08332_PtrQs.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "PtrQs",
+     "date": "2012-09-26 16:14:24",
+     "description": "Kids in the surf of the Baie des Trepasses, Brittany/France."
+    },
+    {
+     "titre": "File:20150924 Baie des Trepasses surfer Brittany DSC07077 PtrQs.jpg",
+     "distance_m": 122,
+     "page": "https://commons.wikimedia.org/wiki/File:20150924_Baie_des_Trepasses_surfer_Brittany_DSC07077_PtrQs.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "PtrQs",
+     "date": "2015-09-24 19:13:59",
+     "description": "Silhouette of surfers in the Baie des Trepasses, Brittany/France."
+    },
+    {
+     "titre": "File:Finistere Plogoff Baie Trepasses Vue Pointe Raz - panoramio.jpg",
+     "distance_m": 123,
+     "page": "https://commons.wikimedia.org/wiki/File:Finistere_Plogoff_Baie_Trepasses_Vue_Pointe_Raz_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "Taken on 6 March 2014",
+     "description": "Finistere Plogoff Baie Trepasses Vue Pointe Raz"
+    },
+    {
+     "titre": "File:20121004 Bretagne BaieDesTrepasses IleDeSein DSC00359 PtrQs.jpg",
+     "distance_m": 145,
+     "page": "https://commons.wikimedia.org/wiki/File:20121004_Bretagne_BaieDesTrepasses_IleDeSein_DSC00359_PtrQs.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "PtrQs",
+     "date": "2012-10-04 18:05:08",
+     "description": "Swimmers in the Baie de Trespasses, Brittany/France"
+    },
+    {
+     "titre": "File:Baie des Trépassés - Hôtel-Restaurant 2.jpg",
+     "distance_m": 154,
+     "page": "https://commons.wikimedia.org/wiki/File:Baie_des_Tr%C3%A9pass%C3%A9s_-_H%C3%B4tel-Restaurant_2.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Selmoval",
+     "date": "2012-08-06 13:42:39",
+     "description": "Hôtel-Restaurant de la Baie des Trépassés"
+    },
+    {
+     "titre": "File:Baie des Trépassés - Hôtel-Restaurant 1.jpg",
+     "distance_m": 154,
+     "page": "https://commons.wikimedia.org/wiki/File:Baie_des_Tr%C3%A9pass%C3%A9s_-_H%C3%B4tel-Restaurant_1.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Selmoval",
+     "date": "2012-08-06 13:42:37",
+     "description": "Baie des Trépassés"
+    },
+    {
+     "titre": "File:Baie des Trépassés - Hôtel-Restaurant 3.jpg",
+     "distance_m": 154,
+     "page": "https://commons.wikimedia.org/wiki/File:Baie_des_Tr%C3%A9pass%C3%A9s_-_H%C3%B4tel-Restaurant_3.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Selmoval",
+     "date": "2012-08-06 13:42:21",
+     "description": "Hôtel-Restaurant de la Baie des Trépassés"
+    },
+    {
+     "titre": "File:Bunker WWII - Vue entrée.jpg",
+     "distance_m": 230,
+     "page": "https://commons.wikimedia.org/wiki/File:Bunker_WWII_-_Vue_entr%C3%A9e.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "TheShield74",
+     "date": "2022-09-25 13:00:06",
+     "description": "Bunker WWII - Vue entrée"
+    },
+    {
+     "titre": "File:Bunker WWII - Vue du bunker de côté.jpg",
+     "distance_m": 232,
+     "page": "https://commons.wikimedia.org/wiki/File:Bunker_WWII_-_Vue_du_bunker_de_c%C3%B4t%C3%A9.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "TheShield74",
+     "date": "2022-09-25 13:01:07",
+     "description": "Bunker WWII - Vue du bunker de côté"
+    },
+    {
+     "titre": "File:Bunker WWII - Vue du bunker de la plage.jpg",
+     "distance_m": 237,
+     "page": "https://commons.wikimedia.org/wiki/File:Bunker_WWII_-_Vue_du_bunker_de_la_plage.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "TheShield74",
+     "date": "2022-09-25 13:00:32",
+     "description": "Bunker WWII - Vue du bunker de la plage"
+    }
+   ]
+  },
+  {
+   "id": "trevignon",
+   "nom": "Pointe de Trévignon",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Pointe de Trévignon, (panorama à 360°) - panoramio (1).jpg",
+     "distance_m": 48,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Tr%C3%A9vignon,_(panorama_%C3%A0_360%C2%B0)_-_panoramio_(1).jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "superp1errot",
+     "date": "Taken on 22 April 2011",
+     "description": "Pointe de Trévignon, (panorama à 360°)"
+    },
+    {
+     "titre": "File:Finistere Pointe Trevignon - panoramio.jpg",
+     "distance_m": 99,
+     "page": "https://commons.wikimedia.org/wiki/File:Finistere_Pointe_Trevignon_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "28 January 2015 (original upload date)",
+     "description": "Finistere Pointe Trevignon"
+    },
+    {
+     "titre": "File:Trevignon - panoramio (1).jpg",
+     "distance_m": 158,
+     "page": "https://commons.wikimedia.org/wiki/File:Trevignon_-_panoramio_(1).jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "PJMarriott",
+     "date": "Taken on 18 July 2010",
+     "description": "Trevignon"
+    },
+    {
+     "titre": "File:Trevignon - panoramio.jpg",
+     "distance_m": 177,
+     "page": "https://commons.wikimedia.org/wiki/File:Trevignon_-_panoramio.jpg",
+     "licence": "CC BY 3.0",
+     "auteur": "PJMarriott",
+     "date": "Taken on 18 July 2010",
+     "description": "Trevignon"
+    },
+    {
+     "titre": "File:Pointe de Trévignon, (panorama à 360°) - panoramio.jpg",
+     "distance_m": 190,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_Tr%C3%A9vignon,_(panorama_%C3%A0_360%C2%B0)_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "superp1errot",
+     "date": "Taken on 22 April 2011",
+     "description": "Pointe de Trévignon, (panorama à 360°)"
+    },
+    {
+     "titre": "File:Finistere Pointe Trevignon - panoramio (1).jpg",
+     "distance_m": 224,
+     "page": "https://commons.wikimedia.org/wiki/File:Finistere_Pointe_Trevignon_-_panoramio_(1).jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "rene boulay",
+     "date": "28 January 2015 (original upload date)",
+     "description": "Finistere Pointe Trevignon"
+    },
+    {
+     "titre": "File:Phare de Trévignon.jpg",
+     "distance_m": 244,
+     "page": "https://commons.wikimedia.org/wiki/File:Phare_de_Tr%C3%A9vignon.jpg",
+     "licence": "CC0",
+     "auteur": "Ronan1944335",
+     "date": "2024-08-13 14:56:07",
+     "description": "vue sur le phare"
+    },
+    {
+     "titre": "File:Pointe de trévignon - la jetée (10175501433).jpg",
+     "distance_m": 282,
+     "page": "https://commons.wikimedia.org/wiki/File:Pointe_de_tr%C3%A9vignon_-_la_jet%C3%A9e_(10175501433).jpg",
+     "licence": "CC BY 2.0",
+     "auteur": "Jean-Jacques Abalain from Melgven (près de Concarneau)",
+     "date": "2013-10-06 19:44",
+     "description": "Pointe de trévignon - la jetée"
+    }
+   ]
+  },
+  {
+   "id": "trezbellec",
+   "nom": "Plage de Trez Bellec",
+   "erreur": null,
+   "photos": [
+    {
+     "titre": "File:Coucher du soleil a la plage de Trez-Bellec.jpg",
+     "distance_m": 203,
+     "page": "https://commons.wikimedia.org/wiki/File:Coucher_du_soleil_a_la_plage_de_Trez-Bellec.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Schorle",
+     "date": "2018-08-17 20:20:33",
+     "description": "Sundown at Plage de Trez-Bellec in Telgruc-sur.Mer."
+    },
+    {
+     "titre": "File:Plage à Telgruc-sur-Mer - panorama.jpg",
+     "distance_m": 286,
+     "page": "https://commons.wikimedia.org/wiki/File:Plage_%C3%A0_Telgruc-sur-Mer_-_panorama.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Gzen92",
+     "date": "2020-08-16 12:36:06",
+     "description": "Panorama de la plage à Telgruc-sur-Mer (Finistère, France)."
+    },
+    {
+     "titre": "File:Plage à Telgruc-sur-Mer.jpg",
+     "distance_m": 286,
+     "page": "https://commons.wikimedia.org/wiki/File:Plage_%C3%A0_Telgruc-sur-Mer.jpg",
+     "licence": "CC BY-SA 4.0",
+     "auteur": "Gzen92",
+     "date": "2020-08-16 12:35:30",
+     "description": "Beach in Telgruc-sur-Mer (Finistère, France)."
+    },
+    {
+     "titre": "File:Wie war denn jetzt eigentlich die Fließrichtung - panoramio.jpg",
+     "distance_m": 396,
+     "page": "https://commons.wikimedia.org/wiki/File:Wie_war_denn_jetzt_eigentlich_die_Flie%C3%9Frichtung_-_panoramio.jpg",
+     "licence": "CC BY-SA 3.0",
+     "auteur": "Besenbinder",
+     "date": "Taken on 29 June 2011",
+     "description": "wie war denn jetzt eigentlich die Fließrichtung?"
+    }
+   ]
+  },
+  {
+   "id": "van",
+   "nom": "Pointe du Van",
+   "erreur": null,
+   "photos": []
+  }
+ ]
+}

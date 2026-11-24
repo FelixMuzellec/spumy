@@ -1,0 +1,109 @@
+// Phase 5 V3, sous-tâche 5.12 : fiches des candidats nommés par au moins deux éditeurs indépendants (origine
+// v3_researched, statut « candidate » tant que la sécurité et l'accès ne sont pas documentés). Position : toponyme
+// officiel de l'IGN (collecte CI, data/spots/collecte/candidats-*.json), jamais une source de pêche. Tout ce qui
+// n'est pas sourcé est INCONNU, avec sa raison. Une fiche existante n'est jamais écrasée.
+//   node scripts/fiches-candidats.mjs data/spots/collecte/candidats-2026-11-23.json
+import fs from "node:fs";
+import path from "node:path";
+import { DIR_FICHES, ecrireRegistre } from "./registre-spots.mjs";
+import { qualite } from "./fiches-v3-depuis-v2.mjs";
+
+const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
+const JOUR = "2026-11-23";
+const inconnu = (raison) => ({ statut: "INCONNU", origine: "v3", raison });
+const NATUREL = /orograph|hydrograph|cap|pointe|plage|baie|anse|rocher|estran|île|\bile\b/i;
+const HABITE = /habit|quartier/i;
+const LOISIRS = /camping/i;
+
+/** Ce que les pages lues affirment de chaque candidat (sources de data/sources/manuelles.json). */
+export const PREUVES = {
+  percho: [["src-mieuxpecher-morbihan", "« Pointe du Percho ❤ » (liste des spots de pêche du bord du Morbihan)"], ["src-carnet-de-peche-guide-bretagne", "« Pointe du Percho (rochers profonds, lieu jaune et gros bars) »"]],
+  conguel: [["src-mieuxpecher-morbihan", "« Pointe du Conguel » (presqu'île de Quiberon)"], ["src-carnet-de-peche-bar-surfcasting-morbihan", "« Pointe du Conguel POINTE ROCHEUSE · BAR · LIEU JAUNE · VIEILLE »"]],
+  saintcolomban: [["src-mieuxpecher-morbihan", "« La pointe de Saint Colomban »"], ["src-carnet-de-peche-bar-surfcasting-morbihan", "« Pointe Saint-Colomban POINTE ROCHEUSE · BAR · DORADE ROYALE · SAR »"]],
+  plougrescant: [["src-mieuxpecher-cotes-darmor", "« La Pointe du Château et ses environs à Plougrescant »"], ["src-carnet-de-peche-liste-cotes-darmor", "« Pointe du Château — Gouffre de Plougrescant · Bar » (liste des spots des Côtes-d'Armor)"]],
+  querqueville: [["src-mieuxpecher-normandie", "« Pointe et digue de Querqueville »"], ["src-carnet-de-peche-lieu-noir", "« Digue de Querqueville DIGUE » (spots à lieu noir)"]],
+  caplevi: [["src-mieuxpecher-normandie", "« Cap Levi »"], ["src-decathlon-chasse-cap-levi", "« Pour les bars, on attend plutôt que la marée remonte » (anse du cap Lévi, chasse sous-marine)"]],
+  berchis: [["src-mieuxpecher-morbihan", "« Pointe du Berchis »"], ["src-carnet-de-peche-berchis", "« c'est un poste à bar aux leurres sur la descendante »"]],
+  begenaud: [["src-carnet-de-peche-bar-surfcasting-morbihan", "« Pointe de Beg en Aud POINTE ROCHEUSE · BAR »"], ["src-decathlon-chasse-cap-levi", "« Saint-Pierre-Quiberon : pointe de Beg an Aud » (sélection de chasse sous-marine)"]],
+  toulhars: [["src-mieuxpecher-morbihan", "« Roches de Toulhars »"], ["src-carnet-de-peche-berchis", "« Plage de Toulhars · Bar » (liste des spots du Morbihan)"]],
+  bihit: [["src-mieuxpecher-cotes-darmor", "« La Pointe de Bihit à Trébeurden »"], ["src-carnet-de-peche-liste-cotes-darmor-2", "« Pointe de Bihit · Bar »"]],
+  dourven: [["src-mieuxpecher-cotes-darmor", "« Pointe du Dourvin »"], ["src-carnet-de-peche-liste-cotes-darmor", "« Pointe du Dourven · Bar »"]],
+  brehec: [["src-mieuxpecher-cotes-darmor", "« Les Alentours de Bréhec »"], ["src-carnet-de-peche-liste-cotes-darmor", "« Plage de Bréhec · Bar »"]],
+  capfrehel: [["src-mieuxpecher-cotes-darmor", "« Cap Fréhél »"], ["src-carnet-de-peche-lieu-noir", "« Cap Fréhel — plateformes basses POINTE ROCHEUSE » (spots à lieu noir)"]],
+  saintvaast: [["src-mieuxpecher-normandie", "« Tour Vauban près des parcs au leurre de surface » (Saint-Vaast-la-Hougue)"], ["src-carnet-de-peche-dorade-manche", "« Saint-Vaast-la-Hougue — digue de la Hougue DIGUE · BAR »"], ["src-pechemercotentin-saint-vaast", "« Il y a deux coloris qui marchent très bien sur St Vaast »"]],
+  meinga: [["src-mieuxpecher-ille-et-vilaine", "« Pointe du Meinga à Saint-Coulomb »"], ["src-lcsm-pointe-du-meinga", "« Cette avancée rocheuse s'élance sur 900 m » ; la zone « permet une pêche sportive de bars, mulets, lieus jaunes et vieilles dans le courant »"]],
+  mouliere: [["src-mieuxpecher-ille-et-vilaine", "« La pointe de la Moulière »"], ["src-lcsm-pointe-de-la-mouliere", "« Tentez aussi des agachons pour attirer des bars, mulets ou lieus jaunes en maraude »"]],
+  decolle: [["src-mieuxpecher-ille-et-vilaine", "« Pointe du Décolle à Saint Lunaire »"], ["src-lcsm-pointe-du-decolle", "« Le parcours suit cette belle pointe rocheuse caractéristique de la Bretagne nord » ; fonds propices « à l'agachon pour les poissons blancs »"]],
+  varde: [["src-mieuxpecher-ille-et-vilaine", "« Pointe de la Varde » (liste de Saint-Malo)"], ["src-lcsm-pointe-de-la-varde", "« La première grande pointe en partant de Saint-Malo vers l'Est » ; mulets à l'agachon à la pointe"]],
+  becdevir: [["src-mieuxpecher-cotes-darmor", "« La pointe du Bec de Vir »"], ["src-lcsm-pointe-du-bec-de-vir", "« Côté chasse, les bars et les mulets sont les plus présents »"]],
+  sevignes: [["src-mieuxpecher-cotes-darmor", "« L'anse des Sévignés près du cap Fréhél »"], ["src-lcsm-anse-des-sevignes", "anse « Cachée au pied des hautes falaises » du cap Fréhel ; accès « par un sentier avec un fort dénivelé » ; « le stationnement en haut de la falaise est désormais interdit aux véhicules » : « 700 m supplémentaire à pied depuis le parking du cap »"]],
+  latte: [["src-carnet-de-peche-liste-cotes-darmor-2", "« Pointe de la Latte 6.1 km · Bar »"], ["src-lcsm-pointe-du-fort-de-la-latte", "« les remontées rocheuses de la pointe baignées par le courant retiennent bars, mulets, lieus jaunes, dorades grises et vieilles »"]],
+  gwinzegal: [["src-carnet-de-peche-liste-cotes-darmor", "« Port de Gwin Zégal 2.5 km · Bar »"], ["src-lcsm-gwin-zegal", "« La presqu'île de Gwin Zégal fait partie d'une belle zone rocheuse » ; « un vaste champ de sargasses peu profond très propices à la rencontre de bars, mulets »"]],
+  sehar: [["src-carnet-de-peche-liste-cotes-darmor", "« Pointe de Séhar Bar »"], ["src-lcsm-pointe-de-sehar", "« Voici une zone facile n'excédant pas 10 m de profondeur et peu soumise au courant » ; fonds « appréciés de nombreuses espèces »"]],
+  penvins: [["src-mieuxpecher-morbihan", "« La pointe de Penvins »"], ["src-lcsm-pointe-de-penvins", "« cet éperon rocheux est bordé à l'ouest par une longue plage et à l'est par la sortie de la rivière de Pénerf » ; « une faune marine nombreuse et variée »"]],
+  chatsgroix: [["src-mieuxpecher-morbihan", "« Pointe des Chats » (île de Groix)"], ["src-lcsm-porh-koustik-pointe-des-chats", "« Des agachons, permettront, autour de la cardinale de la pointe ainsi qu'au retour, une pêche de poissons (bars, mulets, vieilles…) »"]],
+  poulains: [["src-carnet-de-peche-guide-bretagne", "« Belle-Île, Pointe des Poulains » : « Spot mythique pour le bar au leurre de surface en été »"], ["src-lcsm-villa-sarah-bernhardt-pointe-des-poulains", "« Sur la célèbre pointe des Poulains, au nord-ouest de la côte sauvage de Belle-Île » ; des sars « hors normes »"]],
+  merrien: [["src-mieuxpecher-finistere-sud", "« L'Embouchure du Merrien »"], ["src-lcsm-merrien", "« à l'embouchure de la rivière de Merrien » ; « Commencez à pêcher dès la pointe en 1 : bars, vieilles, plies peuvent être rencontrés »"]],
+  begnafry: [["src-mieuxpecher-finistere-nord", "« Beg an Fry sur la commune de Guimaëc »"], ["src-lcsm-pointe-de-beg-an-fry", "« ses remontées rocheuses qui retiennent les poissons »"]],
+  saire: [["src-mieuxpecher-normandie", "« Pointe de Saire à Reville »"], ["src-lcsm-pointe-de-saire", "« Baigné par un courant de marée, c'est une zone de chasse pour les bars et mulets »"]],
+  neville: [["src-mieuxpecher-normandie", "« Pointe de Néville à Néville-sur-Mer »"], ["src-lcsm-pointe-de-neville", "« La zone est une pointe rocheuse isolée au milieu d'un cordon de plage » ; « Cette particularité retient le poisson de passage »"]],
+  loge: [["src-mieuxpecher-normandie", "« Pointe de la Loge » (entre la plage de Rethoville et le cap Lévi)"], ["src-lcsm-pointe-de-la-loge", "« un éperon rocheux (la pointe de la Loge) » ; « propice à la rencontre d'espèces diverses : bars, mulets, vieilles »"]],
+  gatteville: [["src-mieuxpecher-normandie", "« Phare de Gatteville »"], ["src-lcsm-phare-de-gatteville", "« du poisson blanc qui circule beaucoup : bar, mulet, lieu jaune et même maquereau ! »"]],
+  tatihou: [["src-mieuxpecher-normandie", "« Les alentours de l'ile Tatihou »"], ["src-lcsm-ile-de-tatihou", "« Cette zone alternant roches, moulières et sable est propice à la rencontre de bars » ; le parcours part de la cale de la pointe de Jonville"]],
+  perherel: [["src-mieuxpecher-finistere-nord", "« Pointe de Perhérel à Plougasnou »"], ["src-carnet-de-peche-perherel", "« le bar longe les bordures à la montante »"]],
+  ilepercee: [["src-mieuxpecher-finistere-sud", "« Île Percée à Moëlan-sur-Mer »"], ["src-decathlon-chasse-cap-levi", "« On y croise de très gros bars à basse mer » (île Percée, chasse sous-marine)"]],
+  grandbe: [["src-mieuxpecher-ille-et-vilaine", "« Le Petit Bé » (liste de Saint-Malo)"], ["src-oupecher-saint-malo-bar", "« La pêche du bar est assez prolifique depuis Grand Bé et Petit Bé »"]],
+  rosaires: [["src-mieuxpecher-cotes-darmor", "« La pointe de Pordic au dessus de la Plage des Rosaires »"], ["src-carnet-de-peche-sillon-talbert", "« Plage des Rosaires · Bar »"]],
+  etel: [["src-mieuxpecher-morbihan", "« Embouchure de la rivière d'Etel »"], ["src-carnet-de-peche-mulet", "« Barre d'Étel — rive Plouhinec ESTUAIRE » (spots à mulet)"]],
+  gattemare: [["src-mieuxpecher-normandie", "« Anse de Gattemare »"], ["src-pechemercotentin-gattemare", "« J'ai déjà pêché à Gattemare !!! C'est au coude à coude, là-bas !!! »"]],
+};
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  const fichier = process.argv[2];
+  if (!fichier) throw new Error("usage : node scripts/fiches-candidats.mjs <candidats.json>");
+  const collecte = JSON.parse(fs.readFileSync(fichier, "utf8"));
+  const { candidats } = JSON.parse(fs.readFileSync(path.join(root, "data/spots/candidats-v3.json"), "utf8"));
+  const bilan = { crees: [], gardes: [], sansPosition: [], nonRetenus: [] };
+  for (const c of candidats) {
+    if (c.non_retenu) { bilan.nonRetenus.push(c.id); continue; } // règle d'entrée non démontrée : jamais de fiche
+    const f_ = path.join(DIR_FICHES, `${c.id}.json`);
+    if (fs.existsSync(f_)) { bilan.gardes.push(c.id); continue; }
+    const r = collecte.candidats.find((x) => x.id === c.id);
+    // Toponyme choisi à la main (candidats-v3.json : nom exact et commune) parmi les résultats de l'IGN.
+    const topo = (r?.toponymes || []).find((t) => t.nom === c.toponyme && t.commune === c.commune && (!c.categorie || (t.categorie || "").startsWith(c.categorie)));
+    if (!topo) { bilan.sansPosition.push(c.id); continue; }
+    const preuves = PREUVES[c.id] || [];
+    const f = {
+      id: c.id, name: c.nom, origin: "v3_researched",
+      coordinates: { lat: +topo.lat.toFixed(6), lon: +topo.lon.toFixed(6), precision_m: NATUREL.test(topo.categorie) ? 300 : 1000,
+        info: { statut: "VÉRIFIÉ", origine: "v3", sources: ["src-ign-geocodage-poi"], verifie_le: JOUR, niveau: 1,
+          texte: `Position du toponyme officiel « ${topo.nom} » (${topo.categorie || "catégorie non donnée"}${topo.commune ? `, ${topo.commune}` : ""}). Le poste exact reste à confirmer sur place.` } },
+      access: { stationnement: inconnu("À collecter (BD TOPO de l'IGN) après la création de la fiche."), approche: inconnu("Aucune source ne décrit l'approche du poste."),
+        marche_min: inconnu("À calculer (itinéraire piéton de l'IGN)."), difficulte: inconnu("Aucune source ne décrit la difficulté de l'accès."), restrictions: inconnu("Restrictions d'accès non recherchées au-delà des règles de pêche.") },
+      environment: { milieu: { statut: "INFÉRÉ", origine: "v3", sources: preuves.map(([s]) => s), verifie_le: JOUR, texte: c.milieu },
+        fond: inconnu("Nature du fond non décrite par les sources lues."), exposition: inconnu("Exposition non documentée."), profondeur: inconnu("Profondeur non documentée (aucune courbe inventée)."),
+        structures: inconnu("Structures du poste non décrites par les sources lues."), courant: inconnu("Courant non documenté.") },
+      tide_approaches: { basse: inconnu("Aucune source ne décrit la basse mer à ce poste."), montante: inconnu("Aucune source ne décrit la montante à ce poste."),
+        haute: inconnu("Aucune source ne décrit la pleine mer à ce poste."), descendante: inconnu("Aucune source ne décrit la descendante à ce poste."), coefficients: inconnu("Aucun coefficient documenté pour ce poste.") },
+      conditions: { favorables: inconnu("Conditions favorables non documentées."), defavorables: inconnu("Conditions défavorables non documentées."), dangereuses: inconnu("Conditions dangereuses non documentées : à rechercher avant tout affichage.") },
+      species: [{ espece: "bar", priorite: 1, presence: { statut: "INFÉRÉ", origine: "v3", sources: preuves.map(([s]) => s), verifie_le: JOUR, niveau: 4,
+        texte: `Poste nommé par deux éditeurs indépendants : ${preuves.map(([, a]) => a).join(" ; ")}.` } }],
+      strategies: [], lure_guidance: [],
+      safety: { engagement: inconnu("Engagement de l'accès non documenté."), consignes: [], houle_max_m: inconnu("Houle maximale non documentée."), coef_max: inconnu("Coefficient maximal non documenté."),
+        acces_maree: inconnu("Aucune contrainte d'accès liée à la marée documentée : ce qui ne veut pas dire sans risque.") },
+      regulations: [{ statut: "INCONNU", origine: "v3", raison: "Réglementation à appliquer par scripts/reglementation-fiches.mjs." }],
+      windows: { habituelles: inconnu("Aucune fenêtre de fonctionnement documentée (§ 7.6)."), securite: inconnu("Aucune fenêtre d'accessibilité documentée (§ 7.6).") },
+      photos: inconnu("Photos non inventoriées."),
+      provenance: { sources: [...new Set(["src-ign-geocodage-poi", ...preuves.map(([s]) => s)])].sort() },
+      quality: { statut: "candidate", derniere_verification: JOUR, completude: 0, inconnus: [], anomalies: ["Fiche créée par la passe exhaustive (5.12) : sécurité, accès et conditions à documenter avant tout affichage.",
+        ...(HABITE.test(topo.categorie || "") ? [`Position d'un lieu habité (« ${topo.nom} »), pas du poste : à positionner sur le poste réel.`] : []),
+        ...(LOISIRS.test(topo.categorie || "") ? [`Position d'un équipement de loisirs (« ${topo.nom} », ${topo.categorie}), pas du poste : à positionner sur le poste réel.`] : []),
+        ...(!NATUREL.test(topo.categorie || "") && !HABITE.test(topo.categorie || "") && !LOISIRS.test(topo.categorie || "") ? [`Position repérée sur « ${topo.nom} » (${topo.categorie}), à proximité du poste : précision 1 km.`] : [])] },
+    };
+    const q = qualite(f); f.quality.inconnus = q.inconnus; f.quality.completude = q.completude;
+    fs.writeFileSync(f_, JSON.stringify(f, null, 1) + "\n");
+    bilan.crees.push(`${c.id} (${topo.nom}, ${topo.categorie})`);
+  }
+  ecrireRegistre();
+  console.log("[candidats]", bilan);
+}

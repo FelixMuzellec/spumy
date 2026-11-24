@@ -1,0 +1,645 @@
+{
+ "id": "kermorvan",
+ "name": "Pointe de Kermorvan",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "plouguerneau",
+  "empreinte_v2": "82fb40e3d3c8f0dc9f08ea7e12c71b88d66b03035725b2b74a0cab19e6cd1df3",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 48.3617,
+  "lon": -4.79,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°21,7'N 4°47,4'W) ; précision non documentée.",
+   "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Pointe de Kermorvan",
+    "ecart_m": 156
+   },
+   "texte": "Toponyme officiel « Pointe de Kermorvan » (cap, élément topographique ou forestier, détail orographique) à 156 m de la position de la fiche."
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 48.364096,
+    "lon": -4.775641,
+    "ign": "equipement_de_transport.51436",
+    "nature": "Parking touristique",
+    "ecart_m": 1094
+   },
+   "texte": "Parking touristique recensé par la BD TOPO de l'IGN, à 1094 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Parking en bout de route, puis environ 1 km à pied par une route goudronnée fermée d'une barrière et le chemin côtier jusqu'au phare (patrimoine-iroise.fr) ; départ possible du Conquet par la passerelle sur la ria (visorando).",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 16,
+   "texte": "16 min à pied (1,03 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "POINTE / PHARE + COURANT — Le Conquet, entrée du chenal du Four",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pointe rocheuse ; le phare est bâti sur une roche à l'extrémité de la presqu'île, relié par une passerelle ; « Les écueils sont apparents » (patrimoine-iroise.fr). Nature du fond au large non décrite.",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 3,
+    "gratter": "non",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Face à l'ouest et au chenal du Four. Déduit de la carte.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Roches et écueils au pied de la pointe : profondeur non décrite (déduit, aucune sonde).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "peu"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Extrémité de presqu'île, phare sur une roche reliée par une passerelle (patrimoine-iroise).",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Courant « puissant qui s'inverse avec la marée » dans le chenal du Four, « violence du courant » à la pointe (patrimoine-iroise). Heure non chiffrée par la source.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : Montant établi (BM +1 h 30 → BM +4 h, prioritaire).",
+   "valeur": [
+    {
+     "id": "km1",
+     "libelle": "Montant établi",
+     "reference": "BM",
+     "debut_h": 1.5,
+     "fin_h": 4,
+     "priorite": "prime",
+     "type_v2": "montant",
+     "note": "Veine de courant le long de la pointe. Stickbait ou souple plombé dans la dérive."
+    }
+   ]
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la pleine mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée descendante) : Descendant établi (PM +1 h 30 → PM +4 h, bonne).",
+   "valeur": [
+    {
+     "id": "km2",
+     "libelle": "Descendant établi",
+     "reference": "PM",
+     "debut_h": 1.5,
+     "fin_h": 4,
+     "priorite": "bon",
+     "type_v2": "descendant",
+     "note": "Même approche quand le courant s'est inversé."
+    }
+   ]
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    30,
+    45,
+    80,
+    100
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "leconquet",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Pointe de courant : la houle et le courant décident d'abord si l'on peut y aller.",
+   "lifeHack": "Au-delà de 1,5 m de houle, la pointe n'est pas proposée : la passerelle et les roches basses prennent les paquets de mer.",
+   "montantOuDescendant": "Aucune source ne donne l'heure du courant à la pointe : le guide vise le courant établi, entre les renverses, et la lumière faible.",
+   "typeHeure": "COURANT ÉTABLI (MI-MARÉE) + CRÉPUSCULES",
+   "windows": [
+    {
+     "id": "km1",
+     "label": "Montant établi",
+     "note": "Veine de courant le long de la pointe. Stickbait ou souple plombé dans la dérive.",
+     "offsetAfter": 4,
+     "offsetBefore": 1.5,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "km2",
+     "label": "Descendant établi",
+     "note": "Même approche quand le courant s'est inversé.",
+     "offsetAfter": 4,
+     "offsetBefore": 1.5,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "descendant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     67.5,
+     90,
+     112.5
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     225,
+     247.5,
+     270,
+     292.5,
+     315
+    ]
+   },
+   "texte": "Extrémité de presqu'île face à l'Iroise et au chenal du Four : exposée d'ouest ; seul un vent d'est l'abrite. Orientation déduite de la carte.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.5
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Pointe citée par les pêcheurs (mieuxpecher, liste de spots au leurre de 2005). Statut V2 « VÉRIFIÉ » sans date ni page : ramené à INFÉRÉ, aucune page de pêche lue en phase 5 n'attachant le bar au poste (revue contradictoire du 24 nov. 2026).",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Stickbait ou souple plombé tenu au-dessus des écueils ; pas de pêche au fond.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pêcher la veine du courant le long de la pointe, depuis un poste haut.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Jamais sur la passerelle du phare par mer formée.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Au-delà de 1,5 m de houle, la pointe n'est pas proposée : la passerelle et les roches basses prennent les paquets de mer.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / sardine",
+    "name": "Stickbait 130-150 mm",
+    "technique": "Pour lancer loin et tenir dans le courant.",
+    "weight": "25-32 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Blanc / naturel",
+    "name": "Souple 12 cm tête plombée",
+    "technique": "Dans la veine de courant, au-dessus des écueils.",
+    "weight": "tête 15-21 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 3,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "« La violence du courant est évidente » : poste engagé, jamais seul, gilet, mer calme seulement.",
+    "verifie_le": null,
+    "source_texte": "patrimoine-iroise.fr"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Passerelle du phare battue par les « paquets de mer » les jours de tempête : ne pas y pêcher par mer formée.",
+    "verifie_le": null,
+    "source_texte": "patrimoine-iroise.fr"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "L'Îlette n'est accessible qu'à marée basse : vérifier l'horaire de la marée avant d'y aller.",
+    "verifie_le": null,
+    "source_texte": "visorando.com"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.5,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    "praticable_a_basse_mer_seulement",
+    "isolement_au_flot"
+   ],
+   "verifie_le": null,
+   "texte": "Accès praticable seulement autour de la basse mer ; le flot peut couper le retour. Classement relu à la main depuis la consigne de la fiche : « L'Îlette n'est accessible qu'à marée basse : vérifier l'horaire de la marée avant d'y aller. »",
+   "source_texte": "visorando.com"
+  },
+  "mouvements_terrain": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "rayon_m": 500,
+    "total": 4,
+    "types": {
+     "Chute de blocs / Eboulement": 3,
+     "Erosion de berges": 1
+    },
+    "plus_recent": null,
+    "evenements": [
+     {
+      "id": "10600662",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 239
+     },
+     {
+      "id": "10600663",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 265
+     },
+     {
+      "id": "10600661",
+      "type": "Chute de blocs / Eboulement",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 284
+     },
+     {
+      "id": "10600626",
+      "type": "Erosion de berges",
+      "date": null,
+      "fiabilite": "Fort",
+      "precision": "Mètre",
+      "lieu": null,
+      "distance_m": 404
+     }
+    ]
+   },
+   "texte": "4 mouvements de terrain recensés par le BRGM à 500 m du point : Chute de blocs / Eboulement (3), Erosion de berges (1). 4 événements sans date. Chutes de blocs recensées : ne pas stationner au pied de la falaise. Recensement non exhaustif ; l'état actuel de la côte n'est pas connu."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "LE CONQUET",
+     "code_insee": "29040",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Eboulement ou chutes de pierres et de blocs",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour les communes à 1 km du point (le point est hors des limites communales) (LE CONQUET) : Par submersion marine ; Mouvement de terrain ; Eboulement ou chutes de pierres et de blocs. Portée communale : ne décrit pas le poste."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 7 : du 1er février au 31 mars, pêche en relâcher seulement, à la canne ou à la ligne à main ; en janvier et du 1er avril au 31 décembre, 3 bars au plus par pêcheur et par jour. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 7 (Manche, au nord du 48ᵉ parallèle)",
+    "limite_jour": 3,
+    "relacher_seul": {
+     "du": "02-01",
+     "au": "03-31"
+    }
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Contrainte de marée documentée (accès praticable seulement autour de la basse mer ; le flot peut couper le retour), mais aucune durée praticable n'est sourcée : aucun intervalle HH:MM ne peut être calculé (§ 7.6). Le spot ne peut pas être présenté comme praticable sans fenêtre documentée."
+  }
+ },
+ "photos": {
+  "statut": "INFÉRÉ",
+  "origine": "v3",
+  "sources": [
+   "src-wikimedia-commons-geo"
+  ],
+  "verifie_le": "2026-11-23",
+  "niveau": 4,
+  "valeur": [
+   {
+    "titre": "Pointe et phare de Kermorvan (Ifremer 00682-79414 - 32188).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pointe_et_phare_de_Kermorvan_(Ifremer_00682-79414_-_32188).jpg",
+    "licence": "CC BY 4.0",
+    "auteur": "Stephane Lesbats",
+    "date": "2 March 2021 (upload date)",
+    "distance_m": 30
+   }
+  ],
+  "texte": "1 photo libre de Wikimedia Commons, à 30 m au plus du point, porte le nom du lieu. Ce que montre chaque image (poste, plage, village) reste à vérifier avant affichage ; licence et auteur à citer."
+ },
+ "provenance": {
+  "sources": [
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-guillaume29-over-blog-com-0f8c52",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
+   "src-legifrance-tailles-minimales-2026",
+   "src-lhdigest-com-764c7f",
+   "src-mieuxpecher-com-11a42d",
+   "src-patrimoine-iroise-fr-3bcbe7",
+   "src-visorando-com-7d424b",
+   "src-wikimedia-commons-geo"
+  ],
+  "sources_v2": [
+   "mieuxpecher.com — « Coins de pêche – Finistère NORD » : « Pointe de Kermorvan »",
+   "guillaume29.over-blog.com — « spot de pêche au leurre 29 » (Jegou, 2005)",
+   "patrimoine-iroise.fr — Le phare de Kermorvan au Conquet (courant, écueils, accès)",
+   "visorando.com — Tour de la presqu'île de Kermorvan",
+   "lhdigest.com — Kermorvan Light (coordonnées)"
+  ],
+  "faits_v2": [
+   {
+    "s": "patrimoine-iroise.fr — Le phare de Kermorvan au Conquet",
+    "t": "« Les écueils sont apparents et la violence du courant est évidente. » Le chenal du Four s'ouvre au nord de la presqu'île : « un courant puissant qui s'inverse avec la marée » et « des centaines d'écueils »."
+   },
+   {
+    "s": "patrimoine-iroise.fr — Le phare de Kermorvan",
+    "t": "Passerelle vers le phare : « Il faut imaginer les paquets de mer qui s'écrasent sur ce pont les jours de tempête. »"
+   },
+   {
+    "s": "mieuxpecher.com (Norbert, 2018) · guillaume29.over-blog.com (Jegou, 15/05/2005)",
+    "t": "Pointe de Kermorvan citée parmi les coins de pêche du Finistère nord, et parmi les spots de pêche au leurre du Conquet."
+   },
+   {
+    "s": "visorando.com — « Tour de la presqu'île de Kermorvan »",
+    "t": "Phare carré de 20 m à l'extrémité de la presqu'île, qui marque l'entrée du port du Conquet ; l'Îlette n'est accessible qu'à marée basse."
+   },
+   {
+    "s": "lhdigest.com — Kermorvan Light",
+    "t": "Phare de Kermorvan : 48°21'42\" N, 4°47'24\" W."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.84,
+  "inconnus": [
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.haute",
+   "safety.coef_max",
+   "windows.habituelles",
+   "windows.securite"
+  ],
+  "anomalies": [],
+  "criteres": {
+   "QUAL-1": {
+    "ok": false,
+    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:mieuxpecher-com"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "1 groupe d'indépendance parmi les sources lues page par page (1 sur 1) ; aucune n'attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": true,
+    "detail": "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (16 min)"
+   },
+   "QUAL-5": {
+    "ok": true,
+    "detail": "engagement 3 (jugement V2), 3 consignes sourcées sur 3, contrainte de marée praticable_a_basse_mer_seulement, isolement_au_flot, mouvements de terrain 4"
+   },
+   "QUAL-6": {
+    "ok": true,
+    "detail": "réglementation nationale ; règles locales du département recherchées, aucune à vérifier au poste"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:mieuxpecher-com"
+  ]
+ }
+}

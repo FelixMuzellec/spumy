@@ -1,0 +1,583 @@
+{
+ "id": "capcoz",
+ "name": "Pointe du Cap Coz",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "concarneau",
+  "empreinte_v2": "a787a0cfea1c710eea63d4c3e107bfccc8f74bf129badab39fdd96bb445da955",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2"
+  }
+ },
+ "coordinates": {
+  "lat": 47.8879168,
+  "lon": -3.9815139,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (47°53,3'N 3°58,9'W) ; précision non documentée.",
+   "verifie_le": null
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 47.889343,
+    "lon": -3.98297,
+    "ign": "equipement_de_transport.177303",
+    "nature": "Parking",
+    "ecart_m": 192
+   },
+   "texte": "Parking recensé par la BD TOPO de l'IGN, à 192 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Depuis Fouesnant par la D45, direction Cap Coz ; stationnement et sentier côtier (GR34) jusqu'à la pointe (carnet-de-peche.com). Pêche interdite dans le port, côté mer seulement (chtipecheur).",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 3,
+   "texte": "3 min à pied (0,15 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "FLÈCHE + PLAGE ABRITÉE — Flèche et digue, Fouesnant, baie de la Forêt",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Flèche de sable très fine orientée ouest-est, qui ferme en partie le nord de la baie de la Forêt (coastalwiki) ; pointe et digue rocheuse (cannes-peche) ; estran rocheux qui découvre sur les bordures (carnet-de-peche.com).",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 2,
+    "gratter": "texan",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Plein sud, abritée de l'ouest par Beg-Meil (tourismebretagne).",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Plage « très plate » (tourismebretagne) et estran rocheux qui découvre : très peu d'eau à marée basse.",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "estran"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Flèche de sable ouest-est, pointe et digue rocheuse (coastalwiki, cannes-peche).",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Courant de marée le long de la flèche ; heure non chiffrée.",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : Montant (BM +1 h → BM +5 h, prioritaire).",
+   "valeur": [
+    {
+     "id": "cc1",
+     "libelle": "Montant",
+     "reference": "BM",
+     "debut_h": 1,
+     "fin_h": 5,
+     "priorite": "prime",
+     "type_v2": "montant",
+     "note": "Le long de la flèche et de la digue, leurres en bordure."
+    }
+   ]
+  },
+  "haute": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (autour de la pleine mer) : Pleine mer (PM −1 h → PM +1 h, bonne).",
+   "valeur": [
+    {
+     "id": "cc2",
+     "libelle": "Pleine mer",
+     "reference": "PM",
+     "debut_h": -1,
+     "fin_h": 1,
+     "priorite": "bon",
+     "type_v2": "variable",
+     "note": "Bout de la pointe, surface par mer calme."
+    }
+   ]
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre marée descendante dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    30,
+    45,
+    80,
+    100
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "concarneau",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Flèche de sable abritée : le flot ramène le poisson le long de la bordure.",
+   "lifeHack": "Le port de Concarneau est de l'autre côté de la baie, à 6 km : même heure de marée.",
+   "montantOuDescendant": "« Le bar longe la flèche à la montante » (carnet-de-peche.com).",
+   "typeHeure": "MONTANTE LE LONG DE LA FLÈCHE",
+   "windows": [
+    {
+     "id": "cc1",
+     "label": "Montant",
+     "note": "Le long de la flèche et de la digue, leurres en bordure.",
+     "offsetAfter": 5,
+     "offsetBefore": 1,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "cc2",
+     "label": "Pleine mer",
+     "note": "Bout de la pointe, surface par mer calme.",
+     "offsetAfter": 1,
+     "offsetBefore": -1,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "variable"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     337.5,
+     0,
+     22.5
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     157.5,
+     180,
+     202.5
+    ]
+   },
+   "texte": "Plage exposée plein sud (tourismebretagne), abritée des vents dominants d'ouest par la pointe de Beg-Meil : un vent de sud est de face, un vent de nord de dos.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 2
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "VÉRIFIÉ",
+    "origine": "v2",
+    "texte": "Pointe et digue citées (cannes-peche, mieuxpecher) ; bar le long de la flèche au flot (carnet-de-peche).",
+    "verifie_le": "2026-11-23",
+    "sources": [
+     "src-carnet-de-peche-com-5c39ae"
+    ]
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Leurres en bordure, souple léger ou texan le long de la flèche et de la digue.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "« Le bar longe la flèche à la montante » (carnet-de-peche.com) : pêcher la bordure au flot.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Poste « facile et abrité » des vents dominants par la pointe de Beg-Meil.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Le port de Concarneau est de l'autre côté de la baie, à 6 km : même heure de marée.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel / blanc",
+    "name": "Souple 10-12 cm tête légère",
+    "technique": "En bordure de la flèche, au flot.",
+    "weight": "tête 5-10 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / sardine",
+    "name": "Stickbait 90-110 mm",
+    "technique": "Mer calme, aube ou crépuscule.",
+    "weight": "10-16 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Rochers glissants et estran rocheux submergé à marée montante.",
+    "verifie_le": null,
+    "source_texte": "carnet-de-peche.com — Cap Coz"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 2,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    "submersible_a_pleine_mer"
+   ],
+   "verifie_le": null,
+   "texte": "Poste recouvert à marée haute. Classement relu à la main depuis la consigne de la fiche : « Rochers glissants et estran rocheux submergé à marée montante. »",
+   "source_texte": "carnet-de-peche.com — Cap Coz"
+  },
+  "mouvements_terrain": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "raison": "Aucun mouvement de terrain recensé par le BRGM à 500 m du point (Géorisques, 2026-11-23) ; le recensement n'est pas exhaustif, ce qui ne prouve pas l'absence de risque."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "LA FORET-FOUESNANT",
+     "code_insee": "29057",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Séisme",
+      "Radon"
+     ]
+    },
+    {
+     "commune": "FOUESNANT",
+     "code_insee": "29058",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour les communes à 1 km du point (le point est hors des limites communales) (LA FORET-FOUESNANT, FOUESNANT) : Par submersion marine ; Mouvement de terrain. Portée communale : ne décrit pas le poste."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 8 : 2 bars au plus par pêcheur et par jour, toute l'année. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 8 (golfe de Gascogne, au sud du 48ᵉ parallèle)",
+    "limite_jour": 2
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ddtm29-synthese-peche-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 2,
+   "valeur": {
+    "portee": "Finistère",
+    "application_au_poste": "à vérifier"
+   },
+   "texte": "Finistère : il est interdit « de pêcher à l'intérieur des limites administratives des ports » (synthèse de la DDTM du Finistère, avril 2026, p. 4). Le poste décrit touche un port, une digue ou une cale : avant toute recommandation, vérifier qu'il est hors de ces limites."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Contrainte de marée documentée (poste recouvert à marée haute), mais aucune durée praticable n'est sourcée : aucun intervalle HH:MM ne peut être calculé (§ 7.6). Le spot ne peut pas être présenté comme praticable sans fenêtre documentée."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v3",
+  "verifie_le": "2026-11-23",
+  "raison": "Aucune photo géolocalisée de Wikimedia Commons à 400 m du point (inventaire du 2026-11-23)."
+ },
+ "provenance": {
+  "sources": [
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-cannes-peche-blog4ever-com-712b7f",
+   "src-carnet-de-peche-com-5c39ae",
+   "src-chtipecheur-com-52ddea",
+   "src-coastalwiki-org-82c200",
+   "src-ddtm29-synthese-peche-loisir-2026",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
+   "src-ign-itineraire-pieton",
+   "src-legifrance-tailles-minimales-2026",
+   "src-mieuxpecher-com-509c0f",
+   "src-tourismebretagne-com-20242e"
+  ],
+  "sources_v2": [
+   "cannes-peche.blog4ever.com — Cap-Coz : pointe et digue rocheuse",
+   "mieuxpecher.com — « Coins de Pêche – Finistère SUD » : Cap Coz",
+   "carnet-de-peche.com — Cap Coz",
+   "tourismebretagne.com — Plage du Cap-Coz",
+   "coastalwiki.org — Cap Coz (Fouesnant)",
+   "chtipecheur.com — « Spots de pêche de Bretagne » : Cap Coz"
+  ],
+  "faits_v2": [
+   {
+    "s": "cannes-peche.blog4ever.com (Alain, 07/11/2016)",
+    "t": "« Fouesnant (pointe et digue rocheuse du Cap-coz) » parmi les coins à bar du bord."
+   },
+   {
+    "s": "mieuxpecher.com — « Coins de Pêche – Finistère SUD »",
+    "t": "« Cap Coz » parmi les coins de pêche du Finistère sud."
+   },
+   {
+    "s": "carnet-de-peche.com — Cap Coz (page sans auteur)",
+    "t": "« Le bar longe la flèche à la montante » ; « l'estran rocheux qui découvre donne du terrain sur les bordures » ; « Leurres en bordure, surfcasting côté baie » ; « Poste facile et abrité »."
+   },
+   {
+    "s": "tourismebretagne.com — Plage du Cap-Coz (47,8879168 / -3,9815139)",
+    "t": "Plage exposée plein sud, au fond de la baie de la Forêt, abritée du vent par la pointe de Beg-Meil ; grande étendue de sable fin très plate ; surveillée en juillet et août."
+   },
+   {
+    "s": "coastalwiki.org — Cap Coz (Fouesnant)",
+    "t": "« A very slender spit oriented from west to east » qui ferme en partie le nord de la baie de la Forêt."
+   },
+   {
+    "s": "chtipecheur.com — « Spots de pêche de Bretagne » (JC59110, 06/03/2022)",
+    "t": "« La pêche est interdite dans le port. Cependant il semble toléré d'y pêcher côté mer » ; « Pêche à la calée sur la petite jetée et surfcasting : Poissons de roche, bars, daurades. »"
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.79,
+  "inconnus": [
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "safety.mouvements_terrain",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": [],
+  "criteres": {
+   "QUAL-1": {
+    "ok": true,
+    "detail": "4 groupes d'indépendance halieutique (famille 1 à 4) : editeur:cannes-peche-blog4ever-com, editeur:carnet-de-peche-com, editeur:chtipecheur-com, editeur:mieuxpecher-com"
+   },
+   "QUAL-2": {
+    "ok": true,
+    "detail": "2 groupes d'indépendance parmi les sources lues page par page (2 sur 4) ; au moins une attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": false,
+    "detail": "position non contrôlée"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (3 min)"
+   },
+   "QUAL-5": {
+    "ok": true,
+    "detail": "engagement 1 (jugement V2), 1 consigne sourcée sur 1, contrainte de marée submersible_a_pleine_mer, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": false,
+    "detail": "règle locale à vérifier au poste (Finistère)"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-3 : position non contrôlée",
+   "QUAL-6 : règle locale à vérifier au poste (Finistère)"
+  ]
+ }
+}

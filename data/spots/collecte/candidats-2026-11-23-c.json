@@ -1,0 +1,518 @@
+{
+ "//": "Géocodage IGN (index poi de la Géoplateforme, Licence Ouverte) des candidats, filtré par département. Passage CI 45279668913.",
+ "date": "2026-11-23",
+ "passage_ci": "45279668913",
+ "candidats": [
+  {
+   "id": "percho",
+   "requete": "Pointe du Percho",
+   "departement": "56",
+   "erreur": null,
+   "toponymes": [
+    {
+     "nom": "Pointe du Percho",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "postcode": "56510",
+     "commune": "Saint-Pierre-Quiberon",
+     "citycode": "56234",
+     "lat": 47.523535,
+     "lon": -3.159879
+    }
+   ]
+  },
+  {
+   "id": "conguel",
+   "requete": "Pointe du Conguel",
+   "departement": "56",
+   "erreur": null,
+   "toponymes": [
+    {
+     "nom": "Pointe du Conguel",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "postcode": "56170",
+     "commune": "Quiberon",
+     "citycode": "56186",
+     "lat": 47.469286,
+     "lon": -3.080425
+    }
+   ]
+  },
+  {
+   "id": "saintcolomban",
+   "requete": "Pointe de Saint-Colomban",
+   "departement": "56",
+   "erreur": null,
+   "toponymes": [
+    {
+     "nom": "Pointe Saint-Colomban",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "postcode": "56340",
+     "commune": "Carnac",
+     "citycode": "56034",
+     "lat": 47.563799,
+     "lon": -3.095855
+    }
+   ]
+  },
+  {
+   "id": "plougrescant",
+   "requete": "Pointe du Château",
+   "departement": "22",
+   "erreur": null,
+   "toponymes": [
+    {
+     "nom": "Pointe du Château",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "postcode": "22700",
+     "commune": "Perros-Guirec",
+     "citycode": "22168",
+     "lat": 48.821583,
+     "lon": -3.428708
+    },
+    {
+     "nom": "Pointe du Château",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "postcode": "22820",
+     "commune": "Plougrescant",
+     "citycode": "22218",
+     "lat": 48.869558,
+     "lon": -3.22477
+    },
+    {
+     "nom": "Pointe du Château Parlant",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "postcode": "22750",
+     "commune": "Saint-Jacut-de-la-Mer",
+     "citycode": "22302",
+     "lat": 48.579618,
+     "lon": -2.206573
+    }
+   ]
+  },
+  {
+   "id": "querqueville",
+   "requete": "Querqueville",
+   "departement": "50",
+   "erreur": null,
+   "toponymes": [
+    {
+     "nom": "Querqueville",
+     "categorie": "lieu-dit habité, zone d'habitation",
+     "postcode": "50100",
+     "commune": "Cherbourg-en-Cotentin",
+     "citycode": "50129",
+     "lat": 49.662231,
+     "lon": -1.694955
+    },
+    {
+     "nom": "Port de Querqueville",
+     "categorie": "port, transport, équipement de transport",
+     "postcode": "50100",
+     "commune": "Cherbourg-en-Cotentin",
+     "citycode": "50129",
+     "lat": 49.66929,
+     "lon": -1.679844
+    },
+    {
+     "nom": "Poste de Querqueville",
+     "categorie": "poste, zone d'activité ou d'intérêt",
+     "postcode": "50100",
+     "commune": "Cherbourg-en-Cotentin",
+     "citycode": "50129",
+     "lat": 49.665337,
+     "lon": -1.688345
+    },
+    {
+     "nom": "Annexe Itep-Aajd de Querqueville",
+     "categorie": "structure d'accueil pour personnes handicapées, zone d'activité ou d'intérêt",
+     "postcode": "50100",
+     "commune": "Cherbourg-en-Cotentin",
+     "citycode": "50129",
+     "lat": 49.662658,
+     "lon": -1.693543
+    },
+    {
+     "nom": "Mairie de la Commune Déléguée de Querqueville",
+     "categorie": "mairie, zone d'activité ou d'intérêt",
+     "postcode": "50100",
+     "commune": "Cherbourg-en-Cotentin",
+     "citycode": "50129",
+     "lat": 49.660743,
+     "lon": -1.700477
+    }
+   ]
+  },
+  {
+   "id": "caplevi",
+   "requete": "Cap Lévi",
+   "departement": "50",
+   "erreur": null,
+   "toponymes": [
+    {
+     "nom": "Fort du Cap Lévi",
+     "categorie": "ouvrage militaire, zone d'activité ou d'intérêt",
+     "postcode": "50840",
+     "commune": "Fermanville",
+     "citycode": "50178",
+     "lat": 49.690132,
+     "lon": -1.476936
+    },
+    {
+     "nom": "Phare du Cap Lévi",
+     "categorie": "phare, construction, construction ponctuelle",
+     "postcode": "50840",
+     "commune": "Fermanville",
+     "citycode": "50178",
+     "lat": 49.695877,
+     "lon": -1.473208
+    },
+    {
+     "nom": "le Cap Lévi",
+     "categorie": "lieu-dit habité, zone d'habitation",
+     "postcode": "50840",
+     "commune": "Fermanville",
+     "citycode": "50178",
+     "lat": 49.68913,
+     "lon": -1.474286
+    }
+   ]
+  },
+  {
+   "id": "berchis",
+   "requete": "Pointe du Berchis",
+   "departement": "56",
+   "erreur": null,
+   "toponymes": []
+  },
+  {
+   "id": "begenaud",
+   "requete": "Beg en Aud",
+   "departement": "56",
+   "erreur": null,
+   "toponymes": [
+    {
+     "nom": "Tumulus de Beg-en-Aud",
+     "categorie": "mégalithe, zone d'activité ou d'intérêt",
+     "postcode": "56510",
+     "commune": "Saint-Pierre-Quiberon",
+     "citycode": "56234",
+     "lat": 47.528064,
+     "lon": -3.15923
+    }
+   ]
+  },
+  {
+   "id": "toulhars",
+   "requete": "Toulhars",
+   "departement": "56",
+   "erreur": null,
+   "toponymes": [
+    {
+     "nom": "Toulhars",
+     "categorie": "quartier, zone d'habitation",
+     "postcode": "56260",
+     "commune": "Larmor-Plage",
+     "citycode": "56107",
+     "lat": 47.709759,
+     "lon": -3.380621
+    },
+    {
+     "nom": "Résidence de Toulhars",
+     "categorie": "quartier, zone d'habitation",
+     "postcode": "56260",
+     "commune": "Larmor-Plage",
+     "citycode": "56107",
+     "lat": 47.709144,
+     "lon": -3.378645
+    }
+   ]
+  },
+  {
+   "id": "bihit",
+   "requete": "Pointe de Bihit",
+   "departement": "22",
+   "erreur": null,
+   "toponymes": [
+    {
+     "nom": "Pointe de Bihit",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "postcode": "22560",
+     "commune": "Trébeurden",
+     "citycode": "22343",
+     "lat": 48.758144,
+     "lon": -3.582882
+    }
+   ]
+  },
+  {
+   "id": "dourven",
+   "requete": "Pointe du Dourven",
+   "departement": "22",
+   "erreur": null,
+   "toponymes": [
+    {
+     "nom": "an Dourven",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "postcode": "22300",
+     "commune": "Trédrez-Locquémeau",
+     "citycode": "22349",
+     "lat": 48.731264,
+     "lon": -3.564283
+    }
+   ]
+  },
+  {
+   "id": "brehec",
+   "requete": "Bréhec",
+   "departement": "22",
+   "erreur": null,
+   "toponymes": [
+    {
+     "nom": "Bréhec",
+     "categorie": "quartier, zone d'habitation",
+     "postcode": "22580",
+     "commune": "Plouha",
+     "citycode": "22222",
+     "lat": 48.724321,
+     "lon": -2.951262
+    },
+    {
+     "nom": "Vieux Bréhec",
+     "categorie": "quartier, zone d'habitation",
+     "postcode": "22580",
+     "commune": "Plouha",
+     "citycode": "22222",
+     "lat": 48.721422,
+     "lon": -2.948866
+    }
+   ]
+  },
+  {
+   "id": "capfrehel",
+   "requete": "Cap Fréhel",
+   "departement": "22",
+   "erreur": null,
+   "toponymes": [
+    {
+     "nom": "Cap Fréhel",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "postcode": "22240",
+     "commune": "Plévenon",
+     "citycode": "22201",
+     "lat": 48.688309,
+     "lon": -2.318132
+    },
+    {
+     "nom": "Cap Fréhel",
+     "categorie": "camping, zone d'activité ou d'intérêt",
+     "postcode": "22240",
+     "commune": "Plévenon",
+     "citycode": "22201",
+     "lat": 48.664047,
+     "lon": -2.339981
+    },
+    {
+     "nom": "Phare du Cap Fréhel",
+     "categorie": "phare, construction, construction ponctuelle",
+     "postcode": "22240",
+     "commune": "Plévenon",
+     "citycode": "22201",
+     "lat": 48.684145,
+     "lon": -2.318782
+    },
+    {
+     "nom": "Office de Tourisme Plévenon Cap Fréhel",
+     "categorie": "office de tourisme, zone d'activité ou d'intérêt",
+     "postcode": "22240",
+     "commune": "Plévenon",
+     "citycode": "22201",
+     "lat": 48.655275,
+     "lon": -2.331716
+    }
+   ]
+  },
+  {
+   "id": "saintvaast",
+   "requete": "La Hougue",
+   "departement": "50",
+   "erreur": null,
+   "toponymes": [
+    {
+     "nom": "la Hougue",
+     "categorie": "ile, élément topographique ou forestier, détail orographique",
+     "postcode": "50550",
+     "commune": "Saint-Vaast-la-Hougue",
+     "citycode": "50562",
+     "lat": 49.575126,
+     "lon": -1.274349
+    },
+    {
+     "nom": "la Hougue",
+     "categorie": "lieu-dit habité, zone d'habitation",
+     "postcode": "50480",
+     "commune": "Carentan-les-Marais",
+     "citycode": "50099",
+     "lat": 49.279244,
+     "lon": -1.262762
+    },
+    {
+     "nom": "la Hougue",
+     "categorie": "lieu-dit habité, zone d'habitation",
+     "postcode": "50390",
+     "commune": "Catteville",
+     "citycode": "50105",
+     "lat": 49.351223,
+     "lon": -1.548514
+    },
+    {
+     "nom": "la Hougue",
+     "categorie": "lieu-dit habité, zone d'habitation",
+     "postcode": "50560",
+     "commune": "Geffosses",
+     "citycode": "50198",
+     "lat": 49.135755,
+     "lon": -1.577768
+    },
+    {
+     "nom": "la Hougue",
+     "categorie": "lieu-dit habité, zone d'habitation",
+     "postcode": "50430",
+     "commune": "Bretteville-sur-Ay",
+     "citycode": "50078",
+     "lat": 49.25208,
+     "lon": -1.653739
+    },
+    {
+     "nom": "la Hougue",
+     "categorie": "lieu-dit habité, zone d'habitation",
+     "postcode": "50500",
+     "commune": "Raids",
+     "citycode": "50422",
+     "lat": 49.20571,
+     "lon": -1.349254
+    },
+    {
+     "nom": "la Hougue",
+     "categorie": "lieu-dit habité, zone d'habitation",
+     "postcode": "50390",
+     "commune": "Orglandes",
+     "citycode": "50387",
+     "lat": 49.419641,
+     "lon": -1.454958
+    },
+    {
+     "nom": "la Hougue",
+     "categorie": "lieu-dit habité, zone d'habitation",
+     "postcode": "50250",
+     "commune": "La Haye",
+     "citycode": "50236",
+     "lat": 49.31892,
+     "lon": -1.612106
+    },
+    {
+     "nom": "la Hougue",
+     "categorie": "lieu-dit habité, zone d'habitation",
+     "postcode": "50760",
+     "commune": "Gatteville-le-Phare",
+     "citycode": "50196",
+     "lat": 49.688187,
+     "lon": -1.288474
+    },
+    {
+     "nom": "la Hougue",
+     "categorie": "lieu-dit habité, zone d'habitation",
+     "postcode": "50630",
+     "commune": "Octeville-l'Avenel",
+     "citycode": "50384",
+     "lat": 49.535401,
+     "lon": -1.346147
+    }
+   ]
+  },
+  {
+   "id": "gattemare",
+   "requete": "Gattemare",
+   "departement": "50",
+   "erreur": null,
+   "toponymes": [
+    {
+     "nom": "Étang de Gattemare",
+     "categorie": "réservoir-bassin, plan d'eau, hydrographie",
+     "postcode": "50760",
+     "commune": "Gatteville-le-Phare",
+     "citycode": "50196",
+     "lat": 49.69124,
+     "lon": -1.298871
+    }
+   ]
+  },
+  {
+   "id": "grandbe",
+   "requete": "Grand Bé",
+   "departement": "35",
+   "erreur": null,
+   "toponymes": [
+    {
+     "nom": "le Grand Bé",
+     "categorie": "ile, élément topographique ou forestier, détail orographique",
+     "postcode": "35400",
+     "commune": "Saint-Malo",
+     "citycode": "35288",
+     "lat": 48.652217,
+     "lon": -2.033231
+    },
+    {
+     "nom": "École Primaire le Grand Be",
+     "categorie": "enseignement primaire, zone d'activité ou d'intérêt",
+     "postcode": "35400",
+     "commune": "Saint-Malo",
+     "citycode": "35288",
+     "lat": 48.647675,
+     "lon": -2.027232
+    }
+   ]
+  },
+  {
+   "id": "rosaires",
+   "requete": "Plage des Rosaires",
+   "departement": "22",
+   "erreur": null,
+   "toponymes": [
+    {
+     "nom": "les Rosaires",
+     "categorie": "camping, zone d'activité ou d'intérêt",
+     "postcode": "22190",
+     "commune": "Plérin",
+     "citycode": "22187",
+     "lat": 48.555139,
+     "lon": -2.762845
+    },
+    {
+     "nom": "les Rosaires",
+     "categorie": "quartier, zone d'habitation",
+     "postcode": "22190",
+     "commune": "Plérin",
+     "citycode": "22187",
+     "lat": 48.564928,
+     "lon": -2.758421
+    },
+    {
+     "nom": "Pointe de Bréhin",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "postcode": "22590",
+     "commune": "Pordic",
+     "citycode": "22251",
+     "lat": 48.592029,
+     "lon": -2.807478
+    }
+   ]
+  },
+  {
+   "id": "etel",
+   "requete": "Barre d'Étel",
+   "departement": "56",
+   "erreur": null,
+   "toponymes": []
+  }
+ ]
+}

@@ -1,0 +1,598 @@
+{
+ "id": "kernic",
+ "name": "Baie du Kernic",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "carantec",
+  "empreinte_v2": "425833ff728b766591e8e0958bb1b792ff3de9dbf07c9bcd31f432d1264f49c6",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
+  }
+ },
+ "coordinates": {
+  "lat": 48.650361,
+  "lon": -4.235063,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°39,0'N 4°14,1'W) ; précision non documentée.",
+   "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "la Baie du Kernic",
+    "ecart_m": 1840
+   },
+   "texte": "Toponyme officiel « la Baie du Kernic » (camping, zone d'activité ou d'intérêt) à 1840 m de la position de la fiche."
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 48.647811,
+    "lon": -4.231444,
+    "ign": "equipement_de_transport.79059",
+    "nature": "Parking touristique",
+    "ecart_m": 389
+   },
+   "texte": "Parking touristique recensé par la BD TOPO de l'IGN, à 389 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Plage de Plounévez-Lochrist (atout-pecheur) ; Porz ar Streat, à Plouescat, de l'autre côté de la baie.",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 8,
+   "texte": "8 min à pied (0,47 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "BAIE + PLAGE — Plouescat, Plounévez-Lochrist et Ker Emma (Haut-Léon)",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Baie de 250 ha ; en fond de baie, « des sables très fins et riches en matière organique et en limon », le « sable bleu » (office de tourisme de Roscoff). Grande plage de Ker Emma à l'ouest (cannes-peche), Porz ar Streat de l'autre côté de la baie (atout-pecheur).",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 1,
+    "gratter": "oui",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Nord-ouest. Déduit de la carte.",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "La baie sert d'hippodrome en août depuis 1882 et a été un terrain d'aviation dans les années 1930 (office de tourisme de Roscoff) : elle découvre largement à marée basse (déduit).",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "estran"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Baie de 250 ha, entrée étroite côté Pen An Théven, dunes et plage de Keremma, Porz ar Streat (office de tourisme, cannes-peche, atout-pecheur).",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "« Par grande marée, l'étroitesse de cette entrée peut provoquer un courant violent » (office de tourisme de Roscoff).",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la basse mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "montante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : Montant (BM +1 h → BM +5 h, prioritaire).",
+   "valeur": [
+    {
+     "id": "ke1",
+     "libelle": "Montant",
+     "reference": "BM",
+     "debut_h": 1,
+     "fin_h": 5,
+     "priorite": "prime",
+     "type_v2": "montant",
+     "note": "Règle du secteur, non propre au poste. Lancer-ramener côté Porz ar Streat."
+    }
+   ]
+  },
+  "haute": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (autour de la pleine mer) : Pleine mer (PM −1 h → PM +1 h, bonne).",
+   "valeur": [
+    {
+     "id": "ke2",
+     "libelle": "Pleine mer",
+     "reference": "PM",
+     "debut_h": -1,
+     "fin_h": 1,
+     "priorite": "bon",
+     "type_v2": "variable",
+     "note": "Baie pleine, plage de Ker Emma."
+    }
+   ]
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre marée descendante dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    35,
+    50,
+    80,
+    100
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "brignogan",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Baie qui découvre : le flot la remplit par son entrée étroite et ramène le poisson sur le sable.",
+   "lifeHack": "Le port de marée est Brignogan-Plage, à 7 km à l'ouest : c'est le port SHOM le plus proche de la baie.",
+   "montantOuDescendant": "Aucune source propre au poste ; règle du secteur : « gardez un œil sur la marée montante » et pêche de la mer qui monte sur les fonds qui découvrent (office de tourisme de la baie de Morlaix).",
+   "typeHeure": "MARÉE MONTANTE (RÈGLE DU SECTEUR)",
+   "windows": [
+    {
+     "id": "ke1",
+     "label": "Montant",
+     "note": "Règle du secteur, non propre au poste. Lancer-ramener côté Porz ar Streat.",
+     "offsetAfter": 5,
+     "offsetBefore": 1,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "montant"
+    },
+    {
+     "id": "ke2",
+     "label": "Pleine mer",
+     "note": "Baie pleine, plage de Ker Emma.",
+     "offsetAfter": 1,
+     "offsetBefore": -1,
+     "phase": "pm",
+     "priority": "bon",
+     "tidePhaseType": "variable"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     135,
+     157.5,
+     180
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     292.5,
+     315,
+     337.5,
+     0,
+     22.5
+    ]
+   },
+   "texte": "Baie ouverte vers le nord-ouest par une entrée étroite entre Pen An Théven et les dunes de Keremma (office de tourisme de Roscoff) ; orientation déduite de la carte : vent et houle de nord-ouest de face, vent de sud de dos.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.5
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Une seule source nomme le bar : baie et plage de Ker Emma (cannes-peche). atout-pecheur cite le lancer-ramener côté Porz ar Streat, sans espèce.",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Souple léger ou leurre de surface lancé-ramené côté Porz ar Streat ; la plage se pêche aussi au surfcasting (atout-pecheur).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "« Baie du Kernic et la grande plage de Ker Emma » parmi les coins à bar du bord (cannes-peche).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Une seule source nomme le bar ici (cannes-peche) ; atout-pecheur cite le poste pour la pêche sans dire l'espèce.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Aucune source ne donne l'heure de marée de ce poste : le guide applique la règle du secteur (marée montante) ; le journal de pêche dira mieux.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Le port de marée est Brignogan-Plage, à 7 km à l'ouest : c'est le port SHOM le plus proche de la baie.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel / blanc",
+    "name": "Souple 10-12 cm tête légère",
+    "technique": "Lancer-ramener sur le sable, côté Porz ar Streat.",
+    "weight": "tête 5-10 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Ghost / sardine",
+    "name": "Stickbait 110-130 mm",
+    "technique": "Mer calme, aube ou crépuscule.",
+    "weight": "14-27 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 2,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Par grande marée, l'entrée étroite de la baie « peut provoquer un courant violent » (avertissement aux nageurs) : ne pas s'y avancer dans l'eau. Seuil de 95 retenu par le guide pour « grande marée ».",
+    "verifie_le": null,
+    "source_texte": "roscoff-tourisme.com — « Plouescat grandeur nature » · seuil déduit",
+    "quand": {
+     "coefAbove": 95
+    }
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Baie qui découvre largement : à marée montante, garder le chemin du retour vers le haut de plage.",
+    "verifie_le": null,
+    "source_texte": "prudence du guide (baie qui découvre, déduit)"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.5,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    "isolement_au_flot"
+   ],
+   "verifie_le": null,
+   "texte": "Le flot peut couper le retour. Classement relu à la main depuis la consigne de la fiche : « Baie qui découvre largement : à marée montante, garder le chemin du retour vers le haut de plage. »",
+   "source_texte": "prudence du guide (baie qui découvre, déduit)"
+  },
+  "mouvements_terrain": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "raison": "Aucun mouvement de terrain recensé par le BRGM à 500 m du point (Géorisques, 2026-11-23) ; le recensement n'est pas exhaustif, ce qui ne prouve pas l'absence de risque."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "PLOUNEVEZ-LOCHRIST",
+     "code_insee": "29206",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon",
+      "Rupture de barrage"
+     ]
+    },
+    {
+     "commune": "TREFLEZ",
+     "code_insee": "29287",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour les communes à 1 km du point (le point est hors des limites communales) (PLOUNEVEZ-LOCHRIST, TREFLEZ) : Par submersion marine ; Mouvement de terrain. Portée communale : ne décrit pas le poste."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 7 : du 1er février au 31 mars, pêche en relâcher seulement, à la canne ou à la ligne à main ; en janvier et du 1er avril au 31 décembre, 3 bars au plus par pêcheur et par jour. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 7 (Manche, au nord du 48ᵉ parallèle)",
+    "limite_jour": 3,
+    "relacher_seul": {
+     "du": "02-01",
+     "au": "03-31"
+    }
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Contrainte de marée documentée (le flot peut couper le retour), mais aucune durée praticable n'est sourcée : aucun intervalle HH:MM ne peut être calculé (§ 7.6). Le spot ne peut pas être présenté comme praticable sans fenêtre documentée."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v3",
+  "verifie_le": "2026-11-23",
+  "raison": "Aucune des 5 photos libres de Wikimedia Commons à 400 m du point ne porte le nom du lieu : aucune n'est présentée comme une photo du spot (inventaire du 2026-11-23)."
+ },
+ "provenance": {
+  "sources": [
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-atout-pecheur-fr-4cf329",
+   "src-cannes-peche-blog4ever-com-9ea819",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
+   "src-legifrance-tailles-minimales-2026",
+   "src-roscoff-tourisme-com-ae2d7f"
+  ],
+  "sources_v2": [
+   "cannes-peche.blog4ever.com — baie du Kernic et grande plage de Ker Emma",
+   "atout-pecheur.fr — Plage de Plounévez-Lochrist",
+   "roscoff-tourisme.com — « Plouescat grandeur nature »"
+  ],
+  "faits_v2": [
+   {
+    "s": "cannes-peche.blog4ever.com — « Les coins de pêche à bar / loup (du bord) » (Alain, 07/11/2016)",
+    "t": "« Plounévez-Lochrist / Tréflez (baie du Kernic et la grande plage de Ker Emma) » parmi les coins à bar du bord."
+   },
+   {
+    "s": "atout-pecheur.fr — Plage de Plounévez-Lochrist (29430 Plouescat)",
+    "t": "« Surf casting sur la plage et lancer/ramener du coté de porz ar streat de l'autre coté de la baie de Kernic » ; position 48,650361 / -4,235063 (espèces non précisées)."
+   },
+   {
+    "s": "roscoff-tourisme.com — « Plouescat grandeur nature » (brochure)",
+    "t": "« La baie du Kernic couvre aujourd'hui 250 hectares » ; en fond de baie, des sables très fins, riches en matière organique et en limon ; courses hippiques dans la baie chaque mois d'août depuis 1882, terrain d'aviation dans les années 30."
+   },
+   {
+    "s": "roscoff-tourisme.com — « Plouescat grandeur nature »",
+    "t": "Côté Pen An Théven, à l'entrée du Goulet : « Par grande marée, l'étroitesse de cette entrée peut provoquer un courant violent. Amis nageurs, attention ! » ; les dunes de Keremma sont « juste en face »."
+   },
+   {
+    "s": "roscoff-tourisme.com — « Plouescat grandeur nature »",
+    "t": "La pêche à pied se pratique sur les 13 km de côte de Plouescat, « à l'exception de la baie du Kernic »."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.8,
+  "inconnus": [
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.basse",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "safety.mouvements_terrain",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": [
+   "Position V2 à 1,8 km du toponyme officiel « la Baie du Kernic » (camping, zone d'activité ou d'intérêt) : à vérifier (le poste peut être ailleurs que le point du toponyme)."
+  ],
+  "criteres": {
+   "QUAL-1": {
+    "ok": false,
+    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:cannes-peche-blog4ever-com"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "0 groupe d'indépendance parmi les sources lues page par page (0 sur 1) ; aucune n'attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": false,
+    "detail": "Position V2 à 1,8 km du toponyme officiel « la Baie du Kernic » (camping, zone d'activité ou d'intérêt) : à vérifier (le poste peut être ailleurs que le point du toponyme)."
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (8 min)"
+   },
+   "QUAL-5": {
+    "ok": true,
+    "detail": "engagement 2 (jugement V2), 1 consigne sourcée sur 2, contrainte de marée isolement_au_flot, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": true,
+    "detail": "réglementation nationale ; règles locales du département recherchées, aucune à vérifier au poste"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:cannes-peche-blog4ever-com",
+   "QUAL-3 : Position V2 à 1,8 km du toponyme officiel « la Baie du Kernic » (camping, zone d'activité ou d'intérêt) : à vérifier (le poste peut être ailleurs que le point du toponyme)."
+  ]
+ }
+}

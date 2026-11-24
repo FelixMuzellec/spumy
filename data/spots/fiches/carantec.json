@@ -1,0 +1,588 @@
+{
+ "id": "carantec",
+ "name": "Carantec : Penn al Lann – Cosmeur",
+ "origin": "v2_preserved",
+ "legacy": {
+  "guide": "carantec",
+  "empreinte_v2": "7884dfe75aacf3c0301e1a02f2b7977bfa98cece696e193fb1fc351f7dc045ea",
+  "champs_non_repris": {
+   "zone": "secteur météo du guide V2 : aucun découpage géographique en V3 (CLAUDE.md)",
+   "isLocal": "rattachement au guide V2",
+   "distance": "distance fixe depuis le centre du guide ; remplacée par le temps de route IGN depuis la position",
+   "distMin": "idem",
+   "color": "couleur d'affichage V2",
+   "texte_prive": "Observations personnelles, matériel personnel et tournures adressées à Félix retirés ou reformulés le 2026-11-23 (décision de Félix) ; texte intégral dans data/spots/v2/sauvegarde.json."
+  }
+ },
+ "coordinates": {
+  "lat": 48.6731989,
+  "lon": -3.898978,
+  "precision_m": null,
+  "info": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Coordonnées de la fiche V2 (48°40,4'N 3°53,9'W) ; précision non documentée.",
+   "verifie_le": null
+  },
+  "controle": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-geocodage-poi"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "toponyme": "Pointe du Cosmeur",
+    "ecart_m": 4
+   },
+   "texte": "Toponyme officiel « Pointe du Cosmeur » (cap, élément topographique ou forestier, détail orographique) à 4 m de la position de la fiche."
+  }
+ },
+ "access": {
+  "stationnement": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-bdtopo-parkings"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": {
+    "lat": 48.668588,
+    "lon": -3.893324,
+    "ign": "equipement_de_transport.51388",
+    "nature": "Parking touristique",
+    "ecart_m": 660
+   },
+   "texte": "Parking touristique recensé par la BD TOPO de l'IGN, à 660 m du point du spot ; le plus proche à pied. À confirmer sur place (ouverture, tarif, accès au poste)."
+  },
+  "approche": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Sentier côtier (GR34) depuis la rue de Penn al Lann, l'allée du Cosmeur ou la plage du Kelenn (visorando, tourismebretagne).",
+   "verifie_le": null
+  },
+  "marche_min": {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-ign-itineraire-pieton"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": 12,
+   "texte": "12 min à pied (0,77 km) depuis ce parking jusqu'au point du spot, selon l'itinéraire piéton de l'IGN. L'estran, la grève et les rochers ne sont pas comptés."
+  },
+  "difficulte": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Difficulté d'accès non documentée séparément en V2 (l'engagement est dans safety)."
+  },
+  "restrictions": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Restrictions d'accès non documentées en V2 : à vérifier (arrêtés, propriétés, zones protégées)."
+  }
+ },
+ "environment": {
+  "milieu": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "POINTES + PLAGES ET PARCS — Pointes, plages et parcs du Kelenn",
+   "verifie_le": null
+  },
+  "fond": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pointes de Penn al Lann (« assez élevée (50 m) ») et du Cosmeur ; à leur pied, plages en pente douce qui se confondent à marée basse avec des vasières (patrimoine.bzh) ; plage du Cosmeur de sable fin (tourismebretagne) ; parcs à huîtres du Kelenn (office de tourisme).",
+   "verifie_le": null,
+   "valeur": {
+    "encombrement": 2,
+    "gratter": "texan",
+    "couches": [
+     "surface",
+     "sous-surface",
+     "mi-eau",
+     "fond"
+    ]
+   }
+  },
+  "exposition": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Tournée vers le nord-ouest (tourismebretagne).",
+   "verifie_le": null
+  },
+  "profondeur": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Plages en pente douce et vasières qui découvrent « plusieurs centaines de mètres » (patrimoine.bzh) : très peu d'eau à marée basse.",
+   "verifie_le": null,
+   "valeur": {
+    "classe": "estran"
+   }
+  },
+  "structures": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v2",
+   "texte": "Deux pointes (Penn al Lann, Cosmeur), plages du Cosmeur, du Penquer et du Kelenn (visorando), parcs à huîtres.",
+   "verifie_le": null
+  },
+  "courant": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Courant de marée de la baie ; heure non estimée (aucune source chiffrée).",
+   "verifie_le": null
+  }
+ },
+ "tide_approaches": {
+  "basse": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (autour de la basse mer) : Fin de descendant → début de montant (BM −1 h 30 → BM +2 h, prioritaire).",
+   "valeur": [
+    {
+     "id": "ca1",
+     "libelle": "Fin de descendant → début de montant",
+     "reference": "BM",
+     "debut_h": -1.5,
+     "fin_h": 2,
+     "priorite": "prime",
+     "type_v2": "variable",
+     "note": "Pêche à vue en bordure des parcs (Vidal, parcs du Morbihan, par déduction). Surface ou souple léger."
+    }
+   ]
+  },
+  "montante": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "verifie_le": null,
+   "texte": "Fenêtres de la fiche V2 (marée montante) : Montant (BM +2 h → BM +5 h 30, bonne).",
+   "valeur": [
+    {
+     "id": "ca2",
+     "libelle": "Montant",
+     "reference": "BM",
+     "debut_h": 2,
+     "fin_h": 5.5,
+     "priorite": "bon",
+     "type_v2": "montant",
+     "note": "Marée montante sur les parcs et le pied des pointes (office de tourisme)."
+    }
+   ]
+  },
+  "haute": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre autour de la pleine mer dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "descendante": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre marée descendante dans la fiche V2 : la phase n'est ni bonne ni mauvaise, elle n'est pas documentée (§ 7.5)."
+  },
+  "coefficients": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    35,
+    50,
+    80,
+    100
+   ],
+   "texte": "Bande de coefficients utile de la fiche V2 [minimum, début optimal, fin optimale, maximum] ; aucun seuil universel (§ 7.5).",
+   "verifie_le": null
+  },
+  "port_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": "chateaudutaureau",
+   "texte": "Port de marée de référence de la fiche V2.",
+   "verifie_le": null
+  },
+  "v2": {
+   "description": "Le flot recouvre la vasière et les parcs : les bars montent avec l'eau.",
+   "lifeHack": "La vasière découvre sur des centaines de mètres : à marée montante, repartir avant que l'eau ne coupe le retour.",
+   "montantOuDescendant": "Zones ostréicoles « à privilégier à marée montante » (office de tourisme) ; à vue en fin de descendante et début de montante (Vidal, à propos des parcs du Morbihan ; appliqué ici par déduction).",
+   "typeHeure": "MARÉE MONTANTE (PARCS)",
+   "windows": [
+    {
+     "id": "ca1",
+     "label": "Fin de descendant → début de montant",
+     "note": "Pêche à vue en bordure des parcs (Vidal, parcs du Morbihan, par déduction). Surface ou souple léger.",
+     "offsetAfter": 2,
+     "offsetBefore": -1.5,
+     "phase": "bm",
+     "priority": "prime",
+     "tidePhaseType": "variable"
+    },
+    {
+     "id": "ca2",
+     "label": "Montant",
+     "note": "Marée montante sur les parcs et le pied des pointes (office de tourisme).",
+     "offsetAfter": 5.5,
+     "offsetBefore": 2,
+     "phase": "bm",
+     "priority": "bon",
+     "tidePhaseType": "montant"
+    }
+   ]
+  }
+ },
+ "conditions": {
+  "favorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "abri_deg": [
+     112.5,
+     135,
+     157.5
+    ]
+   },
+   "texte": "Directions d'abri de la fiche V2 (degrés).",
+   "verifie_le": null
+  },
+  "defavorables": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "exposition_deg": [
+     292.5,
+     315,
+     337.5
+    ]
+   },
+   "texte": "Rive de la baie tournée vers le nord-ouest (plage du Cosmeur, tourismebretagne) ; depuis Penn al Lann, vue sur l'île Noire, l'île Louët et le château du Taureau (visorando). Le vent de sud-est est de dos.",
+   "verifie_le": null
+  },
+  "dangereuses": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "houle_max_m": 1.5
+   },
+   "texte": "Au-delà de cette houle, la V2 ne recommande plus le spot.",
+   "verifie_le": null
+  }
+ },
+ "species": [
+  {
+   "espece": "bar",
+   "priorite": 1,
+   "presence": {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Penn al Lan et les parcs du Kelenn (office de tourisme), le Cosmeur (mieuxpecher) ; le guide de Carantec pêche la baie du bord (sport-decouverte). Statut V2 « VÉRIFIÉ » sans date ni page : ramené à INFÉRÉ, aucune page de pêche lue en phase 5 n'attachant le bar au poste (revue contradictoire du 24 nov. 2026).",
+    "verifie_le": null
+   }
+  }
+ ],
+ "strategies": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Surface ou souple léger sur les parcs et la vasière ; texan près des roches des pointes.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Pêcher la marée montante sur les parcs du Kelenn et le pied des pointes (office de tourisme).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "Le guide de pêche de Carantec pratique le rock-fishing et la prospection du bord « sur les secteurs les plus propices de la baie » (sport-decouverte), sans nommer ses postes.",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "texte": "La vasière découvre sur des centaines de mètres : à marée montante, repartir avant que l'eau ne coupe le retour.",
+   "verifie_le": null
+  }
+ ],
+ "lure_guidance": [
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel / ghost",
+    "name": "Stickbait 90-110 mm",
+    "technique": "Surface sur les parcs (mieuxpecher : « parcs au leurre de surface »).",
+    "weight": "10-16 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Naturel",
+    "name": "Shad 9-10 cm",
+    "technique": "Leurre du guide de Carantec (« shads ») ; lent sur la vasière qui se couvre.",
+    "weight": "tête 5-10 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": {
+    "color": "Vert / brun",
+    "name": "Imitation de crabe",
+    "technique": "Bars d'estuaire (Vidal, 2026), au pied des parcs.",
+    "weight": "texan 5-10 g"
+   },
+   "texte": "Leurre conseillé par la fiche V2 ; à reformuler en conseil générique (§ 7.4.1).",
+   "verifie_le": null
+  }
+ ],
+ "safety": {
+  "engagement": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1,
+   "texte": "Niveau d'engagement V2 : 1 facile, 2 modéré, 3 engagé.",
+   "verifie_le": null
+  },
+  "consignes": [
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v2",
+    "texte": "Vasières qui découvrent « plusieurs centaines de mètres » : surveiller la marée montante pour ne pas être coupé du bord.",
+    "verifie_le": null,
+    "source_texte": "patrimoine.bzh · office de tourisme (« gardez un œil sur la marée montante »)"
+   }
+  ],
+  "houle_max_m": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": 1.5,
+   "texte": "Houle maximale de la fiche V2 (mètres).",
+   "verifie_le": null
+  },
+  "coef_max": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucun coefficient maximal dans la fiche V2."
+  },
+  "acces_maree": {
+   "statut": "INFÉRÉ",
+   "origine": "v2",
+   "valeur": [
+    "isolement_au_flot"
+   ],
+   "verifie_le": null,
+   "texte": "Le flot peut couper le retour. Classement relu à la main depuis la consigne de la fiche : « Vasières qui découvrent « plusieurs centaines de mètres » : surveiller la marée montante pour ne pas être coupé du bord. »",
+   "source_texte": "patrimoine.bzh · office de tourisme (« gardez un œil sur la marée montante »)"
+  },
+  "mouvements_terrain": {
+   "statut": "INCONNU",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
+   "verifie_le": "2026-11-23",
+   "raison": "Aucun mouvement de terrain recensé par le BRGM à 500 m du point (Géorisques, 2026-11-23) ; le recensement n'est pas exhaustif, ce qui ne prouve pas l'absence de risque."
+  },
+  "risques_commune": {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-georisques-gaspar"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "valeur": [
+    {
+     "commune": "CARANTEC",
+     "code_insee": "29023",
+     "risques": [
+      "Inondation",
+      "Par submersion marine",
+      "Mouvement de terrain",
+      "Affaissements et effondrements d'origine anthropique (anciennes carrières souterraines, hors mines)",
+      "Séisme",
+      "Radon"
+     ]
+    }
+   ],
+   "texte": "Risques recensés pour la commune (CARANTEC) : Par submersion marine ; Mouvement de terrain. Portée communale : ne décrit pas le poste."
+  }
+ },
+ "regulations": [
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-bar-loisir-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar, 2026, zone CIEM 7 : du 1er février au 31 mars, pêche en relâcher seulement, à la canne ou à la ligne à main ; en janvier et du 1er avril au 31 décembre, 3 bars au plus par pêcheur et par jour. Filets fixes interdits pour le bar.",
+   "valeur": {
+    "espece": "bar",
+    "annee": 2026,
+    "zone": "CIEM 7 (Manche, au nord du 48ᵉ parallèle)",
+    "limite_jour": 3,
+    "relacher_seul": {
+     "du": "02-01",
+     "au": "03-31"
+    }
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-legifrance-tailles-minimales-2026"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : taille minimale de capture 42 cm (Manche, mer du Nord, Atlantique).",
+   "valeur": {
+    "espece": "bar",
+    "taille_min_cm": 42
+   }
+  },
+  {
+   "statut": "VÉRIFIÉ",
+   "origine": "v3",
+   "sources": [
+    "src-arrete-peche-loisir-2026-recfishing"
+   ],
+   "verifie_le": "2026-11-23",
+   "niveau": 1,
+   "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  }
+ ],
+ "windows": {
+  "habituelles": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Aucune fenêtre de fonctionnement habituelle documentée en V2 (§ 7.6) ; les créneaux V2 sont calculés."
+  },
+  "securite": {
+   "statut": "INCONNU",
+   "origine": "v2",
+   "raison": "Contrainte de marée documentée (le flot peut couper le retour), mais aucune durée praticable n'est sourcée : aucun intervalle HH:MM ne peut être calculé (§ 7.6). Le spot ne peut pas être présenté comme praticable sans fenêtre documentée."
+  }
+ },
+ "photos": {
+  "statut": "INCONNU",
+  "origine": "v3",
+  "verifie_le": "2026-11-23",
+  "raison": "Aucune des 12 photos libres de Wikimedia Commons à 400 m du point ne porte le nom du lieu : aucune n'est présentée comme une photo du spot (inventaire du 2026-11-23)."
+ },
+ "provenance": {
+  "sources": [
+   "src-arrete-bar-loisir-2026",
+   "src-arrete-peche-loisir-2026-recfishing",
+   "src-baiedemorlaix-bzh-ab3829",
+   "src-cannes-peche-blog4ever-com-5114f2",
+   "src-georisques-bdmvt",
+   "src-georisques-gaspar",
+   "src-ign-bdtopo-parkings",
+   "src-ign-geocodage-poi",
+   "src-ign-itineraire-pieton",
+   "src-legifrance-tailles-minimales-2026",
+   "src-mieuxpecher-com-a3c6e6",
+   "src-patrimoine-bzh-c98cf4",
+   "src-sport-decouverte-com-31e326",
+   "src-tourismebretagne-com-ec215b",
+   "src-visorando-com-8889f6"
+  ],
+  "sources_v2": [
+   "baiedemorlaix.bzh — office de tourisme : pointe de Penn al Lan, zones ostréicoles (Kelenn)",
+   "mieuxpecher.com — « Coins de pêche – Finistère NORD » : pointe du Cosmeur",
+   "patrimoine.bzh — inventaire, pointe de Penn al Lann",
+   "tourismebretagne.com — Plage du Cosmeur",
+   "sport-decouverte.com — pêche du bar en bord de mer à Carantec",
+   "visorando.com — « Tour de Carantec au départ d'Henvic »",
+   "cannes-peche.blog4ever.com — Carantec : pointe rocheuse dite « La Chaise du Curé »"
+  ],
+  "faits_v2": [
+   {
+    "s": "baiedemorlaix.bzh — office de tourisme, « La pêche du bord de mer en Baie de Morlaix » (Christian, pêcheur de Plougasnou)",
+    "t": "« Pointe de Penn al Lan (Carantec) » parmi les spots à bar ; zones ostréicoles dont le Kelenn « à privilégier à marée montante »."
+   },
+   {
+    "s": "mieuxpecher.com — « Coins de pêche – Finistère NORD » (Norbert, 2018)",
+    "t": "« Pointe du Cosmeur à Carantec » citée parmi les coins de pêche du Finistère nord."
+   },
+   {
+    "s": "patrimoine.bzh — inventaire, ensemble fortifié de la pointe de Penn al Lann (IA29000698)",
+    "t": "Penn al Lann, sur la rive ouest de la rivière de Morlaix, « assez élevée (50 m) » ; à la base, des plages en pente douce se confondent à marée basse avec des vasières « qui découvrent plusieurs centaines de mètres »."
+   },
+   {
+    "s": "tourismebretagne.com — Plage du Cosmeur (48,6731989 / -3,898978)",
+    "t": "Plage du Cosmeur : sable fin, orientée nord-ouest, plage sauvage non surveillée ; accès par le sentier côtier depuis Pen Al Lan ou le Kelenn, ou par la pointe du Cosmeur."
+   },
+   {
+    "s": "sport-decouverte.com — pêche du bar en bord de mer à Carantec",
+    "t": "Rock-fishing et prospection du bord en baie ; « les bars fréquentent régulièrement cette zone riche en nourriture » (ostréiculture)."
+   },
+   {
+    "s": "cannes-peche.blog4ever.com — « Les coins de pêche à bar / loup (du bord) » (Alain, 07/11/2016) · voyages.ideoz.fr — Carantec",
+    "t": "Autre poste de Carantec cité pour le bar du bord : « Carantec (pointe rocheuse dite \"La Chaise du Curé\") ». Ce gros rocher en forme de fauteuil est près de la Grève Blanche et donne une « vue élevée de l'île Callot et de l'entrée en rade de Morlaix » (ideoz)."
+   }
+  ]
+ },
+ "quality": {
+  "statut": "a_verifier",
+  "derniere_verification": "2026-11-23",
+  "completude": 0.79,
+  "inconnus": [
+   "access.difficulte",
+   "access.restrictions",
+   "tide_approaches.haute",
+   "tide_approaches.descendante",
+   "safety.coef_max",
+   "safety.mouvements_terrain",
+   "windows.habituelles",
+   "windows.securite",
+   "photos"
+  ],
+  "anomalies": [],
+  "criteres": {
+   "QUAL-1": {
+    "ok": false,
+    "detail": "1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:mieuxpecher-com"
+   },
+   "QUAL-2": {
+    "ok": false,
+    "detail": "1 groupe d'indépendance parmi les sources lues page par page (1 sur 1) ; aucune n'attache le bar au poste"
+   },
+   "QUAL-3": {
+    "ok": true,
+    "detail": "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée"
+   },
+   "QUAL-4": {
+    "ok": true,
+    "detail": "stationnement et marche documentés (12 min)"
+   },
+   "QUAL-5": {
+    "ok": true,
+    "detail": "engagement 1 (jugement V2), 1 consigne sourcée sur 1, contrainte de marée isolement_au_flot, mouvements de terrain 0"
+   },
+   "QUAL-6": {
+    "ok": true,
+    "detail": "réglementation nationale ; règles locales du département recherchées, aucune à vérifier au poste"
+   },
+   "QUAL-7": {
+    "ok": true,
+    "detail": "aucune source privée"
+   }
+  },
+  "raisons": [
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:mieuxpecher-com"
+  ]
+ }
+}

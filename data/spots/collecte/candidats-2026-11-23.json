@@ -1,0 +1,181 @@
+{
+ "//": "Géocodage IGN (index poi de la Géoplateforme, Licence Ouverte) des candidats 5.12, filtré par département. Passage CI 45272416655.",
+ "date": "2026-11-23",
+ "passage_ci": "45272416655",
+ "candidats": [
+  {
+   "id": "percho",
+   "requete": "Pointe du Percho",
+   "departement": "56",
+   "erreur": null,
+   "toponymes": [
+    {
+     "nom": "Pointe du Percho",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "postcode": "56510",
+     "commune": "Saint-Pierre-Quiberon",
+     "citycode": "56234",
+     "lat": 47.523535,
+     "lon": -3.159879
+    }
+   ]
+  },
+  {
+   "id": "conguel",
+   "requete": "Pointe du Conguel",
+   "departement": "56",
+   "erreur": null,
+   "toponymes": [
+    {
+     "nom": "Pointe du Conguel",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "postcode": "56170",
+     "commune": "Quiberon",
+     "citycode": "56186",
+     "lat": 47.469286,
+     "lon": -3.080425
+    }
+   ]
+  },
+  {
+   "id": "saintcolomban",
+   "requete": "Pointe de Saint-Colomban",
+   "departement": "56",
+   "erreur": null,
+   "toponymes": [
+    {
+     "nom": "Pointe Saint-Colomban",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "postcode": "56340",
+     "commune": "Carnac",
+     "citycode": "56034",
+     "lat": 47.563799,
+     "lon": -3.095855
+    }
+   ]
+  },
+  {
+   "id": "plougrescant",
+   "requete": "Pointe du Château",
+   "departement": "22",
+   "erreur": null,
+   "toponymes": [
+    {
+     "nom": "Pointe du Château",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "postcode": "22700",
+     "commune": "Perros-Guirec",
+     "citycode": "22168",
+     "lat": 48.821583,
+     "lon": -3.428708
+    },
+    {
+     "nom": "Pointe du Château",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "postcode": "22820",
+     "commune": "Plougrescant",
+     "citycode": "22218",
+     "lat": 48.869558,
+     "lon": -3.22477
+    },
+    {
+     "nom": "Pointe du Château Parlant",
+     "categorie": "cap, élément topographique ou forestier, détail orographique",
+     "postcode": "22750",
+     "commune": "Saint-Jacut-de-la-Mer",
+     "citycode": "22302",
+     "lat": 48.579618,
+     "lon": -2.206573
+    }
+   ]
+  },
+  {
+   "id": "querqueville",
+   "requete": "Querqueville",
+   "departement": "50",
+   "erreur": null,
+   "toponymes": [
+    {
+     "nom": "Querqueville",
+     "categorie": "lieu-dit habité, zone d'habitation",
+     "postcode": "50100",
+     "commune": "Cherbourg-en-Cotentin",
+     "citycode": "50129",
+     "lat": 49.662231,
+     "lon": -1.694955
+    },
+    {
+     "nom": "Port de Querqueville",
+     "categorie": "port, transport, équipement de transport",
+     "postcode": "50100",
+     "commune": "Cherbourg-en-Cotentin",
+     "citycode": "50129",
+     "lat": 49.66929,
+     "lon": -1.679844
+    },
+    {
+     "nom": "Annexe Itep-Aajd de Querqueville",
+     "categorie": "structure d'accueil pour personnes handicapées, zone d'activité ou d'intérêt",
+     "postcode": "50100",
+     "commune": "Cherbourg-en-Cotentin",
+     "citycode": "50129",
+     "lat": 49.662658,
+     "lon": -1.693543
+    },
+    {
+     "nom": "Poste de Querqueville",
+     "categorie": "poste, zone d'activité ou d'intérêt",
+     "postcode": "50100",
+     "commune": "Cherbourg-en-Cotentin",
+     "citycode": "50129",
+     "lat": 49.665337,
+     "lon": -1.688345
+    },
+    {
+     "nom": "Mairie de la Commune Déléguée de Querqueville",
+     "categorie": "mairie, zone d'activité ou d'intérêt",
+     "postcode": "50100",
+     "commune": "Cherbourg-en-Cotentin",
+     "citycode": "50129",
+     "lat": 49.660743,
+     "lon": -1.700477
+    }
+   ]
+  },
+  {
+   "id": "caplevi",
+   "requete": "Cap Lévi",
+   "departement": "50",
+   "erreur": null,
+   "toponymes": [
+    {
+     "nom": "Fort du Cap Lévi",
+     "categorie": "ouvrage militaire, zone d'activité ou d'intérêt",
+     "postcode": "50840",
+     "commune": "Fermanville",
+     "citycode": "50178",
+     "lat": 49.690132,
+     "lon": -1.476936
+    },
+    {
+     "nom": "Phare du Cap Lévi",
+     "categorie": "phare, construction, construction ponctuelle",
+     "postcode": "50840",
+     "commune": "Fermanville",
+     "citycode": "50178",
+     "lat": 49.695877,
+     "lon": -1.473208
+    },
+    {
+     "nom": "le Cap Lévi",
+     "categorie": "lieu-dit habité, zone d'habitation",
+     "postcode": "50840",
+     "commune": "Fermanville",
+     "citycode": "50178",
+     "lat": 49.68913,
+     "lon": -1.474286
+    }
+   ]
+  }
+ ]
+}
