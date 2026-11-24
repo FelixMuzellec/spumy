@@ -162,7 +162,8 @@ Le « Pourquoi ? » d'un spot donne, dans cet ordre :
 6. les critères manquants et la part couverte ;
 7. l'intervalle et le niveau publié, avec la raison ;
 8. la Confiance par dimension, avec la dimension limitante ;
-9. le rang : quels spots le précèdent, égalité, place réservée.
+9. le rang : quels spots le précèdent, égalité, place réservée ;
+10. les alternatives : les spots au potentiel plus haut mais « à vérifier » ou plus loin, et les spots aux conditions plus prudentes.
 
 Sans connaissance sourcée, une valeur s'affiche sans effet annoncé (MET-05). Aucune décomposition n'est inventée : chaque nombre affiché sort du calcul réel.
 
