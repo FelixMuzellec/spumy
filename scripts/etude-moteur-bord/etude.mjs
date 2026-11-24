@@ -158,6 +158,7 @@ function e4(G) {
       partErreurSup10: r3(erreurVent.filter((e) => e > 10).length / erreurVent.length), largeurIntervalleA1: { mediane: quantile(largeurs, 0.5), max: Math.max(...largeurs) }, publicationA1: pub },
     eauInconnue: { creneaux: me.length, ecartMoyen: r3(moy(me)), q05: quantile(me, 0.05), q95: quantile(me, 0.95) },
     paliersV2: [1, 2, 3, 4, 5].map((p) => ({ palier: p, part: r3(v2.filter((v) => palier(v) === p).length / v2.filter((v) => v != null).length) })),
+    classesV3: [1, 2, 3, 4, 5, 6].map((p) => ({ classe: ["0–19", "20–39", "40–59", "60–74", "75–89", "90–100"][p - 1], part: r3(v2.filter((v) => classeV3(v) === p).length / v2.filter((v) => v != null).length) })),
     a1Publication: A1.reduce((o, x) => ({ ...o, [x.publication]: (o[x.publication] || 0) + 1 }), {}),
   };
 }
@@ -168,6 +169,9 @@ function spearmanPearson(xs, ys) {
   return b && c ? a / Math.sqrt(b * c) : null;
 }
 
+// Six classes d'affichage de la V3 (référentiel § 6.7.5.1) : 0–19, 20–39, 40–59, 60–74, 75–89, 90–100.
+const classeV3 = (v) => (v == null ? null : v < 20 ? 1 : v < 40 ? 2 : v < 60 ? 3 : v < 75 ? 4 : v < 90 ? 5 : 6);
+
 // ── E5 : sensibilité un facteur à la fois (§ 13.3), amplitude selon le niveau de preuve (niveau 4 : ±40 %) ──
 function e5(G) {
   const base = G.map((x) => bV2(x.c).valeur);
@@ -176,7 +180,8 @@ function e5(G) {
   return essais.map(([nom, o]) => {
     const v = G.map((x) => bV2(x.c, o).valeur), d = v.map((x, i) => (x == null || base[i] == null ? null : Math.abs(x - base[i]))).filter((x) => x != null);
     const ch = v.filter((x, i) => x != null && base[i] != null && palier(x) !== palier(base[i])).length;
-    return { essai: nom, ecartMoyen: r3(moy(d)), ecartQ95: quantile(d, 0.95), partPalierChange: r3(ch / d.length), spearman: r3(spearman(base, v)) };
+    const ch3 = v.filter((x, i) => x != null && base[i] != null && classeV3(x) !== classeV3(base[i])).length;
+    return { essai: nom, ecartMoyen: r3(moy(d)), ecartQ95: quantile(d, 0.95), partPalierChange: r3(ch / d.length), partClasseV3Change: r3(ch3 / d.length), spearman: r3(spearman(base, v)) };
   });
 }
 

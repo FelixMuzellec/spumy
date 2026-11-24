@@ -19,6 +19,7 @@ Phase 6 V3, 24 nov. 2026. Statut : **PROVISOIRE**.
   - la grille des créneaux (66 spots, 47 520 créneaux, vent de face ou de dos propre à chaque spot) sert aux distributions et aux données manquantes ;
   - la grille du classement (672 situations : 7 guides × 4 mois × 3 coefficients × aube ou jour × vent d'ouest ou de nord-est × force 2 ou 4, le même vent pour tous les spots d'un guide) sert aux comparaisons de rang.
 - **Limite** : les grilles sont des plans d'essai, pas de vraies journées.
+- **Les « guides »** ne sont ici que les conteneurs de données de la V2 (un fichier de spots par guide), utilisés pour comparer des spots proches les uns des autres. Ce n'est pas un découpage du produit : la V3 n'en a aucun, et son classement part de la position de référence (V3-007).
 
 ## 2. Les candidates
 

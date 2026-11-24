@@ -43,7 +43,9 @@ L'architecture retenue à titre provisoire est **A1** (document 03) : les compos
 - **Valeur de rang** : la borne basse `bas`. Une donnée inconnue ne fait donc jamais monter un spot (D6-01).
 - **Condition qui rend le poste non pêchable** (coefficient hors plage utile, audit A15) : plafond ou veto, plutôt qu'une addition (D6-04).
 
-La note /100 reste une échelle de synthèse. Les paliers 75, 65, 55, 45 sont gardés comme classes d'affichage jusqu'à la phase 8 V3 (registre V2) ; « Favorables » = 75 et plus (VALIDÉE, V3-021).
+La note /100 reste une échelle de synthèse, jamais une probabilité.
+- **Écran V3** : les six classes du référentiel (§ 6.7.5.1), communes à la Favorabilité et à la Confiance : 0–19 Très faible, 20–39 Faible, 40–59 Moyen, 60–74 Bon, 75–89 Très bon, 90–100 Excellent. « Favorables » = 75 et plus, sécurité permise, pas « à vérifier » (VALIDÉE, V3-021).
+- **Application en ligne** : les paliers V2 (75, 65, 55, 45) restent jusqu'à l'intégration (registre V2).
 
 ## 4. Ce que la Confiance mesure
 
@@ -51,7 +53,7 @@ Six dimensions, chacune notée de 0 à 100 par une règle écrite, toutes visibl
 
 | Dimension | Règle provisoire | Source de la règle |
 | --- | --- | --- |
-| Données : fraîcheur et échéance | âge de la prévision < 6 h : 100 ; < 24 h : 50 ; au-delà : 0. Jour même : 100 ; J+1 à J+2 : de 100 à 67 ; J+3 et au-delà : 50 ; on garde la plus basse des deux | Règles V2 (`confidenceV2` l. 270-277), N4 |
+| Données : fraîcheur et échéance | âge de la prévision < 6 h : 100 ; < 24 h : 50 ; au-delà : 0. Jour même : 100 ; J+1 : 83 ; J+2 : 67 ; J+3 et au-delà : 50 ; on garde la plus basse des deux | Règles V2 (`confidenceV2` l. 270-277), N4 |
 | Couverture | 100 × part des maximums de critères connus | V2 l. 278, N4 |
 | Accord des modèles | AROME contre ECMWF, sur la force et la direction du vent (règle V2, ramenée à 100) ; un seul modèle : 50, accord inconnu | V2 l. 282-292 ; le 50 est un choix provisoire |
 | Preuves des règles | moyenne des niveaux de preuve des critères pondérée par leur maximum (N1 100, N2 80, N3 60, N4 40, N5 20), et niveau de la présence (N4 : 40) ; on garde la plus basse des deux | Échelle V2 `NIVEAU_FACTEUR` |
@@ -76,6 +78,7 @@ Conséquence chiffrée, sans données : la présence est N4, donc « preuves des
 | Aucune note « — » | moins de la moitié des maximums connue ; fenêtre non déterminable ; ou sécurité DANGER ou BLOCKED (« Non recommandé », raison écrite) | « — », avec la raison |
 
 - La Confiance ne déplace jamais la valeur ni le rang.
+- **Fourchette et jauge.** La jauge du § 6.7.5.1 montre une seule valeur, et son chiffre, sa longueur et sa couleur doivent correspondre. Une fourchette demande donc un état de jauge à dessiner (phases 9 et 12). Le filtre « Favorables » lit la borne basse.
 - La Confiance ne peut que faire passer d'un nombre à une fourchette.
 - Le seuil de 10 points est provisoire (D6-02).
 

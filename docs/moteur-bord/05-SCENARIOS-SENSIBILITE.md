@@ -45,22 +45,23 @@ Les dix-huit propriétés sont tenues.
 
 Sur les 47 520 créneaux, le poids de chaque critère est changé de ±40 %, l'amplitude d'une hypothèse de niveau 4. Le facteur de présence est rapproché de 1 (×0,6) ou éloigné (×1,4).
 
-| Essai | Écart moyen (points) | Écart au 95ᵉ centile | Créneaux qui changent de palier | Spearman avec la base |
-| --- | --- | --- | --- | --- |
-| Fenêtre −40 % / +40 % | 2,1 / 1,7 | 5 / 4 | 15 % / 14 % | 0,99 / 1,00 |
-| Coefficient −40 % / +40 % | 2,4 / 2,1 | 5 / 4 | 18 % / 17 % | 0,99 / 0,99 |
-| Lumière −40 % / +40 % | 2,0 / 1,7 | 5 / 4 | 16 % / 15 % | 0,99 / 0,99 |
-| Vent −40 % / +40 % | 2,0 / 1,6 | 5 / 4 | 15 % / 12 % | 0,99 / 0,99 |
-| Présence ×0,6 / ×1,4 | 3,9 / 3,9 | 14 / 14 | 22 % / 8 % | 0,96 / 0,99 |
+| Essai | Écart moyen (points) | Écart au 95ᵉ centile | Créneaux qui changent de palier V2 | … de classe d'affichage V3 (§ 6.7.5.1) | Spearman avec la base |
+| --- | --- | --- | --- | --- | --- |
+| Fenêtre −40 % / +40 % | 2,1 / 1,7 | 5 / 4 | 15 % / 14 % | 12 % / 8 % | 0,99 / 1,00 |
+| Coefficient −40 % / +40 % | 2,4 / 2,1 | 5 / 4 | 18 % / 17 % | 12 % / 12 % | 0,99 / 0,99 |
+| Lumière −40 % / +40 % | 2,0 / 1,7 | 5 / 4 | 16 % / 15 % | 10 % / 10 % | 0,99 / 0,99 |
+| Vent −40 % / +40 % | 2,0 / 1,6 | 5 / 4 | 15 % / 12 % | 11 % / 10 % | 0,99 / 0,99 |
+| Présence ×0,6 / ×1,4 | 3,9 / 3,9 | 14 / 14 | 22 % / 8 % | 19 % / 21 % | 0,96 / 0,99 |
 
 **Lecture**
 - **Ordre.** L'ordre des créneaux résiste : Spearman ≥ 0,96.
-- **Paliers.** Les paliers ne résistent pas : un seul poids de critère à ±40 % fait changer de palier un créneau sur six ou sept. Des paliers de 10 points sur une note entière sont plus fins que ce que les hypothèses soutiennent (A13).
+- **Paliers.** Les paliers ne résistent pas : un seul poids de critère à ±40 % fait changer de palier V2 un créneau sur six ou sept, et de classe V3 un sur dix environ. Des classes de 10 à 20 points sur une note entière sont plus fines que ce que les hypothèses soutiennent (A13).
 - **Présence.** La présence est l'hypothèse la plus sensible, ce qui confirme la phase 8 V2 (première source de variance, 21,4 %).
 
 ## 3. Stabilité du classement entre spots (E6)
 
 - **Grille** : 672 situations (7 guides × 4 mois × 3 coefficients × aube ou jour × vent d'ouest ou de nord-est × force 2 ou 4), le même vent pour tous les spots d'un guide.
+- **Guides** : de simples conteneurs de données V2, pour comparer des spots proches ; pas un découpage du produit (V3-007).
 - **Tirages** : 300 jeux de paramètres par situation, graine 424242 : chaque poids de critère entre ×0,6 et ×1,4, et la présence entre k 0,6 et 1,4. La météo n'est pas perturbée.
 
 | Mesure | Valeur |
