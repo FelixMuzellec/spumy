@@ -26,7 +26,7 @@
 
 ## Dépôt
 
-- Jamais de commit ni de push sur `main`. Une branche par phase (`claude/v3-phase-N`), proposition en brouillon, fusion seulement avec l'accord explicite de Félix (fusionner `main` = publier : GitHub Pages publie `main`).
+- Jamais de commit ni de push sur `main`. Une branche par phase, `claude/v3-phase-NN-sujet` (deux chiffres, sujet court en minuscules sans accents ; hors phase : `claude/v3-suivi-sujet` ; modèle et correspondance des anciens noms : `docs/BRANCHES.md`, Félix, 24 nov. 2026), proposition en brouillon, fusion seulement avec l'accord explicite de Félix (fusionner `main` = publier : GitHub Pages publie `main`).
 - Commits atomiques. Messages terminés par les deux lignes d'attribution de la session.
 - Aucun secret dans le dépôt, ni coordonnée de spot personnel. Un jeton d'accès donné en clair dans une conversation n'est jamais utilisé ni stocké.
 

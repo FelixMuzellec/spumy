@@ -143,7 +143,9 @@ Interruption du 24 nov. 2026 vers 6 h 20 : arrêt de l'environnement pendant un 
 
 ## Prochaine action
 
-**Phase 6 VALIDATED (par délégation, à confirmer par Félix), 24 nov. 2026.** Les tâches de la nuit du 24 au 25 nov. ont été supprimées. À la demande de Félix (24 nov., 11 h 04), la phase 7 est planifiée le **jeudi 26 nov. 2026 à 8 h 01**, en une seule tâche, sans relance de secours. Elle part du jeton conditionnel de Félix, sur la branche `claude/v3-phase-7` partie de `claude/v3-phase-6`, dans le périmètre exact du référentiel. Les priorités, dans l'ordre :
+**Noms des branches (Félix, 24 nov. 2026, 21 h 45)** : modèle `claude/<programme>-phase-<NN>-<sujet>` (`docs/BRANCHES.md`). Les 20 branches existantes gardent leur ancien nom tant que Félix n'a pas lancé `scripts/renommer-branches.sh` : le relais Git de la session refuse le renommage. Avant toute action, vérifier lequel des deux noms existe (`git ls-remote --heads origin`).
+
+**Phase 6 VALIDATED (par délégation, à confirmer par Félix), 24 nov. 2026.** Les tâches de la nuit du 24 au 25 nov. ont été supprimées. À la demande de Félix (24 nov., 11 h 04), la phase 7 est planifiée le **jeudi 26 nov. 2026 à 8 h 01**, en une seule tâche, sans relance de secours. Elle part du jeton conditionnel de Félix, sur la branche `claude/v3-phase-07-enrichissement-halieutique`, partie de la branche de la phase 6 (`claude/v3-phase-06-moteur-bord`, ou `claude/v3-phase-6` si le renommage n'a pas encore été fait), dans le périmètre exact du référentiel. Les priorités, dans l'ordre :
 1. Revue scientifique régionale du comportement et de l'alimentation du bar, en Bretagne et dans le Cotentin jusqu'à Cherbourg (Félix, 24 nov., 10 h 57).
 2. Données de sécurité des fiches (rapport de phase 6 § 13). Jamais de phase 8 sans son jeton. Outil de sauvegarde des passages CI : `scripts/sauver-collecte.mjs`.
 
