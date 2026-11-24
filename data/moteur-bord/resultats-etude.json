@@ -382,5 +382,32 @@
    "mediane": 7,
    "q95": 11
   }
+ },
+ "e7_defautsMoteurV2": {
+  "houleInconnueRetireLeVent": {
+   "spots": 66,
+   "spotsTouches": 55,
+   "ecartNote": {
+    "min": 0,
+    "max": 20,
+    "moyenne": 5.709
+   }
+  },
+  "engagementInconnuDeNuit": {
+   "spotsV2SansEngagement": 0,
+   "spotEssai": "dinan",
+   "engageBloque": true,
+   "inconnuBloque": false,
+   "inconnuAVerifier": false
+  },
+  "seuilsSecuriteMoteur": {
+   "WIND_LIMITS": {
+    "blockForce": 8,
+    "blockGust": 90,
+    "doubtForce": 6,
+    "doubtGust": 60
+   },
+   "HOULE_MARGE": 0.5
+  }
  }
 }

@@ -92,9 +92,10 @@ function e3() {
 // ── Grille de créneaux sur les 66 spots V2 ──
 const MOIS = [[2, 9], [5, 13], [8, 17], [11, 12]];   // mois et température de l'eau de la grille (valeurs d'essai, pas des mesures)
 async function grille() {
-  const lignes = [], classement = [];
+  const lignes = [], classement = [], moteurs = new Map();
   for (const g of GUIDES) {
     const E = await moteur(g);
+    moteurs.set(g, E);
     const dirOf = (angles) => E.DIR16[Math.round((((angles?.[0] ?? 0) % 360) + 360) % 360 / 22.5) % 16];
     for (const s of E.SPOTS) {
       const face = dirOf(s.exposedAngles), dos = dirOf([(s.exposedAngles?.[0] ?? 0) + 180]);
@@ -116,7 +117,7 @@ async function grille() {
       }
     }
   }
-  return { lignes, classement };
+  return { lignes, classement, moteurs };
 }
 
 function e4(G) {
@@ -216,10 +217,35 @@ function e6(G6) {
     a2TailleClasseDeTete: { mediane: quantile(mesure.classeA2, 0.5), q95: quantile(mesure.classeA2, 0.95) } };
 }
 
+
+// ── E7 : deux défauts du moteur V2 mis en évidence sur le vrai moteur (audit, constats A5 et A12) ──
+function e7(moteurs) {
+  // A5 : une houle inconnue retire tout le critère « vent et mer » (30 points) alors que sa valeur ne lit que le vent.
+  let spots = 0, retire = 0; const ecarts = [];
+  const zw = { wind_dir: "O", wind_force: 3, windKnown: true, houle: 0.6, houleKnown: true, sky: "clear" };
+  for (const E of moteurs.values()) for (const s of E.SPOTS) {
+    const win = { priority: "prime", coeff: 70, light: { band: "aube" } }, ctx = { month: 8, sst: 17, sstConf: "modele" };
+    const a = E.favorability(s, win, zw, ctx), b = E.favorability(s, win, { ...zw, houleKnown: false }, ctx);
+    spots++;
+    if (b.excluded.some((x) => x.k === "vent" && /houle/.test(x.why))) { retire++; ecarts.push(b.fav - a.fav); }
+  }
+  // A12 : un niveau d'engagement absent est lu comme « non engagé » : la nuit n'est pas bloquée.
+  const E = moteurs.get("crozon") || [...moteurs.values()][0];
+  const s0 = E.SPOTS.find((s) => s.dangerLevel >= 3) || E.SPOTS[0];
+  const nuit = { priority: "prime", coeff: 70, light: { band: "nuit" } }, calme = { wind_dir: "O", wind_force: 2, wind_kmh: 10, gust_kmh: 20, windKnown: true, houle: 0.5, houleKnown: true };
+  const engage = E.windowSafety({ ...s0, dangerLevel: 3 }, nuit, calme, { coeff: 70 });
+  const inconnu = E.windowSafety({ ...s0, dangerLevel: undefined }, nuit, calme, { coeff: 70 });
+  return {
+    houleInconnueRetireLeVent: { spots, spotsTouches: retire, ecartNote: { min: Math.min(...ecarts), max: Math.max(...ecarts), moyenne: r3(moy(ecarts)) } },
+    engagementInconnuDeNuit: { spotsV2SansEngagement: [...moteurs.values()].reduce((n, M) => n + M.SPOTS.filter((x) => !Number.isFinite(x.dangerLevel)).length, 0), spotEssai: s0.id, engageBloque: !!engage.block, inconnuBloque: !!inconnu.block, inconnuAVerifier: (inconnu.verify || []).length > 0 },
+    seuilsSecuriteMoteur: { WIND_LIMITS: E.WIND_LIMITS, HOULE_MARGE: E.HOULE_MARGE },
+  };
+}
+
 export async function etude() {
-  const { lignes: G, classement: G6 } = await grille();
+  const { lignes: G, classement: G6, moteurs } = await grille();
   return { "//": "Étude PROVISOIRE de la phase 6 V3 : structure et robustesse, jamais une précision terrain (aucune vérité terrain ici). Régénérer : node scripts/etude-moteur-bord/etude.mjs",
-    e1_identitesZINB: e1(), e2_gammaPoissonContreExact: e2(), e3_identifiabilite: e3(), e4_architectures: e4(G), e5_sensibilite: e5(G), e6_stabiliteClassement: e6(G6) };
+    e1_identitesZINB: e1(), e2_gammaPoissonContreExact: e2(), e3_identifiabilite: e3(), e4_architectures: e4(G), e5_sensibilite: e5(G), e6_stabiliteClassement: e6(G6), e7_defautsMoteurV2: e7(moteurs) };
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

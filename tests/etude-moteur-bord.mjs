@@ -8,6 +8,7 @@ import { etude } from "../scripts/etude-moteur-bord/etude.mjs";
 import { classer, TRAJET_MAX_MIN, PROCHE_MIN } from "../scripts/etude-moteur-bord/classement.mjs";
 import { a1, bV2 } from "../scripts/etude-moteur-bord/architectures.mjs";
 import { pAuMoinsUne, zeroStructurel, pZINB } from "../scripts/etude-moteur-bord/zinb.mjs";
+import { etatSecurite, WIND_LIMITS, HOULE_MARGE } from "../scripts/etude-moteur-bord/securite.mjs";
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 let pass = 0, fail = 0;
@@ -68,9 +69,31 @@ const ordres = (o) => JSON.stringify([ids(o.top), ids(o.documentes), ids(o.aVeri
 t("classement : changer toutes les Confiances ne change ni l'éligibilité ni l'ordre", ordres(conf) === ordres(classer(base.map((s) => ({ ...s, confiance: 0 })))) && ordres(conf) === ordres(r));
 const egal = classer([S("a", { fav: 80 }), S("b", { fav: 70 }), S("c", { fav: 70, trajetMin: 10 }), S("d", { fav: 70 }), S("e", { fav: 70 }), S("f", { fav: 70 }), S("g", { fav: 70 })]);
 t("classement : égalité stricte au troisième rang : jusqu'à cinq spots, les autres signalés", egal.top.length === 5 && egal.autresAEgalite.length === 2);
-const loin = classer([S("a", { fav: 80 }), S("b", { fav: 79 }), S("c", { fav: 78 }), S("p", { fav: 50, trajetMin: 14 })]);
+const loin = classer([S("a", { fav: 80 }), S("b", { fav: 79 }), S("c", { fav: 78 }), S("p", { fav: 50, trajetMin: 14, trajetVerifie: true })]);
 const res = loin.top.find((s) => s.id === "p");
-t(`classement : place réservée à un spot à ${PROCHE_MIN} min ou moins, sans bonus de Favorabilité`, loin.top.length === 3 && res?.placeReservee === true && res.fav === 50);
+t(`classement : place réservée à un spot à ${PROCHE_MIN} min ou moins de route vérifiée, sans bonus de Favorabilité`, loin.top.length === 3 && res?.placeReservee === true && res.fav === 50 && loin.deplacesParLaPlaceReservee.join() === "c");
+const estime = classer([S("a", { fav: 80 }), S("b", { fav: 79 }), S("c", { fav: 78 }), S("p", { fav: 50, trajetMin: 14, trajetVerifie: false })]);
+t("classement : un temps de route seulement estimé ne donne pas la place réservée", !estime.top.some((s) => s.placeReservee) && ids(estime.top).join() === "a,b,c");
+const procheAV = classer([S("a", { fav: 80 }), S("b", { fav: 79 }), S("c", { fav: 78 }), S("p", { fav: 50, trajetMin: 5, trajetVerifie: true, securite: "INSUFFICIENT_DATA" })]);
+t("classement : la place réservée ne va jamais à un spot « à vérifier »", !procheAV.top.some((s) => s.id === "p"));
+const bord = classer([S("a", { trajetMin: 60 }), S("b", { trajetMin: 61 })]);
+t("classement : 60 min de route gardé, 61 min exclu (V3-007)", ids(bord.documentes).join() === "a" && bord.exclus[0]?.id === "b");
+
+// Contrat de sécurité BORD proposé (§ 9.5)
+const C0 = { ventConnu: true, force: 3, rafalesKmh: 40, directionConnue: true, coteOuverte: true, houleConnue: true, houleM: 1, houleMaxM: 1.5, engagement: 2, coef: 70, coefMaxDur: null, isolement: false, nuit: false, fermetureOfficielle: false };
+const E = (o) => etatSecurite({ ...C0, ...o }).etat;
+t("sécurité : conditions connues et sous les seuils : SAFE", E({}) === "SAFE");
+t("sécurité : force 8 ou rafales 90 km/h : DANGER ; force 6 ou rafales 60 km/h : CAUTION (seuils V2 validés)", E({ force: 8 }) === "DANGER" && E({ rafalesKmh: 90 }) === "DANGER" && E({ force: 6 }) === "CAUTION" && E({ rafalesKmh: 60 }) === "CAUTION");
+t("sécurité : vent, rafales ou houle inconnus en côte ouverte : INSUFFICIENT_DATA, jamais SAFE", E({ ventConnu: false }) === "INSUFFICIENT_DATA" && E({ rafalesKmh: null }) === "INSUFFICIENT_DATA" && E({ houleConnue: false }) === "INSUFFICIENT_DATA");
+t("sécurité : engagement inconnu de nuit : INSUFFICIENT_DATA (la V2 le laissait passer) ; engagé de nuit : DANGER", E({ engagement: null, nuit: true }) === "INSUFFICIENT_DATA" && E({ engagement: 3, nuit: true }) === "DANGER");
+t("sécurité : houle au-dessus du maximum : CAUTION jusqu'à +0,5 m, DANGER au-delà ou sur un spot engagé", E({ houleM: 1.8 }) === "CAUTION" && E({ houleM: 2.1 }) === "DANGER" && E({ houleM: 1.8, engagement: 3 }) === "DANGER");
+t("sécurité : isolement par le flot ou coefficient au-delà de la limite : DANGER ; accès selon la marée inconnu : INSUFFICIENT_DATA", E({ isolement: true }) === "DANGER" && E({ coef: 100, coefMaxDur: 95 }) === "DANGER" && E({ isolement: null }) === "INSUFFICIENT_DATA");
+t("sécurité : fermeture officielle à la date : BLOCKED, quelle que soit la météo", E({ fermetureOfficielle: true }) === "BLOCKED");
+t("sécurité : l'état le plus sévère l'emporte et toutes les raisons restent listées", (() => { const x = etatSecurite({ ...C0, force: 6, ventConnu: true, isolement: null }); return x.etat === "INSUFFICIENT_DATA" && x.raisons.length === 2; })());
+const e7 = R.e7_defautsMoteurV2;
+t("sécurité : seuils du contrat proposé égaux à ceux du moteur V2", JSON.stringify(e7.seuilsSecuriteMoteur) === JSON.stringify({ WIND_LIMITS, HOULE_MARGE }));
+t("audit A12 : sur le vrai moteur V2, un engagement absent laisse passer la nuit (défaut à ne pas reprendre)", e7.engagementInconnuDeNuit.engageBloque && !e7.engagementInconnuDeNuit.inconnuBloque && e7.engagementInconnuDeNuit.spotsV2SansEngagement === 0);
+t("audit A5 : sur le vrai moteur V2, une houle inconnue retire le critère vent, qui ne lit pourtant que le vent", e7.houleInconnueRetireLeVent.spotsTouches > 0 && e7.houleInconnueRetireLeVent.ecartNote.max > 0);
 
 console.log(`[étude moteur BORD] identités, Gamma–Poisson, identifiabilité, architectures, classement : ${pass}/${pass + fail}`);
 process.exit(fail ? 1 : 0);
