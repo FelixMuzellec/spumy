@@ -9,22 +9,24 @@ Phase 6 V3, 24 nov. 2026. Statut : **PROVISOIRE**.
 
 ## 1. Scénarios et fixtures (E8)
 
-Vingt et un scénarios joués sur des spots réels des guides, sur le vrai moteur V2, sur l'architecture A1 et sur le contrat de sécurité proposé.
+Vingt-quatre scénarios joués sur des spots réels des guides, sur le vrai moteur V2, sur l'architecture A1 et sur le contrat de sécurité proposé.
 
 - **Spots** :
   - Dinan, à Crozon : côte rocheuse ouverte, poste engagé, plage utile du coefficient de 60 à 95 ;
-  - Mousterlin : fiche assez documentée pour être SAFE ;
+  - Mousterlin : isolement au flot connu, sans fenêtre de sécurité documentée ;
+  - Térénez : seule règle V2 d'isolement, selon le coefficient ;
   - Pentrez : plage ;
   - Portbail : havre hors rade ;
   - Moulin Mer : rade.
 - **Données de sécurité** : celles de la fiche V3 de chaque spot (engagement, houle maximale, accès selon la marée, réglementation locale lue) et les consignes V2 du guide.
+- **Hypothèse d'essai déclarée** : aucune fiche ne peut être SAFE aujourd'hui (`e9`). Pour éprouver les règles de vent, de houle et de prudence, S12, S13, S15, S21 et S22 supposent la fenêtre de sécurité de Mousterlin documentée et le créneau hors du flot (`supposeDocumente` dans la fixture). S23 rejoue Mousterlin tel que sa fiche le décrit.
 - **Valeurs d'essai par défaut** :
   - août, eau à 17 °C ;
   - fenêtre « prime », coefficient 70, aube ;
   - vent de mer force 3, houle 0,6 m ;
   - rafales 40 km/h.
 
-Les vingt et une propriétés sont tenues.
+Les vingt-quatre propriétés sont tenues.
 
 | N° | Famille | Scénario | Résultat (V2 ; A1 ; sécurité) | Propriété vérifiée |
 | --- | --- | --- | --- | --- |
@@ -39,21 +41,24 @@ Les vingt et une propriétés sont tenues.
 | S09 | données manquantes | Vent inconnu | V2 100 (renormalisé) ; A1 de 70 à 100, qualitatif ; INSUFFICIENT_DATA | V2 dans l'intervalle A1, qui n'est pas publié en nombre |
 | S10 | données manquantes | Houle inconnue en côte ouverte | V2 100, vent retiré ; A1 de 70 à 100 (hérite de A5) ; DANGER (poste engagé) | A5 ; la sécurité ne passe pas au vert |
 | S11 | données manquantes | Eau inconnue en mai, réellement à 10,5 °C | V2 95 contre 75 avec l'eau réelle ; A1 de 30 à 95, qualitatif | une eau inconnue remonte la note V2 de 20 points (A6) ; A1 ne note pas |
-| S12 | données contradictoires | AROME force 3, ECMWF force 6 (Mousterlin) | CAUTION ; le même spot sans désaccord est SAFE (S21) | la sécurité lit le plus fort des deux modèles (D6-14) |
-| S13 | météo changeante | Le vent forcit à 7 pendant la fenêtre (Mousterlin) | CAUTION | la sécurité lit la pire heure du créneau |
+| S12 | données contradictoires | AROME force 3, ECMWF force 6 (Mousterlin, hypothèse d'essai) | CAUTION ; le même spot sans désaccord est SAFE (S21) | la sécurité lit le plus fort des deux modèles (D6-14) |
+| S13 | météo changeante | Le vent forcit à 7 pendant la fenêtre (Mousterlin, hypothèse d'essai) | CAUTION | la sécurité lit la pire heure du créneau |
 | S14 | sécurité | Nuit, engagement inconnu (cas d'une fiche V3 candidate) | V2 90 ; INSUFFICIENT_DATA (engagement, nuit, accès) | jamais SAFE (A12) |
-| S15 | sécurité | Houle 2,2 m pour un maximum de 1,6 m (Mousterlin) | V2 100 ; DANGER | absent du Top quelle que soit la note |
+| S15 | sécurité | Houle 2,2 m pour un maximum de 1,6 m (Mousterlin, hypothèse d'essai) | V2 100 ; DANGER | absent du Top quelle que soit la note |
 | S16 | même conditions, saisons différentes | Le même créneau en février, mai, août, novembre | 50, 92, 100, 92 | la note suit la présence ; propriété structurelle du produit |
 | S17 | même saison, conditions différentes | Vent de terre force 3 au lieu du vent de mer | 80 contre 100 | vent de mer au-dessus du vent de terre (règle N2) |
 | S18 | classement | Champs de Pertinence et de boîte ajoutés | ordre inchangé | REC-02, REC-10 ; doublé d'un garde-fou sur le code |
 | S19 | données de la fiche | Plage de Pentrez par beau temps, accès selon la marée INCONNU | V2 98 ; INSUFFICIENT_DATA | jamais SAFE par beau temps quand la fiche ignore l'accès selon la marée (D6-15) |
 | S20 | habitat | Havre de Portbail, hors rade, houle inconnue | INSUFFICIENT_DATA (houle, réglementation non lue) | un havre hors rade est en côte ouverte (définition V2) |
-| S21 | témoin | Mousterlin, conditions connues sous les seuils | 100 ; SAFE | un poste documenté peut être SAFE |
+| S21 | témoin | Mousterlin, conditions connues sous les seuils (hypothèse d'essai) | 100 ; SAFE, « Aucune alerte connue » | un poste documenté pourrait être SAFE ; jamais un vert |
+| S22 | prudence V2 | Mousterlin au coefficient 100 : « la mer qui monte coupe le retour » est active (hypothèse d'essai) | 80 ; SAFE, « Prudence » et la consigne | même libellé qu'en V2, sans changer l'état ni le rang (D6-19) |
+| S23 | données de la fiche | Mousterlin tel que sa fiche le décrit : isolement au flot connu, sans fenêtre de sécurité | 100 ; INSUFFICIENT_DATA, pour cette seule raison | une contrainte de marée non située n'est jamais SAFE (D6-21) |
+| S24 | sécurité | Térénez au coefficient 100 : règle V2 d'isolement active | 66 ; DANGER (isolement, et coefficient au-delà de la limite) | règle V2 reprise |
 
 - **Le constat principal** :
   - sur Dinan, tous les scénarios sont INSUFFICIENT_DATA ou DANGER, parce que la fiche ignore l'accès selon la marée ;
-  - c'est le cas de 90 fiches sur 98 (`e9`, D6-15) ;
-  - les règles de vent et de houle se vérifient sur Mousterlin, l'une des 8 fiches assez documentées.
+  - sur Mousterlin, l'accès est connu, mais la contrainte (« la mer qui monte coupe le retour ») n'est située par aucune fenêtre de sécurité : INSUFFICIENT_DATA aussi (S23) ;
+  - aucune des 98 fiches ne peut donc être SAFE aujourd'hui (`e9`, D6-15, D6-21). Les règles de vent, de houle et de prudence ne s'éprouvent que sous l'hypothèse d'essai déclarée.
 - **Périmètre.** Les quatre saisons, les transitions, quatre habitats (côte rocheuse ouverte, plage, rade, havre hors rade), les températures atypiques, la compensation, les données manquantes et contradictoires, la météo qui change et la sécurité sont couverts.
 - **À ajouter en phase 8.** Les phases de marée réelles (fenêtres reconstruites sur de vraies journées) et les fronts observés demandent des journées archivées. La phase 8 V2 en a téléchargé 252 : elles serviront à rejouer ces scénarios.
 

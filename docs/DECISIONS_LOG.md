@@ -36,7 +36,7 @@ Format ADR. Le registre des exigences (`docs/REQUIREMENTS.md`) et la vision (`do
 | V3-028 | Prototype version 6 d'après les maquettes de Félix : Home, Carte vue pêche, Météo vue conditions ; slogan autorisé ; Shore / Offshore ; finition et qualité d'information « top tier » ; pas de retour sur ce qui est validé | VALIDÉE (Félix, 23 nov. 2026, 5 h 58 à 6 h 22) ; réalisation au feu vert |
 | V3-029 | Finalité des onglets : Carte = typologie du terrain et ses effets sur la pêche du bar ; Météo = chaque élément météo et son effet, expliqués scientifiquement ; toujours du général au spécifique | VALIDÉE (Félix, 23 nov. 2026, 6 h 59 et 7 h 03) |
 | V3-030 | Juger les notes de SPUMY sur le journal de sorties et faire s'affiner le modèle, par la boucle contrôlée du référentiel | VALIDÉE (Félix, 23 nov. 2026, 8 h 11) |
-| V3-031 | Moteur BORD : 20 questions de conception provisoires (D6-01 à D6-20), à arbitrer après les phases 8 et 9 | À DÉCIDER (phase 6, 24 nov. 2026) |
+| V3-031 | Moteur BORD : 21 questions de conception provisoires (D6-01 à D6-21), à arbitrer après les phases 8 et 9 | À DÉCIDER (phase 6, 24 nov. 2026) |
 | — | Jeton « APPROVED — PROCEED TO PHASE 4 » (23 nov. 2026, 13 h 50) : phase 3 VALIDATED, version 6.2 du prototype comprise (accord lu dans la demande du jeton, INFÉRÉ) ; critères de recette CR-01 à CR-16 du prototype pris comme critères de l'intégration (phases 10 à 12) | VALIDÉE |
 | — | Réponses de Félix au rapport de phase 4 (23 nov. 2026, 14 h 54) : protection de `main` « oui » (pose toujours refusée par le relais de la session, HTTP 403, à faire par Félix) ; étalonnage IGN reporté « si c'est la meilleure option » (oui : il exige les points d'accès audités en phase 5 et l'adaptateur IGN ; le test CORS et joignabilité de l'IGN, promis en phase 4 par le rapport de phase 2, n'est pas reporté) ; ESLint et épinglage des actions maintenant « si c'est la meilleure solution technique » (oui : ESLint 10, la 9 étant en fin de vie depuis le 6 août 2026) ; fusions des phases 2 à 4 attendues jusqu'à l'intégration de la V3 « oui » | VALIDÉE |
 | — | Réponses de Félix du 23 nov. 2026 (19 h 07, « Oui » aux recommandations) : V3-019 (étiquette `v2-final`, branches gardées) ; **D-11 : 48 px** au moins par zone invisible, appliqué à l'intégration (le prototype 6.2 reste à 44 px) ; **D-15 : export aux deux endroits**, même action (Journal ; Profil, Mes données), T6 pour confirmer ; **Dependabot** pour les actions GitHub seulement (mensuel, groupé, attente de 7 jours), actif à la fusion dans `main` ; **IGN** : politique de résilience chiffrée, validation des réponses, étalonnage mesuré avec marge autour de 60 min, contrat enrichi (V3-009 complétée, non modifiée) | VALIDÉE |
@@ -441,10 +441,11 @@ Reprises telles quelles tant qu'aucune décision V3 ne les révise (source : `do
     - D6-12 probabilité de capture non affichée ;
     - D6-13 saison dans le moteur 2 ;
     - D6-14 désaccord des modèles dans la sécurité ;
-    - D6-15 données de sécurité INCONNUES dans la fiche (impact mesuré : 8 fiches sur 98 peuvent être SAFE avec les données actuelles ; changement du comportement V2) ;
+    - D6-15 données de sécurité INCONNUES dans la fiche (impact mesuré, avec D6-21 : aucune fiche sur 98 ne peut être SAFE avec les données actuelles ; changement du comportement V2) ;
     - D6-16 facteurs du § 9.5 non évalués ;
     - D6-17 valeurs des dimensions de Confiance inconnues ;
     - D6-18 règles de classement nouvelles ;
-    - D6-19 prudences V2 sans changement d'état ;
-    - D6-20 vigilance Météo-France une fois lue.
+    - D6-19 prudences V2 : libellé « Prudence », sans changement d'état (comme en V2) ;
+    - D6-20 vigilance Météo-France une fois lue ;
+    - D6-21 contrainte de marée connue mais non située par rapport au créneau.
 - **Effet** : aucun sur l'application. Rien n'est implémenté dans `src/` avant l'approbation explicite qui suit la phase 9. Les décisions validées (V3-006, V3-007, V3-016, V3-021, paliers gardés jusqu'à la phase 8) sont reprises telles quelles.

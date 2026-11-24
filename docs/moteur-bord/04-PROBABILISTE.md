@@ -4,7 +4,7 @@ Phase 6 V3, 24 nov. 2026. Statut : **PROVISOIRE**. Ce document examine le modèl
 
 - **Code** : `scripts/etude-moteur-bord/zinb.mjs`.
 - **Calculs** : expériences E1 à E3 de `etude.mjs`, résultats dans `data/moteur-bord/resultats-etude.json`.
-- **Tests** : 19 tests dans `tests/etude-moteur-bord.mjs`.
+- **Tests** : 20 tests dans `tests/etude-moteur-bord.mjs`.
 
 ## 1. Conclusion d'abord
 
@@ -139,6 +139,7 @@ Mêmes 8 sessions fictives : y = 2, 0, 1, 0, 3, 0, 1, 0 et Λ_base de 0,6 à 1,6
 
 1. **θ_x** : posterior en une dimension calculé sur une grille, a priori Gamma(b₀, b₀), vraisemblance ZINB de chaque session (`thetaPosterieur`).
    - Pour ψ et k fixés, c'est le posterior exact. Le calcul est léger : 12 000 points de grille, chacun évaluant toutes les sessions.
+   - ψ et k doivent être donnés : aucun défaut silencieux vers ψ = 1 et k infini (test).
    - Un contrôle de troncature vérifie que la densité au bord de la grille reste négligeable (test).
    - Une bredouille sans qᵢ n'est jamais comptée active par défaut : le calcul s'arrête (test).
    - Le ratio de travail avec qᵢ reste la référence de contrôle, jamais la méthode.
@@ -166,7 +167,7 @@ Mêmes 8 sessions fictives : y = 2, 0, 1, 0, 3, 0, 1, 0 et Λ_base de 0,6 à 1,6
 | Familles de techniques g | familles stables du conseil de leurres (surface, souple, poisson nageur, autres) | λ_env par famille n'est pas estimable avec peu de sessions : famille gardée comme description |
 | Effet pêcheur e^{a_p} | fixé à 1 (usage individuel, § 9.1.8) | aucun apprentissage multi-utilisateurs sans consentement distinct |
 | b₀ | a priori Gamma(b₀, b₀) avec b₀ = 2 dans l'étude : variance a priori 0,5 | à justifier par une sensibilité (b₀ de 1 à 10) |
-| a_ψ, b_ψ | Beta(2, 2) dans l'étude, à remplacer par un a priori de moyenne inférieure à 1 déclarée | à justifier et faire approuver (§ 9.1.9) |
+| a_ψ, b_ψ | Beta(2, 2) dans l'étude (moyenne 0,5) : valeur d'essai, à remplacer par un a priori justifié, de moyenne inférieure à 1 | à justifier et faire approuver (§ 9.1.9) |
 | Biais de sélection du journal | sessions déclarées surtout quand on pense que « ça mord », bredouilles sous-déclarées | bilan obligatoire à l'arrêt (y compris 0) ; résultat inconnu sans effet ; part des sessions sans bilan suivie |
 
 ### 6.4 Ce qui est affiché
@@ -199,8 +200,8 @@ Mêmes 8 sessions fictives : y = 2, 0, 1, 0, 3, 0, 1, 0 et Λ_base de 0,6 à 1,6
 - Poids nuls.
 - Session sans conditions historiques reconstructibles.
 
-Les 19 tests actuels couvrent :
+Les 20 tests actuels couvrent :
 - les identités, la limite de Poisson, la convention de signe et les bornes ;
 - les limites du ratio et le biais simulé ;
-- la garde des bredouilles sans q et le contrôle de troncature ;
+- la garde des bredouilles sans q, l'exigence de ψ et de k, et le contrôle de troncature, appliqué aussi aux 400 jeux simulés ;
 - l'identifiabilité de ψ, de k et de θ.

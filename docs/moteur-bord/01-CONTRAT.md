@@ -2,7 +2,7 @@
 
 Phase 6 V3, 24 nov. 2026. Statut : **PROVISOIRE**.
 - Seuils, poids et formules restent ouverts jusqu'à la revue contradictoire de la phase 8 et à la consolidation de la phase 9.
-- Les questions sont au registre (06, D6-01 à D6-20).
+- Les questions sont au registre (06, D6-01 à D6-21).
 - Les points déjà validés avec Félix sont repris tels quels et signalés (VALIDÉE).
 - L'**ordre des étapes du classement** suit le § 9.1.6 : il est **verrouillé** par cette phase. Les seuils restent provisoires.
 
@@ -64,20 +64,20 @@ La note /100 reste une échelle de synthèse, jamais une probabilité.
   - 75–89 Très bon ;
   - 90–100 Excellent.
 - **« Favorables »** : 75 et plus, sécurité permise, pas « à vérifier » (VALIDÉE, V3-021).
-- **Application en ligne** : les paliers V2 (75, 65, 55, 45) restent jusqu'à l'intégration (registre V2).
+- **Application en ligne** : les paliers V2 (75, 65, 55, 45) sont gardés jusqu'à la phase 8 V3, qui les calibre (registre).
 
 ## 4. Ce que la Confiance mesure
 
-Six dimensions, chacune notée de 0 à 100 par une règle écrite, toutes visibles dans « Pourquoi ? ». Prototype : `confiance.mjs`, 4 tests.
+Six dimensions, chacune notée de 0 à 100 par une règle écrite, toutes visibles dans « Pourquoi ? ». Prototype : `confiance.mjs`, 4 tests ; les six dimensions sont exigées par leur nom.
 
 | Dimension | Règle provisoire | Source de la règle |
 | --- | --- | --- |
-| Données : fraîcheur et échéance | Âge de la prévision < 6 h : 100 ; < 24 h : 50 ; au-delà, ou âge inconnu : 0. Jour même : 100 ; J+1 : 83 ; J+2 : 67 ; J+3 et au-delà : 50. On garde la plus basse des deux | Règles V2 (`confidenceV2` l. 270-277), N4 ; âge inconnu : 0 au lieu de 50 en V2 (D6-17) |
+| Données : fraîcheur et échéance | Âge de la prévision < 6 h : 100 ; < 24 h : 50 ; au-delà, ou âge inconnu : 0. Jour même : 100 ; J+1 : 83 ; J+2 : 67 ; J+3 et au-delà : 50 ; échéance inconnue : 0. On garde la plus basse des deux | Règles V2 (`confidenceV2` l. 270-277), N4 ; âge inconnu : 0 au lieu de 50 en V2 (D6-17) |
 | Couverture | 100 × part des maximums de critères connus | V2 l. 278, N4 |
 | Accord des modèles | AROME contre ECMWF, sur la force et la direction du vent (règle V2, ramenée à 100) ; un seul modèle : 40, sans corroboration | V2 l. 282-292 ; 40 au lieu de 0 en V2 (D6-17) |
 | Preuves des règles | Moyenne des niveaux de preuve des critères pondérée par leur maximum (N1 100, N2 80, N3 60, N4 40, N5 20), et niveau de la présence (N4 : 40). On garde la plus basse des deux | Échelle V2 `NIVEAU_FACTEUR` |
 | Preuves du poste | Qualification de la fiche (`TOP_TIER` 100, `corroboree` 80, `a_verifier` 50, `candidate` 30), qui compte déjà les groupes de sources indépendants (QUAL-1, QUAL-2). Position non contrôlée : 40 au plus | Qualification de la phase 5 |
-| Domaine de validité et précision | 100, moins les extrapolations et l'imprécision déclarées : plancher d'hiver de l'abri utilisé (60) ; régime déduit du type de poste (80) ; eau hors de 7 à 21,5 °C (60) ; maille de l'eau à plus de 15 km du poste (60) | Audit A6 ; `marineMaxKm`, `sstMaxKm` (`src/core/wxcore.js`) ; provisoire |
+| Domaine de validité et précision | 100, moins les extrapolations et l'imprécision déclarées : plancher d'hiver de l'abri utilisé (60) ; régime déduit du type de poste (80) ; eau hors de 7 à 21,5 °C (60) ; eau utilisée dont la maille est à plus de 15 km du poste, ou inconnue (60) | Audit A6 ; `marineMaxKm`, `sstMaxKm` (`src/core/wxcore.js`) ; provisoire |
 
 - **Agrégation provisoire** :
   - la Confiance est la plus basse des six dimensions, et la dimension limitante est nommée (« Confiance moyenne : preuves des règles ») ;
@@ -91,8 +91,8 @@ Six dimensions, chacune notée de 0 à 100 par une règle écrite, toutes visibl
 
 | Niveau publié | Conditions | À l'écran |
 | --- | --- | --- |
-| Nombre | tous les critères et l'eau connus (largeur 0), Confiance moyenne ou haute, fenêtre déterminée | « 72 », avec sa classe d'affichage |
-| Classe d'affichage seule | tout est connu, mais la Confiance est faible | « Bon », sans nombre |
+| Nombre | tous les critères et l'eau connus, déclarés comme tels (jamais déduit d'une largeur nulle), Confiance moyenne ou haute, fenêtre déterminée | « 72 », avec sa classe d'affichage |
+| Classe d'affichage seule | tout est connu, mais la Confiance n'est ni haute ni moyenne (faible ou inconnue) | « Bon », sans nombre |
 | Fourchette | intervalle de 1 à 20 points | « 60 à 75 » |
 | Qualitatif | intervalle de plus de 20 points, au moins la moitié des maximums connue | « au moins Moyen » (classe de la borne basse) |
 | Aucune note « — » | moins de la moitié des maximums connue, ou fenêtre non déterminable | « — », avec la raison ; aucune valeur de rang |
@@ -108,9 +108,14 @@ Six dimensions, chacune notée de 0 à 100 par une règle écrite, toutes visibl
 
 ## 6. Contrat de sécurité BORD (§ 9.5)
 
-Indépendant des deux scores, appliqué avant toute recommandation. Prototype : `securite.mjs`, 14 tests.
+Indépendant des deux scores, appliqué avant toute recommandation. Prototype : `securite.mjs`, 16 tests.
 
-- **Entrées normalisées** : seule une valeur numérique finie compte comme connue ; un oui-non absent est inconnu.
+- **Entrées normalisées** :
+  - une mesure n'est connue que si c'est un nombre fini et physiquement possible (≥ 0) ;
+  - les heures du créneau ne sont connues que si chacune l'est ;
+  - le second modèle peut manquer (la Confiance le dit), mais s'il est déclaré sans valeur, la mesure devient inconnue ;
+  - une limite ou un maximum de la fiche est un seul nombre, jamais un texte : illisible, il compte comme inconnu ;
+  - un oui-non absent est inconnu.
 - **Côte ouverte** : tout ce qui n'est pas une rade connue (définition V2, `isRade`). Un havre ou une embouchure hors rade est en côte ouverte ; un poste dont la situation est inconnue aussi.
 
 | État | Quand (règles V2 existantes ou contrat V3, aucune valeur inventée) | Source |
@@ -119,31 +124,44 @@ Indépendant des deux scores, appliqué avant toute recommandation. Prototype : 
 | DANGER | Vent moyen force 8 et plus, ou rafales de 90 km/h et plus | `filtre-vent` N1 (Météo-France) |
 | DANGER | Houle au-delà du maximum du poste + 0,5 m, ou au-delà du maximum sur un poste engagé ; houle inconnue sur un poste engagé | Règle V2, maximums N4 |
 | DANGER | Coefficient au-delà de la limite de courant documentée ; isolement par le flot pendant le créneau ; nuit sur un poste engagé | Fiche du poste ; règle V2 validée |
-| INSUFFICIENT_DATA | Vent, rafales, direction (force 2 et plus) ou houle (côte ouverte) inconnus ou illisibles ; maximum de houle inconnu en côte ouverte ; engagement inconnu ; accès selon la marée inconnu ; coefficient inconnu face à une limite documentée ; nuit, ou heure de lever ou de coucher inconnue, sur un poste engagé ou d'engagement inconnu ; réglementation locale non lue, ou application au poste « à vérifier » (exemple : la fermeture du bar au cap Fréhel, du 1er mars au 31 mai, dont l'application au poste reste à vérifier) | § 9.5 ; audit A12 ; D6-15 |
+| INSUFFICIENT_DATA | Vent, rafales, direction (force 2 et plus) ou houle (côte ouverte) inconnus ou illisibles ; maximum de houle inconnu en côte ouverte ; engagement inconnu ; accès selon la marée inconnu ; **contrainte de marée connue (isolement au flot, poste submersible, praticable à basse mer seulement) que rien ne situe par rapport au créneau** ; coefficient inconnu ou limite illisible face à une limite documentée ; nuit, ou heure de lever ou de coucher inconnue, sur un poste engagé ou d'engagement inconnu ; réglementation locale non lue, ou application au poste « à vérifier » (exemple : la fermeture du bar au cap Fréhel, du 1er mars au 31 mai, dont l'application au poste reste à vérifier) | § 9.5 ; audit A12 ; D6-15, D6-21 |
 | CAUTION | Force 6 ou 7, ou rafales de 60 à 89 km/h ; houle au-dessus du maximum de 0,5 m au plus sur un poste non engagé | Prudence validée par Félix le 13 nov. 2026 |
 | SAFE | Aucune des règles ci-dessus | « Aucune alerte connue sur les facteurs évalués » : ce n'est pas « sûr » ; « vérifie sur place » reste affiché |
+
+**Niveau affiché**, au premier niveau de la carte :
+- « Non recommandé » pour DANGER et BLOCKED ;
+- « À vérifier » pour INSUFFICIENT_DATA et CAUTION ;
+- « Prudence » pour un état SAFE avec des prudences ;
+- « Aucune alerte connue » pour un état SAFE sans prudence.
+
+Jamais un vert, jamais le mot « sûr » (SEC-02).
 
 - **Résultat** :
   - l'état le plus sévère, dans l'ordre BLOCKED, DANGER, INSUFFICIENT_DATA, CAUTION, SAFE (provisoire, D6-09) ;
   - `blocking_reasons[]` avec toutes les raisons, chacune avec sa règle et sa source ;
   - les données utilisées, avec leur heure.
 - **Prudences V2, reprises telles quelles (D6-19)** : consignes actives de la fiche (par exemple « la mer qui monte coupe le retour »), poste engagé, nuit sur un poste de niveau 2.
-  - Elles sont affichées au premier niveau (SEC-04), comme l'indicateur « prudence » de la V2 (`safetyOf`).
-  - Elles ne changent ni l'état ni le rang, comme en V2. Les classer en CAUTION retirerait du Top documenté les 16 spots engagés : c'est l'option à arbitrer.
+  - Elles donnent le libellé « Prudence » au premier niveau (SEC-04), comme l'indicateur de la V2 (`safetyOf`), et chaque prudence est écrite.
+  - Elles ne changent ni l'état ni le rang, comme en V2 (scénario S22).
+  - L'autre option, les classer en CAUTION, retirerait du Top documenté les 16 spots engagés.
 - **Facteurs du § 9.5 non évalués**, toujours listés avec l'état :
   - période et direction de la houle ;
+  - exposition et orientation du poste ;
   - ressac et rochers glissants ;
+  - mouvements de terrain (INCONNUS sur 54 fiches ; recensés par Géorisques sur les autres, sans règle d'état) ;
   - échappatoire et repli ;
   - visibilité ;
   - limite de courant quand la fiche n'en documente pas (92 fiches sur 98).
   - Les traiter comme inconnus rendrait tous les postes INSUFFICIENT_DATA pour toujours (D6-16).
-- **Impact mesuré (D6-15)** : avec les données de sécurité actuelles des fiches, **8 fiches sur 98 seulement peuvent être SAFE un jour**, quelle que soit la météo (`e9`). Ce sont barnenez, carantec, kermorvan, kernic, mousterlin, penmarch, saintemarguerite et terenez. Pour les 90 autres :
-  - l'accès selon la marée est inconnu sur 75 fiches ;
-  - la réglementation locale n'est pas lue sur 35 (dont la Manche) ;
-  - l'engagement est inconnu sur 32 ;
-  - la houle maximale est inconnue sur 32.
-  - En V2, l'absence de règle d'isolement valait « pas d'isolement ». La règle V3 « une donnée de sécurité inconnue n'est jamais au vert » change ce comportement. Ce changement est présenté avec son impact, et la phase 7 doit combler ces données (06, I6-04).
-- **Désaccord des modèles et météo changeante** : la sécurité lit le plus fort des deux modèles et des heures du créneau (D6-14 ; test et scénarios S12, S13).
+  - SEC-02 cite la visibilité parmi les données de sécurité qui ne sont jamais « au vert ». Le contrat s'écarte de sa lettre, et le dit : la visibilité n'est pas évaluée en BORD, elle est listée à côté de l'état, et aucun état n'est jamais affiché en vert.
+- **Impact mesuré (D6-15, D6-21)** : avec les données de sécurité actuelles des fiches, **aucune des 98 fiches ne peut être SAFE**, quelle que soit la météo (`e9`, test).
+  - Accès selon la marée inconnu : 75 fiches.
+  - Accès connu, mais contrainte de marée qu'aucune fenêtre de sécurité documentée ne situe : les 23 autres. Toutes décrivent une contrainte : isolement au flot, poste submersible à pleine mer, praticable à basse mer seulement.
+  - Réglementation locale non lue : 35 fiches, dont la Manche.
+  - Engagement inconnu : 32 fiches ; houle maximale inconnue : 32.
+  - En V2, l'absence de règle d'isolement valait « pas d'isolement », et une contrainte connue n'était qu'une consigne de prudence. La règle V3 « une donnée de sécurité inconnue n'est jamais au vert » change ce comportement : tant que la phase 7 n'a pas documenté ces données, tous les spots BORD sont « à vérifier ».
+  - Ce changement est présenté avec son impact. La phase 7 doit combler ces données en priorité (06, I6-04).
+- **Désaccord des modèles et météo changeante** : la sécurité lit le plus fort des deux modèles et la pire heure du créneau (D6-14 ; tests et scénarios S12, S13).
 - **Vigilance Météo-France** : non lue tant que V3-011 n'est pas réalisé. Un rappel s'affiche toujours, jamais « aucune vigilance ». Proposition pour quand elle sera lue : orange ou rouge vent ou vagues-submersion → DANGER, jaune → CAUTION (D6-20).
 - **Seuils de vent** (Félix, 13 nov. 2026, « à revoir en phase 6 ») : revus. Aucune preuve trouvée ne justifie de les changer :
   - le seuil de non-recommandation suit Météo-France ;
@@ -152,7 +170,7 @@ Indépendant des deux scores, appliqué avant toute recommandation. Prototype : 
 
 ## 7. Règle de classement (§ 9.1.6, § 9.1.7)
 
-Prototype : `classement.mjs`, 12 tests. Ordre des étapes verrouillé.
+Prototype : `classement.mjs`, 13 tests. Ordre des étapes verrouillé. Entrées strictes : un temps de route n'est connu que s'il est un nombre ≥ 0 ; un spot n'est documenté que si chaque champ le dit explicitement.
 
 1. **Sécurité** : DANGER et BLOCKED ne sont pas recommandés (liste à part, avec la raison). INSUFFICIENT_DATA ne vaut jamais SAFE.
 2. **Séparer « à vérifier »** : un spot va dans le groupe « à vérifier » quand l'un de ces cas se présente (liste provisoire, D6-18) :
@@ -219,11 +237,11 @@ Sans connaissance sourcée, une valeur s'affiche sans effet annoncé (MET-05). A
 | REC-01 | Deux indicateurs, aucun composite | § 1 ; audit A7 |
 | REC-02, REC-10 | Pertinence et boîte sans effet | § 2 ; garde-fou structurel ; scénario S18 |
 | REC-03 | Confiance sans effet sur le rang, encadre la publication | § 4, § 5 ; tests d'invariance et de publication |
-| REC-04, REC-05, REC-06 | Ordre, égalité stricte, place réservée | § 7 ; 12 tests |
+| REC-04, REC-05, REC-06 | Ordre, égalité stricte, place réservée | § 7 ; 13 tests |
 | REC-08 | Aucune imputation, couverture affichée, « — » | § 3, § 8 ; audit A2 ; tests |
 | REC-09 | Fenêtre ou « non déterminable » | § 7, § 9 ; audit A3 |
 | REC-11 | Favorabilité sur la biologie, paramètres tracés | § 3 ; documents 02 à 05 |
-| SEC-01, SEC-02, SEC-04 | Sécurité indépendante, inconnu jamais SAFE, poste engagé visible | § 6 ; 14 tests |
+| SEC-01, SEC-02, SEC-04 | Sécurité indépendante, inconnu jamais SAFE, poste engagé visible (libellé « Prudence ») | § 6 ; 16 tests ; écart déclaré sur la visibilité |
 | SEC-05 | Seuils validés avant toute mise en ligne | § 6 ; D6-10 |
 | RTE-01, RTE-02 | 60 min ; estimation marquée | § 7 ; tests |
 | JRN-05 | Aucune conclusion sur trop peu de sorties | document 04 (identifiabilité, critère d'affichage) |
