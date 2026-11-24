@@ -4,13 +4,14 @@ Phase 6 V3, 24 nov. 2026. Statut : **PROVISOIRE**. Ce document examine le modèl
 
 - **Code** : `scripts/etude-moteur-bord/zinb.mjs`.
 - **Calculs** : expériences E1 à E3 de `etude.mjs`, résultats dans `data/moteur-bord/resultats-etude.json`.
-- **Tests** : 14 tests dans `tests/etude-moteur-bord.mjs`.
+- **Tests** : 19 tests dans `tests/etude-moteur-bord.mjs`.
 
 ## 1. Conclusion d'abord
 
 - **Écriture du référentiel** : les formules sont justes, avec la convention π_zero = 1 − ψ (VÉRIFIÉ, § 2).
 - **Ratio Gamma–Poisson** : il n'est le posterior exact que dans le cas Poisson sans excès de zéros. À k fini, il sous-estime l'incertitude. Avec des zéros structurels, le ratio naïf biaise θ vers le bas (VÉRIFIÉ, § 4).
-- **Estimable aujourd'hui** : rien de statistique avec les données disponibles. Le journal compte 3 sessions, et ψ n'est pas identifiable sous quelques dizaines de sessions comparables, même dans le cas le plus favorable (VÉRIFIÉ par simulation, § 5).
+- **Estimable aujourd'hui** : rien de statistique avec les données disponibles. Le journal compte 3 sessions ; ψ n'est pas identifiable sous plusieurs dizaines de sessions comparables, et ψ se confond avec l'effet de poste θ (VÉRIFIÉ par simulation, § 5).
+- **ψ ne se tire pas de la présence P** : P vaut 1 de juin à octobre sur la côte ouverte, ce qui supprimerait tout zéro structurel et ramènerait l'estimateur au ratio naïf, biaisé de −34 à −36 % (§ 4.2, § 6.2).
 - **Décision provisoire (D6-12)** : la probabilité interne de capture n'est ni calculée en production ni affichée. Elle reste un objet d'étude, hors application, jusqu'à ce que les conditions du § 9.1.8 soient réunies et qu'un affichage distinct soit approuvé en phase 9. Elle n'est jamais convertie en Favorabilité.
 
 ## 2. Vérifications mathématiques (E1)
@@ -20,9 +21,10 @@ Phase 6 V3, 24 nov. 2026. Statut : **PROVISOIRE**. Ce document examine le modèl
 | La NB2 de moyenne Λ et de taille k somme à 1, de moyenne Λ, de variance Λ + Λ²/k | sommes sur y = 0 à 399, pour (ψ, Λ, k) = (0,6 ; 0,8 ; 2), (0,9 ; 2,5 ; 0,7), (0,3 ; 0,2 ; 10) | égalités à 10⁻³ près |
 | P(Y = 0) de la NB2 = (k / (k + Λ))^k | même calcul | égalité |
 | P(Y ≥ 1) = ψ [1 − (1 + Λ/k)^(−k)] = 1 − P(Y = 0) du ZINB | même calcul | égalité |
-| Limite k → ∞ : ψ (1 − e^(−Λ)) | écart à k = 1, 10, 100, 10⁴, 10⁸ : 0,107 ; 0,0145 ; 0,0015 ; 1,5 × 10⁻⁵ ; 9,6 × 10⁻¹⁰ | décroissance monotone vers 0 |
+| Limite k → ∞ : ψ (1 − e^(−Λ)) | écart à k = 1, 10, 100, 10⁴ : 0,107 ; 0,0145 ; 0,0015 ; 1,5 × 10⁻⁵ ; à 10⁸, moins de 10⁻⁸ (au niveau de la précision du calcul flottant) | décroissance monotone vers 0 |
 | π_i⁽⁰⁾ (§ 9.1.9) = règle de Bayes (1 − ψ) / P(Y = 0) | même calcul | égalité |
-| Convention : π_zero = 1 − ψ | Λ → 0 : P(Y = 0) = 1 ; ψ = 1, Λ = 0 : P(Y ≥ 1) = 0 | test dédié contre l'inversion silencieuse |
+| Convention : π_zero = 1 − ψ | ψ = 0,6, Λ = 0,8, k = 2 : P(Y = 0) = 0,7061 = 0,4 + 0,6 × (2/2,8)² et P(Y ≥ 1) = 0,2939 ; avec la convention inversée, ces valeurs changent | test dédié contre l'inversion silencieuse (valeurs non dégénérées) |
+| Bornes | ψ = 0 : aucune capture ; 0 ≤ P(Y ≥ 1) ≤ 1 sur une grille de ψ, Λ et k | test |
 | Une capture confirmée exclut le zéro structurel (q = 1) ; ψ = 1 : aucun zéro structurel | `zeroStructurel(1, Λ, k) = 0` | test |
 
 ## 3. Poisson, ZIP, NB, ZINB
@@ -72,30 +74,49 @@ Mêmes 8 sessions fictives : y = 2, 0, 1, 0, 3, 0, 1, 0 et Λ_base de 0,6 à 1,6
 | ψ de travail, a priori Beta(2, 2), mise à jour pondérée par qᵢ | 0,627 |
 
 - **Lecture.** À k fini, le ratio donne presque la bonne moyenne quand k est grand, mais il sous-estime l'incertitude : d'un facteur 1,66 à k = 0,5. Afficher son écart type ferait croire à une précision qui n'existe pas.
-- **Bredouilles.** Le ratio naïf sous-estime θ de 25 % quand une partie des bredouilles sont des zéros structurels. Avec qᵢ, l'écart au posterior exact tombe à 1,2 %.
+- **Bredouilles, sur ce jeu.** Le ratio naïf sous-estime θ de 25 % quand une partie des bredouilles sont des zéros structurels. Avec qᵢ, l'écart au posterior exact tombe à 1,2 %.
+- **Bredouilles, sur 400 jeux simulés** (θ vrai = 1, ψ = 0,6, k = 2, λ = 0,45 par heure, effort de 1 à 4 h, graine 777 ; `e2b`) :
+
+| Sessions par jeu | Ratio naïf (moyenne) | Ratio de travail avec qᵢ | Posterior exact | Écart travail–exact : moyen (maximum) |
+| --- | --- | --- | --- | --- |
+| 8 | 0,66 | 0,95 | 1,01 | 0,08 (0,40) |
+| 40 | 0,64 | 1,02 | 1,05 | 0,03 (0,16) |
+
+  Le biais du ratio naïf ne diminue pas avec le nombre de sessions : c'est un biais, pas du bruit. Le ratio de travail reste un contrôle utile, mais l'écart peut atteindre 0,4 sur peu de sessions : la méthode proposée est le posterior exact (§ 6.2).
 - **Conclusion.** Le § 9.1.9 a raison d'interdire la formule naïve sur des données avec zéros structurels.
 
 ## 5. Identifiabilité (E3)
 
 - **Plan de simulation** :
   - ψ = 0,6 et k = 2 vrais ;
-  - λ = 0,45 capture par heure, connu ;
-  - effort de 1 à 4 h, θ = 1 connu ;
-  - 120 répétitions par taille d'échantillon, graine 20261124.
-- **Estimation** : ψ et k par maximum de vraisemblance sur une grille (ψ de 0,04 à 1 ; k de 0,2 à 10⁶, où 10⁶ vaut le Poisson).
-- **Cas le plus favorable** : en vrai, λ et θ ne sont pas connus, et l'identifiabilité est pire.
+  - deux taux de captures, λ = 0,45 et 1,5 par heure (valeurs d'essai, non sourcées) ;
+  - effort de 1 à 4 h ;
+  - θ = 1 connu ;
+  - 100 répétitions par taille d'échantillon, graine 20261124.
+- **Estimation** : ψ et k par maximum de vraisemblance sur une grille (ψ de 0,04 à 1 ; k de 0,2 à 10⁶). « k ≥ 50 » signifie qu'on ne distingue pas la surdispersion d'un Poisson.
 
-| Sessions | ψ estimé : médiane (5 %–95 %) | Part des estimations de ψ à ±0,15 du vrai | k : médiane | Part où k est pris pour un Poisson |
+| Sessions | ψ à ±0,15 du vrai (λ = 0,45) | k ≥ 50 (λ = 0,45) | ψ à ±0,15 du vrai (λ = 1,5) | k ≥ 50 (λ = 1,5) |
 | --- | --- | --- | --- | --- |
-| 3 | 0,52 (0,04 à 1) | 33 % | Poisson | 53 % |
-| 10 | 0,56 (0,16 à 1) | 34 % | Poisson | 57 % |
-| 40 | 0,60 (0,40 à 0,94) | 68 % | 3 | 30 % |
-| 200 | 0,60 (0,50 à 0,72) | 95 % | 2 | 3 % |
+| 3 | 37 % | 51 % | 28 % | 36 % |
+| 10 | 35 % | 58 % | 62 % | 26 % |
+| 40 | 59 % | 25 % | 85 % | 4 % |
+| 80 | 82 % | 16 % | 99 % | 0 % |
+| 120 | 94 % | 10 % | 97 % | 0 % |
+| 200 | 99 % | 2 % | 100 % | 0 % |
+
+**ψ et θ ensemble** (k = 2 connu, λ = 0,45, 60 répétitions) : quand l'effet de poste θ doit aussi être estimé, comme au § 9.3, les deux se confondent.
+
+| Sessions | ψ à ±0,15 | θ à ±25 % | Corrélation entre ψ̂ et θ̂ |
+| --- | --- | --- | --- |
+| 10 | 28 % | 27 % | −0,45 |
+| 40 | 52 % | 45 % | −0,68 |
+| 200 | 95 % | 87 % | −0,72 |
 
 - **Lecture.**
-  - Avec 3 ou 10 sessions, l'estimation de ψ va de presque 0 à 1. Plus d'une fois sur deux, la surdispersion est invisible.
-  - Il faut de l'ordre de 200 sessions comparables dans un même groupe (même mode, même espèce, même saison, postes semblables) pour séparer ψ et k dans ce cas idéal.
-  - Le journal de Félix en compte 3, sur un seul guide (phase 8 V2).
+  - Avec 3 ou 10 sessions, ψ n'est pas estimable, et la surdispersion est le plus souvent invisible.
+  - Le nombre de sessions nécessaire dépend du taux de captures, inconnu : entre 40 environ (λ = 1,5 par heure) et 80 à 120 (λ = 0,45 par heure) pour estimer ψ huit fois sur dix, θ connu.
+  - Il faut plus encore quand θ est aussi à estimer : une bredouille s'explique aussi bien par un poste moins productif (θ bas) que par un bar absent (ψ bas), d'où la corrélation négative.
+  - Ces sessions doivent être comparables, dans un même groupe (même mode, même espèce, même saison, postes semblables). Le journal de Félix en compte 3, sur un seul guide (phase 8 V2).
   - **Rien n'est estimable aujourd'hui. Le premier niveau utile est descriptif** (§ 9.3.1, niveau 1).
 
 ## 6. Moteur 2 du journal : conception provisoire
@@ -107,7 +128,7 @@ Mêmes 8 sessions fictives : y = 2, 0, 1, 0, 3, 0, 1, 0 et Λ_base de 0,6 à 1,6
 | Session complète, effort effectif Eᵢ, y confirmé ≥ 1 | oui, qᵢ = 1 | oui, qᵢ = 1 |
 | Session complète, y = 0 confirmé explicitement | oui, avec qᵢ = 1 − πᵢ⁽⁰⁾ | oui, avec qᵢ |
 | Résultat non confirmé, session interrompue, effort inexploitable | aucun | aucun |
-| Prise isolée ajoutée après coup | aucun (pas de dénominateur d'effort) | indice de présence à son instant, sans mise à jour du taux |
+| Prise isolée ajoutée après coup | aucun (pas de dénominateur d'effort) | aucune mise à jour ; indice de présence descriptif à son instant |
 | Session marquée « dérangement manifeste » | exclue des mises à jour structurelles, coût statistique noté | idem |
 | Autre espèce capturée | aucun pour le bar | aucun |
 | Session dont les conditions historiques ne peuvent pas être reconstruites | aucune mise à jour environnementale | aucune |
@@ -117,10 +138,13 @@ Mêmes 8 sessions fictives : y = 2, 0, 1, 0, 3, 0, 1, 0 et Λ_base de 0,6 à 1,6
 ### 6.2 Estimation proposée
 
 1. **θ_x** : posterior en une dimension calculé sur une grille, a priori Gamma(b₀, b₀), vraisemblance ZINB de chaque session (`thetaPosterieur`).
-   - Pour ψ et k fixés, c'est le posterior exact. Le calcul est léger (12 000 points de grille par session).
+   - Pour ψ et k fixés, c'est le posterior exact. Le calcul est léger : 12 000 points de grille, chacun évaluant toutes les sessions.
+   - Un contrôle de troncature vérifie que la densité au bord de la grille reste négligeable (test).
+   - Une bredouille sans qᵢ n'est jamais comptée active par défaut : le calcul s'arrête (test).
    - Le ratio de travail avec qᵢ reste la référence de contrôle, jamais la méthode.
 2. **ψ et k** : fixés par l'a priori tant qu'ils ne sont pas identifiables (§ 5).
-   - ψ vient de la disponibilité biologique (saison et eau, N4), déclarée comme a priori.
+   - ψ : un a priori Beta(a_ψ, b_ψ) déclaré, de moyenne inférieure à 1 et jamais égale à 1, avec une analyse de sensibilité. Il n'est **jamais tiré de la présence P** : P est un facteur d'échelle N4 non calibré, pas une probabilité, et il vaut 1 l'été, ce qui supprimerait les zéros structurels et rendrait au ratio naïf son biais (§ 4.2).
+   - P pourra orienter la moyenne a priori de ψ par saison seulement après une calibration (phase 8 et au-delà).
    - k est fixé par une hypothèse documentée, avec une analyse de sensibilité (k = 0,5 à ∞).
    - Mise à jour Beta pondérée par qᵢ seulement dans un groupe homogène défini d'avance (§ 9.1.9), et seulement quand son intervalle devient informatif.
 3. **Poids ωᵢ** : forme candidate ω_long × ω_saison × exp(−ln 2 Δt / h_récent) (`poidsTemporel`), sans valeur approuvée.
@@ -134,10 +158,22 @@ Mêmes 8 sessions fictives : y = 2, 0, 1, 0, 3, 0, 1, 0 et Λ_base de 0,6 à 1,6
    - une seule prise ne déclenche rien ;
    - l'apprentissage est cloisonné par mode et par espèce (JRN-05).
 
-### 6.3 Ce qui est affiché
+### 6.3 Paramètres et biais à fixer avant toute implémentation
+
+| Élément | Proposition provisoire | Limite |
+| --- | --- | --- |
+| Offset d'effort Eᵢ | durée effective du chronomètre (Start, Pause, Reprise, Stop), pauses et déplacements exclus | à valider sur de vraies sessions : un effort mal saisi fausse θ directement |
+| Familles de techniques g | familles stables du conseil de leurres (surface, souple, poisson nageur, autres) | λ_env par famille n'est pas estimable avec peu de sessions : famille gardée comme description |
+| Effet pêcheur e^{a_p} | fixé à 1 (usage individuel, § 9.1.8) | aucun apprentissage multi-utilisateurs sans consentement distinct |
+| b₀ | a priori Gamma(b₀, b₀) avec b₀ = 2 dans l'étude : variance a priori 0,5 | à justifier par une sensibilité (b₀ de 1 à 10) |
+| a_ψ, b_ψ | Beta(2, 2) dans l'étude, à remplacer par un a priori de moyenne inférieure à 1 déclarée | à justifier et faire approuver (§ 9.1.9) |
+| Biais de sélection du journal | sessions déclarées surtout quand on pense que « ça mord », bredouilles sous-déclarées | bilan obligatoire à l'arrêt (y compris 0) ; résultat inconnu sans effet ; part des sessions sans bilan suivie |
+
+### 6.4 Ce qui est affiché
 
 - **Rien qui ressemble à une probabilité.**
 - **Statistiques descriptives seulement** : sessions confirmées, effort cumulé, sessions avec prise, et l'intervalle de θ_x quand il existe, présenté comme « ton journal sur ce poste : compatible avec le modèle » ou « au-dessus » ou « en dessous de ce qu'il attend, avec N sessions ».
+- **Critère du libellé** : « au-dessus » seulement si l'intervalle à 90 % de θ_x est tout entier au-dessus de 1 ; « en dessous » s'il est tout entier en dessous ; sinon « compatible ».
 - **Seuil d'affichage** : 5 sessions dont 2 avec prise, le seuil V2 de JRN-05. Il est repris à titre provisoire. Le § 5 montre qu'il ne permet aucune conclusion statistique : il ne sert qu'à l'affichage descriptif.
 
 ## 7. Le GAMM-ZINB
@@ -163,4 +199,8 @@ Mêmes 8 sessions fictives : y = 2, 0, 1, 0, 3, 0, 1, 0 et Λ_base de 0,6 à 1,6
 - Poids nuls.
 - Session sans conditions historiques reconstructibles.
 
-Les 14 tests actuels couvrent les identités, la limite de Poisson, la convention de signe, les limites du ratio et l'identifiabilité.
+Les 19 tests actuels couvrent :
+- les identités, la limite de Poisson, la convention de signe et les bornes ;
+- les limites du ratio et le biais simulé ;
+- la garde des bredouilles sans q et le contrôle de troncature ;
+- l'identifiabilité de ψ, de k et de θ.

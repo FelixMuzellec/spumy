@@ -122,13 +122,13 @@ Branche `claude/v3-phase-6` (partie de `claude/v3-phase-5`). Choix **PROVISOIRES
 | Sous-tâche | Statut | Fichiers |
 | --- | --- | --- |
 | 6.1 Entrée (branche, proposition n° 20 en brouillon, registre) | DONE | `docs/DECISIONS_LOG.md`, ce fichier |
-| 6.2 Audit scientifique et mathématique du moteur V2 (17 constats, dont 12 MAJEURS) | DONE | `docs/moteur-bord/00-AUDIT-MOTEUR-V2.md` |
+| 6.2 Audit scientifique et mathématique du moteur V2 (18 constats, dont 13 MAJEURS) | DONE | `docs/moteur-bord/00-AUDIT-MOTEUR-V2.md` |
 | 6.3 Contrat Favorabilité, Confiance, sécurité ; classement ; publication | DONE | `docs/moteur-bord/01-CONTRAT.md` |
 | 6.4 Variables (§ 9.1.3) et facteurs complémentaires (§ 9.1.4) | DONE | `docs/moteur-bord/02-VARIABLES-ET-FACTEURS.md` |
 | 6.5 Architectures candidates contre baselines (calcul) | DONE | `docs/moteur-bord/03-ARCHITECTURES.md`, `scripts/etude-moteur-bord/` |
 | 6.6 Modèle probabiliste ZINB/GAMM et moteur 2 du journal (preuves mathématiques) | DONE | `docs/moteur-bord/04-PROBABILISTE.md` |
 | 6.7 Scénarios, fixtures, sensibilité et robustesse | DONE | `docs/moteur-bord/05-SCENARIOS-SENSIBILITE.md`, `data/moteur-bord/` |
-| 6.8 Hypothèses, inconnues, plan de validation, registre (V3-031, D6-01 à D6-14) | DONE | `docs/moteur-bord/06-PLAN-VALIDATION.md` |
+| 6.8 Hypothèses, inconnues, plan de validation, registre (V3-031, D6-01 à D6-20) | DONE | `docs/moteur-bord/06-PLAN-VALIDATION.md` |
 | 6.9 Trois passes de challenge (une par un relecteur séparé), tests sur clone neuf, rapport | IN PROGRESS | `docs/rapports/v3/PHASE-6.md` |
 
 ## Checkpoint

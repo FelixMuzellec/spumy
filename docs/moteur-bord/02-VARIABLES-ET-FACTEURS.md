@@ -48,7 +48,7 @@ Décisions possibles :
 | Marée | coefficient | `coefficient-plage-utile` N4 ; `courant-coefficient` N2 (SHOM : vitesse croissante avec le coefficient) | oui (port du guide) | C2 | **RETENU**, plage utile par poste ; sans plage : INCONNUE (audit A16) | courant, turbidité (`gros-coefficient-turbidite` N4) |
 | Marée | hauteur d'eau au poste | dépend du poste ; règle des douzièmes N2 | calculable au port | non | **CANDIDAT** : seuil `h_seuil` par poste à documenter (fiches V3 `tide_approaches`) | phase |
 | Courants | vitesse et direction au poste | `courant-coefficient` N2 (atlas du SHOM) ; aucun courant « optimal » sourcé | non (atlas SHOM : licence à vérifier) | coefficient comme substitut | **CANDIDAT** : source et licence à vérifier en phase 7 | coefficient |
-| Houle et mer | hauteur, période, direction | `houle-turbidite` N4 (eau chargée dès 1,5 m) ; `houle-max-spot` N4 (sécurité) | oui | C3 « mer formée » (+0 à 3) ; sécurité | **RETENU (sécurité)** ; effet halieutique : hypothèse, à séparer du vent (audit A5) | vent |
+| Houle et mer | hauteur, période, direction | `houle-turbidite` N4 (eau chargée dès 1,5 m) ; `houle-max-spot` N4 (sécurité) | oui | C3 « mer formée » (+0 à 3) ; sécurité | hauteur : **RETENU (sécurité)** ; période et direction : **CANDIDAT (sécurité)**, données disponibles mais non évaluées aujourd'hui (limite déclarée, D6-16) ; effet halieutique : hypothèse, à séparer du vent (audit A5) | vent |
 | Lumière | phase solaire | `lumiere-basse` N2 (Millot et Bégout 2009, Chen 2023 : en bassin et en cage ; aucune étude en milieu naturel) | oui (calcul) | C3 | **RETENU** ; marche de l'aube à revoir (audit A4) | ciel |
 | Lumière | nébulosité | `ciel-couvert` N5 | oui | C3 (+3) | **RETENU** avec son niveau N5, sans poids plus fort | lumière |
 | Lumière | phase lunaire | aucune preuve | calculable | non | **ÉCARTÉ** (§ 9.1.8 : aucun poids sans gain démontré) | marée |
@@ -64,7 +64,7 @@ Décisions possibles :
 | Interaction | Où | Statut |
 | --- | --- | --- |
 | Saison × température de l'eau | minimum des deux (aucun produit, aucun double compte) | structure gardée ; eau inconnue : intervalle (D6-03) |
-| Saison × régime « abri » | écart d'hiver réduit de moitié ; plancher thermique 0,5 à 0,6 | hypothèse N4 (`abri-hiver`), contredite en partie par l'absence d'observation locale ; à challenger en phase 7 |
+| Saison × régime « abri » | facteur de saison de 0,025 à 0,075 au-dessus de la côte ouverte, hors de juin à octobre ; plancher thermique 0,5 à 0,6 | hypothèse N4 (`abri-hiver`), contredite en partie par l'absence d'observation locale ; à challenger en phase 7 |
 | Vent × exposition × régime | table `VENT_MER` | N4 ; la règle (vent de mer modéré favorable) est N2 |
 | Lumière × ciel × mer | jour : 5 + 3 si couvert + 0 à 3 selon la houle | N4 et N5 ; « mer formée » double le vent (A5) |
 | Coefficient × plage utile du poste | trapèze par poste | N4, compensation additive (A15) |

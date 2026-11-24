@@ -18,7 +18,7 @@ Phase 6 V3, 24 nov. 2026. Statut : **PROVISOIRE**.
 - **Deux grilles** :
   - la grille des créneaux (66 spots, 47 520 créneaux, vent de face ou de dos propre à chaque spot) sert aux distributions et aux données manquantes ;
   - la grille du classement (672 situations : 7 guides × 4 mois × 3 coefficients × aube ou jour × vent d'ouest ou de nord-est × force 2 ou 4, le même vent pour tous les spots d'un guide) sert aux comparaisons de rang.
-- **Limite** : les grilles sont des plans d'essai, pas de vraies journées.
+- **Limite** : les grilles sont des plans d'essai, pas de vraies journées. Le vent « de dos » de la grille des créneaux est en réalité de travers pour 6 spots et de face pour 1, à cause de leurs angles d'exposition : ce n'est qu'un libellé de plan, sans effet sur les comparaisons.
 - **Les « guides »** ne sont ici que les conteneurs de données de la V2 (un fichier de spots par guide), utilisés pour comparer des spots proches les uns des autres. Ce n'est pas un découpage du produit : la V3 n'en a aucun, et son classement part de la position de référence (V3-007).
 
 ## 2. Les candidates
@@ -27,9 +27,9 @@ Phase 6 V3, 24 nov. 2026. Statut : **PROVISOIRE**.
 | --- | --- | --- | --- |
 | B-simple | Baseline simple | arrondi(saison × (fenêtre + lumière) / 50 × 100) | La plus simple défendable : calendrier biologique et deux critères N2, sans vent ni coefficient |
 | B-V2 | Baseline V2 | arrondi(Conditions renormalisées × Présence) | Le moteur en ligne, à auditer (document 00) |
-| A1 | V2 sans imputation, publication encadrée | intervalle [P × Σ points connus ; P × (Σ connus + Σ maximums inconnus)] ; rang sur la borne basse ; publication selon la largeur et la Confiance | Candidate provisoire retenue |
+| A1 | V2 sans imputation, publication encadrée | note arrondi(P × Σ points) seulement si tout est connu ; sinon intervalle [P_bas × Σ points connus ; P_haut × (Σ connus + Σ maximums inconnus)], eau inconnue de 0,3 à la saison ; publication selon la largeur et la Confiance ; une note incomplète n'est pas classée parmi les spots documentés | Candidate provisoire retenue |
 | A2 | Ordinale | disponibilité (forte ≥ 0,9, moyenne ≥ 0,6, faible) puis conditions (bonnes ≥ 70, moyennes ≥ 45, faibles) : 9 classes ordonnées, sans nombre | Présentation qualitative du § 9.1.4, pour le cas où aucun nombre n'aurait de sens stable |
-| A3 | Forme probabiliste ZIP, non calibrée | ψ ← présence ; Λ = E λ₀ exp(β (C − 50) / 25), E = 2 h, λ₀ = 0,3, β = 1 ; P(Y ≥ 1) = ψ (1 − e^(−Λ)) | Illustration de la structure du § 9.1.8 ; paramètres sans valeur prédictive |
+| A3 | Forme probabiliste ZIP, non calibrée | ψ ← présence (illustration seulement : ce n'est pas une estimation valable de ψ, document 04 § 6.2) ; Λ = E λ₀ exp(β (C − 50) / 25), E = 2 h, λ₀ = 0,3, β = 1 ; P(Y ≥ 1) = ψ (1 − e^(−Λ)) | Illustration de la structure du § 9.1.8 ; paramètres sans valeur prédictive |
 
 ## 3. Résultats
 
@@ -43,10 +43,10 @@ Phase 6 V3, 24 nov. 2026. Statut : **PROVISOIRE**.
 | A2 : taille de la classe de tête d'un guide | 7 spots en médiane, 11 au 95ᵉ centile | L'ordinal ne sait pas désigner trois spots : il en met sept ex æquo |
 | A1 avec tous les critères connus | égale à B-V2 (intervalle de largeur 0) | A1 ne change rien quand les données sont complètes |
 | Vent inconnu : erreur de la renormalisation B-V2 | 6,6 points en moyenne, 16 au 95ᵉ centile, 26 au plus ; plus de 10 points sur 21 % des créneaux | Imputation cachée (audit A2) |
-| Vent inconnu : A1 | intervalle de 28 points en médiane (30 au plus) ; publié en fourchette sur 11 880 créneaux, en qualitatif sur 35 640, jamais en nombre | A1 dit ce qu'on ne sait pas |
+| Vent inconnu : A1 | intervalle de 28 points en médiane (30 au plus) ; publié en fourchette sur 11 880 créneaux, en qualitatif sur 35 640, jamais en nombre ; le spot n'est pas classé parmi les documentés | A1 dit ce qu'on ne sait pas |
 | Eau inconnue : B-V2 | note plus haute de 1,1 point en moyenne (3 au 95ᵉ centile) | Le minimum saison–eau ne s'applique plus (audit A6) |
 | R² univarié sur la grille : présence, coefficient, lumière, vent, fenêtre | 0,49 ; 0,17 ; 0,15 ; 0,10 ; 0,07 | La présence domine ; dépend du plan d'essai |
-| Notes ≥ 65 avec présence < 0,6 | 0 sur 10 366 | Pas de compensation entre biologie et météo |
+| Notes ≥ 65 avec présence < 0,6 | 0 sur 10 366 | Conséquence mathématique du produit (une note ≥ 65 exige P ≥ 0,65), pas un résultat empirique : la structure empêche toute compensation entre biologie et météo |
 | Notes ≥ 65 avec un coefficient à 0 point | 609 sur 10 366 | Compensation additive à l'intérieur des conditions (audit A15) |
 | Saut aube contre plein jour, même créneau | 15,2 points en moyenne, 18 au plus | Marche de la lumière (audit A4) |
 
@@ -54,15 +54,15 @@ Phase 6 V3, 24 nov. 2026. Statut : **PROVISOIRE**.
 
 1. **B-simple** est trop pauvre pour classer les spots d'un même guide : saison et lumière sont communes à tous à un instant donné, et la baseline ne départage presque que par le nom. Elle reste la référence de « ce qu'apporte le reste » : le vent et le coefficient (N2 pour la règle, N4 pour les valeurs) font tout l'écart de classement entre spots.
 2. **B-V2** a la bonne chaîne. Mais elle impute les données manquantes (A2), compense à l'intérieur des conditions (A15) et publie une précision qu'elle n'a pas (A13).
-3. **A1** garde exactement B-V2 quand tout est connu. Elle enlève l'imputation cachée et rend la publication honnête quand des données manquent. Elle est conforme au § 9.1.5 et à REC-08. **Choix provisoire.**
+3. **A1** garde exactement B-V2 quand tout est connu. Quand des données manquent, elle n'impute rien : pas de note, un intervalle publié, le spot dans « à vérifier ». C'est ce que permettent le § 9.1.5 (« jamais remplacée par zéro ou une valeur neutre ») et le § 13.2 (« retirer/qualifier le score »). **Choix provisoire.**
 4. **A2** ne départage pas assez : 7 spots en tête. C'est le repli d'affichage pour le cas où la phase 8 conclurait qu'aucun nombre n'a de sens stable (§ 9.1.4) ; pas un moteur.
 5. **A3** ne change presque rien tant qu'elle n'est pas calibrée. Elle n'a d'intérêt que calibrée, ce qui est impossible aujourd'hui (document 04). Elle n'est pas proposée pour la Favorabilité.
 
 ## 5. Ce que A1 laisse ouvert (registre, document 06)
 
-- **D6-01** Valeur de rang : borne basse (choix provisoire) ou valeur centrale de l'intervalle. La borne basse ne récompense jamais une donnée manquante ; la valeur centrale impute la moitié du maximum, ce que le § 9.1.5 interdit.
-- **D6-02** Seuils de publication (10 et 20 points) et publication de l'incertitude de modèle (intervalle à 90 % de 12 points en médiane, même avec tous les critères connus).
-- **D6-03** Eau inconnue : intervalle sur la présence.
+- **D6-01** Rang d'un spot incomplet. La borne basse impute 0, la valeur centrale la moitié du maximum, la renormalisation V2 le taux des autres critères : les trois imputent. L'option retenue est de ne pas noter et d'envoyer le spot dans « à vérifier ».
+- **D6-02** Publication de l'incertitude de modèle : intervalle à 90 % de 12 points en médiane, même avec tous les critères connus. Ce chiffre est optimiste (document 05 § 3).
+- **D6-03** Eau inconnue : P de 0,3 à la saison, faute de climatologie sourcée.
 - **D6-04** Plafond ou veto quand un critère rend le poste non pêchable (coefficient hors plage).
 - **D6-05** Lumière continue ou par classes.
 - **D6-06** Valeurs de présence et tables de points : à challenger (phases 7 et 8).
