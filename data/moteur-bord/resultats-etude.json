@@ -1,0 +1,382 @@
+{
+ "//": "Étude PROVISOIRE de la phase 6 V3 : structure et robustesse, jamais une précision terrain (aucune vérité terrain ici). Régénérer : node scripts/etude-moteur-bord/etude.mjs",
+ "e1_identitesZINB": {
+  "lignes": [
+   {
+    "psi": 0.6,
+    "Lambda": 0.8,
+    "k": 2,
+    "sommeNB": 1,
+    "moyenneNB": 0.8,
+    "varianceNB": 1.12,
+    "varianceTheorique": 1.12,
+    "sommeZINB": 1,
+    "pAuMoinsUne": 0.294,
+    "unMoinsPZero": 0.294,
+    "pi0": 0.566,
+    "pi0Bayes": 0.566
+   },
+   {
+    "psi": 0.9,
+    "Lambda": 2.5,
+    "k": 0.7,
+    "sommeNB": 1,
+    "moyenneNB": 2.5,
+    "varianceNB": 11.429,
+    "varianceTheorique": 11.429,
+    "sommeZINB": 1,
+    "pAuMoinsUne": 0.589,
+    "unMoinsPZero": 0.589,
+    "pi0": 0.244,
+    "pi0Bayes": 0.244
+   },
+   {
+    "psi": 0.3,
+    "Lambda": 0.2,
+    "k": 10,
+    "sommeNB": 1,
+    "moyenneNB": 0.2,
+    "varianceNB": 0.204,
+    "varianceTheorique": 0.204,
+    "sommeZINB": 1,
+    "pAuMoinsUne": 0.054,
+    "unMoinsPZero": 0.054,
+    "pi0": 0.74,
+    "pi0Bayes": 0.74
+   }
+  ],
+  "limitePoisson": [
+   {
+    "k": 1,
+    "ecart": 0.107
+   },
+   {
+    "k": 10,
+    "ecart": 0.0145
+   },
+   {
+    "k": 100,
+    "ecart": 0.00151
+   },
+   {
+    "k": 10000,
+    "ecart": 0.0000152
+   },
+   {
+    "k": 100000000,
+    "ecart": 9.56e-10
+   }
+  ]
+ },
+ "e2_gammaPoissonContreExact": {
+  "b0": 2,
+  "sessions": [
+   {
+    "y": 2,
+    "Lbase": 1.1
+   },
+   {
+    "y": 0,
+    "Lbase": 0.9
+   },
+   {
+    "y": 1,
+    "Lbase": 0.8
+   },
+   {
+    "y": 0,
+    "Lbase": 1.4
+   },
+   {
+    "y": 3,
+    "Lbase": 1.6
+   },
+   {
+    "y": 0,
+    "Lbase": 0.6
+   },
+   {
+    "y": 1,
+    "Lbase": 1
+   },
+   {
+    "y": 0,
+    "Lbase": 1.2
+   }
+  ],
+  "sansExces": [
+   {
+    "k": "∞ (Poisson)",
+    "ratio": 0.849,
+    "moyenneExacte": 0.849,
+    "ecartTypeExact": 0.283,
+    "ecartTypeGammaPoisson": 0.283,
+    "q05": 0.443,
+    "q95": 1.362
+   },
+   {
+    "k": 10,
+    "ratio": 0.849,
+    "moyenneExacte": 0.854,
+    "ecartTypeExact": 0.297,
+    "ecartTypeGammaPoisson": 0.283,
+    "q05": 0.436,
+    "q95": 1.396
+   },
+   {
+    "k": 2,
+    "ratio": 0.849,
+    "moyenneExacte": 0.877,
+    "ecartTypeExact": 0.347,
+    "ecartTypeGammaPoisson": 0.283,
+    "q05": 0.413,
+    "q95": 1.522
+   },
+   {
+    "k": 0.5,
+    "ratio": 0.849,
+    "moyenneExacte": 0.94,
+    "ecartTypeExact": 0.47,
+    "ecartTypeGammaPoisson": 0.283,
+    "q05": 0.367,
+    "q95": 1.834
+   }
+  ],
+  "avecExces": {
+   "psi": 0.6,
+   "k": 2,
+   "ratioNaif": 0.849,
+   "ratioTravailAvecQ": 1.125,
+   "q": [
+    1,
+    0.398,
+    1,
+    0.319,
+    1,
+    0.456,
+    1,
+    0.348
+   ],
+   "moyenneExacte": 1.139,
+   "ecartTypeExact": 0.479,
+   "psiTravailBeta22": 0.627
+  }
+ },
+ "e3_identifiabilite": {
+  "psiVrai": 0.6,
+  "kVrai": 2,
+  "lambdaParHeure": 0.45,
+  "effortHeures": "1 à 4",
+  "replications": 120,
+  "graine": 20261124,
+  "resultats": [
+   {
+    "sessions": 3,
+    "psiMediane": 0.52,
+    "psiQ05": 0.04,
+    "psiQ95": 1,
+    "partPsiA015": 0.333,
+    "kMediane": 1000000,
+    "kQ05": 0.2,
+    "kQ95": 1000000,
+    "partKPoisson": 0.533
+   },
+   {
+    "sessions": 10,
+    "psiMediane": 0.56,
+    "psiQ05": 0.16,
+    "psiQ95": 1,
+    "partPsiA015": 0.342,
+    "kMediane": 1000000,
+    "kQ05": 0.3,
+    "kQ95": 1000000,
+    "partKPoisson": 0.567
+   },
+   {
+    "sessions": 40,
+    "psiMediane": 0.6,
+    "psiQ05": 0.4,
+    "psiQ95": 0.94,
+    "partPsiA015": 0.683,
+    "kMediane": 3,
+    "kQ05": 0.7,
+    "kQ95": 1000000,
+    "partKPoisson": 0.3
+   },
+   {
+    "sessions": 200,
+    "psiMediane": 0.6,
+    "psiQ05": 0.5,
+    "psiQ95": 0.72,
+    "partPsiA015": 0.95,
+    "kMediane": 2,
+    "kQ05": 1,
+    "kQ95": 13,
+    "partKPoisson": 0.033
+   }
+  ]
+ },
+ "e4_architectures": {
+  "creneaux": 47520,
+  "spots": 66,
+  "recombinaisonEgaleMoteur": true,
+  "spearman": {
+   "bV2_bSimple": 0.82,
+   "bV2_a2": 0.924,
+   "bV2_a3": 0.99
+  },
+  "partVarianceV2": {
+   "presence": 0.487,
+   "fenetre": 0.066,
+   "coef": 0.174,
+   "lumiere": 0.148,
+   "vent": 0.096
+  },
+  "compensation": {
+   "favorables": 10366,
+   "presenceSous06": 0,
+   "conditionsSous50": 0
+  },
+  "sautLumiereAubeContreJour": {
+   "moyenne": 15.156,
+   "q05": 9,
+   "q95": 18,
+   "max": 18
+  },
+  "ventInconnu": {
+   "creneaux": 47520,
+   "erreurRenormalisationMoyenne": 6.566,
+   "erreurQ95": 16,
+   "erreurMax": 26,
+   "partErreurSup10": 0.21,
+   "largeurIntervalleA1": {
+    "mediane": 28,
+    "max": 30
+   },
+   "publicationA1": {
+    "fourchette": 11880,
+    "qualitatif": 35640
+   }
+  },
+  "eauInconnue": {
+   "creneaux": 47520,
+   "ecartMoyen": 1.14,
+   "q05": 0,
+   "q95": 3
+  },
+  "paliersV2": [
+   {
+    "palier": 1,
+    "part": 0.367
+   },
+   {
+    "palier": 2,
+    "part": 0.198
+   },
+   {
+    "palier": 3,
+    "part": 0.217
+   },
+   {
+    "palier": 4,
+    "part": 0.137
+   },
+   {
+    "palier": 5,
+    "part": 0.081
+   }
+  ],
+  "a1Publication": {
+   "nombre": 47520
+  }
+ },
+ "e5_sensibilite": [
+  {
+   "essai": "fenetre −40 %",
+   "ecartMoyen": 2.095,
+   "ecartQ95": 5,
+   "partPalierChange": 0.154,
+   "spearman": 0.993
+  },
+  {
+   "essai": "fenetre +40 %",
+   "ecartMoyen": 1.69,
+   "ecartQ95": 4,
+   "partPalierChange": 0.136,
+   "spearman": 0.995
+  },
+  {
+   "essai": "coef −40 %",
+   "ecartMoyen": 2.422,
+   "ecartQ95": 5,
+   "partPalierChange": 0.175,
+   "spearman": 0.986
+  },
+  {
+   "essai": "coef +40 %",
+   "ecartMoyen": 2.099,
+   "ecartQ95": 4,
+   "partPalierChange": 0.17,
+   "spearman": 0.991
+  },
+  {
+   "essai": "lumiere −40 %",
+   "ecartMoyen": 2.022,
+   "ecartQ95": 5,
+   "partPalierChange": 0.161,
+   "spearman": 0.988
+  },
+  {
+   "essai": "lumiere +40 %",
+   "ecartMoyen": 1.67,
+   "ecartQ95": 4,
+   "partPalierChange": 0.153,
+   "spearman": 0.992
+  },
+  {
+   "essai": "vent −40 %",
+   "ecartMoyen": 2.001,
+   "ecartQ95": 5,
+   "partPalierChange": 0.154,
+   "spearman": 0.992
+  },
+  {
+   "essai": "vent +40 %",
+   "ecartMoyen": 1.614,
+   "ecartQ95": 4,
+   "partPalierChange": 0.122,
+   "spearman": 0.994
+  },
+  {
+   "essai": "présence ×0,6 (plus proche de 1)",
+   "ecartMoyen": 3.873,
+   "ecartQ95": 14,
+   "partPalierChange": 0.223,
+   "spearman": 0.956
+  },
+  {
+   "essai": "présence ×1,4",
+   "ecartMoyen": 3.932,
+   "ecartQ95": 14,
+   "partPalierChange": 0.077,
+   "spearman": 0.991
+  }
+ ],
+ "e6_stabiliteClassement": {
+  "situations": 336,
+  "tirages": 300,
+  "graine": 424242,
+  "amplitude": "chaque critère ×0,6 à ×1,4 et présence k 0,6 à 1,4 (niveau 4)",
+  "premierInchange": 0.904,
+  "premierAEgalite3": 0.991,
+  "premierAEgalite10": 1,
+  "top3Inchange": 0.868,
+  "top3AEgalite10": 1,
+  "situationsTop3Tient80": 245,
+  "situationsTop3Egalite10Tient80": 336,
+  "a2TailleClasseDeTete": {
+   "mediane": 7,
+   "q95": 11
+  }
+ }
+}

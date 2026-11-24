@@ -50,6 +50,8 @@ jobs:
         run: npm run -s test:spots-v2
       - name: Fiches de spots V3 (schéma § 7.4, aucune perte V2, registre central)
         run: npm run -s test:spots-v3
+      - name: Étude du moteur BORD (phase 6 V3 : identités ZINB, Gamma–Poisson, classement proposé, résultats reproductibles)
+        run: npm run -s test:etude-moteur
       - name: Connaissances halieutiques (niveaux de preuve, sources, rubriques des spots)
         run: npm run -s test:knowledge
       - name: Système de design (contrastes WCAG des deux thèmes)

@@ -121,7 +121,7 @@ Branche `claude/v3-phase-6` (partie de `claude/v3-phase-5`). Choix **PROVISOIRES
 
 | Sous-tâche | Statut | Fichiers |
 | --- | --- | --- |
-| 6.1 Entrée (branche, proposition, registre) | IN PROGRESS | `docs/DECISIONS_LOG.md`, ce fichier |
+| 6.1 Entrée (branche, proposition n° 20 en brouillon, registre) | DONE | `docs/DECISIONS_LOG.md`, ce fichier |
 | 6.2 Audit scientifique et mathématique du moteur V2 | À FAIRE | `docs/moteur-bord/00-AUDIT-MOTEUR-V2.md` |
 | 6.3 Contrat Favorabilité, Confiance, sécurité ; classement ; publication | À FAIRE | `docs/moteur-bord/01-CONTRAT.md` |
 | 6.4 Variables (§ 9.1.3) et facteurs complémentaires (§ 9.1.4) | À FAIRE | `docs/moteur-bord/02-VARIABLES-ET-FACTEURS.md` |
