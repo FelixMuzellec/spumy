@@ -115,6 +115,22 @@ Référentiel § 15 (phase 5), § 7 (sources, pipeline, préservation V2, schém
 | Q17 (journal) | 23 nov., 8 h 11 | Directive de Félix : juger les notes sur le journal et faire s'affiner le modèle | Déjà au référentiel (§ 9.3.1, phase 8) ; ajout de l'instantané de la note et de la vue de comparaison ; apprentissage contrôlé, approuvé, réversible | V3-030 VALIDÉE ; JRN-06 ; `PROTOTYPE-V6.md` § 5 |
 | Q18 (protection de main) | 23 nov., 13 h 55 | Question de la phase 4 : quelle protection pour `main` ? | Félix : « Complète » (PR obligatoire, CI `tests` et `contrat` verte, ni push forcé ni suppression, contournement administrateur par PR seulement) | Pose bloquée par le relais (403) ; à activer par Félix (`docs/socle/PROTECTION-MAIN.md`) |
 
+## Phase 6 — Conception et validation du moteur BORD (ouverte le 24 nov. 2026, 5 h 15, jeton conditionnel)
+
+Branche `claude/v3-phase-6` (partie de `claude/v3-phase-5`). Choix **PROVISOIRES** ; aucun changement de `src/` (moteur) ; étude dans `scripts/etude-moteur-bord/`, dossier dans `docs/moteur-bord/`.
+
+| Sous-tâche | Statut | Fichiers |
+| --- | --- | --- |
+| 6.1 Entrée (branche, proposition, registre) | IN PROGRESS | `docs/DECISIONS_LOG.md`, ce fichier |
+| 6.2 Audit scientifique et mathématique du moteur V2 | À FAIRE | `docs/moteur-bord/00-AUDIT-MOTEUR-V2.md` |
+| 6.3 Contrat Favorabilité, Confiance, sécurité ; classement ; publication | À FAIRE | `docs/moteur-bord/01-CONTRAT.md` |
+| 6.4 Variables (§ 9.1.3) et facteurs complémentaires (§ 9.1.4) | À FAIRE | `docs/moteur-bord/02-VARIABLES-ET-FACTEURS.md` |
+| 6.5 Architectures candidates contre baselines (calcul) | À FAIRE | `docs/moteur-bord/03-ARCHITECTURES.md`, `scripts/etude-moteur-bord/` |
+| 6.6 Modèle probabiliste ZINB/GAMM et moteur 2 du journal (preuves mathématiques) | À FAIRE | `docs/moteur-bord/04-PROBABILISTE.md` |
+| 6.7 Scénarios, fixtures, sensibilité et robustesse | À FAIRE | `docs/moteur-bord/05-SCENARIOS-SENSIBILITE.md`, `data/moteur-bord/` |
+| 6.8 Hypothèses, inconnues, plan de validation, registre | À FAIRE | `docs/moteur-bord/06-PLAN-VALIDATION.md` |
+| 6.9 Trois passes de challenge (une par un relecteur séparé), tests sur clone neuf, rapport | À FAIRE | `docs/rapports/v3/PHASE-6.md` |
+
 ## Checkpoint
 
 - Branche : `claude/v3-phase-5`, partie de `claude/v3-phase-4` ; aucune des phases 2 à 5 n'est fusionnée ; `main` protégée (ensemble de règles 27906963, contrôles `tests` et `contrat`) ; étiquette `v2-final` publiée par Félix.
