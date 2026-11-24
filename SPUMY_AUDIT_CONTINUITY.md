@@ -129,9 +129,11 @@ Branche `claude/v3-phase-6` (partie de `claude/v3-phase-5`). Choix **PROVISOIRES
 | 6.6 Modèle probabiliste ZINB/GAMM et moteur 2 du journal (preuves mathématiques) | DONE | `docs/moteur-bord/04-PROBABILISTE.md` |
 | 6.7 Scénarios, fixtures, sensibilité et robustesse | DONE | `docs/moteur-bord/05-SCENARIOS-SENSIBILITE.md`, `data/moteur-bord/` |
 | 6.8 Hypothèses, inconnues, plan de validation, registre (V3-031, D6-01 à D6-21) | DONE | `docs/moteur-bord/06-PLAN-VALIDATION.md` |
-| 6.9 Trois passes de challenge (une par un relecteur séparé), tests sur clone neuf, rapport | IN PROGRESS : passes 1 et 2 faites et corrigées (a490f0a, f17bd3b) ; gate PASS sur un clone neuf de f17bd3b (npm ci 0, build sans écart, npm test 0 avec l'étude 82/82 et l'e2e 848/848, a11y 0, upgrade 12/12, prototype 244/244, prototype-v3 224/224, brand 35/35) et CI « Tests » verte (45332344767) ; passe 3 (second relecteur indépendant) en cours | `docs/rapports/v3/PHASE-6.md` |
+| 6.9 Trois passes de challenge (une par un relecteur séparé), tests sur clone neuf, rapport | DONE : passe 1 (auteur) ; passe 2 (relecteur indépendant, 4 MAJEURS corrigés : a490f0a, f17bd3b) ; passe 3 (second relecteur indépendant, 3 MAJEURS corrigés : 3d754c7, e66c742) ; contre-vérification « peut être close », dernière remarque mineure corrigée (841ee06) ; gate PASS sur clone neuf de 841ee06 (npm ci 0, build sans écart, npm test 0 avec l'étude 93/93 et l'e2e 848/848, a11y 0 violation, upgrade 12/12, prototype 244/244, prototype-v3 224/224, brand 35/35) ; CI verte sur 841ee06 (45360924779, 45360924848, 45360924840) | `docs/rapports/v3/PHASE-6.md` |
 
-Interruption du 24 nov. 2026 vers 6 h 20 : arrêt de l'environnement (le gate en cours a été tué après `npm test`, code 0) puis limite d'usage atteinte jusqu'à 9 h 30 (la passe 3 s'est arrêtée au démarrage). Reprise à 9 h 33 sur demande de Félix (« Continue dès que tu le pourras ») : les commandes restantes du gate ont été relancées sur le même clone, sans modification, et la passe 3 a repris.
+Interruption du 24 nov. 2026 vers 6 h 20 : arrêt de l'environnement pendant un gate, puis limite d'usage jusqu'à 9 h 30 ; reprise à 9 h 33 sur demande de Félix (« Continue dès que tu le pourras ») ; rien de perdu.
+
+**Phase 6 : VALIDATED (par délégation de Félix, 23 nov., 23 h 15 ; à confirmer par Félix)**, le 24 nov. 2026. Les dix critères du § 13.4 sont remplis (rapport § 11). Constat clé pour la suite : avec les données de sécurité actuelles des fiches, aucune fiche ne peut être SAFE (D6-15, D6-21) ; la phase 7 doit combler l'accès selon la marée, les fenêtres de sécurité, la réglementation locale, l'engagement et la houle maximale.
 
 ## Checkpoint
 
@@ -141,7 +143,7 @@ Interruption du 24 nov. 2026 vers 6 h 20 : arrêt de l'environnement (le gate en
 
 ## Prochaine action
 
-**Phase 5 close (TESTED, 24 nov. 2026, 5 h 05)**, tous les gates PASS. Phase 6 ouverte par le jeton conditionnel de Félix (23 nov., 23 h 15) : branche `claude/v3-phase-6` partie de `claude/v3-phase-5`, état dans la section « Phase 6 » ci-dessous. Phase 7 seulement si la phase 6 est close après trois passes de challenge ; jamais de phase 8 sans son jeton. Outil de sauvegarde des passages CI : `scripts/sauver-collecte.mjs`.
+**Phase 6 VALIDATED (par délégation, à confirmer par Félix), 24 nov. 2026.** Phase 7 planifiée pour la nuit du 24 au 25 nov. (1 h 30, relances à 4 h 30 et 7 h 30), par le jeton conditionnel de Félix : branche `claude/v3-phase-7` partie de `claude/v3-phase-6`, périmètre exact du référentiel, priorités du rapport de phase 6 § 13. Jamais de phase 8 sans son jeton. Outil de sauvegarde des passages CI : `scripts/sauver-collecte.mjs`.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
