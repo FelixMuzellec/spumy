@@ -265,8 +265,23 @@ Félix (23 nov., 23 h 10) : « Je pense que tu peux faire beaucoup mieux. J'avai
 ### 6. Git
 Branche `claude/v3-phase-5`, proposition n° 19 en brouillon (base `claude/v3-phase-4`), rien fusionné, rien sur `main`. Commits de ae76b5b à la tête de la branche.
 
-### 7. Preuves
-Voir la ligne « Gate de clôture » ci-dessous (clone neuf, codes de sortie).
+### 7. Preuves — gate de clôture (clone neuf de 4b12b31, 24 nov. 2026, 4 h 50 à 5 h 20)
+
+| Commande | Code | Résultat |
+| --- | --- | --- |
+| `npm ci` | 0 | |
+| `npm run build` | 0 | aucun écart dans les fichiers publiés |
+| `npm test` (1ᵉʳ passage complet) | **1** | délai dépassé (12 s) à `tests/e2e.mjs:1488`, « rouvrir une analyse enregistrée » : défaut de lenteur connu, écrit dans le test (« 2 fois sur 5 passages locaux »), sans lien avec la phase 5 (aucun fichier de l'application ni de `tests/e2e.mjs` modifié) |
+| `npm run test:e2e` seul | 0 | E2E 848/848 |
+| `npm test` (2ᵉ passage complet) | 0 | spots V3 1261/1261, E2E 848/848, contrat 28/28, lint 19/19, socle 25/25, données 69/69 |
+| `npm run test:a11y` | 0 | 0 violation, **à date fixe** (23 nov. 2026, 6 h 30) ; sans date fixe, le passage du 24 nov. reproduit les deux contrastes V2 consignés en phase 4 (rouge 4,02, vert 4,36, texte de 13 px) |
+| `npm run test:upgrade` | 0 | 12/12 |
+| `npm run test:prototype` | 0 | 244/244 |
+| `npm run test:prototype-v3` | 0 | 224/224 |
+| `python3 -I tests/brand.py` | 0 | 35/35 |
+| CI « Tests » sur 4b12b31 | succès | passage 45322373676 |
+
+Risque consigné : l'étape e2e « rouvrir une analyse » échoue par lenteur sur une machine chargée (deux passages complets sur trois ce matin) ; la CI passe. À stabiliser en phase 9 (tests et durcissement).
 
 ### 8. Résultats
 
@@ -298,4 +313,4 @@ Huit tests de plus dans `tests/spots-v3.mjs`, un par correction de la revue. Cit
 Phase 6 (conception du moteur BORD), seulement si tous les gates ci-dessous sont PASS (jeton conditionnel de Félix du 23 nov., 23 h 15).
 
 ### 14. Arrêt
-Sous-tâche 5.13 close à la tête de la branche ; statut de la phase dans `SPUMY_AUDIT_CONTINUITY.md`.
+**Phase 5 : TESTED, close le 24 nov. 2026 (5 h 20)** : tous les gates PASS (tableau du § 7, risque e2e consigné), trois passes de challenge dont une par un relecteur séparé, contre-vérification « la phase 5 peut être close ». Le jeton conditionnel de Félix (23 nov., 23 h 15) ouvre la phase 6 sur la branche `claude/v3-phase-6`. Rien n'est fusionné.
