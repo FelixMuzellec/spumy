@@ -75,7 +75,10 @@ t("A1 : une eau inconnue donne une présence entre le plancher et la saison, pas
 const complet = { ...c0, exclus: new Set(), pts: { ...c0.pts, vent: 30 } };
 t("A1 : « tout connu » ne se lit jamais sur la largeur : eau non déclarée, saison au plancher ou présence nulle ne publient pas de nombre",
   a1({ ...complet, eauConnue: undefined }).publication !== "nombre" && a1({ ...complet, eauConnue: false, saison: 0.3, presence: 0.3 }).publication !== "nombre"
-  && a1({ ...c0, presence: 0, saison: 0 }).publication !== "nombre");
+  && a1({ ...c0, presence: 0, saison: 0 }).publication !== "nombre"
+  && a1({ ...complet, pts: { ...complet.pts, coef: NaN } }).publication !== "nombre" && a1({ ...complet, pts: { ...complet.pts, coef: "20" } }).publication !== "nombre"
+  && a1({ ...complet, presence: NaN }).publication !== "nombre" && a1({ ...complet, presence: undefined }).publication !== "nombre");
+t("A1 : une fourchette a de 1 à 20 points ; un intervalle incomplet de largeur nulle est publié en qualitatif", a1({ ...c0, presence: 0, saison: 0 }).publication === "qualitatif");
 
 // Contrat de classement proposé (§ 9.1.6, § 9.1.7)
 const S = (id, o) => ({ id, securite: "SAFE", aVerifier: false, accesFerme: false, trajetMin: 30, fav: 60, favLargeur: 0, confiance: 50, ...o });
@@ -91,7 +94,8 @@ t("classement : une note qui n'est qu'un intervalle (critère inconnu) n'est jam
 const stricte = classer([S("a", { fav: 80 }), S("b", { fav: 79 }), S("c", { fav: 78 }), S("n", { trajetMin: null, trajetVerifie: true }), S("t", { trajetMin: "30" }),
   { id: "x", securite: "SAFE", trajetMin: 20, fav: 99 }, S("y", { fav: NaN }), S("p", { fav: 40, trajetMin: -5, trajetVerifie: true })]);
 t("classement : entrées strictes : temps de route absent, en texte ou négatif exclu ; champs non déclarés ou note illisible jamais parmi les documentés",
-  ["n", "t", "p"].every((id) => stricte.exclus.some((e) => e.id === id)) && ids(stricte.aVerifier).includes("x") && ids(stricte.aVerifier).includes("y") && ids(stricte.top).join() === "a,b,c");
+  ["n", "t", "p"].every((id) => stricte.exclus.some((e) => e.id === id)) && ids(stricte.aVerifier).includes("x") && ids(stricte.aVerifier).includes("y") && ids(stricte.top).join() === "a,b,c"
+  && ids(classer([{ ...S("z"), accesFerme: undefined }]).aVerifier).join() === "z");
 t("classement : le Top vient des spots documentés et notés, par Favorabilité décroissante ; égalité stricte au 3e rang : un 4e", ids(r.top).join() === "a,b,c,d" && !r.top.some((s) => s.fav == null));
 const conf = classer(base.map((s, i) => ({ ...s, confiance: (i * 37) % 101 })));
 const ordres = (o) => JSON.stringify([ids(o.top), ids(o.documentes), ids(o.aVerifier), o.exclus.map((e) => e.id), o.nonRecommandes.map((e) => e.id), o.autresAEgalite]);
@@ -135,6 +139,8 @@ t("sécurité : un second modèle absent est accepté (la Confiance le dit), le 
 t("sécurité : les prudences V2 (consignes actives, poste engagé, nuit sur un poste de niveau 2) s'affichent sans changer l'état",
   (() => { const x = etatSecurite({ ...C0, engagement: 2, nuit: true, consignesActives: ["la mer qui monte coupe le retour : garder une porte de sortie"] }); const y = etatSecurite({ ...C0, engagement: 3 });
     return x.etat === "SAFE" && x.prudences.length === 2 && x.niveauAffiche === "Prudence" && y.etat === "SAFE" && y.niveauAffiche === "Prudence"; })());
+t("sécurité : aucune entrée, ou des consignes données en texte : tout est inconnu, et une consigne reste une seule prudence",
+  etatSecurite(undefined).etat === "INSUFFICIENT_DATA" && etatSecurite({ ...C0, consignesActives: "la mer monte vite" }).prudences.length === 1);
 t("sécurité : les facteurs du § 9.5 non évalués sont toujours listés à côté de l'état", etatSecurite(C0).nonEvalues.length === 7 && etatSecurite(C0).nonEvalues.some((x) => /mouvements de terrain/.test(x)) && etatSecurite(C0).nonEvalues.some((x) => /exposition/.test(x)));
 
 // Confiance proposée (§ 9.1.5) : maillon le plus faible, dimension limitante nommée, ne fait que baisser la publication
@@ -159,6 +165,8 @@ t("audit A5 : sur le vrai moteur V2, une houle inconnue retire le critère vent,
 const e8 = R.e8_scenarios;
 for (const [id, ok] of Object.entries(e8.proprietesTenues)) t(`scénario ${id} : ${JSON.parse(fs.readFileSync(path.join(root, "data/moteur-bord/scenarios.json"), "utf8")).scenarios.find((x) => x.id === id).propriete}`, ok === true);
 t("scénarios : 24 fixtures, toutes jouées", e8.scenarios === 24 && Object.keys(e8.proprietesTenues).length === 24);
+const fx = JSON.parse(fs.readFileSync(path.join(root, "data/moteur-bord/scenarios.json"), "utf8")).scenarios;
+t("scénarios : toute hypothèse d'essai (`supposeDocumente`) est déclarée en clair dans la fixture", fx.every((x) => !x.entree?.supposeDocumente || (typeof x.hypotheseDEssai === "string" && x.hypotheseDEssai.length > 20)));
 const e9 = R.e9_admissibiliteStatique;
 t("fiches : avec les données de sécurité actuelles, aucune fiche ne peut être SAFE (impact de D6-15 et D6-21 mesuré) ; 23 contraintes de marée connues mais non situées",
   e9.fiches === 98 && e9.peuventEtreSAFE === 0 && e9.raisonsParFiche.fenetreSecurite === 23

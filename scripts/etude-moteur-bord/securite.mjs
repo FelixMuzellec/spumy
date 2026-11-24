@@ -53,7 +53,8 @@ const deuxModeles = (principal, autre) => {
  * `niveauAffiche` : « Non recommandé » (DANGER, BLOCKED), « À vérifier » (INSUFFICIENT_DATA, CAUTION), « Prudence » (SAFE avec
  * prudences), « Aucune alerte connue » (SAFE sans prudence) : jamais un vert ni le mot « sûr ».
  */
-export function etatSecurite(c) {
+export function etatSecurite(entree) {
+  const c = entree && typeof entree === "object" ? entree : {};   // aucune entrée : tout est inconnu
   const r = [], prudences = [];
   const add = (etat, regle, texte, source) => r.push({ etat, regle, texte, source });
   const W = WIND_LIMITS, MF = "Météo-France (BMS côte dès la force 7 ; tempête au-delà de 90 km/h)", FX = "prudence validée par Félix, 13 nov. 2026";
@@ -102,7 +103,8 @@ export function etatSecurite(c) {
   else if (nuit === true && engage === null) add("INSUFFICIENT_DATA", "nuit", "nuit sur un poste dont l'engagement est inconnu", "contrat V3 (§ 9.5)");
   else if (nuit === null && engage !== false) add("INSUFFICIENT_DATA", "nuit", "heure de lever ou de coucher inconnue sur un poste engagé ou d'engagement inconnu", "contrat V3 (§ 9.5)");
   // Prudences V2 (indicateur, sans effet sur l'état) : consignes actives, poste engagé, nuit sur un poste de niveau 2.
-  for (const t of c.consignesActives || []) prudences.push({ texte: `aujourd'hui : ${t}`, source: "fiche du poste" });
+  const consignes = Array.isArray(c.consignesActives) ? c.consignesActives : typeof c.consignesActives === "string" ? [c.consignesActives] : [];
+  for (const t of consignes) prudences.push({ texte: `aujourd'hui : ${t}`, source: "fiche du poste" });
   if (engage === true) prudences.push({ texte: "poste engagé : jamais seul, gilet, heure de retour laissée à un proche", source: "prudence du guide (V2)" });
   if (nuit === true && niveau === 2) prudences.push({ texte: "de nuit : n'y aller qu'après un repérage de jour", source: "prudence du guide (V2)" });
   // Vigilance Météo-France : non lue par SPUMY tant que V3-011 n'est pas réalisé : rappel, jamais « aucune vigilance ».

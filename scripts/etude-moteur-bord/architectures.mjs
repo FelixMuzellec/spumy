@@ -54,16 +54,20 @@ export const PRESENCE_PLANCHER = 0.3;
  */
 export function a1(c, { largeurMax = 20 } = {}) {
   let got = 0, manque = 0;
+  // Un point n'est connu que s'il est un nombre fini ; un texte ou NaN compte comme manquant.
   for (const [k, m] of Object.entries(MAX)) {
-    if (c.exclus.has(k) || c.pts[k] == null) manque += m; else got += c.pts[k];
+    const v = c.pts[k];
+    if (c.exclus.has(k) || !(typeof v === "number" && Number.isFinite(v))) manque += m; else got += v;
   }
   // L'eau n'est connue que si c'est dit explicitement ; « tout connu » ne se lit jamais sur la largeur, qui peut être nulle
-  // par hasard (présence au plancher, présence nulle).
-  const eau = c.eauConnue === true, complet = manque === 0 && eau;
+  // par hasard (présence au plancher, présence nulle) ; la présence et la saison doivent être des nombres finis.
+  const fini = (x) => typeof x === "number" && Number.isFinite(x);
+  const eau = c.eauConnue === true && fini(c.presence), complet = manque === 0 && eau;
+  if (!fini(c.saison) && !eau) return { valeur: null, bas: null, haut: null, largeur: null, publication: "aucune" };
   const pHaut = eau ? c.presence : c.saison, pBas = eau ? c.presence : Math.min(PRESENCE_PLANCHER, pHaut);
   const bas = Math.round(got * pBas), haut = Math.round((got + manque) * pHaut);
   const largeur = haut - bas;
-  const publication = manque > 50 ? "aucune" : complet ? "nombre" : largeur <= largeurMax ? "fourchette" : "qualitatif";
+  const publication = manque > 50 ? "aucune" : complet ? "nombre" : largeur >= 1 && largeur <= largeurMax ? "fourchette" : "qualitatif";
   return { valeur: complet ? bas : null, bas, haut, largeur, publication };
 }
 

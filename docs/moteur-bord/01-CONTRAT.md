@@ -93,7 +93,7 @@ Six dimensions, chacune notée de 0 à 100 par une règle écrite, toutes visibl
 | --- | --- | --- |
 | Nombre | tous les critères et l'eau connus, déclarés comme tels (jamais déduit d'une largeur nulle), Confiance moyenne ou haute, fenêtre déterminée | « 72 », avec sa classe d'affichage |
 | Classe d'affichage seule | tout est connu, mais la Confiance n'est ni haute ni moyenne (faible ou inconnue) | « Bon », sans nombre |
-| Fourchette | intervalle de 1 à 20 points | « 60 à 75 » |
+| Fourchette | intervalle de 1 à 20 points (un intervalle incomplet de largeur nulle est publié en qualitatif) | « 60 à 75 » |
 | Qualitatif | intervalle de plus de 20 points, au moins la moitié des maximums connue | « au moins Moyen » (classe de la borne basse) |
 | Aucune note « — » | moins de la moitié des maximums connue, ou fenêtre non déterminable | « — », avec la raison ; aucune valeur de rang |
 | Non recommandé | sécurité DANGER ou BLOCKED | « Non recommandé », avec la raison ; la Favorabilité n'est pas affichée à côté |
@@ -108,7 +108,7 @@ Six dimensions, chacune notée de 0 à 100 par une règle écrite, toutes visibl
 
 ## 6. Contrat de sécurité BORD (§ 9.5)
 
-Indépendant des deux scores, appliqué avant toute recommandation. Prototype : `securite.mjs`, 16 tests.
+Indépendant des deux scores, appliqué avant toute recommandation. Prototype : `securite.mjs`, 17 tests.
 
 - **Entrées normalisées** :
   - une mesure n'est connue que si c'est un nombre fini et physiquement possible (≥ 0) ;
@@ -124,7 +124,7 @@ Indépendant des deux scores, appliqué avant toute recommandation. Prototype : 
 | DANGER | Vent moyen force 8 et plus, ou rafales de 90 km/h et plus | `filtre-vent` N1 (Météo-France) |
 | DANGER | Houle au-delà du maximum du poste + 0,5 m, ou au-delà du maximum sur un poste engagé ; houle inconnue sur un poste engagé | Règle V2, maximums N4 |
 | DANGER | Coefficient au-delà de la limite de courant documentée ; isolement par le flot pendant le créneau ; nuit sur un poste engagé | Fiche du poste ; règle V2 validée |
-| INSUFFICIENT_DATA | Vent, rafales, direction (force 2 et plus) ou houle (côte ouverte) inconnus ou illisibles ; maximum de houle inconnu en côte ouverte ; engagement inconnu ; accès selon la marée inconnu ; **contrainte de marée connue (isolement au flot, poste submersible, praticable à basse mer seulement) que rien ne situe par rapport au créneau** ; coefficient inconnu ou limite illisible face à une limite documentée ; nuit, ou heure de lever ou de coucher inconnue, sur un poste engagé ou d'engagement inconnu ; réglementation locale non lue, ou application au poste « à vérifier » (exemple : la fermeture du bar au cap Fréhel, du 1er mars au 31 mai, dont l'application au poste reste à vérifier) | § 9.5 ; audit A12 ; D6-15, D6-21 |
+| INSUFFICIENT_DATA | Vent, rafales, direction (force 2 et plus) ou houle (côte ouverte) inconnus ou illisibles ; maximum de houle inconnu en côte ouverte ; engagement inconnu ; accès selon la marée inconnu ; **contrainte de marée connue (isolement au flot, poste submersible à pleine mer, praticable à basse mer seulement, accès selon la marée) que rien ne situe par rapport au créneau** ; coefficient inconnu ou limite illisible face à une limite documentée ; nuit, ou heure de lever ou de coucher inconnue, sur un poste engagé ou d'engagement inconnu ; réglementation locale non lue, ou application au poste « à vérifier » (exemple : la fermeture du bar au cap Fréhel, du 1er mars au 31 mai, dont l'application au poste reste à vérifier) | § 9.5 ; audit A12 ; D6-15, D6-21 |
 | CAUTION | Force 6 ou 7, ou rafales de 60 à 89 km/h ; houle au-dessus du maximum de 0,5 m au plus sur un poste non engagé | Prudence validée par Félix le 13 nov. 2026 |
 | SAFE | Aucune des règles ci-dessus | « Aucune alerte connue sur les facteurs évalués » : ce n'est pas « sûr » ; « vérifie sur place » reste affiché |
 
@@ -156,7 +156,7 @@ Jamais un vert, jamais le mot « sûr » (SEC-02).
   - SEC-02 cite la visibilité parmi les données de sécurité qui ne sont jamais « au vert ». Le contrat s'écarte de sa lettre, et le dit : la visibilité n'est pas évaluée en BORD, elle est listée à côté de l'état, et aucun état n'est jamais affiché en vert.
 - **Impact mesuré (D6-15, D6-21)** : avec les données de sécurité actuelles des fiches, **aucune des 98 fiches ne peut être SAFE**, quelle que soit la météo (`e9`, test).
   - Accès selon la marée inconnu : 75 fiches.
-  - Accès connu, mais contrainte de marée qu'aucune fenêtre de sécurité documentée ne situe : les 23 autres. Toutes décrivent une contrainte : isolement au flot, poste submersible à pleine mer, praticable à basse mer seulement.
+  - Accès connu, mais contrainte de marée qu'aucune fenêtre de sécurité documentée ne situe : les 23 autres. Toutes décrivent une contrainte : isolement au flot, poste submersible à pleine mer, praticable à basse mer seulement, ou accès selon la marée.
   - Réglementation locale non lue : 35 fiches, dont la Manche.
   - Engagement inconnu : 32 fiches ; houle maximale inconnue : 32.
   - En V2, l'absence de règle d'isolement valait « pas d'isolement », et une contrainte connue n'était qu'une consigne de prudence. La règle V3 « une donnée de sécurité inconnue n'est jamais au vert » change ce comportement : tant que la phase 7 n'a pas documenté ces données, tous les spots BORD sont « à vérifier ».
@@ -170,7 +170,7 @@ Jamais un vert, jamais le mot « sûr » (SEC-02).
 
 ## 7. Règle de classement (§ 9.1.6, § 9.1.7)
 
-Prototype : `classement.mjs`, 13 tests. Ordre des étapes verrouillé. Entrées strictes : un temps de route n'est connu que s'il est un nombre ≥ 0 ; un spot n'est documenté que si chaque champ le dit explicitement.
+Prototype : `classement.mjs`, 13 tests. Ordre des étapes verrouillé. Entrées strictes : un temps de route n'est connu que s'il est un nombre ≥ 0 ; un spot n'est documenté que si chaque champ le dit explicitement, accès ouvert compris.
 
 1. **Sécurité** : DANGER et BLOCKED ne sont pas recommandés (liste à part, avec la raison). INSUFFICIENT_DATA ne vaut jamais SAFE.
 2. **Séparer « à vérifier »** : un spot va dans le groupe « à vérifier » quand l'un de ces cas se présente (liste provisoire, D6-18) :
@@ -241,7 +241,7 @@ Sans connaissance sourcée, une valeur s'affiche sans effet annoncé (MET-05). A
 | REC-08 | Aucune imputation, couverture affichée, « — » | § 3, § 8 ; audit A2 ; tests |
 | REC-09 | Fenêtre ou « non déterminable » | § 7, § 9 ; audit A3 |
 | REC-11 | Favorabilité sur la biologie, paramètres tracés | § 3 ; documents 02 à 05 |
-| SEC-01, SEC-02, SEC-04 | Sécurité indépendante, inconnu jamais SAFE, poste engagé visible (libellé « Prudence ») | § 6 ; 16 tests ; écart déclaré sur la visibilité |
+| SEC-01, SEC-02, SEC-04 | Sécurité indépendante, inconnu jamais SAFE, poste engagé visible (libellé « Prudence ») | § 6 ; 17 tests ; écart déclaré sur la visibilité |
 | SEC-05 | Seuils validés avant toute mise en ligne | § 6 ; D6-10 |
 | RTE-01, RTE-02 | 60 min ; estimation marquée | § 7 ; tests |
 | JRN-05 | Aucune conclusion sur trop peu de sorties | document 04 (identifiabilité, critère d'affichage) |

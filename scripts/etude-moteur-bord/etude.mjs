@@ -327,7 +327,7 @@ function e8(moteurs) {
   for (const sc of F.scenarios) R[sc.id] = jouer(sc);
   { const sc = F.scenarios.find((x) => x.id === "S11"); R.S11.avecEauReelle = jouer(sc, { sst: sc.eauReelle }).fav; }
   R.S16.parMois = F.scenarios.find((x) => x.id === "S16").entree.mois.map((m, i, a) => ({ mois: m, ...jouer({ ...F.scenarios.find((x) => x.id === "S16"), entree: {} }, { month: m, sst: F.scenarios.find((x) => x.id === "S16").entree.eaux[i] }) })).map(({ mois, fav, presence }) => ({ mois, fav, presence }));
-  const base = ["S03", "S04", "S07", "S17"].map((id, i) => ({ id, securite: "SAFE", aVerifier: false, favLargeur: 0, trajetMin: 20 + i, trajetVerifie: true, fav: R[id].fav, confiance: 50 }));
+  const base = ["S03", "S04", "S07", "S17"].map((id, i) => ({ id, securite: "SAFE", aVerifier: false, accesFerme: false, favLargeur: 0, trajetMin: 20 + i, trajetVerifie: true, fav: R[id].fav, confiance: 50 }));
   const avecPert = base.map((x, i) => ({ ...x, pert: { score: 10 * i, under: i % 2 === 0, filters: true }, boite: ["shad", "minnow"][i % 2] }));
   const ordre = (l) => classer(l).top.map((x) => x.id).join();
   const tenue = {
@@ -348,7 +348,7 @@ function e8(moteurs) {
     S15: R.S15.securite === "DANGER" && R.S15.fav >= 75 && !classer([{ id: "S15", securite: R.S15.securite, trajetMin: 10, trajetVerifie: true, fav: R.S15.fav }]).top.length,
     S16: [...R.S16.parMois].sort((a, b) => a.presence - b.presence).every((x, i, a) => i === 0 || x.fav >= a[i - 1].fav),
     S17: R.S03.fav > R.S17.fav,
-    S18: ordre(base) === ordre(avecPert),
+    S18: ordre(base) === ordre(avecPert) && classer(base).top.length === 3,
     S19: R.S19.securite === "INSUFFICIENT_DATA" && R.S19.regles.includes("isolement:INSUFFICIENT_DATA") && R.S19.fav != null,
     S20: R.S20.regles.includes("houle:INSUFFICIENT_DATA"),
     S21: R.S21.securite === "SAFE" && R.S21.prudences === 0 && R.S21.niveauAffiche === "Aucune alerte connue",

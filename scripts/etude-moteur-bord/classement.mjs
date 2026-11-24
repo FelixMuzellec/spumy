@@ -27,11 +27,12 @@ export function classer(spots, { trajetMax = TRAJET_MAX_MIN } = {}) {
   const nonRecommandes = [], exclus = [], documentes = [], aVerifier = [];
   for (const s of spots) {
     if (NON_RECOMMANDE.has(s.securite)) { nonRecommandes.push({ id: s.id, raison: `sécurité ${s.securite}` }); continue; }
-    if (s.accesFerme) { exclus.push({ id: s.id, raison: "accès fermé" }); continue; }
+    if (s.accesFerme === true) { exclus.push({ id: s.id, raison: "accès fermé" }); continue; }
     if (!minutes(s.trajetMin)) { exclus.push({ id: s.id, raison: "temps de route inconnu" }); continue; }
     if (s.trajetMin > trajetMax) { exclus.push({ id: s.id, raison: `${s.trajetMin} min de route > ${trajetMax}` }); continue; }
     // INSUFFICIENT_DATA ne vaut jamais SAFE ; CAUTION reprend le « à vérifier » validé en V2 (Félix, 13 nov. 2026).
-    (s.securite === "SAFE" && s.aVerifier === false && s.favLargeur === 0 && note(s) >= 0 ? documentes : aVerifier).push(s);
+    // Accès non confirmé ouvert (champ absent) : jamais parmi les documentés.
+    (s.securite === "SAFE" && s.aVerifier === false && s.accesFerme === false && s.favLargeur === 0 && note(s) >= 0 ? documentes : aVerifier).push(s);
   }
   const ordre = (a, b) => (note(b) - note(a)) || (a.trajetMin - b.trajetMin) || String(a.id).localeCompare(String(b.id));
   documentes.sort(ordre); aVerifier.sort(ordre);
