@@ -225,7 +225,7 @@
    "bV2_a2": 0.924,
    "bV2_a3": 0.99
   },
-  "partVarianceV2": {
+  "r2UnivarieSurLaGrille": {
    "presence": 0.487,
    "fenetre": 0.066,
    "coef": 0.174,
@@ -235,7 +235,10 @@
   "compensation": {
    "favorables": 10366,
    "presenceSous06": 0,
-   "conditionsSous50": 0
+   "conditionsSous50": 0,
+   "unCritereSous20pc": 617,
+   "ventSous20pcEtNote75": 0,
+   "coefNulEtNote65": 609
   },
   "sautLumiereAubeContreJour": {
    "moyenne": 15.156,
@@ -363,17 +366,18 @@
   }
  ],
  "e6_stabiliteClassement": {
-  "situations": 336,
+  "situations": 672,
   "tirages": 300,
   "graine": 424242,
-  "amplitude": "chaque critère ×0,6 à ×1,4 et présence k 0,6 à 1,4 (niveau 4)",
-  "premierInchange": 0.904,
-  "premierAEgalite3": 0.991,
+  "amplitude": "poids de chaque critère ×0,6 à ×1,4 et présence k 0,6 à 1,4 (niveau 4) ; la météo n'est pas perturbée",
+  "grille": "7 guides × 4 mois × 3 coefficients × aube ou jour × vent O ou NE × force 2 ou 4, chaque spot à la priorité de sa première fenêtre",
+  "premierInchange": 0.919,
+  "premierAEgalite3": 0.993,
   "premierAEgalite10": 1,
-  "top3Inchange": 0.868,
+  "top3Inchange": 0.85,
   "top3AEgalite10": 1,
-  "situationsTop3Tient80": 245,
-  "situationsTop3Egalite10Tient80": 336,
+  "situationsTop3Tient80": 478,
+  "situationsTop3Egalite10Tient80": 672,
   "a2TailleClasseDeTete": {
    "mediane": 7,
    "q95": 11

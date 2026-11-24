@@ -7,7 +7,7 @@ import { build } from "esbuild";
 import fs from "node:fs";
 import path from "node:path";
 import { pAuMoinsUne, logNB, pZINB, zeroStructurel, thetaRatio, thetaPosterieur, psiBeta, alea, tirerZINB } from "./zinb.mjs";
-import { composantes, bV2, bSimple, a1, a2, a3, palier, spearman } from "./architectures.mjs";
+import { composantes, bV2, bSimple, a1, a2, a3, palier, spearman, MAX } from "./architectures.mjs";
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "../..");
 const SORTIE = path.join(root, "data/moteur-bord/resultats-etude.json");
@@ -92,7 +92,7 @@ function e3() {
 // ── Grille de créneaux sur les 66 spots V2 ──
 const MOIS = [[2, 9], [5, 13], [8, 17], [11, 12]];   // mois et température de l'eau de la grille (valeurs d'essai, pas des mesures)
 async function grille() {
-  const lignes = [];
+  const lignes = [], classement = [];
   for (const g of GUIDES) {
     const E = await moteur(g);
     const dirOf = (angles) => E.DIR16[Math.round((((angles?.[0] ?? 0) % 360) + 360) % 360 / 22.5) % 16];
@@ -108,9 +108,15 @@ async function grille() {
             sansVent: composantes(E.favorability(s, { priority, coeff, light: { band } }, { windKnown: false }, { month, sst, sstConf: "modele" })),
             sansEau: composantes(E.favorability(s, { priority, coeff, light: { band } }, zw, { month })) });
         }
+      // Grille du classement (E6) : même vent pour tous les spots du guide (direction O ou NE, force 2 ou 4), chaque spot
+      // à la priorité de sa première fenêtre de marée ; physiquement cohérente entre spots, contrairement à « face/dos ».
+      for (const [month, sst] of MOIS) for (const coeff of [35, 70, 100]) for (const band of ["aube", "jour"]) for (const dir of ["O", "NE"]) for (const force of [2, 4]) {
+        const f = E.favorability(s, { priority: prio, coeff, light: { band } }, { wind_dir: dir, wind_force: force, windKnown: true, houle: 0.6, houleKnown: true, sky: "clear" }, { month, sst, sstConf: "modele" });
+        classement.push({ guide: g, spot: s.id, month, coeff, band, dir, force, c: composantes(f) });
+      }
     }
   }
-  return lignes;
+  return { lignes, classement };
 }
 
 function e4(G) {
@@ -118,14 +124,18 @@ function e4(G) {
   const A1 = G.map((x) => a1(x.c)), A2 = G.map((x) => a2(x.c).valeur), A3 = G.map((x) => a3(x.c).valeur);
   const ecartMoteur = G.filter((x, i) => x.f.fav !== v2[i]).length;   // la recombinaison B-V2 doit égaler le moteur
   const pearson2 = (xs, ys) => { const r = spearmanPearson(xs, ys); return r == null ? null : r3(r * r); };
-  const parts = {
+  const r2Univarie = {
     presence: pearson2(G.map((x) => x.c.presence), v2), fenetre: pearson2(G.map((x) => x.c.pts.fenetre), v2), coef: pearson2(G.map((x) => x.c.pts.coef), v2),
     lumiere: pearson2(G.map((x) => x.c.pts.lumiere), v2), vent: pearson2(G.map((x) => x.c.pts.vent), v2),
   };
   // Compensation : une note « favorable » (≥ 65) obtenue avec une disponibilité biologique faible, ou avec des conditions faibles.
   const fav65 = G.map((x, i) => [x, v2[i]]).filter(([, v]) => v != null && v >= 65);
   const compensation = { favorables: fav65.length, presenceSous06: fav65.filter(([x]) => x.c.presence < 0.6).length,
-    conditionsSous50: fav65.filter(([x]) => bV2(x.c, { kPresence: 0 }).valeur < 50).length };
+    conditionsSous50: fav65.filter(([x]) => bV2(x.c, { kPresence: 0 }).valeur < 50).length,
+    // Compensation à l'intérieur des conditions (somme) : un critère au plus à 20 % de son maximum dans une note ≥ 65.
+    unCritereSous20pc: fav65.filter(([x]) => Object.entries(MAX).some(([k, m]) => x.c.pts[k] != null && x.c.pts[k] <= 0.2 * m)).length,
+    ventSous20pcEtNote75: G.filter((x, i) => v2[i] >= 75 && x.c.pts.vent != null && x.c.pts.vent <= 0.2 * MAX.vent).length,
+    coefNulEtNote65: fav65.filter(([x]) => x.c.pts.coef === 0).length };
   // Saut de lumière : même créneau, plein jour ciel clair contre aube.
   const cle = (x) => [x.guide, x.spot, x.month, x.coeff, x.priority, x.force, x.expo].join("|");
   const parCle = new Map(); G.forEach((x, i) => { if (x.sky === "clear") parCle.set(`${cle(x)}|${x.band}`, v2[i]); });
@@ -139,7 +149,7 @@ function e4(G) {
   return {
     creneaux: G.length, spots: new Set(G.map((x) => `${x.guide}/${x.spot}`)).size, recombinaisonEgaleMoteur: ecartMoteur === 0,
     spearman: { bV2_bSimple: r3(spearman(v2, simple)), bV2_a2: r3(spearman(v2, A2)), bV2_a3: r3(spearman(v2, A3)) },
-    partVarianceV2: parts, compensation,
+    r2UnivarieSurLaGrille: r2Univarie, compensation,
     sautLumiereAubeContreJour: { moyenne: r3(moy(sauts)), q05: quantile(sauts, 0.05), q95: quantile(sauts, 0.95), max: Math.max(...sauts) },
     ventInconnu: { creneaux: mv.length, erreurRenormalisationMoyenne: r3(moy(erreurVent)), erreurQ95: quantile(erreurVent, 0.95), erreurMax: Math.max(...erreurVent),
       partErreurSup10: r3(erreurVent.filter((e) => e > 10).length / erreurVent.length), largeurIntervalleA1: { mediane: quantile(largeurs, 0.5), max: Math.max(...largeurs) }, publicationA1: pub },
@@ -168,12 +178,11 @@ function e5(G) {
 }
 
 // ── E6 : stabilité du classement entre spots d'un guide sous incertitude des paramètres (Monte Carlo, graine fixe) ──
-function e6(G) {
+function e6(G6) {
   const u = alea(424242), R = 300;
   const ctxs = new Map();
-  for (const x of G) {
-    if (x.sky !== "clear" || x.priority !== x.prioSpot || !["aube", "jour"].includes(x.band) || x.force !== 3) continue;
-    const k = [x.guide, x.month, x.coeff, x.band, x.expo].join("|");   // même situation pour tous les spots du guide
+  for (const x of G6) {
+    const k = [x.guide, x.month, x.coeff, x.band, x.dir, x.force].join("|");   // même situation pour tous les spots du guide
     if (!ctxs.has(k)) ctxs.set(k, []);
     ctxs.get(k).push(x);
   }
@@ -199,7 +208,8 @@ function e6(G) {
     mesure.strict.push(s / R); mesure.egal3.push(e3 / R); mesure.egal10.push(e10 / R); mesure.top3.push(t3 / R); mesure.top3egal10.push(t3e / R);
     mesure.classeA2.push(setA2.size);
   }
-  return { situations: mesure.strict.length, tirages: R, graine: 424242, amplitude: "chaque critère ×0,6 à ×1,4 et présence k 0,6 à 1,4 (niveau 4)",
+  return { situations: mesure.strict.length, tirages: R, graine: 424242, amplitude: "poids de chaque critère ×0,6 à ×1,4 et présence k 0,6 à 1,4 (niveau 4) ; la météo n'est pas perturbée",
+    grille: "7 guides × 4 mois × 3 coefficients × aube ou jour × vent O ou NE × force 2 ou 4, chaque spot à la priorité de sa première fenêtre",
     premierInchange: r3(moy(mesure.strict)), premierAEgalite3: r3(moy(mesure.egal3)), premierAEgalite10: r3(moy(mesure.egal10)),
     top3Inchange: r3(moy(mesure.top3)), top3AEgalite10: r3(moy(mesure.top3egal10)),
     situationsTop3Tient80: mesure.top3.filter((p) => p >= 0.8).length, situationsTop3Egalite10Tient80: mesure.top3egal10.filter((p) => p >= 0.8).length,
@@ -207,9 +217,9 @@ function e6(G) {
 }
 
 export async function etude() {
-  const G = await grille();
+  const { lignes: G, classement: G6 } = await grille();
   return { "//": "Étude PROVISOIRE de la phase 6 V3 : structure et robustesse, jamais une précision terrain (aucune vérité terrain ici). Régénérer : node scripts/etude-moteur-bord/etude.mjs",
-    e1_identitesZINB: e1(), e2_gammaPoissonContreExact: e2(), e3_identifiabilite: e3(), e4_architectures: e4(G), e5_sensibilite: e5(G), e6_stabiliteClassement: e6(G) };
+    e1_identitesZINB: e1(), e2_gammaPoissonContreExact: e2(), e3_identifiabilite: e3(), e4_architectures: e4(G), e5_sensibilite: e5(G), e6_stabiliteClassement: e6(G6) };
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
