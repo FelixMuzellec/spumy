@@ -75,7 +75,7 @@ Méthode : références statiques (`git grep`, y compris scripts, tests, CI et d
 | `assets/brand/spumy-*-sombre.png`, `web/spumy-logo-sombre.webp`, `logo-spumy.webp` (racine) | site en ligne (`index.html`, `scripts/build.mjs`, `scripts/sites.mjs`) | **gardés** : non conformes (A01) mais encore utilisés par le site ; remplacés à l'intégration (phases 10 à 12) |
 | Fichiers publiés à la racine (HTML, JSON, PNG des 7 guides, `app.js`, `sw.js`, polices, icônes) | GitHub Pages, contrôle « site publié = sources » | **gardés** : c'est le site |
 | `audit/AUDIT-SPUMY-v9.1.md`, `audit/UX-SPUMY-v9.2.md` | `docs/ARCHITECTURE.md`, rapport de phase 1 | **gardés** (historique cité) ; déplacement vers `docs/historique/` proposé à la phase 15 |
-| Générateurs V2 (`scripts/logos.py`, `photos.py`, `brand.mjs`, `prototype-data.mjs`, `avant-prototype.mjs`, `carte-prototype.py`) | documentation et CHANGELOG ; certains régénèrent des fichiers encore publiés | **gardés** jusqu'au remplacement des fichiers qu'ils produisent |
+| Générateurs V2 (`scripts/logos.py`, `photos.py`, `prototype-data.mjs`, `avant-prototype.mjs`, `carte-prototype.py` ; `brand.mjs` et `icons.mjs`, gardés ici à tort, retirés le 24 nov. : voir `NETTOYAGE.md`) | documentation et CHANGELOG ; certains régénèrent des fichiers encore publiés | **gardés** jusqu'au remplacement des fichiers qu'ils produisent |
 | `prototype/` (phase 11 de la V2) | CI (`test:prototype`), documentation | **gardé** tant que la CI le teste ; retrait proposé quand le prototype V3 l'aura entièrement remplacé |
 | Branches V2 fusionnées (13) | fusionnées dans `main` | **registre seulement** (V3-019) |
 

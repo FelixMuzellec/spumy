@@ -7,6 +7,8 @@ Phase 4 V3 (référentiel § 12.2 : « ne supprime rien sans audit de dépendanc
 | Élément | Audit | Contrôles après suppression | Restauration |
 | --- | --- | --- | --- |
 | `src/prototype-v3/map.jsx` (carte et météo de la version 5 du prototype, fond schématique) | aucun import ; son en-tête disait « gardé pour mémoire jusqu'à la revalidation de la version 6 », faite le 23 nov. 2026 (jeton de phase 4) | lint 0 ; couches 0 écart ; construction du prototype V3 identique (360 Ko) ; tests du prototype V3 au vert | `git checkout 874912f -- src/prototype-v3/map.jsx` |
+| `scripts/icons.mjs`, `scripts/brand.mjs`, `assets/brand/spumy.svg` et les sept `assets/brand/<guide>.svg`, commande `npm run icons` (suivi du 24 nov. 2026, oubli de l'inventaire de phase 4) | aucune lecture par le site, les tests, la CI ni un autre script : `brand.mjs` ne sert qu'à `icons.mjs`, qui n'écrit que ces SVG et des icônes PNG produites depuis le 19 nov. par `scripts/logos.py` (logos de Félix). Le relancer aurait remplacé ces icônes par l'ancien dessin : le registre de phase 4 le gardait à tort comme générateur utile | construction : fichiers publiés identiques ; `npm test`, marque, accessibilité, prototypes au vert (proposition du 24 nov.) | `git checkout f318cbe -- scripts/icons.mjs scripts/brand.mjs assets/brand/` |
+| Variantes sombres d'Inshore et d'Offshore (`assets/brand/inshore-sombre.png`, `offshore-sombre.png`, `web/inshore-sombre.webp`, `web/offshore-sombre.webp`) ; `scripts/logos.py` ne les produit plus | aucune lecture (le site sert les versions claires) ; elles recoloraient le dessin (bleu marine passé en crème), ce que la charte interdit | `scripts/logos.py` relancé sur une copie : les 25 fichiers gardés sortent identiques à l'octet | `git checkout f318cbe -- assets/brand/ scripts/logos.py` |
 
 ## Gardé, avec la raison
 
@@ -15,8 +17,11 @@ Phase 4 V3 (référentiel § 12.2 : « ne supprime rien sans audit de dépendanc
 | Logos V2 non conformes (`assets/brand/spumy-*-sombre.png`, `web/spumy-logo-sombre.webp`, `logo-spumy.webp`) | encore servis par le site en ligne | remplacement à l'intégration (phases 10 à 12) |
 | Fichiers publiés à la racine | c'est le site (GitHub Pages) | migration vers l'entrée unique V3 (`docs/MIGRATION-V3.md`) |
 | `audit/` (audits V2 9.1 et 9.2) | cités par `docs/ARCHITECTURE.md` et le rapport de phase 1 | déplacement vers `docs/historique/` à la phase 15 |
-| Générateurs V2 (`scripts/logos.py`, `photos.py`, `brand.mjs`, `prototype-data.mjs`, `avant-prototype.mjs`, `carte-prototype.py`) | régénèrent des fichiers encore publiés ou testés | avec le retrait des fichiers qu'ils produisent |
+| Générateurs V2 (`scripts/logos.py`, `photos.py`, `prototype-data.mjs`, `avant-prototype.mjs`, `carte-prototype.py`) | régénèrent des fichiers encore publiés ou testés | avec le retrait des fichiers qu'ils produisent |
 | `prototype/` (phase 11 de la V2) | testé par la CI | quand le prototype V3 l'aura remplacé partout |
+| `assets/brand/spumy-nom-clair.png` | déclinaison conforme produite par `scripts/logos.py` à côté de celles qui servent ; aucune lecture | avec les logos V2, aux phases 10 à 12 |
+| Scripts d'intégration de la phase 5 (`scripts/integrer-acces.mjs`, `integrer-photos.mjs`, `integrer-risques.mjs`, `marees-fiches.mjs`) | aucun appel automatique, mais ce sont eux qui ont écrit dans les fiches l'accès IGN, les photos libres, les risques Géorisques et les phases de marée : on peut les relancer sur une nouvelle collecte (ils n'écrasent jamais une donnée VÉRIFIÉE) | phase 7 (nouvelle collecte), puis phase 15 |
+| Outils V2 lancés à la main (`tests/compare-v1v2.mjs`, `tests/audit-spots.mjs`) | encore exécutables, cités par l'architecture et les rapports de la V2 | avec le retrait du moteur et des fiches V2 (phases 10 à 12) |
 
 ## Branches (V3-019, À DÉCIDER par Félix : rien n'est supprimé)
 
