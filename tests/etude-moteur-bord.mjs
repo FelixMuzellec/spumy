@@ -95,5 +95,10 @@ t("sécurité : seuils du contrat proposé égaux à ceux du moteur V2", JSON.st
 t("audit A12 : sur le vrai moteur V2, un engagement absent laisse passer la nuit (défaut à ne pas reprendre)", e7.engagementInconnuDeNuit.engageBloque && !e7.engagementInconnuDeNuit.inconnuBloque && e7.engagementInconnuDeNuit.spotsV2SansEngagement === 0);
 t("audit A5 : sur le vrai moteur V2, une houle inconnue retire le critère vent, qui ne lit pourtant que le vent", e7.houleInconnueRetireLeVent.spotsTouches > 0 && e7.houleInconnueRetireLeVent.ecartNote.max > 0);
 
+// Scénarios et fixtures (data/moteur-bord/scenarios.json), sur le vrai moteur V2
+const e8 = R.e8_scenarios;
+for (const [id, ok] of Object.entries(e8.proprietesTenues)) t(`scénario ${id} : ${JSON.parse(fs.readFileSync(path.join(root, "data/moteur-bord/scenarios.json"), "utf8")).scenarios.find((x) => x.id === id).propriete}`, ok === true);
+t("scénarios : 18 fixtures, toutes jouées", e8.scenarios === 18 && Object.keys(e8.proprietesTenues).length === 18);
+
 console.log(`[étude moteur BORD] identités, Gamma–Poisson, identifiabilité, architectures, classement : ${pass}/${pass + fail}`);
 process.exit(fail ? 1 : 0);

@@ -8,6 +8,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { pAuMoinsUne, logNB, pZINB, zeroStructurel, thetaRatio, thetaPosterieur, psiBeta, alea, tirerZINB } from "./zinb.mjs";
 import { composantes, bV2, bSimple, a1, a2, a3, palier, spearman, MAX } from "./architectures.mjs";
+import { classer } from "./classement.mjs";
+import { etatSecurite } from "./securite.mjs";
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "../..");
 const SORTIE = path.join(root, "data/moteur-bord/resultats-etude.json");
@@ -250,10 +252,58 @@ function e7(moteurs) {
   };
 }
 
+// ── E8 : scénarios et fixtures (data/moteur-bord/scenarios.json), joués sur le vrai moteur V2, A1 et la sécurité proposée ──
+function e8(moteurs) {
+  const F = JSON.parse(fs.readFileSync(path.join(root, "data/moteur-bord/scenarios.json"), "utf8"));
+  const jouer = (sc, plus = {}) => {
+    const E = moteurs.get(sc.guide), s = E.SPOTS.find((x) => x.id === sc.spot);
+    const o = { ...F.defaut, ...sc.entree, ...plus };
+    const dirOf = (a) => E.DIR16[Math.round((((a % 360) + 360) % 360) / 22.5) % 16];
+    const dir = o.wind_dir === "dos" ? dirOf((s.exposedAngles?.[0] ?? 0) + 180) : dirOf(s.exposedAngles?.[0] ?? 0);
+    const win = { priority: o.priority, coeff: o.coeff, light: { band: o.band } };
+    const zw = { wind_dir: dir, wind_force: o.wind_force, windKnown: o.windKnown, houle: o.houle, houleKnown: o.houleKnown, sky: o.sky };
+    const ctx = o.sst == null ? { month: o.month } : { month: o.month, sst: o.sst, sstConf: "modele" };
+    const f = E.favorability(s, win, zw, ctx), c = composantes(f), A = a1(c);
+    const force = Math.max(o.wind_force, o.wind_force_alt ?? 0, o.wind_force_pire ?? 0);   // D6-14 et pire moment du créneau
+    const sec = etatSecurite({ ventConnu: o.windKnown, force, rafalesKmh: 40, directionConnue: true, coteOuverte: E.regimeOf(s) !== "abri", houleConnue: o.houleKnown,
+      houleM: o.houle, houleMaxM: s.houleMax ?? null, engagement: "engagement" in o ? o.engagement : s.dangerLevel, coef: o.coeff, coefMaxDur: s.coefHardMax ?? null,
+      isolement: false, nuit: o.band === "nuit", fermetureOfficielle: false });
+    return { fav: f.fav, conditions: f.cond, presence: f.pres.factor, points: c.pts, exclus: [...c.exclus], a1: { bas: A.bas, haut: A.haut, publication: A.publication }, securite: sec.etat };
+  };
+  const R = {};
+  for (const sc of F.scenarios) R[sc.id] = jouer(sc);
+  { const sc = F.scenarios.find((x) => x.id === "S11"); R.S11.avecEauReelle = jouer(sc, { sst: sc.eauReelle }).fav; }
+  R.S16.parMois = F.scenarios.find((x) => x.id === "S16").entree.mois.map((m, i, a) => ({ mois: m, ...jouer({ ...F.scenarios.find((x) => x.id === "S16"), entree: {} }, { month: m, sst: F.scenarios.find((x) => x.id === "S16").entree.eaux[i] }) })).map(({ mois, fav, presence }) => ({ mois, fav, presence }));
+  const base = ["S03", "S04", "S07", "S17"].map((id, i) => ({ id, securite: "SAFE", aVerifier: false, trajetMin: 20 + i, trajetVerifie: true, fav: R[id].fav, confiance: 50 }));
+  const avecPert = base.map((x, i) => ({ ...x, pert: { score: 10 * i, under: i % 2 === 0, filters: true }, boite: ["shad", "minnow"][i % 2] }));
+  const ordre = (l) => classer(l).top.map((x) => x.id).join();
+  const tenue = {
+    S01: R.S01.fav <= 50 && R.S01.conditions >= 90,
+    S02: R.S02.presence > R.S01.presence,
+    S03: R.S03.fav >= 75,
+    S04: R.S04.fav > R.S01.fav && R.S04.fav < R.S03.fav,
+    S05: R.S05.presence < R.S03.presence,
+    S06: R.S06.presence === 0.3,
+    S07: R.S03.fav - R.S07.fav >= 9,
+    S08: R.S08.points.coef === 0 && R.S08.fav >= 65,
+    S09: R.S09.exclus.includes("vent") && R.S09.a1.bas <= R.S09.fav && R.S09.fav <= R.S09.a1.haut && R.S09.a1.publication !== "nombre",
+    S10: R.S10.exclus.includes("vent") && ["INSUFFICIENT_DATA", "DANGER"].includes(R.S10.securite),
+    S11: R.S11.fav > R.S11.avecEauReelle,
+    S12: R.S12.securite === "CAUTION",
+    S13: R.S13.securite === "CAUTION",
+    S14: R.S14.securite === "INSUFFICIENT_DATA",
+    S15: R.S15.securite === "DANGER" && !classer([{ id: "S15", securite: R.S15.securite, trajetMin: 10, trajetVerifie: true, fav: R.S15.fav }]).top.length,
+    S16: [...R.S16.parMois].sort((a, b) => a.presence - b.presence).every((x, i, a) => i === 0 || x.fav >= a[i - 1].fav),
+    S17: R.S03.fav > R.S17.fav,
+    S18: ordre(base) === ordre(avecPert),
+  };
+  return { scenarios: F.scenarios.length, resultats: R, proprietesTenues: tenue };
+}
+
 export async function etude() {
   const { lignes: G, classement: G6, moteurs } = await grille();
   return { "//": "Étude PROVISOIRE de la phase 6 V3 : structure et robustesse, jamais une précision terrain (aucune vérité terrain ici). Régénérer : node scripts/etude-moteur-bord/etude.mjs",
-    e1_identitesZINB: e1(), e2_gammaPoissonContreExact: e2(), e3_identifiabilite: e3(), e4_architectures: e4(G), e5_sensibilite: e5(G), e6_stabiliteClassement: e6(G6), e7_defautsMoteurV2: e7(moteurs) };
+    e1_identitesZINB: e1(), e2_gammaPoissonContreExact: e2(), e3_identifiabilite: e3(), e4_architectures: e4(G), e5_sensibilite: e5(G), e6_stabiliteClassement: e6(G6), e7_defautsMoteurV2: e7(moteurs), e8_scenarios: e8(moteurs) };
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

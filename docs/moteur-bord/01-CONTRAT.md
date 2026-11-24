@@ -101,6 +101,7 @@ Indépendant des deux scores, appliqué avant toute recommandation ; prototype `
   - l'état le plus sévère, dans l'ordre BLOCKED, DANGER, INSUFFICIENT_DATA, CAUTION, SAFE (ordre provisoire, D6-09) ;
   - `blocking_reasons[]` avec toutes les raisons, chacune avec sa règle et sa source ;
   - les données utilisées, avec leur heure.
+- **Désaccord des modèles** : quand AROME et ECMWF diffèrent, la sécurité lit le plus sévère des deux, et le pire moment du créneau (D6-14 ; scénarios S12 et S13).
 - **Vigilance Météo-France** : non lue tant que V3-011 n'est pas réalisé. Un rappel s'affiche toujours, jamais « aucune vigilance ».
 - **Seuils de vent** (Félix, 13 nov. 2026, « à revoir en phase 6 ») : revus. Aucune preuve trouvée ne justifie de les changer :
   - le seuil de non-recommandation suit Météo-France ;

@@ -421,5 +421,379 @@
    },
    "HOULE_MARGE": 0.5
   }
+ },
+ "e8_scenarios": {
+  "scenarios": 18,
+  "resultats": {
+   "S01": {
+    "fav": 50,
+    "conditions": 100,
+    "presence": 0.5,
+    "points": {
+     "fenetre": 25,
+     "coef": 20,
+     "lumiere": 25,
+     "vent": 30
+    },
+    "exclus": [],
+    "a1": {
+     "bas": 50,
+     "haut": 50,
+     "publication": "nombre"
+    },
+    "securite": "SAFE"
+   },
+   "S02": {
+    "fav": 49,
+    "conditions": 86,
+    "presence": 0.575,
+    "points": {
+     "fenetre": 25,
+     "coef": 20,
+     "lumiere": 25,
+     "vent": 16
+    },
+    "exclus": [],
+    "a1": {
+     "bas": 49,
+     "haut": 49,
+     "publication": "nombre"
+    },
+    "securite": "SAFE"
+   },
+   "S03": {
+    "fav": 100,
+    "conditions": 100,
+    "presence": 1,
+    "points": {
+     "fenetre": 25,
+     "coef": 20,
+     "lumiere": 25,
+     "vent": 30
+    },
+    "exclus": [],
+    "a1": {
+     "bas": 100,
+     "haut": 100,
+     "publication": "nombre"
+    },
+    "securite": "SAFE"
+   },
+   "S04": {
+    "fav": 75,
+    "conditions": 100,
+    "presence": 0.75,
+    "points": {
+     "fenetre": 25,
+     "coef": 20,
+     "lumiere": 25,
+     "vent": 30
+    },
+    "exclus": [],
+    "a1": {
+     "bas": 75,
+     "haut": 75,
+     "publication": "nombre"
+    },
+    "securite": "SAFE"
+   },
+   "S05": {
+    "fav": 72,
+    "conditions": 100,
+    "presence": 0.72,
+    "points": {
+     "fenetre": 25,
+     "coef": 20,
+     "lumiere": 25,
+     "vent": 30
+    },
+    "exclus": [],
+    "a1": {
+     "bas": 72,
+     "haut": 72,
+     "publication": "nombre"
+    },
+    "securite": "SAFE"
+   },
+   "S06": {
+    "fav": 30,
+    "conditions": 100,
+    "presence": 0.3,
+    "points": {
+     "fenetre": 25,
+     "coef": 20,
+     "lumiere": 25,
+     "vent": 30
+    },
+    "exclus": [],
+    "a1": {
+     "bas": 30,
+     "haut": 30,
+     "publication": "nombre"
+    },
+    "securite": "SAFE"
+   },
+   "S07": {
+    "fav": 82,
+    "conditions": 82,
+    "presence": 1,
+    "points": {
+     "fenetre": 25,
+     "coef": 20,
+     "lumiere": 7,
+     "vent": 30
+    },
+    "exclus": [],
+    "a1": {
+     "bas": 82,
+     "haut": 82,
+     "publication": "nombre"
+    },
+    "securite": "SAFE"
+   },
+   "S08": {
+    "fav": 80,
+    "conditions": 80,
+    "presence": 1,
+    "points": {
+     "fenetre": 25,
+     "coef": 0,
+     "lumiere": 25,
+     "vent": 30
+    },
+    "exclus": [],
+    "a1": {
+     "bas": 80,
+     "haut": 80,
+     "publication": "nombre"
+    },
+    "securite": "SAFE"
+   },
+   "S09": {
+    "fav": 100,
+    "conditions": 100,
+    "presence": 1,
+    "points": {
+     "fenetre": 25,
+     "coef": 20,
+     "lumiere": 25
+    },
+    "exclus": [
+     "vent"
+    ],
+    "a1": {
+     "bas": 70,
+     "haut": 100,
+     "publication": "qualitatif"
+    },
+    "securite": "INSUFFICIENT_DATA"
+   },
+   "S10": {
+    "fav": 100,
+    "conditions": 100,
+    "presence": 1,
+    "points": {
+     "fenetre": 25,
+     "coef": 20,
+     "lumiere": 25
+    },
+    "exclus": [
+     "vent"
+    ],
+    "a1": {
+     "bas": 70,
+     "haut": 100,
+     "publication": "qualitatif"
+    },
+    "securite": "DANGER"
+   },
+   "S11": {
+    "fav": 95,
+    "conditions": 100,
+    "presence": 0.95,
+    "points": {
+     "fenetre": 25,
+     "coef": 20,
+     "lumiere": 25,
+     "vent": 30
+    },
+    "exclus": [],
+    "a1": {
+     "bas": 95,
+     "haut": 95,
+     "publication": "nombre"
+    },
+    "securite": "SAFE",
+    "avecEauReelle": 75
+   },
+   "S12": {
+    "fav": 100,
+    "conditions": 100,
+    "presence": 1,
+    "points": {
+     "fenetre": 25,
+     "coef": 20,
+     "lumiere": 25,
+     "vent": 30
+    },
+    "exclus": [],
+    "a1": {
+     "bas": 100,
+     "haut": 100,
+     "publication": "nombre"
+    },
+    "securite": "CAUTION"
+   },
+   "S13": {
+    "fav": 100,
+    "conditions": 100,
+    "presence": 1,
+    "points": {
+     "fenetre": 25,
+     "coef": 20,
+     "lumiere": 25,
+     "vent": 30
+    },
+    "exclus": [],
+    "a1": {
+     "bas": 100,
+     "haut": 100,
+     "publication": "nombre"
+    },
+    "securite": "CAUTION"
+   },
+   "S14": {
+    "fav": 90,
+    "conditions": 90,
+    "presence": 1,
+    "points": {
+     "fenetre": 25,
+     "coef": 20,
+     "lumiere": 15,
+     "vent": 30
+    },
+    "exclus": [],
+    "a1": {
+     "bas": 90,
+     "haut": 90,
+     "publication": "nombre"
+    },
+    "securite": "INSUFFICIENT_DATA"
+   },
+   "S15": {
+    "fav": 100,
+    "conditions": 100,
+    "presence": 1,
+    "points": {
+     "fenetre": 25,
+     "coef": 20,
+     "lumiere": 25,
+     "vent": 30
+    },
+    "exclus": [],
+    "a1": {
+     "bas": 100,
+     "haut": 100,
+     "publication": "nombre"
+    },
+    "securite": "DANGER"
+   },
+   "S16": {
+    "fav": 100,
+    "conditions": 100,
+    "presence": 1,
+    "points": {
+     "fenetre": 25,
+     "coef": 20,
+     "lumiere": 25,
+     "vent": 30
+    },
+    "exclus": [],
+    "a1": {
+     "bas": 100,
+     "haut": 100,
+     "publication": "nombre"
+    },
+    "securite": "SAFE",
+    "parMois": [
+     {
+      "mois": 2,
+      "fav": 50,
+      "presence": 0.5
+     },
+     {
+      "mois": 5,
+      "fav": 92,
+      "presence": 0.92
+     },
+     {
+      "mois": 8,
+      "fav": 100,
+      "presence": 1
+     },
+     {
+      "mois": 11,
+      "fav": 92,
+      "presence": 0.92
+     }
+    ]
+   },
+   "S17": {
+    "fav": 80,
+    "conditions": 80,
+    "presence": 1,
+    "points": {
+     "fenetre": 25,
+     "coef": 20,
+     "lumiere": 25,
+     "vent": 10
+    },
+    "exclus": [],
+    "a1": {
+     "bas": 80,
+     "haut": 80,
+     "publication": "nombre"
+    },
+    "securite": "SAFE"
+   },
+   "S18": {
+    "fav": 100,
+    "conditions": 100,
+    "presence": 1,
+    "points": {
+     "fenetre": 25,
+     "coef": 20,
+     "lumiere": 25,
+     "vent": 30
+    },
+    "exclus": [],
+    "a1": {
+     "bas": 100,
+     "haut": 100,
+     "publication": "nombre"
+    },
+    "securite": "SAFE"
+   }
+  },
+  "proprietesTenues": {
+   "S01": true,
+   "S02": true,
+   "S03": true,
+   "S04": true,
+   "S05": true,
+   "S06": true,
+   "S07": true,
+   "S08": true,
+   "S09": true,
+   "S10": true,
+   "S11": true,
+   "S12": true,
+   "S13": true,
+   "S14": true,
+   "S15": true,
+   "S16": true,
+   "S17": true,
+   "S18": true
+  }
  }
 }
