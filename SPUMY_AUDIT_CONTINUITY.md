@@ -129,7 +129,9 @@ Branche `claude/v3-phase-6` (partie de `claude/v3-phase-5`). Choix **PROVISOIRES
 | 6.6 Modèle probabiliste ZINB/GAMM et moteur 2 du journal (preuves mathématiques) | DONE | `docs/moteur-bord/04-PROBABILISTE.md` |
 | 6.7 Scénarios, fixtures, sensibilité et robustesse | DONE | `docs/moteur-bord/05-SCENARIOS-SENSIBILITE.md`, `data/moteur-bord/` |
 | 6.8 Hypothèses, inconnues, plan de validation, registre (V3-031, D6-01 à D6-20) | DONE | `docs/moteur-bord/06-PLAN-VALIDATION.md` |
-| 6.9 Trois passes de challenge (une par un relecteur séparé), tests sur clone neuf, rapport | IN PROGRESS | `docs/rapports/v3/PHASE-6.md` |
+| 6.9 Trois passes de challenge (une par un relecteur séparé), tests sur clone neuf, rapport | IN PROGRESS : passes 1 et 2 faites et corrigées (a490f0a, f17bd3b) ; gate PASS sur un clone neuf de f17bd3b (npm ci 0, build sans écart, npm test 0 avec l'étude 82/82 et l'e2e 848/848, a11y 0, upgrade 12/12, prototype 244/244, prototype-v3 224/224, brand 35/35) et CI « Tests » verte (45332344767) ; passe 3 (second relecteur indépendant) en cours | `docs/rapports/v3/PHASE-6.md` |
+
+Interruption du 24 nov. 2026 vers 6 h 20 : arrêt de l'environnement (le gate en cours a été tué après `npm test`, code 0) puis limite d'usage atteinte jusqu'à 9 h 30 (la passe 3 s'est arrêtée au démarrage). Reprise à 9 h 33 sur demande de Félix (« Continue dès que tu le pourras ») : les commandes restantes du gate ont été relancées sur le même clone, sans modification, et la passe 3 a repris.
 
 ## Checkpoint
 
