@@ -128,8 +128,8 @@ Branche `claude/v3-phase-6` (partie de `claude/v3-phase-5`). Choix **PROVISOIRES
 | 6.5 Architectures candidates contre baselines (calcul) | DONE | `docs/moteur-bord/03-ARCHITECTURES.md`, `scripts/etude-moteur-bord/` |
 | 6.6 Modèle probabiliste ZINB/GAMM et moteur 2 du journal (preuves mathématiques) | DONE | `docs/moteur-bord/04-PROBABILISTE.md` |
 | 6.7 Scénarios, fixtures, sensibilité et robustesse | DONE | `docs/moteur-bord/05-SCENARIOS-SENSIBILITE.md`, `data/moteur-bord/` |
-| 6.8 Hypothèses, inconnues, plan de validation, registre | À FAIRE | `docs/moteur-bord/06-PLAN-VALIDATION.md` |
-| 6.9 Trois passes de challenge (une par un relecteur séparé), tests sur clone neuf, rapport | À FAIRE | `docs/rapports/v3/PHASE-6.md` |
+| 6.8 Hypothèses, inconnues, plan de validation, registre (V3-031, D6-01 à D6-14) | DONE | `docs/moteur-bord/06-PLAN-VALIDATION.md` |
+| 6.9 Trois passes de challenge (une par un relecteur séparé), tests sur clone neuf, rapport | IN PROGRESS | `docs/rapports/v3/PHASE-6.md` |
 
 ## Checkpoint
 
