@@ -567,7 +567,7 @@
    },
    "QUAL-3": {
     "ok": false,
-    "detail": "position contrôlée seulement par un lieu habité ou un équipement, pas par le poste"
+    "detail": "position contrôlée par un toponyme qui n'est pas un lieu naturel (lieu-dit habité, zone d'habitation), pas par le poste"
    },
    "QUAL-4": {
     "ok": true,
@@ -587,7 +587,7 @@
    }
   },
   "raisons": [
-   "QUAL-3 : position contrôlée seulement par un lieu habité ou un équipement, pas par le poste",
+   "QUAL-3 : position contrôlée par un toponyme qui n'est pas un lieu naturel (lieu-dit habité, zone d'habitation), pas par le poste",
    "QUAL-5 : engagement 3 (jugement V2), 2 consignes sourcées sur 2, contrainte de marée non documentée, mouvements de terrain 0"
   ]
  }

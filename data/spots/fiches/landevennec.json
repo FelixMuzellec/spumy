@@ -594,8 +594,8 @@
     "detail": "0 groupe d'indépendance parmi les sources lues page par page (0 sur 0) ; aucune n'attache le bar au poste"
    },
    "QUAL-3": {
-    "ok": true,
-    "detail": "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée"
+    "ok": false,
+    "detail": "position contrôlée par un toponyme qui n'est pas un lieu naturel (construction, zone d'activité ou d'intérêt), pas par le poste"
    },
    "QUAL-4": {
     "ok": true,
@@ -616,6 +616,7 @@
   },
   "raisons": [
    "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4) ; 1 source d'éditeur non classé, non comptée",
+   "QUAL-3 : position contrôlée par un toponyme qui n'est pas un lieu naturel (construction, zone d'activité ou d'intérêt), pas par le poste",
    "QUAL-5 : engagement 1 (jugement V2), 0 consigne sourcée sur 0, contrainte de marée non documentée, mouvements de terrain 0",
    "QUAL-6 : règle locale à vérifier au poste (Finistère)"
   ]

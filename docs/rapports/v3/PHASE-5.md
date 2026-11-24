@@ -274,7 +274,7 @@ Voir la ligne « Gate de clôture » ci-dessous (clone neuf, codes de sortie).
 | --- | --- | --- | --- |
 | Fiches | 72 | 100 | **98** |
 | TOP_TIER | 2 | 6 | **2** |
-| Corroborées | 7 | 5 | **1** |
+| Corroborées | 7 | 4 | **1** |
 | Sources au registre | 304 | 351 | **352** |
 | Sources évaluées | 60 | 107 | **108** |
 
@@ -284,7 +284,7 @@ Inchangées : deux éditeurs indépendants nomment le poste ; sécurité jamais 
 ### 10. Red-team (trois passes)
 - **Passe 1 (sources et réglementation)** : l'absence de règle locale était lue comme une absence de règle hors Finistère. Corrigé (QUAL-6) ; la fermeture du bar au cap Fréhel a été trouvée et ajoutée.
 - **Passe 2 (positions et sécurité)** : aucune donnée de sécurité « au vert » sans source, aucune fenêtre calculée ; l'écart de position d'une fiche V3 était libellé « Position V2 » (corrigé).
-- **Passe 3 (relecteur séparé, qui n'a pas produit le travail)** : aucun bloquant ; cinq majeurs (QUAL-5 sans contrôle de la marée ; bar attesté par la seule chasse sous-marine ; présence V2 « VÉRIFIÉ » contredite par la page lue ; contrôle de position par un village ; commune prise pour le poste), corrigés et testés ; mineurs corrigés (règle unique des graphies, sources hors pêche, mode de lecture, doublons des documents) ou consignés (§ 3 de `QUALIFICATION.md`). Citations vérifiées en ligne par le relecteur : conformes.
+- **Passe 3 (relecteur séparé, qui n'a pas produit le travail)**, puis **contre-vérification** par le même relecteur après les corrections (« la phase 5 peut être close », après trois retouches faites : contrôle de position exigé sur un toponyme naturel, deux chiffres des documents, mention du test d'accessibilité) : aucun bloquant ; cinq majeurs (QUAL-5 sans contrôle de la marée ; bar attesté par la seule chasse sous-marine ; présence V2 « VÉRIFIÉ » contredite par la page lue ; contrôle de position par un village ; commune prise pour le poste), corrigés et testés ; mineurs corrigés (règle unique des graphies, sources hors pêche, mode de lecture, doublons des documents) ou consignés (§ 3 de `QUALIFICATION.md`). Citations vérifiées en ligne par le relecteur : conformes.
 
 ### 11. Qualité et conformité
 Huit tests de plus dans `tests/spots-v3.mjs`, un par correction de la revue. Citations courtes, attribuées.

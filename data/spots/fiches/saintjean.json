@@ -542,7 +542,7 @@
    },
    "QUAL-3": {
     "ok": false,
-    "detail": "position contrôlée seulement par un lieu habité ou un équipement, pas par le poste"
+    "detail": "position contrôlée par un toponyme qui n'est pas un lieu naturel (lieu-dit habité, zone d'habitation), pas par le poste"
    },
    "QUAL-4": {
     "ok": true,
@@ -563,7 +563,7 @@
   },
   "raisons": [
    "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4)",
-   "QUAL-3 : position contrôlée seulement par un lieu habité ou un équipement, pas par le poste",
+   "QUAL-3 : position contrôlée par un toponyme qui n'est pas un lieu naturel (lieu-dit habité, zone d'habitation), pas par le poste",
    "QUAL-5 : engagement 1 (jugement V2), 0 consigne sourcée sur 0, contrainte de marée non documentée, mouvements de terrain 2"
   ]
  }

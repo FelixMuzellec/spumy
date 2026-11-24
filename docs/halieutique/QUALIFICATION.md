@@ -8,7 +8,7 @@ Phase 5 V3, sous-tâches 5.9, 5.12 et 5.13, revue contradictoire du 24 nov. 2026
 | --- | --- | --- |
 | QUAL-1 Intérêt halieutique corroboré | au moins **deux groupes d'indépendance** parmi les sources de la fiche : famille 1 à 4, éditeur dont le domaine couvre la pêche ou la présence d'espèces, source non privée et non « hors pêche » (patrimoine, tourisme), **citation qui nomme le poste**. Le nom de la commune seul ne nomme pas le poste (« Saint-Vaast-la-Hougue » ne nomme pas « la Hougue »). Un article général ne prouve rien d'un lieu ; une citation qui parle de pêche en bateau ou de navigation ne compte pas pour un poste du bord. | § 7.1 : deux pages qui recopient la même source ne comptent pas double ; § 7.2 : l'intérêt pour l'espèce doit être documenté pour le mode |
 | QUAL-2 Qualité des sources examinée | au moins **deux groupes d'indépendance parmi les sources évaluées** (§ 7.1 : page entière ou extrait du moteur de recherche, mode consigné dans `lecture`), dont **au moins une source de pêche (domaine « halieutique ») attache le bar au poste**. Une zone de chasse sous-marine compte comme groupe lu, mais n'attache pas le bar pour la pêche du bord. | § 7.2 : « deux sources réellement indépendantes […] dont la qualité est examinée » et « l'intérêt halieutique spécifique pour l'espèce ciblée », documenté pour le mode |
-| QUAL-3 Position contrôlée | position corrigée sur un toponyme officiel naturel, ou toponyme officiel de même nom à 1,5 km au plus, sans anomalie de position ; un contrôle par un lieu habité, un quartier ou un camping ne situe pas le poste | un poste mal placé fausse l'accès, la marée et la sécurité |
+| QUAL-3 Position contrôlée | position corrigée sur un toponyme officiel naturel, ou toponyme officiel naturel de même nom (cap, pointe, plage, île, rocher, détail orographique ou hydrographique…) à 1,5 km au plus, sans anomalie de position ; un village, un quartier, un camping, un port, un bâtiment ou un équipement ne situe pas le poste | un poste mal placé fausse l'accès, la marée et la sécurité |
 | QUAL-4 Accès documenté | stationnement et temps de marche connus (IGN) | § 7.2, étape 9 |
 | QUAL-5 Sécurité documentée | engagement connu (échelle SPUMY 1 à 3 : un jugement), **au moins une consigne de source externe** (pas la seule « fiche du spot » ni la « prudence du guide »), **contrainte de marée documentée** (jamais INCONNU), mouvements de terrain consultés | § 0.2 : la sécurité ne se compense jamais ; une donnée inconnue n'est jamais « au vert » |
 | QUAL-6 Réglementation claire | règles locales du département recherchées dans un texte officiel lu ; aucune règle locale dont l'application au poste reste « à vérifier » ; zone CIEM certaine | une interdiction possible n'est jamais « au vert » ; sans recherche, l'absence de règle ne prouve rien |
@@ -32,7 +32,7 @@ La qualification ne change ni la Favorabilité ni le rang : c'est un statut de v
 - **À vérifier : 63.** **Candidates : 32.** Réglementées : 0 ; inaccessibles : 0.
 - Critères non remplis (nombre de fiches) : QUAL-1 50, QUAL-2 80, QUAL-3 22, QUAL-4 7, QUAL-5 80, QUAL-6 35, QUAL-7 0.
 
-**Ce que la revue contradictoire a changé.** Avant elle, 6 TOP_TIER et 5 corroborées. Un relecteur séparé, qui n'avait pas produit le travail, a montré que QUAL-5 acceptait une contrainte de marée INCONNU, que quatre TOP_TIER tenaient le bar d'une seule zone de chasse sous-marine, qu'un contrôle de position par un village passait QUAL-3 (Saint-Guénolé) et que le nom d'une commune pouvait nommer un poste (Saint-Vaast-la-Hougue). Les règles sont corrigées et testées ; Brézellec, Corsen et Dinan redeviennent « à vérifier » (marée non documentée), Sainte-Marguerite reste corroborée. La présence du bar marquée « VÉRIFIÉ » par la V2, sans date ni page, a été confrontée aux pages lues : 3 fiches confirmées et sourcées (Cap Coz, Mousterlin, Penmarc'h), 46 ramenées à INFÉRÉ.
+**Ce que la revue contradictoire a changé.** Avant elle, 6 TOP_TIER et 4 corroborées. Un relecteur séparé, qui n'avait pas produit le travail, a montré que QUAL-5 acceptait une contrainte de marée INCONNU, que quatre TOP_TIER tenaient le bar d'une seule zone de chasse sous-marine, qu'un contrôle de position par un village passait QUAL-3 (Saint-Guénolé) et que le nom d'une commune pouvait nommer un poste (Saint-Vaast-la-Hougue). Les règles sont corrigées et testées ; Brézellec, Corsen et Dinan redeviennent « à vérifier » (marée non documentée), Sainte-Marguerite reste corroborée. La présence du bar marquée « VÉRIFIÉ » par la V2, sans date ni page, a été confrontée aux pages lues : 3 fiches confirmées et sourcées (Cap Coz, Mousterlin, Penmarc'h), 46 ramenées à INFÉRÉ.
 
 ## 3. Limites
 
@@ -44,6 +44,8 @@ La qualification ne change ni la Favorabilité ni le rang : c'est un statut de v
 - Les zones de lechasseursousmarin.com et les fiches de carnet-de-peche.com sont souvent évaluées sur l'extrait renvoyé par le moteur de recherche (carnet-de-peche.com refuse la lecture directe) : le mode de lecture est consigné source par source.
 - L'engagement (1 facile, 2 modéré, 3 engagé) reste le jugement de la V2 : QUAL-5 l'exige connu et appuyé par une consigne de source externe, sans le tenir pour une donnée sourcée. À revoir en phase 8 (validation par Félix des jugements de sécurité).
 - `bar_au_poste` est porté par la source, pas par chaque couple source-poste : une page qui cite plusieurs postes l'attache à tous. Sans effet sur les statuts actuels, la règle de QUAL-2 n'acceptant que des sources de pêche.
+- Une consigne V2 dont le texte de source nomme un éditeur famille 6 (fishipedia.fr, Wikipédia) compte encore comme consigne externe : le texte libre de la V2 n'est pas relié au registre. Les trois fiches de tête ont au moins une consigne d'un éditeur famille 2 à 4.
+- Mousterlin tient son TOP_TIER d'un extrait de carnet-de-peche.com (bar et platier qui découvre), que le site ne laisse pas relire directement ; Penmarc'h a été revérifié en ligne par le relecteur.
 
 ## 4. Détail par fiche
 
@@ -161,7 +163,7 @@ Postes des zones sans fiche nommés par deux éditeurs indépendants dans des pa
 | Pointe de Saint-Colomban | Morbihan | mieuxpecher.com, carnet-de-peche.com | oui (liste des spots à bar) |
 | Pointe du Château (Plougrescant) | Côtes-d'Armor | mieuxpecher.com, carnet-de-peche.com | oui (liste, espèce bar) |
 | Pointe et digue de Querqueville | Manche nord | mieuxpecher.com, carnet-de-peche.com (puis lechasseursousmarin.com, 5.13) | non par une source de pêche (carnet : lieu noir) ; la zone de chasse sous-marine cite le bar |
-| Cap Lévi | Manche nord-est | mieuxpecher.com, lechasseursousmarin.com (Decathlon) | oui (« Pour les bars, on attend plutôt que la marée remonte ») |
+| Cap Lévi | Manche nord-est | mieuxpecher.com, lechasseursousmarin.com (Decathlon) | non par une source de pêche ; la sélection de chasse sous-marine cite le bar (« Pour les bars, on attend plutôt que la marée remonte ») |
 
 Ille-et-Vilaine : en 5.12, un seul éditeur (liste mieuxpecher.com) ; en 5.13, cinq postes ont trouvé leur second éditeur (§ 6).
 

@@ -582,8 +582,8 @@
     "detail": "0 groupe d'indépendance parmi les sources lues page par page (0 sur 1) ; aucune n'attache le bar au poste"
    },
    "QUAL-3": {
-    "ok": true,
-    "detail": "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée"
+    "ok": false,
+    "detail": "position contrôlée par un toponyme qui n'est pas un lieu naturel (port, transport, équipement de transport), pas par le poste"
    },
    "QUAL-4": {
     "ok": true,
@@ -604,6 +604,7 @@
   },
   "raisons": [
    "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:desperadiens",
+   "QUAL-3 : position contrôlée par un toponyme qui n'est pas un lieu naturel (port, transport, équipement de transport), pas par le poste",
    "QUAL-5 : engagement 1 (jugement V2), 0 consigne sourcée sur 1, contrainte de marée non documentée, mouvements de terrain 0"
   ]
  }

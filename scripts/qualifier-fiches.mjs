@@ -43,8 +43,10 @@ export function qualifier(f, sources) {
   // atteste la présence du bar sous l'eau, pas la pêche du bord (§ 7.2 : intérêt documenté pour le mode).
   const barLu = lues.some((s) => s.evaluation?.bar_au_poste === true && (s.editeur_classe?.domaines || []).includes("halieutique"));
   const posAnom = f.quality.anomalies.filter((a) => ANOMALIE_POSITION.test(a));
-  // Un contrôle par un lieu habité ou un équipement (village, quartier, camping) ne situe pas le poste.
-  const controleHabite = /habit|quartier|camping/i.test(f.coordinates.controle?.texte || "");
+  // Le contrôle doit porter sur un toponyme naturel (cap, pointe, plage, île, rocher…) : un village, un quartier, un camping,
+  // un bâtiment ou un équipement ne situe pas le poste (revue contradictoire du 24 nov. 2026).
+  const categorieControle = (f.coordinates.controle?.texte || "").match(/»\s*\(([^)]*)\)/)?.[1] || "";
+  const controleHabite = !!f.coordinates.controle && !/orograph|hydrograph|\bcap\b|pointe|plage|baie|anse|rocher|estran|île|\bile\b|grève|dune|côte|\bbec\b/i.test(categorieControle);
   const posOk = (f.coordinates.info.origine === "v3" && f.coordinates.info.statut === "VÉRIFIÉ") || (f.coordinates.controle?.statut === "VÉRIFIÉ" && !controleHabite && (f.coordinates.controle.valeur?.ecart_m ?? 9e9) <= 1500);
   const aVerifier = f.regulations.filter((r) => r.valeur?.application_au_poste === "à vérifier");
   // Département du point (code INSEE de la commune, Géorisques) : ses règles locales ont-elles été recherchées ?
@@ -55,7 +57,7 @@ export function qualifier(f, sources) {
   const c = {
     "QUAL-1": { ok: groupes.length >= 2, detail: `${groupes.length} groupe${groupes.length > 1 ? "s" : ""} d'indépendance halieutique (famille 1 à 4)${groupes.length ? ` : ${groupes.join(", ")}` : ""}${nonClasses ? ` ; ${nonClasses} source${nonClasses > 1 ? "s" : ""} d'éditeur non classé, non comptée${nonClasses > 1 ? "s" : ""}` : ""}` },
     "QUAL-2": { ok: groupesLus.length >= 2 && barLu, detail: `${groupesLus.length} groupe${groupesLus.length > 1 ? "s" : ""} d'indépendance parmi les sources lues page par page (${lues.length} sur ${hal.length}) ; ${barLu ? "au moins une attache le bar au poste" : "aucune n'attache le bar au poste"}` },
-    "QUAL-3": { ok: posOk && !posAnom.length, detail: posAnom.length ? posAnom.join(" ") : posOk ? "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée" : controleHabite ? "position contrôlée seulement par un lieu habité ou un équipement, pas par le poste" : "position non contrôlée" },
+    "QUAL-3": { ok: posOk && !posAnom.length, detail: posAnom.length ? posAnom.join(" ") : posOk ? "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée" : controleHabite ? `position contrôlée par un toponyme qui n'est pas un lieu naturel (${categorieControle || "catégorie non donnée"}), pas par le poste` : "position non contrôlée" },
     "QUAL-4": { ok: connu(f.access.stationnement) && connu(f.access.marche_min), detail: connu(f.access.stationnement) && connu(f.access.marche_min) ? `stationnement et marche documentés (${f.access.marche_min.valeur} min)` : "stationnement ou temps de marche inconnu" },
     // L'engagement est l'échelle SPUMY (1 à 3) : un jugement, exigé connu et appuyé par au moins une consigne de source externe.
     "QUAL-5": { ok: connu(s.engagement) && s.consignes.some(sourcee) && connu(s.acces_maree) && !!s.mouvements_terrain, detail: `engagement ${connu(s.engagement) ? `${s.engagement.valeur} (jugement ${s.engagement.origine === "v2" ? "V2" : "V3"})` : "inconnu"}, ${s.consignes.filter(sourcee).length} consigne${s.consignes.filter(sourcee).length > 1 ? "s" : ""} sourcée${s.consignes.filter(sourcee).length > 1 ? "s" : ""} sur ${s.consignes.length}, contrainte de marée ${connu(s.acces_maree) ? s.acces_maree.valeur.join(", ") : "non documentée"}, mouvements de terrain ${s.mouvements_terrain?.valeur?.total ?? 0}` },
