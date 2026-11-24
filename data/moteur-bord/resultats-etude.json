@@ -381,6 +381,12 @@
   "a2TailleClasseDeTete": {
    "mediane": 7,
    "q95": 11
+  },
+  "incertitudeDeModeleParSpot": {
+   "definition": "largeur de l'intervalle à 90 % de la note d'un spot sous les tirages de paramètres",
+   "mediane": 12,
+   "q95": 28,
+   "partSup10": 0.809
   }
  },
  "e7_defautsMoteurV2": {

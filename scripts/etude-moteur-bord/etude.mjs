@@ -187,7 +187,7 @@ function e6(G6) {
     if (!ctxs.has(k)) ctxs.set(k, []);
     ctxs.get(k).push(x);
   }
-  const mesure = { strict: [], egal3: [], egal10: [], top3: [], top3egal10: [], classeA2: [] };
+  const mesure = { strict: [], egal3: [], egal10: [], top3: [], top3egal10: [], classeA2: [], largeur90: [] };
   for (const items of ctxs.values()) {
     if (items.length < 4) continue;
     const note = (o) => items.map((x) => ({ id: x.spot, v: bV2(x.c, o).valeur ?? -1 })).sort((a, b) => b.v - a.v || a.id.localeCompare(b.id));
@@ -195,9 +195,11 @@ function e6(G6) {
     const classeA2 = (x) => a2(x.c).valeur ?? -1, topClasse = Math.max(...items.map(classeA2));
     const setA2 = new Set(items.filter((x) => classeA2(x) === topClasse).map((x) => x.spot));
     let s = 0, e3 = 0, e10 = 0, t3 = 0, t3e = 0;
+    const valeurs = new Map(items.map((x) => [x.spot, []]));
     for (let r = 0; r < R; r++) {
       const ech = { fenetre: 0.6 + 0.8 * u(), coef: 0.6 + 0.8 * u(), lumiere: 0.6 + 0.8 * u(), vent: 0.6 + 0.8 * u() }, kP = 0.6 + 0.8 * u();
       const d = note({ echelle: ech, kPresence: kP }), premier = b[0].id, vPremier = d.find((x) => x.id === premier).v;
+      for (const x of d) if (x.v >= 0) valeurs.get(x.id).push(x.v);
       if (d[0].id === premier) s++;
       if (d[0].v - vPremier <= 3) e3++;
       if (d[0].v - vPremier <= 10) e10++;
@@ -208,13 +210,15 @@ function e6(G6) {
     }
     mesure.strict.push(s / R); mesure.egal3.push(e3 / R); mesure.egal10.push(e10 / R); mesure.top3.push(t3 / R); mesure.top3egal10.push(t3e / R);
     mesure.classeA2.push(setA2.size);
+    for (const v of valeurs.values()) if (v.length) mesure.largeur90.push(quantile(v, 0.95) - quantile(v, 0.05));
   }
   return { situations: mesure.strict.length, tirages: R, graine: 424242, amplitude: "poids de chaque critère ×0,6 à ×1,4 et présence k 0,6 à 1,4 (niveau 4) ; la météo n'est pas perturbée",
     grille: "7 guides × 4 mois × 3 coefficients × aube ou jour × vent O ou NE × force 2 ou 4, chaque spot à la priorité de sa première fenêtre",
     premierInchange: r3(moy(mesure.strict)), premierAEgalite3: r3(moy(mesure.egal3)), premierAEgalite10: r3(moy(mesure.egal10)),
     top3Inchange: r3(moy(mesure.top3)), top3AEgalite10: r3(moy(mesure.top3egal10)),
     situationsTop3Tient80: mesure.top3.filter((p) => p >= 0.8).length, situationsTop3Egalite10Tient80: mesure.top3egal10.filter((p) => p >= 0.8).length,
-    a2TailleClasseDeTete: { mediane: quantile(mesure.classeA2, 0.5), q95: quantile(mesure.classeA2, 0.95) } };
+    a2TailleClasseDeTete: { mediane: quantile(mesure.classeA2, 0.5), q95: quantile(mesure.classeA2, 0.95) },
+    incertitudeDeModeleParSpot: { definition: "largeur de l'intervalle à 90 % de la note d'un spot sous les tirages de paramètres", mediane: quantile(mesure.largeur90, 0.5), q95: quantile(mesure.largeur90, 0.95), partSup10: r3(mesure.largeur90.filter((w) => w > 10).length / mesure.largeur90.length) } };
 }
 
 

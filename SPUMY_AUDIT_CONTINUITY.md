@@ -123,7 +123,7 @@ Branche `claude/v3-phase-6` (partie de `claude/v3-phase-5`). Choix **PROVISOIRES
 | --- | --- | --- |
 | 6.1 Entrée (branche, proposition n° 20 en brouillon, registre) | DONE | `docs/DECISIONS_LOG.md`, ce fichier |
 | 6.2 Audit scientifique et mathématique du moteur V2 (17 constats, dont 12 MAJEURS) | DONE | `docs/moteur-bord/00-AUDIT-MOTEUR-V2.md` |
-| 6.3 Contrat Favorabilité, Confiance, sécurité ; classement ; publication | À FAIRE | `docs/moteur-bord/01-CONTRAT.md` |
+| 6.3 Contrat Favorabilité, Confiance, sécurité ; classement ; publication | DONE | `docs/moteur-bord/01-CONTRAT.md` |
 | 6.4 Variables (§ 9.1.3) et facteurs complémentaires (§ 9.1.4) | À FAIRE | `docs/moteur-bord/02-VARIABLES-ET-FACTEURS.md` |
 | 6.5 Architectures candidates contre baselines (calcul) | IN PROGRESS (étude et tests faits) | `docs/moteur-bord/03-ARCHITECTURES.md`, `scripts/etude-moteur-bord/` |
 | 6.6 Modèle probabiliste ZINB/GAMM et moteur 2 du journal (preuves mathématiques) | À FAIRE | `docs/moteur-bord/04-PROBABILISTE.md` |
