@@ -295,9 +295,9 @@
    "espece": "bar",
    "priorite": 1,
    "presence": {
-    "statut": "VÉRIFIÉ",
+    "statut": "INFÉRÉ",
     "origine": "v2",
-    "texte": "Zone documentée pour bars et lieus. Pression de pêche limitée par la difficulté d'accès aux postes (mieuxpecher : 'à condition de trouver les accès'). Poste à gros poissons en renverse.",
+    "texte": "Zone documentée pour bars et lieus. Pression de pêche limitée par la difficulté d'accès aux postes (mieuxpecher : 'à condition de trouver les accès'). Poste à gros poissons en renverse. Statut V2 « VÉRIFIÉ » sans date ni page : ramené à INFÉRÉ, aucune page de pêche lue en phase 5 n'attachant le bar au poste (revue contradictoire du 24 nov. 2026).",
     "verifie_le": null
    }
   }
@@ -654,15 +654,15 @@
    },
    "QUAL-3": {
     "ok": true,
-    "detail": "position contrôlée par l'IGN (toponyme officiel à 1,5 km au plus) ou corrigée"
+    "detail": "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée"
    },
    "QUAL-4": {
     "ok": true,
     "detail": "stationnement et marche documentés (6 min)"
    },
    "QUAL-5": {
-    "ok": true,
-    "detail": "engagement 3, 2 consignes, contrainte de marée non documentée, mouvements de terrain 4"
+    "ok": false,
+    "detail": "engagement 3 (jugement V2), 2 consignes sourcées sur 2, contrainte de marée non documentée, mouvements de terrain 4"
    },
    "QUAL-6": {
     "ok": true,
@@ -674,7 +674,8 @@
    }
   },
   "raisons": [
-   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:mieuxpecher-com"
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:mieuxpecher-com",
+   "QUAL-5 : engagement 3 (jugement V2), 2 consignes sourcées sur 2, contrainte de marée non documentée, mouvements de terrain 4"
   ]
  }
 }

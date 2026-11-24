@@ -588,8 +588,8 @@
     "detail": "stationnement et marche documentés (6 min)"
    },
    "QUAL-5": {
-    "ok": true,
-    "detail": "engagement 2, 1 consigne, contrainte de marée non documentée, mouvements de terrain 1"
+    "ok": false,
+    "detail": "engagement 2 (jugement V2), 0 consigne sourcée sur 1, contrainte de marée non documentée, mouvements de terrain 1"
    },
    "QUAL-6": {
     "ok": false,
@@ -603,6 +603,7 @@
   "raisons": [
    "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4)",
    "QUAL-3 : Position V2 à 2,4 km du toponyme officiel « Hôpital-Camfrout » (administratif, commune) : à vérifier (le poste peut être ailleurs que le point du toponyme).",
+   "QUAL-5 : engagement 2 (jugement V2), 0 consigne sourcée sur 1, contrainte de marée non documentée, mouvements de terrain 1",
    "QUAL-6 : règle locale à vérifier au poste (Finistère)"
   ]
  }

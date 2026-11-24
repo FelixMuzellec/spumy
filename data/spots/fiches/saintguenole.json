@@ -271,9 +271,9 @@
    "espece": "bar",
    "priorite": 1,
    "presence": {
-    "statut": "VÉRIFIÉ",
+    "statut": "INFÉRÉ",
     "origine": "v2",
-    "texte": "Roches citées pour le bar du bord (cannes-peche).",
+    "texte": "Roches citées pour le bar du bord (cannes-peche). Statut V2 « VÉRIFIÉ » sans date ni page : ramené à INFÉRÉ, aucune page de pêche lue en phase 5 n'attachant le bar au poste (revue contradictoire du 24 nov. 2026).",
     "verifie_le": null
    }
   }
@@ -374,6 +374,9 @@
   "mouvements_terrain": {
    "statut": "INCONNU",
    "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
    "verifie_le": "2026-11-23",
    "raison": "Aucun mouvement de terrain recensé par le BRGM à 500 m du point (Géorisques, 2026-11-23) ; le recensement n'est pas exhaustif, ce qui ne prouve pas l'absence de risque."
   },
@@ -498,6 +501,7 @@
    "src-arrete-peche-loisir-2026-recfishing",
    "src-cannes-peche-blog4ever-com-def7c5",
    "src-destination-paysbigouden-com-e92dff",
+   "src-georisques-bdmvt",
    "src-georisques-gaspar",
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
@@ -537,7 +541,7 @@
   ]
  },
  "quality": {
-  "statut": "corroboree",
+  "statut": "a_verifier",
   "derniere_verification": "2026-11-23",
   "completude": 0.79,
   "inconnus": [
@@ -562,16 +566,16 @@
     "detail": "1 groupe d'indépendance parmi les sources lues page par page (1 sur 2) ; aucune n'attache le bar au poste"
    },
    "QUAL-3": {
-    "ok": true,
-    "detail": "position contrôlée par l'IGN (toponyme officiel à 1,5 km au plus) ou corrigée"
+    "ok": false,
+    "detail": "position contrôlée seulement par un lieu habité ou un équipement, pas par le poste"
    },
    "QUAL-4": {
     "ok": true,
     "detail": "stationnement et marche documentés (7 min)"
    },
    "QUAL-5": {
-    "ok": true,
-    "detail": "engagement 3, 2 consignes, contrainte de marée non documentée, mouvements de terrain 0"
+    "ok": false,
+    "detail": "engagement 3 (jugement V2), 2 consignes sourcées sur 2, contrainte de marée non documentée, mouvements de terrain 0"
    },
    "QUAL-6": {
     "ok": true,
@@ -583,7 +587,8 @@
    }
   },
   "raisons": [
-   "QUAL-2 : 1 groupe d'indépendance parmi les sources lues page par page (1 sur 2) ; aucune n'attache le bar au poste"
+   "QUAL-3 : position contrôlée seulement par un lieu habité ou un équipement, pas par le poste",
+   "QUAL-5 : engagement 3 (jugement V2), 2 consignes sourcées sur 2, contrainte de marée non documentée, mouvements de terrain 0"
   ]
  }
 }

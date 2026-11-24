@@ -23,6 +23,11 @@ export function partiesDuNom(nom) {
  * (« pointe », « digue ») : une photo de la mairie de Locquirec n'est pas une photo du spot.
  */
 export function texteNommeLeSpot(nomSpot, texte) {
+  // Quand le nom porte une commune (« Saint-Vaast-la-Hougue : la Hougue ») et un nom de poste, la commune est retirée
+  // du texte avant la comparaison : « Saint-Vaast-la-Hougue » ne nomme pas « la Hougue ».
+  const norm = (x) => (x || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  const [communeNom, posteNom] = nomSpot.includes(":") ? nomSpot.split(/\s*:\s*/, 2) : [null, null];
+  if (communeNom && mots(posteNom).length) texte = ` ${norm(texte)} `.split(` ${norm(communeNom)} `).join(" ");
   const t = new Set(mots(texte));
   const brut = new Set((texte || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").split(" "));
   const apres = nomSpot.includes(":") ? nomSpot.split(/\s*:\s*/, 2)[1] : null;

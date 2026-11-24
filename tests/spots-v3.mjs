@@ -6,6 +6,7 @@ import Ajv2020 from "ajv/dist/2020.js";
 import { lireFiches, texteRegistre, F_REGISTRE } from "../scripts/registre-spots.mjs";
 import { CLASSEMENT, CLASSEMENT_V3 } from "../scripts/securite-maree.mjs";
 import { qualifier, sourcesParSpot } from "../scripts/qualifier-fiches.mjs";
+import { texteNommeLeSpot } from "../scripts/noms.mjs";
 import { PRIVE } from "../scripts/retirer-texte-prive.mjs";
 import { qualite } from "../scripts/fiches-v3-depuis-v2.mjs";
 import { construire, F_SOURCES } from "../scripts/sources-registre.mjs";
@@ -77,6 +78,12 @@ for (const { fiche: f } of fiches) {
   if (am?.valeur?.length) t(`${f.id} : contrainte de marée, fenêtre de sécurité inconnue ou sourcée`, f.windows.securite.statut === "INCONNU" || (f.windows.securite.sources?.length && f.windows.securite.verifie_le));
   if (f.photos.statut !== "INCONNU") t(`${f.id} : chaque photo gardée a sa page, sa licence libre et sa distance`, Array.isArray(f.photos.valeur) && f.photos.valeur.length > 0 && f.photos.valeur.every((p) => /^https:\/\/commons\.wikimedia\.org\//.test(p.page) && /^(CC0|Public domain|CC BY(-SA)? [0-9.]+)$/.test(p.licence) && p.distance_m <= 400));
 }
+t("revue : le nom de la commune ne nomme pas le poste (« Saint-Vaast-la-Hougue » ne nomme pas « la Hougue »)", !texteNommeLeSpot("Saint-Vaast-la-Hougue : la Hougue", "Saint-Vaast-la-Hougue : « Tour Vauban près des parcs »") && texteNommeLeSpot("Saint-Vaast-la-Hougue : la Hougue", "Saint-Vaast-la-Hougue — digue de la Hougue"));
+t("revue : aucune présence du bar « VÉRIFIÉ » sans date ni source", fiches.every(({ fiche }) => fiche.species.every((e) => e.presence?.statut !== "VÉRIFIÉ" || e.presence.verifie_le || (e.presence.sources || []).length)));
+{
+  const nonRetenus = JSON.parse(fs.readFileSync("data/spots/candidats-v3.json", "utf8")).candidats.filter((c) => c.non_retenu);
+  t("revue : un candidat dont la règle d'entrée n'est pas démontrée n'a pas de fiche", nonRetenus.length > 0 && nonRetenus.every((c) => !fiches.some(({ fiche }) => fiche.id === c.id)));
+}
 {
   const cf = fiches.find(({ fiche }) => fiche.id === "capfrehel")?.fiche;
   t("cap Fréhel : la fermeture du bar du 1er mars au 31 mai (arrêté n° 116/2005) est sur la fiche, à vérifier au poste", !!cf && cf.regulations.some((r) => r.valeur?.reference === "arrêté n° 116/2005 du 3 mai 2005" && r.valeur.application_au_poste === "à vérifier") && cf.quality.criteres["QUAL-6"].ok === false);
@@ -114,6 +121,17 @@ for (const { fiche: f } of fiches) {
     t("qualification : une interdiction confirmée au poste donne « réglementée »", qualifier(interdit, deux).statut === "reglementee");
     const pos = structuredClone(ref); pos.quality.anomalies.push("Position V2 à 3,0 km du toponyme officiel « X » : à vérifier.");
     t("qualification : une anomalie de position bloque la corroboration", qualifier(pos, deux).statut === "a_verifier");
+    // Revue contradictoire du 24 nov. 2026 (relecteur séparé) : chaque correction a son test.
+    const lus = (bar, dom = ["halieutique"]) => deux.map((x, i) => ({ ...x, editeur_classe: { domaines: i === 0 ? dom : ["halieutique"] }, evaluation: { statut: "évaluée", bar_au_poste: i === 0 && bar } }));
+    t("revue : le bar attesté par la seule chasse sous-marine (« présence d'espèces ») ne donne pas TOP_TIER", qualifier(ref, lus(true, ["présence d'espèces", "fonds"])).statut !== "TOP_TIER");
+    const sansMaree = structuredClone(ref); sansMaree.safety.acces_maree = { statut: "INCONNU", origine: "v2", raison: "non documentée" };
+    t("revue : une contrainte de marée INCONNU ne remplit pas QUAL-5", qualifier(sansMaree, deux).criteres["QUAL-5"].ok === false);
+    const prudence = structuredClone(ref); prudence.safety.consignes = [{ statut: "INFÉRÉ", origine: "v2", texte: "prudence", verifie_le: null, source_texte: "prudence du guide (pointe rocheuse exposée)" }];
+    t("revue : une consigne tirée de la seule « prudence du guide » n'est pas une consigne sourcée", qualifier(prudence, deux).criteres["QUAL-5"].ok === false);
+    const village = structuredClone(ref); village.coordinates.info = { statut: "INFÉRÉ", origine: "v2", texte: "V2", verifie_le: null };
+    village.coordinates.controle = { statut: "VÉRIFIÉ", origine: "v3", sources: ["src-ign-geocodage-poi"], verifie_le: "2026-11-23", niveau: 1, valeur: { toponyme: "Village", ecart_m: 300 }, texte: "Toponyme officiel « Village » (lieu-dit habité, zone d'habitation) à 300 m de la position de la fiche." };
+    t("revue : un contrôle de position par un lieu habité ne remplit pas QUAL-3", qualifier(village, deux).criteres["QUAL-3"].ok === false);
+    t("revue : une source « hors pêche » (patrimoine, tourisme) ne compte pas pour QUAL-1", qualifier(ref, [g("a"), g("b", { hors_peche: true })]).criteres["QUAL-1"].ok === false);
   }
 }
 // Texte privé (décision de Félix, 23 nov. 2026) : aucune fiche publique ne s'adresse à lui ni ne cite ses sessions ou

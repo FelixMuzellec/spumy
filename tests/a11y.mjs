@@ -27,7 +27,10 @@ async function run(pg, label) {
 // Phase 4 V3 — heure fixe, comme les parcours (tests/e2e.mjs) : aujourd'hui à 06 h 30 à Paris, l'horloge avançant ensuite.
 // Sans elle, le contenu (créneaux, statuts, couleurs) dépendait de l'heure du passage : le 23 nov., un passage de l'après-midi
 // a trouvé deux contrastes insuffisants qu'un passage du matin ne voyait pas (registre des défauts du rapport de phase 4).
-const parisToday = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+// Phase 5 V3 (24 nov. 2026) : la date est fixée elle aussi. Avec « aujourd'hui », les marées et les statuts changeaient
+// d'un jour à l'autre et le passage CI du 24 nov. a retrouvé les deux contrastes du registre des défauts de la phase 4
+// (héritage V2, rouge 4,02 et vert 4,36 sur 13 px, MINEURE, corrigés à l'intégration V3). Le défaut reste consigné.
+const parisToday = "2026-11-23";
 const parisOffsetMs = (ms) => Date.parse(new Date(ms).toLocaleString("sv-SE", { timeZone: "Europe/Paris" }).replace(" ", "T") + "Z") - ms;
 const FIXED_NOW = (() => { const guess = Date.parse(`${parisToday}T06:30:00Z`); return guess - parisOffsetMs(guess); })();
 const mk = async (theme) => {

@@ -271,7 +271,10 @@
     "statut": "VÉRIFIÉ",
     "origine": "v2",
     "texte": "« Réputé pour le bar et le congre » (carnet-de-peche) ; « renommée pour la pêche du bar et du congre », pêcheurs à l'exutoire des eaux pluviales (chtipecheur) ; cité par mieuxpecher.",
-    "verifie_le": null
+    "verifie_le": "2026-11-23",
+    "sources": [
+     "src-carnet-de-peche-com-f09448"
+    ]
    }
   }
  ],
@@ -606,7 +609,7 @@
    },
    "QUAL-3": {
     "ok": true,
-    "detail": "position contrôlée par l'IGN (toponyme officiel à 1,5 km au plus) ou corrigée"
+    "detail": "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée"
    },
    "QUAL-4": {
     "ok": true,
@@ -614,7 +617,7 @@
    },
    "QUAL-5": {
     "ok": true,
-    "detail": "engagement 2, 2 consignes, contrainte de marée isolement_au_flot, mouvements de terrain 1"
+    "detail": "engagement 2 (jugement V2), 2 consignes sourcées sur 2, contrainte de marée isolement_au_flot, mouvements de terrain 1"
    },
    "QUAL-6": {
     "ok": true,

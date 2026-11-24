@@ -63,8 +63,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   if (!fichier) throw new Error("usage : node scripts/fiches-candidats.mjs <candidats.json>");
   const collecte = JSON.parse(fs.readFileSync(fichier, "utf8"));
   const { candidats } = JSON.parse(fs.readFileSync(path.join(root, "data/spots/candidats-v3.json"), "utf8"));
-  const bilan = { crees: [], gardes: [], sansPosition: [] };
+  const bilan = { crees: [], gardes: [], sansPosition: [], nonRetenus: [] };
   for (const c of candidats) {
+    if (c.non_retenu) { bilan.nonRetenus.push(c.id); continue; } // règle d'entrée non démontrée : jamais de fiche
     const f_ = path.join(DIR_FICHES, `${c.id}.json`);
     if (fs.existsSync(f_)) { bilan.gardes.push(c.id); continue; }
     const r = collecte.candidats.find((x) => x.id === c.id);

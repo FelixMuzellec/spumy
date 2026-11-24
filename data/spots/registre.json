@@ -1,18 +1,18 @@
 {
  "//": "Registre central des spots V3 (phase 5). Généré par scripts/registre-spots.mjs à partir de data/spots/fiches/ ; ne pas modifier à la main.",
  "totaux": {
-  "spots": 100,
+  "spots": 98,
   "parOrigine": {
    "v2_preserved": 66,
-   "v3_researched": 34
+   "v3_researched": 32
   },
   "parStatut": {
-   "a_verifier": 56,
-   "candidate": 34,
-   "corroboree": 4,
-   "TOP_TIER": 6
+   "a_verifier": 63,
+   "candidate": 32,
+   "TOP_TIER": 2,
+   "corroboree": 1
   },
-  "stationnementConnu": 93
+  "stationnementConnu": 91
  },
  "spots": [
   {
@@ -28,7 +28,7 @@
     "meilleur": 1,
     "plus_faible": 2
    },
-   "sources": 13,
+   "sources": 14,
    "sources_v2": 5,
    "derniere_verification": "2026-11-23",
    "completude": 0.8,
@@ -70,7 +70,7 @@
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 12,
+   "sources": 13,
    "sources_v2": 5,
    "derniere_verification": "2026-11-23",
    "completude": 0.8,
@@ -91,7 +91,7 @@
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 8,
+   "sources": 9,
    "sources_v2": 3,
    "derniere_verification": "2026-11-23",
    "completude": 0.71,
@@ -112,7 +112,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 13,
+   "sources": 14,
    "sources_v2": 5,
    "derniere_verification": "2026-11-23",
    "completude": 0.82,
@@ -164,7 +164,7 @@
    "id": "begmeil",
    "name": "Pointe de Beg Meil",
    "origin": "v2_preserved",
-   "statut": "corroboree",
+   "statut": "a_verifier",
    "lat": 47.855052,
    "lon": -3.9749,
    "precision_m": null,
@@ -214,7 +214,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 13,
+   "sources": 14,
    "sources_v2": 5,
    "derniere_verification": "2026-11-23",
    "completude": 0.79,
@@ -246,7 +246,7 @@
    "id": "blancssablons",
    "name": "Plage des Blancs-Sablons",
    "origin": "v2_preserved",
-   "statut": "corroboree",
+   "statut": "a_verifier",
    "lat": 48.3690944,
    "lon": -4.7640023,
    "precision_m": null,
@@ -287,7 +287,7 @@
    "id": "brezellec",
    "name": "Pointe de Brézellec",
    "origin": "v2_preserved",
-   "statut": "TOP_TIER",
+   "statut": "a_verifier",
    "lat": 48.0696,
    "lon": -4.6642,
    "precision_m": null,
@@ -296,7 +296,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 14,
+   "sources": 15,
    "sources_v2": 5,
    "derniere_verification": "2026-11-23",
    "completude": 0.79,
@@ -338,7 +338,7 @@
     "meilleur": 1,
     "plus_faible": 2
    },
-   "sources": 13,
+   "sources": 14,
    "sources_v2": 6,
    "derniere_verification": "2026-11-23",
    "completude": 0.79,
@@ -359,7 +359,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
    "completude": 0.34,
@@ -379,7 +379,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
    "completude": 0.32,
@@ -399,7 +399,7 @@
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 14,
+   "sources": 15,
    "sources_v2": 7,
    "derniere_verification": "2026-11-23",
    "completude": 0.79,
@@ -420,7 +420,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 3,
    "derniere_verification": "2026-11-23",
    "completude": 0.82,
@@ -441,7 +441,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
    "completude": 0.3,
@@ -472,7 +472,7 @@
    "id": "corsen",
    "name": "Pointe de Corsen",
    "origin": "v2_preserved",
-   "statut": "TOP_TIER",
+   "statut": "a_verifier",
    "lat": 48.4145,
    "lon": -4.7955,
    "precision_m": null,
@@ -502,7 +502,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
    "completude": 0.32,
@@ -513,7 +513,7 @@
    "id": "dinan",
    "name": "Pointe de Dinan",
    "origin": "v2_preserved",
-   "statut": "TOP_TIER",
+   "statut": "a_verifier",
    "lat": 48.231902,
    "lon": -4.570842,
    "precision_m": null,
@@ -529,26 +529,6 @@
    "inconnus": 8,
    "anomalies": 0,
    "guide_v2": "crozon"
-  },
-  {
-   "id": "dourven",
-   "name": "Pointe du Dourven",
-   "origin": "v3_researched",
-   "statut": "candidate",
-   "lat": 48.731264,
-   "lon": -3.564283,
-   "precision_m": 300,
-   "stationnement_connu": true,
-   "niveau_preuve": {
-    "meilleur": 1,
-    "plus_faible": 4
-   },
-   "sources": 11,
-   "sources_v2": 0,
-   "derniere_verification": "2026-11-23",
-   "completude": 0.35,
-   "inconnus": 22,
-   "anomalies": 1
   },
   {
    "id": "espagnols",
@@ -584,7 +564,7 @@
     "meilleur": 1,
     "plus_faible": 2
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 3,
    "derniere_verification": "2026-11-23",
    "completude": 0.77,
@@ -605,7 +585,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 9,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
    "completude": 0.29,
@@ -625,7 +605,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
    "completude": 0.32,
@@ -645,7 +625,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 12,
+   "sources": 13,
    "sources_v2": 4,
    "derniere_verification": "2026-11-23",
    "completude": 0.84,
@@ -666,7 +646,7 @@
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 5,
    "derniere_verification": "2026-11-23",
    "completude": 0.74,
@@ -687,7 +667,7 @@
     "meilleur": 1,
     "plus_faible": 2
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 3,
    "derniere_verification": "2026-11-23",
    "completude": 0.77,
@@ -708,7 +688,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 12,
+   "sources": 13,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
    "completude": 0.41,
@@ -780,7 +760,7 @@
    "id": "kerjean",
    "name": "Pointe de Kerjean",
    "origin": "v2_preserved",
-   "statut": "corroboree",
+   "statut": "a_verifier",
    "lat": 47.793678,
    "lon": -3.828032,
    "precision_m": null,
@@ -789,7 +769,7 @@
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 3,
    "derniere_verification": "2026-11-23",
    "completude": 0.76,
@@ -810,7 +790,7 @@
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 3,
    "derniere_verification": "2026-11-23",
    "completude": 0.77,
@@ -852,7 +832,7 @@
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 3,
    "derniere_verification": "2026-11-23",
    "completude": 0.8,
@@ -894,7 +874,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 14,
+   "sources": 15,
    "sources_v2": 5,
    "derniere_verification": "2026-11-23",
    "completude": 0.8,
@@ -915,7 +895,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
    "completude": 0.32,
@@ -977,7 +957,7 @@
     "meilleur": 1,
     "plus_faible": 2
    },
-   "sources": 12,
+   "sources": 13,
    "sources_v2": 5,
    "derniere_verification": "2026-11-23",
    "completude": 0.79,
@@ -998,7 +978,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 9,
+   "sources": 10,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
    "completude": 0.29,
@@ -1141,7 +1121,7 @@
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 12,
+   "sources": 13,
    "sources_v2": 5,
    "derniere_verification": "2026-11-23",
    "completude": 0.77,
@@ -1183,7 +1163,7 @@
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 4,
    "derniere_verification": "2026-11-23",
    "completude": 0.77,
@@ -1204,7 +1184,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 13,
+   "sources": 14,
    "sources_v2": 4,
    "derniere_verification": "2026-11-23",
    "completude": 0.81,
@@ -1288,7 +1268,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 14,
+   "sources": 15,
    "sources_v2": 5,
    "derniere_verification": "2026-11-23",
    "completude": 0.82,
@@ -1309,7 +1289,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 12,
+   "sources": 13,
    "sources_v2": 3,
    "derniere_verification": "2026-11-23",
    "completude": 0.82,
@@ -1351,7 +1331,7 @@
     "meilleur": 1,
     "plus_faible": 2
    },
-   "sources": 12,
+   "sources": 13,
    "sources_v2": 5,
    "derniere_verification": "2026-11-23",
    "completude": 0.79,
@@ -1412,7 +1392,7 @@
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 9,
+   "sources": 10,
    "sources_v2": 4,
    "derniere_verification": "2026-11-23",
    "completude": 0.75,
@@ -1453,7 +1433,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 2,
    "derniere_verification": "2026-11-23",
    "completude": 0.81,
@@ -1474,7 +1454,7 @@
     "meilleur": 1,
     "plus_faible": 2
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 4,
    "derniere_verification": "2026-11-23",
    "completude": 0.77,
@@ -1495,7 +1475,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
    "completude": 0.32,
@@ -1536,7 +1516,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
    "completude": 0.32,
@@ -1577,7 +1557,7 @@
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 4,
    "derniere_verification": "2026-11-23",
    "completude": 0.8,
@@ -1598,7 +1578,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
    "completude": 0.32,
@@ -1639,7 +1619,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 5,
    "derniere_verification": "2026-11-23",
    "completude": 0.74,
@@ -1660,7 +1640,7 @@
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 4,
    "derniere_verification": "2026-11-23",
    "completude": 0.76,
@@ -1692,7 +1672,7 @@
    "id": "saintemarguerite",
    "name": "Dunes de Sainte-Marguerite",
    "origin": "v2_preserved",
-   "statut": "TOP_TIER",
+   "statut": "corroboree",
    "lat": 48.5947,
    "lon": -4.6017,
    "precision_m": null,
@@ -1701,7 +1681,7 @@
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 3,
    "derniere_verification": "2026-11-23",
    "completude": 0.8,
@@ -1713,7 +1693,7 @@
    "id": "saintguenole",
    "name": "Rochers de Saint-Guénolé",
    "origin": "v2_preserved",
-   "statut": "corroboree",
+   "statut": "a_verifier",
    "lat": 47.820643,
    "lon": -4.381132,
    "precision_m": null,
@@ -1722,7 +1702,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 14,
+   "sources": 15,
    "sources_v2": 6,
    "derniere_verification": "2026-11-23",
    "completude": 0.79,
@@ -1764,33 +1744,13 @@
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 4,
    "derniere_verification": "2026-11-23",
    "completude": 0.76,
    "inconnus": 10,
    "anomalies": 1,
    "guide_v2": "audierne"
-  },
-  {
-   "id": "saintvaast",
-   "name": "Saint-Vaast-la-Hougue : la Hougue",
-   "origin": "v3_researched",
-   "statut": "candidate",
-   "lat": 49.575126,
-   "lon": -1.274349,
-   "precision_m": 300,
-   "stationnement_connu": true,
-   "niveau_preuve": {
-    "meilleur": 1,
-    "plus_faible": 4
-   },
-   "sources": 11,
-   "sources_v2": 0,
-   "derniere_verification": "2026-11-23",
-   "completude": 0.32,
-   "inconnus": 23,
-   "anomalies": 1
   },
   {
    "id": "saire",
@@ -1805,7 +1765,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
    "completude": 0.32,
@@ -1825,7 +1785,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 3,
    "derniere_verification": "2026-11-23",
    "completude": 0.8,
@@ -1866,7 +1826,7 @@
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 8,
+   "sources": 9,
    "sources_v2": 3,
    "derniere_verification": "2026-11-23",
    "completude": 0.74,
@@ -1887,7 +1847,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
    "completude": 0.32,
@@ -1907,7 +1867,7 @@
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 9,
+   "sources": 10,
    "sources_v2": 2,
    "derniere_verification": "2026-11-23",
    "completude": 0.81,
@@ -1969,7 +1929,7 @@
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 4,
    "derniere_verification": "2026-11-23",
    "completude": 0.76,
@@ -2011,7 +1971,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 13,
+   "sources": 14,
    "sources_v2": 4,
    "derniere_verification": "2026-11-23",
    "completude": 0.79,
@@ -2032,7 +1992,7 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 12,
+   "sources": 13,
    "sources_v2": 4,
    "derniere_verification": "2026-11-23",
    "completude": 0.78,
@@ -2053,7 +2013,7 @@
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 10,
+   "sources": 11,
    "sources_v2": 3,
    "derniere_verification": "2026-11-23",
    "completude": 0.77,

@@ -201,6 +201,9 @@
   "mouvements_terrain": {
    "statut": "INCONNU",
    "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
    "verifie_le": "2026-11-23",
    "raison": "Aucun mouvement de terrain recensé par le BRGM à 500 m du point (Géorisques, 2026-11-23) ; le recensement n'est pas exhaustif, ce qui ne prouve pas l'absence de risque."
   },
@@ -305,6 +308,7 @@
   "sources": [
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
+   "src-georisques-bdmvt",
    "src-georisques-gaspar",
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
@@ -358,7 +362,7 @@
    },
    "QUAL-3": {
     "ok": true,
-    "detail": "position contrôlée par l'IGN (toponyme officiel à 1,5 km au plus) ou corrigée"
+    "detail": "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée"
    },
    "QUAL-4": {
     "ok": true,
@@ -366,7 +370,7 @@
    },
    "QUAL-5": {
     "ok": false,
-    "detail": "engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0"
+    "detail": "engagement inconnu, 0 consigne sourcée sur 0, contrainte de marée non documentée, mouvements de terrain 0"
    },
    "QUAL-6": {
     "ok": false,
@@ -378,7 +382,7 @@
    }
   },
   "raisons": [
-   "QUAL-5 : engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 0",
+   "QUAL-5 : engagement inconnu, 0 consigne sourcée sur 0, contrainte de marée non documentée, mouvements de terrain 0",
    "QUAL-6 : règles locales du département 50 non recherchées dans un texte officiel"
   ]
  }

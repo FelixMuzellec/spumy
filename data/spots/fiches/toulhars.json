@@ -389,7 +389,7 @@
    },
    "QUAL-5": {
     "ok": false,
-    "detail": "engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 2"
+    "detail": "engagement inconnu, 0 consigne sourcée sur 0, contrainte de marée non documentée, mouvements de terrain 2"
    },
    "QUAL-6": {
     "ok": true,
@@ -402,7 +402,7 @@
   },
   "raisons": [
    "QUAL-3 : Position d'un lieu habité (« Toulhars »), pas du poste : à positionner sur le poste réel.",
-   "QUAL-5 : engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 2"
+   "QUAL-5 : engagement inconnu, 0 consigne sourcée sur 0, contrainte de marée non documentée, mouvements de terrain 2"
   ]
  }
 }

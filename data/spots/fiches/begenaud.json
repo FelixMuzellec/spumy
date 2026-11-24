@@ -468,7 +468,7 @@
    },
    "QUAL-3": {
     "ok": true,
-    "detail": "position contrôlée par l'IGN (toponyme officiel à 1,5 km au plus) ou corrigée"
+    "detail": "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée"
    },
    "QUAL-4": {
     "ok": true,
@@ -476,7 +476,7 @@
    },
    "QUAL-5": {
     "ok": false,
-    "detail": "engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 9"
+    "detail": "engagement inconnu, 0 consigne sourcée sur 0, contrainte de marée non documentée, mouvements de terrain 9"
    },
    "QUAL-6": {
     "ok": true,
@@ -488,7 +488,7 @@
    }
   },
   "raisons": [
-   "QUAL-5 : engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 9"
+   "QUAL-5 : engagement inconnu, 0 consigne sourcée sur 0, contrainte de marée non documentée, mouvements de terrain 9"
   ]
  }
 }

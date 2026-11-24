@@ -421,8 +421,8 @@
     "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:lechasseursousmarin-com, editeur:mieuxpecher-com"
    },
    "QUAL-2": {
-    "ok": true,
-    "detail": "2 groupes d'indépendance parmi les sources lues page par page (2 sur 2) ; au moins une attache le bar au poste"
+    "ok": false,
+    "detail": "2 groupes d'indépendance parmi les sources lues page par page (2 sur 2) ; aucune n'attache le bar au poste"
    },
    "QUAL-3": {
     "ok": false,
@@ -434,7 +434,7 @@
    },
    "QUAL-5": {
     "ok": false,
-    "detail": "engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 7"
+    "detail": "engagement inconnu, 0 consigne sourcée sur 0, contrainte de marée non documentée, mouvements de terrain 7"
    },
    "QUAL-6": {
     "ok": true,
@@ -447,7 +447,7 @@
   },
   "raisons": [
    "QUAL-3 : Position d'un lieu habité (« Merrien »), pas du poste : à positionner sur le poste réel. Position de la fiche à 3,3 km du toponyme officiel « le Merrien » (cours d'eau, hydrographie) : à vérifier (le poste peut être ailleurs que le point du toponyme).",
-   "QUAL-5 : engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 7"
+   "QUAL-5 : engagement inconnu, 0 consigne sourcée sur 0, contrainte de marée non documentée, mouvements de terrain 7"
   ]
  }
 }

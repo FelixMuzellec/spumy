@@ -643,7 +643,8 @@
     "bar_au_poste": false
    },
    "famille": 4,
-   "niveau_v2": null
+   "niveau_v2": null,
+   "hors_peche": true
   },
   {
    "id": "src-figaro-nautisme-forts-saint-malo",
@@ -667,7 +668,8 @@
     "bar_au_poste": false
    },
    "famille": 4,
-   "niveau_v2": null
+   "niveau_v2": null,
+   "hors_peche": true
   },
   {
    "id": "src-carnet-de-peche-sillon-talbert",
@@ -1502,7 +1504,7 @@
     "methode": "fiche de zone et de parcours de chasse sous-marine",
     "precision": "zone nommée",
     "independance": "groupe de l'éditeur",
-    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seuls l'introduction et le début du parcours, visibles sans abonnement, sont lus, le détail réservé aux abonnés ne l'est pas",
     "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
     "consulte_le": "2026-11-23",
     "affirmation": "« Longez les rochers de la pointe de Corsen en avançant par agachons successifs pour attirer les bars, souvent actifs sur le secteur »",
@@ -1526,7 +1528,7 @@
     "methode": "fiche de zone et de parcours de chasse sous-marine",
     "precision": "zone nommée",
     "independance": "groupe de l'éditeur",
-    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seule l'introduction publique est lue, le détail réservé aux abonnés ne l'est pas",
+    "limites": "observation sous l'eau en chasse sous-marine (parcours à la palme depuis le bord), pas pêche au leurre du bord ; seuls l'introduction et le début du parcours, visibles sans abonnement, sont lus, le détail réservé aux abonnés ne l'est pas",
     "droits": "droit de citation : courte citation, référence et faits tirés ; pas de copie",
     "consulte_le": "2026-11-23",
     "affirmation": "« Arrivé à l'îlot soyez vigilant car de gros bars descendant de l'aber Benoît y sont présents »",

@@ -272,9 +272,9 @@
    "espece": "bar",
    "priorite": 1,
    "presence": {
-    "statut": "VÉRIFIÉ",
+    "statut": "INFÉRÉ",
     "origine": "v2",
-    "texte": "Bar au leurre de surface ou souple (carnet-de-peche) ; bars dans les laminaires (lechasseursousmarin).",
+    "texte": "Bar au leurre de surface ou souple (carnet-de-peche) ; bars dans les laminaires (lechasseursousmarin). Statut V2 « VÉRIFIÉ » sans date ni page : ramené à INFÉRÉ, aucune page de pêche lue en phase 5 n'attachant le bar au poste (revue contradictoire du 24 nov. 2026).",
     "verifie_le": null
    }
   }
@@ -656,7 +656,7 @@
   ]
  },
  "quality": {
-  "statut": "TOP_TIER",
+  "statut": "a_verifier",
   "derniere_verification": "2026-11-23",
   "completude": 0.82,
   "inconnus": [
@@ -676,20 +676,20 @@
     "detail": "3 groupes d'indépendance halieutique (famille 1 à 4) : editeur:carnet-de-peche-com, editeur:lechasseursousmarin-com, editeur:mieuxpecher-com"
    },
    "QUAL-2": {
-    "ok": true,
-    "detail": "2 groupes d'indépendance parmi les sources lues page par page (2 sur 4) ; au moins une attache le bar au poste"
+    "ok": false,
+    "detail": "2 groupes d'indépendance parmi les sources lues page par page (2 sur 4) ; aucune n'attache le bar au poste"
    },
    "QUAL-3": {
     "ok": true,
-    "detail": "position contrôlée par l'IGN (toponyme officiel à 1,5 km au plus) ou corrigée"
+    "detail": "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée"
    },
    "QUAL-4": {
     "ok": true,
     "detail": "stationnement et marche documentés (9 min)"
    },
    "QUAL-5": {
-    "ok": true,
-    "detail": "engagement 3, 2 consignes, contrainte de marée non documentée, mouvements de terrain 6"
+    "ok": false,
+    "detail": "engagement 3 (jugement V2), 2 consignes sourcées sur 2, contrainte de marée non documentée, mouvements de terrain 6"
    },
    "QUAL-6": {
     "ok": true,
@@ -700,6 +700,8 @@
     "detail": "aucune source privée"
    }
   },
-  "raisons": []
+  "raisons": [
+   "QUAL-5 : engagement 3 (jugement V2), 2 consignes sourcées sur 2, contrainte de marée non documentée, mouvements de terrain 6"
+  ]
  }
 }

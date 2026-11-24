@@ -411,12 +411,12 @@
     "detail": "2 groupes d'indépendance halieutique (famille 1 à 4) : editeur:lechasseursousmarin-com, editeur:mieuxpecher-com"
    },
    "QUAL-2": {
-    "ok": true,
-    "detail": "2 groupes d'indépendance parmi les sources lues page par page (3 sur 3) ; au moins une attache le bar au poste"
+    "ok": false,
+    "detail": "2 groupes d'indépendance parmi les sources lues page par page (3 sur 3) ; aucune n'attache le bar au poste"
    },
    "QUAL-3": {
     "ok": true,
-    "detail": "position contrôlée par l'IGN (toponyme officiel à 1,5 km au plus) ou corrigée"
+    "detail": "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée"
    },
    "QUAL-4": {
     "ok": true,
@@ -424,7 +424,7 @@
    },
    "QUAL-5": {
     "ok": false,
-    "detail": "engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 6"
+    "detail": "engagement inconnu, 0 consigne sourcée sur 0, contrainte de marée non documentée, mouvements de terrain 6"
    },
    "QUAL-6": {
     "ok": true,
@@ -436,7 +436,7 @@
    }
   },
   "raisons": [
-   "QUAL-5 : engagement inconnu, 0 consigne, contrainte de marée non documentée, mouvements de terrain 6"
+   "QUAL-5 : engagement inconnu, 0 consigne sourcée sur 0, contrainte de marée non documentée, mouvements de terrain 6"
   ]
  }
 }

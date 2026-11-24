@@ -273,9 +273,9 @@
    "espece": "bar",
    "priorite": 1,
    "presence": {
-    "statut": "VÉRIFIÉ",
+    "statut": "INFÉRÉ",
     "origine": "v2",
-    "texte": "Roches citées pour le bar du bord (cannes-peche).",
+    "texte": "Roches citées pour le bar du bord (cannes-peche). Statut V2 « VÉRIFIÉ » sans date ni page : ramené à INFÉRÉ, aucune page de pêche lue en phase 5 n'attachant le bar au poste (revue contradictoire du 24 nov. 2026).",
     "verifie_le": null
    }
   }
@@ -375,6 +375,9 @@
   "mouvements_terrain": {
    "statut": "INCONNU",
    "origine": "v3",
+   "sources": [
+    "src-georisques-bdmvt"
+   ],
    "verifie_le": "2026-11-23",
    "raison": "Aucun mouvement de terrain recensé par le BRGM à 500 m du point (Géorisques, 2026-11-23) ; le recensement n'est pas exhaustif, ce qui ne prouve pas l'absence de risque."
   },
@@ -472,6 +475,7 @@
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
    "src-cannes-peche-blog4ever-com-e4338e",
+   "src-georisques-bdmvt",
    "src-georisques-gaspar",
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
@@ -528,15 +532,15 @@
    },
    "QUAL-3": {
     "ok": true,
-    "detail": "position contrôlée par l'IGN (toponyme officiel à 1,5 km au plus) ou corrigée"
+    "detail": "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée"
    },
    "QUAL-4": {
     "ok": true,
     "detail": "stationnement et marche documentés (13 min)"
    },
    "QUAL-5": {
-    "ok": true,
-    "detail": "engagement 3, 1 consigne, contrainte de marée non documentée, mouvements de terrain 0"
+    "ok": false,
+    "detail": "engagement 3 (jugement V2), 1 consigne sourcée sur 1, contrainte de marée non documentée, mouvements de terrain 0"
    },
    "QUAL-6": {
     "ok": true,
@@ -548,7 +552,8 @@
    }
   },
   "raisons": [
-   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:cannes-peche-blog4ever-com"
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:cannes-peche-blog4ever-com",
+   "QUAL-5 : engagement 3 (jugement V2), 1 consigne sourcée sur 1, contrainte de marée non documentée, mouvements de terrain 0"
   ]
  }
 }

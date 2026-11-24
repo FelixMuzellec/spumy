@@ -106,7 +106,8 @@
    ],
    "toponyme": "an Dourven",
    "commune": "Trédrez-Locquémeau",
-   "graphie_mieuxpecher": "« Pointe du Dourvin » (graphie de mieuxpecher.com) : la règle de nommage ne la rapproche pas de « Dourven » ; une seule source de pêche compte pour QUAL-1"
+   "graphie_mieuxpecher": "« Pointe du Dourvin » (graphie de mieuxpecher.com) : la règle de nommage ne la rapproche pas de « Dourven » ; une seule source de pêche compte pour QUAL-1",
+   "non_retenu": "Règle d'entrée non démontrée (revue contradictoire du 24 nov. 2026) : mieuxpecher.com écrit « Pointe du Dourvin » ; selon la règle de nommage stricte, un seul éditeur de pêche (carnet-de-peche.com) nomme le poste. Fiche retirée ; même règle que la pointe de la Garde Guérin (« Guarde »)."
   },
   {
    "id": "brehec",
@@ -133,7 +134,8 @@
    "departement": "50",
    "milieu": "presqu'île, tour et digue de la Hougue",
    "toponyme": "la Hougue",
-   "commune": "Saint-Vaast-la-Hougue"
+   "commune": "Saint-Vaast-la-Hougue",
+   "non_retenu": "Règle d'entrée non démontrée (revue contradictoire du 24 nov. 2026) : mieuxpecher.com dit « Tour Vauban près des parcs » sans nommer la Hougue (deux tours Vauban : la Hougue et Tatihou) et le forum dit « St Vaast » ; seul carnet-de-peche.com nomme la digue de la Hougue. Fiche retirée."
   },
   {
    "id": "gattemare",

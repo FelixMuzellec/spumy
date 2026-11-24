@@ -272,9 +272,9 @@
    "espece": "bar",
    "priorite": 1,
    "presence": {
-    "statut": "VÉRIFIÉ",
+    "statut": "INFÉRÉ",
     "origine": "v2",
-    "texte": "Plage à bars au surfcasting (pecheaubar, chtipecheur).",
+    "texte": "Plage à bars au surfcasting (pecheaubar, chtipecheur). Statut V2 « VÉRIFIÉ » sans date ni page : ramené à INFÉRÉ, aucune page de pêche lue en phase 5 n'attachant le bar au poste (revue contradictoire du 24 nov. 2026).",
     "verifie_le": null
    }
   }
@@ -573,15 +573,15 @@
    },
    "QUAL-3": {
     "ok": true,
-    "detail": "position contrôlée par l'IGN (toponyme officiel à 1,5 km au plus) ou corrigée"
+    "detail": "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée"
    },
    "QUAL-4": {
     "ok": true,
     "detail": "stationnement et marche documentés (2 min)"
    },
    "QUAL-5": {
-    "ok": true,
-    "detail": "engagement 1, 1 consigne, contrainte de marée non documentée, mouvements de terrain 2"
+    "ok": false,
+    "detail": "engagement 1 (jugement V2), 1 consigne sourcée sur 1, contrainte de marée non documentée, mouvements de terrain 2"
    },
    "QUAL-6": {
     "ok": true,
@@ -593,7 +593,8 @@
    }
   },
   "raisons": [
-   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:pecheaubar-com"
+   "QUAL-1 : 1 groupe d'indépendance halieutique (famille 1 à 4) : editeur:pecheaubar-com",
+   "QUAL-5 : engagement 1 (jugement V2), 1 consigne sourcée sur 1, contrainte de marée non documentée, mouvements de terrain 2"
   ]
  }
 }

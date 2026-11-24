@@ -650,15 +650,15 @@
    },
    "QUAL-3": {
     "ok": true,
-    "detail": "position contrôlée par l'IGN (toponyme officiel à 1,5 km au plus) ou corrigée"
+    "detail": "position contrôlée par l'IGN (toponyme officiel naturel à 1,5 km au plus) ou corrigée"
    },
    "QUAL-4": {
     "ok": true,
     "detail": "stationnement et marche documentés (7 min)"
    },
    "QUAL-5": {
-    "ok": true,
-    "detail": "engagement 3, 1 consigne, contrainte de marée submersible_a_pleine_mer, mouvements de terrain 4"
+    "ok": false,
+    "detail": "engagement 3 (jugement V2), 0 consigne sourcée sur 1, contrainte de marée submersible_a_pleine_mer, mouvements de terrain 4"
    },
    "QUAL-6": {
     "ok": false,
@@ -671,6 +671,7 @@
   },
   "raisons": [
    "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4)",
+   "QUAL-5 : engagement 3 (jugement V2), 0 consigne sourcée sur 1, contrainte de marée submersible_a_pleine_mer, mouvements de terrain 4",
    "QUAL-6 : règles locales du département 50 non recherchées dans un texte officiel"
   ]
  }

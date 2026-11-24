@@ -42,7 +42,7 @@ for (const { fichier: nomFichier, fiche: f } of lireFiches()) {
       bilan.avecMvt.push(f.id);
       if (chutes) bilan.falaise.push(f.id);
     } else {
-      s.mouvements_terrain = { statut: "INCONNU", origine: "v3", verifie_le: JOUR,
+      s.mouvements_terrain = { statut: "INCONNU", origine: "v3", sources: ["src-georisques-bdmvt"], verifie_le: JOUR,
         raison: `Aucun mouvement de terrain recensé par le BRGM à ${c.rayon_m} m du point (Géorisques, ${JOUR}) ; le recensement n'est pas exhaustif, ce qui ne prouve pas l'absence de risque.` };
       bilan.sansMvt++;
     }
