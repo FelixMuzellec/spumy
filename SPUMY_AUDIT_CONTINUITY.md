@@ -143,7 +143,9 @@ Interruption du 24 nov. 2026 vers 6 h 20 : arrêt de l'environnement pendant un 
 
 ## Prochaine action
 
-**Phase 6 VALIDATED (par délégation, à confirmer par Félix), 24 nov. 2026.** Phase 7 planifiée pour la nuit du 24 au 25 nov. (1 h 30, relances à 4 h 30 et 7 h 30), par le jeton conditionnel de Félix : branche `claude/v3-phase-7` partie de `claude/v3-phase-6`, périmètre exact du référentiel, priorités du rapport de phase 6 § 13. Jamais de phase 8 sans son jeton. Outil de sauvegarde des passages CI : `scripts/sauver-collecte.mjs`.
+**Phase 6 VALIDATED (par délégation, à confirmer par Félix), 24 nov. 2026.** Les tâches de la nuit du 24 au 25 nov. ont été supprimées. À la demande de Félix (24 nov., 11 h 04), la phase 7 est planifiée le **jeudi 26 nov. 2026 à 8 h 01**, en une seule tâche, sans relance de secours. Elle part du jeton conditionnel de Félix, sur la branche `claude/v3-phase-7` partie de `claude/v3-phase-6`, dans le périmètre exact du référentiel. Les priorités, dans l'ordre :
+1. Revue scientifique régionale du comportement et de l'alimentation du bar, en Bretagne et dans le Cotentin jusqu'à Cherbourg (Félix, 24 nov., 10 h 57).
+2. Données de sécurité des fiches (rapport de phase 6 § 13). Jamais de phase 8 sans son jeton. Outil de sauvegarde des passages CI : `scripts/sauver-collecte.mjs`.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
