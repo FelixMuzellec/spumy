@@ -6,9 +6,11 @@ export const NIVEAU_FACTEUR = { 1: 100, 2: 80, 3: 60, 4: 40, 5: 20 };   // éche
 const STATUT_POSTE = { TOP_TIER: 100, corroboree: 80, a_verifier: 50, candidate: 30 };
 
 /** Fraîcheur et échéance de la prévision : la plus basse des deux. Âge inconnu : 0 (on ne sait pas si elle est à jour). */
-export function dimDonnees({ ageHeures = null, joursAvant = 0 }) {
-  const age = ageHeures == null || !Number.isFinite(ageHeures) ? 0 : ageHeures < 6 ? 100 : ageHeures < 24 ? 50 : 0;
-  const ech = joursAvant <= 0 ? 100 : joursAvant >= 3 ? 50 : Math.round(100 * (1 - joursAvant / 6));
+export function dimDonnees({ ageHeures = null, joursAvant = null }) {
+  const fini = (x) => typeof x === "number" && Number.isFinite(x) && x >= 0;
+  const age = !fini(ageHeures) ? 0 : ageHeures < 6 ? 100 : ageHeures < 24 ? 50 : 0;
+  // Échéance inconnue : 0, comme l'âge (on ne sait pas de quel jour parle la prévision).
+  const ech = !fini(joursAvant) ? 0 : joursAvant === 0 ? 100 : joursAvant >= 3 ? 50 : Math.round(100 * (1 - joursAvant / 6));
   return Math.min(age, ech);
 }
 /** Couverture : part des maximums de critères connus. */
@@ -32,24 +34,31 @@ export function dimPreuvesPoste({ statut, positionControlee }) {
   return positionControlee === true ? v : Math.min(v, 40);
 }
 /** Domaine de validité et précision : extrapolations déclarées et maille de la donnée marine. */
-export function dimDomaine({ plancherAbriUtilise = false, regimeDeduit = false, eauHorsDomaine = false, eauMailleKm = null }) {
+export function dimDomaine({ plancherAbriUtilise = false, regimeDeduit = false, eauHorsDomaine = false, eauUtilisee = false, eauMailleKm = null }) {
   let v = 100;
   if (plancherAbriUtilise) v = Math.min(v, 60);
   if (regimeDeduit) v = Math.min(v, 80);
   if (eauHorsDomaine) v = Math.min(v, 60);
-  if (eauMailleKm != null && eauMailleKm > 15) v = Math.min(v, 60);
+  // Une eau utilisée dont la maille est inconnue compte comme une maille lointaine.
+  if (eauUtilisee && !(typeof eauMailleKm === "number" && Number.isFinite(eauMailleKm) && eauMailleKm <= 15)) v = Math.min(v, 60);
   return v;
 }
 
+export const DIMENSIONS = ["donnees", "couverture", "accord", "preuvesRegles", "preuvesPoste", "domaine"];
+
 /** dims : { donnees, couverture, accord, preuvesRegles, preuvesPoste, domaine } → { score, niveau, limitante, dims }. */
 export function confiance(dims) {
-  const e = Object.entries(dims).filter(([, v]) => Number.isFinite(v));
-  if (e.length !== 6) throw new Error("six dimensions attendues");
+  const cles = Object.keys(dims || {});
+  if (cles.length !== DIMENSIONS.length || !DIMENSIONS.every((k) => typeof dims[k] === "number" && Number.isFinite(dims[k]) && dims[k] >= 0 && dims[k] <= 100)) {
+    throw new Error(`les six dimensions ${DIMENSIONS.join(", ")} sont exigées, chacune de 0 à 100`);
+  }
+  const e = DIMENSIONS.map((k) => [k, dims[k]]);
   const [limitante, score] = e.reduce((a, b) => (b[1] < a[1] ? b : a));
   return { score, niveau: score >= 70 ? "haute" : score >= 40 ? "moyenne" : "faible", limitante, dims };
 }
 
 /** La Confiance ne peut que baisser le niveau publié : faible → plus de nombre, la classe d'affichage à la place. */
 export function publier(publicationA1, niveauConfiance) {
-  return publicationA1 === "nombre" && niveauConfiance === "faible" ? "qualitatif" : publicationA1;
+  // Seules une Confiance « haute » ou « moyenne » gardent le nombre ; tout autre niveau, inconnu compris, le retire.
+  return publicationA1 === "nombre" && !["haute", "moyenne"].includes(niveauConfiance) ? "qualitatif" : publicationA1;
 }

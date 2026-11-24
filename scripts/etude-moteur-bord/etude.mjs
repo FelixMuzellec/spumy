@@ -78,7 +78,9 @@ function e2b() {
       naif.push(thetaRatio(b0, S.map((s) => ({ ...s, q: 1 }))));
       let th = 1, q = [];
       for (let it = 0; it < 50; it++) { q = S.map((s) => (s.y > 0 ? 1 : 1 - zeroStructurel(psi, th * s.Lbase, k))); th = thetaRatio(b0, S.map((s, i) => ({ ...s, q: q[i] }))); }
-      const ex = thetaPosterieur(b0, S, { psi, k, max: 8, pas: 0.005 }).moyenne;
+      const post = thetaPosterieur(b0, S, { psi, k, max: 16, pas: 0.01 });
+      if (post.densiteAuBord > 1e-9) throw new Error("posterior tronqué (E2b)");
+      const ex = post.moyenne;
       travail.push(th); exact.push(ex); ecart.push(Math.abs(th - ex));
     }
     out.push({ sessions: N, naifMoyen: r3(moy(naif)), travailMoyen: r3(moy(travail)), exactMoyen: r3(moy(exact)), ecartTravailExactMoyen: r3(moy(ecart)), ecartTravailExactMax: r3(Math.max(...ecart)) });
@@ -308,20 +310,24 @@ function e8(moteurs) {
     const fq = JSON.parse(fs.readFileSync(path.join(root, "data/spots/fiches", `${s.id}.json`), "utf8")).quality;
     const connu = (x) => (x && x.statut !== "INCONNU" ? x.valeur : null);
     const regles = E.securityFor(s, { coeff: o.coeff });
-    const isolement = fiche.acces_maree?.statut === "INCONNU" ? null : regles.some((a) => a.isolement && a.active);
-    const forces = [o.wind_force, o.wind_force_alt, ...(o.wind_force_heures || [])].filter((x) => x != null);   // D6-14 et pire heure
-    const sec = etatSecurite({ ventConnu: o.windKnown, force: forces, rafalesKmh: 40, directionConnue: true, rade: E.SITE.zones?.[s.zone]?.sea === "rade",
+    // Isolement : une contrainte de marée connue (tous les codes de fiche en décrivent une) n'est située par rapport au
+    // créneau que par une règle qui la couvre. La seule règle V2 d'isolement (Térénez) ne dépend que du coefficient : active,
+    // elle bloque ; inactive, elle ne situe pas les autres contraintes. Sans règle : contrainte connue mais non située (null).
+    // `supposeDocumente` : hypothèse d'essai déclarée dans la fixture (fenêtre de sécurité documentée, créneau hors flot).
+    const isolement = o.supposeDocumente ? false : fiche.acces_maree?.statut === "INCONNU" ? null : regles.some((a) => a.isolement && a.active) ? true : null;
+    const forces = o.wind_force_heures || o.wind_force;   // pire heure du créneau (modèle principal)
+    const sec = etatSecurite({ ventConnu: o.windKnown, force: forces, forceAutreModele: o.wind_force_alt, rafalesKmh: 40, directionConnue: true, rade: E.SITE.zones?.[s.zone]?.sea === "rade",
       houleConnue: o.houleKnown, houleM: o.houle, houleMaxM: connu(fiche.houle_max_m), engagement: "engagement" in o ? o.engagement : connu(fiche.engagement),
       coef: o.coeff, coefMaxDur: s.coefHardMax ?? null, isolement, consignesActives: regles.filter((a) => a.active && !a.isolement).map((a) => a.t),
       nuit: o.band === "nuit", fermetureOfficielle: fq.criteres["QUAL-6"].ok ? false : null });
     return { fav: f.fav, conditions: f.cond, presence: f.pres.factor, points: c.pts, exclus: [...c.exclus], a1: { bas: A.bas, haut: A.haut, publication: A.publication },
-      securite: sec.etat, regles: sec.raisons.map((x) => `${x.regle}:${x.etat}`), prudences: sec.prudences.length };
+      securite: sec.etat, niveauAffiche: sec.niveauAffiche, regles: sec.raisons.map((x) => `${x.regle}:${x.etat}`), prudences: sec.prudences.length };
   };
   const R = {};
   for (const sc of F.scenarios) R[sc.id] = jouer(sc);
   { const sc = F.scenarios.find((x) => x.id === "S11"); R.S11.avecEauReelle = jouer(sc, { sst: sc.eauReelle }).fav; }
   R.S16.parMois = F.scenarios.find((x) => x.id === "S16").entree.mois.map((m, i, a) => ({ mois: m, ...jouer({ ...F.scenarios.find((x) => x.id === "S16"), entree: {} }, { month: m, sst: F.scenarios.find((x) => x.id === "S16").entree.eaux[i] }) })).map(({ mois, fav, presence }) => ({ mois, fav, presence }));
-  const base = ["S03", "S04", "S07", "S17"].map((id, i) => ({ id, securite: "SAFE", aVerifier: false, trajetMin: 20 + i, trajetVerifie: true, fav: R[id].fav, confiance: 50 }));
+  const base = ["S03", "S04", "S07", "S17"].map((id, i) => ({ id, securite: "SAFE", aVerifier: false, favLargeur: 0, trajetMin: 20 + i, trajetVerifie: true, fav: R[id].fav, confiance: 50 }));
   const avecPert = base.map((x, i) => ({ ...x, pert: { score: 10 * i, under: i % 2 === 0, filters: true }, boite: ["shad", "minnow"][i % 2] }));
   const ordre = (l) => classer(l).top.map((x) => x.id).join();
   const tenue = {
@@ -337,7 +343,7 @@ function e8(moteurs) {
     S10: R.S10.exclus.includes("vent") && R.S10.securite === "DANGER" && R.S10.regles.includes("houle:DANGER"),
     S11: R.S11.fav > R.S11.avecEauReelle,
     S12: R.S12.securite === "CAUTION" && R.S21.securite === "SAFE",
-    S13: R.S13.securite === "CAUTION" && R.S21.securite === "SAFE",
+    S13: R.S13.securite === "CAUTION" && R.S21.securite === "SAFE" && R.S13.regles.includes("vent:CAUTION"),
     S14: R.S14.securite === "INSUFFICIENT_DATA",
     S15: R.S15.securite === "DANGER" && R.S15.fav >= 75 && !classer([{ id: "S15", securite: R.S15.securite, trajetMin: 10, trajetVerifie: true, fav: R.S15.fav }]).top.length,
     S16: [...R.S16.parMois].sort((a, b) => a.presence - b.presence).every((x, i, a) => i === 0 || x.fav >= a[i - 1].fav),
@@ -345,7 +351,10 @@ function e8(moteurs) {
     S18: ordre(base) === ordre(avecPert),
     S19: R.S19.securite === "INSUFFICIENT_DATA" && R.S19.regles.includes("isolement:INSUFFICIENT_DATA") && R.S19.fav != null,
     S20: R.S20.regles.includes("houle:INSUFFICIENT_DATA"),
-    S21: R.S21.securite === "SAFE" && R.S21.prudences >= 0,
+    S21: R.S21.securite === "SAFE" && R.S21.prudences === 0 && R.S21.niveauAffiche === "Aucune alerte connue",
+    S22: R.S22.securite === "SAFE" && R.S22.prudences === 1 && R.S22.niveauAffiche === "Prudence",
+    S23: R.S23.securite === "INSUFFICIENT_DATA" && R.S23.regles.join() === "isolement:INSUFFICIENT_DATA",
+    S24: R.S24.securite === "DANGER" && R.S24.regles.includes("isolement:DANGER"),
   };
   return { scenarios: F.scenarios.length, resultats: R, proprietesTenues: tenue };
 }
@@ -354,7 +363,7 @@ function e8(moteurs) {
 function e9(moteurs) {
   const zoneRade = new Map();
   for (const [g, E] of moteurs) for (const s of E.SPOTS) zoneRade.set(`${g}/${s.id}`, E.SITE.zones?.[s.zone]?.sea === "rade");
-  const raisons = { engagement: 0, accesMaree: 0, houleMax: 0, reglementation: 0 }, combos = {};
+  const raisons = { engagement: 0, accesMaree: 0, fenetreSecurite: 0, houleMax: 0, reglementation: 0 }, combos = {};
   let fiches = 0, documentables = 0, v2 = 0, v2Doc = 0; const liste = [];
   for (const f of fs.readdirSync(path.join(root, "data/spots/fiches")).filter((x) => x.endsWith(".json")).sort()) {
     const s = JSON.parse(fs.readFileSync(path.join(root, "data/spots/fiches", f), "utf8")), S = s.safety;
@@ -362,6 +371,8 @@ function e9(moteurs) {
     const r = [];
     if (S.engagement?.statut === "INCONNU") r.push("engagement");
     if (S.acces_maree?.statut === "INCONNU") r.push("accesMaree");
+    // Contrainte de marée connue : il faut une fenêtre de sécurité documentée pour situer un créneau hors du flot.
+    else if ((S.acces_maree?.valeur || []).length && !(s.windows?.securite && s.windows.securite.statut !== "INCONNU")) r.push("fenetreSecurite");
     if (S.houle_max_m?.statut === "INCONNU" && !rade) r.push("houleMax");
     if (!s.quality?.criteres?.["QUAL-6"]?.ok) r.push("reglementation");
     fiches++; if (s.origin === "v2_preserved") v2++;

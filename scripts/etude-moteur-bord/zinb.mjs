@@ -78,7 +78,9 @@ export function thetaRatio(b0, sessions) {
  * avec μ_i = θ · Λ_base,i (ψ_i et k connus), puissance ω_i (vraisemblance pondérée, convention de travail).
  * Renvoie moyenne, écart type et quantiles 5 % et 95 %.
  */
-export function thetaPosterieur(b0, sessions, { psi = 1, k = Infinity, max = 12, pas = 1e-3 } = {}) {
+export function thetaPosterieur(b0, sessions, { psi, k, max = 12, pas = 1e-3 } = {}) {
+  // ψ et k sont exigés : aucun défaut silencieux vers le cas sans excès de zéros (ψ = 1, k infini) que le dossier écarte.
+  if (!(psi > 0 && psi <= 1) || !(k > 0)) throw new Error("ψ dans ]0 ; 1] et k > 0 sont exigés");
   const xs = [], lp = [];
   for (let th = pas; th <= max; th += pas) {
     let l = (b0 - 1) * Math.log(th) - b0 * th;

@@ -57,11 +57,14 @@ export function a1(c, { largeurMax = 20 } = {}) {
   for (const [k, m] of Object.entries(MAX)) {
     if (c.exclus.has(k) || c.pts[k] == null) manque += m; else got += c.pts[k];
   }
-  const pHaut = c.eauConnue === false ? c.saison : c.presence, pBas = c.eauConnue === false ? Math.min(PRESENCE_PLANCHER, pHaut) : c.presence;
+  // L'eau n'est connue que si c'est dit explicitement ; « tout connu » ne se lit jamais sur la largeur, qui peut être nulle
+  // par hasard (présence au plancher, présence nulle).
+  const eau = c.eauConnue === true, complet = manque === 0 && eau;
+  const pHaut = eau ? c.presence : c.saison, pBas = eau ? c.presence : Math.min(PRESENCE_PLANCHER, pHaut);
   const bas = Math.round(got * pBas), haut = Math.round((got + manque) * pHaut);
   const largeur = haut - bas;
-  const publication = manque > 50 ? "aucune" : largeur === 0 ? "nombre" : largeur <= largeurMax ? "fourchette" : "qualitatif";
-  return { valeur: largeur === 0 && manque <= 50 ? bas : null, bas, haut, largeur, publication };
+  const publication = manque > 50 ? "aucune" : complet ? "nombre" : largeur <= largeurMax ? "fourchette" : "qualitatif";
+  return { valeur: complet ? bas : null, bas, haut, largeur, publication };
 }
 
 /**

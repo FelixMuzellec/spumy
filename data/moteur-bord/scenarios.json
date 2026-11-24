@@ -149,9 +149,11 @@
    "guide": "concarneau",
    "spot": "mousterlin",
    "entree": {
-    "wind_force_alt": 6
+    "wind_force_alt": 6,
+    "supposeDocumente": true
    },
-   "propriete": "la sécurité lit le plus fort des deux modèles : CAUTION (D6-14), sur un poste dont la fiche est assez documentée pour être SAFE"
+   "propriete": "la sécurité lit le plus fort des deux modèles : CAUTION (D6-14) ; le même spot sans désaccord est SAFE (S21)",
+   "hypotheseDEssai": "fenêtre de sécurité supposée documentée et créneau hors du flot : aucune fiche ne l'est aujourd'hui (e9)"
   },
   {
    "id": "S13",
@@ -164,9 +166,11 @@
      3,
      5,
      7
-    ]
+    ],
+    "supposeDocumente": true
    },
-   "propriete": "la sécurité lit le pire moment du créneau : CAUTION"
+   "propriete": "la sécurité lit le pire moment du créneau : CAUTION",
+   "hypotheseDEssai": "fenêtre de sécurité supposée documentée et créneau hors du flot : aucune fiche ne l'est aujourd'hui (e9)"
   },
   {
    "id": "S14",
@@ -187,9 +191,11 @@
    "guide": "concarneau",
    "spot": "mousterlin",
    "entree": {
-    "houle": 2.2
+    "houle": 2.2,
+    "supposeDocumente": true
    },
-   "propriete": "DANGER : non recommandé, absent du Top quelle que soit la note"
+   "propriete": "DANGER : non recommandé, absent du Top quelle que soit la note",
+   "hypotheseDEssai": "fenêtre de sécurité supposée documentée et créneau hors du flot : aucune fiche ne l'est aujourd'hui (e9)"
   },
   {
    "id": "S16",
@@ -257,11 +263,47 @@
   {
    "id": "S21",
    "famille": "témoin",
-   "titre": "Poste documenté, conditions connues sous les seuils",
+   "titre": "Mousterlin, conditions connues sous les seuils, fenêtre de sécurité supposée documentée",
+   "guide": "concarneau",
+   "spot": "mousterlin",
+   "entree": {
+    "supposeDocumente": true
+   },
+   "propriete": "SAFE si la fenêtre de sécurité était documentée ; niveau affiché « Aucune alerte connue », jamais un vert",
+   "hypotheseDEssai": "fenêtre de sécurité supposée documentée et créneau hors du flot : aucune fiche ne l'est aujourd'hui (e9)"
+  },
+  {
+   "id": "S22",
+   "famille": "prudence V2",
+   "titre": "Mousterlin au coefficient 100 : la consigne « la mer qui monte coupe le retour » est active",
+   "guide": "concarneau",
+   "spot": "mousterlin",
+   "entree": {
+    "coeff": 100,
+    "supposeDocumente": true
+   },
+   "hypotheseDEssai": "fenêtre de sécurité supposée documentée et créneau hors du flot",
+   "propriete": "état SAFE, niveau affiché « Prudence » avec la consigne, comme en V2 (D6-19)"
+  },
+  {
+   "id": "S23",
+   "famille": "données de la fiche",
+   "titre": "Mousterlin tel que sa fiche le décrit : isolement au flot connu, fenêtre de sécurité non documentée",
    "guide": "concarneau",
    "spot": "mousterlin",
    "entree": {},
-   "propriete": "SAFE, avec les prudences V2 affichées à côté"
+   "propriete": "INSUFFICIENT_DATA, pour la seule raison de la contrainte de marée non située (D6-21)"
+  },
+  {
+   "id": "S24",
+   "famille": "sécurité",
+   "titre": "Térénez au coefficient 100 : la règle V2 d'isolement est active",
+   "guide": "logonna",
+   "spot": "terenez",
+   "entree": {
+    "coeff": 100
+   },
+   "propriete": "DANGER (isolement par le flot)"
   }
  ]
 }

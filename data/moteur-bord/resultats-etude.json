@@ -609,7 +609,7 @@
   }
  },
  "e8_scenarios": {
-  "scenarios": 21,
+  "scenarios": 24,
   "resultats": {
    "S01": {
     "fav": 50,
@@ -628,6 +628,7 @@
      "publication": "nombre"
     },
     "securite": "INSUFFICIENT_DATA",
+    "niveauAffiche": "À vérifier",
     "regles": [
      "isolement:INSUFFICIENT_DATA"
     ],
@@ -650,6 +651,7 @@
      "publication": "nombre"
     },
     "securite": "INSUFFICIENT_DATA",
+    "niveauAffiche": "À vérifier",
     "regles": [
      "isolement:INSUFFICIENT_DATA"
     ],
@@ -672,6 +674,7 @@
      "publication": "nombre"
     },
     "securite": "INSUFFICIENT_DATA",
+    "niveauAffiche": "À vérifier",
     "regles": [
      "isolement:INSUFFICIENT_DATA"
     ],
@@ -694,6 +697,7 @@
      "publication": "nombre"
     },
     "securite": "INSUFFICIENT_DATA",
+    "niveauAffiche": "À vérifier",
     "regles": [
      "isolement:INSUFFICIENT_DATA"
     ],
@@ -716,6 +720,7 @@
      "publication": "nombre"
     },
     "securite": "INSUFFICIENT_DATA",
+    "niveauAffiche": "À vérifier",
     "regles": [
      "isolement:INSUFFICIENT_DATA"
     ],
@@ -738,6 +743,7 @@
      "publication": "nombre"
     },
     "securite": "INSUFFICIENT_DATA",
+    "niveauAffiche": "À vérifier",
     "regles": [
      "isolement:INSUFFICIENT_DATA"
     ],
@@ -760,6 +766,7 @@
      "publication": "nombre"
     },
     "securite": "INSUFFICIENT_DATA",
+    "niveauAffiche": "À vérifier",
     "regles": [
      "isolement:INSUFFICIENT_DATA"
     ],
@@ -782,6 +789,7 @@
      "publication": "nombre"
     },
     "securite": "INSUFFICIENT_DATA",
+    "niveauAffiche": "À vérifier",
     "regles": [
      "isolement:INSUFFICIENT_DATA"
     ],
@@ -805,6 +813,7 @@
      "publication": "qualitatif"
     },
     "securite": "INSUFFICIENT_DATA",
+    "niveauAffiche": "À vérifier",
     "regles": [
      "vent:INSUFFICIENT_DATA",
      "isolement:INSUFFICIENT_DATA"
@@ -829,6 +838,7 @@
      "publication": "qualitatif"
     },
     "securite": "DANGER",
+    "niveauAffiche": "Non recommandé",
     "regles": [
      "houle:DANGER",
      "isolement:INSUFFICIENT_DATA"
@@ -852,6 +862,7 @@
      "publication": "qualitatif"
     },
     "securite": "INSUFFICIENT_DATA",
+    "niveauAffiche": "À vérifier",
     "regles": [
      "isolement:INSUFFICIENT_DATA"
     ],
@@ -875,6 +886,7 @@
      "publication": "nombre"
     },
     "securite": "CAUTION",
+    "niveauAffiche": "À vérifier",
     "regles": [
      "vent:CAUTION"
     ],
@@ -897,6 +909,7 @@
      "publication": "nombre"
     },
     "securite": "CAUTION",
+    "niveauAffiche": "À vérifier",
     "regles": [
      "vent:CAUTION"
     ],
@@ -919,6 +932,7 @@
      "publication": "nombre"
     },
     "securite": "INSUFFICIENT_DATA",
+    "niveauAffiche": "À vérifier",
     "regles": [
      "engagement:INSUFFICIENT_DATA",
      "isolement:INSUFFICIENT_DATA",
@@ -943,6 +957,7 @@
      "publication": "nombre"
     },
     "securite": "DANGER",
+    "niveauAffiche": "Non recommandé",
     "regles": [
      "houle:DANGER"
     ],
@@ -965,6 +980,7 @@
      "publication": "nombre"
     },
     "securite": "INSUFFICIENT_DATA",
+    "niveauAffiche": "À vérifier",
     "regles": [
      "isolement:INSUFFICIENT_DATA"
     ],
@@ -1009,6 +1025,7 @@
      "publication": "nombre"
     },
     "securite": "INSUFFICIENT_DATA",
+    "niveauAffiche": "À vérifier",
     "regles": [
      "isolement:INSUFFICIENT_DATA"
     ],
@@ -1031,6 +1048,7 @@
      "publication": "nombre"
     },
     "securite": "INSUFFICIENT_DATA",
+    "niveauAffiche": "À vérifier",
     "regles": [
      "isolement:INSUFFICIENT_DATA"
     ],
@@ -1053,6 +1071,7 @@
      "publication": "nombre"
     },
     "securite": "INSUFFICIENT_DATA",
+    "niveauAffiche": "À vérifier",
     "regles": [
      "isolement:INSUFFICIENT_DATA"
     ],
@@ -1076,9 +1095,11 @@
      "publication": "qualitatif"
     },
     "securite": "INSUFFICIENT_DATA",
+    "niveauAffiche": "À vérifier",
     "regles": [
      "fermeture:INSUFFICIENT_DATA",
-     "houle:INSUFFICIENT_DATA"
+     "houle:INSUFFICIENT_DATA",
+     "isolement:INSUFFICIENT_DATA"
     ],
     "prudences": 0
    },
@@ -1099,7 +1120,76 @@
      "publication": "nombre"
     },
     "securite": "SAFE",
+    "niveauAffiche": "Aucune alerte connue",
     "regles": [],
+    "prudences": 0
+   },
+   "S22": {
+    "fav": 80,
+    "conditions": 80,
+    "presence": 1,
+    "points": {
+     "fenetre": 25,
+     "coef": 0,
+     "lumiere": 25,
+     "vent": 30
+    },
+    "exclus": [],
+    "a1": {
+     "bas": 80,
+     "haut": 80,
+     "publication": "nombre"
+    },
+    "securite": "SAFE",
+    "niveauAffiche": "Prudence",
+    "regles": [],
+    "prudences": 1
+   },
+   "S23": {
+    "fav": 100,
+    "conditions": 100,
+    "presence": 1,
+    "points": {
+     "fenetre": 25,
+     "coef": 20,
+     "lumiere": 25,
+     "vent": 30
+    },
+    "exclus": [],
+    "a1": {
+     "bas": 100,
+     "haut": 100,
+     "publication": "nombre"
+    },
+    "securite": "INSUFFICIENT_DATA",
+    "niveauAffiche": "À vérifier",
+    "regles": [
+     "isolement:INSUFFICIENT_DATA"
+    ],
+    "prudences": 0
+   },
+   "S24": {
+    "fav": 66,
+    "conditions": 66,
+    "presence": 1,
+    "points": {
+     "fenetre": 25,
+     "coef": 0,
+     "lumiere": 25,
+     "vent": 16
+    },
+    "exclus": [],
+    "a1": {
+     "bas": 66,
+     "haut": 66,
+     "publication": "nombre"
+    },
+    "securite": "DANGER",
+    "niveauAffiche": "Non recommandé",
+    "regles": [
+     "courant:DANGER",
+     "isolement:DANGER"
+    ],
     "prudences": 0
    }
   },
@@ -1124,38 +1214,33 @@
    "S18": true,
    "S19": true,
    "S20": true,
-   "S21": true
+   "S21": true,
+   "S22": true,
+   "S23": true,
+   "S24": true
   }
  },
  "e9_admissibiliteStatique": {
   "fiches": 98,
   "fichesV2": 66,
-  "peuventEtreSAFE": 8,
-  "dontV2": 8,
-  "lesquelles": [
-   "barnenez",
-   "carantec",
-   "kermorvan",
-   "kernic",
-   "mousterlin",
-   "penmarch",
-   "saintemarguerite",
-   "terenez"
-  ],
+  "peuventEtreSAFE": 0,
+  "dontV2": 0,
+  "lesquelles": [],
   "raisonsParFiche": {
    "engagement": 32,
    "accesMaree": 75,
+   "fenetreSecurite": 23,
    "houleMax": 32,
    "reglementation": 35
   },
   "combinaisons": {
-   "reglementation": 14,
+   "fenetreSecurite+reglementation": 14,
    "accesMaree+reglementation": 13,
    "accesMaree": 31,
-   "aucune": 8,
+   "fenetreSecurite": 8,
    "engagement+accesMaree+houleMax": 23,
    "engagement+accesMaree+houleMax+reglementation": 8,
-   "engagement+houleMax": 1
+   "engagement+fenetreSecurite+houleMax": 1
   }
  }
 }

@@ -17,19 +17,26 @@ const NON_RECOMMANDE = new Set(["DANGER", "BLOCKED"]);
  * Renvoie { documentes, aVerifier, nonRecommandes, exclus, top, autresAEgalite, deplacesParLaPlaceReservee }.
  * La Confiance n'est jamais lue pour l'éligibilité ni pour l'ordre (§ 9.1 ; V3-006).
  */
+// Entrées strictes : un temps de route n'est connu que si c'est un nombre fini ≥ 0 ; un spot n'est documenté que si chaque
+// champ le dit explicitement (sécurité SAFE, aVerifier === false, favLargeur === 0, note finie) ; tout autre cas va dans
+// « à vérifier », jamais parmi les spots documentés.
+const minutes = (x) => typeof x === "number" && Number.isFinite(x) && x >= 0;
+const note = (s) => (typeof s.fav === "number" && Number.isFinite(s.fav) ? s.fav : -1);
+
 export function classer(spots, { trajetMax = TRAJET_MAX_MIN } = {}) {
   const nonRecommandes = [], exclus = [], documentes = [], aVerifier = [];
   for (const s of spots) {
     if (NON_RECOMMANDE.has(s.securite)) { nonRecommandes.push({ id: s.id, raison: `sécurité ${s.securite}` }); continue; }
     if (s.accesFerme) { exclus.push({ id: s.id, raison: "accès fermé" }); continue; }
-    if (!(s.trajetMin <= trajetMax)) { exclus.push({ id: s.id, raison: s.trajetMin == null ? "temps de route inconnu" : `${s.trajetMin} min de route > ${trajetMax}` }); continue; }
+    if (!minutes(s.trajetMin)) { exclus.push({ id: s.id, raison: "temps de route inconnu" }); continue; }
+    if (s.trajetMin > trajetMax) { exclus.push({ id: s.id, raison: `${s.trajetMin} min de route > ${trajetMax}` }); continue; }
     // INSUFFICIENT_DATA ne vaut jamais SAFE ; CAUTION reprend le « à vérifier » validé en V2 (Félix, 13 nov. 2026).
-    (s.securite === "SAFE" && !s.aVerifier && (s.favLargeur ?? 0) === 0 ? documentes : aVerifier).push(s);
+    (s.securite === "SAFE" && s.aVerifier === false && s.favLargeur === 0 && note(s) >= 0 ? documentes : aVerifier).push(s);
   }
-  const ordre = (a, b) => ((b.fav ?? -1) - (a.fav ?? -1)) || ((a.trajetMin ?? 999) - (b.trajetMin ?? 999)) || String(a.id).localeCompare(String(b.id));
+  const ordre = (a, b) => (note(b) - note(a)) || (a.trajetMin - b.trajetMin) || String(a.id).localeCompare(String(b.id));
   documentes.sort(ordre); aVerifier.sort(ordre);
   // Top : parmi les spots documentés et notés ; égalité stricte au dernier rang retenu : jusqu'à cinq.
-  const notes = documentes.filter((s) => s.fav != null);
+  const notes = documentes;
   let top = notes.slice(0, AFFICHES);
   if (top.length === AFFICHES) {
     const dernier = top[AFFICHES - 1].fav;
@@ -40,7 +47,7 @@ export function classer(spots, { trajetMax = TRAJET_MAX_MIN } = {}) {
   // Place réservée (V3-016) : si aucun spot affiché n'est à 15 min ou moins de route vérifiée, le meilleur spot documenté
   // proche prend la 3ᵉ place, sans bonus de Favorabilité ; les spots qu'il déplace restent nommés (provisoire).
   let deplacesParLaPlaceReservee = [];
-  const proche = (s) => s.trajetVerifie === true && s.trajetMin <= PROCHE_MIN;
+  const proche = (s) => s.trajetVerifie === true && minutes(s.trajetMin) && s.trajetMin <= PROCHE_MIN;
   if (top.length >= AFFICHES && !top.some(proche)) {
     const p = notes.find((s) => proche(s) && !top.includes(s));
     if (p) {

@@ -8,7 +8,7 @@ import { etude } from "../scripts/etude-moteur-bord/etude.mjs";
 import { classer, TRAJET_MAX_MIN, PROCHE_MIN } from "../scripts/etude-moteur-bord/classement.mjs";
 import { a1, bV2, PRESENCE_PLANCHER } from "../scripts/etude-moteur-bord/architectures.mjs";
 import { pAuMoinsUne, zeroStructurel, pZINB, zeroNB, thetaRatio, psiBeta, thetaPosterieur } from "../scripts/etude-moteur-bord/zinb.mjs";
-import { confiance, publier, dimDonnees, dimAccord, dimPreuvesRegles, dimPreuvesPoste } from "../scripts/etude-moteur-bord/confiance.mjs";
+import { confiance, publier, dimDonnees, dimAccord, dimPreuvesRegles, dimPreuvesPoste, dimDomaine } from "../scripts/etude-moteur-bord/confiance.mjs";
 import { etatSecurite, WIND_LIMITS, HOULE_MARGE } from "../scripts/etude-moteur-bord/securite.mjs";
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
@@ -31,8 +31,9 @@ t("convention : π_zero = 1 − ψ, jamais ψ (ψ = 0,6, Λ = 0,8, k = 2 : P(Y =
   Math.abs(pZINB(0, 0.6, 0.8, 2) - 0.70612) < 1e-4 && Math.abs(pAuMoinsUne(0.6, 0.8, 2) - 0.29388) < 1e-4 && Math.abs(pZINB(0, 0.6, 0.8, 2) - 0.6 * zeroNB(0.8, 2) - 0.4) < 1e-12);
 t("bornes : ψ = 0 donne toujours zéro capture ; 0 ≤ P(Y ≥ 1) ≤ 1", pAuMoinsUne(0, 5, 2) === 0 && pZINB(0, 0, 5, 2) === 1 && [0.1, 0.5, 1].every((p) => [0.01, 1, 50].every((L) => { const v = pAuMoinsUne(p, L, 0.5); return v >= 0 && v <= 1; })));
 t("ψ = 1 : aucune bredouille n'est attribuée à un zéro structurel ; ψ < 1 : une part l'est", zeroStructurel(0.6, 1, 2) > 0 && zeroStructurel(1, 1, 2) === 0);
-t("moteur 2 : une bredouille sans q n'est jamais comptée active par défaut (erreur)", (() => { try { thetaRatio(2, [{ y: 0, Lbase: 1 }]); return false; } catch { /* attendu */ } try { psiBeta(2, 2, [{ y: 0 }]); return false; } catch { return true; } })());
 const deux = [{ y: 3, Lbase: 1 }, { y: 0, Lbase: 1 }];
+t("moteur 2 : une bredouille sans q n'est jamais comptée active par défaut (erreur)", (() => { try { thetaRatio(2, [{ y: 0, Lbase: 1 }]); return false; } catch { /* attendu */ } try { psiBeta(2, 2, [{ y: 0 }]); return false; } catch { return true; } })());
+t("moteur 2 : ψ et k sont exigés par le posterior (aucun défaut silencieux vers ψ = 1, k infini)", (() => { try { thetaPosterieur(2, deux); return false; } catch { return true; } })());
 t("moteur 2 : le contrôle de troncature du posterior signale une grille trop courte et accepte une grille assez large",
   thetaPosterieur(2, deux, { psi: 0.6, k: 2, max: 8 }).densiteAuBord > 1e-9 && thetaPosterieur(2, deux, { psi: 0.6, k: 2, max: 30 }).densiteAuBord < 1e-9);
 
@@ -71,6 +72,10 @@ const bas = a1({ ...c0, presence: 0.3, saison: 0.3 }), plein = a1({ ...c0, exclu
 t("A1 : jamais de nombre quand un critère manque, même avec une présence basse ; un nombre seulement si tout est connu", bas.publication !== "nombre" && bas.valeur == null && plein.publication === "nombre" && plein.valeur === 90);
 const eau = a1({ ...c0, exclus: new Set(), pts: { ...c0.pts, vent: 30 }, eauConnue: false, saison: 0.95, presence: 0.95 });
 t("A1 : une eau inconnue donne une présence entre le plancher et la saison, pas la saison seule (D6-03)", eau.bas === Math.round(100 * PRESENCE_PLANCHER) && eau.haut === 95 && eau.publication !== "nombre");
+const complet = { ...c0, exclus: new Set(), pts: { ...c0.pts, vent: 30 } };
+t("A1 : « tout connu » ne se lit jamais sur la largeur : eau non déclarée, saison au plancher ou présence nulle ne publient pas de nombre",
+  a1({ ...complet, eauConnue: undefined }).publication !== "nombre" && a1({ ...complet, eauConnue: false, saison: 0.3, presence: 0.3 }).publication !== "nombre"
+  && a1({ ...c0, presence: 0, saison: 0 }).publication !== "nombre");
 
 // Contrat de classement proposé (§ 9.1.6, § 9.1.7)
 const S = (id, o) => ({ id, securite: "SAFE", aVerifier: false, accesFerme: false, trajetMin: 30, fav: 60, favLargeur: 0, confiance: 50, ...o });
@@ -83,6 +88,10 @@ t("classement : DANGER et BLOCKED ne sont jamais recommandés, même à 99", !id
 t("classement : INSUFFICIENT_DATA ne vaut jamais SAFE (rangé avec « à vérifier »)", ids(r.aVerifier).includes("h") && !ids(r.documentes).includes("h"));
 t(`classement : au-delà de ${TRAJET_MAX_MIN} min ou accès fermé : exclus, avec la raison`, ["j", "k"].every((id) => r.exclus.some((e) => e.id === id && e.raison)));
 t("classement : une note qui n'est qu'un intervalle (critère inconnu) n'est jamais classée parmi les spots documentés (D6-01)", ids(r.aVerifier).includes("l") && !ids(r.documentes).includes("l"));
+const stricte = classer([S("a", { fav: 80 }), S("b", { fav: 79 }), S("c", { fav: 78 }), S("n", { trajetMin: null, trajetVerifie: true }), S("t", { trajetMin: "30" }),
+  { id: "x", securite: "SAFE", trajetMin: 20, fav: 99 }, S("y", { fav: NaN }), S("p", { fav: 40, trajetMin: -5, trajetVerifie: true })]);
+t("classement : entrées strictes : temps de route absent, en texte ou négatif exclu ; champs non déclarés ou note illisible jamais parmi les documentés",
+  ["n", "t", "p"].every((id) => stricte.exclus.some((e) => e.id === id)) && ids(stricte.aVerifier).includes("x") && ids(stricte.aVerifier).includes("y") && ids(stricte.top).join() === "a,b,c");
 t("classement : le Top vient des spots documentés et notés, par Favorabilité décroissante ; égalité stricte au 3e rang : un 4e", ids(r.top).join() === "a,b,c,d" && !r.top.some((s) => s.fav == null));
 const conf = classer(base.map((s, i) => ({ ...s, confiance: (i * 37) % 101 })));
 const ordres = (o) => JSON.stringify([ids(o.top), ids(o.documentes), ids(o.aVerifier), o.exclus.map((e) => e.id), o.nonRecommandes.map((e) => e.id), o.autresAEgalite]);
@@ -117,18 +126,29 @@ t("sécurité : aucune donnée douteuse ne sort SAFE (nuit inconnue, côte incon
   E({ engagement: 3, nuit: null }) === "INSUFFICIENT_DATA" && E({ rade: null, houleConnue: false }) === "INSUFFICIENT_DATA" && E({ coef: null, coefMaxDur: 95 }) === "INSUFFICIENT_DATA"
   && E({ fermetureOfficielle: null }) === "INSUFFICIENT_DATA" && E({ force: null }) === "INSUFFICIENT_DATA" && E({ force: NaN }) === "INSUFFICIENT_DATA" && E({ rafalesKmh: NaN }) === "INSUFFICIENT_DATA");
 t("sécurité : seule une rade connue est exemptée de la houle inconnue (définition V2) ; un havre hors rade ne l'est pas", E({ rade: true, houleConnue: false }) === "SAFE" && E({ rade: false, houleConnue: false }) === "INSUFFICIENT_DATA");
-t("sécurité : le plus fort des modèles et des heures du créneau est lu (D6-14)", E({ force: [3, 6] }) === "CAUTION" && E({ force: [3, 5, 8] }) === "DANGER" && E({ rafalesKmh: [40, 95] }) === "DANGER");
+t("sécurité : la pire heure du créneau et le plus fort des deux modèles sont lus (D6-14)", E({ force: [3, 6] }) === "CAUTION" && E({ force: [3, 5, 8] }) === "DANGER" && E({ rafalesKmh: [40, 95] }) === "DANGER"
+  && E({ force: 3, forceAutreModele: 6 }) === "CAUTION" && E({ rafalesKmh: 40, rafalesAutreModele: 90 }) === "DANGER");
+t("sécurité : une heure ou un second modèle sans valeur, une valeur négative ou une limite illisible ne sortent jamais SAFE",
+  [{ force: [3, NaN] }, { force: [3, null] }, { rafalesKmh: [40, null] }, { houleM: [1, null] }, { coef: [70, null], coefMaxDur: 95 }, { forceAutreModele: null }, { forceAutreModele: [2, NaN] },
+    { force: -3 }, { rafalesKmh: -10 }, { houleM: -1 }, { coefMaxDur: "95", coef: 110 }, { coefMaxDur: NaN, coef: 110 }, { houleMaxM: "1.5" }, { houleMaxM: [1.5, 3] }].every((o) => E(o) !== "SAFE"));
+t("sécurité : un second modèle absent est accepté (la Confiance le dit), le niveau affiché n'est jamais un vert", (() => { const x = etatSecurite(C0); return x.etat === "SAFE" && x.niveauAffiche === "Aucune alerte connue"; })());
 t("sécurité : les prudences V2 (consignes actives, poste engagé, nuit sur un poste de niveau 2) s'affichent sans changer l'état",
-  (() => { const x = etatSecurite({ ...C0, engagement: 2, nuit: true, consignesActives: ["la mer qui monte coupe le retour : garder une porte de sortie"] }); return x.etat === "SAFE" && x.prudences.length === 2; })());
-t("sécurité : les facteurs du § 9.5 non évalués sont toujours listés à côté de l'état", etatSecurite(C0).nonEvalues.length >= 4);
+  (() => { const x = etatSecurite({ ...C0, engagement: 2, nuit: true, consignesActives: ["la mer qui monte coupe le retour : garder une porte de sortie"] }); const y = etatSecurite({ ...C0, engagement: 3 });
+    return x.etat === "SAFE" && x.prudences.length === 2 && x.niveauAffiche === "Prudence" && y.etat === "SAFE" && y.niveauAffiche === "Prudence"; })());
+t("sécurité : les facteurs du § 9.5 non évalués sont toujours listés à côté de l'état", etatSecurite(C0).nonEvalues.length === 7 && etatSecurite(C0).nonEvalues.some((x) => /mouvements de terrain/.test(x)) && etatSecurite(C0).nonEvalues.some((x) => /exposition/.test(x)));
 
 // Confiance proposée (§ 9.1.5) : maillon le plus faible, dimension limitante nommée, ne fait que baisser la publication
 const dims = { donnees: 100, couverture: 100, accord: 75, preuvesRegles: dimPreuvesRegles([{ max: 25, niveau: 2 }, { max: 20, niveau: 4 }, { max: 25, niveau: 2 }, { max: 30, niveau: 2 }], 4), preuvesPoste: dimPreuvesPoste({ statut: "TOP_TIER", positionControlee: true }), domaine: 100 };
 const cf = confiance(dims);
 t("Confiance : la plus basse des six dimensions, nommée (présence N4 : preuves des règles à 40, moyenne au mieux)", cf.score === 40 && cf.limitante === "preuvesRegles" && cf.niveau === "moyenne");
-t("Confiance : âge de prévision inconnu → 0 ; un seul modèle → 40 (sans corroboration)", dimDonnees({ ageHeures: null }) === 0 && dimAccord({}) === 40 && dimDonnees({ ageHeures: 2, joursAvant: 1 }) === 83);
-t("Confiance : faible, elle fait passer un nombre en classe d'affichage ; elle n'élève jamais la publication", publier("nombre", "faible") === "qualitatif" && publier("fourchette", "haute") === "fourchette" && publier("nombre", "haute") === "nombre");
-t("Confiance : six dimensions exigées (aucune ne manque en silence)", (() => { try { confiance({ donnees: 1 }); return false; } catch { return true; } })());
+t("Confiance : âge ou échéance inconnus → 0 ; un seul modèle → 40 (sans corroboration) ; eau utilisée de maille inconnue → 60",
+  dimDonnees({ ageHeures: null, joursAvant: 0 }) === 0 && dimDonnees({ ageHeures: 2, joursAvant: null }) === 0 && dimAccord({}) === 40 && dimDonnees({ ageHeures: 2, joursAvant: 1 }) === 83
+  && dimDomaine({ eauUtilisee: true }) === 60 && dimDomaine({ eauUtilisee: true, eauMailleKm: 8 }) === 100);
+t("Confiance : seules « haute » et « moyenne » gardent le nombre ; elle n'élève jamais la publication",
+  publier("nombre", "faible") === "qualitatif" && publier("nombre", undefined) === "qualitatif" && publier("nombre", "Faible") === "qualitatif" && publier("fourchette", "haute") === "fourchette" && publier("nombre", "haute") === "nombre");
+const jette = (d) => { try { confiance(d); return false; } catch { return true; } };
+t("Confiance : exactement les six dimensions nommées, chacune de 0 à 100 (aucune ne manque ni ne se cache derrière une clé en trop)",
+  jette({ donnees: 1 }) && jette({ a: 90, b: 90, c: 90, d: 90, e: 90, f: 90 }) && jette({ ...dims, extra: 0 }) && jette({ ...dims, accord: 120 }) && !jette(dims));
 
 const e7 = R.e7_defautsMoteurV2;
 t("sécurité : seuils du contrat proposé égaux à ceux du moteur V2", JSON.stringify(e7.seuilsSecuriteMoteur) === JSON.stringify({ WIND_LIMITS, HOULE_MARGE }));
@@ -138,9 +158,10 @@ t("audit A5 : sur le vrai moteur V2, une houle inconnue retire le critère vent,
 // Scénarios et fixtures (data/moteur-bord/scenarios.json), sur le vrai moteur V2
 const e8 = R.e8_scenarios;
 for (const [id, ok] of Object.entries(e8.proprietesTenues)) t(`scénario ${id} : ${JSON.parse(fs.readFileSync(path.join(root, "data/moteur-bord/scenarios.json"), "utf8")).scenarios.find((x) => x.id === id).propriete}`, ok === true);
-t("scénarios : 21 fixtures, toutes jouées", e8.scenarios === 21 && Object.keys(e8.proprietesTenues).length === 21);
+t("scénarios : 24 fixtures, toutes jouées", e8.scenarios === 24 && Object.keys(e8.proprietesTenues).length === 24);
 const e9 = R.e9_admissibiliteStatique;
-t("fiches : avec les données de sécurité actuelles, 8 fiches sur 98 peuvent être SAFE un jour (impact de D6-15 mesuré)", e9.fiches === 98 && e9.peuventEtreSAFE === 8 && e9.lesquelles.length === 8
+t("fiches : avec les données de sécurité actuelles, aucune fiche ne peut être SAFE (impact de D6-15 et D6-21 mesuré) ; 23 contraintes de marée connues mais non situées",
+  e9.fiches === 98 && e9.peuventEtreSAFE === 0 && e9.raisonsParFiche.fenetreSecurite === 23
   && Object.values(e9.combinaisons).reduce((a, b) => a + b, 0) === 98);
 
 console.log(`[étude moteur BORD] identités, Gamma–Poisson, identifiabilité, architectures, classement : ${pass}/${pass + fail}`);
