@@ -187,7 +187,7 @@ function e6(G6) {
     if (!ctxs.has(k)) ctxs.set(k, []);
     ctxs.get(k).push(x);
   }
-  const mesure = { strict: [], egal3: [], egal10: [], top3: [], top3egal10: [], classeA2: [], largeur90: [] };
+  const mesure = { strict: [], egal3: [], egal10: [], top3: [], top3egal10: [], classeA2: [], largeur90: [], jacSimple: [], jacA3: [] };
   for (const items of ctxs.values()) {
     if (items.length < 4) continue;
     const note = (o) => items.map((x) => ({ id: x.spot, v: bV2(x.c, o).valeur ?? -1 })).sort((a, b) => b.v - a.v || a.id.localeCompare(b.id));
@@ -210,6 +210,9 @@ function e6(G6) {
     }
     mesure.strict.push(s / R); mesure.egal3.push(e3 / R); mesure.egal10.push(e10 / R); mesure.top3.push(t3 / R); mesure.top3egal10.push(t3e / R);
     mesure.classeA2.push(setA2.size);
+    const top3 = (f) => new Set(items.map((x) => ({ id: x.spot, v: f(x.c) ?? -1 })).sort((a, b) => b.v - a.v || a.id.localeCompare(b.id)).slice(0, 3).map((x) => x.id));
+    const jac = (A, B) => [...A].filter((x) => B.has(x)).length / new Set([...A, ...B]).size;
+    mesure.jacSimple.push(jac(b3, top3((c) => bSimple(c).valeur))); mesure.jacA3.push(jac(b3, top3((c) => a3(c).valeur)));
     for (const v of valeurs.values()) if (v.length) mesure.largeur90.push(quantile(v, 0.95) - quantile(v, 0.05));
   }
   return { situations: mesure.strict.length, tirages: R, graine: 424242, amplitude: "poids de chaque critère ×0,6 à ×1,4 et présence k 0,6 à 1,4 (niveau 4) ; la météo n'est pas perturbée",
@@ -217,6 +220,7 @@ function e6(G6) {
     premierInchange: r3(moy(mesure.strict)), premierAEgalite3: r3(moy(mesure.egal3)), premierAEgalite10: r3(moy(mesure.egal10)),
     top3Inchange: r3(moy(mesure.top3)), top3AEgalite10: r3(moy(mesure.top3egal10)),
     situationsTop3Tient80: mesure.top3.filter((p) => p >= 0.8).length, situationsTop3Egalite10Tient80: mesure.top3egal10.filter((p) => p >= 0.8).length,
+    accordTop3AvecBV2: { bSimpleJaccardMoyen: r3(moy(mesure.jacSimple)), bSimpleIdentique: r3(mesure.jacSimple.filter((j) => j === 1).length / mesure.jacSimple.length), a3JaccardMoyen: r3(moy(mesure.jacA3)), a3Identique: r3(mesure.jacA3.filter((j) => j === 1).length / mesure.jacA3.length) },
     a2TailleClasseDeTete: { mediane: quantile(mesure.classeA2, 0.5), q95: quantile(mesure.classeA2, 0.95) },
     incertitudeDeModeleParSpot: { definition: "largeur de l'intervalle à 90 % de la note d'un spot sous les tirages de paramètres", mediane: quantile(mesure.largeur90, 0.5), q95: quantile(mesure.largeur90, 0.95), partSup10: r3(mesure.largeur90.filter((w) => w > 10).length / mesure.largeur90.length) } };
 }

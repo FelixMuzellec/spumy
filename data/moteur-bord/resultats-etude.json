@@ -378,6 +378,12 @@
   "top3AEgalite10": 1,
   "situationsTop3Tient80": 478,
   "situationsTop3Egalite10Tient80": 672,
+  "accordTop3AvecBV2": {
+   "bSimpleJaccardMoyen": 0.292,
+   "bSimpleIdentique": 0.119,
+   "a3JaccardMoyen": 0.955,
+   "a3Identique": 0.918
+  },
   "a2TailleClasseDeTete": {
    "mediane": 7,
    "q95": 11
