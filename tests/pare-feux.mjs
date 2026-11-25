@@ -14,6 +14,7 @@ import { VERSIONS, REGLES, SANS_REGLE, INTERFACE_V3, PLANCHERS_GRAPHIQUES, FILTR
 import { EXIGENCES } from "./pare-feux/exigences.mjs";
 import { KPIS } from "./pare-feux/kpis.mjs";
 import { COMPLEXITE } from "./pare-feux/complexite.mjs";
+import { paquet, exigencesDeLaPhase } from "../scripts/contexte.mjs";
 import { rendreDoc as rendreKpi, atteint as kpiAtteint } from "../scripts/kpi/mesurer.mjs";
 import { fichiersSansUsage, gardesAuRegistre } from "../scripts/pare-feux/inutiles.mjs";
 import { verifierBranche, phaseAutorisee } from "../scripts/pare-feux/branche.mjs";
@@ -296,6 +297,20 @@ for (const x of exigences) {
     if (["prototype", "à simplifier"].includes(j.verdict)) t(`indicateur K-29 : ${c}, la phase ${j.phase} n'est pas close sans sa réécriture`, Number.isInteger(j.phase) && !rapportsClos.has(j.phase));
   }
   t("indicateur : docs/regles/KPI.md à jour (node scripts/kpi/mesurer.mjs --ecrire)", existe("docs/regles/KPI.md") && lire("docs/regles/KPI.md") === rendreKpi(mesures)); }
+
+// ——— 4 quater. Paquet de contexte complet, phase par phase (PF-50) ———
+for (let n = 7; n <= 15; n++) {
+  const p = paquet(n);
+  const manque = [];
+  for (const c of exigencesDeLaPhase(n)) if (!p.includes(`- ${c[0]} `)) manque.push(c[0]);
+  for (const r of REGLES) { if (!p.includes(`- ${r.id} ${r.titre}`)) manque.push(r.id);
+    for (const e of Object.values(r.versions)) if ((e.etat === "prevu" && e.phase === n) || e.aCompleter?.phase === n || e.etat === "manuel") if (!p.includes(`- ${r.id} (`)) manque.push(`${r.id} (dû ou consigne)`); }
+  for (const k of KPIS) if (((k.mesure === "prevu" && k.phase === n) || k.ecart?.phase === n || k.objectif) && !p.includes(`- ${k.id} `)) manque.push(k.id);
+  for (const d of index.filter((x) => valide(x.statut))) if (!p.includes(`- ${d.id} `)) manque.push(d.id);
+  if (n >= 7 && !p.includes("PF-48 : rapport de phase")) manque.push("PF-48");
+  t(`paquet de contexte incomplet : phase ${n}`, manque.length === 0, manque.join(", "));
+}
+t("paquet de contexte incomplet : état courant court (moins de 80 lignes)", lire("SPUMY_AUDIT_CONTINUITY.md").split("\n").length < 80, String(lire("SPUMY_AUDIT_CONTINUITY.md").split("\n").length));
 
 // ——— 5. Tableau lisible, généré depuis le registre ———
 const ETIQ = { controle: "contrôlé", prevu: "prévu", sansObjet: "sans objet", manuel: "consigne (non automatisable)" };

@@ -79,6 +79,8 @@ const ESSAIS = [
   ["tableau des indicateurs modifié à la main", "KPI.md à jour", () => ajouter("docs/regles/KPI.md", "x\n")],
   ["fonction V3 trop complexe, sans jugement écrit", "K-29 : seuil non atteint", () => ajouter("src/prototype-v3/modele.js", `\nexport function essaiComplexe(x) {\n${Array.from({ length: 17 }, (_, i) => `  if (x === ${i}) return ${i};`).join("\n")}\n  return -1;\n}\n`), ["scripts/kpi/mesurer.mjs", "--verifier", "--sans-couverture"]],
   ["spot retiré pour améliorer un indicateur", "K-37 : indicateur en recul", () => { const v3 = fs.readdirSync(f("data/spots/fiches")).find((x) => lire(`data/spots/fiches/${x}`).includes("\"v3_researched\"")); git("rm", "-q", `data/spots/fiches/${v3}`); }, ["scripts/kpi/mesurer.mjs", "--verifier", "--sans-couverture"]],
+  ["paquet de contexte qui oublie les exigences", "paquet de contexte incomplet : phase 7", () => remplacer("scripts/contexte.mjs", "for (const c of exigencesDeLaPhase(n)) {", "for (const c of exigencesDeLaPhase(n).slice(0, 0)) {")],
+  ["état courant qui regonfle", "état courant court", () => ajouter("SPUMY_AUDIT_CONTINUITY.md", "\nligne\n".repeat(60))],
   ["seuil fixé sans justification", "seuil et origine du seuil", () => remplacer("tests/pare-feux/kpis.mjs", /seuilSource: "fixé", justification: "[^"]*"/, "seuilSource: \"fixé\"")],
 ];
 

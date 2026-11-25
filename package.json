@@ -37,7 +37,9 @@
     "test:etude-moteur": "node tests/etude-moteur-bord.mjs",
     "test:pare-feux": "node tests/pare-feux.mjs",
     "test:pare-feux-sabotage": "node tests/pare-feux-sabotage.mjs",
-    "kpi": "node scripts/kpi/mesurer.mjs --ecrire"
+    "kpi": "node scripts/kpi/mesurer.mjs --ecrire",
+    "contexte": "node scripts/contexte.mjs",
+    "verifier": "node scripts/verifier.mjs"
   },
   "dependencies": {
     "leaflet": "^1.9.4",
