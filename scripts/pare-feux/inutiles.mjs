@@ -41,7 +41,8 @@ export function fichiersSansUsage(racine = RACINE) {
   const fichiers = execFileSync("git", ["ls-files", "--cached", "--others", "--exclude-standard"], { cwd: racine }).toString().trim().split("\n").filter(Boolean)
     .filter((f) => fs.existsSync(path.join(racine, f)));
   // Lecteurs : tout fichier texte sauf la documentation (une mention dans un document ne fait pas un usage).
-  const doc = (f) => /^(docs|audit)\//.test(f) || /\.md$/.test(f);
+  // Les essais de sabotage ne font que nommer des fichiers à casser : ils ne comptent pas comme lecteurs.
+  const doc = (f) => /^(docs|audit)\//.test(f) || /\.md$/.test(f) || f === "tests/pare-feux-sabotage.mjs";
   const lecteurs = fichiers.filter((f) => texte.test(f) && !doc(f) && fs.statSync(path.join(racine, f)).size < 3e6)
     .map((f) => [f, fs.readFileSync(path.join(racine, f), "utf8")]);
   const entrees = new Set();

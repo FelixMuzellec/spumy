@@ -66,7 +66,7 @@ const developper = (texte, vus = new Set()) => texte.replace(/npm run (?:-s )?([
 const commandesCI = developper(ci);
 const lancesCI = (f) => commandesCI.includes(f);
 const lanceParUnTest = (f) => [...commandesCI.matchAll(/(tests\/[\w./-]+\.(?:mjs|py))/g)].map((m) => m[1]).filter(existe)
-  .some((g) => g !== f && [`/${path.basename(f)}"`, `/${path.basename(f)}'`].some((k) => lire(g).includes(k)));   // importé par un test lancé
+  .some((g) => g !== f && new RegExp(`(?:from|import\\()\\s*["'\`][^"'\`]*/${path.basename(f).replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}["'\`]`).test(lire(g)));   // importé (import réel) par un test lancé
 const crochetsActives = /git config core\.hooksPath \.githooks/.test(CLAUDE);
 const rapportsClos = new Set(fs.readdirSync(path.join(RACINE, "docs/rapports/v3")).map((f) => /^PHASE-(\d+)\.md$/.exec(f)).filter(Boolean).map((m) => Number(m[1])));
 const ids = new Set();
