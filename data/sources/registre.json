@@ -1,25 +1,25 @@
 {
  "//": "Registre des sources (phase 5, 5.4 ; § 7.1). Généré par scripts/sources-registre.mjs ; les champs « evaluation » se complètent à la main et ne sont jamais écrasés.",
  "totaux": {
-  "sources": 352,
-  "aEvaluer": 242,
-  "avecUrl": 109,
-  "editeurs": 104,
-  "editeurClasse": 352,
-  "groupes": 88,
+  "sources": 361,
+  "aEvaluer": 251,
+  "avecUrl": 118,
+  "editeurs": 108,
+  "editeurClasse": 353,
+  "groupes": 92,
   "parFamille": {
-   "1": 21,
-   "2": 41,
+   "1": 24,
+   "2": 46,
    "3": 8,
    "4": 255,
    "6": 19,
-   "non fixée": 8
+   "non fixée": 9
   },
   "parType": {
-   "site, guide ou presse spécialisée": 272,
+   "site, guide ou presse spécialisée": 273,
+   "institutionnel ou scientifique": 37,
    "texte réglementaire": 3,
    "collectivité ou tourisme": 21,
-   "institutionnel ou scientifique": 29,
    "forum ou communauté": 6,
    "administration": 1,
    "encyclopédie collaborative": 12,
@@ -64,6 +64,105 @@
     "famille_inferee": 4,
     "classe_le": "2026-11-23"
    }
+  },
+  {
+   "id": "src-archimer-ifremer-fr-1520a5",
+   "texte": "Léauté J.-P. (1984, paru en 1986). Approche du régime alimentaire des juvéniles de bars et de limandes en baie de Somme. Revue des Travaux de l'Institut des Pêches maritimes 48 : 55-63",
+   "editeur": "archimer.ifremer.fr",
+   "url": "https://archimer.ifremer.fr/doc/00000/1789/1421.pdf",
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bord:regime-juveniles-crustaces"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   },
+   "groupe": "editeur:archimer-ifremer-fr"
+  },
+  {
+   "id": "src-archimer-ifremer-fr-a371e4",
+   "texte": "Goossens J., Woillez M., Wright S. et al. (2024). Elucidating the migrations of European seabass from the southern North Sea using mark-recapture data, acoustic telemetry and data storage tags. Scientific Reports 14 : 13180 (version lue : Archimer)",
+   "editeur": "archimer.ifremer.fr",
+   "url": "https://archimer.ifremer.fr/doc/00893/100500/110924.pdf",
+   "type": "institutionnel ou scientifique",
+   "famille": 1,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bord:seuils-thermiques",
+    "connaissance:bord:printemps-cotentin"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   },
+   "groupe": "editeur:archimer-ifremer-fr"
+  },
+  {
+   "id": "src-archimer-ifremer-fr-aec75d",
+   "texte": "Fritsch M. (2005). Traits biologiques et exploitation du bar commun Dicentrarchus labrax (L.) dans les pêcheries françaises de la Manche et du golfe de Gascogne. Thèse, Université de Bretagne occidentale et Ifremer",
+   "editeur": "archimer.ifremer.fr",
+   "url": "https://archimer.ifremer.fr/doc/00000/1088/738.pdf",
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bord:saison-coefficients",
+    "connaissance:bord:frai-manche-ouest",
+    "connaissance:bord:calendrier-ligneurs"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   },
+   "groupe": "editeur:archimer-ifremer-fr"
+  },
+  {
+   "id": "src-archimer-ifremer-fr-cce971",
+   "texte": "de Pontual H. et al. (2023). Seasonal migration, site fidelity, and population structure of European seabass (Dicentrarchus labrax). ICES Journal of Marine Science 80 : 1606-1618 (programme Bargip, Ifremer ; version lue : Archimer)",
+   "editeur": "archimer.ifremer.fr",
+   "url": "https://archimer.ifremer.fr/doc/00841/95273/103029.pdf",
+   "type": "institutionnel ou scientifique",
+   "famille": 1,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bord:migration-par-zone"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   },
+   "groupe": "editeur:archimer-ifremer-fr"
   },
   {
    "id": "src-arrete-bar-loisir-2026",
@@ -3448,6 +3547,41 @@
    }
   },
   {
+   "id": "src-doi-org-791d8b",
+   "texte": "Goossens J. et al. (2023). Fisheries measures protect European seabass groups with distinct habitat use differently. ICES Journal of Marine Science 80(7) : 1899-1910 (port de Zeebrugge, Belgique)",
+   "editeur": "doi.org",
+   "url": "https://doi.org/10.1093/icesjms/fsad116",
+   "type": "institutionnel ou scientifique",
+   "famille": 1,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bord:abri-hiver",
+    "connaissance:bord:seuils-thermiques"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   },
+   "groupe": "article-scientifique",
+   "editeur_classe": {
+    "nature": "article scientifique à comité de lecture (groupe propre à chaque article)",
+    "domaines": [
+     "biologie",
+     "comportement"
+    ],
+    "limites": "résultats propres à la population, au lieu et à la période étudiés ; transfert au spot à justifier",
+    "droits": "résumé public ou version ouverte seulement ; jamais de contournement d'un accès payant",
+    "classe_le": "2026-11-23"
+   }
+  },
+  {
    "id": "src-doi-org-b48a5b",
    "texte": "Doyle T. et al. (2017). Localised residency and inter-annual fidelity to coastal foraging areas may place sea bass at risk to local depletion. Scientific Reports 7 : 45841 (Cork, Irlande)",
    "editeur": "doi.org",
@@ -3971,6 +4105,54 @@
    }
   },
   {
+   "id": "src-france-filiere-peche-b867ac",
+   "texte": "France Filière Pêche — projet BARFRAY (Ifremer Brest, CNPMEM, 2017-2021), page du projet ; thèse de C. Dambrine (2020)",
+   "editeur": "France Filière Pêche",
+   "url": "https://www.francefilierepeche.fr/projets/barfray-etude-frayeres-deplacements-bar-europeen/",
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": 2,
+   "utilise_par": [
+    "connaissance:bord:structure-stock-saisonniere"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   },
+   "groupe": "editeur:france-filiere-peche"
+  },
+  {
+   "id": "src-france-filiere-peche-d7a4a6",
+   "texte": "France Filière Pêche — projet BARGIP NOURRICERIES (Ifremer, CNPMEM, 2013-2017) : 13 campagnes de chalutage, 57 jours de mer, Aulne en 2015 et Loire en 2016",
+   "editeur": "France Filière Pêche",
+   "url": "https://www.francefilierepeche.fr/projets/bargip-nourriceries/",
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": 2,
+   "utilise_par": [
+    "connaissance:bord:nourricerie-aulne"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   },
+   "groupe": "editeur:france-filiere-peche"
+  },
+  {
    "id": "src-generationvoyage-fr-0b3dfd",
    "texte": "generationvoyage.fr — Roscanvel : 'bars, aiguillettes, vieilles en avançant dans l'eau'",
    "editeur": "generationvoyage.fr",
@@ -4466,6 +4648,30 @@
     "famille_inferee": 4,
     "classe_le": "2026-11-23"
    }
+  },
+  {
+   "id": "src-hal-archives-ouvertes-fr-8ccc25",
+   "texte": "Laffaille P. et al. (2001). Feeding ecology of 0-group sea bass, Dicentrarchus labrax, in salt marshes of Mont Saint Michel Bay (France). Estuaries 24 : 116-125",
+   "editeur": "hal.archives-ouvertes.fr",
+   "url": "https://hal.archives-ouvertes.fr/hal-00736433",
+   "type": "site, guide ou presse spécialisée",
+   "famille": null,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bord:regime-juveniles-crustaces"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   },
+   "groupe": "editeur:hal-archives-ouvertes-fr"
   },
   {
    "id": "src-hisse-et-oh-com-fb1c3d",
@@ -10679,6 +10885,30 @@
     "famille_inferee": 4,
     "classe_le": "2026-11-23"
    }
+  },
+  {
+   "id": "src-peche-ifremer-fr-6f871f",
+   "texte": "Ifremer (février 2011). Le bar, une espèce convoitée (dossier « Zoom », pêche durable)",
+   "editeur": "peche.ifremer.fr",
+   "url": "https://peche.ifremer.fr/content/download/38859/file/Zoom_bar_revision2011_def.pdf",
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bord:proies-calendrier"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   },
+   "groupe": "editeur:peche-ifremer-fr"
   },
   {
    "id": "src-peche-poissons-com-0a9fa0",
