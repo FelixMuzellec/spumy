@@ -2,7 +2,7 @@
 // chaque consigne et chaque version de l'application, quel contrôle la fait respecter. Ce test vérifie le registre
 // lui-même (couverture, versions, contrôles présents et lancés, échéances), puis exécute les contrôles directs qui n'ont
 // pas leur place dans un autre test. Écrit docs/regles/PARE-FEUX.md (tableau lisible, généré depuis le registre).
-// Usage : node tests/pare-feux.mjs [--ecrire]        (--ecrire : régénère docs/regles/PARE-FEUX.md)
+// Usage : node tests/pare-feux.mjs [--ecrire]        (--ecrire : régénère docs/regles/PARE-FEUX.md et EXIGENCES.md)
 //         node tests/pare-feux.mjs --instantane      (ajoute les nouvelles décisions validées à l'instantané ; n'en retire aucune)
 //         node tests/pare-feux.mjs --instantane-moteur "<raison approuvée par Félix>"   (enregistre une modification du moteur)
 import { execFileSync } from "node:child_process";
@@ -10,7 +10,8 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { VERSIONS, REGLES, SANS_REGLE, INTERFACE_V3 } from "./pare-feux/regles.mjs";
+import { VERSIONS, REGLES, SANS_REGLE, INTERFACE_V3, PLANCHERS_GRAPHIQUES, FILTRES_INTERDITS } from "./pare-feux/regles.mjs";
+import { EXIGENCES } from "./pare-feux/exigences.mjs";
 import { fichiersSansUsage, gardesAuRegistre } from "../scripts/pare-feux/inutiles.mjs";
 import { verifierBranche, phaseAutorisee } from "../scripts/pare-feux/branche.mjs";
 import { verifierMessage, verifierPlage } from "../scripts/pare-feux/commits.mjs";
@@ -197,6 +198,40 @@ t("lien Drive dans le référentiel public (V3-004)", !/https?:\/\/(drive|docs)\
   t("Dependabot hors des actions GitHub : seulement github-actions, mensuel, groupé, attente de 7 jours",
     eco.length === 1 && eco[0] === "github-actions" && /interval:\s*"?monthly"?/.test(d) && /groups:/.test(d) && /default-days:\s*7\b/.test(d), eco.join(",")); }
 
+// PF-43 : la vitesse ne se gagne jamais aux dépens de la qualité graphique (planchers du registre).
+for (const p of PLANCHERS_GRAPHIQUES) {
+  const vals = existe(p.fichier) ? [...lire(p.fichier).matchAll(p.motif)] : [];
+  t(`qualité graphique abaissée : ${p.quoi} (${p.fichier}) lue`, vals.length > 0);
+  for (const v of vals) v.slice(1).forEach((x, i) => t(`qualité graphique abaissée : ${p.quoi} = ${x}, plancher ${p.minimum[i] ?? p.minimum[0]}`, Number(x) >= (p.minimum[i] ?? p.minimum[0])));
+}
+for (const f of FILTRES_INTERDITS.fichiers) t(`qualité graphique abaissée : rééchantillonnage grossier dans ${f}`, existe(f) && !FILTRES_INTERDITS.motif.test(lire(f)));
+
+// ——— 4 bis. Exigences du cahier des charges : chacune a sa preuve, ou son écart écrit, avant la clôture de sa phase (PF-46) ———
+const EX_ETATS = new Set(["accepte", "prototype", "specifie", "ecart"]);
+const exigences = lire("docs/REQUIREMENTS.md").split("\n").filter((l) => /^\| [A-Z]+-\d+ \|/.test(l)).map((l) => {
+  const c = l.split("|").slice(1, -1).map((x) => x.trim());
+  const ph = c[c.length - 1], n = (ph.match(/\d+/g) || []).map(Number);
+  const phases = /\d+ à \d+/.test(ph) ? Array.from({ length: n[1] - n[0] + 1 }, (_, i) => n[0] + i) : n;
+  return { id: c[0], texte: c[1], critere: c[4], verif: c[5], phaseTexte: ph, toutes: ph === "toutes", aDecider: /décider/.test(ph), echeance: phases.length ? Math.max(...phases) : null };
+});
+t("cahier des charges : exigences lues", exigences.length >= 90, String(exigences.length));
+for (const id of Object.keys(EXIGENCES)) t(`exigence ${id} du registre : présente au cahier des charges`, exigences.some((x) => x.id === id));
+const preuve = (e) => (e.gardes || []).every(([f, marque]) => existe(f) && lire(f).includes(marque) && (e.revue || f.startsWith(".github/") || f.startsWith(".githooks/") || f.startsWith("docs/") || lancesCI(f) || lanceParUnTest(f)));
+for (const x of exigences) {
+  const e = EXIGENCES[x.id];
+  const nom = `exigence ${x.id} (phase ${x.phaseTexte}) a sa preuve, ou son écart écrit`;
+  if (x.toutes) { t(`${nom} : acceptée, puisqu'elle vaut pour toutes les phases`, e?.etat === "accepte" && preuve(e)); continue; }
+  if (!e) { t(`${nom} : la phase ${x.echeance} n'est pas close sans elle`, x.aDecider || !rapportsClos.has(x.echeance)); continue; }
+  t(`${nom} : état connu`, EX_ETATS.has(e.etat), e.etat);
+  if (e.etat !== "accepte") {
+    t(`${nom} : phase d'acceptation ${e.phase} au plus tôt à la phase prévue`, Number.isInteger(e.phase) && (x.echeance === null || e.phase >= x.echeance));
+    t(`${nom} : la phase ${e.phase} n'est pas close sans l'acceptation`, !rapportsClos.has(e.phase));
+  }
+  if (e.etat === "ecart") t(`${nom} : raison de l'écart`, !!e.raison && (x.echeance === null || e.phase > x.echeance));
+  if (e.etat !== "ecart") t(`${nom} : au moins un contrôle`, (e.gardes || []).length > 0);
+  t(`${nom} : contrôles présents, marqués et lancés`, preuve(e), (e.gardes || []).map(([f]) => f).join(", "));
+}
+
 // ——— 5. Tableau lisible, généré depuis le registre ———
 const ETIQ = { controle: "contrôlé", prevu: "prévu", sansObjet: "sans objet", manuel: "consigne (non automatisable)" };
 const cellule = (e) => {
@@ -244,9 +279,30 @@ ${Object.entries(SANS_REGLE).map(([k, v]) => `- ${k} : ${v}`).join("\n")}
 
 ${["controle", "prevu", "manuel", "sansObjet"].map((e) => `- ${ETIQ[e]} : ${REGLES.flatMap((r) => Object.values(r.versions)).filter((x) => x.etat === e).length}`).join("\n")}
 `;
-const DOC = "docs/regles/PARE-FEUX.md";
-if (arg === "--ecrire") { fs.mkdirSync(path.join(RACINE, "docs/regles"), { recursive: true }); fs.writeFileSync(path.join(RACINE, DOC), doc); }
-t(`${DOC} à jour (node tests/pare-feux.mjs --ecrire)`, existe(DOC) && lire(DOC) === doc);
+const EX_ETIQ = { accepte: "acceptée", prototype: "tenue sur le prototype", specifie: "spécifiée et éprouvée sur l'étude", ecart: "écart" };
+const docEx = `# Exigences du cahier des charges et leurs preuves
 
-console.log(`[pare-feux] ${REGLES.length} règles, ${vs.length} versions : ${ok}/${ok + ko}`);
+Généré par \`node tests/pare-feux.mjs --ecrire\` depuis \`tests/pare-feux/exigences.mjs\` et \`docs/REQUIREMENTS.md\`. Ne pas modifier à la main.
+
+Félix (25 nov. 2026, 7 h 25) : les exigences sont reliées aux pare-feux (PF-46). Une phase ne se clôt pas sans que ses exigences aient leur preuve, ou leur écart écrit avec la phase où il se résout.
+
+## Bilan
+
+${[...Object.keys(EX_ETIQ), "à faire"].map((k) => `- ${EX_ETIQ[k] || k} : ${exigences.filter((x) => (EXIGENCES[x.id]?.etat || "à faire") === k).length}`).join("\n")}
+
+## Exigences
+
+| Exigence | Phase | État | Preuve, ou écart |
+| --- | --- | --- | --- |
+${exigences.map((x) => { const e = EXIGENCES[x.id];
+  const etat = e ? `${EX_ETIQ[e.etat]}${e.etat === "accepte" ? "" : `, acceptation finale en phase ${e.phase}`}` : (x.aDecider ? "à décider" : `à faire, phase ${x.echeance}`);
+  const pr = e ? [e.raison, (e.gardes || []).map(([f]) => `\`${f}\``).filter((v, i, a) => a.indexOf(v) === i).join(", "), e.note].filter(Boolean).join(" ; ") : "—";
+  return `| ${x.id} | ${x.phaseTexte} | ${etat} | ${pr} |`; }).join("\n")}
+`;
+const DOC = "docs/regles/PARE-FEUX.md", DOC_EX = "docs/regles/EXIGENCES.md";
+if (arg === "--ecrire") { fs.mkdirSync(path.join(RACINE, "docs/regles"), { recursive: true }); fs.writeFileSync(path.join(RACINE, DOC), doc); fs.writeFileSync(path.join(RACINE, DOC_EX), docEx); }
+t(`${DOC} à jour (node tests/pare-feux.mjs --ecrire)`, existe(DOC) && lire(DOC) === doc);
+t(`${DOC_EX} à jour (node tests/pare-feux.mjs --ecrire)`, existe(DOC_EX) && lire(DOC_EX) === docEx);
+
+console.log(`[pare-feux] ${REGLES.length} règles, ${vs.length} versions, ${exigences.length} exigences : ${ok}/${ok + ko}`);
 process.exit(ko ? 1 : 0);

@@ -55,6 +55,8 @@ jobs:
         run: node tests/secrets.mjs
       - name: Pare-feux des consignes de Félix (registre versionné, contrôles directs)
         run: npm run -s test:pare-feux
+      - name: Essais de sabotage des pare-feux (chaque violation simulée doit être arrêtée)
+        run: npm run -s test:pare-feux-sabotage
       - name: Règles de couches (bord, bateau, commun, design)
         run: npm run -s test:layers
       - name: Socle commun (erreur commune, validation des entrées)

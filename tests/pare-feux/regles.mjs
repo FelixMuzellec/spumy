@@ -256,10 +256,44 @@ export const REGLES = [
   { id: "PF-41", titre: "Usage : Félix et quelques proches, gratuit, non commercial (ni publicité, ni mesure d'audience, ni paiement)",
     sources: ["V3-005"], portee: "depot",
     versions: { toutes: { etat: "controle", gardes: [[PF, "publicité, mesure d'audience ou paiement"]] } } },
+  { id: "PF-43", titre: "La vitesse d'affichage ne se gagne jamais aux dépens de la qualité du graphisme et de l'affichage : les deux cohabitent",
+    sources: ["25 nov. 2026, 7 h 25"], portee: "produit",
+    versions: {
+      v2: { etat: "controle", gardes: [[PF, "qualité graphique abaissée"]] },
+      v3: { etat: "controle", gardes: [[PF, "qualité graphique abaissée"], ["tests/brand.py", "orange de l'aplat"]],
+        aCompleter: { phase: 12, quoi: "budgets de performance (QA-01) et qualité graphique mesurés ensemble sur les mêmes écrans : poids et vitesse d'un côté ; netteté des photos (au moins deux fois leur taille affichée), logo intact, polices chargées, aucune régression visuelle de l'autre ; un budget n'est jamais tenu en dégradant l'image" } },
+    } },
+  { id: "PF-44", titre: "L'application est éprouvée dans les navigateurs de ses utilisateurs : Chromium, WebKit (Safari, iPhone) et Firefox",
+    sources: ["25 nov. 2026, 7 h 25"], portee: "produit",
+    versions: {
+      v2: { etat: "manuel", raison: "la V2 en ligne, gelée, n'est éprouvée que dans Chromium ; Safari et Firefox arrivent avec la V3" },
+      v3: { etat: "prevu", phase: 12, raison: "parcours de bout en bout et prototype rejoués dans WebKit et Firefox, en plus de Chromium, à l'intégration" },
+    } },
+  { id: "PF-45", titre: "Moteur éprouvé en profondeur : part du code exercée par les tests mesurée, essais de sabotage (chaque règle cassée volontairement fait échouer un test)",
+    sources: ["25 nov. 2026, 7 h 25"], portee: "produit",
+    versions: {
+      v2: { etat: "sansObjet", raison: fige },
+      v3: { etat: "prevu", phase: 11, raison: "stabilisation et validation du moteur BORD : couverture mesurée (seuil validé par Félix) et essais de sabotage du moteur" },
+    } },
+  { id: "PF-46", titre: "Chaque exigence du cahier des charges (docs/REQUIREMENTS.md) a sa preuve, ou son écart écrit, avant la clôture de sa phase",
+    sources: ["25 nov. 2026, 7 h 25"], portee: "depot",
+    versions: { toutes: { etat: "controle", gardes: [[PF, "a sa preuve, ou son écart écrit"]] } } },
   { id: "PF-42", titre: "Chaque consigne a son pare-feu, et les pare-feux s'adaptent à chaque version de l'application (ce registre)",
     sources: ["25 nov. 2026, 6 h 32"], portee: "depot",
-    versions: { toutes: { etat: "controle", gardes: [[PF, "situé pour"], [PF, "une règle la fait respecter, ou SANS_REGLE dit pourquoi"]] } } },
+    versions: { toutes: { etat: "controle", gardes: [[PF, "situé pour"], [PF, "une règle la fait respecter, ou SANS_REGLE dit pourquoi"], ["tests/pare-feux-sabotage.mjs", "violations arrêtées"]] } } },
 ];
+
+// Planchers de qualité graphique (PF-43) : une optimisation de vitesse ne les franchit jamais. Chaque motif capture les
+// valeurs du fichier ; chacune doit rester au moins égale au minimum (valeurs du 25 nov. 2026).
+export const PLANCHERS_GRAPHIQUES = [
+  { fichier: "scripts/photos.py", motif: /for size, q in \(\(1600, (\d+)\), \(720, (\d+)\)\)/g, minimum: [74, 70], quoi: "qualité WebP des photos (1 600 px et 720 px)" },
+  { fichier: "scripts/photos.py", motif: /for size, q in \(\((\d+), \d+\), \((\d+), \d+\)\)/g, minimum: [1600, 720], quoi: "tailles des photos (grand côté)" },
+  { fichier: "scripts/logos.py", motif: /"WEBP", quality=(\d+)/g, minimum: [88], quoi: "qualité WebP des logos V2" },
+  { fichier: "scripts/logos-v3.py", motif: /quality=(\d+)/g, minimum: [92], quoi: "qualité WebP des logos V3" },
+  { fichier: "src/prototype-v3/ui.jsx", motif: /photoSrc = \(id, size = (\d+)\)/g, minimum: [1600], quoi: "photo d'en-tête servie en 1 600 px (au moins deux fois sa largeur affichée sur un téléphone de 390 px)" },
+];
+// Rééchantillonnage : jamais de filtre grossier dans les générateurs d'images.
+export const FILTRES_INTERDITS = { fichiers: ["scripts/photos.py", "scripts/logos.py", "scripts/logos-v3.py", "scripts/logos-symbole-v6.py"], motif: /Image\.(NEAREST|BOX|BILINEAR|HAMMING)\b/ };
 
 // Sources sans règle propre, avec la raison.
 export const SANS_REGLE = {

@@ -68,7 +68,11 @@ Demande de Félix (25 nov. 2026, 6 h 32) : « Sois sûr de mettre en place les p
 | PF-39 | Zones tactiles invisibles de 48 px au moins (D-11) à l'intégration | 23 nov. 2026, 19 h 07 | **sans objet** : sans objet : la V2 en ligne est gelée (point de retour v2-final) ; la règle vient du référentiel V3 | **prévu, phase 12** : appliqué à l'intégration ; le prototype 6.2 reste à 44 px |
 | PF-40 | Critères de recette CR-01 à CR-16 du prototype pris comme critères de l'intégration | 23 nov. 2026, 13 h 50 | **sans objet** : sans objet : la V2 en ligne est gelée (point de retour v2-final) ; la règle vient du référentiel V3 | **prévu, phase 12** : critères de l'intégration des phases 10 à 12 |
 | PF-41 | Usage : Félix et quelques proches, gratuit, non commercial (ni publicité, ni mesure d'audience, ni paiement) | V3-005 | **contrôlé** : `tests/pare-feux.mjs` | **contrôlé** : `tests/pare-feux.mjs` |
-| PF-42 | Chaque consigne a son pare-feu, et les pare-feux s'adaptent à chaque version de l'application (ce registre) | 25 nov. 2026, 6 h 32 | **contrôlé** : `tests/pare-feux.mjs` | **contrôlé** : `tests/pare-feux.mjs` |
+| PF-43 | La vitesse d'affichage ne se gagne jamais aux dépens de la qualité du graphisme et de l'affichage : les deux cohabitent | 25 nov. 2026, 7 h 25 | **contrôlé** : `tests/pare-feux.mjs` | **contrôlé** : `tests/pare-feux.mjs`, `tests/brand.py` ; à compléter avant la fin de la phase 12 (budgets de performance (QA-01) et qualité graphique mesurés ensemble sur les mêmes écrans : poids et vitesse d'un côté ; netteté des photos (au moins deux fois leur taille affichée), logo intact, polices chargées, aucune régression visuelle de l'autre ; un budget n'est jamais tenu en dégradant l'image) |
+| PF-44 | L'application est éprouvée dans les navigateurs de ses utilisateurs : Chromium, WebKit (Safari, iPhone) et Firefox | 25 nov. 2026, 7 h 25 | **consigne (non automatisable)** : la V2 en ligne, gelée, n'est éprouvée que dans Chromium ; Safari et Firefox arrivent avec la V3 | **prévu, phase 12** : parcours de bout en bout et prototype rejoués dans WebKit et Firefox, en plus de Chromium, à l'intégration |
+| PF-45 | Moteur éprouvé en profondeur : part du code exercée par les tests mesurée, essais de sabotage (chaque règle cassée volontairement fait échouer un test) | 25 nov. 2026, 7 h 25 | **sans objet** : sans objet : la V2 en ligne est gelée (point de retour v2-final) ; la règle vient du référentiel V3 | **prévu, phase 11** : stabilisation et validation du moteur BORD : couverture mesurée (seuil validé par Félix) et essais de sabotage du moteur |
+| PF-46 | Chaque exigence du cahier des charges (docs/REQUIREMENTS.md) a sa preuve, ou son écart écrit, avant la clôture de sa phase | 25 nov. 2026, 7 h 25 | **contrôlé** : `tests/pare-feux.mjs` | **contrôlé** : `tests/pare-feux.mjs` |
+| PF-42 | Chaque consigne a son pare-feu, et les pare-feux s'adaptent à chaque version de l'application (ce registre) | 25 nov. 2026, 6 h 32 | **contrôlé** : `tests/pare-feux.mjs`, `tests/pare-feux-sabotage.mjs` | **contrôlé** : `tests/pare-feux.mjs`, `tests/pare-feux-sabotage.mjs` |
 
 ## Sources sans règle propre
 
@@ -76,7 +80,7 @@ Demande de Félix (25 nov. 2026, 6 h 32) : « Sois sûr de mettre en place les p
 
 ## Bilan
 
-- contrôlé : 39
-- prévu : 10
-- consigne (non automatisable) : 4
-- sans objet : 18
+- contrôlé : 42
+- prévu : 12
+- consigne (non automatisable) : 5
+- sans objet : 19
