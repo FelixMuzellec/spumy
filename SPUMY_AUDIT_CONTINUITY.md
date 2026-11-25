@@ -12,11 +12,12 @@
 | 4. Architecture détaillée, socle, assainissement | VALIDATED (jeton de la phase 5) | `docs/rapports/v3/PHASE-4.md` |
 | 5. Audit BORD et référentiel des spots | close, tous ses gates PASS (ouverture de la phase 6 par le jeton conditionnel du 23 nov., 23 h 15) | `docs/rapports/v3/PHASE-5.md` |
 | 6. Conception et validation du moteur BORD | VALIDATED (par délégation de Félix, 23 nov., 23 h 15 ; à confirmer par Félix) | `docs/rapports/v3/PHASE-6.md` |
-| 7. Deuxième passe de recherche et enrichissement halieutique | planifiée le 26 nov. 2026 à 8 h 01 (jeton conditionnel) ; cadrage : `docs/phases/PHASE-7-CADRAGE.md` | — |
+| 7. Deuxième passe de recherche et enrichissement halieutique | IN PROGRESS (ouverte le 25 nov. 2026 à 21 h 30, demande de Félix de 21 h 23 ; reprise le 26 nov. à 8 h 01) ; cadrage : `docs/phases/PHASE-7-CADRAGE.md` | — (proposition n° 28, en brouillon) |
 | 8 à 15 | NOT STARTED ; jamais de phase 8 sans son propre jeton | — |
 
 ## Checkpoint
 
+- Phase 7 : branche `claude/v3-phase-07-enrichissement-halieutique` (depuis `claude/v3-phase-6`), proposition n° 28 en brouillon vers `claude/v3-phase-6`.
 - Branche de travail : `claude/v3-phase-6` (propositions en chaîne n° 16 à 20 jusqu'à `main`, toutes en brouillon ; rien n'est fusionné dans `main`, qui reste la V2 publiée, `v2-final` sur bb4f940). Les suivis du 24 et du 25 nov. (n° 21 à 26) y sont intégrés.
 - Contrôles : `npm run -s verifier` (toutes les suites, une ligne chacune) ; CI de chaque proposition (pare-feux, sabotage, bibliothèques, indicateurs).
 - Pare-feux : `docs/regles/PARE-FEUX.md` (49 règles), `docs/regles/EXIGENCES.md` (98 exigences), `docs/regles/KPI.md` (37 indicateurs, 10 sections). Crochets Git : `git config core.hooksPath .githooks` à chaque session.
@@ -30,7 +31,35 @@
 
 ## Prochaine action
 
-Phase 7, jeudi 26 nov. 2026 à 8 h 01 : `npm run -s contexte -- 7`, puis le cadrage `docs/phases/PHASE-7-CADRAGE.md`. Priorité n° 1 : revue scientifique régionale du comportement et de l'alimentation du bar (Bretagne, Cotentin jusqu'à Cherbourg). Rapport de clôture avec « Solutions comparées », « Mise en œuvre pas à pas » et « Menaces actuelles et parades » (PF-48).
+Reprise de la phase 7, jeudi 26 nov. 2026 à 8 h 01, au point exact suivant (rien à refaire) :
+
+- **Fait le 25 nov.** (commits 8778f36 à la tête de la branche) :
+    - ligne d'ouverture au journal (consigne de 21 h 23 couverte par PF-14) ;
+    - revue régionale `docs/halieutique/REVUE-REGIONALE-BAR.md` ;
+    - 7 connaissances ajoutées et 4 enrichies dans `data/knowledge/bar-bord.json` (version 2, 34 connaissances), chacune avec sa zone de validité ;
+    - **PF-33 posé** (`tests/knowledge.mjs`, 2 essais de sabotage) ;
+    - proposition chiffrée `docs/moteur-bord/07-REVISION-PHASE-7.md`, avec `scripts/revision-saison.mjs`, `data/moteur-bord/revision-saison-phase-7.json` et `npm run test:revision-saison` : 42 spots touchés, de février à mai ;
+    - première passe du challenge des TOP_TIER et des doublons : `docs/halieutique/CHALLENGE-TOP-TIER-PHASE-7.md`.
+- **Reste, dans l'ordre** :
+    1. Sources non lues : de Pontual 2019 et Archimer 56738 (Iroise), *Movement Ecology* 2024, Carroll 2014, Fritsch p. 37 à 61. Leurs pages demandaient une autorisation sans réponse ; passer par la collecte de la CI si besoin.
+    2. Priorités suivantes du cadrage :
+        - accès selon la marée (75 fiches) ;
+        - fenêtre de sécurité des 23 fiches à contrainte connue ;
+        - réglementation locale (35) ;
+        - engagement et houle maximale (32) ;
+        - mouvements de terrain (54) ;
+        - spots peu documentés, nouveaux candidats, couverture.
+    3. Audit du mode BATEAU : régressions, cohérence, données, espèces, sécurité ; toute extension est proposée, jamais développée.
+    4. Registre des inconnues et des demandes à Félix (§ 0.6), dont les deux questions du challenge.
+    5. Couverture, matrice des sources, niveaux de preuve ; indicateurs K-08 à K-12 (`npm run kpi`).
+    6. Clôture :
+        - trois passes de challenge, dont une par un relecteur indépendant en lecture seule ;
+        - contre-vérification ;
+        - gate sur clone neuf ;
+        - CI verte ;
+        - rapport `docs/rapports/v3/PHASE-7.md` en 14 parties (PF-48) ;
+        - statut, puis arrêt obligatoire.
+- **Environnement** : le Playwright du dépôt attend Chromium 1194. Faire pointer `/opt/pw-browsers/chromium-1194/chrome-linux` et `chromium_headless_shell-1194/chrome-linux` vers les versions 1243 installées (`cp -rs`, et le lien `headless_shell`). `npm run -s verifier` dure plus de 10 min : le lancer en arrière-plan.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
