@@ -37,7 +37,8 @@ export const LECTURES_DYNAMIQUES = [
 const texte = /\.(m?js|jsx|ts|json|html|css|ya?ml|py|sh|txt|svg|webmanifest)$/i;
 
 export function fichiersSansUsage(racine = RACINE) {
-  const fichiers = execFileSync("git", ["ls-files"], { cwd: racine }).toString().trim().split("\n").filter(Boolean)
+  // Fichiers suivis et nouveaux fichiers non ignorés : un fichier créé mais pas encore ajouté est déjà contrôlé.
+  const fichiers = execFileSync("git", ["ls-files", "--cached", "--others", "--exclude-standard"], { cwd: racine }).toString().trim().split("\n").filter(Boolean)
     .filter((f) => fs.existsSync(path.join(racine, f)));
   // Lecteurs : tout fichier texte sauf la documentation (une mention dans un document ne fait pas un usage).
   const doc = (f) => /^(docs|audit)\//.test(f) || /\.md$/.test(f);

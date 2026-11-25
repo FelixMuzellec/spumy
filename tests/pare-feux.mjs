@@ -19,6 +19,7 @@ const RACINE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const lire = (f) => fs.readFileSync(path.join(RACINE, f), "utf8");
 const existe = (f) => fs.existsSync(path.join(RACINE, f));
 const git = (...a) => execFileSync("git", a, { cwd: RACINE }).toString().trim();
+const fichiers = (...chemins) => git("ls-files", "--cached", "--others", "--exclude-standard", "--", ...chemins).split("\n").filter((f) => f && existe(f));
 let ok = 0, ko = 0;
 const t = (nom, cond, detail = "") => { if (cond) ok++; else { ko++; console.log(`   ✗ ${nom}${detail ? " — " + detail : ""}`); } };
 const arg = process.argv[2];
@@ -64,7 +65,7 @@ const developper = (texte, vus = new Set()) => texte.replace(/npm run (?:-s )?([
 const commandesCI = developper(ci);
 const lancesCI = (f) => commandesCI.includes(f);
 const lanceParUnTest = (f) => [...commandesCI.matchAll(/(tests\/[\w./-]+\.(?:mjs|py))/g)].map((m) => m[1]).filter(existe)
-  .some((g) => g !== f && lire(g).includes(path.basename(f)));
+  .some((g) => g !== f && [`/${path.basename(f)}"`, `/${path.basename(f)}'`].some((k) => lire(g).includes(k)));   // importé par un test lancé
 const crochetsActives = /git config core\.hooksPath \.githooks/.test(CLAUDE);
 const rapportsClos = new Set(fs.readdirSync(path.join(RACINE, "docs/rapports/v3")).map((f) => /^PHASE-(\d+)\.md$/.exec(f)).filter(Boolean).map((m) => Number(m[1])));
 const ids = new Set();
@@ -134,7 +135,7 @@ for (const d of index.filter((x) => valide(x.statut))) t(`décision validée ${d
   if (base) { const f = verifierPlage(`${base}..HEAD`, RACINE); t("lignes d'attribution : chaque commit de Claude depuis main", f.length === 0, f.slice(0, 3).join(" | ")); } }
 
 // Textes de l'interface V3.
-const fichiersV3 = INTERFACE_V3.flatMap((d) => git("ls-files", d).split("\n")).filter((f) => /\.(jsx?|css|html)$/.test(f));
+const fichiersV3 = fichiers(...INTERFACE_V3).filter((f) => /\.(jsx?|css|html)$/.test(f));
 const texteV3 = fichiersV3.map((f) => [f, lire(f)]);
 t("interface V3 : fichiers trouvés", fichiersV3.length > 5, String(fichiersV3.length));
 // PF-02 : pas de courbe de profondeur sans données réelles.
@@ -149,7 +150,7 @@ for (const [f, x] of texteV3) { const y = EXCEPTIONS_GEO.reduce((s, re) => s.rep
 
 // PF-10 : chaque icône de guide V2 est l'icône SPUMY (logo de Félix), à l'octet près.
 { const ref = fs.readFileSync(path.join(RACINE, "icon-192.png"));
-  const guides = git("ls-files", "assets").split("\n").map((f) => /^assets\/([a-z]+)-192\.png$/.exec(f)).filter(Boolean).map((m) => m[1]).filter((g) => g !== "icon");
+  const guides = fichiers("assets").map((f) => /^assets\/([a-z]+)-192\.png$/.exec(f)).filter(Boolean).map((m) => m[1]).filter((g) => g !== "icon");
   t("icônes de guide trouvées", guides.length === 7, guides.join(","));
   for (const g of guides) for (const f of [`assets/${g}-192.png`, `${g}.png`]) t(`icône de guide différente de l'icône SPUMY : ${f}`, existe(f) && fs.readFileSync(path.join(RACINE, f)).equals(ref)); }
 
@@ -169,8 +170,8 @@ t("lien Drive dans le référentiel public (V3-004)", !/https?:\/\/(drive|docs)\
 
 // PF-19 : moteur gelé dans src/ jusqu'au jeton de la phase 10.
 { const GELE = "tests/pare-feux/moteur-gele.json";
-  const fichiers = git("ls-files", "src/engine.js", "src/bord/engine", "src/bateau/offshore.js", "src/bateau/wx.js").split("\n").filter(Boolean);
-  const empreintes = Object.fromEntries(fichiers.map((f) => [f, crypto.createHash("sha256").update(fs.readFileSync(path.join(RACINE, f))).digest("hex")]));
+  const moteur = fichiers("src/engine.js", "src/bord/engine", "src/bateau/offshore.js", "src/bateau/wx.js");
+  const empreintes = Object.fromEntries(moteur.map((f) => [f, crypto.createHash("sha256").update(fs.readFileSync(path.join(RACINE, f))).digest("hex")]));
   const g = existe(GELE) ? JSON.parse(lire(GELE)) : { empreintes: {}, historique: [] };
   if (arg === "--instantane-moteur") {
     const raison = process.argv[3];
@@ -180,12 +181,12 @@ t("lien Drive dans le référentiel public (V3-004)", !/https?:\/\/(drive|docs)\
     fs.writeFileSync(path.join(RACINE, GELE), JSON.stringify({ "//": "Moteur gelé dans src/ jusqu'au jeton de la phase 10 (PF-19). Une modification s'enregistre avec sa raison : node tests/pare-feux.mjs --instantane-moteur \"<raison>\"", ...g }, null, 2) + "\n");
   }
   const leve = phaseAutorisee() >= 10;
-  t("moteur gelé : fichiers du moteur trouvés", fichiers.length >= 10, String(fichiers.length));
-  if (!leve) for (const f of new Set([...fichiers, ...Object.keys(g.empreintes)]))
+  t("moteur gelé : fichiers du moteur trouvés", moteur.length >= 10, String(moteur.length));
+  if (!leve) for (const f of new Set([...moteur, ...Object.keys(g.empreintes)]))
     t(`moteur modifié avant l'approbation qui suit la phase 9 : ${f}`, empreintes[f] && empreintes[f] === g.empreintes[f]); }
 
 // PF-22 : jamais de localisation par l'adresse IP ; PF-41 : ni publicité, ni mesure d'audience, ni paiement.
-{ const publies = git("ls-files", "src", "*.html", "sw.js").split("\n").filter((f) => /\.(jsx?|html)$/.test(f));
+{ const publies = fichiers("src", "*.html", "sw.js").filter((f) => /\.(jsx?|html)$/.test(f));
   for (const f of publies) { const x = lire(f);
     t(`localisation par l'adresse IP : ${f}`, !/ipapi|ipinfo|ip-api\.com|geoip|ipgeolocation|freegeoip|ipify|ipdata\.co/i.test(x));
     t(`publicité, mesure d'audience ou paiement : ${f}`, !/googletagmanager|google-analytics|gtag\(|doubleclick\.net|adsbygoogle|stripe\.com|paypal\.com|matomo|plausible\.io|hotjar|connect\.facebook\.net/i.test(x)); } }
