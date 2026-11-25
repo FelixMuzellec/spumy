@@ -277,6 +277,11 @@ const cellule = (e) => {
   return `**${ETIQ[e.etat]}** : ${e.raison}`;
 };
 const vs = Object.keys(VERSIONS);
+// Décision V2 citée : « reprise par la V3 » ou « remplacée par la V3 », d'après la colonne « Statut en V3 » du journal.
+const statutsV2 = Object.fromEntries([...section(JOURNAL, "Décisions V2 encore en vigueur").matchAll(/^\| (?!Décision V2|---)([^|]+) \| [^|]* \| ([^|\n]+) \|/gm)].map((m) => [m[1].trim(), m[2]]));
+const etiquetteSource = (x) => { if (!x.startsWith("V2 « ")) return x;
+  const debut = x.slice(5, -2), statut = Object.entries(statutsV2).find(([k]) => k.startsWith(debut))?.[1] || "";
+  return `décision V2 ${/remplacée/i.test(statut) ? "remplacée" : "reprise"} par la V3 « ${debut} »`; };
 const doc = `# Pare-feux des consignes de Félix
 
 Généré par \`node tests/pare-feux.mjs --ecrire\` depuis \`tests/pare-feux/regles.mjs\`. Ne pas modifier à la main.
@@ -286,14 +291,16 @@ Demande de Félix (25 nov. 2026, 6 h 32) : « Sois sûr de mettre en place les p
 ## Comment les pare-feux s'adaptent
 
 - **Nouvelle consigne.** Toute décision validée, ligne datée du journal, règle de \`CLAUDE.md\` ou décision V2 en vigueur sans règle ici fait échouer les tests.
-- **Nouvelle version.** Ajouter une version à \`VERSIONS\` fait échouer les tests tant que chaque règle de produit n'a pas dit ce qu'elle y devient : contrôlée, prévue, sans objet ou consigne. Une branche d'un programme absent de \`VERSIONS\` est refusée.
+- **Nouvelle version.** Ajouter une future version (V4…) à \`VERSIONS\` fait échouer les tests tant que chaque règle de produit n'a pas dit ce qu'elle y devient : contrôlée, prévue, sans objet ou consigne. Une branche d'un programme absent de \`VERSIONS\` est refusée.
 - **Nouvelle phase.** Un pare-feu « prévu » pour une phase fait échouer les tests dès que le rapport de cette phase existe sans lui.
 - **Contrôle perdu.** Un contrôle supprimé, qui ne contient plus sa marque ou que la CI ne lance plus fait échouer les tests.
 - **Retour en arrière.** Une décision validée retirée ou rétrogradée au journal fait échouer les tests.
 
-## Versions
+## La V3 en vigueur et l'ancien code encore publié
 
-${vs.map((v) => `- **${v}** : ${VERSIONS[v].nom}. Chemins : ${VERSIONS[v].chemins.join(", ")}.`).join("\n")}
+Les règles sont celles de la V3, en vigueur (V3-001). La colonne « Ancien code V2 encore publié » ne donne pas d'autres règles : elle dit seulement ce qui est déjà contrôlé sur le code que le site sert encore, en attendant que la V3 le remplace.
+
+${vs.map((v) => `- **${VERSIONS[v].titre}** : ${VERSIONS[v].nom}. Chemins : ${VERSIONS[v].chemins.join(", ")}.`).join("\n")}
 
 ## Où les pare-feux s'appliquent
 
@@ -303,9 +310,9 @@ ${vs.map((v) => `- **${v}** : ${VERSIONS[v].nom}. Chemins : ${VERSIONS[v].chemin
 
 ## Règles
 
-| Règle | Consigne | Sources | ${vs.join(" | ")} |
+| Règle | Consigne | Sources | ${vs.map((v) => VERSIONS[v].titre).join(" | ")} |
 | --- | --- | --- | ${vs.map(() => "---").join(" | ")} |
-${REGLES.map((r) => `| ${r.id} | ${r.titre} | ${r.sources.join(" ; ")} | ${vs.map((v) => cellule(r.versions[v] || r.versions.toutes)).join(" | ")} |`).join("\n")}
+${REGLES.map((r) => `| ${r.id} | ${r.titre} | ${r.sources.map(etiquetteSource).join(" ; ")} | ${vs.map((v) => cellule(r.versions[v] || r.versions.toutes)).join(" | ")} |`).join("\n")}
 
 ## Sources sans règle propre
 

@@ -19,13 +19,15 @@
 // Une règle de dépôt (portee « depot ») vaut pour toutes les versions : clé `toutes`.
 
 export const VERSIONS = {
-  v2: {
-    nom: "V2, application en ligne (publiée depuis main ; point de retour v2-final, gelée jusqu'à son remplacement)",
-    chemins: ["pages *.html à la racine", "src/app", "src/bord", "src/bateau", "src/core", "src/prototype", "data/sites"],
-  },
   v3: {
-    nom: "V3, programme en cours (référentiel V4.1.13 ; prototype, design system, fiches, étude du moteur)",
+    titre: "V3 (en vigueur)",
+    nom: "V3, en vigueur depuis le 20 nov. 2026 (V3-001, référentiel V4.1.13) : toutes les règles de ce registre sont les siennes",
     chemins: ["src/prototype-v3", "src/design/v3", "data/spots/fiches", "data/moteur-bord", "scripts/etude-moteur-bord"],
+  },
+  v2: {
+    titre: "Ancien code V2 encore publié",
+    nom: "ancien code V2 que le site sert encore (main, point de retour v2-final), gelé jusqu'à son remplacement par la V3 aux phases 10 à 12. Il n'a pas de règles propres : on y contrôle ce que les règles de la V3 permettent déjà d'y contrôler ; le reste disparaît avec lui",
+    chemins: ["pages *.html à la racine", "src/app", "src/bord", "src/bateau", "src/core", "src/prototype", "data/sites"],
   },
 };
 
@@ -34,7 +36,7 @@ export const VERSIONS = {
 export const INTERFACE_V3 = ["src/prototype-v3"];
 
 const PF = "tests/pare-feux.mjs";
-const fige = "sans objet : la V2 en ligne est gelée (point de retour v2-final) ; la règle vient du référentiel V3";
+const fige = "s'appliquera quand la V3 remplacera ce code (phases 10 à 12) ; d'ici là, ce code est gelé";
 
 export const REGLES = [
   { id: "PF-01", titre: "Aucune fabrication ; statut VÉRIFIÉ, INFÉRÉ, HYPOTHÈSE, INCONNU ou À DÉCIDER ; une déclaration n'est pas une preuve",
@@ -79,13 +81,13 @@ export const REGLES = [
     sources: ["CLAUDE.md « Deux scores seulement »", "V3-006", "V2 « La Confiance ne change jamais le rang »", "V2 « Pertinence (trois scores) »"], portee: "produit",
     versions: {
       v2: { etat: "controle", gardes: [["tests/v2.mjs", "le rang ne change pas avec la confiance"]],
-        note: "la V2 en ligne garde ses trois scores (Pertinence) : règle V2 remplacée en V3 par V3-006" },
+        note: "ce code affiche encore la Pertinence ; elle disparaît avec lui (V3-006)" },
       v3: { etat: "controle", gardes: [["tests/etude-moteur-bord.mjs", "ne lit jamais la Confiance, la Pertinence ni la boîte"], ["tests/prototype-v3.mjs", "ni Pertinence, ni note sur 10"], ["tests/prototype-v3.mjs", "Fiche : Confiance ne change pas le rang"]] },
     } },
   { id: "PF-09", titre: "Aucun découpage géographique (secteurs, régions, départements) ; position de référence dynamique ; 60 min de route au plus en BORD",
     sources: ["CLAUDE.md « Aucun découpage géographique »", "V3-007", "V2 « Temps de trajet maximal 45 min »"], portee: "produit",
     versions: {
-      v2: { etat: "sansObjet", raison: "la V2 en ligne est faite de sept guides par ville (règle V2), remplacée en V3 par V3-007" },
+      v2: { etat: "sansObjet", raison: "ce code est encore découpé en sept guides par ville ; ils disparaissent avec lui (V3-007)" },
       v3: { etat: "controle", gardes: [[PF, "découpage géographique dans l'interface V3"], ["tests/etude-moteur-bord.mjs", "min ou accès fermé : exclus, avec la raison"]],
         aCompleter: { phase: 12, quoi: "étendre INTERFACE_V3 à l'interface intégrée dans src/" } },
     } },
@@ -123,7 +125,7 @@ export const REGLES = [
   { id: "PF-17", titre: "Le journal et les sessions de Félix restent hors des fiches publiques et du dépôt",
     sources: ["23 nov. 2026, 22 h 25"], portee: "produit",
     versions: {
-      v2: { etat: "sansObjet", raison: "guides V2 gelés ; leur texte intégral est gardé dans la sauvegarde V2 (décision du 23 nov. 2026, 22 h 25)" },
+      v2: { etat: "sansObjet", raison: "texte de ces guides gelé, gardé intégralement dans la sauvegarde V2 ; il disparaît avec eux (décision du 23 nov. 2026, 22 h 25)" },
       v3: { etat: "controle", gardes: [["tests/spots-v3.mjs", "Texte privé (décision de Félix"]] },
     } },
   { id: "PF-18", titre: "Sources : pages publiques seulement (ni page de membre, ni connexion), deux éditeurs indépendants ; coordonnées de carnet-de-peche.com jamais reprises ; données OpenStreetMap jamais stockées",
@@ -145,7 +147,7 @@ export const REGLES = [
   { id: "PF-21", titre: "Temps de route BORD par la Géoplateforme IGN, avec politique de résilience et contrat validé",
     sources: ["V3-009", "23 nov. 2026, 19 h 07"], portee: "produit",
     versions: {
-      v2: { etat: "sansObjet", raison: "la V2 en ligne n'a pas de temps de route" },
+      v2: { etat: "sansObjet", raison: "ce code n'a pas de temps de route" },
       v3: { etat: "prevu", phase: 10, raison: "l'adaptateur IGN entre dans le code en phase 10 ; tests/contrat-ign.mjs (réseau) reste hors CI jusque-là" },
     } },
   { id: "PF-22", titre: "Position : « Me géolocaliser » ou « Saisir une position » ; jamais de localisation par l'adresse IP",
@@ -154,13 +156,13 @@ export const REGLES = [
   { id: "PF-23", titre: "Vigilance Météo-France lue par un petit relais gratuit qui garde la clé",
     sources: ["V3-011"], portee: "produit",
     versions: {
-      v2: { etat: "sansObjet", raison: "la V2 en ligne ne lit pas la vigilance" },
+      v2: { etat: "sansObjet", raison: "ce code ne lit pas la vigilance" },
       v3: { etat: "prevu", phase: 10, raison: "le relais et sa lecture entrent dans le code en phase 10 (D6-20)" },
     } },
   { id: "PF-24", titre: "Fond de carte : Plan IGN, OpenStreetMap en secours ; aucun préchargement hors ligne",
     sources: ["V3-012"], portee: "produit",
     versions: {
-      v2: { etat: "sansObjet", raison: "la V2 en ligne a son propre fond de carte (OpenStreetMap)" },
+      v2: { etat: "sansObjet", raison: "ce code a son propre fond de carte (OpenStreetMap), remplacé avec lui" },
       v3: { etat: "prevu", phase: 12, raison: "le fond de carte réel entre dans le code à l'intégration (phase 12)" },
     } },
   { id: "PF-25", titre: "Données de l'utilisateur sur l'appareil, sans compte ; sauvegarde GitHub et export gardés, export aux deux endroits",
@@ -223,7 +225,7 @@ export const REGLES = [
   { id: "PF-35", titre: "Espèce BORD : le bar seul",
     sources: ["V2 « Espèce BORD »"], portee: "produit",
     versions: {
-      v2: { etat: "manuel", raison: "aucun test dédié ; la V2 en ligne est gelée" },
+      v2: { etat: "manuel", raison: "aucun test dédié ; ce code est gelé jusqu'à son remplacement" },
       v3: { etat: "prevu", phase: 10, raison: "le moteur BORD V3 entre dans le code en phase 10" },
     } },
   { id: "PF-36", titre: "Vent BORD : « à vérifier » dès force 6 ou rafales de 60 km/h ; « non recommandé » dès force 8 ou 90 km/h",
@@ -267,7 +269,7 @@ export const REGLES = [
   { id: "PF-44", titre: "L'application est éprouvée dans les navigateurs de ses utilisateurs : Chromium, WebKit (Safari, iPhone) et Firefox",
     sources: ["25 nov. 2026, 7 h 25"], portee: "produit",
     versions: {
-      v2: { etat: "manuel", raison: "la V2 en ligne, gelée, n'est éprouvée que dans Chromium ; Safari et Firefox arrivent avec la V3" },
+      v2: { etat: "manuel", raison: "ce code, gelé, n'est éprouvé que dans Chromium ; Safari et Firefox arrivent avec la V3" },
       v3: { etat: "prevu", phase: 12, raison: "parcours de bout en bout et prototype rejoués dans WebKit et Firefox, en plus de Chromium, à l'intégration" },
     } },
   { id: "PF-45", titre: "Moteur éprouvé en profondeur : part du code exercée par les tests mesurée, essais de sabotage (chaque règle cassée volontairement fait échouer un test)",
