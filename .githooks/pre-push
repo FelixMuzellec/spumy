@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Pare-feux locaux avant un push (PF-13, PF-14, PF-15 du registre tests/pare-feux/regles.mjs).
+# Ne s'applique qu'aux pushs de Claude (identité noreply@anthropic.com) : refusé : push sur main, refus de supprimer une
+# branche (V3-019 : branches gardées), nom de branche au modèle et phase autorisée, lignes d'attribution des commits.
+# Activé par : git config core.hooksPath .githooks   (CLAUDE.md, entrée de session)
+set -euo pipefail
+case "$(git var GIT_COMMITTER_IDENT)" in *noreply@anthropic.com*) ;; *) exit 0 ;; esac
+racine="$(git rev-parse --show-toplevel)"
+zero="0000000000000000000000000000000000000000"
+statut=0
+while read -r local_ref local_sha distant_ref distant_sha; do
+  nom="${distant_ref#refs/heads/}"
+  [ "$distant_ref" = "$nom" ] && continue   # étiquette ou autre référence : hors champ
+  if [ "$nom" = "main" ]; then echo "✗ refusé : push sur main (GitHub Pages publie main ; fusion par Félix seulement)" >&2; statut=1; continue; fi
+  if [ "$local_sha" = "$zero" ]; then echo "✗ refusé : suppression de la branche $nom (V3-019 : branches gardées)" >&2; statut=1; continue; fi
+  node "$racine/scripts/pare-feux/branche.mjs" "$nom" >&2 || statut=1
+  if [ "$distant_sha" = "$zero" ]; then plage="$local_sha --not --remotes"; else plage="$distant_sha..$local_sha"; fi
+  # shellcheck disable=SC2086
+  node "$racine/scripts/pare-feux/commits.mjs" $plage >&2 || statut=1
+done
+exit $statut

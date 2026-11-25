@@ -8,7 +8,8 @@ inshore.jpg (pêcheur sur la roche : mode BORD), offshore.jpg (bateau de pêche 
 Produit, sans retoucher le dessin :
   assets/brand/<nom>-clair.png    fond crème rendu transparent (pour un fond clair ou un badge crème)
   assets/brand/<nom>-sombre.png   idem, le bleu marine passé en crème (pour un fond sombre) ; le dessin à
-                                  l'intérieur du disque orange du logo SPUMY reste tel quel
+                                  l'intérieur du disque orange du logo SPUMY reste tel quel ; SPUMY seulement,
+                                  encore servi par le site en ligne (non conforme, défaut A01 : retiré aux phases 10 à 12)
   noms : spumy-logo (marque + nom), spumy-marque (disque et bar), spumy-nom, inshore, offshore
   assets/icon-192.png, icon-512.png, icon-maskable.png, apple-touch-icon.png, assets/<guide>-192.png
                                   icônes de l'application : la marque sur un carré crème
@@ -139,11 +140,9 @@ def main():
     for n in ("inshore", "offshore"):
         a = load(f"{n}.jpg")
         fg, al = color_to_alpha(a, border_color(a))
-        dfg, _ = to_dark(fg, al)
-        for suffix, f in (("clair", fg), ("sombre", dfg)):
-            img = crop(rgba(f, al))
-            save(img, f"{n}-{suffix}.png")
-            web(img, f"{n}-{suffix}.webp", 240)
+        img = crop(rgba(fg, al))   # pas de variante sombre : elle recolorait le dessin et ne servait nulle part
+        save(img, f"{n}-clair.png")
+        web(img, f"{n}-clair.webp", 240)
 
     # ── Icônes de l'application (et des guides : la même marque) ──
     A = lambda f: os.path.join(ROOT, "assets", f)

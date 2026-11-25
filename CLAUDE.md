@@ -4,11 +4,16 @@
 
 ## Entrée de session
 
-1. Lire ce fichier, `SPUMY_AUDIT_CONTINUITY.md`, `docs/DECISIONS_LOG.md` et les exigences applicables (`docs/REQUIREMENTS.md`).
+1. Ce fichier est déjà chargé : ne pas le relire. Lancer `npm run -s contexte -- <phase>` : ce paquet remplace la lecture complète de la continuité, du journal des décisions, des exigences et du référentiel (sa complétude est contrôlée, PF-50). N'ouvrir un document en entier que si le paquet ne suffit pas, et alors par sections (le référentiel, jamais en entier).
 2. Vérifier l'état réel : `git status`, branche, branches distantes, derniers commits, propositions ouvertes.
+   - Activer les pare-feux locaux : `git config core.hooksPath .githooks` (refus du push sur `main` et de la suppression d'une branche, nom de branche et phase autorisée, lignes d'attribution). Registre des pare-feux, version par version : `docs/regles/PARE-FEUX.md` (Félix, 25 nov. 2026, 6 h 32).
 3. Identifier la dernière phase autorisée par un jeton `APPROVED — PROCEED TO PHASE X` et reprendre sa prochaine tâche non terminée. Sans jeton, aucune phase suivante ne démarre.
    - Jetons conditionnels de Félix (23 nov. 2026, 23 h 15, `docs/DECISIONS_LOG.md` ; modifie l'arrêt obligatoire du référentiel) : la phase 6 démarre seulement quand la phase 5 est close avec tous ses gates PASS ; la phase 7 seulement quand la phase 6 est close après trois passes de challenge (au moins une par un relecteur qui n'a pas produit le travail). Gate en échec ou question bloquante : arrêt, question à Félix. Jamais de phase 8 sans son jeton.
-4. Fin de phase : rapport en 14 parties (§ 16 du référentiel), puis arrêt.
+4. Vérifier en une commande : `npm run -s verifier` (une ligne par suite ; `-- --rapide` pendant les retouches). Fin de phase : rapport en 14 parties (§ 16 du référentiel), puis arrêt. Depuis la phase 7 (Félix, 25 nov. 2026, 8 h 13 ; complète le § 16) : partie 4, « Solutions comparées » (la recommandée et pourquoi) et « Mise en œuvre pas à pas » (assez détaillée pour qu'une personne qui n'y connaît rien puisse la suivre) ; partie 10, « Menaces actuelles et parades » (veille datée et sourcée).
+
+## Économie de jetons (Félix, 25 nov. 2026, 20 h 36 : mêmes résultats, mêmes exigences, mêmes contrôles, moins de jetons)
+
+Les règles vivent dans les tests : ne pas les recopier dans les messages ni les relire en prose. Lire les sorties filtrées (dernières lignes, échecs), jamais en entier. Lancer la suite complète une fois avant la proposition, puis laisser la CI juger ; attendre la CI en un seul appel. Une phase démarre de préférence dans une session neuve : l'état est dans le dépôt. Sous-agents : contexte minimal (le diff et la grille à vérifier), sans réduire leur indépendance ni leur rigueur. Messages à Félix courts.
 
 ## Règles absolues (résumé du § 0.2)
 
@@ -26,7 +31,7 @@
 
 ## Dépôt
 
-- Jamais de commit ni de push sur `main`. Une branche par phase (`claude/v3-phase-N`), proposition en brouillon, fusion seulement avec l'accord explicite de Félix (fusionner `main` = publier : GitHub Pages publie `main`).
+- Jamais de commit ni de push sur `main`. Une branche par phase, `claude/v3-phase-NN-sujet` (deux chiffres, sujet court en minuscules sans accents ; hors phase : `claude/v3-suivi-sujet` ; modèle et correspondance des anciens noms : `docs/BRANCHES.md`, Félix, 24 nov. 2026), proposition en brouillon, fusion seulement avec l'accord explicite de Félix (fusionner `main` = publier : GitHub Pages publie `main`).
 - Commits atomiques. Messages terminés par les deux lignes d'attribution de la session.
 - Aucun secret dans le dépôt, ni coordonnée de spot personnel. Un jeton d'accès donné en clair dans une conversation n'est jamais utilisé ni stocké.
 

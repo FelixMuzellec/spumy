@@ -10,7 +10,6 @@
   },
   "scripts": {
     "build": "node scripts/build.mjs",
-    "icons": "node scripts/icons.mjs",
     "build:prototype": "node scripts/build-prototype.mjs",
     "lint": "eslint src data scripts tests && node tests/lint-regles.mjs && node tests/actions-epinglees.mjs",
     "typecheck": "tsc -p tsconfig.typecheck.json",
@@ -30,11 +29,17 @@
     "test:prototype": "node scripts/build-prototype.mjs && node tests/prototype.mjs --axe",
     "build:prototype-v3": "node scripts/build-prototype-v3.mjs",
     "test:prototype-v3": "node scripts/build-prototype-v3.mjs && node tests/prototype-v3.mjs --axe",
-    "test": "npm run lint && npm run typecheck && npm run test:secrets && npm run test:layers && npm run test:socle && npm run test:data && npm run test:spots-v2 && npm run test:spots-v3 && npm run test:knowledge && npm run test:design && npm run test:design-v3 && npm run test:v2 && npm run test:unit && npm run test:e2e && CONTRACT_MOCK=1 npm run test:contract",
+    "test": "npm run lint && npm run typecheck && npm run test:secrets && npm run test:pare-feux && npm run test:pare-feux-sabotage && npm run test:layers && npm run test:socle && npm run test:data && npm run test:spots-v2 && npm run test:spots-v3 && npm run test:etude-moteur && npm run test:knowledge && npm run test:design && npm run test:design-v3 && npm run test:v2 && npm run test:unit && npm run test:e2e && CONTRACT_MOCK=1 npm run test:contract",
     "test:upgrade": "node tests/upgrade.mjs",
     "test:contrat-ign": "node tests/contrat-ign.mjs",
     "test:spots-v2": "node scripts/inventaire-spots-v2.mjs --verifier",
-    "test:spots-v3": "node tests/spots-v3.mjs"
+    "test:spots-v3": "node tests/spots-v3.mjs",
+    "test:etude-moteur": "node tests/etude-moteur-bord.mjs",
+    "test:pare-feux": "node tests/pare-feux.mjs",
+    "test:pare-feux-sabotage": "node tests/pare-feux-sabotage.mjs",
+    "kpi": "node scripts/kpi/mesurer.mjs --ecrire",
+    "contexte": "node scripts/contexte.mjs",
+    "verifier": "node scripts/verifier.mjs"
   },
   "dependencies": {
     "leaflet": "^1.9.4",
@@ -47,6 +52,7 @@
     "@fontsource-variable/roboto-condensed": "5.3.0",
     "ajv": "8.20.0",
     "axe-core": "^4.10.2",
+    "c8": "^9.1.0",
     "esbuild": "^0.28.2",
     "eslint": "10.15.0",
     "eslint-plugin-react-hooks": "7.1.1",

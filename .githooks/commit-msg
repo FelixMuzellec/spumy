@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Pare-feu local du message de commit (PF-15) : un commit de Claude se termine par les deux lignes d'attribution.
+# Activé par : git config core.hooksPath .githooks   (CLAUDE.md, entrée de session)
+set -euo pipefail
+case "$(git var GIT_AUTHOR_IDENT)" in *noreply@anthropic.com*) ;; *) exit 0 ;; esac
+exec node "$(git rev-parse --show-toplevel)/scripts/pare-feux/commits.mjs" --message "$1"

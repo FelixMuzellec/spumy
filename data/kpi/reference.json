@@ -1,0 +1,123 @@
+{
+  "//": "Cliquet des KPI : meilleure valeur atteinte ; un recul n'est accepté qu'avec sa raison (--accepter).",
+  "valeurs": {
+    "couverture.moteur.branches": 89.71,
+    "couverture.moteur.instructions": 98.53,
+    "donnees.securite_documentee": 18,
+    "donnees.credibilite": 48,
+    "donnees.exactitude": 69,
+    "donnees.completude": 62.8,
+    "donnees.reglementation": 63,
+    "donnees.confidentialite": 100,
+    "donnees.actualite": 100,
+    "accessibilite.contraste_texte_min": 4.71,
+    "performance.lcp_v3_max": 2820,
+    "compatibilite.navigateurs": 1,
+    "donnees.spots": 98,
+    "code.v3_complexite_non_justifiee": 0
+  },
+  "historique": [
+    {
+      "date": "2026-11-25",
+      "raison": "progrès ou première mesure",
+      "changements": {
+        "couverture.moteur.branches": [
+          null,
+          89.71
+        ],
+        "couverture.moteur.instructions": [
+          null,
+          98.53
+        ],
+        "donnees.securite_documentee": [
+          null,
+          18.4
+        ],
+        "donnees.credibilite": [
+          null,
+          49
+        ],
+        "donnees.exactitude": [
+          null,
+          70.4
+        ],
+        "donnees.completude": [
+          null,
+          64.1
+        ],
+        "donnees.reglementation": [
+          null,
+          64.3
+        ],
+        "donnees.confidentialite": [
+          null,
+          100
+        ],
+        "donnees.actualite": [
+          null,
+          100
+        ],
+        "accessibilite.contraste_texte_min": [
+          null,
+          4.71
+        ],
+        "performance.lcp_v3_max": [
+          null,
+          2820
+        ],
+        "code.v3_fonctions_complexes": [
+          null,
+          13
+        ],
+        "compatibilite.navigateurs": [
+          null,
+          1
+        ]
+      }
+    },
+    {
+      "date": "2026-11-25",
+      "raison": "Félix, 25 nov. 2026, 10 h 31 : objectifs de données comptés en nombre de fiches (jamais au détriment des spots) ; complexité jugée fonction par fonction",
+      "changements": {
+        "donnees.securite_documentee": [
+          18.4,
+          18
+        ],
+        "donnees.credibilite": [
+          49,
+          48
+        ],
+        "donnees.exactitude": [
+          70.4,
+          69
+        ],
+        "donnees.completude": [
+          64.1,
+          62.8
+        ],
+        "donnees.reglementation": [
+          64.3,
+          63
+        ],
+        "donnees.spots": [
+          null,
+          98
+        ],
+        "code.v3_complexite_non_justifiee": [
+          null,
+          0
+        ]
+      }
+    },
+    {
+      "date": "2026-11-25",
+      "raison": "retrait de l'ancienne clé de complexité (remplacée par la complexité jugée)",
+      "changements": {
+        "code.v3_fonctions_complexes": [
+          13,
+          null
+        ]
+      }
+    }
+  ]
+}

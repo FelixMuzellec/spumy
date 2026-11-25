@@ -1,0 +1,309 @@
+{
+ "//": "Phase 6 V3 — scénarios et fixtures du moteur BORD (PROVISOIRES). Chaque scénario se joue sur le vrai moteur V2 (spots réels des guides), sur l'architecture A1 et sur le contrat de sécurité proposé, avec les données de sécurité de la fiche V3 du spot (engagement, houle maximale, accès selon la marée, réglementation locale lue) et les consignes V2 du guide ; la propriété attendue est vérifiée par tests/etude-moteur-bord.mjs. Températures, vents, rafales et coefficients sont des valeurs d'essai, pas des mesures.",
+ "defaut": {
+  "priority": "prime",
+  "coeff": 70,
+  "band": "aube",
+  "sky": "clear",
+  "wind_dir": "face",
+  "wind_force": 3,
+  "houle": 0.6,
+  "houleKnown": true,
+  "windKnown": true,
+  "month": 8,
+  "sst": 17
+ },
+ "scenarios": [
+  {
+   "id": "S01",
+   "famille": "saison",
+   "titre": "Hiver en côte ouverte, conditions parfaites",
+   "guide": "crozon",
+   "spot": "dinan",
+   "entree": {
+    "month": 2,
+    "sst": 8
+   },
+   "propriete": "la biologie limite : Favorabilité ≤ 50 malgré des conditions au maximum"
+  },
+  {
+   "id": "S02",
+   "famille": "habitat",
+   "titre": "Même hiver, en rade abritée",
+   "guide": "logonna",
+   "spot": "moulinmer",
+   "entree": {
+    "month": 2,
+    "sst": 8
+   },
+   "compare": "S01",
+   "propriete": "l'abri garde une présence plus haute que la côte ouverte (hypothèse N4 visible)"
+  },
+  {
+   "id": "S03",
+   "famille": "saison",
+   "titre": "Plein été, côte ouverte, aube, vent de mer modéré",
+   "guide": "crozon",
+   "spot": "dinan",
+   "entree": {},
+   "propriete": "Favorabilité ≥ 75"
+  },
+  {
+   "id": "S04",
+   "famille": "transition",
+   "titre": "Retour d'avril, eau à 10,5 °C",
+   "guide": "crozon",
+   "spot": "dinan",
+   "entree": {
+    "month": 4,
+    "sst": 10.5
+   },
+   "propriete": "entre l'hiver (S01) et l'été (S03)"
+  },
+  {
+   "id": "S05",
+   "famille": "température atypique",
+   "titre": "Eau très chaude, 22 °C en août",
+   "guide": "crozon",
+   "spot": "dinan",
+   "entree": {
+    "sst": 22
+   },
+   "compare": "S03",
+   "propriete": "présence plus basse qu'à 17 °C"
+  },
+  {
+   "id": "S06",
+   "famille": "température atypique",
+   "titre": "Eau froide hors saison, 7 °C en mai",
+   "guide": "crozon",
+   "spot": "dinan",
+   "entree": {
+    "month": 5,
+    "sst": 7
+   },
+   "propriete": "présence au plancher (0,3)"
+  },
+  {
+   "id": "S07",
+   "famille": "seuil",
+   "titre": "Même créneau à l'aube puis en plein jour ciel clair",
+   "guide": "crozon",
+   "spot": "dinan",
+   "entree": {
+    "band": "jour"
+   },
+   "compare": "S03",
+   "propriete": "saut d'au moins 9 points (audit A4)"
+  },
+  {
+   "id": "S08",
+   "famille": "compensation",
+   "titre": "Coefficient au-delà de la plage utile, tout le reste au mieux",
+   "guide": "crozon",
+   "spot": "dinan",
+   "entree": {
+    "coeff": 112
+   },
+   "propriete": "0 point de coefficient et pourtant une note ≥ 65 (audit A15)"
+  },
+  {
+   "id": "S09",
+   "famille": "données manquantes",
+   "titre": "Vent inconnu",
+   "guide": "crozon",
+   "spot": "dinan",
+   "entree": {
+    "windKnown": false
+   },
+   "propriete": "la note V2 tombe dans l'intervalle A1, qui n'est pas publié en nombre"
+  },
+  {
+   "id": "S10",
+   "famille": "données manquantes",
+   "titre": "Houle inconnue en côte ouverte",
+   "guide": "crozon",
+   "spot": "dinan",
+   "entree": {
+    "houleKnown": false
+   },
+   "propriete": "V2 retire le critère vent (audit A5) ; sécurité DANGER (houle inconnue sur un poste engagé)"
+  },
+  {
+   "id": "S11",
+   "famille": "données manquantes",
+   "titre": "Eau inconnue en mai, alors qu'elle est en réalité à 10,5 °C",
+   "guide": "crozon",
+   "spot": "dinan",
+   "entree": {
+    "month": 5,
+    "sst": null
+   },
+   "eauReelle": 10.5,
+   "propriete": "V2 remonte la note quand l'eau manque (audit A6)"
+  },
+  {
+   "id": "S12",
+   "famille": "données contradictoires",
+   "titre": "AROME force 3, ECMWF force 6",
+   "guide": "concarneau",
+   "spot": "mousterlin",
+   "entree": {
+    "wind_force_alt": 6,
+    "supposeDocumente": true
+   },
+   "propriete": "la sécurité lit le plus fort des deux modèles : CAUTION (D6-14) ; le même spot sans désaccord est SAFE (S21)",
+   "hypotheseDEssai": "fenêtre de sécurité supposée documentée et créneau hors du flot : aucune fiche ne l'est aujourd'hui (e9)"
+  },
+  {
+   "id": "S13",
+   "famille": "météo changeante",
+   "titre": "Le vent forcit à 7 pendant la fenêtre",
+   "guide": "concarneau",
+   "spot": "mousterlin",
+   "entree": {
+    "wind_force_heures": [
+     3,
+     5,
+     7
+    ],
+    "supposeDocumente": true
+   },
+   "propriete": "la sécurité lit le pire moment du créneau : CAUTION",
+   "hypotheseDEssai": "fenêtre de sécurité supposée documentée et créneau hors du flot : aucune fiche ne l'est aujourd'hui (e9)"
+  },
+  {
+   "id": "S14",
+   "famille": "sécurité",
+   "titre": "Nuit sur un poste dont l'engagement est inconnu (fiche V3 candidate)",
+   "guide": "crozon",
+   "spot": "dinan",
+   "entree": {
+    "band": "nuit",
+    "engagement": null
+   },
+   "propriete": "INSUFFICIENT_DATA, jamais SAFE ; la V2 ne bloquait pas"
+  },
+  {
+   "id": "S15",
+   "famille": "sécurité",
+   "titre": "Houle au-delà du maximum + 0,5 m, Favorabilité haute",
+   "guide": "concarneau",
+   "spot": "mousterlin",
+   "entree": {
+    "houle": 2.2,
+    "supposeDocumente": true
+   },
+   "propriete": "DANGER : non recommandé, absent du Top quelle que soit la note",
+   "hypotheseDEssai": "fenêtre de sécurité supposée documentée et créneau hors du flot : aucune fiche ne l'est aujourd'hui (e9)"
+  },
+  {
+   "id": "S16",
+   "famille": "même conditions, saisons différentes",
+   "titre": "Le même créneau en février, mai, août et novembre",
+   "guide": "crozon",
+   "spot": "dinan",
+   "entree": {
+    "mois": [
+     2,
+     5,
+     8,
+     11
+    ],
+    "eaux": [
+     9,
+     13,
+     17,
+     12
+    ]
+   },
+   "propriete": "la note suit la présence, mois par mois"
+  },
+  {
+   "id": "S17",
+   "famille": "même saison, conditions différentes",
+   "titre": "Vent de mer contre vent de terre, force 3, en août",
+   "guide": "crozon",
+   "spot": "dinan",
+   "entree": {
+    "wind_dir": "dos"
+   },
+   "compare": "S03",
+   "propriete": "vent de mer au-dessus du vent de terre (règle N2)"
+  },
+  {
+   "id": "S18",
+   "famille": "classement",
+   "titre": "Champs V2 de Pertinence et de boîte présents",
+   "guide": "crozon",
+   "spot": "dinan",
+   "entree": {},
+   "propriete": "ni l'éligibilité ni l'ordre ne changent (REC-02, REC-10)"
+  },
+  {
+   "id": "S19",
+   "famille": "données de la fiche",
+   "titre": "Plage de côte ouverte par beau temps, accès selon la marée INCONNU dans la fiche",
+   "guide": "crozon",
+   "spot": "pentrez",
+   "entree": {},
+   "propriete": "INSUFFICIENT_DATA, jamais SAFE, même par beau temps (D6-15)"
+  },
+  {
+   "id": "S20",
+   "famille": "habitat",
+   "titre": "Havre hors rade (abri au sens du régime, côte ouverte au sens de la sécurité), houle inconnue",
+   "guide": "pirou",
+   "spot": "portbail",
+   "entree": {
+    "houleKnown": false
+   },
+   "propriete": "un havre hors rade est côte ouverte : la houle inconnue est une raison INSUFFICIENT_DATA"
+  },
+  {
+   "id": "S21",
+   "famille": "témoin",
+   "titre": "Mousterlin, conditions connues sous les seuils, fenêtre de sécurité supposée documentée",
+   "guide": "concarneau",
+   "spot": "mousterlin",
+   "entree": {
+    "supposeDocumente": true
+   },
+   "propriete": "SAFE si la fenêtre de sécurité était documentée ; niveau affiché « Aucune alerte connue », jamais un vert",
+   "hypotheseDEssai": "fenêtre de sécurité supposée documentée et créneau hors du flot : aucune fiche ne l'est aujourd'hui (e9)"
+  },
+  {
+   "id": "S22",
+   "famille": "prudence V2",
+   "titre": "Mousterlin au coefficient 100 : la consigne « la mer qui monte coupe le retour » est active",
+   "guide": "concarneau",
+   "spot": "mousterlin",
+   "entree": {
+    "coeff": 100,
+    "supposeDocumente": true
+   },
+   "hypotheseDEssai": "fenêtre de sécurité supposée documentée et créneau hors du flot",
+   "propriete": "état SAFE, niveau affiché « Prudence » avec la consigne, comme en V2 (D6-19)"
+  },
+  {
+   "id": "S23",
+   "famille": "données de la fiche",
+   "titre": "Mousterlin tel que sa fiche le décrit : isolement au flot connu, fenêtre de sécurité non documentée",
+   "guide": "concarneau",
+   "spot": "mousterlin",
+   "entree": {},
+   "propriete": "INSUFFICIENT_DATA, pour la seule raison de la contrainte de marée non située (D6-21)"
+  },
+  {
+   "id": "S24",
+   "famille": "sécurité",
+   "titre": "Térénez au coefficient 100 : la règle V2 d'isolement est active",
+   "guide": "logonna",
+   "spot": "terenez",
+   "entree": {
+    "coeff": 100
+   },
+   "propriete": "DANGER (isolement par le flot)"
+  }
+ ]
+}

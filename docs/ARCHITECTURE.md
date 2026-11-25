@@ -139,14 +139,12 @@ scripts/sites.mjs     la liste des guides (avec leur description d'accueil) et d
 scripts/build.mjs     construit les 22 fichiers du site, à la racine, depuis src/ et data/ (refuse une fiche invalide)
 scripts/site-data.mjs contrôle d'une fiche (schéma, données pures, règles croisées), export JSON, empreintes
 scripts/build-studio.mjs  construit la page d'analyse (studio-build/analyse-photo.html, non publiée par GitHub Pages)
-scripts/brand.mjs     la marque SPUMY (dessin vectoriel du bar et de l'écume, couleurs des guides)
 scripts/build-prototype.mjs  phase 11 : construit le prototype dans prototype/ (index.html, app.js, app.css, polices)
 scripts/prototype-data.mjs, carte-prototype.py, photos.py, avant-prototype.mjs  données, cartes, photos et captures « avant » du prototype
 scripts/epreuve-*.mjs épreuve du moteur (phase 8) : téléchargement des journées (fetch, dans l'intégration continue),
                       lecture des archives (journees), tirages Monte Carlo (mc, params), synthèse, analyse telle quelle
-scripts/icons.mjs     dessine les icônes vectorielles des guides depuis brand.mjs (assets/brand/*.svg)
 scripts/logos.py      phase 12 : déclinaisons des logos de Félix et icônes de l'application (192, 512, masquable, Apple, guides)
-assets/               icônes : sources vectorielles (brand/) et rendus PNG (application, iOS, guides)
+assets/               icônes PNG (application, iOS, guides) tirées des logos de Félix par scripts/logos.py ; marque dans brand/
   brand/sources/        phase 12 : les logos de Félix (SPUMY, Inshore, Offshore) ; brand/*.png et brand/web/*.webp en sont tirés
                         par scripts/logos.py (fond crème transparent, version pour fond sombre, icônes du téléphone)
   photos/               photos d'ambiance WebP (1600 et 720 px), hors du cache hors ligne

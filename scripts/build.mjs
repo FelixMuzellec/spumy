@@ -9,7 +9,7 @@
 //   plouguerneau.html, audierne.html, carantec.html, concarneau.html, crozon.html : les sept guides (pages sans script, app.js)
 //   logonna.json, pirou.json, …      la fiche de chaque guide (data/sites/), lue à l'ouverture du guide
 //   manifest.json                    UNE application installable : accueil + sept guides
-//   icon-192.png, icon-512.png, icon-maskable.png, apple-touch-icon.png   icônes SPUMY (scripts/icons.mjs)
+//   icon-192.png, icon-512.png, icon-maskable.png, apple-touch-icon.png   icônes SPUMY (scripts/logos.py)
 //   logonna.png, pirou.png, plouguerneau.png, audierne.png, carantec.png, concarneau.png, crozon.png   icônes des guides
 //   sw.js                            fonctionnement hors ligne
 //
