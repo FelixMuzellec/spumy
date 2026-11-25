@@ -97,7 +97,7 @@ Contrôle : `tests/knowledge.mjs`, essai de sabotage dans `tests/pare-feux-sabot
 
 ## 5. Effet attendu sur le moteur
 
-Proposition chiffrée, avec son impact sur les 66 spots : `docs/moteur-bord/07-REVISION-PHASE-7.md` (à venir dans cette phase). Pistes à chiffrer :
+Proposition chiffrée, avec son impact sur les 66 spots : `docs/moteur-bord/07-REVISION-PHASE-7.md`. En bref :
 - creux de saison déplacé de février vers mars-avril pour les spots dont la population migre (Bretagne nord, Iroise) ;
 - creux moins profond pour le Cotentin est ;
 - Confiance plus basse au Cotentin ouest (aucun marquage) ;
