@@ -240,7 +240,8 @@ export const REGLES = [
     } },
   { id: "PF-38", titre: "Outillage : ESLint 10, actions GitHub épinglées, Dependabot pour les actions seulement (mensuel, groupé, 7 jours)",
     sources: ["23 nov. 2026, 14 h 54", "23 nov. 2026, 19 h 07"], portee: "depot",
-    versions: { toutes: { etat: "controle", gardes: [["tests/lint-regles.mjs", "Contrôle de la configuration ESLint 10"], ["tests/actions-epinglees.mjs", "épinglée par l'empreinte complète de son commit"], [PF, "Dependabot hors des actions GitHub"]] } } },
+    versions: { toutes: { etat: "controle", gardes: [["tests/lint-regles.mjs", "Contrôle de la configuration ESLint 10"], ["tests/actions-epinglees.mjs", "épinglée par l'empreinte complète de son commit"], [PF, "Dependabot hors des actions GitHub"]],
+      note: "les failles des bibliothèques npm sont surveillées par un contrôle, sans mise à jour automatique (PF-47, Félix, 25 nov. 2026, 8 h 13)" } } },
   { id: "PF-39", titre: "Zones tactiles invisibles de 48 px au moins (D-11) à l'intégration",
     sources: ["23 nov. 2026, 19 h 07"], portee: "produit",
     versions: {
@@ -278,6 +279,14 @@ export const REGLES = [
   { id: "PF-46", titre: "Chaque exigence du cahier des charges (docs/REQUIREMENTS.md) a sa preuve, ou son écart écrit, avant la clôture de sa phase",
     sources: ["25 nov. 2026, 7 h 25"], portee: "depot",
     versions: { toutes: { etat: "controle", gardes: [[PF, "a sa preuve, ou son écart écrit"]] } } },
+  { id: "PF-47", titre: "Se prémunir contre les attaques les plus modernes : chaîne d'approvisionnement npm (vers de 2026), GitHub Actions (étiquettes détournées, workflows plantés, injection de script), pages publiées (XSS) ; veille des menaces à chaque phase",
+    sources: ["25 nov. 2026, 8 h 13"], portee: "depot",
+    versions: { toutes: { etat: "controle", gardes: [[PF, "chaîne d'approvisionnement"], [PF, "page publiée sans politique de sécurité stricte"], [".github/workflows/tests.yml", "scripts/pare-feux/bibliotheques.mjs"], ["docs/security/THREAT_MODEL.md", "## Menaces actuelles"]],
+      note: "failles connues et délai de 7 jours des bibliothèques en CI ; verrou npm intègre ; installation sans scripts ; actions épinglées ; workflows inscrits, en lecture seule, sans injection ; politique de sécurité des pages" } } },
+  { id: "PF-48", titre: "Proposer les meilleures solutions (architecture, UX, fonctionnalités, sécurité), comparées, et les détailler pour qu'une personne qui n'y connaît rien puisse les mettre en œuvre",
+    sources: ["25 nov. 2026, 8 h 13"], portee: "depot",
+    versions: { toutes: { etat: "controle", gardes: [[PF, "rapport de phase sans solutions comparées"]],
+      note: "chaque rapport de phase à partir de la phase 7 : partie 4, « Solutions comparées » (recommandée et pourquoi) et « Mise en œuvre pas à pas » ; partie 10, « Menaces actuelles et parades » ; la qualité des propositions reste jugée par Félix" } } },
   { id: "PF-42", titre: "Chaque consigne a son pare-feu, et les pare-feux s'adaptent à chaque version de l'application (ce registre)",
     sources: ["25 nov. 2026, 6 h 32"], portee: "depot",
     versions: { toutes: { etat: "controle", gardes: [[PF, "situé pour"], [PF, "une règle la fait respecter, ou SANS_REGLE dit pourquoi"], ["tests/pare-feux-sabotage.mjs", "violations arrêtées"]] } } },
@@ -294,6 +303,18 @@ export const PLANCHERS_GRAPHIQUES = [
 ];
 // Rééchantillonnage : jamais de filtre grossier dans les générateurs d'images.
 export const FILTRES_INTERDITS = { fichiers: ["scripts/photos.py", "scripts/logos.py", "scripts/logos-v3.py", "scripts/logos-symbole-v6.py"], motif: /Image\.(NEAREST|BOX|BILINEAR|HAMMING)\b/ };
+
+// Workflows GitHub inscrits (PF-47) : un workflow ajouté sans être inscrit ici fait échouer les tests (campagne
+// GhostAction d'octobre et novembre 2026 : workflows « security-audit.yml » plantés avec des jetons volés).
+export const WORKFLOWS_INSCRITS = {
+  "tests.yml": "tests de chaque proposition et de main",
+  "contrat-ign.yml": "contrat de la Géoplateforme IGN (réseau réel, chaque jour)",
+  "contrat-open-meteo.yml": "contrat d'Open-Meteo (réseau réel, chaque jour)",
+  "epreuve.yml": "épreuve du moteur V2 (lancée à la main)",
+  "collecte-spots.yml": "collecte des données libres des spots (IGN, Géorisques), phase 5",
+};
+// Rapports de phase : sous-parties obligatoires à partir de cette phase (PF-48).
+export const RAPPORTS_DEPUIS = 7;
 
 // Sources sans règle propre, avec la raison.
 export const SANS_REGLE = {

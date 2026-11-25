@@ -1,0 +1,51 @@
+{
+  "//": "Failles graves acceptées (PF-47) : paquet, avis (adresse GHSA), raison, jusqu_au (AAAA-MM-JJ) ; une acceptation échue bloque à nouveau. delai_examinees : versions publiées depuis moins de 7 jours, examinées, avec leur raison et une date de fin.",
+  "acceptees": [],
+  "delai_examinees": [
+    {
+      "version": "@babel/generator@7.29.15",
+      "raison": "adoptée le 23 nov. 2026 (phase 4, ESLint 10), avant la règle du délai ; npm audit sans faille ; dépendance de développement (ESLint), jamais publiée dans l'application",
+      "jusqu_au": "2026-11-30"
+    },
+    {
+      "version": "@babel/helper-string-parser@7.29.15",
+      "raison": "adoptée le 23 nov. 2026 (phase 4, ESLint 10), avant la règle du délai ; npm audit sans faille ; dépendance de développement (ESLint), jamais publiée dans l'application",
+      "jusqu_au": "2026-11-30"
+    },
+    {
+      "version": "@babel/helpers@7.29.15",
+      "raison": "adoptée le 23 nov. 2026 (phase 4, ESLint 10), avant la règle du délai ; npm audit sans faille ; dépendance de développement (ESLint), jamais publiée dans l'application",
+      "jusqu_au": "2026-11-30"
+    },
+    {
+      "version": "@babel/parser@7.29.15",
+      "raison": "adoptée le 23 nov. 2026 (phase 4, ESLint 10), avant la règle du délai ; npm audit sans faille ; dépendance de développement (ESLint), jamais publiée dans l'application",
+      "jusqu_au": "2026-11-30"
+    },
+    {
+      "version": "@babel/traverse@7.29.15",
+      "raison": "adoptée le 23 nov. 2026 (phase 4, ESLint 10), avant la règle du délai ; npm audit sans faille ; dépendance de développement (ESLint), jamais publiée dans l'application",
+      "jusqu_au": "2026-11-30"
+    },
+    {
+      "version": "@babel/types@7.29.15",
+      "raison": "adoptée le 23 nov. 2026 (phase 4, ESLint 10), avant la règle du délai ; npm audit sans faille ; dépendance de développement (ESLint), jamais publiée dans l'application",
+      "jusqu_au": "2026-11-30"
+    },
+    {
+      "version": "baseline-browser-mapping@2.11.39",
+      "raison": "adoptée le 23 nov. 2026 (phase 4, ESLint 10), avant la règle du délai ; npm audit sans faille ; dépendance de développement (ESLint), jamais publiée dans l'application",
+      "jusqu_au": "2026-11-30"
+    },
+    {
+      "version": "caniuse-lite@1.0.30001827",
+      "raison": "adoptée le 23 nov. 2026 (phase 4, ESLint 10), avant la règle du délai ; npm audit sans faille ; dépendance de développement (ESLint), jamais publiée dans l'application",
+      "jusqu_au": "2026-11-30"
+    },
+    {
+      "version": "electron-to-chromium@1.5.492",
+      "raison": "adoptée le 23 nov. 2026 (phase 4, ESLint 10), avant la règle du délai ; npm audit sans faille ; dépendance de développement (ESLint), jamais publiée dans l'application",
+      "jusqu_au": "2026-11-30"
+    }
+  ]
+}

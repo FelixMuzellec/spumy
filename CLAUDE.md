@@ -9,7 +9,7 @@
    - Activer les pare-feux locaux : `git config core.hooksPath .githooks` (refus du push sur `main` et de la suppression d'une branche, nom de branche et phase autorisée, lignes d'attribution). Registre des pare-feux, version par version : `docs/regles/PARE-FEUX.md` (Félix, 25 nov. 2026, 6 h 32).
 3. Identifier la dernière phase autorisée par un jeton `APPROVED — PROCEED TO PHASE X` et reprendre sa prochaine tâche non terminée. Sans jeton, aucune phase suivante ne démarre.
    - Jetons conditionnels de Félix (23 nov. 2026, 23 h 15, `docs/DECISIONS_LOG.md` ; modifie l'arrêt obligatoire du référentiel) : la phase 6 démarre seulement quand la phase 5 est close avec tous ses gates PASS ; la phase 7 seulement quand la phase 6 est close après trois passes de challenge (au moins une par un relecteur qui n'a pas produit le travail). Gate en échec ou question bloquante : arrêt, question à Félix. Jamais de phase 8 sans son jeton.
-4. Fin de phase : rapport en 14 parties (§ 16 du référentiel), puis arrêt.
+4. Fin de phase : rapport en 14 parties (§ 16 du référentiel), puis arrêt. Depuis la phase 7 (Félix, 25 nov. 2026, 8 h 13 ; complète le § 16) : partie 4, « Solutions comparées » (la recommandée et pourquoi) et « Mise en œuvre pas à pas » (assez détaillée pour qu'une personne qui n'y connaît rien puisse la suivre) ; partie 10, « Menaces actuelles et parades » (veille datée et sourcée).
 
 ## Règles absolues (résumé du § 0.2)
 

@@ -25,7 +25,7 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
-      - run: npm ci
+      - run: npm ci --ignore-scripts   # aucun script d'installation des bibliothèques, PF-47
       - name: Journées de référence (36 dates × 7 guides)
         run: node scripts/epreuve-fetch.mjs out/epreuve
       - name: Résumé

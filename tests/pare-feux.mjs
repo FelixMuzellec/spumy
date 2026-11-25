@@ -10,7 +10,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { VERSIONS, REGLES, SANS_REGLE, INTERFACE_V3, PLANCHERS_GRAPHIQUES, FILTRES_INTERDITS } from "./pare-feux/regles.mjs";
+import { VERSIONS, REGLES, SANS_REGLE, INTERFACE_V3, PLANCHERS_GRAPHIQUES, FILTRES_INTERDITS, WORKFLOWS_INSCRITS, RAPPORTS_DEPUIS } from "./pare-feux/regles.mjs";
 import { EXIGENCES } from "./pare-feux/exigences.mjs";
 import { fichiersSansUsage, gardesAuRegistre } from "../scripts/pare-feux/inutiles.mjs";
 import { verifierBranche, phaseAutorisee } from "../scripts/pare-feux/branche.mjs";
@@ -92,7 +92,7 @@ for (const r of REGLES) {
         if (!existe(f)) continue;
         t(`${r.id} ${v} : ${f} contient toujours « ${marque.slice(0, 60)} »`, lire(f).includes(marque));
         if (f.startsWith(".githooks/")) t(`${r.id} ${v} : crochet ${f} exécutable et activé par l'entrée de session de CLAUDE.md`, (fs.statSync(path.join(RACINE, f)).mode & 0o111) !== 0 && crochetsActives);
-        else if (!f.startsWith(".github/")) t(`${r.id} ${v} : ${f} lancé par la CI`, lancesCI(f) || lanceParUnTest(f));
+        else if (!f.startsWith(".github/") && !f.startsWith("docs/")) t(`${r.id} ${v} : ${f} lancé par la CI`, lancesCI(f) || lanceParUnTest(f));
       }
     }
   }
@@ -205,6 +205,42 @@ for (const p of PLANCHERS_GRAPHIQUES) {
   for (const v of vals) v.slice(1).forEach((x, i) => t(`qualité graphique abaissée : ${p.quoi} = ${x}, plancher ${p.minimum[i] ?? p.minimum[0]}`, Number(x) >= (p.minimum[i] ?? p.minimum[0])));
 }
 for (const f of FILTRES_INTERDITS.fichiers) t(`qualité graphique abaissée : rééchantillonnage grossier dans ${f}`, existe(f) && !FILTRES_INTERDITS.motif.test(lire(f)));
+
+// PF-47 : attaques modernes — chaîne d'approvisionnement npm et GitHub Actions, pages publiées.
+{ const verrou = JSON.parse(lire("package-lock.json"));
+  const paquets = Object.entries(verrou.packages || {}).filter(([p, e]) => p && !e.link);
+  t("chaîne d'approvisionnement : verrou npm lu", paquets.length > 50, String(paquets.length));
+  for (const [p, e] of paquets) t(`chaîne d'approvisionnement : ${p} vient du registre npm officiel (https) avec son empreinte sha512`,
+    typeof e.resolved === "string" && e.resolved.startsWith("https://registry.npmjs.org/") && /^sha512-/.test(e.integrity || ""), `${e.resolved} ${String(e.integrity).slice(0, 12)}`);
+  const wf = fs.readdirSync(path.join(RACINE, ".github/workflows"));
+  for (const w of wf) {
+    const x = lire(`.github/workflows/${w}`);
+    t(`chaîne d'approvisionnement : workflow ${w} inscrit au registre (WORKFLOWS_INSCRITS)`, w in WORKFLOWS_INSCRITS);
+    t(`chaîne d'approvisionnement : ${w} déclare des droits en lecture seule`, /^permissions:\n  contents: read\n/m.test(x) && !/:\s*write\b/.test(x));
+    t(`chaîne d'approvisionnement : ${w} n'utilise pas pull_request_target`, !/pull_request_target/.test(x));
+    t(`chaîne d'approvisionnement : ${w} n'utilise aucun secret du dépôt`, !/\$\{\{\s*secrets\./.test(x));
+    for (const l of x.split("\n").filter((l) => /\$\{\{[^}]*github\.(event|head_ref)/.test(l)))
+      t(`chaîne d'approvisionnement : ${w}, valeur venue de la proposition passée par l'environnement, jamais dans un script (« ${l.trim().slice(0, 50)} »)`, /^\s*(?!run\b)[A-Za-z_]+:\s*\$\{\{/.test(l) || /^\s*if:/.test(l));
+    for (const l of x.split("\n").filter((l) => /\bnpm (ci|install)\b/.test(l) && !/^\s*#/.test(l)))
+      t(`chaîne d'approvisionnement : ${w} installe sans exécuter les scripts des bibliothèques (« ${l.trim()} »)`, /--ignore-scripts/.test(l));
+  }
+  for (const w of Object.keys(WORKFLOWS_INSCRITS)) t(`chaîne d'approvisionnement : workflow inscrit ${w} présent`, wf.includes(w));
+  const pages = fichiers("*.html").filter((f) => !f.includes("/"));
+  t("pages publiées trouvées", pages.length >= 8, String(pages.length));
+  for (const p of pages) { const x = lire(p);
+    const csp = /http-equiv="Content-Security-Policy" content="([^"]+)"/.exec(x)?.[1] || "";
+    const script = /script-src ([^;]+)/.exec(csp)?.[1] || "";
+    t(`page publiée sans politique de sécurité stricte : ${p}`, /default-src 'none'/.test(csp) && !!script && !/unsafe-eval|unsafe-inline|https?:|\*/.test(script) && /object-src 'none'/.test(csp) && /base-uri 'none'/.test(csp), script);
+    t(`page publiée sans politique de sécurité stricte : ${p} ne charge aucun script d'un autre site`, !/<script[^>]+src="(https?:)?\/\//i.test(x)); } }
+
+// PF-48 : chaque rapport de phase compare les solutions et détaille leur mise en œuvre ; veille des menaces.
+for (const n of [...rapportsClos].filter((n) => n >= RAPPORTS_DEPUIS)) {
+  const r = lire(`docs/rapports/v3/PHASE-${n}.md`);
+  const partie = (k) => (r.split(/^## /m).find((p) => p.startsWith(`${k}.`)) || "");
+  t(`rapport de phase sans solutions comparées : PHASE-${n}.md, partie 4 « ### Solutions comparées » avec la recommandée`, /^### Solutions comparées/m.test(partie(4)) && /Recommandée/i.test(partie(4)));
+  t(`rapport de phase sans solutions comparées : PHASE-${n}.md, partie 4 « ### Mise en œuvre pas à pas »`, /^### Mise en œuvre pas à pas/m.test(partie(4)));
+  t(`rapport de phase sans solutions comparées : PHASE-${n}.md, partie 10 « ### Menaces actuelles et parades »`, /^### Menaces actuelles et parades/m.test(partie(10)));
+}
 
 // ——— 4 bis. Exigences du cahier des charges : chacune a sa preuve, ou son écart écrit, avant la clôture de sa phase (PF-46) ———
 const EX_ETATS = new Set(["accepte", "prototype", "specifie", "ecart"]);

@@ -27,7 +27,7 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
-      - run: npm ci
+      - run: npm ci --ignore-scripts   # aucun script d'installation des bibliothèques (vers npm de 2026), PF-47
       - name: Pare-feux de la proposition (nom de branche, phase autorisée, lignes d'attribution des commits)
         # Consignes de Félix (docs/regles/PARE-FEUX.md, PF-13 à PF-15). Valeurs passées par l'environnement, jamais
         # insérées dans le script (un nom de branche peut contenir des caractères du shell).
@@ -39,6 +39,12 @@ jobs:
         run: |
           node scripts/pare-feux/branche.mjs "$BRANCHE"
           node scripts/pare-feux/commits.mjs "origin/$BASE..$TETE"
+      - name: Bibliothèques (failles connues graves ou critiques, versions publiées depuis moins de 7 jours)
+        # Félix, 25 nov. 2026, 8 h 13 (PF-47). Sur une proposition : délai comparé à sa base ; sur main : failles seules.
+        env:
+          BASE: ${{ github.base_ref }}
+        run: |
+          if [ -n "$BASE" ]; then node scripts/pare-feux/bibliotheques.mjs --base "origin/$BASE"; else node scripts/pare-feux/bibliotheques.mjs; fi
       - run: npx playwright install --with-deps chromium
       - run: npm run -s build
       - name: Les fichiers publiés correspondent-ils aux sources ?

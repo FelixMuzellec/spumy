@@ -28,6 +28,9 @@ const phasePrevue = Math.min(...REGLES.flatMap((r) => Object.values(r.versions))
 const exigencesTexte = fs.readFileSync(path.join(RACINE, "docs/REQUIREMENTS.md"), "utf8");
 const aFaire = [...exigencesTexte.matchAll(/^\| ([A-Z]+-\d+) \|.*\| (\d+) \|$/gm)].map((m) => [m[1], Number(m[2])]).find(([id, p]) => !EXIGENCES[id] && !rapports.has(p));
 const prochaineDecision = `V3-${String(Math.max(...[...fs.readFileSync(path.join(RACINE, "docs/DECISIONS_LOG.md"), "utf8").matchAll(/^\| V3-(\d{3}) \|/gm)].map((m) => Number(m[1]))) + 1).padStart(3, "0")}`;
+const rapportOuvert = (() => { let n = 7; while (rapports.has(n)) n++; return n; })();
+const fauxAudit = JSON.stringify({ metadata: { vulnerabilities: { high: 1 } }, vulnerabilities: { "paquet-piege": { severity: "high", via: [{ source: 1, url: "https://github.com/advisories/GHSA-essai" }] } } });
+const BIBLIO = ["scripts/pare-feux/bibliotheques.mjs", "--rapport", "audit-essai.json"];
 const fiche = fs.readdirSync(path.join(RACINE, "data/spots/fiches")).find((x) => fs.readFileSync(path.join(RACINE, "data/spots/fiches", x), "utf8").includes("\"src-ign-geocodage-poi\""));
 
 const ESSAIS = [
@@ -60,15 +63,25 @@ const ESSAIS = [
   ["qualité des photos abaissée pour aller plus vite", "qualité graphique abaissée : qualité WebP des photos", () => remplacer("scripts/photos.py", "(1600, 74)", "(1600, 60)")],
   ["photo d'en-tête servie trop petite", "qualité graphique abaissée : photo d'en-tête servie en 1 600 px", () => remplacer("src/prototype-v3/ui.jsx", "size = 1600", "size = 720")],
   ["rééchantillonnage grossier des logos", "rééchantillonnage grossier dans scripts/logos.py", () => remplacer("scripts/logos.py", "Image.LANCZOS", "Image.NEAREST")],
+  ["verrou npm pointant hors du registre officiel", "vient du registre npm officiel", () => remplacer("package-lock.json", "\"resolved\": \"https://registry.npmjs.org/", "\"resolved\": \"http://miroir.example/")],
+  ["installation qui exécute les scripts des bibliothèques", "installe sans exécuter les scripts des bibliothèques", () => remplacer(".github/workflows/tests.yml", "npm ci --ignore-scripts", "npm ci")],
+  ["nom de branche inséré dans un script de workflow", "passée par l'environnement, jamais dans un script", () => remplacer(".github/workflows/tests.yml", "      - name: Contrôle du code\n", "      - name: Essai\n        run: echo ${{ github.head_ref }}\n      - name: Contrôle du code\n")],
+  ["workflow planté (GhostAction)", "workflow security-audit.yml inscrit au registre", () => ecrire(".github/workflows/security-audit.yml", "on: push\npermissions:\n  contents: read\njobs:\n  a:\n    runs-on: ubuntu-24.04\n    steps:\n      - run: echo ${{ secrets.NPM_TOKEN }}\n")],
+  ["workflow avec droits d'écriture", "tests.yml déclare des droits en lecture seule", () => remplacer(".github/workflows/tests.yml", "  contents: read\n", "  contents: write\n")],
+  ["politique de sécurité affaiblie (unsafe-eval)", "page publiée sans politique de sécurité stricte : index.html", () => remplacer("index.html", "script-src ", "script-src 'unsafe-eval' ")],
+  [`rapport de la phase ${rapportOuvert} sans solutions comparées`, `rapport de phase sans solutions comparées : PHASE-${rapportOuvert}.md`, () => ecrire(`docs/rapports/v3/PHASE-${rapportOuvert}.md`, "# Rapport\n\n## 4. Justification des changements\n\nTexte.\n\n## 10. Red-team et risques\n\nTexte.\n")],
+  ["faille grave dans une bibliothèque", "paquet-piege : faille high", () => ecrire("audit-essai.json", fauxAudit), BIBLIO],
+  ["faille grave acceptée sans date de fin valable", "acceptation sans raison ou échue", () => { ecrire("audit-essai.json", fauxAudit);
+    ecrire("tests/pare-feux/failles-acceptees.json", JSON.stringify({ acceptees: [{ paquet: "paquet-piege", avis: "https://github.com/advisories/GHSA-essai", raison: "essai", jusqu_au: "2020-01-01" }] })); }, BIBLIO],
 ];
 
 let arretees = 0;
 const trous = [];
 try {
-  for (const [nom, attendu, saboter] of ESSAIS) {
+  for (const [nom, attendu, saboter, commande = ["tests/pare-feux.mjs"]] of ESSAIS) {
     git("reset", "-q", "--hard", "HEAD"); git("clean", "-q", "-fd", "-e", "node_modules");
     saboter();
-    const r = spawnSync(process.execPath, ["tests/pare-feux.mjs"], { cwd: COPIE, encoding: "utf8" });
+    const r = spawnSync(process.execPath, commande, { cwd: COPIE, encoding: "utf8" });
     if (r.status !== 0 && r.stdout.includes(attendu)) arretees++;
     else trous.push(`${nom} (code ${r.status}, attendu « ${attendu} »)`);
   }
