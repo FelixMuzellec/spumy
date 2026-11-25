@@ -6,10 +6,10 @@ Félix (25 nov. 2026, 7 h 25) : les exigences sont reliées aux pare-feux (PF-46
 
 ## Bilan
 
-- acceptée : 9
+- acceptée : 10
 - tenue sur le prototype : 7
 - spécifiée et éprouvée sur l'étude : 6
-- écart : 7
+- écart : 6
 - à faire : 69
 
 ## Exigences
@@ -107,7 +107,7 @@ Félix (25 nov. 2026, 7 h 25) : les exigences sont reliées aux pare-feux (PF-46
 | PRV-04 | 13 | à faire, phase 13 | — |
 | DAT-01 | 4 | spécifiée et éprouvée sur l'étude, acceptation finale en phase 10 | `tsconfig.typecheck.json`, `tests/socle.mjs` |
 | DAT-02 | 4 | spécifiée et éprouvée sur l'étude, acceptation finale en phase 10 | `tests/socle.mjs` ; adaptateur IGN et validation de ses réponses posés en phase 4 ; le changement de fournisseur avec un simulateur s'éprouve à l'implémentation |
-| QA-01 | 4 | écart, acceptation finale en phase 9 | mesure AVANT consignée en phase 4, seuils pas encore validés par Félix ; contrainte du 25 nov. 2026, 7 h 25 : la vitesse ne se gagne jamais aux dépens de la qualité du graphisme (PF-43) |
+| QA-01 | 4 | acceptée | `docs/socle/perf-avant.json`, `docs/regles/KPI.md` ; mesure AVANT consignée (phase 4) ; seuils : ceux des Core Web Vitals, fixés par la norme, et planchers de qualité graphique (PF-43), par délégation de Félix (25 nov. 2026, 10 h 31) ; tenue des seuils : K-21 à K-24, phase 12 |
 | QA-02 | 4 à 14 | à faire, phase 14 | — |
 | QA-03 | toutes | acceptée | `.github/workflows/tests.yml` |
 | OPS-01 | toutes | acceptée | `.githooks/pre-push`, `scripts/pare-feux/branche.mjs` |

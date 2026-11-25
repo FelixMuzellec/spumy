@@ -77,6 +77,9 @@ const ESSAIS = [
   ["seuil non atteint sans écart écrit", "indicateur K-04 (Moteur BORD) : seuil non atteint", () => remplacer("tests/pare-feux/kpis.mjs", /mesure: "auto", cle: "couverture\.moteur\.branches", ecart: \{[^}]*\} \}/, "mesure: \"auto\", cle: \"couverture.moteur.branches\" }")],
   ["phase 8 close sans la mesure du moteur sur le journal", "indicateur K-01 (Moteur BORD) : la phase 8 n'est pas close sans sa mesure", () => ecrire("docs/rapports/v3/PHASE-8.md", "# rapport\n")],
   ["tableau des indicateurs modifié à la main", "KPI.md à jour", () => ajouter("docs/regles/KPI.md", "x\n")],
+  ["fonction V3 trop complexe, sans jugement écrit", "K-29 : seuil non atteint", () => ajouter("src/prototype-v3/modele.js", `\nexport function essaiComplexe(x) {\n${Array.from({ length: 17 }, (_, i) => `  if (x === ${i}) return ${i};`).join("\n")}\n  return -1;\n}\n`), ["scripts/kpi/mesurer.mjs", "--verifier", "--sans-couverture"]],
+  ["spot retiré pour améliorer un indicateur", "K-37 : indicateur en recul", () => { const v3 = fs.readdirSync(f("data/spots/fiches")).find((x) => lire(`data/spots/fiches/${x}`).includes("\"v3_researched\"")); git("rm", "-q", `data/spots/fiches/${v3}`); }, ["scripts/kpi/mesurer.mjs", "--verifier", "--sans-couverture"]],
+  ["seuil fixé sans justification", "seuil et origine du seuil", () => remplacer("tests/pare-feux/kpis.mjs", /seuilSource: "fixé", justification: "[^"]*"/, "seuilSource: \"fixé\"")],
 ];
 
 let arretees = 0;

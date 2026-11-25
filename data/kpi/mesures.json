@@ -9,24 +9,33 @@
       "valeur": 98.53,
       "detail": "872/885 instructions"
     },
+    "donnees.spots": {
+      "valeur": 98,
+      "detail": "66 spots V2 gardés et 32 spots V3 recherchés"
+    },
     "donnees.securite_documentee": {
       "valeur": 18.4,
+      "compte": 18,
       "detail": "18 fiches sur 98"
     },
     "donnees.credibilite": {
       "valeur": 49,
+      "compte": 48,
       "detail": "48 fiches sur 98"
     },
     "donnees.exactitude": {
       "valeur": 70.4,
+      "compte": 69,
       "detail": "69 fiches sur 98"
     },
     "donnees.completude": {
       "valeur": 64.1,
+      "compte": 62.8,
       "detail": "moyenne sur 98 fiches"
     },
     "donnees.reglementation": {
       "valeur": 64.3,
+      "compte": 63,
       "detail": "63 fiches sur 98"
     },
     "donnees.confidentialite": {
@@ -46,9 +55,9 @@
       "detail": "Home du prototype V3 (v3-prototype-home), mesure du 2026-11-23 (scripts/mesure-perf.mjs)",
       "mesure_le": "2026-11-23"
     },
-    "code.v3_fonctions_complexes": {
-      "valeur": 13,
-      "detail": "dont scripts/etude-moteur-bord/securite.mjs:56 (54)"
+    "code.v3_complexite_non_justifiee": {
+      "valeur": 0,
+      "detail": "13 fonctions au-delà de 15 : 5 prototype, 3 à simplifier, 4 hors produit, 1 nécessaire"
     },
     "compatibilite.navigateurs": {
       "valeur": 1,
