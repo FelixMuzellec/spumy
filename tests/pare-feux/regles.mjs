@@ -256,6 +256,9 @@ export const REGLES = [
   { id: "PF-41", titre: "Usage : Félix et quelques proches, gratuit, non commercial (ni publicité, ni mesure d'audience, ni paiement)",
     sources: ["V3-005"], portee: "depot",
     versions: { toutes: { etat: "controle", gardes: [[PF, "publicité, mesure d'audience ou paiement"]] } } },
+  { id: "PF-42", titre: "Chaque consigne a son pare-feu, et les pare-feux s'adaptent à chaque version de l'application (ce registre)",
+    sources: ["25 nov. 2026, 6 h 32"], portee: "depot",
+    versions: { toutes: { etat: "controle", gardes: [[PF, "situé pour"], [PF, "une règle la fait respecter, ou SANS_REGLE dit pourquoi"]] } } },
 ];
 
 // Sources sans règle propre, avec la raison.

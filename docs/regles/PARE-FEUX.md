@@ -68,6 +68,7 @@ Demande de Félix (25 nov. 2026, 6 h 32) : « Sois sûr de mettre en place les p
 | PF-39 | Zones tactiles invisibles de 48 px au moins (D-11) à l'intégration | 23 nov. 2026, 19 h 07 | **sans objet** : sans objet : la V2 en ligne est gelée (point de retour v2-final) ; la règle vient du référentiel V3 | **prévu, phase 12** : appliqué à l'intégration ; le prototype 6.2 reste à 44 px |
 | PF-40 | Critères de recette CR-01 à CR-16 du prototype pris comme critères de l'intégration | 23 nov. 2026, 13 h 50 | **sans objet** : sans objet : la V2 en ligne est gelée (point de retour v2-final) ; la règle vient du référentiel V3 | **prévu, phase 12** : critères de l'intégration des phases 10 à 12 |
 | PF-41 | Usage : Félix et quelques proches, gratuit, non commercial (ni publicité, ni mesure d'audience, ni paiement) | V3-005 | **contrôlé** : `tests/pare-feux.mjs` | **contrôlé** : `tests/pare-feux.mjs` |
+| PF-42 | Chaque consigne a son pare-feu, et les pare-feux s'adaptent à chaque version de l'application (ce registre) | 25 nov. 2026, 6 h 32 | **contrôlé** : `tests/pare-feux.mjs` | **contrôlé** : `tests/pare-feux.mjs` |
 
 ## Sources sans règle propre
 
@@ -75,7 +76,7 @@ Demande de Félix (25 nov. 2026, 6 h 32) : « Sois sûr de mettre en place les p
 
 ## Bilan
 
-- contrôlé : 38
+- contrôlé : 39
 - prévu : 10
 - consigne (non automatisable) : 4
 - sans objet : 18
