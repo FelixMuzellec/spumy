@@ -1,0 +1,27 @@
+{
+  "//": "Moteur gelé dans src/ jusqu'au jeton de la phase 10 (PF-19). Une modification s'enregistre avec sa raison : node tests/pare-feux.mjs --instantane-moteur \"<raison>\"",
+  "empreintes": {
+    "src/bateau/offshore.js": "7f33d59ced60562e1b91bb2766e8cfa7b1668b249bd10edc73547ba9908e69cb",
+    "src/bateau/wx.js": "da76b604301c11af336e21d2e8efb662603c155a25859cd6be24158abd27ddda",
+    "src/bord/engine/confidence.js": "e700f51182e8ac3df16251e741c1a5a8dbe723c36b742979ffc1e583191bca24",
+    "src/bord/engine/factors.js": "e58487ac3de7780a5dd899e6c00a4bc99de961e35465d32a56b33f141696b9ce",
+    "src/bord/engine/journal.js": "3ce7bb9c21febd9cecee31521d10f1269ec1477d5d062ae758762296c529b244",
+    "src/bord/engine/lures.js": "0923b522f1ac7fd977490c7ebe9119bb51077a121ee726e718aa0c7956222e1a",
+    "src/bord/engine/model.js": "8d3dd80bcf0b9bbe907539eaedffd253edf6f636417ef9b78baa8f27d878374d",
+    "src/bord/engine/myspots.js": "51351e020232b759365eb3aa37394a854481a3ee388c08d42875827bd9aa37a7",
+    "src/bord/engine/photo.js": "d514028f9ceb6619506c0dd312801ee592f74f3f09f2be774c451e5c70f6e80d",
+    "src/bord/engine/safety.js": "c1b921387dda27e5a5ee8712066a656259b1a6b7a2f7689dec038bef91cf4487",
+    "src/bord/engine/tackle.js": "fd899ddbbb930c70de4742e35410106c145a199e5cafb59ba40cb8ff794baa6c",
+    "src/bord/engine/terrain.js": "69aa491f8c09755840a8cdab7fe645019524cad1932e7bdd46fa702be86a6418",
+    "src/bord/engine/v2-params.js": "6f5ea9830607c3993c198790ad741fb7c80ac0b15f9cd05bf8ba54e44e262108",
+    "src/bord/engine/v2.js": "81aeb4c47a9073f6ea3fdc616541e9af58e893494990fd3fe0370d1dbc584daf",
+    "src/bord/engine/weather.js": "794a156512769eb24a69ff237ddd2880c10fc78e34402d7bb001e9f4a4450f9e",
+    "src/engine.js": "df8a76b289f741791bf830977b179d41e3cc6e614825a06cb1f80d7a3ed0cdc4"
+  },
+  "historique": [
+    {
+      "date": "2026-11-25",
+      "raison": "état de départ : moteur V2 publié (v2-final) ; l'étude de la phase 6 reste hors de src/"
+    }
+  ]
+}

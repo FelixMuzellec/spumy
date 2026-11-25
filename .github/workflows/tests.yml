@@ -21,11 +21,24 @@ jobs:
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0   # historique complet : lignes d'attribution des commits de la proposition (pare-feux)
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
+      - name: Pare-feux de la proposition (nom de branche, phase autorisée, lignes d'attribution des commits)
+        # Consignes de Félix (docs/regles/PARE-FEUX.md, PF-13 à PF-15). Valeurs passées par l'environnement, jamais
+        # insérées dans le script (un nom de branche peut contenir des caractères du shell).
+        if: github.event_name == 'pull_request'
+        env:
+          BRANCHE: ${{ github.head_ref }}
+          BASE: ${{ github.base_ref }}
+          TETE: ${{ github.event.pull_request.head.sha }}
+        run: |
+          node scripts/pare-feux/branche.mjs "$BRANCHE"
+          node scripts/pare-feux/commits.mjs "origin/$BASE..$TETE"
       - run: npx playwright install --with-deps chromium
       - run: npm run -s build
       - name: Les fichiers publiés correspondent-ils aux sources ?
@@ -40,6 +53,8 @@ jobs:
         run: npm run -s typecheck
       - name: Aucun secret dans le dépôt
         run: node tests/secrets.mjs
+      - name: Pare-feux des consignes de Félix (registre versionné, contrôles directs)
+        run: npm run -s test:pare-feux
       - name: Règles de couches (bord, bateau, commun, design)
         run: npm run -s test:layers
       - name: Socle commun (erreur commune, validation des entrées)
