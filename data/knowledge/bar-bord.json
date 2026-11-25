@@ -1,7 +1,7 @@
 {
  "titre": "Connaissances halieutiques du mode BORD — bar européen (Dicentrarchus labrax)",
- "version": 1,
- "relu_le": "2026-11-18",
+ "version": 2,
+ "relu_le": "2026-11-25",
  "espece": "bar",
  "mode": "BORD",
  "echelle": {
@@ -29,27 +29,47 @@
     {
      "ref": "de Pontual H. et al. (2023). Seasonal migration, site fidelity, and population structure of European seabass (Dicentrarchus labrax). ICES Journal of Marine Science 80 : 1606-1618 (programme Bargip, Ifremer)",
      "url": "https://doi.org/10.1093/icesjms/fsad087",
-     "niveau": 1
+     "niveau": 1,
+     "zones": [
+      "bretagne-nord",
+      "iroise",
+      "cotentin"
+     ]
     },
     {
      "ref": "Ifremer — synthèse des marquages de bars adultes (programme Bargip), document de 4 pages",
      "url": "https://bar.ifremer.fr/content/download/116111/file/4PagesMarquageAdultes_Final-3.pdf",
-     "niveau": 1
+     "niveau": 1,
+     "zones": [
+      "bretagne-nord",
+      "iroise",
+      "cotentin"
+     ]
     },
     {
      "ref": "Doyle T. et al. (2017). Localised residency and inter-annual fidelity to coastal foraging areas may place sea bass at risk to local depletion. Scientific Reports 7 : 45841 (Cork, Irlande)",
      "url": "https://doi.org/10.1038/srep45841",
-     "niveau": 1
+     "niveau": 1,
+     "zones": [
+      "hors-zone"
+     ]
     },
     {
      "ref": "Edwards J. E. et al. (2025). Multi-year tracking of European sea bass shows large-scale connectivity, summer site fidelity, and repeatability in migration timing. ICES Journal of Marine Science 82(10) : fsaf190",
      "url": "https://doi.org/10.1093/icesjms/fsaf190",
-     "niveau": 1
+     "niveau": 1,
+     "zones": [
+      "inconnue"
+     ]
     }
    ],
    "limites": "Résidents plus rares que les migrants, surtout observés au centre du golfe de Gascogne (de Pontual 2023) ; à Cork, départ vers la mi-octobre et retour vers la mi-avril (Doyle 2017) ; aucune date publiée pour le Finistère.",
    "verdict": "conserver",
-   "statut": "VÉRIFIÉ"
+   "statut": "VÉRIFIÉ",
+   "zone_validite": {
+    "statut": "RÉGIONALE",
+    "texte": "Marquages Bargip à Saint-Quay-Portrieux, Audierne et Saint-Vaast-la-Hougue (de Pontual 2023) : migration partielle établie pour la Bretagne nord, l'Iroise et le Cotentin est."
+   }
   },
   {
    "id": "saison-coefficients",
@@ -63,20 +83,41 @@
     {
      "ref": "Ifremer — synthèse des marquages de bars adultes (programme Bargip), document de 4 pages",
      "url": "https://bar.ifremer.fr/content/download/116111/file/4PagesMarquageAdultes_Final-3.pdf",
-     "niveau": 1
+     "niveau": 1,
+     "zones": [
+      "bretagne-nord",
+      "iroise",
+      "cotentin"
+     ]
     },
     {
      "ref": "Doyle T. et al. (2017). Localised residency and inter-annual fidelity to coastal foraging areas may place sea bass at risk to local depletion. Scientific Reports 7 : 45841 (Cork, Irlande)",
      "url": "https://doi.org/10.1038/srep45841",
-     "niveau": 1
+     "niveau": 1,
+     "zones": [
+      "hors-zone"
+     ]
+    },
+    {
+     "ref": "Fritsch M. (2005). Traits biologiques et exploitation du bar commun Dicentrarchus labrax (L.) dans les pêcheries françaises de la Manche et du golfe de Gascogne. Thèse, Université de Bretagne occidentale et Ifremer",
+     "url": "https://archimer.ifremer.fr/doc/00000/1088/738.pdf",
+     "niveau": 1,
+     "zones": [
+      "manche",
+      "gascogne"
+     ]
     }
    ],
-   "limites": "Le calendrier suit les sources (frai hivernal, présence côtière de mai à novembre) ; les valeurs chiffrées ne sont écrites dans aucune source.",
+   "limites": "Le calendrier suit les sources (frai hivernal, présence côtière de mai à novembre) ; les valeurs chiffrées ne sont écrites dans aucune source. Phase 7 (25 nov. 2026) : les débarquements des ligneurs français sont au plus bas en mars-avril, pas en février (Fritsch 2005, p. 134 : moins de 10 t par mois, contre environ 15 t de novembre à février et 50 t en juin) ; ce sont des débarquements, qui suivent aussi l'effort, la météo et le marché, pas une abondance. Proposition chiffrée : docs/moteur-bord/07-REVISION-PHASE-7.md.",
    "verdict": "garder, niveau 4 inchangé : 21,4 % de la variance avec les facteurs d'abri (phase 8 : part de la variance de la favorabilité sur 241 journées réelles × 1 000 tirages ; c'est une sensibilité, pas une preuve), première hypothèse mais sous le seuil de 30 % ; à confronter au journal",
    "statut": "HYPOTHÈSE",
    "valeurs": {
     "texte": "roche et plage : 0,6 0,5 0,55 0,75 0,95 1 1 1 1 1 0,95 0,75 ; abri : écart réduit de moitié",
     "niveau": 4
+   },
+   "zone_validite": {
+    "statut": "RÉGIONALE",
+    "texte": "Calendrier général des marquages Bargip (Bretagne, Cotentin) ; les valeurs mensuelles ne sont écrites dans aucune source, régionale ou non."
    }
   },
   {
@@ -91,17 +132,36 @@
     {
      "ref": "Edwards J. E. et al. (2025). Multi-year tracking of European sea bass shows large-scale connectivity, summer site fidelity, and repeatability in migration timing. ICES Journal of Marine Science 82(10) : fsaf190",
      "url": "https://doi.org/10.1093/icesjms/fsaf190",
-     "niveau": 1
+     "niveau": 1,
+     "zones": [
+      "hors-zone"
+     ]
     },
     {
      "ref": "de Pontual H. et al. (2023). Seasonal migration, site fidelity, and population structure of European seabass (Dicentrarchus labrax). ICES Journal of Marine Science 80 : 1606-1618 (programme Bargip, Ifremer)",
      "url": "https://doi.org/10.1093/icesjms/fsad087",
-     "niveau": 1
+     "niveau": 1,
+     "zones": [
+      "iroise",
+      "gascogne"
+     ]
+    },
+    {
+     "ref": "Goossens J. et al. (2023). Fisheries measures protect European seabass groups with distinct habitat use differently. ICES Journal of Marine Science 80(7) : 1899-1910 (port de Zeebrugge, Belgique)",
+     "url": "https://doi.org/10.1093/icesjms/fsad116",
+     "niveau": 1,
+     "zones": [
+      "hors-zone"
+     ]
     }
    ],
-   "limites": "Indice seulement : des bars marqués ont hiverné dans un port belge à 6,9 °C de température médiane (Goossens et al. 2023, cité par Edwards 2025) ; aucune observation en rade de Brest ni dans les abers.",
+   "limites": "Indice seulement : des bars marqués ont hiverné dans un port belge à 6,9 °C de température médiane (Goossens et al. 2023, cité par Edwards 2025) ; aucune observation en rade de Brest ni dans les abers. Phase 7 (25 nov. 2026) : à Zeebrugge, 13 bars sur 57 suivis sont restés l'hiver dans le port, jusqu'à 2,8 °C (Goossens 2023) ; en Bretagne, les résidents d'hiver sont rares : surtout au centre du golfe de Gascogne, et cinq bars marqués à Audierne restés dans l'aire nord ou près du lieu de marquage (de Pontual 2023). Aucun suivi publié en rade de Brest, dans les abers ou les havres du Cotentin : l'abri reste une hypothèse de niveau 4.",
    "verdict": "garder, niveau 4 : compté avec les facteurs de saison, 21,4 % de la variance (phase 8 : part de la variance de la favorabilité sur 241 journées réelles × 1 000 tirages ; c'est une sensibilité, pas une preuve)",
-   "statut": "HYPOTHÈSE"
+   "statut": "HYPOTHÈSE",
+   "zone_validite": {
+    "statut": "RÉGIONALE",
+    "texte": "Indice régional faible : cinq bars marqués à Audierne restés dans l'aire nord ou près du lieu de marquage (de Pontual 2023) ; aucun suivi en rade de Brest, dans les abers ni dans les havres du Cotentin ; ailleurs, le golfe de Gascogne et un port belge."
+   }
   },
   {
    "id": "frai-temperature",
@@ -115,12 +175,19 @@
     {
      "ref": "Graham J. A. et al. (2023). Pelagic connectivity of European sea bass between spawning and nursery grounds. Frontiers in Marine Science 9 : 1046585",
      "url": "https://doi.org/10.3389/fmars.2022.1046585",
-     "niveau": 1
+     "niveau": 1,
+     "zones": [
+      "inconnue"
+     ]
     }
    ],
    "limites": "Seuil de 9 °C utilisé comme limite d'étendue du frai dans un modèle de dérive larvaire ; ne dit rien de la présence des adultes à la côte.",
    "verdict": "conserver comme repère",
-   "statut": "VÉRIFIÉ"
+   "statut": "VÉRIFIÉ",
+   "zone_validite": {
+    "statut": "AUCUNE",
+    "texte": "Modèle de dérive larvaire dont la zone n'a pas été relue ; voir frai-manche-ouest pour les dates régionales."
+   }
   },
   {
    "id": "seuils-thermiques",
@@ -134,20 +201,48 @@
     {
      "ref": "de Pontual H. et al. (2023). Seasonal migration, site fidelity, and population structure of European seabass (Dicentrarchus labrax). ICES Journal of Marine Science 80 : 1606-1618 (programme Bargip, Ifremer)",
      "url": "https://doi.org/10.1093/icesjms/fsad087",
-     "niveau": 1
+     "niveau": 1,
+     "zones": [
+      "manche",
+      "gascogne"
+     ]
     },
     {
      "ref": "Edwards J. E. et al. (2025). Multi-year tracking of European sea bass shows large-scale connectivity, summer site fidelity, and repeatability in migration timing. ICES Journal of Marine Science 82(10) : fsaf190",
      "url": "https://doi.org/10.1093/icesjms/fsaf190",
-     "niveau": 1
+     "niveau": 1,
+     "zones": [
+      "hors-zone"
+     ]
+    },
+    {
+     "ref": "Goossens J., Woillez M., Wright S. et al. (2024). Elucidating the migrations of European seabass from the southern North Sea using mark-recapture data, acoustic telemetry and data storage tags. Scientific Reports 14 : 13180 (version lue : Archimer)",
+     "url": "https://archimer.ifremer.fr/doc/00893/100500/110924.pdf",
+     "niveau": 1,
+     "zones": [
+      "manche",
+      "cotentin"
+     ]
+    },
+    {
+     "ref": "Goossens J. et al. (2023). Fisheries measures protect European seabass groups with distinct habitat use differently. ICES Journal of Marine Science 80(7) : 1899-1910 (port de Zeebrugge, Belgique)",
+     "url": "https://doi.org/10.1093/icesjms/fsad116",
+     "niveau": 1,
+     "zones": [
+      "hors-zone"
+     ]
     }
    ],
-   "limites": "Aucune source ne donne ces paliers. Des bars ont été suivis jusqu'à 6,5 °C (de Pontual 2023) et ont hiverné à 6,9 °C dans un port (Edwards 2025) : « l'essentiel des adultes a rejoint le large sous 7,5 °C » n'est pas démontré.",
+   "limites": "Aucune source ne donne ces paliers. Des bars ont été suivis jusqu'à 6,5 °C (de Pontual 2023) et ont hiverné à 6,9 °C dans un port (Edwards 2025) : « l'essentiel des adultes a rejoint le large sous 7,5 °C » n'est pas démontré. Phase 7 : minimum de 6,5 °C enregistré par les marques archives en Manche ouest (Goossens 2024, tableau 2) ; 2,8 °C dans le port de Zeebrugge (Goossens 2023).",
    "verdict": "garder, niveau 4 : 4,8 % de la variance (phase 8 : part de la variance de la favorabilité sur 241 journées réelles × 1 000 tirages ; c'est une sensibilité, pas une preuve) ; la température de l'eau elle-même (±1 °C) en explique 6,5 %",
    "statut": "HYPOTHÈSE",
    "valeurs": {
     "texte": "7,5 / 9,5 / 11,5 / 13,5 / 19 / 21,5 °C ; facteurs 0,30 / 0,50 / 0,75 / 0,92 / 1 / 0,90 / 0,72",
     "niveau": 4
+   },
+   "zone_validite": {
+    "statut": "RÉGIONALE",
+    "texte": "Minimums mesurés en Manche ouest autour du Cotentin (Goossens 2024) ; les paliers eux-mêmes ne sont dans aucune source."
    }
   },
   {
@@ -161,7 +256,11 @@
    "sources": [],
    "limites": "Aucune source citée ; règle de pêcheur.",
    "verdict": "source à trouver",
-   "statut": "INFÉRÉ"
+   "statut": "INFÉRÉ",
+   "zone_validite": {
+    "statut": "AUCUNE",
+    "texte": "Règle de pêcheur, sans source."
+   }
   },
   {
    "id": "lumiere-basse",
@@ -176,17 +275,26 @@
     {
      "ref": "peche.com — Quelle couleur choisir selon l'eau et la météo ? (L. Duclos, 03/06/2026)",
      "url": "https://www.peche.com/article/52017/peche-aux-leurres-quelle-couleur-choisir-selon-l-eau-et-la-meteo",
-     "niveau": 2
+     "niveau": 2,
+     "zones": [
+      "inconnue"
+     ]
     },
     {
      "ref": "Millot S., Bégout M.-L. (2009). Individual fish rhythm directs group feeding: a case study with sea bass juveniles (Dicentrarchus labrax) under self-demand feeding conditions. Aquatic Living Resources (en ligne le 23/10/2009) — juvéniles en bassin",
      "url": "https://www.cambridge.org/core/journals/aquatic-living-resources/article/individual-fish-rhythm-directs-group-feeding-a-case-studywith-sea-bass-juveniles-dicentrarchus-labrax-under-selfdemand-feeding-conditions/E0BE5D25E180587973B3100430A477BA",
-     "niveau": 1
+     "niveau": 1,
+     "zones": [
+      "captivite"
+     ]
     },
     {
      "ref": "Chen I.-H. et al. (2023). Food anticipatory behaviour on European seabass in sea cages. Frontiers in Marine Science 10 : 1168953 — poissons en cage",
      "url": "https://doi.org/10.3389/fmars.2023.1168953",
-     "niveau": 1
+     "niveau": 1,
+     "zones": [
+      "captivite"
+     ]
     }
    ],
    "limites": "En bassin et en cage, l'alimentation culmine à l'aube ou au crépuscule selon les individus (Millot et Bégout 2009 ; Chen 2023), mais aucune étude en milieu naturel n'a été trouvée sur l'activité de jour et de nuit du bar adulte. Les poids +1,2 et −0,9 sont des choix de modèle.",
@@ -195,6 +303,10 @@
    "valeurs": {
     "texte": "+1,2 basse lumière, +0,5 nuit, −0,9 plein jour (compensé par ciel couvert et houle)",
     "niveau": 4
+   },
+   "zone_validite": {
+    "statut": "AUCUNE",
+    "texte": "Études en bassin ou en cage, et article général : rien en milieu naturel, ni en Bretagne ni dans le Cotentin."
    }
   },
   {
@@ -222,12 +334,19 @@
     {
      "ref": "peche.com — Quelle couleur choisir selon l'eau et la météo ? (L. Duclos, 03/06/2026)",
      "url": "https://www.peche.com/article/52017/peche-aux-leurres-quelle-couleur-choisir-selon-l-eau-et-la-meteo",
-     "niveau": 2
+     "niveau": 2,
+     "zones": [
+      "inconnue"
+     ]
     }
    ],
    "limites": "La source parle du choix des couleurs par ciel couvert, pas d'un effet sur l'activité du poisson.",
    "verdict": "garder : compté dans la valeur du plein jour, 3,6 % de la variance (phase 8 : part de la variance de la favorabilité sur 241 journées réelles × 1 000 tirages ; c'est une sensibilité, pas une preuve)",
-   "statut": "INFÉRÉ"
+   "statut": "INFÉRÉ",
+   "zone_validite": {
+    "statut": "AUCUNE",
+    "texte": "Article général de pêche, sans région."
+   }
   },
   {
    "id": "maree-flot",
@@ -242,22 +361,36 @@
     {
      "ref": "Edwards J. E. et al. (2025). Multi-year tracking of European sea bass shows large-scale connectivity, summer site fidelity, and repeatability in migration timing. ICES Journal of Marine Science 82(10) : fsaf190",
      "url": "https://doi.org/10.1093/icesjms/fsaf190",
-     "niveau": 1
+     "niveau": 1,
+     "zones": [
+      "inconnue"
+     ]
     },
     {
      "ref": "de Pontual H. et al. (2023). Seasonal migration, site fidelity, and population structure of European seabass (Dicentrarchus labrax). ICES Journal of Marine Science 80 : 1606-1618 (programme Bargip, Ifremer)",
      "url": "https://doi.org/10.1093/icesjms/fsad087",
-     "niveau": 1
+     "niveau": 1,
+     "zones": [
+      "manche",
+      "gascogne"
+     ]
     },
     {
      "ref": "peche.com — La pêche du bar dans les vagues (11/06/2021)",
      "url": "https://www.peche.com/article/37249/la-peche-du-bar-dans-les-vagues-des-conditions-difficiles-souvent-payantes",
-     "niveau": 2
+     "niveau": 2,
+     "zones": [
+      "inconnue"
+     ]
     }
    ],
    "limites": "En milieu naturel : grands bars vus traversant des vasières submergées à pleine mer (Edwards 2025), signal de marée sur environ 35 % des marques (de Pontual 2023) ; le détail des fenêtres de chaque spot vient de sources de pêche ou de déductions (voir preuves-spots.json).",
    "verdict": "garder : poids de la fenêtre 4,3 % de la variance ; les heures des fenêtres (±30 min) 11,0 %, et ce sont elles qui font le plus souvent changer le premier spot (phase 8 : part de la variance de la favorabilité sur 241 journées réelles × 1 000 tirages ; c'est une sensibilité, pas une preuve)",
-   "statut": "VÉRIFIÉ"
+   "statut": "VÉRIFIÉ",
+   "zone_validite": {
+    "statut": "VOISINE",
+    "texte": "Signal de marée sur environ 35 % des marques, en Manche comme dans le golfe de Gascogne (de Pontual 2023), sans détail par zone ; fenêtres des spots : sources de pêche."
+   }
   },
   {
    "id": "coefficient-plage-utile",
@@ -271,7 +404,11 @@
    "sources": [],
    "limites": "Quelques bornes sont sourcées (Térénez : passage coupé au-delà de 85, peche-poissons.com 2022 ; Cotentin : 70 à 90 préférés, despoissonssigrands.com) ; les autres sont déduites, spot par spot.",
    "verdict": "garder, niveau 4 : plage utile 21,0 % de la variance (deuxième hypothèse, sous le seuil de 30 %), poids du coefficient 3,0 % (phase 8 : part de la variance de la favorabilité sur 241 journées réelles × 1 000 tirages ; c'est une sensibilité, pas une preuve) ; à confronter au journal",
-   "statut": "HYPOTHÈSE"
+   "statut": "HYPOTHÈSE",
+   "zone_validite": {
+    "statut": "AUCUNE",
+    "texte": "Choix de modèle, sans source."
+   }
   },
   {
    "id": "courant-coefficient",
@@ -324,7 +461,10 @@
     {
      "ref": "peche.com — La pêche du bar dans les vagues (11/06/2021)",
      "url": "https://www.peche.com/article/37249/la-peche-du-bar-dans-les-vagues-des-conditions-difficiles-souvent-payantes",
-     "niveau": 2
+     "niveau": 2,
+     "zones": [
+      "inconnue"
+     ]
     }
    ],
    "limites": "Principe de pêcheurs ; les valeurs de windMod (jusqu'à force 4 favorable, pénalités au-delà) ne sont écrites dans aucune source.",
@@ -333,6 +473,10 @@
    "valeurs": {
     "texte": "bonus et pénalités de windMod selon force, direction et exposition du spot",
     "niveau": 4
+   },
+   "zone_validite": {
+    "statut": "AUCUNE",
+    "texte": "Article général de pêche, sans région."
    }
   },
   {
@@ -346,7 +490,11 @@
    "sources": [],
    "limites": "Règle du guide ; distincte du filtre de sécurité (rafales de 75 et 90 km/h, Météo-France).",
    "verdict": "à éprouver en phase 6",
-   "statut": "INFÉRÉ"
+   "statut": "INFÉRÉ",
+   "zone_validite": {
+    "statut": "AUCUNE",
+    "texte": "Choix de modèle, sans source."
+   }
   },
   {
    "id": "pression",
@@ -360,12 +508,19 @@
     {
      "ref": "lesbredouilleurs.com, peche.com, pecheurdumorin.fr, ici.fr, dailypresse.com, ultimate-fishing.net (cités dans model.js)",
      "url": null,
-     "niveau": 5
+     "niveau": 5,
+     "zones": [
+      "inconnue"
+     ]
     }
    ],
    "limites": "Blogs de pêche, aucune étude sur le bar ; le poids est déjà réduit pour ne jamais départager seul deux spots.",
    "verdict": "conserver au poids faible, ou retirer en phase 6",
-   "statut": "INFÉRÉ"
+   "statut": "INFÉRÉ",
+   "zone_validite": {
+    "statut": "AUCUNE",
+    "texte": "Blogs, sans étude ni région."
+   }
   },
   {
    "id": "pluie-turbidite",
@@ -420,17 +575,35 @@
     {
      "ref": "Spitz J. et al. (2013). Prey preferences of adult sea bass Dicentrarchus labrax in the northeastern Atlantic. ICES Journal of Marine Science 70(2) : 452-461 (plateau du golfe de Gascogne, automne et hiver)",
      "url": "https://doi.org/10.1093/icesjms/fss200",
-     "niveau": 1
+     "niveau": 1,
+     "zones": [
+      "gascogne"
+     ]
     },
     {
      "ref": "peche.com — La pêche du bar en fonction des saisons (T. Cendrier, 08/10/2024)",
      "url": "https://www.peche.com/article/32987/la-peche-du-bar-en-fonction-des-saisons",
-     "niveau": 2
+     "niveau": 2,
+     "zones": [
+      "inconnue"
+     ]
+    },
+    {
+     "ref": "Ifremer (février 2011). Le bar, une espèce convoitée (dossier « Zoom », pêche durable)",
+     "url": "https://peche.ifremer.fr/content/download/38859/file/Zoom_bar_revision2011_def.pdf",
+     "niveau": 1,
+     "zones": [
+      "inconnue"
+     ]
     }
    ],
-   "limites": "Le seul régime alimentaire mesuré trouvé porte sur des bars du large en automne et en hiver (poissons pélagiques : maquereau, chinchard, anchois, sardine ; crustacés 3 % de la biomasse ; Spitz 2013) ; aucun calendrier côtier publié pour ces guides : mois et poids sont ceux du guide.",
+   "limites": "Le seul régime alimentaire mesuré trouvé porte sur des bars du large en automne et en hiver (poissons pélagiques : maquereau, chinchard, anchois, sardine ; crustacés 3 % de la biomasse ; Spitz 2013) ; aucun calendrier côtier publié pour ces guides : mois et poids sont ceux du guide. Phase 7 : Ifremer (2011) décrit un régime « très varié » (crustacés, céphalopodes, petits pélagiques, juvéniles de diverses espèces), sans saison ni région ; les juvéniles mangent des amphipodes puis la crevette grise (fiche regime-juveniles-crustaces) ; aucun calendrier des proies des adultes à la côte en Bretagne ni dans le Cotentin.",
    "verdict": "à sourcer en phase 6",
-   "statut": "INFÉRÉ"
+   "statut": "INFÉRÉ",
+   "zone_validite": {
+    "statut": "VOISINE",
+    "texte": "Seul régime mesuré : bars du large du golfe de Gascogne en automne et en hiver (Spitz 2013) ; rien à la côte en Bretagne ni dans le Cotentin."
+   }
   },
   {
    "id": "leurres-regles",
@@ -577,6 +750,204 @@
    "limites": "Valeurs estimées par le guide spot par spot ; aucune n'est mesurée.",
    "verdict": "garder (sécurité) ; phase 8 : première cause de « non recommandé » (298 spots-journées sur 2 376, 12,5 %) ; sur les journées où les vagues sont connues partout, 16,8 % des spots sont non recommandés. Valeurs estimées spot par spot : à revoir avec Félix",
    "statut": "HYPOTHÈSE"
+  },
+  {
+   "id": "frai-manche-ouest",
+   "domaine": "biologie",
+   "enonce": "En Manche ouest, la ponte du bar va de début janvier à fin avril-début mai, avec un pic de mi-février à fin mars ; en Bretagne, des pontes sont signalées en avril et mai.",
+   "utilise_par": [
+    "référence pour docs/moteur-bord/07-REVISION-PHASE-7.md : saison de frai par zone de validité"
+   ],
+   "niveau": 1,
+   "sources": [
+    {
+     "ref": "Fritsch M. (2005). Traits biologiques et exploitation du bar commun Dicentrarchus labrax (L.) dans les pêcheries françaises de la Manche et du golfe de Gascogne. Thèse, Université de Bretagne occidentale et Ifremer",
+     "url": "https://archimer.ifremer.fr/doc/00000/1088/738.pdf",
+     "niveau": 1,
+     "zones": [
+      "manche",
+      "bretagne-nord"
+     ]
+    }
+   ],
+   "limites": "Fritsch 2005, p. 71 et 77-78 (Manche ouest : registres de Saint-Malo à Audierne) ; la mention « avril et mai en Bretagne » cite Boulineau-Coatanea (1969), de seconde main. Frayères au large : la ponte dit l'absence probable des migrants à la côte, pas celle des résidents.",
+   "verdict": "garder comme repère de la saison des migrants ; proposition chiffrée en phase 7",
+   "statut": "VÉRIFIÉ",
+   "zone_validite": {
+    "statut": "RÉGIONALE",
+    "texte": "Manche ouest (de Saint-Malo à Audierne) et Bretagne ; pour le Cotentin ouest (Pirou), INFÉRÉ des zones voisines."
+   }
+  },
+  {
+   "id": "calendrier-ligneurs",
+   "domaine": "biologie",
+   "enonce": "Les débarquements de bar des ligneurs français sont faibles en mars-avril (moins de 10 t par mois), maximaux en juin (environ 50 t), encore élevés en septembre-octobre (30 à 40 t) et d'environ 15 t par mois de novembre à février.",
+   "utilise_par": [
+    "référence pour docs/moteur-bord/07-REVISION-PHASE-7.md : creux de printemps de la présence côtière"
+   ],
+   "niveau": 1,
+   "sources": [
+    {
+     "ref": "Fritsch M. (2005). Traits biologiques et exploitation du bar commun Dicentrarchus labrax (L.) dans les pêcheries françaises de la Manche et du golfe de Gascogne. Thèse, Université de Bretagne occidentale et Ifremer",
+     "url": "https://archimer.ifremer.fr/doc/00000/1088/738.pdf",
+     "niveau": 1,
+     "zones": [
+      "manche",
+      "gascogne"
+     ]
+    }
+   ],
+   "limites": "Fritsch 2005, p. 134 : calendrier par métier, sans découpage Bretagne ou Normandie dans la partie lue ; années autour de 2000 ; un débarquement suit l'effort, la météo, le marché et la réglementation, pas seulement l'abondance du poisson à la côte.",
+   "verdict": "indice du creux de mars-avril, à confronter au journal ; ne fixe aucun coefficient seul",
+   "statut": "VÉRIFIÉ",
+   "zone_validite": {
+    "statut": "VOISINE",
+    "texte": "Flottille française de la Manche et du golfe de Gascogne, sans zone plus fine dans la partie lue."
+   }
+  },
+  {
+   "id": "migration-par-zone",
+   "domaine": "biologie",
+   "enonce": "Bars marqués en été : 71 % de ceux de Saint-Quay-Portrieux et 67 % de ceux d'Audierne partent frayer dans le golfe de Gascogne ; ceux de Saint-Vaast-la-Hougue et de Port-en-Bessin restent pour la plupart dans l'aire nord (Manche et mer du Nord). La fidélité au site d'été atteint 81 % (Saint-Quay) et 96 % (Audierne).",
+   "utilise_par": [
+    "référence pour docs/moteur-bord/07-REVISION-PHASE-7.md : part des résidents par zone de validité"
+   ],
+   "niveau": 1,
+   "sources": [
+    {
+     "ref": "de Pontual H. et al. (2023). Seasonal migration, site fidelity, and population structure of European seabass (Dicentrarchus labrax). ICES Journal of Marine Science 80 : 1606-1618 (programme Bargip, Ifremer ; version lue : Archimer)",
+     "url": "https://archimer.ifremer.fr/doc/00841/95273/103029.pdf",
+     "niveau": 1,
+     "zones": [
+      "bretagne-nord",
+      "iroise",
+      "cotentin"
+     ]
+    }
+   ],
+   "limites": "Poissons de plus de 41,5 cm marqués par des professionnels en juin ou en septembre (biais du cadrage) ; 39,5 % des marques récupérées ; trajectoires estimées, moins précises l'hiver et près des côtes ; aucun marquage sur la côte ouest du Cotentin (Pirou, Portbail) ni en rade de Brest : ce qui s'y applique est INFÉRÉ des zones voisines.",
+   "verdict": "garder : fonde une saison différente pour la Bretagne nord et l'Iroise d'une part, le Cotentin est d'autre part",
+   "statut": "VÉRIFIÉ",
+   "zone_validite": {
+    "statut": "RÉGIONALE",
+    "texte": "Bretagne nord (Saint-Quay), Iroise et cap Sizun (Audierne), Cotentin est (Saint-Vaast) ; ailleurs INFÉRÉ."
+   }
+  },
+  {
+   "id": "printemps-cotentin",
+   "domaine": "biologie",
+   "enonce": "De mars à mai, des bars de la mer du Nord et de Manche est séjournent surtout en Manche ouest autour du Cotentin et des îles Anglo-Normandes ; de décembre à février, ils sont en Manche, en mer Celtique et au large du nord du golfe de Gascogne.",
+   "utilise_par": [
+    "référence pour docs/moteur-bord/07-REVISION-PHASE-7.md : présence de printemps au Cotentin"
+   ],
+   "niveau": 1,
+   "sources": [
+    {
+     "ref": "Goossens J., Woillez M., Wright S. et al. (2024). Elucidating the migrations of European seabass from the southern North Sea using mark-recapture data, acoustic telemetry and data storage tags. Scientific Reports 14 : 13180 (version lue : Archimer)",
+     "url": "https://archimer.ifremer.fr/doc/00893/100500/110924.pdf",
+     "niveau": 1,
+     "zones": [
+      "cotentin",
+      "manche"
+     ]
+    }
+   ],
+   "limites": "Poissons marqués en mer du Nord (Zeebrugge, Dunkerque, Suffolk), pas au Cotentin ; positions géolocalisées, « estimations plutôt qu'observations » ; ne distingue pas le bord du large. Indice de passage, pas d'une présence au bord.",
+   "verdict": "garder comme indice ; la Confiance du printemps au Cotentin reste basse",
+   "statut": "VÉRIFIÉ",
+   "zone_validite": {
+    "statut": "RÉGIONALE",
+    "texte": "Manche ouest autour du Cotentin, à l'échelle de dizaines de kilomètres."
+   }
+  },
+  {
+   "id": "structure-stock-saisonniere",
+   "domaine": "biologie",
+   "enonce": "Deux sous-populations ; la limite génétique se déplace avec la saison : au Cotentin en été, à la pointe de Bretagne en hiver. La plupart des bars de Bretagne nord frayent dans le golfe de Gascogne.",
+   "utilise_par": [
+    "référence pour docs/moteur-bord/07-REVISION-PHASE-7.md : zone de validité des calendriers"
+   ],
+   "niveau": 2,
+   "sources": [
+    {
+     "ref": "France Filière Pêche — projet BARFRAY (Ifremer Brest, CNPMEM, 2017-2021), page du projet ; thèse de C. Dambrine (2020)",
+     "url": "https://www.francefilierepeche.fr/projets/barfray-etude-frayeres-deplacements-bar-europeen/",
+     "niveau": 2,
+     "zones": [
+      "cotentin",
+      "iroise",
+      "bretagne-nord"
+     ]
+    }
+   ],
+   "limites": "Page de présentation d'un projet, pas l'article ; la limite de stock officielle (48ᵉ parallèle) reste celle de la réglementation.",
+   "verdict": "garder : le Cotentin est une zone de transition ; ne pas y transposer sans preuve le calendrier de la Bretagne",
+   "statut": "VÉRIFIÉ",
+   "zone_validite": {
+    "statut": "RÉGIONALE",
+    "texte": "Cotentin et pointe de Bretagne."
+   }
+  },
+  {
+   "id": "nourricerie-aulne",
+   "domaine": "biologie",
+   "enonce": "Dans l'estuaire de l'Aulne (rade de Brest), nourricerie pilote du programme Bargip, les bars de 0 et 1 an restent dans les parties hautes, moins salées et peu profondes ; ceux de 2 et 3 ans occupent tout l'estuaire ; dès 4 ans, ils se comportent en adultes, liés à la côte et non à l'estuaire pendant la belle saison.",
+   "utilise_par": [
+    "référence pour docs/moteur-bord/07-REVISION-PHASE-7.md : rades et estuaires"
+   ],
+   "niveau": 2,
+   "sources": [
+    {
+     "ref": "France Filière Pêche — projet BARGIP NOURRICERIES (Ifremer, CNPMEM, 2013-2017) : 13 campagnes de chalutage, 57 jours de mer, Aulne en 2015 et Loire en 2016",
+     "url": "https://www.francefilierepeche.fr/projets/bargip-nourriceries/",
+     "niveau": 2,
+     "zones": [
+      "rades-rias"
+     ]
+    }
+   ],
+   "limites": "Page de projet ; la salinité explique d'abord la répartition, la profondeur ensuite ; ces poissons sont sous la taille légale de 42 cm ; rien sur l'hiver des adultes en rade.",
+   "verdict": "garder : une rade ou un estuaire abrite surtout des bars sous la taille légale ; ne prédit pas la prise d'un bar maillé",
+   "statut": "VÉRIFIÉ",
+   "zone_validite": {
+    "statut": "RÉGIONALE",
+    "texte": "Rade de Brest (estuaire de l'Aulne)."
+   }
+  },
+  {
+   "id": "regime-juveniles-crustaces",
+   "domaine": "alimentation",
+   "enonce": "Les bars de l'année mangent surtout des petits crustacés : amphipodes sous 65 mm environ, puis la crevette grise ; dans les prés salés, des mysidacés au flot et un amphipode au jusant.",
+   "utilise_par": [
+    "référence pour docs/moteur-bord/07-REVISION-PHASE-7.md : proies des havres et estuaires"
+   ],
+   "niveau": 1,
+   "sources": [
+    {
+     "ref": "Léauté J.-P. (1984, paru en 1986). Approche du régime alimentaire des juvéniles de bars et de limandes en baie de Somme. Revue des Travaux de l'Institut des Pêches maritimes 48 : 55-63",
+     "url": "https://archimer.ifremer.fr/doc/00000/1789/1421.pdf",
+     "niveau": 1,
+     "zones": [
+      "manche"
+     ]
+    },
+    {
+     "ref": "Laffaille P. et al. (2001). Feeding ecology of 0-group sea bass, Dicentrarchus labrax, in salt marshes of Mont Saint Michel Bay (France). Estuaries 24 : 116-125",
+     "url": "https://hal.archives-ouvertes.fr/hal-00736433",
+     "niveau": 1,
+     "zones": [
+      "bretagne-nord",
+      "cotentin"
+     ]
+    }
+   ],
+   "limites": "Baie de Somme, une campagne de septembre 1982 (135 juvéniles de 42 à 80 mm) ; baie du Mont-Saint-Michel ; poissons sous la taille légale : dit ce que mangent les petits bars d'un havre, pas les adultes pêchés au leurre.",
+   "verdict": "garder comme indice des proies d'un estuaire ou d'un havre",
+   "statut": "VÉRIFIÉ",
+   "zone_validite": {
+    "statut": "RÉGIONALE",
+    "texte": "Baie du Mont-Saint-Michel, entre Bretagne nord et Cotentin ouest ; baie de Somme en Manche est."
+   }
   }
  ],
  "regles_leurres": {

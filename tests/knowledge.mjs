@@ -63,6 +63,22 @@ function knowledgeProblems(doc, schema = validate, lureRules = true) {
 const K = read("data/knowledge/bar-bord.json");
 const kp = knowledgeProblems(K);
 t("bar-bord.json : schéma, niveaux, sources, code utilisé, règles de leurres", !kp.length, kp.slice(0, 8).join(" | "));
+// PF-33 (phase 7) : chaque règle du moteur sur le comportement du bar dit d'où viennent ses sources.
+const ZONES_REGIONALES = new Set(["bretagne-nord", "iroise", "bretagne-sud", "rades-rias", "cotentin"]);
+const ZONES_VOISINES = new Set(["manche", "gascogne"]);
+function zonesProblems(doc) {
+  const p = [];
+  for (const k of (doc.connaissances || []).filter((x) => ["biologie", "comportement", "alimentation"].includes(x.domaine))) {
+    if (!k.zone_validite) { p.push(`${k.id} : zone de validité absente`); continue; }
+    const z = (k.sources || []).flatMap((s) => s.zones || []);
+    for (const s of k.sources || []) if (!s.zones) p.push(`${k.id} : source sans zone (${s.ref.slice(0, 40)})`);
+    const calcule = z.some((x) => ZONES_REGIONALES.has(x)) ? "RÉGIONALE" : z.some((x) => ZONES_VOISINES.has(x)) ? "VOISINE" : "AUCUNE";
+    if (k.zone_validite.statut !== calcule) p.push(`${k.id} : zone de validité « ${k.zone_validite.statut} » fausse, les sources disent « ${calcule} »`);
+  }
+  return p;
+}
+const zp = zonesProblems(K);
+t("PF-33 : chaque règle du moteur sur le comportement du bar porte la zone de ses sources (régionale, voisine ou aucune), et cette zone est juste", !zp.length, zp.slice(0, 6).join(" | "));
 t("bar-bord.json : les 5 niveaux de l'échelle sont définis", ["1", "2", "3", "4", "5"].every((n) => K.echelle[n]));
 t("bar-bord.json : les 82 règles du moteur de leurres sont classées", Object.values(K.regles_leurres).reduce((a, r) => a + r.regles, 0) === Object.values(lureCounts).reduce((a, n) => a + n, 0),
   `${Object.values(lureCounts).reduce((a, n) => a + n, 0)} dans le code`);

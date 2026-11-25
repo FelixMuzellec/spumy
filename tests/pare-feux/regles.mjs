@@ -214,7 +214,8 @@ export const REGLES = [
     sources: ["24 nov. 2026, 10 h 53"], portee: "produit",
     versions: {
       v2: { etat: "sansObjet", raison: fige },
-      v3: { etat: "prevu", phase: 7, raison: "la revue régionale du comportement et de l'alimentation du bar est la priorité de la phase 7 : son pare-feu (chaque règle du moteur citée par ses sources régionales) est posé avant sa clôture" },
+      v3: { etat: "controle", gardes: [["tests/knowledge.mjs", "PF-33 : chaque règle du moteur sur le comportement du bar porte la zone de ses sources"], ["tests/pare-feux-sabotage.mjs", "règle du moteur sans zone de validité"]],
+        note: "posé en phase 7 (25 nov. 2026) : chaque connaissance de biologie, de comportement ou d'alimentation du bar porte la zone de ses sources (RÉGIONALE : Bretagne nord, Iroise, Bretagne sud, rades et rias, Cotentin ; VOISINE : Manche, golfe de Gascogne ; AUCUNE), recalculée à partir des sources ; revue régionale : docs/halieutique/REVUE-REGIONALE-BAR.md" },
     } },
   { id: "PF-34", titre: "Les notes de SPUMY jugées sur le journal de sorties ; le modèle s'affine par la boucle contrôlée",
     sources: ["V3-030"], portee: "produit",
