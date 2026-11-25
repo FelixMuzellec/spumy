@@ -76,6 +76,7 @@ Les règles sont celles de la V3, en vigueur (V3-001). La colonne « Ancien code
 | PF-46 | Chaque exigence du cahier des charges (docs/REQUIREMENTS.md) a sa preuve, ou son écart écrit, avant la clôture de sa phase | 25 nov. 2026, 7 h 25 | **contrôlé** : `tests/pare-feux.mjs` | **contrôlé** : `tests/pare-feux.mjs` |
 | PF-47 | Se prémunir contre les attaques les plus modernes : chaîne d'approvisionnement npm (vers de 2026), GitHub Actions (étiquettes détournées, workflows plantés, injection de script), pages publiées (XSS) ; veille des menaces à chaque phase | 25 nov. 2026, 8 h 13 | **contrôlé** : `tests/pare-feux.mjs`, `.github/workflows/tests.yml`, `docs/security/THREAT_MODEL.md` ; failles connues et délai de 7 jours des bibliothèques en CI ; verrou npm intègre ; installation sans scripts ; actions épinglées ; workflows inscrits, en lecture seule, sans injection ; politique de sécurité des pages | **contrôlé** : `tests/pare-feux.mjs`, `.github/workflows/tests.yml`, `docs/security/THREAT_MODEL.md` ; failles connues et délai de 7 jours des bibliothèques en CI ; verrou npm intègre ; installation sans scripts ; actions épinglées ; workflows inscrits, en lecture seule, sans injection ; politique de sécurité des pages |
 | PF-48 | Proposer les meilleures solutions (architecture, UX, fonctionnalités, sécurité), comparées, et les détailler pour qu'une personne qui n'y connaît rien puisse les mettre en œuvre | 25 nov. 2026, 8 h 13 | **contrôlé** : `tests/pare-feux.mjs` ; chaque rapport de phase à partir de la phase 7 : partie 4, « Solutions comparées » (recommandée et pourquoi) et « Mise en œuvre pas à pas » ; partie 10, « Menaces actuelles et parades » ; la qualité des propositions reste jugée par Félix | **contrôlé** : `tests/pare-feux.mjs` ; chaque rapport de phase à partir de la phase 7 : partie 4, « Solutions comparées » (recommandée et pourquoi) et « Mise en œuvre pas à pas » ; partie 10, « Menaces actuelles et parades » ; la qualité des propositions reste jugée par Félix |
+| PF-49 | Chaque section de l'application se confronte aux indicateurs (KPI) des standards internationaux, mesurés par un programme et jamais estimés ; une valeur ne recule jamais sans raison écrite | 25 nov. 2026, 9 h 37 | **contrôlé** : `tests/pare-feux.mjs`, `.github/workflows/tests.yml` ; registre tests/pare-feux/kpis.mjs ; mesures data/kpi/ ; tableau docs/regles/KPI.md | **contrôlé** : `tests/pare-feux.mjs`, `.github/workflows/tests.yml` ; registre tests/pare-feux/kpis.mjs ; mesures data/kpi/ ; tableau docs/regles/KPI.md |
 | PF-42 | Chaque consigne a son pare-feu, et les pare-feux s'adaptent à chaque version de l'application (ce registre) | 25 nov. 2026, 6 h 32 | **contrôlé** : `tests/pare-feux.mjs`, `tests/pare-feux-sabotage.mjs` | **contrôlé** : `tests/pare-feux.mjs`, `tests/pare-feux-sabotage.mjs` |
 
 ## Sources sans règle propre
@@ -84,7 +85,7 @@ Les règles sont celles de la V3, en vigueur (V3-001). La colonne « Ancien code
 
 ## Bilan
 
-- contrôlé : 44
+- contrôlé : 45
 - prévu : 12
 - consigne (non automatisable) : 5
 - sans objet : 19

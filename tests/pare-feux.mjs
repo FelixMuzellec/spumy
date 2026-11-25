@@ -12,6 +12,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { VERSIONS, REGLES, SANS_REGLE, INTERFACE_V3, PLANCHERS_GRAPHIQUES, FILTRES_INTERDITS, WORKFLOWS_INSCRITS, RAPPORTS_DEPUIS } from "./pare-feux/regles.mjs";
 import { EXIGENCES } from "./pare-feux/exigences.mjs";
+import { KPIS } from "./pare-feux/kpis.mjs";
+import { rendreDoc as rendreKpi, atteint as kpiAtteint } from "../scripts/kpi/mesurer.mjs";
 import { fichiersSansUsage, gardesAuRegistre } from "../scripts/pare-feux/inutiles.mjs";
 import { verifierBranche, phaseAutorisee } from "../scripts/pare-feux/branche.mjs";
 import { verifierMessage, verifierPlage } from "../scripts/pare-feux/commits.mjs";
@@ -267,6 +269,26 @@ for (const x of exigences) {
   if (e.etat !== "ecart") t(`${nom} : au moins un contrôle`, (e.gardes || []).length > 0);
   t(`${nom} : contrôles présents, marqués et lancés`, preuve(e), (e.gardes || []).map(([f]) => f).join(", "));
 }
+
+// ——— 4 ter. Indicateurs des standards internationaux (PF-49) ———
+{ const mesures = existe("data/kpi/mesures.json") ? JSON.parse(lire("data/kpi/mesures.json")).valeurs : {};
+  const idsK = new Set();
+  for (const k of KPIS) {
+    const nom = `indicateur ${k.id} (${k.section})`;
+    t(`${nom} : identifiant unique`, !idsK.has(k.id)); idsK.add(k.id);
+    t(`${nom} : norme nommée avec sa version`, !!k.norme?.nom && !!k.norme?.version);
+    t(`${nom} : seuil et origine du seuil`, Array.isArray(k.seuil) && [">=", ">", "<=", "==", "entre"].includes(k.seuil[0]) && ["norme", "proposé"].includes(k.seuilSource));
+    t(`${nom} : mesure automatique, contrôle bloquant ou mesure prévue`, ["auto", "garde", "prevu"].includes(k.mesure), k.mesure);
+    if (k.mesure === "prevu") { t(`${nom} : phase et raison de la mesure prévue`, Number.isInteger(k.phase) && !!k.raison); t(`${nom} : la phase ${k.phase} n'est pas close sans sa mesure`, !rapportsClos.has(k.phase)); }
+    if (k.mesure === "garde") for (const [f, marque] of k.gardes) t(`${nom} : contrôle ${f} présent, marqué « ${marque.slice(0, 40)} » et lancé`, existe(f) && lire(f).includes(marque) && (f.startsWith(".github/") || lancesCI(f) || lanceParUnTest(f)));
+    if (k.mesure === "auto") {
+      const m = mesures[k.cle];
+      t(`${nom} : valeur mesurée enregistrée (${k.cle})`, !!m && typeof m.valeur === "number");
+      if (m && !kpiAtteint(k, m.valeur)) { t(`${nom} : seuil non atteint (${m.valeur}) : écart écrit, avec sa phase`, !!k.ecart?.raison && Number.isInteger(k.ecart?.phase));
+        if (k.ecart?.phase) t(`${nom} : la phase ${k.ecart.phase} n'est pas close sans que le seuil soit atteint`, !rapportsClos.has(k.ecart.phase)); }
+    }
+  }
+  t("indicateur : docs/regles/KPI.md à jour (node scripts/kpi/mesurer.mjs --ecrire)", existe("docs/regles/KPI.md") && lire("docs/regles/KPI.md") === rendreKpi(mesures)); }
 
 // ——— 5. Tableau lisible, généré depuis le registre ———
 const ETIQ = { controle: "contrôlé", prevu: "prévu", sansObjet: "sans objet", manuel: "consigne (non automatisable)" };

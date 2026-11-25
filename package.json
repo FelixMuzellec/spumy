@@ -36,7 +36,8 @@
     "test:spots-v3": "node tests/spots-v3.mjs",
     "test:etude-moteur": "node tests/etude-moteur-bord.mjs",
     "test:pare-feux": "node tests/pare-feux.mjs",
-    "test:pare-feux-sabotage": "node tests/pare-feux-sabotage.mjs"
+    "test:pare-feux-sabotage": "node tests/pare-feux-sabotage.mjs",
+    "kpi": "node scripts/kpi/mesurer.mjs --ecrire"
   },
   "dependencies": {
     "leaflet": "^1.9.4",
@@ -49,6 +50,7 @@
     "@fontsource-variable/roboto-condensed": "5.3.0",
     "ajv": "8.20.0",
     "axe-core": "^4.10.2",
+    "c8": "^9.1.0",
     "esbuild": "^0.28.2",
     "eslint": "10.15.0",
     "eslint-plugin-react-hooks": "7.1.1",

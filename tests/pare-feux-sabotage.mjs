@@ -73,6 +73,10 @@ const ESSAIS = [
   ["faille grave dans une bibliothèque", "paquet-piege : faille high", () => ecrire("audit-essai.json", fauxAudit), BIBLIO],
   ["faille grave acceptée sans date de fin valable", "acceptation sans raison ou échue", () => { ecrire("audit-essai.json", fauxAudit);
     ecrire("tests/pare-feux/failles-acceptees.json", JSON.stringify({ acceptees: [{ paquet: "paquet-piege", avis: "https://github.com/advisories/GHSA-essai", raison: "essai", jusqu_au: "2020-01-01" }] })); }, BIBLIO],
+  ["indicateur en recul (une fiche cite une source privée)", "K-13 : indicateur en recul", () => remplacer(`data/spots/fiches/${fiche}`, /("QUAL-7":\s*\{\s*"ok":\s*)true/, "$1false"), ["scripts/kpi/mesurer.mjs", "--verifier", "--sans-couverture"]],
+  ["seuil non atteint sans écart écrit", "indicateur K-04 (Moteur BORD) : seuil non atteint", () => remplacer("tests/pare-feux/kpis.mjs", /mesure: "auto", cle: "couverture\.moteur\.branches", ecart: \{[^}]*\} \}/, "mesure: \"auto\", cle: \"couverture.moteur.branches\" }")],
+  ["phase 8 close sans la mesure du moteur sur le journal", "indicateur K-01 (Moteur BORD) : la phase 8 n'est pas close sans sa mesure", () => ecrire("docs/rapports/v3/PHASE-8.md", "# rapport\n")],
+  ["tableau des indicateurs modifié à la main", "KPI.md à jour", () => ajouter("docs/regles/KPI.md", "x\n")],
 ];
 
 let arretees = 0;

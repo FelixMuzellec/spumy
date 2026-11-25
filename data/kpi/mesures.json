@@ -1,0 +1,58 @@
+{
+  "//": "Valeurs mesurées par scripts/kpi/mesurer.mjs (KPI de tests/pare-feux/kpis.mjs).",
+  "valeurs": {
+    "couverture.moteur.branches": {
+      "valeur": 89.71,
+      "detail": "576/642 branches de scripts/etude-moteur-bord (c8, tests/etude-moteur-bord.mjs)"
+    },
+    "couverture.moteur.instructions": {
+      "valeur": 98.53,
+      "detail": "872/885 instructions"
+    },
+    "donnees.securite_documentee": {
+      "valeur": 18.4,
+      "detail": "18 fiches sur 98"
+    },
+    "donnees.credibilite": {
+      "valeur": 49,
+      "detail": "48 fiches sur 98"
+    },
+    "donnees.exactitude": {
+      "valeur": 70.4,
+      "detail": "69 fiches sur 98"
+    },
+    "donnees.completude": {
+      "valeur": 64.1,
+      "detail": "moyenne sur 98 fiches"
+    },
+    "donnees.reglementation": {
+      "valeur": 64.3,
+      "detail": "63 fiches sur 98"
+    },
+    "donnees.confidentialite": {
+      "valeur": 100,
+      "detail": "98 fiches sur 98"
+    },
+    "donnees.actualite": {
+      "valeur": 100,
+      "detail": "vérification datée de moins de 365 jours"
+    },
+    "accessibilite.contraste_texte_min": {
+      "valeur": 4.71,
+      "detail": "39 associations texte / fond, deux thèmes (tests/design-v3.mjs)"
+    },
+    "performance.lcp_v3_max": {
+      "valeur": 2820,
+      "detail": "Home du prototype V3 (v3-prototype-home), mesure du 2026-11-23 (scripts/mesure-perf.mjs)",
+      "mesure_le": "2026-11-23"
+    },
+    "code.v3_fonctions_complexes": {
+      "valeur": 13,
+      "detail": "dont scripts/etude-moteur-bord/securite.mjs:56 (54)"
+    },
+    "compatibilite.navigateurs": {
+      "valeur": 1,
+      "detail": "chromium"
+    }
+  }
+}
