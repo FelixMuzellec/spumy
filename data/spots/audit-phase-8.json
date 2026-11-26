@@ -1,0 +1,2405 @@
+{
+ "//": "Audit stratifié de la phase 8 V3. Régénérer : node scripts/audit-fiches-phase-8.mjs. Lecture : docs/validation/AUDIT-FICHES-PHASE-8.md",
+ "fiches": 98,
+ "tirees": 67,
+ "strates": {
+  "1-top-tier-corroboree": {
+   "fiches": 3,
+   "tirees": 3
+  },
+  "2-poste-engage": {
+   "fiches": 15,
+   "tirees": 15
+  },
+  "3-contrainte-maree": {
+   "fiches": 16,
+   "tirees": 16
+  },
+  "4-position-douteuse": {
+   "fiches": 17,
+   "tirees": 17
+  },
+  "5-candidat-v3": {
+   "fiches": 27,
+   "tirees": 9
+  },
+  "6-v2-autres": {
+   "fiches": 20,
+   "tirees": 7
+  }
+ },
+ "constatsParCode": {
+  "P": 16,
+  "S": 0,
+  "D": 0,
+  "M": 14,
+  "G": 67,
+  "C": 0,
+  "I": 2,
+  "T": 0
+ },
+ "phasesNonDocumentees": {
+  "haute": 52,
+  "basse": 62,
+  "montante": 17,
+  "descendante": 30
+ },
+ "fichesAvecConstatGrave": [
+  {
+   "id": "mousterlin",
+   "constats": [
+    "G : contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+   ]
+  },
+  {
+   "id": "penmarch",
+   "constats": [
+    "G : contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+   ]
+  },
+  {
+   "id": "saintemarguerite",
+   "constats": [
+    "G : contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+   ]
+  },
+  {
+   "id": "agon",
+   "constats": [
+    "G : contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+   ]
+  },
+  {
+   "id": "gouville",
+   "constats": [
+    "G : contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+   ]
+  },
+  {
+   "id": "granville",
+   "constats": [
+    "G : contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+   ]
+  },
+  {
+   "id": "kermorvan",
+   "constats": [
+    "G : contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+   ]
+  },
+  {
+   "id": "aberbenoit",
+   "constats": [
+    "G : contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+   ]
+  },
+  {
+   "id": "barnenez",
+   "constats": [
+    "G : contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+   ]
+  },
+  {
+   "id": "capcoz",
+   "constats": [
+    "G : contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+   ]
+  },
+  {
+   "id": "carantec",
+   "constats": [
+    "G : contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+   ]
+  },
+  {
+   "id": "kernic",
+   "constats": [
+    "G : contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+   ]
+  },
+  {
+   "id": "locquirec",
+   "constats": [
+    "G : contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+   ]
+  },
+  {
+   "id": "paluden",
+   "constats": [
+    "G : contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+   ]
+  },
+  {
+   "id": "pennenez",
+   "constats": [
+    "G : contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+   ]
+  },
+  {
+   "id": "penze",
+   "constats": [
+    "G : contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+   ]
+  },
+  {
+   "id": "pirou",
+   "constats": [
+    "G : contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+   ]
+  },
+  {
+   "id": "portbail",
+   "constats": [
+    "G : contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+   ]
+  },
+  {
+   "id": "regneville",
+   "constats": [
+    "G : contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+   ]
+  },
+  {
+   "id": "sciotot",
+   "constats": [
+    "G : contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+   ]
+  },
+  {
+   "id": "surtainville",
+   "constats": [
+    "G : contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+   ]
+  },
+  {
+   "id": "terenez",
+   "constats": [
+    "G : contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+   ]
+  }
+ ],
+ "graveHorsSecuriteSurToutesLesFiches": [],
+ "echantillon": [
+  {
+   "id": "mousterlin",
+   "nom": "Pointe de Mousterlin",
+   "origine": "v2_preserved",
+   "statut": "TOP_TIER",
+   "strate": "1-top-tier-corroboree",
+   "phasesDocumentees": [
+    "montante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse",
+    "descendante"
+   ],
+   "sources": 15,
+   "groupesIndependants": 11,
+   "sourcesNonEvaluees": 2,
+   "engagement": 2,
+   "consignes": 2,
+   "consignesSourcees": 2,
+   "contrainteMaree": true,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": true,
+     "texte": "contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+    }
+   ]
+  },
+  {
+   "id": "penmarch",
+   "nom": "Pointe de Penmarc'h",
+   "origine": "v2_preserved",
+   "statut": "TOP_TIER",
+   "strate": "1-top-tier-corroboree",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 15,
+   "groupesIndependants": 11,
+   "sourcesNonEvaluees": 1,
+   "engagement": 3,
+   "consignes": 2,
+   "consignesSourcees": 2,
+   "contrainteMaree": true,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": true,
+     "texte": "contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+    }
+   ]
+  },
+  {
+   "id": "saintemarguerite",
+   "nom": "Dunes de Sainte-Marguerite",
+   "origine": "v2_preserved",
+   "statut": "corroboree",
+   "strate": "1-top-tier-corroboree",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 13,
+   "groupesIndependants": 10,
+   "sourcesNonEvaluees": 2,
+   "engagement": 2,
+   "consignes": 3,
+   "consignesSourcees": 3,
+   "contrainteMaree": true,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": true,
+     "texte": "contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+    }
+   ]
+  },
+  {
+   "id": "agon",
+   "nom": "Pointe d'Agon",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "2-poste-engage",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 16,
+   "groupesIndependants": 13,
+   "sourcesNonEvaluees": 4,
+   "engagement": 3,
+   "consignes": 4,
+   "consignesSourcees": 4,
+   "contrainteMaree": true,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": true,
+     "texte": "contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+    }
+   ]
+  },
+  {
+   "id": "brezellec",
+   "nom": "Pointe de Brézellec",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "2-poste-engage",
+   "phasesDocumentees": [
+    "haute",
+    "montante"
+   ],
+   "phasesNonDocumentees": [
+    "basse",
+    "descendante"
+   ],
+   "sources": 15,
+   "groupesIndependants": 11,
+   "sourcesNonEvaluees": 3,
+   "engagement": 3,
+   "consignes": 1,
+   "consignesSourcees": 1,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "carteret",
+   "nom": "Cap de Carteret",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "2-poste-engage",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 14,
+   "groupesIndependants": 11,
+   "sourcesNonEvaluees": 3,
+   "engagement": 3,
+   "consignes": 2,
+   "consignesSourcees": 2,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "corsen",
+   "nom": "Pointe de Corsen",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "2-poste-engage",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 13,
+   "groupesIndependants": 9,
+   "sourcesNonEvaluees": 1,
+   "engagement": 3,
+   "consignes": 1,
+   "consignesSourcees": 1,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "dinan",
+   "nom": "Pointe de Dinan",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "2-poste-engage",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 15,
+   "groupesIndependants": 11,
+   "sourcesNonEvaluees": 4,
+   "engagement": 3,
+   "consignes": 2,
+   "consignesSourcees": 2,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    },
+    {
+     "code": "I",
+     "grave": false,
+     "texte": "site isolé (secours plus lents) : attention accrue"
+    }
+   ]
+  },
+  {
+   "id": "espagnols",
+   "nom": "Pointe des Espagnols",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "2-poste-engage",
+   "phasesDocumentees": [
+    "haute",
+    "basse",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "montante"
+   ],
+   "sources": 16,
+   "groupesIndependants": 11,
+   "sourcesNonEvaluees": 4,
+   "engagement": 3,
+   "consignes": 2,
+   "consignesSourcees": 2,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "goury",
+   "nom": "Goury",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "2-poste-engage",
+   "phasesDocumentees": [
+    "haute",
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "basse"
+   ],
+   "sources": 15,
+   "groupesIndependants": 10,
+   "sourcesNonEvaluees": 4,
+   "engagement": 3,
+   "consignes": 2,
+   "consignesSourcees": 2,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "gouville",
+   "nom": "Gouville-sur-Mer",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "2-poste-engage",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 14,
+   "groupesIndependants": 13,
+   "sourcesNonEvaluees": 5,
+   "engagement": 3,
+   "consignes": 3,
+   "consignesSourcees": 3,
+   "contrainteMaree": true,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "P",
+     "grave": false,
+     "texte": "toponyme IGN à 1747 m"
+    },
+    {
+     "code": "G",
+     "grave": true,
+     "texte": "contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+    }
+   ]
+  },
+  {
+   "id": "granville",
+   "nom": "Granville",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "2-poste-engage",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 16,
+   "groupesIndependants": 13,
+   "sourcesNonEvaluees": 3,
+   "engagement": 3,
+   "consignes": 3,
+   "consignesSourcees": 3,
+   "contrainteMaree": true,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": true,
+     "texte": "contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+    }
+   ]
+  },
+  {
+   "id": "kermorvan",
+   "nom": "Pointe de Kermorvan",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "2-poste-engage",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 14,
+   "groupesIndependants": 10,
+   "sourcesNonEvaluees": 3,
+   "engagement": 3,
+   "consignes": 3,
+   "consignesSourcees": 3,
+   "contrainteMaree": true,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": true,
+     "texte": "contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+    }
+   ]
+  },
+  {
+   "id": "lostmarch",
+   "nom": "Pointe de Lostmarc'h",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "2-poste-engage",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 12,
+   "groupesIndependants": 9,
+   "sourcesNonEvaluees": 2,
+   "engagement": 3,
+   "consignes": 1,
+   "consignesSourcees": 1,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "penhir",
+   "nom": "Pointe de Pen-Hir",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "2-poste-engage",
+   "phasesDocumentees": [
+    "haute",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "basse",
+    "montante"
+   ],
+   "sources": 11,
+   "groupesIndependants": 8,
+   "sourcesNonEvaluees": 2,
+   "engagement": 3,
+   "consignes": 1,
+   "consignesSourcees": 1,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "raz",
+   "nom": "Pointe du Raz",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "2-poste-engage",
+   "phasesDocumentees": [
+    "haute",
+    "montante"
+   ],
+   "phasesNonDocumentees": [
+    "basse",
+    "descendante"
+   ],
+   "sources": 12,
+   "groupesIndependants": 9,
+   "sourcesNonEvaluees": 3,
+   "engagement": 3,
+   "consignes": 3,
+   "consignesSourcees": 3,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "saintguenole",
+   "nom": "Rochers de Saint-Guénolé",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "2-poste-engage",
+   "phasesDocumentees": [
+    "haute",
+    "montante"
+   ],
+   "phasesNonDocumentees": [
+    "basse",
+    "descendante"
+   ],
+   "sources": 15,
+   "groupesIndependants": 11,
+   "sourcesNonEvaluees": 4,
+   "engagement": 3,
+   "consignes": 2,
+   "consignesSourcees": 2,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "van",
+   "nom": "Pointe du Van",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "2-poste-engage",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 11,
+   "groupesIndependants": 7,
+   "sourcesNonEvaluees": 2,
+   "engagement": 3,
+   "consignes": 1,
+   "consignesSourcees": 1,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "aberbenoit",
+   "nom": "Embouchure de l'Aber Benoît",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "3-contrainte-maree",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 15,
+   "groupesIndependants": 11,
+   "sourcesNonEvaluees": 3,
+   "engagement": 2,
+   "consignes": 2,
+   "consignesSourcees": 2,
+   "contrainteMaree": true,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": true,
+     "texte": "contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+    }
+   ]
+  },
+  {
+   "id": "barnenez",
+   "nom": "Barnénez – Dourduff",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "3-contrainte-maree",
+   "phasesDocumentees": [
+    "basse",
+    "montante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "descendante"
+   ],
+   "sources": 14,
+   "groupesIndependants": 9,
+   "sourcesNonEvaluees": 4,
+   "engagement": 2,
+   "consignes": 2,
+   "consignesSourcees": 2,
+   "contrainteMaree": true,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": true,
+     "texte": "contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+    }
+   ]
+  },
+  {
+   "id": "capcoz",
+   "nom": "Pointe du Cap Coz",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "3-contrainte-maree",
+   "phasesDocumentees": [
+    "haute",
+    "montante"
+   ],
+   "phasesNonDocumentees": [
+    "basse",
+    "descendante"
+   ],
+   "sources": 14,
+   "groupesIndependants": 12,
+   "sourcesNonEvaluees": 4,
+   "engagement": 1,
+   "consignes": 1,
+   "consignesSourcees": 1,
+   "contrainteMaree": true,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "P",
+     "grave": false,
+     "texte": "position jamais contrôlée par l'IGN"
+    },
+    {
+     "code": "G",
+     "grave": true,
+     "texte": "contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+    }
+   ]
+  },
+  {
+   "id": "carantec",
+   "nom": "Carantec : Penn al Lann – Cosmeur",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "3-contrainte-maree",
+   "phasesDocumentees": [
+    "basse",
+    "montante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "descendante"
+   ],
+   "sources": 15,
+   "groupesIndependants": 11,
+   "sourcesNonEvaluees": 5,
+   "engagement": 1,
+   "consignes": 1,
+   "consignesSourcees": 1,
+   "contrainteMaree": true,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": true,
+     "texte": "contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+    }
+   ]
+  },
+  {
+   "id": "grandbe",
+   "nom": "Saint-Malo : Grand Bé et Petit Bé",
+   "origine": "v3_researched",
+   "statut": "candidate",
+   "strate": "3-contrainte-maree",
+   "phasesDocumentees": [],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse",
+    "montante",
+    "descendante"
+   ],
+   "sources": 15,
+   "groupesIndependants": 11,
+   "sourcesNonEvaluees": 0,
+   "engagement": null,
+   "consignes": 3,
+   "consignesSourcees": 3,
+   "contrainteMaree": true,
+   "fenetreSecurite": true,
+   "constats": [
+    {
+     "code": "M",
+     "grave": false,
+     "texte": "aucune phase de marée documentée"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "engagement inconnu"
+    }
+   ]
+  },
+  {
+   "id": "kernic",
+   "nom": "Baie du Kernic",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "3-contrainte-maree",
+   "phasesDocumentees": [
+    "haute",
+    "montante"
+   ],
+   "phasesNonDocumentees": [
+    "basse",
+    "descendante"
+   ],
+   "sources": 12,
+   "groupesIndependants": 9,
+   "sourcesNonEvaluees": 3,
+   "engagement": 2,
+   "consignes": 3,
+   "consignesSourcees": 3,
+   "contrainteMaree": true,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "P",
+     "grave": false,
+     "texte": "toponyme IGN à 1840 m"
+    },
+    {
+     "code": "G",
+     "grave": true,
+     "texte": "contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+    }
+   ]
+  },
+  {
+   "id": "locquirec",
+   "nom": "Locquirec : pointe et digue",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "3-contrainte-maree",
+   "phasesDocumentees": [
+    "haute",
+    "montante"
+   ],
+   "phasesNonDocumentees": [
+    "basse",
+    "descendante"
+   ],
+   "sources": 13,
+   "groupesIndependants": 11,
+   "sourcesNonEvaluees": 4,
+   "engagement": 1,
+   "consignes": 1,
+   "consignesSourcees": 1,
+   "contrainteMaree": true,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "P",
+     "grave": false,
+     "texte": "position jamais contrôlée par l'IGN"
+    },
+    {
+     "code": "G",
+     "grave": true,
+     "texte": "contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+    }
+   ]
+  },
+  {
+   "id": "paluden",
+   "nom": "Aber Wrac'h : Paluden – pont du Diable",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "3-contrainte-maree",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 16,
+   "groupesIndependants": 12,
+   "sourcesNonEvaluees": 2,
+   "engagement": 1,
+   "consignes": 3,
+   "consignesSourcees": 3,
+   "contrainteMaree": true,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "P",
+     "grave": false,
+     "texte": "toponyme IGN à 4069 m"
+    },
+    {
+     "code": "G",
+     "grave": true,
+     "texte": "contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+    }
+   ]
+  },
+  {
+   "id": "pennenez",
+   "nom": "Penn Enez – Grève Blanche",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "3-contrainte-maree",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 13,
+   "groupesIndependants": 9,
+   "sourcesNonEvaluees": 1,
+   "engagement": 1,
+   "consignes": 1,
+   "consignesSourcees": 1,
+   "contrainteMaree": true,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": true,
+     "texte": "contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+    },
+    {
+     "code": "I",
+     "grave": false,
+     "texte": "site isolé (secours plus lents) : attention accrue"
+    }
+   ]
+  },
+  {
+   "id": "penze",
+   "nom": "Embouchure de la Penzé",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "3-contrainte-maree",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 13,
+   "groupesIndependants": 10,
+   "sourcesNonEvaluees": 3,
+   "engagement": 1,
+   "consignes": 1,
+   "consignesSourcees": 1,
+   "contrainteMaree": true,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "P",
+     "grave": false,
+     "texte": "position jamais contrôlée par l'IGN"
+    },
+    {
+     "code": "G",
+     "grave": true,
+     "texte": "contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+    }
+   ]
+  },
+  {
+   "id": "pirou",
+   "nom": "Pirou Plage",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "3-contrainte-maree",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 14,
+   "groupesIndependants": 12,
+   "sourcesNonEvaluees": 4,
+   "engagement": 2,
+   "consignes": 3,
+   "consignesSourcees": 3,
+   "contrainteMaree": true,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": true,
+     "texte": "contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+    }
+   ]
+  },
+  {
+   "id": "portbail",
+   "nom": "Portbail",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "3-contrainte-maree",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 15,
+   "groupesIndependants": 12,
+   "sourcesNonEvaluees": 2,
+   "engagement": 2,
+   "consignes": 3,
+   "consignesSourcees": 3,
+   "contrainteMaree": true,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": true,
+     "texte": "contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+    }
+   ]
+  },
+  {
+   "id": "regneville",
+   "nom": "Régnéville",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "3-contrainte-maree",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 16,
+   "groupesIndependants": 13,
+   "sourcesNonEvaluees": 4,
+   "engagement": 2,
+   "consignes": 4,
+   "consignesSourcees": 4,
+   "contrainteMaree": true,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": true,
+     "texte": "contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+    }
+   ]
+  },
+  {
+   "id": "sciotot",
+   "nom": "Anse de Sciotot",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "3-contrainte-maree",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 15,
+   "groupesIndependants": 12,
+   "sourcesNonEvaluees": 3,
+   "engagement": 2,
+   "consignes": 3,
+   "consignesSourcees": 3,
+   "contrainteMaree": true,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "P",
+     "grave": false,
+     "texte": "toponyme IGN à 1530 m"
+    },
+    {
+     "code": "G",
+     "grave": true,
+     "texte": "contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+    }
+   ]
+  },
+  {
+   "id": "surtainville",
+   "nom": "Surtainville",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "3-contrainte-maree",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 12,
+   "groupesIndependants": 11,
+   "sourcesNonEvaluees": 3,
+   "engagement": 2,
+   "consignes": 2,
+   "consignesSourcees": 2,
+   "contrainteMaree": true,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": true,
+     "texte": "contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+    }
+   ]
+  },
+  {
+   "id": "terenez",
+   "nom": "Île de Térénez",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "3-contrainte-maree",
+   "phasesDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "phasesNonDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "sources": 10,
+   "groupesIndependants": 6,
+   "sourcesNonEvaluees": 1,
+   "engagement": 2,
+   "consignes": 2,
+   "consignesSourcees": 2,
+   "contrainteMaree": true,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": true,
+     "texte": "contrainte de marée connue sans fenêtre de sécurité : jamais présenté comme praticable"
+    }
+   ]
+  },
+  {
+   "id": "bendy",
+   "nom": "Pointe du Bendy",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "4-position-douteuse",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 14,
+   "groupesIndependants": 10,
+   "sourcesNonEvaluees": 3,
+   "engagement": 1,
+   "consignes": 0,
+   "consignesSourcees": 0,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "P",
+     "grave": false,
+     "texte": "position jamais contrôlée par l'IGN"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "brehec",
+   "nom": "Bréhec",
+   "origine": "v3_researched",
+   "statut": "candidate",
+   "strate": "4-position-douteuse",
+   "phasesDocumentees": [],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse",
+    "montante",
+    "descendante"
+   ],
+   "sources": 9,
+   "groupesIndependants": 8,
+   "sourcesNonEvaluees": 0,
+   "engagement": null,
+   "consignes": 0,
+   "consignesSourcees": 0,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "M",
+     "grave": false,
+     "texte": "aucune phase de marée documentée"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "engagement inconnu"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "camfrout",
+   "nom": "L'Hôpital-Camfrout",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "4-position-douteuse",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 14,
+   "groupesIndependants": 9,
+   "sourcesNonEvaluees": 4,
+   "engagement": 2,
+   "consignes": 1,
+   "consignesSourcees": 1,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "P",
+     "grave": false,
+     "texte": "toponyme IGN à 2388 m"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "goyen",
+   "nom": "Embouchure du Goyen",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "4-position-douteuse",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 12,
+   "groupesIndependants": 8,
+   "sourcesNonEvaluees": 1,
+   "engagement": 1,
+   "consignes": 1,
+   "consignesSourcees": 1,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "laita",
+   "nom": "Estuaire de la Laïta",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "4-position-douteuse",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 16,
+   "groupesIndependants": 12,
+   "sourcesNonEvaluees": 4,
+   "engagement": 2,
+   "consignes": 2,
+   "consignesSourcees": 2,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "P",
+     "grave": false,
+     "texte": "toponyme IGN à 4737 m"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "landevennec",
+   "nom": "Landévennec",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "4-position-douteuse",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 15,
+   "groupesIndependants": 10,
+   "sourcesNonEvaluees": 4,
+   "engagement": 1,
+   "consignes": 0,
+   "consignesSourcees": 0,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "lauberlach",
+   "nom": "Sillon de Lauberlac'h",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "4-position-douteuse",
+   "phasesDocumentees": [
+    "haute",
+    "montante"
+   ],
+   "phasesNonDocumentees": [
+    "basse",
+    "descendante"
+   ],
+   "sources": 12,
+   "groupesIndependants": 9,
+   "sourcesNonEvaluees": 4,
+   "engagement": 1,
+   "consignes": 0,
+   "consignesSourcees": 0,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "P",
+     "grave": false,
+     "texte": "position jamais contrôlée par l'IGN"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "merrien",
+   "nom": "Moëlan-sur-Mer : embouchure du Merrien",
+   "origine": "v3_researched",
+   "statut": "candidate",
+   "strate": "4-position-douteuse",
+   "phasesDocumentees": [],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse",
+    "montante",
+    "descendante"
+   ],
+   "sources": 10,
+   "groupesIndependants": 7,
+   "sourcesNonEvaluees": 0,
+   "engagement": null,
+   "consignes": 0,
+   "consignesSourcees": 0,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "P",
+     "grave": false,
+     "texte": "toponyme IGN à 3296 m"
+    },
+    {
+     "code": "M",
+     "grave": false,
+     "texte": "aucune phase de marée documentée"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "engagement inconnu"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "moulinmer",
+   "nom": "Moulin Mer",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "4-position-douteuse",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 13,
+   "groupesIndependants": 9,
+   "sourcesNonEvaluees": 4,
+   "engagement": 1,
+   "consignes": 1,
+   "consignesSourcees": 1,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "odet",
+   "nom": "Embouchure de l'Odet",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "4-position-douteuse",
+   "phasesDocumentees": [
+    "basse",
+    "montante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "descendante"
+   ],
+   "sources": 12,
+   "groupesIndependants": 8,
+   "sourcesNonEvaluees": 2,
+   "engagement": 1,
+   "consignes": 2,
+   "consignesSourcees": 2,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "P",
+     "grave": false,
+     "texte": "toponyme IGN à 2399 m"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "penhors",
+   "nom": "Penhors",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "4-position-douteuse",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 13,
+   "groupesIndependants": 10,
+   "sourcesNonEvaluees": 4,
+   "engagement": 1,
+   "consignes": 0,
+   "consignesSourcees": 0,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "portmanech",
+   "nom": "Embouchures de l'Aven et du Bélon",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "4-position-douteuse",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 12,
+   "groupesIndependants": 9,
+   "sourcesNonEvaluees": 2,
+   "engagement": 2,
+   "consignes": 1,
+   "consignesSourcees": 1,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "P",
+     "grave": false,
+     "texte": "position jamais contrôlée par l'IGN"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "rosaires",
+   "nom": "Plage des Rosaires et pointe de Pordic",
+   "origine": "v3_researched",
+   "statut": "candidate",
+   "strate": "4-position-douteuse",
+   "phasesDocumentees": [],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse",
+    "montante",
+    "descendante"
+   ],
+   "sources": 11,
+   "groupesIndependants": 8,
+   "sourcesNonEvaluees": 0,
+   "engagement": null,
+   "consignes": 0,
+   "consignesSourcees": 0,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "M",
+     "grave": false,
+     "texte": "aucune phase de marée documentée"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "engagement inconnu"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "sablesblancs",
+   "nom": "Concarneau : sud des Sables Blancs",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "4-position-douteuse",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 12,
+   "groupesIndependants": 9,
+   "sourcesNonEvaluees": 3,
+   "engagement": 1,
+   "consignes": 0,
+   "consignesSourcees": 0,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "saintjean",
+   "nom": "Saint-Jean-du-Doigt",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "4-position-douteuse",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 10,
+   "groupesIndependants": 7,
+   "sourcesNonEvaluees": 2,
+   "engagement": 1,
+   "consignes": 0,
+   "consignesSourcees": 0,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "sainttugen",
+   "nom": "Plage de Saint-Tugen",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "4-position-douteuse",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 12,
+   "groupesIndependants": 9,
+   "sourcesNonEvaluees": 4,
+   "engagement": 1,
+   "consignes": 0,
+   "consignesSourcees": 0,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "toulhars",
+   "nom": "Larmor-Plage : Toulhars",
+   "origine": "v3_researched",
+   "statut": "candidate",
+   "strate": "4-position-douteuse",
+   "phasesDocumentees": [],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse",
+    "montante",
+    "descendante"
+   ],
+   "sources": 10,
+   "groupesIndependants": 7,
+   "sourcesNonEvaluees": 0,
+   "engagement": null,
+   "consignes": 0,
+   "consignesSourcees": 0,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "M",
+     "grave": false,
+     "texte": "aucune phase de marée documentée"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "engagement inconnu"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "saintcolomban",
+   "nom": "Pointe de Saint-Colomban",
+   "origine": "v3_researched",
+   "statut": "candidate",
+   "strate": "5-candidat-v3",
+   "phasesDocumentees": [],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse",
+    "montante",
+    "descendante"
+   ],
+   "sources": 11,
+   "groupesIndependants": 8,
+   "sourcesNonEvaluees": 0,
+   "engagement": null,
+   "consignes": 0,
+   "consignesSourcees": 0,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "M",
+     "grave": false,
+     "texte": "aucune phase de marée documentée"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "engagement inconnu"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "tatihou",
+   "nom": "Saint-Vaast-la-Hougue : île Tatihou",
+   "origine": "v3_researched",
+   "statut": "candidate",
+   "strate": "5-candidat-v3",
+   "phasesDocumentees": [],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse",
+    "montante",
+    "descendante"
+   ],
+   "sources": 13,
+   "groupesIndependants": 10,
+   "sourcesNonEvaluees": 0,
+   "engagement": null,
+   "consignes": 0,
+   "consignesSourcees": 0,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "M",
+     "grave": false,
+     "texte": "aucune phase de marée documentée"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "engagement inconnu"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "decolle",
+   "nom": "Pointe du Décollé",
+   "origine": "v3_researched",
+   "statut": "candidate",
+   "strate": "5-candidat-v3",
+   "phasesDocumentees": [],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse",
+    "montante",
+    "descendante"
+   ],
+   "sources": 11,
+   "groupesIndependants": 8,
+   "sourcesNonEvaluees": 0,
+   "engagement": null,
+   "consignes": 0,
+   "consignesSourcees": 0,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "M",
+     "grave": false,
+     "texte": "aucune phase de marée documentée"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "engagement inconnu"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "percho",
+   "nom": "Pointe du Percho",
+   "origine": "v3_researched",
+   "statut": "candidate",
+   "strate": "5-candidat-v3",
+   "phasesDocumentees": [],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse",
+    "montante",
+    "descendante"
+   ],
+   "sources": 11,
+   "groupesIndependants": 8,
+   "sourcesNonEvaluees": 0,
+   "engagement": null,
+   "consignes": 0,
+   "consignesSourcees": 0,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "M",
+     "grave": false,
+     "texte": "aucune phase de marée documentée"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "engagement inconnu"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "chatsgroix",
+   "nom": "Groix : pointe des Chats",
+   "origine": "v3_researched",
+   "statut": "candidate",
+   "strate": "5-candidat-v3",
+   "phasesDocumentees": [],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse",
+    "montante",
+    "descendante"
+   ],
+   "sources": 11,
+   "groupesIndependants": 8,
+   "sourcesNonEvaluees": 0,
+   "engagement": null,
+   "consignes": 0,
+   "consignesSourcees": 0,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "P",
+     "grave": false,
+     "texte": "position jamais contrôlée par l'IGN"
+    },
+    {
+     "code": "M",
+     "grave": false,
+     "texte": "aucune phase de marée documentée"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "engagement inconnu"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "ilepercee",
+   "nom": "Île Percée (Moëlan-sur-Mer)",
+   "origine": "v3_researched",
+   "statut": "candidate",
+   "strate": "5-candidat-v3",
+   "phasesDocumentees": [],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse",
+    "montante",
+    "descendante"
+   ],
+   "sources": 11,
+   "groupesIndependants": 7,
+   "sourcesNonEvaluees": 0,
+   "engagement": null,
+   "consignes": 0,
+   "consignesSourcees": 0,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "M",
+     "grave": false,
+     "texte": "aucune phase de marée documentée"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "engagement inconnu"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "mouliere",
+   "nom": "Pointe de la Moulière",
+   "origine": "v3_researched",
+   "statut": "candidate",
+   "strate": "5-candidat-v3",
+   "phasesDocumentees": [],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse",
+    "montante",
+    "descendante"
+   ],
+   "sources": 10,
+   "groupesIndependants": 7,
+   "sourcesNonEvaluees": 0,
+   "engagement": null,
+   "consignes": 0,
+   "consignesSourcees": 0,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "M",
+     "grave": false,
+     "texte": "aucune phase de marée documentée"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "engagement inconnu"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "begenaud",
+   "nom": "Pointe de Beg en Aud",
+   "origine": "v3_researched",
+   "statut": "candidate",
+   "strate": "5-candidat-v3",
+   "phasesDocumentees": [],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse",
+    "montante",
+    "descendante"
+   ],
+   "sources": 12,
+   "groupesIndependants": 8,
+   "sourcesNonEvaluees": 0,
+   "engagement": null,
+   "consignes": 0,
+   "consignesSourcees": 0,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "P",
+     "grave": false,
+     "texte": "position jamais contrôlée par l'IGN"
+    },
+    {
+     "code": "M",
+     "grave": false,
+     "texte": "aucune phase de marée documentée"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "engagement inconnu"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "capfrehel",
+   "nom": "Cap Fréhel",
+   "origine": "v3_researched",
+   "statut": "candidate",
+   "strate": "5-candidat-v3",
+   "phasesDocumentees": [],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse",
+    "montante",
+    "descendante"
+   ],
+   "sources": 12,
+   "groupesIndependants": 9,
+   "sourcesNonEvaluees": 0,
+   "engagement": null,
+   "consignes": 0,
+   "consignesSourcees": 0,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "M",
+     "grave": false,
+     "texte": "aucune phase de marée documentée"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "engagement inconnu"
+    },
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "begmeil",
+   "nom": "Pointe de Beg Meil",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "6-v2-autres",
+   "phasesDocumentees": [
+    "haute",
+    "montante"
+   ],
+   "phasesNonDocumentees": [
+    "basse",
+    "descendante"
+   ],
+   "sources": 11,
+   "groupesIndependants": 8,
+   "sourcesNonEvaluees": 1,
+   "engagement": 2,
+   "consignes": 1,
+   "consignesSourcees": 1,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "kerlouan",
+   "nom": "Kerlouan : Enez Amann ar Rouz",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "6-v2-autres",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 11,
+   "groupesIndependants": 8,
+   "sourcesNonEvaluees": 2,
+   "engagement": 2,
+   "consignes": 1,
+   "consignesSourcees": 1,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "morgat",
+   "nom": "Pointe de Morgat",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "6-v2-autres",
+   "phasesDocumentees": [
+    "haute",
+    "montante"
+   ],
+   "phasesNonDocumentees": [
+    "basse",
+    "descendante"
+   ],
+   "sources": 15,
+   "groupesIndependants": 11,
+   "sourcesNonEvaluees": 3,
+   "engagement": 2,
+   "consignes": 1,
+   "consignesSourcees": 1,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "pelguent",
+   "nom": "Pointe de Roc'h Pelguent",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "6-v2-autres",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 10,
+   "groupesIndependants": 7,
+   "sourcesNonEvaluees": 1,
+   "engagement": 1,
+   "consignes": 1,
+   "consignesSourcees": 1,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "trevignon",
+   "nom": "Pointe de Trévignon",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "6-v2-autres",
+   "phasesDocumentees": [
+    "haute",
+    "montante"
+   ],
+   "phasesNonDocumentees": [
+    "basse",
+    "descendante"
+   ],
+   "sources": 14,
+   "groupesIndependants": 11,
+   "sourcesNonEvaluees": 3,
+   "engagement": 2,
+   "consignes": 1,
+   "consignesSourcees": 1,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "kerjean",
+   "nom": "Pointe de Kerjean",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "6-v2-autres",
+   "phasesDocumentees": [
+    "haute",
+    "montante"
+   ],
+   "phasesNonDocumentees": [
+    "basse",
+    "descendante"
+   ],
+   "sources": 11,
+   "groupesIndependants": 8,
+   "sourcesNonEvaluees": 2,
+   "engagement": 2,
+   "consignes": 1,
+   "consignesSourcees": 1,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  },
+  {
+   "id": "torche",
+   "nom": "Pointe de la Torche",
+   "origine": "v2_preserved",
+   "statut": "a_verifier",
+   "strate": "6-v2-autres",
+   "phasesDocumentees": [
+    "montante",
+    "descendante"
+   ],
+   "phasesNonDocumentees": [
+    "haute",
+    "basse"
+   ],
+   "sources": 13,
+   "groupesIndependants": 9,
+   "sourcesNonEvaluees": 3,
+   "engagement": 2,
+   "consignes": 1,
+   "consignesSourcees": 1,
+   "contrainteMaree": false,
+   "fenetreSecurite": false,
+   "constats": [
+    {
+     "code": "G",
+     "grave": false,
+     "texte": "accès selon la marée inconnu"
+    }
+   ]
+  }
+ ]
+}

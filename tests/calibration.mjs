@@ -3,6 +3,7 @@
 //   2. Ses garde-fous tiennent : note non figée écartée, résultat inconnu jamais compté comme un zéro, aucune mesure sous
 //      le seuil de sorties ni sans bredouille déclarée, aucun Brier sur la Favorabilité, export du journal refusé dans le dépôt.
 //   3. Les jeux synthétiques et l'épreuve sur les journées archivées sont à jour, et leurs critères fixés d'avance tiennent.
+//   4. L'audit stratifié des fiches est à jour et ne trouve aucune contradiction grave hors sécurité.
 // Usage : node tests/calibration.mjs
 import fs from "node:fs";
 import path from "node:path";
@@ -68,12 +69,22 @@ t("synthétique : sans compétence, AUC 0,5 et BSS jamais positif", c400.sansCom
 t("synthétique : bredouilles non notées → fréquence de prise gonflée (biais mesuré)", C.c2_biaisDeSelection.frequenceSelection > C.c2_biaisDeSelection.frequenceComplet + 0.2);
 t("synthétique : θ appris sans les zéros surestime le poste", C.c3_apprentissageTheta.a_zerosEtInconnus.sansZeros > 1.3 && Math.abs(C.c3_apprentissageTheta.a_zerosEtInconnus.complet - 1) < 0.1);
 t("synthétique : garde-fous de l'outil (trois sorties, sans bredouille, assez de sorties)", C.c4_gardeFous.troisSorties === "insuffisant" && C.c4_gardeFous.soixanteSansBredouille === "insuffisant" && C.c4_gardeFous.soixanteMelangees === "mesuré");
+const B = C.c5_bateau, b200 = B.parTaille.find((x) => x.sorties === 200), b7 = B.parTaille[0];
+t("BATEAU : pas de modèle sous le minimum de sorties, ni sans aucune prise", b7.ok === false && /nécessaires/.test(b7.raison) && /aucune prise/.test(B.sansAucunePrise));
+t("BATEAU : à 200 sorties, le modèle retrouve le sens des vrais effets (vent négatif, coefficient positif) et classe bien hors échantillon", b200.effetVent < 0 && b200.effetCoef > 0 && b200.spearmanHorsEchantillon > 0.85);
 const R = JSON.parse(fs.readFileSync(path.join(root, "data/moteur-bord/epreuve-phase-8.json"), "utf8"));
 t("V-01 : aucune carte publiée en nombre avec un critère manquant ou une eau inconnue (journées archivées)", R.v01_proprietes.tenu && R.v01_proprietes.nombreAvecManque === 0 && R.v01_proprietes.nombreEauInconnue === 0);
 t("V-02 : aucun « — » sans raison écrite", R.v02_publication.tenu);
 t("V-04 : aucun créneau non SAFE dans un Top, données de fiche actuelles ou supposées documentées", R.v04_classementSecurite.tenu && R.v04_classementSecurite.topAvecNonSafe === 0);
 t("sécurité : aucun créneau « non recommandé » en V2 ne devient SAFE avec le contrat proposé", R.securite.tenu && R.securite.v2NonRecommandeMaisV3Safe === 0);
 t("épreuve : aucune session du journal dans les résultats (PF-17)", !/journal|seedJournal|fish/.test(JSON.stringify(R.exemples)));
+
+// ——— 4. Audit stratifié des fiches (phase 8) ———
+{ let ok = true; try { execFileSync("node", [path.join(root, "scripts/audit-fiches-phase-8.mjs"), "--verifier"], { stdio: "pipe" }); } catch { ok = false; }
+  t("audit stratifié des fiches à jour (scripts/audit-fiches-phase-8.mjs --verifier)", ok);
+  const A = JSON.parse(fs.readFileSync(path.join(root, "data/spots/audit-phase-8.json"), "utf8"));
+  t("audit : toutes les fiches TOP_TIER, corroborées, engagées et à contrainte de marée sont tirées", ["1", "2", "3", "4"].every((k) => Object.entries(A.strates).filter(([s]) => s.startsWith(k)).every(([, v]) => v.fiches === v.tirees)));
+  t("audit : aucune contradiction, position hors zone, source hors registre ni statut incohérent, sur les 98 fiches", A.graveHorsSecuriteSurToutesLesFiches.length === 0, JSON.stringify(A.graveHorsSecuriteSurToutesLesFiches)); }
 
 console.log(`[calibration et épreuve] ${pass}/${pass + fail}`);
 process.exit(fail ? 1 : 0);
