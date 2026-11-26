@@ -97,6 +97,11 @@ for (const { fiche: f } of fiches) {
   if (f.quality.statut === "TOP_TIER") t(`${f.id} : TOP_TIER avec sources évaluées page par page`, q.criteres["QUAL-2"].ok);
   if (["corroboree", "TOP_TIER"].includes(f.quality.statut)) t(`${f.id} : corroborée sans règle locale à vérifier ni anomalie de position`, q.criteres["QUAL-3"].ok && q.criteres["QUAL-6"].ok);
 }
+// Phase 7 (26 nov. 2026) : dans la Manche, le texte signé (arrêté n° 116/2026) n'est pas lu ; sa règle reste « à vérifier ».
+{
+  const manche = fiches.map(({ fiche }) => fiche).filter((f) => String(f.safety.risques_commune?.valeur?.[0]?.code_insee || "").startsWith("50"));
+  t(`Manche : ${manche.length} fiches portent l'arrêté n° 116/2026, « à vérifier » tant que le texte signé n'est pas lu`, manche.length > 0 && manche.every((f) => f.regulations.some((r) => /116\/2026/.test(r.valeur?.reference || "") && r.valeur.application_au_poste === "à vérifier")));
+}
 {
   const ref = fiches.find(({ fiche }) => fiche.quality.statut === "corroboree")?.fiche;
   const g = (groupe, extra = {}) => ({ id: `src-t-${groupe}`, texte: `site — ${ref?.name}`, groupe, famille: 4, editeur_classe: { domaines: ["halieutique"] }, evaluation: { statut: "à évaluer" }, ...extra });
@@ -108,9 +113,9 @@ for (const { fiche: f } of fiches) {
     t("qualification : un article général qui ne nomme pas le spot ne corrobore pas", qualifier(ref, [g("a"), g("b", { texte: "peche.com — les plateaux rocheux" })]).statut === "a_verifier");
     t("qualification : une source privée bloque", qualifier(ref, [...deux, g("c", { prive: true })]).statut === "a_verifier");
     {
-      const manche = structuredClone(ref);
-      manche.safety.risques_commune = { ...manche.safety.risques_commune, valeur: [{ commune: "TEST", code_insee: "50999", risques: [] }] };
-      t("qualification : sans règles locales recherchées pour le département, QUAL-6 n'est pas rempli", qualifier(manche, deux).criteres["QUAL-6"].ok === false && qualifier(manche, deux).statut === "a_verifier");
+      const horsCouverture = structuredClone(ref);
+      horsCouverture.safety.risques_commune = { ...horsCouverture.safety.risques_commune, valeur: [{ commune: "TEST", code_insee: "44999", risques: [] }] };
+      t("qualification : sans règles locales recherchées pour le département, QUAL-6 n'est pas rempli", qualifier(horsCouverture, deux).criteres["QUAL-6"].ok === false && qualifier(horsCouverture, deux).statut === "a_verifier");
     }
     t("qualification : sans évaluation page par page, jamais TOP_TIER", qualifier(ref, deux).statut !== "TOP_TIER");
     t("qualification : sources lues dont une attache le bar au poste, et tout documenté, donnent TOP_TIER", qualifier(ref, deux.map((x, i) => ({ ...x, evaluation: { statut: "évaluée", bar_au_poste: i === 0 } }))).statut === "TOP_TIER");

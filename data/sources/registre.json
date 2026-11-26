@@ -1,29 +1,30 @@
 {
  "//": "Registre des sources (phase 5, 5.4 ; § 7.1). Généré par scripts/sources-registre.mjs ; les champs « evaluation » se complètent à la main et ne sont jamais écrasés.",
  "totaux": {
-  "sources": 363,
+  "sources": 365,
   "aEvaluer": 253,
-  "avecUrl": 120,
-  "editeurs": 108,
-  "editeurClasse": 353,
-  "groupes": 92,
+  "avecUrl": 122,
+  "editeurs": 110,
+  "editeurClasse": 355,
+  "groupes": 94,
   "parFamille": {
    "1": 26,
-   "2": 46,
-   "3": 8,
+   "2": 47,
+   "3": 9,
    "4": 255,
    "6": 19,
    "non fixée": 9
   },
   "parType": {
    "site, guide ou presse spécialisée": 273,
-   "institutionnel ou scientifique": 39,
+   "institutionnel ou scientifique": 40,
    "texte réglementaire": 3,
    "collectivité ou tourisme": 21,
    "forum ou communauté": 6,
    "administration": 1,
    "encyclopédie collaborative": 12,
    "cartographie": 4,
+   "associatif": 1,
    "cartographie ouverte": 2,
    "blog ou site de pêcheurs": 1,
    "communautaire": 1
@@ -3414,6 +3415,47 @@
     "droits": "Licence Ouverte (informations publiques)",
     "classe_le": "2026-11-23"
    }
+  },
+  {
+   "id": "src-dirm-memn-projet-peche-pied-manche-2026",
+   "texte": "DIRM Manche Est – Mer du Nord, projet d'arrêté réglementant l'exercice de la pêche maritime de loisir à pied ou sous-marine dans le département de la Manche (abroge l'arrêté n° 34/2021 du 22 février 2021 ; entrée en vigueur prévue au 1er juillet 2026), 20 pages, et sa note de présentation du 27 avril 2026 (consultation du 27 avril au 18 mai 2026)",
+   "editeur": "DIRM Manche Est – Mer du Nord",
+   "url": "https://www.dirm.memn.developpement-durable.gouv.fr/IMG/pdf/projet_modification_arrete_no_034-2021.pdf",
+   "type": "institutionnel ou scientifique",
+   "famille": 2,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "DIRM Manche Est – Mer du Nord, pour le préfet de la région Normandie",
+    "date": "2026-04",
+    "methode": "projet de texte réglementaire soumis à la consultation du public, lu en entier (art. 1 à 11, annexes I et II)",
+    "precision": "départementale ; les arrêtés de cantonnement de 1964 à 1982 cités à l'art. 7 ne sont pas reproduits",
+    "independance": "administration de l'État (groupe etat-fr-reglementation)",
+    "limites": "projet, pas le texte signé : le texte adopté peut différer ; périmètres et objet des cantonnements non lus",
+    "droits": "Licence Ouverte (informations publiques)",
+    "consulte_le": "2026-11-26"
+   },
+   "manuelle": true,
+   "utilise_par": [
+    "spot:agon",
+    "spot:caplevi",
+    "spot:carteret",
+    "spot:gattemare",
+    "spot:gatteville",
+    "spot:goury",
+    "spot:gouville",
+    "spot:granville",
+    "spot:loge",
+    "spot:pirou",
+    "spot:portbail",
+    "spot:querqueville",
+    "spot:regneville",
+    "spot:saire",
+    "spot:sciotot",
+    "spot:surtainville",
+    "spot:tatihou"
+   ],
+   "groupe": "editeur:dirm-manche-est-mer-du-nord"
   },
   {
    "id": "src-dirm-namo-synthese-peche-loisir-2024",
@@ -7073,6 +7115,47 @@
     "famille_inferee": 6,
     "classe_le": "2026-11-23"
    }
+  },
+  {
+   "id": "src-littorea-manche-arrete-116-2026",
+   "texte": "Réseau Littorea, « Pêche à pied dans la Manche », 3 juillet 2026 : le préfet de la région Normandie « a signé l'arrêté n° 116/2026 réglementant l'exercice de la pêche maritime de loisir à pied et sous-marine dans le département de la Manche »",
+   "editeur": "Réseau Littorea",
+   "url": "https://www.pecheapied-loisir.fr/2026/07/03/peche-a-pied-dans-la-manche-18/",
+   "type": "associatif",
+   "famille": 3,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Réseau Littorea (pêche à pied de loisir, programme national)",
+    "date": "2026-07-03",
+    "methode": "annonce de la signature, reprise du tableau des espèces",
+    "precision": "départementale ; ni date de signature, ni signataire, ni date d'entrée en vigueur",
+    "independance": "réseau associatif soutenu par l'État, distinct de l'administration",
+    "limites": "reprise secondaire ; la copie de l'arrêté jointe est un PDF sans texte lisible : le texte signé n'est pas lu",
+    "droits": "citation courte",
+    "consulte_le": "2026-11-26"
+   },
+   "manuelle": true,
+   "utilise_par": [
+    "spot:agon",
+    "spot:caplevi",
+    "spot:carteret",
+    "spot:gattemare",
+    "spot:gatteville",
+    "spot:goury",
+    "spot:gouville",
+    "spot:granville",
+    "spot:loge",
+    "spot:pirou",
+    "spot:portbail",
+    "spot:querqueville",
+    "spot:regneville",
+    "spot:saire",
+    "spot:sciotot",
+    "spot:surtainville",
+    "spot:tatihou"
+   ],
+   "groupe": "editeur:reseau-littorea"
   },
   {
    "id": "src-locquirec-bzh-b2ca24",
