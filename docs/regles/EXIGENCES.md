@@ -6,11 +6,11 @@ Félix (25 nov. 2026, 7 h 25) : les exigences sont reliées aux pare-feux (PF-46
 
 ## Bilan
 
-- acceptée : 10
-- tenue sur le prototype : 7
+- acceptée : 13
+- tenue sur le prototype : 8
 - spécifiée et éprouvée sur l'étude : 6
-- écart : 6
-- à faire : 69
+- écart : 7
+- à faire : 64
 
 ## Exigences
 
@@ -26,7 +26,7 @@ Félix (25 nov. 2026, 7 h 25) : les exigences sont reliées aux pare-feux (PF-46
 | RTE-01 | 10 | à faire, phase 10 | — |
 | RTE-02 | 10 | à faire, phase 10 | — |
 | RTE-03 | 10 | à faire, phase 10 | — |
-| RTE-04 | 5, 7 | à faire, phase 7 | — |
+| RTE-04 | 5, 7 | écart, acceptation finale en phase 10 | le point d'accès (stationnement) est une rubrique distincte du poste, connue pour 91 fiches sur 98 ; la mention « jusqu'au poste » quand il manque arrive avec l'intégration de l'écran (phase 10) ; `tests/spots-v3.mjs` |
 | REC-01 | 6, 10 | à faire, phase 10 | — |
 | REC-02 | 6, 10 | à faire, phase 10 | — |
 | REC-03 | 6 | spécifiée et éprouvée sur l'étude, acceptation finale en phase 11 | `tests/etude-moteur-bord.mjs`, `tests/prototype-v3.mjs` |
@@ -49,19 +49,19 @@ Félix (25 nov. 2026, 7 h 25) : les exigences sont reliées aux pare-feux (PF-46
 | MAP-03 | 3, 10 | à faire, phase 10 | — |
 | MAP-04 | 10 | à faire, phase 10 | — |
 | MAP-05 | 3, 10 | à faire, phase 10 | — |
-| MAP-06 | 5, 7 | à faire, phase 7 | — |
+| MAP-06 | 5, 7 | acceptée | `tests/spots-v3.mjs` ; phase 7 : 98 positions en décimales ; 29 non contrôlées ou douteuses, signalées par QUAL-3 et jamais corroborées |
 | MAP-07 | 3 | tenue sur le prototype, acceptation finale en phase 12 | `tests/prototype-v3.mjs` |
 | MAP-08 | 3, 10 | à faire, phase 10 | — |
 | MAP-09 | 3, 5, 10 | à faire, phase 10 | — |
 | SPOT-01 | toutes | acceptée | `tests/spots-v3.mjs`, `scripts/inventaire-spots-v2.mjs` |
-| SPOT-02 | 5, 7 | à faire, phase 7 | — |
-| SPOT-03 | 5, 7 | à faire, phase 7 | — |
+| SPOT-02 | 5, 7 | acceptée | `tests/spots-v3.mjs` |
+| SPOT-03 | 5, 7 | acceptée | `tests/spots-v3.mjs` ; phase 7 : présentes ou marquées inconnues sur les 98 fiches ; 32 fiches n'ont encore aucune phase documentée (docs/halieutique/REGISTRE-INCONNUES-PHASE-7.md) |
 | SPOT-04 | 5, 9 | à faire, phase 9 | — |
 | SPOT-05 | 3, 10 | à faire, phase 10 | — |
 | SPOT-06 | 10 | à faire, phase 10 | — |
 | SPOT-07 | 5, 7, 8 | à faire, phase 8 | — |
 | SPOT-08 | 3 | écart, acceptation finale en phase 12 | le prototype affiche « Illustration » sur ses photos, mais aucun test ne le vérifie (PF-31) |
-| SPOT-09 | 3, 7 | à faire, phase 7 | — |
+| SPOT-09 | 3, 7 | tenue sur le prototype, acceptation finale en phase 12 | `tests/prototype-v3.mjs` ; courbe juste contre le calcul de marée et horaires identiques à Home : à éprouver sur l'application intégrée |
 | JRN-01 | 13 | à faire, phase 13 | — |
 | JRN-02 | 13 | à faire, phase 13 | — |
 | JRN-03 | 4, 13 | à faire, phase 13 | — |

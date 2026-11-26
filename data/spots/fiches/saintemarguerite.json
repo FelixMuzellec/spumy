@@ -360,6 +360,15 @@
     "texte": "Dunes protégées (46 ha, espèces protégées) : rester sur les sentiers balisés.",
     "verifie_le": null,
     "source_texte": "landeda.fr"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v3",
+    "texte": "Règle générale de la commune de Landéda pour la pêche à pied : « Commencez à remonter à l'heure de marée basse » (pas propre au poste).",
+    "sources": [
+     "src-landeda-guide-peche-a-pied-2017"
+    ],
+    "verifie_le": "2026-11-26"
    }
   ],
   "houle_max_m": {
@@ -493,6 +502,7 @@
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
    "src-landeda-fr-1043ce",
+   "src-landeda-guide-peche-a-pied-2017",
    "src-lcsm-presquile-sainte-marguerite",
    "src-legifrance-tailles-minimales-2026",
    "src-mieuxpecher-com-3e943c",
@@ -553,7 +563,7 @@
    },
    "QUAL-5": {
     "ok": true,
-    "detail": "engagement 2 (jugement V2), 2 consignes sourcées sur 2, contrainte de marée praticable_a_basse_mer_seulement, isolement_au_flot, mouvements de terrain 0"
+    "detail": "engagement 2 (jugement V2), 3 consignes sourcées sur 3, contrainte de marée praticable_a_basse_mer_seulement, isolement_au_flot, mouvements de terrain 0"
    },
    "QUAL-6": {
     "ok": true,

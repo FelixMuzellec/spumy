@@ -1229,7 +1229,7 @@
   "raisonsParFiche": {
    "engagement": 32,
    "accesMaree": 75,
-   "fenetreSecurite": 23,
+   "fenetreSecurite": 22,
    "houleMax": 32,
    "reglementation": 35
   },
@@ -1240,7 +1240,7 @@
    "fenetreSecurite": 8,
    "engagement+accesMaree+houleMax": 23,
    "engagement+accesMaree+houleMax+reglementation": 8,
-   "engagement+fenetreSecurite+houleMax": 1
+   "engagement+houleMax": 1
   }
  }
 }

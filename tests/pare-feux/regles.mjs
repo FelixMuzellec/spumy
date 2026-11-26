@@ -112,7 +112,7 @@ export const REGLES = [
     versions: { toutes: { etat: "controle", gardes: [[PF, "nom de branche hors modèle"], [".githooks/pre-push", "refusé : push sur main"], [".github/workflows/tests.yml", "scripts/pare-feux/branche.mjs"]],
       note: "la protection de main sur GitHub est posée par Félix (23 nov. 2026, 19 h 47) ; garder les branches et n'en fusionner aucune sans son accord restent des consignes" } } },
   { id: "PF-14", titre: "Aucune phase sans son jeton ; jetons conditionnels des phases 6 et 7 ; jamais de phase 8 sans son propre jeton",
-    sources: ["23 nov. 2026, 23 h 15", "23 nov. 2026, 13 h 50", "23 nov. 2026, 20 h 02", "23 nov. 2026, 22 h 33", "V3-001"], portee: "depot",
+    sources: ["23 nov. 2026, 23 h 15", "23 nov. 2026, 13 h 50", "23 nov. 2026, 20 h 02", "23 nov. 2026, 22 h 33", "25 nov. 2026, 21 h 23", "26 nov. 2026, 23 h 48", "V3-001"], portee: "depot",
     versions: { toutes: { etat: "controle", gardes: [[PF, "phase non autorisée"], [".github/workflows/tests.yml", "scripts/pare-feux/branche.mjs"]],
       note: "les gates de chaque phase (tests sur clone neuf, passes de challenge) sont vérifiés par le rapport de phase en 14 parties" } } },
   { id: "PF-15", titre: "Commits atomiques ; chaque message de Claude se termine par les deux lignes d'attribution de la session",
@@ -214,7 +214,8 @@ export const REGLES = [
     sources: ["24 nov. 2026, 10 h 53"], portee: "produit",
     versions: {
       v2: { etat: "sansObjet", raison: fige },
-      v3: { etat: "prevu", phase: 7, raison: "la revue régionale du comportement et de l'alimentation du bar est la priorité de la phase 7 : son pare-feu (chaque règle du moteur citée par ses sources régionales) est posé avant sa clôture" },
+      v3: { etat: "controle", gardes: [["tests/knowledge.mjs", "PF-33 : chaque règle du moteur sur le comportement du bar porte la zone de ses sources"], ["tests/pare-feux-sabotage.mjs", "règle du moteur sans zone de validité"], ["tests/pare-feux-sabotage.mjs", "règle du moteur sortie du contrôle par son domaine"], ["tests/pare-feux-sabotage.mjs", "règle de la Favorabilité déclarée de sécurité"]],
+        note: "posé en phase 7 (25 nov. 2026), durci le 26 nov. après la revue indépendante : chaque connaissance de biologie, de comportement, d'alimentation ou de milieu porte la zone de ses sources (RÉGIONALE : Bretagne nord, Iroise, Bretagne sud, rades et rias, Cotentin ; VOISINE : Manche, golfe de Gascogne ; AUCUNE), recalculée à partir des étiquettes de zone des sources, avec un texte ; un domaine inconnu est refusé, et une règle de model.js ne peut pas être déclarée de réglementation, de sécurité ou de leurres. Le contrôle porte sur l'étiquetage, pas sur la lecture des sources ; les règles AUCUNE (13) sont des lacunes déclarées, pas des règles citées par des sources régionales ; revue régionale : docs/halieutique/REVUE-REGIONALE-BAR.md" },
     } },
   { id: "PF-34", titre: "Les notes de SPUMY jugées sur le journal de sorties ; le modèle s'affine par la boucle contrôlée",
     sources: ["V3-030"], portee: "produit",

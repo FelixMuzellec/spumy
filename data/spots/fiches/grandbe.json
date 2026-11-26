@@ -325,9 +325,20 @@
    "raison": "Aucune fenêtre de fonctionnement documentée (§ 7.6)."
   },
   "securite": {
-   "statut": "INCONNU",
+   "statut": "INFÉRÉ",
    "origine": "v3",
-   "raison": "L'office de tourisme rapporte l'accès à l'heure de basse mer du jour (« 1? hours before and 1? hours after » : chiffre mal affiché sur la page lue) ; un pêcheur du site parle de « deux ou trois heures de pêche max ». Tant que la durée n'est pas relue sans ambiguïté, aucun intervalle HH:MM n'est calculé (§ 7.6) et le spot n'est jamais présenté comme praticable."
+   "sources": [
+    "src-ot-saint-malo-acces-forts",
+    "src-ville-saint-malo-vigilance-grand-be"
+   ],
+   "verifie_le": "2026-11-26",
+   "niveau": 4,
+   "valeur": {
+    "reference": "BM",
+    "avant_h": 1.5,
+    "apres_h": 1.5
+   },
+   "texte": "Accès à pied de 1 h 30 avant à 1 h 30 après la basse mer du jour (office de tourisme de Saint-Malo : « une fenêtre d'accès de 3 heures ») ; la ville publie aussi des horaires d'accès sécurisés et rappelle que des visiteurs sont « piégés par la marée montante ». Aux très petits coefficients, le passage ne découvre pas (aucun seuil publié). Règle de visite, pas de pêche : pour pêcher, repartir avant la fin de la fenêtre."
   }
  },
  "photos": {
@@ -402,15 +413,17 @@
    "src-ign-itineraire-pieton",
    "src-legifrance-tailles-minimales-2026",
    "src-mieuxpecher-ille-et-vilaine",
+   "src-ot-saint-malo-acces-forts",
    "src-oupecher-saint-malo-bar",
    "src-saint-malo-tourisme-bes",
+   "src-ville-saint-malo-vigilance-grand-be",
    "src-wikimedia-commons-geo"
   ]
  },
  "quality": {
   "statut": "candidate",
   "derniere_verification": "2026-11-23",
-  "completude": 0.41,
+  "completude": 0.43,
   "inconnus": [
    "access.approche",
    "access.difficulte",
@@ -432,8 +445,7 @@
    "safety.houle_max_m",
    "safety.coef_max",
    "safety.mouvements_terrain",
-   "windows.habituelles",
-   "windows.securite"
+   "windows.habituelles"
   ],
   "anomalies": [
    "Fiche créée par la passe exhaustive (5.12) : sécurité, accès et conditions à documenter avant tout affichage."

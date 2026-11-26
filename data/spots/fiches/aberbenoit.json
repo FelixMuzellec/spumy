@@ -360,6 +360,15 @@
     "texte": "Vasières et bancs découverts à basse mer : la mer remonte vite sur les bancs.",
     "verifie_le": null,
     "source_texte": "saint-pabu.bzh · prudence du guide"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v3",
+    "texte": "Règle générale de la commune de Landéda pour la pêche à pied : « Commencez à remonter à l'heure de marée basse » (pas propre au poste).",
+    "sources": [
+     "src-landeda-guide-peche-a-pied-2017"
+    ],
+    "verifie_le": "2026-11-26"
    }
   ],
   "houle_max_m": {
@@ -507,6 +516,7 @@
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
+   "src-landeda-guide-peche-a-pied-2017",
    "src-legifrance-tailles-minimales-2026",
    "src-mieuxpecher-com-f242a9",
    "src-peche-poissons-com-8d94f7",
@@ -570,7 +580,7 @@
    },
    "QUAL-5": {
     "ok": true,
-    "detail": "engagement 2 (jugement V2), 1 consigne sourcée sur 1, contrainte de marée isolement_au_flot, mouvements de terrain 0"
+    "detail": "engagement 2 (jugement V2), 2 consignes sourcées sur 2, contrainte de marée isolement_au_flot, mouvements de terrain 0"
    },
    "QUAL-6": {
     "ok": false,

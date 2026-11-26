@@ -168,8 +168,8 @@ t("scénarios : 24 fixtures, toutes jouées", e8.scenarios === 24 && Object.keys
 const fx = JSON.parse(fs.readFileSync(path.join(root, "data/moteur-bord/scenarios.json"), "utf8")).scenarios;
 t("scénarios : toute hypothèse d'essai (`supposeDocumente`) est déclarée en clair dans la fixture", fx.every((x) => !x.entree?.supposeDocumente || (typeof x.hypotheseDEssai === "string" && x.hypotheseDEssai.length > 20)));
 const e9 = R.e9_admissibiliteStatique;
-t("fiches : avec les données de sécurité actuelles, aucune fiche ne peut être SAFE (impact de D6-15 et D6-21 mesuré) ; 23 contraintes de marée connues mais non situées",
-  e9.fiches === 98 && e9.peuventEtreSAFE === 0 && e9.raisonsParFiche.fenetreSecurite === 23
+t("fiches : avec les données de sécurité actuelles, aucune fiche ne peut être SAFE (impact de D6-15 et D6-21 mesuré) ; 22 contraintes de marée connues mais non situées (23 en phase 6 ; le Grand Bé a reçu sa fenêtre sourcée en phase 7, le 26 nov. 2026)",
+  e9.fiches === 98 && e9.peuventEtreSAFE === 0 && e9.raisonsParFiche.fenetreSecurite === 22
   && Object.values(e9.combinaisons).reduce((a, b) => a + b, 0) === 98);
 
 console.log(`[étude moteur BORD] identités, Gamma–Poisson, identifiabilité, architectures, classement : ${pass}/${pass + fail}`);

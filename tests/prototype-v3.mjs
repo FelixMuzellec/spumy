@@ -300,6 +300,13 @@ for (const w of [320, 375, 390]) {
   const fe = await page.locator("main").innerText();
   t("fixture § 6.7.2 : Favorabilité 53 — À vérifier, Confiance 69 — Moyenne, sans effet sur le rang",
     /53/.test(fe) && fe.includes("À vérifier") && /69/.test(fe) && fe.includes("Moyenne") && fe.includes("ne change pas le rang"));
+  { // Phase 7, audit du mode BATEAU : règles des espèces des marques de démonstration égales à celles de 2026 (bateau.json).
+    const marques = fs.readFileSync(path.join(root, "src/prototype-v3/data.js"), "utf8");
+    const attendu = { "Lieu jaune": /42 cm.*2 par jour.*1er janvier au 30 avril/, "Lieu noir": /35 cm/, Maquereau: /20 cm.*10 par jour/, Bar: /42 cm.*3 par jour au nord du 48e parallèle, 2 au sud.*relâcher seul du 1er février au 31 mars/ };
+    const regles = [...marques.matchAll(/name: "([^"]+)", fav: \d+, conf: \d+, level: "[^"]+", rule: "([^"]*)"/g)];
+    t("BATEAU : règle de chaque espèce des marques conforme à 2026 (lieu jaune 42 cm, 2 par jour, fermé du 1er janvier au 30 avril ; lieu noir 35 cm ; maquereau 20 cm ; bar 42 cm, 3 par jour au nord et 2 au sud, relâcher seul du 1er février au 31 mars au nord)",
+      regles.length >= 5 && regles.every(([, n, r]) => !attendu[n] || attendu[n].test(r)), regles.map(([, n, r]) => `${n} : ${r}`).join(" | "));
+  }
   const TITLES = { home: "Home", carte: "Carte", meteo: "Météo", profil: "Profil", journal: "Journal", "spot-agon": SPOT.agon.name, "spot-portbail": SPOT.portbail.name, "comparer-carteret-agon": "Comparaison" };
   for (const r of ["home", "carte", "meteo", "profil", "journal", "spot-agon", "spot-portbail", "comparer-carteret-agon"]) {
     await page.evaluate((h) => { location.hash = h; }, r);
@@ -352,6 +359,16 @@ if (AXE) {
 }
 
 // 5. Captures pour la revue.
+{ // Phase 7, audit du mode BATEAU : PF-26 vérifié aussi sur Home BATEAU (hors captures), et seuils dits « à valider » (PF-37).
+  const { ctx, page } = await open({ width: 390, height: 844 }, "dark", "home");
+  await page.getByRole("radio", { name: /Offshore/ }).first().click();
+  await page.getByRole("button", { name: "Voir si je peux sortir" }).click();
+  await page.waitForTimeout(150);
+  const tb = await page.locator(".app").innerText();
+  t("héritage Home BATEAU : ni Pertinence, ni note sur 10, ni « V2 » à l'écran (PF-26)", !/Pertinence|\b\d{1,2}\s?\/\s?10\b|sur 10\b|\bV2\b/i.test(tb));
+  t("Home BATEAU : les seuils de sécurité sont dits « à valider » (PF-37)", tb.includes("seuils de sécurité à valider"));
+  await ctx.close();
+}
 if (CAP) {
   fs.mkdirSync(CAP, { recursive: true });
   const shots = [["home", "dark", "01-home-bord"], ["carte", "dark", "02-carte"], ["meteo", "dark", "03-meteo"], ["spot-agon", "dark", "04-fiche-spot"], ["comparer-carteret-agon", "dark", "05-comparaison"],

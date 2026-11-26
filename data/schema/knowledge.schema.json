@@ -38,7 +38,8 @@
               "properties": {
                 "ref": { "type": "string", "minLength": 10 },
                 "url": { "anyOf": [{ "type": "string", "pattern": "^https://" }, { "type": "null" }] },
-                "niveau": { "type": "integer", "minimum": 1, "maximum": 5 }
+                "niveau": { "type": "integer", "minimum": 1, "maximum": 5 },
+                "zones": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "enum": ["bretagne-nord", "iroise", "bretagne-sud", "rades-rias", "cotentin", "manche", "gascogne", "hors-zone", "captivite", "inconnue"] } }
               }
             }
           },
@@ -48,6 +49,10 @@
           "valeurs": {
             "type": "object", "additionalProperties": false, "required": ["texte", "niveau"],
             "properties": { "texte": { "type": "string", "minLength": 5 }, "niveau": { "type": "integer", "minimum": 1, "maximum": 5 } }
+          },
+          "zone_validite": {
+            "type": "object", "additionalProperties": false, "required": ["statut", "texte"],
+            "properties": { "statut": { "enum": ["RÉGIONALE", "VOISINE", "AUCUNE"] }, "texte": { "type": "string", "minLength": 10 } }
           }
         }
       }

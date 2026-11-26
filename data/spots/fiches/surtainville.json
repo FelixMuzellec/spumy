@@ -360,6 +360,15 @@
     "texte": "Estran plat : le flot gagne vite. Repérer sa ligne de retour avant de s'avancer vers les fosses.",
     "verifie_le": null,
     "source_texte": "prudence générale (déduit)"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v3",
+    "texte": "Règle générale de la Manche pour la pêche à pied (dépliant 50-14, DDTM et CPIE) : « remontez dès l'heure de la basse mer » (pas propre au poste).",
+    "sources": [
+     "src-flyer-peche-pied-50-14"
+    ],
+    "verifie_le": "2026-11-26"
    }
   ],
   "houle_max_m": {
@@ -473,6 +482,22 @@
    "verifie_le": "2026-11-23",
    "niveau": 1,
    "texte": "Bar : enregistrement sur l'application RecFishing au moins la veille de la pêche, puis déclaration de chaque capture dans les 24 heures."
+  },
+  {
+   "statut": "INFÉRÉ",
+   "origine": "v3",
+   "sources": [
+    "src-dirm-memn-projet-peche-pied-manche-2026",
+    "src-littorea-manche-arrete-116-2026"
+   ],
+   "verifie_le": "2026-11-26",
+   "niveau": 2,
+   "valeur": {
+    "portee": "Manche, texte signé non lu",
+    "reference": "arrêté n° 116/2026 (préfet de la région Normandie)",
+    "application_au_poste": "à vérifier"
+   },
+   "texte": "Manche : la pêche à pied de loisir, y compris à la ligne « tenue à la main ou fixée à une canne », est régie par l'arrêté n° 116/2026, signé selon le réseau Littorea (3 juillet 2026) ; le projet de la DIRM lu en entier abroge l'arrêté n° 34/2021. D'après ce projet : bar pêché à l'épuisette, à la ligne, à la palangre ou au paillot, tailles et quantités selon les règles européennes et nationales ; « des hameçons triples ne peuvent être utilisés que sur le leurre ou le plomb terminal de la ligne » ; paillots interdits du 15 juin au 15 septembre sur tout le littoral du département, palangres aux mêmes dates dans la zone de balancement des marées. Le texte signé n'a pas été lu : confirmer ces règles avant toute recommandation."
   }
  ],
  "windows": {
@@ -498,11 +523,14 @@
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
    "src-cpiecotentin-com-1025cd",
+   "src-dirm-memn-projet-peche-pied-manche-2026",
+   "src-flyer-peche-pied-50-14",
    "src-georisques-bdmvt",
    "src-georisques-gaspar",
    "src-ign-geocodage-poi",
    "src-inpn-mnhn-fr-39a848",
    "src-legifrance-tailles-minimales-2026",
+   "src-littorea-manche-arrete-116-2026",
    "src-peche-com-dfd180"
   ],
   "sources_v2": [
@@ -520,7 +548,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": "2026-11-23",
-  "completude": 0.74,
+  "completude": 0.76,
   "inconnus": [
    "access.stationnement",
    "access.marche_min",
@@ -555,12 +583,12 @@
     "detail": "stationnement ou temps de marche inconnu"
    },
    "QUAL-5": {
-    "ok": false,
-    "detail": "engagement 2 (jugement V2), 0 consigne sourcée sur 1, contrainte de marée isolement_au_flot, mouvements de terrain 0"
+    "ok": true,
+    "detail": "engagement 2 (jugement V2), 1 consigne sourcée sur 2, contrainte de marée isolement_au_flot, mouvements de terrain 0"
    },
    "QUAL-6": {
     "ok": false,
-    "detail": "règles locales du département 50 non recherchées dans un texte officiel"
+    "detail": "règle locale à vérifier au poste (Manche, texte signé non lu)"
    },
    "QUAL-7": {
     "ok": true,
@@ -571,8 +599,7 @@
    "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4)",
    "QUAL-3 : Coordonnées V2 seulement en texte, à la minute près (jusqu'à 1,85 km d'écart) : à vérifier en priorité.",
    "QUAL-4 : stationnement ou temps de marche inconnu",
-   "QUAL-5 : engagement 2 (jugement V2), 0 consigne sourcée sur 1, contrainte de marée isolement_au_flot, mouvements de terrain 0",
-   "QUAL-6 : règles locales du département 50 non recherchées dans un texte officiel"
+   "QUAL-6 : règle locale à vérifier au poste (Manche, texte signé non lu)"
   ]
  }
 }

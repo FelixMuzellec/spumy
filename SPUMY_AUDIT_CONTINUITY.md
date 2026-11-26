@@ -12,25 +12,28 @@
 | 4. Architecture détaillée, socle, assainissement | VALIDATED (jeton de la phase 5) | `docs/rapports/v3/PHASE-4.md` |
 | 5. Audit BORD et référentiel des spots | close, tous ses gates PASS (ouverture de la phase 6 par le jeton conditionnel du 23 nov., 23 h 15) | `docs/rapports/v3/PHASE-5.md` |
 | 6. Conception et validation du moteur BORD | VALIDATED (par délégation de Félix, 23 nov., 23 h 15 ; à confirmer par Félix) | `docs/rapports/v3/PHASE-6.md` |
-| 7. Deuxième passe de recherche et enrichissement halieutique | planifiée le 26 nov. 2026 à 8 h 01 (jeton conditionnel) ; cadrage : `docs/phases/PHASE-7-CADRAGE.md` | — |
+| 7. Deuxième passe de recherche et enrichissement halieutique | VALIDATED (par délégation de Félix, 23 nov., 23 h 15 ; à confirmer par Félix) ; close le 26 nov. 2026 | `docs/rapports/v3/PHASE-7.md` |
 | 8 à 15 | NOT STARTED ; jamais de phase 8 sans son propre jeton | — |
 
 ## Checkpoint
 
+- Phase 7 : branche `claude/v3-phase-07-enrichissement-halieutique` (depuis `claude/v3-phase-6`), proposition n° 28 en brouillon vers `claude/v3-phase-6`.
 - Branche de travail : `claude/v3-phase-6` (propositions en chaîne n° 16 à 20 jusqu'à `main`, toutes en brouillon ; rien n'est fusionné dans `main`, qui reste la V2 publiée, `v2-final` sur bb4f940). Les suivis du 24 et du 25 nov. (n° 21 à 26) y sont intégrés.
 - Contrôles : `npm run -s verifier` (toutes les suites, une ligne chacune) ; CI de chaque proposition (pare-feux, sabotage, bibliothèques, indicateurs).
-- Pare-feux : `docs/regles/PARE-FEUX.md` (49 règles), `docs/regles/EXIGENCES.md` (98 exigences), `docs/regles/KPI.md` (37 indicateurs, 10 sections). Crochets Git : `git config core.hooksPath .githooks` à chaque session.
+- Pare-feux : `docs/regles/PARE-FEUX.md` (50 règles), `docs/regles/EXIGENCES.md` (98 exigences), `docs/regles/KPI.md` (37 indicateurs, 10 sections). Crochets Git : `git config core.hooksPath .githooks` à chaque session.
 
 ## Points ouverts
 
-- **À confirmer par Félix** : phase 6 VALIDATED par délégation ; décisions D6-01 à D6-21 après les phases 8 et 9 (notamment D6-15 et D6-21, règle de sécurité stricte).
+- **À confirmer par Félix** : phases 6 et 7 VALIDATED par délégation ; questions Q7-01 à Q7-05 (`docs/halieutique/REGISTRE-INCONNUES-PHASE-7.md`, Q7-03 posée) ; décisions D6-01 à D6-21 après les phases 8 et 9 (notamment D6-15 et D6-21, règle de sécurité stricte).
 - **Félix** : renommage des branches (`bash scripts/renommer-branches.sh`, `docs/BRANCHES.md`) ; réglages de sécurité recommandés (`docs/security/THREAT_MODEL.md`) ; archive ZIP de la V2 sur Drive reportée (« on verra cela plus tard »).
 - **Échéances écrites** : 7 écarts d'exigences (`docs/regles/EXIGENCES.md`) ; 9 versions de développement admises jusqu'au 30 nov. (`tests/pare-feux/failles-acceptees.json`) ; pare-feux, exigences et indicateurs prévus par phase (paquet de contexte).
 - **Indicateurs des spots** : objectifs suivis, jamais au détriment des spots ; à défaut de sources, voie empirique (journal).
 
 ## Prochaine action
 
-Phase 7, jeudi 26 nov. 2026 à 8 h 01 : `npm run -s contexte -- 7`, puis le cadrage `docs/phases/PHASE-7-CADRAGE.md`. Priorité n° 1 : revue scientifique régionale du comportement et de l'alimentation du bar (Bretagne, Cotentin jusqu'à Cherbourg). Rapport de clôture avec « Solutions comparées », « Mise en œuvre pas à pas » et « Menaces actuelles et parades » (PF-48).
+Phase 7 close le 26 nov. 2026 (rapport `docs/rapports/v3/PHASE-7.md`, commits 8778f36 à la tête de la branche). **Arrêt obligatoire** : rien à faire sans le jeton de Félix « APPROVED — PROCEED TO PHASE 8 », ni rien de planifié. Reports écrits pour la phase 8 : rapport § 13.
+
+- **Environnement** : le Playwright du dépôt attend Chromium 1194. Faire pointer `/opt/pw-browsers/chromium-1194/chrome-linux` et `chromium_headless_shell-1194/chrome-linux` vers les versions 1243 installées (`cp -rs`, et le lien `headless_shell`). `npm run -s verifier` dure plus de 10 min : le lancer en arrière-plan.
 
 ## Règle de passation (limite de crédits, référentiel § 3.6)
 
