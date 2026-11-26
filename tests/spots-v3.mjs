@@ -38,6 +38,11 @@ t("schéma : refuse un INCONNU qui porte un texte", !variante((c) => { c.access.
 t("schéma : refuse une information V3 sans source ni date de vérification", !variante((c) => { c.access.stationnement = { statut: "VÉRIFIÉ", origine: "v3", texte: "parking" }; }));
 t("schéma : refuse un spot personnel (origine user_manual) dans le dépôt", !variante((c) => { c.origin = "user_manual"; }));
 t("schéma : refuse une fiche sans réglementation", !variante((c) => { delete c.regulations; }));
+// Phase 7 (PF-46) : preuves de SPOT-03, MAP-06 et RTE-04.
+t("SPOT-03 : le schéma refuse une fiche sans l'une des quatre phases de marée ou sans fenêtre de sécurité (présente ou marquée inconnue)", !variante((c) => { delete c.tide_approaches.haute; }) && !variante((c) => { delete c.windows.securite; }));
+t("SPOT-02 : le schéma refuse une rubrique sans statut", !variante((c) => { delete c.environment.fond.statut; }));
+t("MAP-06 : chaque fiche a une position en décimales ; une position non contrôlée ou douteuse est signalée", fiches.every(({ fiche: f }) => Number.isFinite(f.coordinates.lat) && Number.isFinite(f.coordinates.lon) && (f.quality.criteres["QUAL-3"].ok || (!["corroboree", "TOP_TIER"].includes(f.quality.statut) && /position|Coordonnées|toponyme/i.test(f.quality.criteres["QUAL-3"].detail)))));
+t("RTE-04 : le point d'accès est une rubrique distincte du poste (stationnement), connue ou marquée inconnue sur chaque fiche", fiches.every(({ fiche: f }) => f.access?.stationnement?.statut && (f.access.stationnement.statut === "INCONNU" || Number.isFinite(f.access.stationnement.valeur?.lat ?? f.coordinates.lat))));
 t("schéma : accepte une information V3 sourcée et datée", variante((c) => { c.access.stationnement = { statut: "VÉRIFIÉ", origine: "v3", valeur: { lat: 48.3, lon: -4.3 }, sources: ["src-exemple"], verifie_le: "2026-11-23" }; }));
 
 // Aucun spot V2 perdu ; empreinte V2 gardée ; coordonnées identiques, ou corrigées avec l'ancienne valeur conservée.
