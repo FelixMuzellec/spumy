@@ -34,8 +34,8 @@ Limites tenues :
     - Des bredouilles non notées font paraître un poste 60 % meilleur qu'il n'est.
     - Une prise isolée ne prouve rien.
     - Sous quelques dizaines de sorties par poste, classer des postes, c'est classer du bruit.
-- **Épreuve sur 234 vraies journées.**
-    - Tous les critères fixés d'avance tiennent, V-01 en partie.
+- **Épreuve sur 252 vraies journées** (234 pour le classement).
+    - Les critères fixés d'avance tiennent ; V-01 et V-06 ne sont tenus qu'en partie, ce qui est dit.
     - Aucun créneau « non recommandé » en V2 ne devient SAFE, sur 1 741.
     - Le Top 3 est stable à 10 points près, mais son ordre exact ne l'est pas.
     - Avec les fiches actuelles, le Top documenté est **vide tous les jours** : la règle stricte D6-15 met tous les spots dans « à vérifier ». C'est l'arbitrage n° 1 de la phase 9.
@@ -134,7 +134,9 @@ Contrôles pendant la phase :
 
 `npm run -s verifier` sur la branche, avant les corrections de la passe 2 : construction et `npm test` au vert (561 s), le reste au vert.
 
-Gate final sur clone neuf : § 7 bis.
+### 7 bis. Gate final
+
+Gate final sur clone neuf : à consigner ci-dessous.
 
 ## 8. Résultats fonctionnels et qualité
 
@@ -191,9 +193,25 @@ Tableau complet : `docs/regles/EXIGENCES.md`.
     - saison répétée 50 fois ;
     - comptes de la revue corrigés ;
     - recommandation K-02 revue.
-- **V-06** (revue du dossier 00 à 06) : les constats MAJEUR qui touchaient l'accord entre le contrat et l'épreuve sont fermés par ces corrections.
+- **V-06** (revue du dossier 00 à 06) : tenue **en partie**. Le dossier a été relu à travers l'épreuve (point C7), et les constats MAJEUR qui touchaient l'accord entre le contrat et l'épreuve sont fermés. Il n'y a pas eu de relecture ligne à ligne des documents 02 à 05 : elle est reportée à la phase 9, qui consolide ces spécifications.
 
-**Passe 3, contre-vérification** : § 10 bis.
+**Passe 3, contre-vérification** par un second relecteur indépendant, en lecture seule, sur les corrections.
+- Sur les 15 constats de la passe 2 : 10 fermés, 4 partiels, 1 ouvert.
+- Il a aussi relevé 8 défauts nouveaux : 1 MAJEUR, 3 MINEUR, 4 OBSERVATION.
+
+Reprises :
+- **MAJEUR, gate et passe 3 annoncés mais absents du rapport** : ils y sont maintenant (§ 7 bis et ce paragraphe).
+- **V-06** : dit « en partie » (voir ci-dessus).
+- **Comptes** : 252 journées pour les créneaux, 234 pour le classement.
+- **K-02** : le libellé de l'intervalle est corrigé (centiles sur 200 journaux, pas l'intervalle d'un journal).
+- **Test PF-17** : il nettoie son dossier temporaire.
+- **Limites dites dans l'épreuve** :
+    - deux lacunes critiques sur quatre seulement sont codées ;
+    - V-04 est une non-régression ;
+    - la perturbation météo ne départage pas les architectures ;
+    - le créneau de V-03 n'est pas celui du contrat.
+- **Ouvert et assumé** : PF-34 est « contrôlé » pour ce qui existe (l'outil et ses garde-fous). « Les notes jugées sur le journal » reste un complément daté de la phase 13 (`aCompleter`), que les pare-feux contrôlent.
+- **SPOT-07** reste acceptée. Ses deux MAJEUR ont été réduits par l'auteur, faits à l'appui, et un second relecteur a vu cette réduction sans la contester ; les corrections de critère sont proposées pour la phase 9.
 
 Risques :
 - **règle stricte** : tant que les fiches ne sont pas documentées, SPUMY BORD ne recommande aucun spot sans réserve ;

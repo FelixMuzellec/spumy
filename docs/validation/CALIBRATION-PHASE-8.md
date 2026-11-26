@@ -49,7 +49,7 @@ K-01 à K-03 restent « à mesurer », reportés à la phase 13 (journal confirm
 | 400 | 100 % | 86,5 % | 0,50 | 0,5 |
 
 **Proposition pour la phase 9 : réviser l'usage du seuil de K-02.** À 40 sorties, un prévisionniste **parfaitement** calibré échoue 6 fois sur 10 à la barre « pente entre 0,8 et 1,2 ». À l'échelle d'un journal, cette barre punirait le hasard. Deux options :
-- (a) exiger que l'intervalle à 90 % de la pente contienne 1. Mais à 40 sorties, cet intervalle va de 0,36 à 2,02 : un prévisionniste deux fois trop tranché (pente de 0,27 à 1,01) passerait souvent. Cette option est presque sans puissance ;
+- (a) exiger que l'intervalle à 90 % de la pente contienne 1. À 40 sorties, la pente estimée d'un prévisionniste calibré varie, d'un journal à l'autre, de 0,36 à 2,02 (5ᵉ et 95ᵉ centiles sur 200 journaux). Celle d'un prévisionniste deux fois trop tranché varie de 0,27 à 1,01 : les deux se recouvrent largement. La puissance de (a) n'est pas calculée, mais ce recouvrement la dit faible ;
 - (b) publier la pente avec son intervalle dès 40 sorties, sans verdict, et ne juger la barre de 0,8 à 1,2 qu'à partir de 400 sorties (86,5 % de réussite pour un prévisionniste calibré, 0 % pour un trop tranché). D'ici là, juger sur le BSS et l'AUC.
 
 Recommandée : (b), corrigée après la revue indépendante, qui a montré le manque de puissance de (a). C'est un changement d'un seuil fixé par délégation : il est présenté, pas appliqué.

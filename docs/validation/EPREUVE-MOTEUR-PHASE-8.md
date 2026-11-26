@@ -7,7 +7,7 @@ Phase 8 V3, 27 nov. 2026. Plan de validation de la phase 6 (`docs/moteur-bord/06
 
 ## 1. Ce qui est éprouvé, et ce qui ne l'est pas
 
-- **Données.** 234 journées-guides réelles (le 6, le 16 et le 26 de chaque mois, de fin novembre 2025 à mi-novembre 2026, sept guides, choisies sans regarder la météo), avec la météo telle que l'application l'aurait téléchargée. Cela donne 6 105 créneaux notés.
+- **Données.** 252 journées-guides réelles (le 6, le 16 et le 26 de chaque mois, de fin novembre 2025 à mi-novembre 2026, sept guides, choisies sans regarder la météo), avec la météo telle que l'application l'aurait téléchargée. Cela donne 6 105 créneaux notés et 1 741 créneaux « non recommandés » en V2. Les épreuves de classement (V-03, V-04) portent sur 234 de ces journées (§ 2).
 - **Journal écarté.** Les journées de l'archive qui portent une session du journal sont écartées : rien du journal n'entre dans les résultats (PF-17).
 - **Méthode.** Le vrai moteur V2 note chaque créneau. Les architectures de l'étude (B-V2, B-simple, A1), le contrat de sécurité et la règle de classement proposés à la phase 6 sont rejoués sur ces notes.
 - **Ce que l'épreuve ne mesure pas.** Elle ne mesure **aucune** précision de prise : il n'y a pas de vérité terrain dans ces journées. Elle éprouve la structure, la publication, la stabilité et la sécurité, rien de plus.
@@ -25,7 +25,7 @@ Version corrigée après la revue indépendante (passe 2, § 6 ci-dessous).
 | Sécurité, V2 contre V3 | aucun créneau « non recommandé » en V2 ne devient SAFE | 0 sur les 1 741 créneaux non recommandés en V2, avec les fiches actuelles comme avec les fiches supposées documentées. Et aucun créneau « sans doute » en V2 ne devient « non recommandé » | oui |
 | V-05 Invariance (Confiance, boîte, Pertinence) | ordre identique | tenu par `tests/etude-moteur-bord.mjs` (« ne lit jamais la Confiance, la Pertinence ni la boîte ») | oui |
 | V-09 Données de sécurité des fiches | part des fiches qui peuvent être SAFE | 0 sur 98 (étude E9). Raisons : accès selon la marée inconnu (75), réglementation à vérifier (35), engagement (32), houle maximale (32), fenêtre de sécurité (22) | mesuré |
-| V-06 Revue indépendante du dossier 00 à 06 | aucun constat MAJEUR ouvert | voir § 6 et le rapport de phase (§ 10) | voir § 6 |
+| V-06 Revue indépendante du dossier 00 à 06 | aucun constat MAJEUR ouvert | **En partie.** Le dossier a été relu par le relecteur indépendant à travers l'épreuve : point C7 de sa grille, accord entre contrat, sécurité, classement et résultats. Ses constats MAJEUR (§ 6) sont fermés. Il n'y a pas eu de relecture ligne à ligne des documents 02 à 05 | en partie ; aucun MAJEUR ouvert |
 
 **Journées écartées.**
 - 3 journées portent une session du journal : elles sont écartées.
@@ -81,7 +81,9 @@ Ce sont les journées choisies d'avance : le 6 janvier, le 6 avril, le 6 juillet
 - **Temps de route.** C'est la distance fixe du guide V2, pas le temps IGN depuis la position (phase 10).
 - **Second modèle.** Il n'est lu que pour la force du vent. Les rafales du second modèle ne sont pas archivées.
 - **Nuit.** Elle est lue sur la lumière dominante du créneau. Un créneau d'aube ou de crépuscule qui mord sur la nuit est compté « pas la nuit ». Une lumière non calculée est inconnue.
-- **Météo perturbée.** Elle n'est recalculée que sur le créneau qui sert au rang.
+- **Météo perturbée.** Elle n'est recalculée que sur le meilleur créneau B-V2 de chaque spot. V-03, les baselines et la saison se lisent tous sur ce créneau ; le classement proposé (V-04) se lit, lui, sur la meilleure fenêtre SAFE du contrat. La perturbation est modérée (±1 force, houle ±20 %) : les trois architectures y restent stables à 100 %, donc cette comparaison ne les départage pas.
+- **Lacunes critiques.** Seules deux sur quatre sont codées : la position non contrôlée et l'accès inconnu. La « fenêtre non déterminable » et la « contradiction » ne le sont pas. Les fenêtres des sept guides viennent des fiches V2 (`tide_approaches`), et l'audit ne trouve aucune contradiction.
+- **V-04.** Le Top n'admet que des spots SAFE par construction (`classement.mjs`) : V-04 garde contre une régression de cette règle, il ne mesure pas un risque nouveau.
 
 ## 6. Revue indépendante de cette épreuve (passe 2) et suites
 
