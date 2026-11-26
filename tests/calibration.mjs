@@ -55,7 +55,8 @@ const s = (o) => ({ noteFigee: true, favorabilite: 60, resultat: "prise", prises
   t("Confiance mesurée à part, sans toucher au rang", v2.confiance.statut === "mesurée" && typeof v2.confiance.coherente === "boolean"); }
 t("PF-17 : un export du journal placé dans le dépôt est refusé", dansLeDepot(path.join(root, "journal.json"), root) && dansLeDepot("data/x.json", root) && dansLeDepot(path.join(root, "..x.json"), root) && !dansLeDepot("/tmp/journal.json", root));
 { const lien = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "spumy-lien-")), "export.json"); fs.symlinkSync(path.join(root, "package.json"), lien);
-  t("PF-17 : un lien hors du dépôt vers un fichier du dépôt est refusé", dansLeDepot(lien, root)); }
+  t("PF-17 : un lien hors du dépôt vers un fichier du dépôt est refusé", dansLeDepot(lien, root));
+  fs.rmSync(path.dirname(lien), { recursive: true, force: true }); }
 { let code = 0; try { execFileSync("node", [path.join(root, "scripts/calibration/verification.mjs"), path.join(root, "package.json")], { stdio: "pipe" }); } catch (e) { code = e.status; }
   t("PF-17 : l'outil refuse de lire un fichier du dépôt (code 2)", code === 2); }
 
