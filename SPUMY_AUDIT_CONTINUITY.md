@@ -13,10 +13,12 @@
 | 5. Audit BORD et référentiel des spots | close, tous ses gates PASS (ouverture de la phase 6 par le jeton conditionnel du 23 nov., 23 h 15) | `docs/rapports/v3/PHASE-5.md` |
 | 6. Conception et validation du moteur BORD | VALIDATED (par délégation de Félix, 23 nov., 23 h 15 ; à confirmer par Félix) | `docs/rapports/v3/PHASE-6.md` |
 | 7. Deuxième passe de recherche et enrichissement halieutique | VALIDATED (par délégation de Félix, 23 nov., 23 h 15 ; à confirmer par Félix) ; close le 26 nov. 2026 | `docs/rapports/v3/PHASE-7.md` |
-| 8 à 15 | NOT STARTED ; jamais de phase 8 sans son propre jeton | — |
+| 8. Validation indépendante du référentiel et calibration du moteur | IN PROGRESS (jeton du 26 nov. 2026, 23 h 48 ; ouverte à 23 h 57) | `docs/rapports/v3/PHASE-8.md` (à écrire) |
+| 9 à 15 | NOT STARTED ; jamais de phase 9 sans son propre jeton | — |
 
 ## Checkpoint
 
+- Phase 8 : branche `claude/v3-phase-08-validation-calibration` (depuis la phase 7), proposition n° 29 en brouillon vers la branche de la phase 7.
 - Phase 7 : branche `claude/v3-phase-07-enrichissement-halieutique` (depuis `claude/v3-phase-6`), proposition n° 28 en brouillon vers `claude/v3-phase-6`.
 - Branche de travail : `claude/v3-phase-6` (propositions en chaîne n° 16 à 20 jusqu'à `main`, toutes en brouillon ; rien n'est fusionné dans `main`, qui reste la V2 publiée, `v2-final` sur bb4f940). Les suivis du 24 et du 25 nov. (n° 21 à 26) y sont intégrés.
 - Contrôles : `npm run -s verifier` (toutes les suites, une ligne chacune) ; CI de chaque proposition (pare-feux, sabotage, bibliothèques, indicateurs).
@@ -31,7 +33,7 @@
 
 ## Prochaine action
 
-Phase 7 close le 26 nov. 2026 (rapport `docs/rapports/v3/PHASE-7.md`, commits 8778f36 à la tête de la branche). **Arrêt obligatoire** : rien à faire sans le jeton de Félix « APPROVED — PROCEED TO PHASE 8 », ni rien de planifié. Reports écrits pour la phase 8 : rapport § 13.
+Phase 8 en cours (reprises de secours à 3 h 51 et 7 h 51 : reprendre ici, sans rien refaire). Fait et poussé : épreuve sur 234 journées (`scripts/epreuve-v3/`), outil de calibration K-01 à K-03 et jeux synthétiques, BATEAU compris (`scripts/calibration/`, `tests/calibration.mjs`, PF-34 posé, K-01 à K-03 reportés en phase 13 faute de sorties), audit stratifié des fiches (`scripts/audit-fiches-phase-8.mjs`), revue indépendante des phases 5 et 7 et contrôle web de 10 fiches (résultats à consigner dans `docs/validation/`). Reste : documents `docs/validation/`, exigences REC-11 et SPOT-07, passes de challenge 2 et 3, rapport en 14 parties, gate sur clone neuf, CI, question unique à Félix. Statut final : soumis à la validation de Félix (aucune délégation). Aucune phase 9.
 
 - **Environnement** : le Playwright du dépôt attend Chromium 1194. Faire pointer `/opt/pw-browsers/chromium-1194/chrome-linux` et `chromium_headless_shell-1194/chrome-linux` vers les versions 1243 installées (`cp -rs`, et le lien `headless_shell`). `npm run -s verifier` dure plus de 10 min : le lancer en arrière-plan.
 
