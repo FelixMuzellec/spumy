@@ -10,6 +10,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { brier, brierSkill, auc, penteFiabilite, verifier } from "./verification.mjs";
 import { alea, tirerZINB, thetaPosterieur, thetaRatio, zeroStructurel, psiBeta } from "../etude-moteur-bord/zinb.mjs";
+import { fitModel, predictRate, scoreOf, MIN_TRIPS } from "../../src/bateau/offshore.js";
+import { spearman } from "./verification.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const SORTIE = path.join(root, "data/moteur-bord/calibration-synthetique.json");
@@ -93,6 +95,39 @@ function c3() {
     c_intervalleSelonSorties: c, d_surapprentissageParPoste: d, e_psi: e, f_saison: f };
 }
 
+/**
+ * C5 : le modèle BATEAU V2 (src/bateau/offshore.js, régression de Poisson pénalisée « d'après tes sorties »), éprouvé seul,
+ * sans lui appliquer le moteur BORD. Vérité connue : le taux de prise dépend du vent (effet négatif) et du coefficient
+ * (positif) ; dix autres variables n'ont aucun effet. Mesures hors échantillon (sorties tirées à part).
+ */
+function c5() {
+  const u = alea(88005);
+  const poisson = (m) => { let k = 0, p = Math.exp(-m), s = p; const x = u(); while (x > s && k < 200) { k++; p *= m / k; s += p; } return k; };
+  const sortie = (i, spotId = `s${i % 4}`) => {
+    const cond = { wind: 5 + 35 * u(), gust: 10 + 50 * u(), wave: 2 * u(), period: 5 + 8 * u(), swell: 2 * u(), sst: 9 + 10 * u(), pressure: 995 + 35 * u(), dp24: -8 + 16 * u(), cloud: 100 * u(), coef: 30 + 85 * u(), tideH: 12.4 * u(), hour: 24 * u(), doy: 365 * u() };
+    const taux = 0.6 * Math.exp(-0.04 * (cond.wind - 20) + 0.015 * (cond.coef - 70));
+    const h = 2 + Math.floor(3 * u());
+    return { id: `t${i}`, spotId, date: "2026-06-01", start: "08:00", end: `${String(8 + h).padStart(2, "0")}:00`, cond, catches: [{ sp: "bar", n: poisson(taux * h) }], _taux: taux };
+  };
+  const test = Array.from({ length: 300 }, (_, i) => sortie(10000 + i));
+  const res = [];
+  for (const N of [MIN_TRIPS - 1, MIN_TRIPS, 20, 60, 200]) {
+    const m = fitModel(Array.from({ length: N }, (_, i) => sortie(i)));
+    if (!m.ok) { res.push({ sorties: N, ok: false, raison: m.reason }); continue; }
+    const pred = test.map((t) => predictRate(m, t.cond, t.spotId)), vrai = test.map((t) => t._taux);
+    const nuls = Object.entries(m.beta).filter(([c]) => !/^(wind|coef)$/.test(c)).map(([, b]) => Math.abs(b));
+    res.push({ sorties: N, ok: true, effetVent: r3(m.beta.wind), effetCoef: r3(m.beta.coef), effetFauxMax: r3(Math.max(...nuls)),
+      spearmanHorsEchantillon: r3(spearman(pred, vrai)), noteMin: scoreOf(m, Math.min(...pred)), noteMax: scoreOf(m, Math.max(...pred)) });
+  }
+  const sansPrise = fitModel(Array.from({ length: 30 }, (_, i) => ({ ...sortie(i), catches: [] })));
+  // Capots non notés : seules les sorties avec prise sont gardées. Le modèle compare à TA moyenne : le biais déplace la moyenne.
+  const toutes = Array.from({ length: 200 }, (_, i) => sortie(i)), avecPrise = toutes.filter((t) => t.catches[0].n > 0);
+  const mT = fitModel(toutes), mP = fitModel(avecPrise);
+  return { lecture: "taux vrai : exp(−0,04 (vent − 20) + 0,015 (coef − 70)) ; dix variables sans effet ; quatre spots identiques",
+    parTaille: res, sansAucunePrise: sansPrise.ok ? "note produite à tort" : sansPrise.reason,
+    capotsNonNotes: { tauxMoyenComplet: r3(mT.meanRate), tauxMoyenSansCapots: r3(mP.meanRate), effetVentComplet: r3(mT.beta.wind), effetVentSansCapots: r3(mP.beta.wind) } };
+}
+
 /** C4 : les garde-fous de l'outil sur un faux journal (statuts attendus). */
 function c4() {
   const u = alea(88004);
@@ -106,7 +141,7 @@ function c4() {
 
 export function calculer() {
   return { "//": "Jeux SYNTHÉTIQUES de la phase 8 V3 (aucune sortie réelle). Régénérer : node scripts/calibration/journal-synthetique.mjs. Lecture : docs/validation/CALIBRATION-PHASE-8.md",
-    c1_previsionnistesConnus: c1(), c2_biaisDeSelection: c2(), c3_apprentissageTheta: c3(), c4_gardeFous: c4() };
+    c1_previsionnistesConnus: c1(), c2_biaisDeSelection: c2(), c3_apprentissageTheta: c3(), c4_gardeFous: c4(), c5_bateau: c5() };
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {

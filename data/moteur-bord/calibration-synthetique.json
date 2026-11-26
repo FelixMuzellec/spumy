@@ -301,5 +301,62 @@
   "soixanteSansBredouille": "insuffisant",
   "soixanteMelangees": "mesuré",
   "soixanteMelangeesChance": "non mesurée : SPUMY ne publie pas de chance de prise (D6-12)"
+ },
+ "c5_bateau": {
+  "lecture": "taux vrai : exp(−0,04 (vent − 20) + 0,015 (coef − 70)) ; dix variables sans effet ; quatre spots identiques",
+  "parTaille": [
+   {
+    "sorties": 7,
+    "ok": false,
+    "raison": "7 sorties avec conditions sur 8 nécessaires"
+   },
+   {
+    "sorties": 8,
+    "ok": true,
+    "effetVent": -0.173,
+    "effetCoef": 0.066,
+    "effetFauxMax": 0.216,
+    "spearmanHorsEchantillon": 0.341,
+    "noteMin": 0.1,
+    "noteMax": 9.9
+   },
+   {
+    "sorties": 20,
+    "ok": true,
+    "effetVent": -0.514,
+    "effetCoef": 0.331,
+    "effetFauxMax": 0.313,
+    "spearmanHorsEchantillon": 0.681,
+    "noteMin": 0.1,
+    "noteMax": 9.9
+   },
+   {
+    "sorties": 60,
+    "ok": true,
+    "effetVent": -0.27,
+    "effetCoef": 0.253,
+    "effetFauxMax": 0.282,
+    "spearmanHorsEchantillon": 0.607,
+    "noteMin": 0.1,
+    "noteMax": 9.6
+   },
+   {
+    "sorties": 200,
+    "ok": true,
+    "effetVent": -0.36,
+    "effetCoef": 0.448,
+    "effetFauxMax": 0.133,
+    "spearmanHorsEchantillon": 0.929,
+    "noteMin": 0.1,
+    "noteMax": 9.3
+   }
+  ],
+  "sansAucunePrise": "aucune prise enregistrée pour l'instant : le modèle n'a rien à relier aux conditions",
+  "capotsNonNotes": {
+   "tauxMoyenComplet": 0.669,
+   "tauxMoyenSansCapots": 0.816,
+   "effetVentComplet": -0.472,
+   "effetVentSansCapots": -0.379
+  }
  }
 }
