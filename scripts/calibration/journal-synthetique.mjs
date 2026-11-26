@@ -86,9 +86,13 @@ function c3() {
     return { sorties: N, psiVrai: psi, psiEstimeMoyen: r3(moy(v)), psiMin: r3(Math.min(...v)), psiMax: r3(Math.max(...v)) }; });
   // f. Saison : sorties d'été seulement (Λ_base porte déjà la saison), puis θ appliqué l'hiver. Si la saison est comptée deux
   //    fois (Λ_base sans saison, θ l'apprend), θ d'été surestime l'hiver d'autant (D6-13).
-  const ete = Array.from({ length: 80 }, () => { const Lbase = 0.9 * (1 + u()); return { Lbase, y: tirerZINB(u, psi, Lbase, k) }; });
-  const f = { thetaAvecSaisonDansLambda: r3(travail(ete)), thetaSiSaisonOubliee: r3(travail(ete.map((s) => ({ ...s, Lbase: s.Lbase / 1.8 })))),
-    lecture: "θ vrai = 1 ; une saison oubliée dans Λ_base est apprise par θ (environ 1,8 ici), et serait appliquée telle quelle l'hiver" };
+  const fA = [], fO = [];
+  for (let r = 0; r < 50; r++) {
+    const ete = Array.from({ length: 80 }, () => { const Lbase = 0.9 * (1 + u()); return { Lbase, y: tirerZINB(u, psi, Lbase, k) }; });
+    fA.push(travail(ete)); fO.push(travail(ete.map((s) => ({ ...s, Lbase: s.Lbase / 1.8 }))));
+  }
+  const f = { repetitions: 50, thetaAvecSaisonDansLambda: r3(moy(fA)), thetaSiSaisonOubliee: r3(moy(fO)),
+    lecture: "θ vrai = 1 ; Λ_base d'été divisé par 1,8 (saison oubliée) : θ apprend cet écart et l'appliquerait l'hiver" };
   return { psi, k, thetaVrai: 1,
     a_zerosEtInconnus: { complet: r3(moy(a.complet)), sansZeros: r3(moy(a.sansZeros)), inconnusEnZeros: r3(moy(a.inconnusEnZeros)) },
     b_priseIsolee: { dixBredouilles: iso(Array(10).fill(0)), neufBredouillesEtSixPrises: iso([...Array(9).fill(0), 6]) },

@@ -132,8 +132,10 @@ export function verifier(sorties, seuils = SEUILS) {
 
 /** Garde-fou PF-17 : un export du journal placé dans le dépôt est refusé. */
 export function dansLeDepot(fichier, racine) {
-  const rel = path.relative(racine, path.resolve(fichier));
-  return !rel.startsWith("..") && !path.isAbsolute(rel);
+  // Liens symboliques résolus (un lien hors du dépôt vers un fichier du dépôt reste dans le dépôt) ; « ..x.json » n'est pas « .. ».
+  const reel = (p) => { try { return fs.realpathSync(p); } catch { return path.resolve(p); } };
+  const rel = path.relative(reel(racine), reel(fichier));
+  return rel === "" || (rel !== ".." && !rel.startsWith(`..${path.sep}`) && !path.isAbsolute(rel));
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {

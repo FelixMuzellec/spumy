@@ -7,6 +7,7 @@
 // Usage : node tests/calibration.mjs
 import fs from "node:fs";
 import path from "node:path";
+import os from "node:os";
 import { execFileSync } from "node:child_process";
 import { brier, brierSkill, auc, penteFiabilite, verifier, trier, dansLeDepot, SEUILS } from "../scripts/calibration/verification.mjs";
 
@@ -52,7 +53,9 @@ const s = (o) => ({ noteFigee: true, favorabilite: 60, resultat: "prise", prises
   const v2 = verifier(L.map((x, i) => ({ ...x, chance: i % 2 ? 0.7 : 0.3, confiance: i % 4 < 2 ? 40 : 80 })));
   t("chance annoncée : Brier, BSS, AUC mesurés à part", v2.chance.statut === "mesurée" && v2.chance.brier === 0.09 && v2.chance.auc === 1, JSON.stringify(v2.chance));
   t("Confiance mesurée à part, sans toucher au rang", v2.confiance.statut === "mesurée" && typeof v2.confiance.coherente === "boolean"); }
-t("PF-17 : un export du journal placé dans le dépôt est refusé", dansLeDepot(path.join(root, "journal.json"), root) && dansLeDepot("data/x.json", root) && !dansLeDepot("/tmp/journal.json", root));
+t("PF-17 : un export du journal placé dans le dépôt est refusé", dansLeDepot(path.join(root, "journal.json"), root) && dansLeDepot("data/x.json", root) && dansLeDepot(path.join(root, "..x.json"), root) && !dansLeDepot("/tmp/journal.json", root));
+{ const lien = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "spumy-lien-")), "export.json"); fs.symlinkSync(path.join(root, "package.json"), lien);
+  t("PF-17 : un lien hors du dépôt vers un fichier du dépôt est refusé", dansLeDepot(lien, root)); }
 { let code = 0; try { execFileSync("node", [path.join(root, "scripts/calibration/verification.mjs"), path.join(root, "package.json")], { stdio: "pipe" }); } catch (e) { code = e.status; }
   t("PF-17 : l'outil refuse de lire un fichier du dépôt (code 2)", code === 2); }
 
@@ -76,14 +79,16 @@ const R = JSON.parse(fs.readFileSync(path.join(root, "data/moteur-bord/epreuve-p
 t("V-01 : aucune carte publiée en nombre avec un critère manquant ou une eau inconnue (journées archivées)", R.v01_proprietes.tenu && R.v01_proprietes.nombreAvecManque === 0 && R.v01_proprietes.nombreEauInconnue === 0);
 t("V-02 : aucun « — » sans raison écrite", R.v02_publication.tenu);
 t("V-04 : aucun créneau non SAFE dans un Top, données de fiche actuelles ou supposées documentées", R.v04_classementSecurite.tenu && R.v04_classementSecurite.topAvecNonSafe === 0);
-t("sécurité : aucun créneau « non recommandé » en V2 ne devient SAFE avec le contrat proposé", R.securite.tenu && R.securite.v2NonRecommandeMaisV3Safe === 0);
+t("sécurité : aucun des créneaux « non recommandés » en V2 ne devient SAFE, même fiche supposée documentée (épreuve non vide)", R.securite.tenu && R.securite.v2NonRecommandes > 100 && R.securite.v2NonRecommandeMaisV3Safe === 0 && R.securite.v2NonRecommandeMaisV3SafeSiDocumente === 0);
+t("V-03 : la météo perturbée passe par le vrai moteur, qui reproduit exactement chaque note non perturbée", R.ecartees.meteoComparee > 0 && R.ecartees.meteoReproduite === R.ecartees.meteoComparee);
+t("V-04 : avec les fiches supposées documentées, des spots sont réellement classés (le critère peut échouer)", R.v04_classementSecurite.spotsDocumentesParJourneeSiDocumente > 1);
 t("épreuve : aucune session du journal dans les résultats (PF-17)", !/journal|seedJournal|fish/.test(JSON.stringify(R.exemples)));
 
 // ——— 4. Audit stratifié des fiches (phase 8) ———
 { let ok = true; try { execFileSync("node", [path.join(root, "scripts/audit-fiches-phase-8.mjs"), "--verifier"], { stdio: "pipe" }); } catch { ok = false; }
   t("audit stratifié des fiches à jour (scripts/audit-fiches-phase-8.mjs --verifier)", ok);
   const A = JSON.parse(fs.readFileSync(path.join(root, "data/spots/audit-phase-8.json"), "utf8"));
-  t("audit : toutes les fiches TOP_TIER, corroborées, engagées et à contrainte de marée sont tirées", ["1", "2", "3", "4"].every((k) => Object.entries(A.strates).filter(([s]) => s.startsWith(k)).every(([, v]) => v.fiches === v.tirees)));
+  t("audit : toutes les fiches TOP_TIER, corroborées, engagées, d'engagement inconnu, à contrainte de marée et à position douteuse sont tirées", ["1", "2", "2b", "3", "4"].every((k) => Object.entries(A.strates).filter(([s]) => s.startsWith(k)).every(([, v]) => v.fiches === v.tirees)));
   t("audit : aucune contradiction, position hors zone, source hors registre ni statut incohérent, sur les 98 fiches", A.graveHorsSecuriteSurToutesLesFiches.length === 0, JSON.stringify(A.graveHorsSecuriteSurToutesLesFiches)); }
 
 console.log(`[calibration et épreuve] ${pass}/${pass + fail}`);

@@ -286,9 +286,10 @@
    }
   ],
   "f_saison": {
-   "thetaAvecSaisonDansLambda": 0.879,
-   "thetaSiSaisonOubliee": 1.535,
-   "lecture": "θ vrai = 1 ; une saison oubliée dans Λ_base est apprise par θ (environ 1,8 ici), et serait appliquée telle quelle l'hiver"
+   "repetitions": 50,
+   "thetaAvecSaisonDansLambda": 1.009,
+   "thetaSiSaisonOubliee": 1.766,
+   "lecture": "θ vrai = 1 ; Λ_base d'été divisé par 1,8 (saison oubliée) : θ apprend cet écart et l'appliquerait l'hiver"
   }
  },
  "c4_gardeFous": {
