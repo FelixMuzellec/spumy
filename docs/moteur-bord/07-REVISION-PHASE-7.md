@@ -15,7 +15,7 @@ La zone de validité est lue sur la position du spot. Elle n'est jamais affiché
 
 | Zone (position) | Spots | Proposition | Appui | Statut |
 | --- | --- | --- | --- | --- |
-| Bretagne nord et Iroise (au nord du 48ᵉ parallèle, hors Cotentin) | 42 | creux déplacé de février à mars ; avril abaissé | migrants majoritaires (67 à 71 %) ; ponte de janvier à avril-mai, pic de mi-février à fin mars (bars débarqués à Roscoff) ; débarquements de la ligne de traîne au plus bas en mars-avril | HYPOTHÈSE de niveau 4, sur des sources de niveau 1. **Extrapolation** : les 42 spots comprennent les 8 spots abrités de la rade de Brest (guide de Logonna) et des spots de la baie de Douarnenez (Morgat, Pentrez), où aucun bar n'a été marqué : la table y est INFÉRÉE des marquages d'Iroise et de Bretagne nord |
+| Bretagne nord et Iroise (au nord du 48ᵉ parallèle, hors Cotentin) | 42 | creux déplacé de février à mars ; avril abaissé | migrants majoritaires (67 à 71 %) ; ponte de janvier à avril-mai, pic de mi-février à fin mars (bars débarqués à Roscoff) ; débarquements de la ligne de traîne au plus bas en mars-avril | HYPOTHÈSE de niveau 4, sur des sources de niveau 1. **Extrapolation** : les 42 spots comprennent les 8 spots abrités de la rade de Brest (guide de Logonna), ceux du goulet (pointe des Espagnols, Minou), les abers (Aber Wrac'h, Aber Benoît, Aber Ildut) et des spots de la baie de Douarnenez (Morgat, Pentrez), où aucun bar n'a été marqué : la table y est INFÉRÉE des marquages d'Iroise et de Bretagne nord |
 | Bretagne sud (au sud du 48ᵉ parallèle) | 14 | **inchangée** | aucune source régionale pour la côte ; résidents surtout au centre du golfe | INFÉRÉ |
 | Cotentin (à l'est de 2° O et au nord de 48° 45' N) | 10 | **inchangée** | Saint-Vaast : la plupart des bars restent dans l'aire nord ; côte ouest (Pirou) sans marquage | INFÉRÉ ; Confiance à baisser au printemps (§ 3) |
 
@@ -36,7 +36,7 @@ Aucune source ne donne ces valeurs. Seuls le sens et le mois du creux sont sourc
 
 Les chiffres viennent de `data/moteur-bord/revision-saison-phase-7.json`.
 
-- **Spots touchés** : 42 sur 66, tous en Bretagne nord et en Iroise, de février à mai seulement. De juin à janvier, rien ne change.
+- **Spots touchés** : 42 sur 66, tous au nord du 48ᵉ parallèle hors Cotentin, de février à mai seulement ; pour la rade de Brest, le goulet, les abers et la baie de Douarnenez, la table est une extrapolation (§ 1). De juin à janvier, rien ne change.
 - **Écart du facteur de saison** :
     - février : + 0,05 sur la côte ouverte, + 0,025 en abri ;
     - mars : − 0,05 sur la côte ouverte, − 0,025 en abri ;

@@ -18,6 +18,7 @@ Ce document décrit ; il ne note pas. Les connaissances qu'il fonde sont dans `d
     - de Pontual et al. 2019 (ICES JMS 76 : 501-515, Iroise), version Archimer, en entier ;
     - Fritsch 2005, p. 38 à 61 (la fin de la p. 37 seulement) : la méthode du chapitre B (femelles de la criée de Roscoff, échelle de maturité), sans taille de première maturité. Elle décrit pourtant le cycle par mois (p. 43-45) : stade II dès juin, stade IV dès octobre, premiers ovocytes hydratés (stade VI) début avril, stades de fin de ponte (VII) en mai. La ponte continue donc en avril et mai, au-delà du pic de mi-février à fin mars (p. 77-78).
 - **Source mal identifiée le 25 nov.** : l'article « des migrations autour du Royaume-Uni » cité comme *Movement Ecology* 2024 est en fait Goossens et al. 2024 (*Scientific Reports*), déjà lu. Un article distinct de *Movement Ecology* (doi 10.1186/s40462-024-00482-w) reste illisible : l'éditeur renvoie une page d'erreur de témoins de connexion.
+- **Notice Archimer 56738** (citée au cadrage comme une source d'Iroise) : illisible le 26 nov. (l'autorisation de lecture n'a pas eu de réponse) ; son contenu est INCONNU. L'article d'Iroise de de Pontual 2019 est la notice 56230, lue en entier.
 - **Source non lue** : la thèse de Carroll (2014, pays de Galles), hors zone (VOISINE, faible apport attendu) ; gardée en lacune (§ 6).
 - **Zones** : Bretagne nord ; Iroise et cap Sizun ; Bretagne sud ; rades et rias (rade de Brest, abers, rias du sud) ; Cotentin jusqu'à Cherbourg. Une zone de validité sert au moteur par la position du spot. Elle n'apparaît jamais à l'écran comme un secteur (PF-09).
 - **Biais déclarés** :
@@ -56,7 +57,7 @@ C'est un **indice** (niveau 1, VOISINE). Il ne s'agit pas d'une mesure d'abondan
 - Des bars restent l'hiver près de la côte : 13 sur 57 dans le port de Zeebrugge, jusqu'à 2,8 °C (Goossens 2023). Les minimums enregistrés en Manche ouest descendent à 6,5 °C (Goossens 2024, tableau 2). De Pontual 2023 donne aussi un minimum vers 6,5 °C, sans zone, et le dit plus proche des eaux continentales ou estuariennes que du large.
 - En Bretagne, les résidents d'hiver suivis sont peu nombreux. Aucune étude ne suit des bars en rade de Brest, dans les abers ou dans les havres du Cotentin en hiver.
 - En Iroise, les bars marqués n'ont passé que 0,33 % de leurs jours sous 9 °C (41 jours sur 12 409 ; de Pontual 2019) : ils quittent l'eau froide plutôt qu'ils ne s'y tiennent. L'hiver, ils descendent au large à plus de 110 m ; un poisson suivi d'octobre à février y restait profond le jour et remontait près de la surface la nuit (p. 509). L'« abri » dont parle l'article est la mer d'Iroise entière, jamais une rade : la rade de Brest et la baie de Douarnenez n'y figurent pas.
-- L'hypothèse « abri » du moteur (écart de saison réduit de moitié en rade, ria ou havre) garde donc le niveau 4. Elle a un indice régional faible : cinq poissons à Audierne. La température de l'air n'est pas celle de l'eau : le moteur lit l'eau.
+- L'hypothèse « abri » du moteur (écart de saison réduit de moitié en rade, ria ou havre) garde donc le niveau 4. Ses sources sont régionales (Iroise), mais elles disent une résidence, pas un abri en rade : cinq poissons à Audierne restés dans l'aire nord ou près du lieu de marquage, deux résidents d'Iroise. La température de l'air n'est pas celle de l'eau : le moteur lit l'eau.
 
 ### 2.3 Alimentation
 
@@ -82,15 +83,17 @@ Contrôle : `tests/knowledge.mjs`, essai de sabotage dans `tests/pare-feux-sabot
 
 | Statut | Connaissances |
 | --- | --- |
-| RÉGIONALE | migration-saisonniere, saison-coefficients (le calendrier ; les valeurs sont sans source), abri-hiver (indice faible), seuils-thermiques (les minimums ; les paliers sont sans source), frai-manche-ouest, migration-par-zone, printemps-cotentin, structure-stock-saisonniere, nourricerie-aulne, regime-juveniles-crustaces |
+| RÉGIONALE | migration-saisonniere, saison-coefficients (le calendrier ; les valeurs sont sans source), abri-hiver (sources d'Iroise, qui disent une résidence, pas un abri en rade), seuils-thermiques (les minimums ; les paliers sont sans source), frai-manche-ouest, migration-par-zone, printemps-cotentin, structure-stock-saisonniere, nourricerie-aulne, regime-juveniles-crustaces |
 | VOISINE | maree-flot, proies-calendrier, calendrier-ligneurs |
-| AUCUNE | frai-temperature (zone du modèle non relue), eau-chaude, lumiere-basse, ciel-couvert, coefficient-plage-utile, vent-exposition, rafales-penalite, pression |
+| AUCUNE | frai-temperature (zone du modèle non relue), eau-chaude, lumiere-basse, ciel-couvert, coefficient-plage-utile, vent-exposition, rafales-penalite, pression ; milieu (ajoutées le 26 nov.) : courant-coefficient, regle-douziemes (lois générales de la marée), pluie-turbidite, houle-turbidite, gros-coefficient-turbidite (hypothèses sans source) |
+
+Le contrôle porte sur l'étiquetage des sources, pas sur leur lecture ; une règle AUCUNE est une lacune déclarée.
 
 ## 4. Contradictions et nuances
 
 - **Minimum de présence** :
     - la V2 met le creux en février (0,5) ;
-    - les débarquements à l'hameçon le mettent en mars-avril ;
+    - les débarquements de la ligne de traîne le mettent en mars-avril ;
     - la ponte en Manche ouest culmine de mi-février à fin mars.
   Pas de contradiction sur le principe (départ au large pour frayer) ; un décalage d'environ un mois sur le creux.
 - **Stock nord ou golfe de Gascogne** : la limite réglementaire est le 48ᵉ parallèle. Or la plupart des bars de Bretagne nord et d'Iroise frayent dans le golfe de Gascogne. Leur calendrier de frai est donc celui du golfe, pas celui de la mer du Nord : c'est la position du spot et la population qui s'y nourrit qui comptent.

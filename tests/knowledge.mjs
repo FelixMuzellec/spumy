@@ -73,6 +73,8 @@ const DOMAINES_EXEMPTS = new Set(["réglementation", "sécurité", "leurres"]);
 function zonesProblems(doc) {
   const p = [];
   for (const k of doc.connaissances || []) if (!DOMAINES_ZONES.has(k.domaine) && !DOMAINES_EXEMPTS.has(k.domaine)) p.push(`${k.id} : domaine inconnu « ${k.domaine} »`);
+  // Une règle du calcul de la Favorabilité (model.js) reste contrôlée, quel que soit son domaine déclaré.
+  for (const k of doc.connaissances || []) if (DOMAINES_EXEMPTS.has(k.domaine) && (k.utilise_par || []).some((u) => /src\/bord\/engine\/model\.js/.test(u))) p.push(`${k.id} : règle de model.js hors du contrôle (domaine « ${k.domaine} »)`);
   for (const k of (doc.connaissances || []).filter((x) => DOMAINES_ZONES.has(x.domaine))) {
     if (!k.zone_validite) { p.push(`${k.id} : zone de validité absente`); continue; }
     if (!(k.zone_validite.texte || "").trim()) p.push(`${k.id} : zone de validité sans texte (d'où viennent les sources, ou pourquoi aucune)`);

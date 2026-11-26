@@ -50,6 +50,7 @@ const ESSAIS = [
   ["règle du moteur sans zone de validité", "migration-saisonniere : zone de validité absente", () => remplacer("data/knowledge/bar-bord.json", /,\s*"zone_validite": \{\s*"statut": "RÉGIONALE",\s*"texte": "Marquages Bargip à Saint-Quay[^}]*\}/, ""), ["tests/knowledge.mjs"]],
   ["zone de validité surestimée", "eau-chaude : zone de validité « RÉGIONALE » fausse", () => remplacer("data/knowledge/bar-bord.json", /("statut": )"AUCUNE"(,\s*"texte": "Règle de pêcheur, sans source\.")/, '$1"RÉGIONALE"$2'), ["tests/knowledge.mjs"]],
   ["règle du moteur sortie du contrôle par son domaine", "eau-chaude : domaine inconnu", () => remplacer("data/knowledge/bar-bord.json", /("id": "eau-chaude",\s*"domaine": )"biologie"/, '$1"divers"'), ["tests/knowledge.mjs"]],
+  ["règle de la Favorabilité déclarée de sécurité", "eau-chaude : règle de model.js hors du contrôle", () => remplacer("data/knowledge/bar-bord.json", /("id": "eau-chaude",\s*"domaine": )"biologie"/, '$1"sécurité"'), ["tests/knowledge.mjs"]],
   ["second slogan", "slogan écrit ailleurs qu'en tête de Home", () => ajouter("src/prototype-v3/carte6.jsx", "// Read the sea. Fish the moment.\n")],
   ["courbes de profondeur", "courbe de profondeur dans l'interface V3", () => ajouter("src/prototype-v3/carte6.jsx", "// isobathes\n")],
   ["icône de guide remplacée", "icône de guide différente de l'icône SPUMY : crozon.png", () => fs.copyFileSync(f("icon-512.png"), f("crozon.png"))],

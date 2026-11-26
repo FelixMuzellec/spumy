@@ -21,7 +21,7 @@ Les comptes ci-dessous sont mesurés sur les 98 fiches de `data/spots/fiches/` l
 | Rade de Brest, abers et havres du Cotentin en hiver | aucune étude | Aucun marquage publié dans ces milieux en hiver ; l'« abri » de de Pontual 2019 est la mer d'Iroise entière | hypothèse « abri » gardée au niveau 4 ; voie empirique (journal, hors du dépôt, PF-17) |
 | Côte ouest du Cotentin (Pirou, Portbail) | aucun marquage | Ce qui s'y applique est INFÉRÉ des zones voisines | Confiance plus basse proposée (`docs/moteur-bord/07-REVISION-PHASE-7.md`) |
 | Comportement selon la phase de marée au poste | aucune mesure régionale | De Pontual 2019 ne décrit qu'un rythme lié à la renverse, sur un poisson, au large | épreuve de la phase 8 sur le journal |
-| *Movement Ecology* 2024 (doi 10.1186/s40462-024-00482-w) ; Carroll 2014 | 2 sources | Page de l'éditeur illisible (erreur de témoins) ; thèse hors zone | à relire si l'accès s'ouvre ; faible apport attendu |
+| *Movement Ecology* 2024 (doi 10.1186/s40462-024-00482-w) ; notice Archimer 56738 ; Carroll 2014 | 3 sources | Page de l'éditeur illisible (erreur de témoins) ; notice Archimer non ouverte (autorisation sans réponse), contenu inconnu ; thèse hors zone | à relire si l'accès s'ouvre ; faible apport attendu |
 
 ## 2. Demandes à Félix (§ 0.6)
 
