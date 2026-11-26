@@ -46,13 +46,14 @@ export function entreeSecurite(E, spot, w, F, { supposeDocumente = false } = {})
     : S.acces_maree?.statut === "INCONNU" ? null : regles.some((a) => a.isolement && a.active) ? true : null;
   return {
     ventConnu: zw.windKnown === true, force: zw.wind_force, forceAutreModele: forceAlt, rafalesKmh: zw.gust_kmh,
-    directionConnue: !!zw.wind_dir, rade: E.SITE.zones?.[spot.zone]?.sea === "rade",
+    // Le moteur écrit « ? » pour une direction inconnue ; une lumière « inconnu » ne vaut jamais « pas la nuit ».
+    directionConnue: typeof zw.wind_dir === "string" && zw.wind_dir !== "" && zw.wind_dir !== "?", rade: E.SITE.zones?.[spot.zone]?.sea === "rade",
     houleConnue: zw.houleKnown === true, houleM: zw.houle,
     houleMaxM: supposeDocumente ? (connu(S.houle_max_m) ?? spot.houleMax ?? null) : connu(S.houle_max_m),
     engagement: supposeDocumente ? (connu(S.engagement) ?? spot.dangerLevel ?? null) : connu(S.engagement),
     coef: w.coeff, coefMaxDur: spot.coefHardMax ?? null, isolement,
     consignesActives: regles.filter((a) => a.active && !a.isolement).map((a) => a.t),
-    nuit: w.light?.band === "nuit" ? true : w.light?.band ? false : null,
+    nuit: w.light?.band === "nuit" ? true : ["jour", "aube", "crepuscule"].includes(w.light?.band) ? false : null,
     fermetureOfficielle: supposeDocumente ? false : F?.quality?.criteres?.["QUAL-6"]?.ok ? false : null,
   };
 }
@@ -70,9 +71,10 @@ export async function epreuve() {
   const V1 = { creneaux: 0, nombreAvecManque: 0, nombreEauInconnue: 0, bv2HorsIntervalle: 0, bv2Comparables: 0, bv2EcartMax: 0 };
   const V2pub = { "mai-octobre": { nombre: 0, fourchette: 0, qualitatif: 0, aucune: 0 }, "novembre-avril": { nombre: 0, fourchette: 0, qualitatif: 0, aucune: 0 } };
   const raisonsAucune = {};
-  const SEC = { creneaux: 0, etats: {}, etatsSiDocumente: {}, v2SansDouteMaisV3Danger: 0, v2NonRecommandeMaisV3Safe: 0, v2SansDouteMaisV3DangerSiDocumente: 0, exemplesDivergence: [] };
+  const SEC = { creneaux: 0, etats: {}, etatsSiDocumente: {}, v2SansDouteMaisV3Danger: 0, v2NonRecommandes: 0, v2NonRecommandeMaisV3Safe: 0, v2NonRecommandeMaisV3SafeSiDocumente: 0, v2SansDouteMaisV3DangerSiDocumente: 0, exemplesDivergence: [], exemplesNrSafe: [] };
+  const ECART = { journeesMoinsDeTroisSpots: 0, spotsSansTempsDeRoute: 0, meteoReproduite: 0, meteoComparee: 0 };
   const V4 = { journees: 0, topAvecNonSafe: 0, topVide: 0, topVideSiDocumente: 0, documentesMoyen: 0, documentesMoyenSiDocumente: 0, aVerifierMoyen: 0 };
-  const V3 = { journees: 0, stables80: 0, partStable: [], exact: 0, larges80: 0, largesExact: 0 };
+  const V3 = { journees: 0, stables80: 0, partStable: [], exact: 0, larges80: 0, largesExact: 0, meteo: { bV2: [0, 0], a1Bas: [0, 0], bSimple: [0, 0] } };
   const SAIS = { journees: 0, memePremier: 0, top3Commun: 0, parMois: {}, spearman: [] };
   const BASE = { journees: 0, memePremierBV2BSimple: 0, spearmanBV2BSimple: [], spearmanBV2A1bas: [] };
   const exemples = [];
@@ -88,10 +90,18 @@ export async function epreuve() {
       for (const x of day) {
         const spot = E.SPOTS.find((s) => s.id === x.id), F = fiche(x.id);
         const v2w = new Map((x.v2?.windows || []).map((v) => [v.id, v]));
-        let meilleur = null;
+        let meilleur = null; const cands = [];
         for (const w of x.windows || []) {
           const v = v2w.get(w.id);
-          if (!v?.f || w.outOfHours) continue;
+          if (!v || w.outOfHours) continue;
+          // Créneaux « non recommandés » en V2 : ils n'ont pas de note ; leur sécurité V3 est quand même évaluée.
+          if (!v.eligible) {
+            SEC.v2NonRecommandes++;
+            if (etatSecurite(entreeSecurite(E, spot, w, F)).etat === "SAFE") SEC.v2NonRecommandeMaisV3Safe++;
+            if (etatSecurite(entreeSecurite(E, spot, w, F, { supposeDocumente: true })).etat === "SAFE") { SEC.v2NonRecommandeMaisV3SafeSiDocumente++;
+              if (SEC.exemplesNrSafe.length < 8) SEC.exemplesNrSafe.push({ guide: g, spot: x.id, mois: month, raisonV2: v.reason || null }); }
+          }
+          if (!v.f) continue;
           const c = composantes(v.f), A = a1(c), B = bV2(c), Bs = bSimple(c);
           V1.creneaux++;
           if (A.publication === "nombre" && (c.exclus.size || Object.keys(c.pts).length < 4)) V1.nombreAvecManque++;
@@ -101,24 +111,34 @@ export async function epreuve() {
           if (A.publication === "aucune") { const k = [...c.exclus].sort().join("+") || "critères manquants"; raisonsAucune[k] = (raisonsAucune[k] || 0) + 1; }
           const sec = etatSecurite(entreeSecurite(E, spot, w, F)), secDoc = etatSecurite(entreeSecurite(E, spot, w, F, { supposeDocumente: true }));
           SEC.creneaux++; SEC.etats[sec.etat] = (SEC.etats[sec.etat] || 0) + 1; SEC.etatsSiDocumente[secDoc.etat] = (SEC.etatsSiDocumente[secDoc.etat] || 0) + 1;
-          const v2SansDoute = v.eligible && !(v.verify || []).length, v2NR = !v.eligible;
+          const v2SansDoute = v.eligible && !(v.verify || []).length;
           if (v2SansDoute && (sec.etat === "DANGER" || sec.etat === "BLOCKED")) SEC.v2SansDouteMaisV3Danger++;
           if (v2SansDoute && (secDoc.etat === "DANGER" || secDoc.etat === "BLOCKED")) {
             SEC.v2SansDouteMaisV3DangerSiDocumente++;
             if (SEC.exemplesDivergence.length < 6) SEC.exemplesDivergence.push({ guide: g, spot: x.id, mois: month, regles: secDoc.raisons.filter((r) => r.etat === "DANGER" || r.etat === "BLOCKED").map((r) => `${r.regle} : ${r.texte}`) });
           }
-          if (v2NR && sec.etat === "SAFE") SEC.v2NonRecommandeMaisV3Safe++;
-          const cand = { w, c, A, B, Bs, sec, secDoc, presProp: presencePropose(spot, v.f, month) };
-          // Créneau qui sert au rang : le meilleur créneau dont la note B-V2 existe (le moteur V2 classe sur la meilleure fenêtre).
+          const cand = { w, v, c, A, B, Bs, sec, secDoc, presProp: presencePropose(spot, v.f, month) };
+          cands.push(cand);
+          // Créneau de la V2 et des baselines : le meilleur créneau dont la note B-V2 existe (le moteur V2 classe sur la meilleure fenêtre).
           if (B.valeur != null && (!meilleur || B.valeur > meilleur.B.valeur)) meilleur = cand;
         }
-        if (meilleur) lignes.push({ id: x.id, trajet: x.distMin ?? 30, ...meilleur });
+        const trajet = Number.isFinite(x.distMin) && x.distMin >= 0 ? x.distMin : undefined;
+        if (trajet === undefined) ECART.spotsSansTempsDeRoute++;
+        const q = F?.quality?.criteres || {};
+        if (meilleur) lignes.push({ id: x.id, trajet, spot, cands, lacune: !q["QUAL-3"]?.ok || !q["QUAL-4"]?.ok, ...meilleur });
       }
-      if (lignes.length < 3) continue;
+      if (lignes.length < 3) { ECART.journeesMoinsDeTroisSpots++; continue; }
       // V-04 : classement proposé, avec les données de fiche actuelles, puis en supposant la fiche documentée.
-      const versClasser = (doc) => lignes.map((l) => { const s = doc ? l.secDoc : l.sec, A = l.A;
-        return { id: l.id, securite: s.etat, aVerifier: s.etat !== "SAFE", accesFerme: false, trajetMin: l.trajet, trajetVerifie: false,
-          fav: A.publication === "nombre" ? A.valeur : A.bas, favLargeur: A.publication === "nombre" ? 0 : A.largeur ?? 99, confiance: 50 }; });
+      // Contrat (01 § 7) : rang sur la meilleure fenêtre SAFE à note complète ; sinon le spot va dans « à vérifier », ordonné
+      // par la borne basse de sa meilleure fenêtre. Lacunes critiques de la fiche (position non contrôlée, accès inconnu) :
+      // « à vérifier ». Temps de route inconnu : exclu (classer le fait).
+      const versClasser = (doc) => lignes.map((l) => {
+        const etat = (k) => (doc ? k.secDoc : k.sec).etat;
+        const sures = l.cands.filter((k) => etat(k) === "SAFE" && k.A.publication === "nombre").sort((a, b) => b.A.valeur - a.A.valeur);
+        if (sures.length && !l.lacune) return { id: l.id, securite: "SAFE", aVerifier: false, accesFerme: false, trajetMin: l.trajet, trajetVerifie: false, fav: sures[0].A.valeur, favLargeur: 0, confiance: 50 };
+        const rep = [...l.cands].filter((k) => k.A.bas != null).sort((a, b) => b.A.bas - a.A.bas)[0] || l;
+        const pire = ["DANGER", "BLOCKED"].includes(etat(rep)) ? etat(rep) : etat(rep) === "SAFE" ? "CAUTION" : etat(rep);
+        return { id: l.id, securite: pire, aVerifier: true, accesFerme: false, trajetMin: l.trajet, trajetVerifie: false, fav: rep.A?.bas ?? null, favLargeur: 99, confiance: 50 }; });
       const C0 = classer(versClasser(false)), C1 = classer(versClasser(true));
       V4.journees++;
       if (C0.top.some((s) => s.securite !== "SAFE") || C1.top.some((s) => s.securite !== "SAFE")) V4.topAvecNonSafe++;
@@ -126,7 +146,9 @@ export async function epreuve() {
       if (!C1.top.length) V4.topVideSiDocumente++;
       V4.documentesMoyen += C0.documentes.length; V4.documentesMoyenSiDocumente += C1.documentes.length; V4.aVerifierMoyen += C0.aVerifier.length;
       // V-03 : stabilité du Top 3 B-V2 sous perturbation des tables de points et de la présence (60 tirages).
-      const ordreB = (arr) => [...arr].sort((a, b) => b.v - a.v || a.id.localeCompare(b.id));
+      // Départage du contrat : note, puis temps de route, puis identifiant.
+      const tr = new Map(lignes.map((l) => [l.id, l.trajet ?? Infinity]));
+      const ordreB = (arr) => [...arr].sort((a, b) => b.v - a.v || tr.get(a.id) - tr.get(b.id) || a.id.localeCompare(b.id));
       const ref = ordreB(lignes.map((l) => ({ id: l.id, v: l.B.valeur }))).slice(0, 3).map((x) => x.id);
       // Deux amplitudes : modérée (points ×0,8 à ×1,2, présence ×0,5 à ×1,5) et large (points ×0,5 à ×1,5, présence ×0 à ×2).
       // « Stable » : chaque spot du Top 3 de référence reste à 10 points au plus du 3ᵉ du tirage ; « exact » : même Top 3.
@@ -139,6 +161,23 @@ export async function epreuve() {
         }
         return [st / TIRAGES, ex / TIRAGES]; };
       const [stM, exM] = tirer(0.2, 0.5, 1.5), [stL, exL] = tirer(0.5, 0, 2);
+      // Perturbation de la MÉTÉO (plan V-03) : force du vent ±1 et houle ×0,8 à ×1,2, tirées par spot, sur le créneau qui sert
+      // au rang ; composantes recalculées par le vrai moteur ; stabilité comparée pour B-V2, A1 (borne basse) et B-simple.
+      const ctxDe = (l) => ({ month, ...(l.v.f.pres.thermal ? { sst: l.v.f.pres.thermal.sst, sstConf: "modele" } : {}) });
+      const winDe = (l) => ({ priority: l.w.priority, coeff: l.w.coeff, light: { band: l.w.light?.band } });
+      for (const l of lignes) { ECART.meteoComparee++; if (E.favorability(l.spot, winDe(l), l.w.zw, ctxDe(l)).fav === l.v.f.fav) ECART.meteoReproduite++; }
+      for (const [nom, f] of [["bV2", (c) => bV2(c).valeur], ["a1Bas", (c) => a1(c).bas], ["bSimple", (c) => bSimple(c).valeur]]) {
+        const refM = ordreB(lignes.map((l) => ({ id: l.id, v: f(l.c) ?? -1 }))).slice(0, 3).map((x) => x.id);
+        let st = 0;
+        for (let t = 0; t < TIRAGES; t++) {
+          const o = ordreB(lignes.map((l) => { const zw = { ...l.w.zw };
+            if (Number.isFinite(zw.wind_force)) zw.wind_force = Math.max(0, zw.wind_force + Math.floor(3 * rng()) - 1);
+            if (Number.isFinite(zw.houle)) zw.houle = Math.round(zw.houle * (0.8 + 0.4 * rng()) * 10) / 10;
+            return { id: l.id, v: f(composantes(E.favorability(l.spot, winDe(l), zw, ctxDe(l)))) ?? -1 }; }));
+          if (refM.every((id) => o.find((x) => x.id === id).v >= o[2].v - 10)) st++;
+        }
+        V3.meteo[nom][0]++; if (st / TIRAGES >= 0.8) V3.meteo[nom][1]++;
+      }
       V3.journees++; V3.partStable.push(stM); if (stM >= 0.8) V3.stables80++; if (exM >= 0.8) V3.exact++; if (stL >= 0.8) V3.larges80++; if (exL >= 0.8) V3.largesExact++;
       // Saison proposée (phase 7) contre saison V2, même composantes : effet sur le classement B-V2 (descriptif, jamais une preuve).
       const avec = ordreB(lignes.map((l) => ({ id: l.id, v: bV2({ ...l.c, presence: l.presProp }).valeur ?? -1 })));
@@ -165,23 +204,25 @@ export async function epreuve() {
   const moy = (a) => (a.length ? r3(a.reduce((s, x) => s + x, 0) / a.length) : null);
   const n = V4.journees || 1;
   const v01 = { ...V1, partHorsIntervalle: pc(V1.bv2HorsIntervalle, V1.bv2Comparables),
-    critere: "aucune carte publiée en nombre avec un critère manquant", tenu: V1.nombreAvecManque === 0 && V1.nombreEauInconnue === 0 };
+    critere: "aucune carte publiée en nombre avec un critère manquant (seconde moitié de V-01 ; les 24 propriétés des scénarios se jouent sur leurs fixtures, tests/etude-moteur-bord.mjs, pas sur des journées réelles)", tenu: V1.nombreAvecManque === 0 && V1.nombreEauInconnue === 0 };
   const v02 = { parSaison: Object.fromEntries(Object.entries(V2pub).map(([k, v]) => { const t = Object.values(v).reduce((a, b) => a + b, 0); return [k, { creneaux: t, ...Object.fromEntries(Object.entries(v).map(([p, x]) => [p, pc(x, t)])) }]; })),
     raisonsAucune, critere: "aucun « — » sans raison écrite", tenu: Object.keys(raisonsAucune).every((k) => !!k) };
   const v03 = { journees: V3.journees, tirages: TIRAGES, journeesStablesA80: V3.stables80, part: pc(V3.stables80, V3.journees), partStableMediane: r3([...V3.partStable].sort((a, b) => a - b)[Math.floor(V3.partStable.length / 2)]),
+    meteo: Object.fromEntries(Object.entries(V3.meteo).map(([k, [n, ok]]) => [k, { journees: n, stablesA80: pc(ok, n) }])),
     memeTop3ExactA80: pc(V3.exact, V3.journees), large: { stablesA80: pc(V3.larges80, V3.journees), memeTop3ExactA80: pc(V3.largesExact, V3.journees) },
     critere: "Top 3 à 10 points près dans 80 % des tirages au moins ; sinon, la publication doit le dire (D6-02)" };
   v03.tenu = v03.part >= 80;
   const v04 = { journees: V4.journees, topAvecNonSafe: V4.topAvecNonSafe, topVide: V4.topVide, partTopVide: pc(V4.topVide, V4.journees), topVideSiDocumente: V4.topVideSiDocumente,
     spotsDocumentesParJournee: r3(V4.documentesMoyen / n), spotsDocumentesParJourneeSiDocumente: r3(V4.documentesMoyenSiDocumente / n), spotsAVerifierParJournee: r3(V4.aVerifierMoyen / n),
     critere: "aucun créneau DANGER ou BLOCKED dans un Top ; aucun INSUFFICIENT_DATA dans le groupe documenté", tenu: V4.topAvecNonSafe === 0 };
-  const securite = { ...SEC, critere: "aucun créneau « non recommandé » en V2 qui devienne SAFE ; divergences V2 sans doute → V3 non recommandé comptées et expliquées", tenu: SEC.v2NonRecommandeMaisV3Safe === 0 };
+  const securite = { ...SEC, critere: "aucun créneau « non recommandé » en V2 qui devienne SAFE, données de fiche actuelles ET fiches supposées documentées ; divergences V2 sans doute → V3 non recommandé comptées et expliquées",
+    tenu: SEC.v2NonRecommandeMaisV3Safe === 0 && SEC.v2NonRecommandeMaisV3SafeSiDocumente === 0 };
   const saison = { journees: SAIS.journees, memePremier: pc(SAIS.memePremier, SAIS.journees), top3Commun: pc(SAIS.top3Commun, SAIS.journees),
     parMois: Object.fromEntries(Object.entries(SAIS.parMois).sort().map(([m, v]) => [m, pc(v.memePremier, v.journees)])),
     lecture: "effet de la table proposée sur le classement, à composantes égales ; aucune vérité terrain : ce n'est pas une preuve qu'elle classe mieux" };
   const baselines = { journees: BASE.journees, memePremierBV2BSimple: pc(BASE.memePremierBV2BSimple, BASE.journees), spearmanBV2BSimpleMoyen: moy(BASE.spearmanBV2BSimple), spearmanBV2A1basMoyen: moy(BASE.spearmanBV2A1bas) };
   return { "//": "Épreuve de la phase 8 V3 sur les journées archivées (aucune session du journal). Régénérer : node scripts/epreuve-v3/epreuve.mjs. Lecture : docs/validation/EPREUVE-MOTEUR-PHASE-8.md",
-    v01_proprietes: v01, v02_publication: v02, v03_stabilite: v03, v04_classementSecurite: v04, securite, saisonProposee: saison, baselines, exemples };
+    ecartees: ECART, v01_proprietes: v01, v02_publication: v02, v03_stabilite: v03, v04_classementSecurite: v04, securite, saisonProposee: saison, baselines, exemples };
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {

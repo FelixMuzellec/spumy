@@ -1,5 +1,11 @@
 {
  "//": "Épreuve de la phase 8 V3 sur les journées archivées (aucune session du journal). Régénérer : node scripts/epreuve-v3/epreuve.mjs. Lecture : docs/validation/EPREUVE-MOTEUR-PHASE-8.md",
+ "ecartees": {
+  "journeesMoinsDeTroisSpots": 18,
+  "spotsSansTempsDeRoute": 0,
+  "meteoReproduite": 1936,
+  "meteoComparee": 1936
+ },
  "v01_proprietes": {
   "creneaux": 6105,
   "nombreAvecManque": 0,
@@ -8,7 +14,7 @@
   "bv2Comparables": 6105,
   "bv2EcartMax": 1,
   "partHorsIntervalle": 0.1,
-  "critere": "aucune carte publiée en nombre avec un critère manquant",
+  "critere": "aucune carte publiée en nombre avec un critère manquant (seconde moitié de V-01 ; les 24 propriétés des scénarios se jouent sur leurs fixtures, tests/etude-moteur-bord.mjs, pas sur des journées réelles)",
   "tenu": true
  },
  "v02_publication": {
@@ -38,10 +44,24 @@
   "journeesStablesA80": 234,
   "part": 100,
   "partStableMediane": 1,
-  "memeTop3ExactA80": 63.2,
+  "meteo": {
+   "bV2": {
+    "journees": 234,
+    "stablesA80": 100
+   },
+   "a1Bas": {
+    "journees": 234,
+    "stablesA80": 100
+   },
+   "bSimple": {
+    "journees": 234,
+    "stablesA80": 100
+   }
+  },
+  "memeTop3ExactA80": 65.4,
   "large": {
-   "stablesA80": 99.6,
-   "memeTop3ExactA80": 44
+   "stablesA80": 100,
+   "memeTop3ExactA80": 42.7
   },
   "critere": "Top 3 à 10 points près dans 80 % des tirages au moins ; sinon, la publication doit le dire (D6-02)",
   "tenu": true
@@ -51,9 +71,9 @@
   "topAvecNonSafe": 0,
   "topVide": 234,
   "partTopVide": 100,
-  "topVideSiDocumente": 71,
+  "topVideSiDocumente": 81,
   "spotsDocumentesParJournee": 0,
-  "spotsDocumentesParJourneeSiDocumente": 4.97,
+  "spotsDocumentesParJourneeSiDocumente": 2.782,
   "spotsAVerifierParJournee": 7.936,
   "critere": "aucun créneau DANGER ou BLOCKED dans un Top ; aucun INSUFFICIENT_DATA dans le groupe documenté",
   "tenu": true
@@ -69,24 +89,27 @@
    "INSUFFICIENT_DATA": 541
   },
   "v2SansDouteMaisV3Danger": 0,
+  "v2NonRecommandes": 1741,
   "v2NonRecommandeMaisV3Safe": 0,
+  "v2NonRecommandeMaisV3SafeSiDocumente": 0,
   "v2SansDouteMaisV3DangerSiDocumente": 0,
   "exemplesDivergence": [],
-  "critere": "aucun créneau « non recommandé » en V2 qui devienne SAFE ; divergences V2 sans doute → V3 non recommandé comptées et expliquées",
+  "exemplesNrSafe": [],
+  "critere": "aucun créneau « non recommandé » en V2 qui devienne SAFE, données de fiche actuelles ET fiches supposées documentées ; divergences V2 sans doute → V3 non recommandé comptées et expliquées",
   "tenu": true
  },
  "saisonProposee": {
   "journees": 234,
-  "memePremier": 97.4,
-  "top3Commun": 97.9,
+  "memePremier": 96.2,
+  "top3Commun": 97.2,
   "parMois": {
    "10": 100,
    "11": 100,
    "12": 94.7,
    "01": 100,
-   "02": 100,
-   "03": 94.4,
-   "04": 78.9,
+   "02": 93.3,
+   "03": 88.9,
+   "04": 73.7,
    "05": 100,
    "06": 100,
    "07": 100,
@@ -97,7 +120,7 @@
  },
  "baselines": {
   "journees": 234,
-  "memePremierBV2BSimple": 42.3,
+  "memePremierBV2BSimple": 41.9,
   "spearmanBV2BSimpleMoyen": 0.585,
   "spearmanBV2A1basMoyen": 0.903
  },
@@ -135,6 +158,32 @@
     },
     {
      "rang": 2,
+     "id": "moulinmer",
+     "creneau": "16h16–18h46",
+     "bV2": 40,
+     "palierV2": 1,
+     "points": {
+      "fenetre": 25,
+      "coef": 12.8,
+      "lumiere": 25,
+      "vent": 18
+     },
+     "criteresExclus": [],
+     "presence": 0.5,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 40,
+      "haut": 40
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 3,
      "id": "landevennec",
      "creneau": "07h53–10h53",
      "bV2": 40,
@@ -156,32 +205,6 @@
      "securiteV3": "INSUFFICIENT_DATA",
      "manques": [
       "fermeture",
-      "isolement"
-     ],
-     "securiteSiDocumente": "SAFE"
-    },
-    {
-     "rang": 3,
-     "id": "moulinmer",
-     "creneau": "16h16–18h46",
-     "bV2": 40,
-     "palierV2": 1,
-     "points": {
-      "fenetre": 25,
-      "coef": 12.8,
-      "lumiere": 25,
-      "vent": 18
-     },
-     "criteresExclus": [],
-     "presence": 0.5,
-     "eauConnue": true,
-     "a1": {
-      "publication": "nombre",
-      "bas": 40,
-      "haut": 40
-     },
-     "securiteV3": "INSUFFICIENT_DATA",
-     "manques": [
       "isolement"
      ],
      "securiteSiDocumente": "SAFE"
@@ -248,18 +271,18 @@
    "spots": [
     {
      "rang": 1,
-     "id": "espagnols",
-     "creneau": "07h29–08h53",
+     "id": "lauberlach",
+     "creneau": "19h52–21h52",
      "bV2": 69,
      "palierV2": 4,
      "points": {
       "fenetre": 25,
       "coef": 20,
       "lumiere": 25,
-      "vent": 22
+      "vent": 16
      },
      "criteresExclus": [],
-     "presence": 0.75,
+     "presence": 0.8,
      "eauConnue": true,
      "a1": {
       "publication": "nombre",
@@ -274,18 +297,18 @@
     },
     {
      "rang": 2,
-     "id": "lauberlach",
-     "creneau": "19h52–21h52",
+     "id": "espagnols",
+     "creneau": "07h29–08h53",
      "bV2": 69,
      "palierV2": 4,
      "points": {
       "fenetre": 25,
       "coef": 20,
       "lumiere": 25,
-      "vent": 16
+      "vent": 22
      },
      "criteresExclus": [],
-     "presence": 0.8,
+     "presence": 0.75,
      "eauConnue": true,
      "a1": {
       "publication": "nombre",
@@ -550,15 +573,15 @@
     },
     {
      "rang": 2,
-     "id": "penhir",
-     "creneau": "15h41–17h41",
+     "id": "terenez",
+     "creneau": "07h27–09h27",
      "bV2": 85,
      "palierV2": 5,
      "points": {
       "fenetre": 25,
       "coef": 20,
-      "lumiere": 10,
-      "vent": 30
+      "lumiere": 25,
+      "vent": 15
      },
      "criteresExclus": [],
      "presence": 1,
@@ -576,15 +599,15 @@
     },
     {
      "rang": 3,
-     "id": "terenez",
-     "creneau": "07h27–09h27",
+     "id": "penhir",
+     "creneau": "15h41–17h41",
      "bV2": 85,
      "palierV2": 5,
      "points": {
       "fenetre": 25,
       "coef": 20,
-      "lumiere": 25,
-      "vent": 15
+      "lumiere": 10,
+      "vent": 30
      },
      "criteresExclus": [],
      "presence": 1,
@@ -857,8 +880,8 @@
     },
     {
      "rang": 3,
-     "id": "gouville",
-     "creneau": "19h16–21h46",
+     "id": "pirou",
+     "creneau": "19h19–21h49",
      "bV2": 59,
      "palierV2": 3,
      "points": {
@@ -884,8 +907,8 @@
     },
     {
      "rang": 4,
-     "id": "pirou",
-     "creneau": "19h19–21h49",
+     "id": "gouville",
+     "creneau": "19h16–21h46",
      "bV2": 59,
      "palierV2": 3,
      "points": {
@@ -945,8 +968,8 @@
    "spots": [
     {
      "rang": 1,
-     "id": "agon",
-     "creneau": "20h17–22h47",
+     "id": "pirou",
+     "creneau": "20h53–23h00",
      "bV2": 58,
      "palierV2": 3,
      "points": {
@@ -999,8 +1022,8 @@
     },
     {
      "rang": 3,
-     "id": "pirou",
-     "creneau": "20h53–23h00",
+     "id": "agon",
+     "creneau": "20h17–22h47",
      "bV2": 58,
      "palierV2": 3,
      "points": {
