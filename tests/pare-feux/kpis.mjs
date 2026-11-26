@@ -38,11 +38,11 @@ const ET = "tests/etude-moteur-bord.mjs", P3 = "tests/prototype-v3.mjs", PF = "t
 export const KPIS = [
   // ——— Moteur BORD ———
   { id: "K-01", section: "Moteur BORD", kpi: "Score de Brier des chances de prise, rapporté à une référence naïve (Brier skill score)", norme: N.wmo, seuil: [">", 0], seuilSource: "norme", unite: "",
-    mesure: "prevu", phase: 8, raison: "il faut des sorties notées en nombre : l'étude de la phase 6 en demande de 40 à 120 ; 3 sont connues" },
+    mesure: "prevu", phase: 13, raison: "outil posé et éprouvé en phase 8 (scripts/calibration/verification.mjs, tests/calibration.mjs) ; il faut au moins 40 sorties notées, dont 10 avec prise et 10 bredouilles déclarées, à note figée avant la sortie : 3 sont connues ; mesure sur le journal confirmé (phase 13, V-07 et V-08)" },
   { id: "K-02", section: "Moteur BORD", kpi: "Fiabilité des chances annoncées (pente de la courbe de fiabilité)", norme: N.wmo, seuil: ["entre", [0.8, 1.2]], seuilSource: "fixé", justification: "une prévision probabiliste bien calibrée a une pente de fiabilité de 1 ; ±0,2 tolère les petits échantillons de sorties de pêche", unite: "",
-    mesure: "prevu", phase: 8, raison: "même besoin de sorties notées" },
+    mesure: "prevu", phase: 13, raison: "même besoin de sorties notées (outil posé en phase 8) ; jeux synthétiques de la phase 8 : à 40 sorties, un prévisionniste parfaitement calibré n'a sa pente entre 0,8 et 1,2 que 4 fois sur 10 (seuil à revoir en phase 9)" },
   { id: "K-03", section: "Moteur BORD", kpi: "Discrimination entre sorties avec et sans prise (aire sous la courbe ROC)", norme: N.wmo, seuil: [">=", 0.7], seuilSource: "fixé", justification: "Hosmer et Lemeshow : de 0,7 à 0,8 la discrimination est acceptable, de 0,8 à 0,9 excellente ; 0,70 est la barre d'admissibilité, 0,80 l'objectif", unite: "",
-    mesure: "prevu", phase: 8, raison: "même besoin de sorties notées" },
+    mesure: "prevu", phase: 13, raison: "même besoin de sorties notées (outil posé en phase 8)" },
   { id: "K-04", section: "Moteur BORD", kpi: "Couverture des branches du moteur (étude V3) par ses tests", norme: N.google, seuil: [">=", 90], seuilSource: "norme", unite: "%",
     mesure: "auto", cle: "couverture.moteur.branches", ecart: { phase: 11, raison: "branches d'erreur et cas limites de l'étude non éprouvés ; à compléter à la stabilisation du moteur" } },
   { id: "K-05", section: "Moteur BORD", kpi: "Couverture des instructions du moteur (étude V3) par ses tests", norme: N.google, seuil: [">=", 90], seuilSource: "norme", unite: "%",

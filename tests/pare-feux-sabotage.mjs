@@ -9,6 +9,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { REGLES } from "./pare-feux/regles.mjs";
 import { EXIGENCES } from "./pare-feux/exigences.mjs";
+import { KPIS } from "./pare-feux/kpis.mjs";
 import { phaseAutorisee } from "../scripts/pare-feux/branche.mjs";
 
 const RACINE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -28,6 +29,7 @@ const phasePrevue = Math.min(...REGLES.flatMap((r) => Object.values(r.versions))
 const exigencesTexte = fs.readFileSync(path.join(RACINE, "docs/REQUIREMENTS.md"), "utf8");
 const aFaire = [...exigencesTexte.matchAll(/^\| ([A-Z]+-\d+) \|.*\| (\d+) \|$/gm)].map((m) => [m[1], Number(m[2])]).find(([id, p]) => !EXIGENCES[id] && !rapports.has(p));
 const prochaineDecision = `V3-${String(Math.max(...[...fs.readFileSync(path.join(RACINE, "docs/DECISIONS_LOG.md"), "utf8").matchAll(/^\| V3-(\d{3}) \|/gm)].map((m) => Number(m[1]))) + 1).padStart(3, "0")}`;
+const phaseK01 = KPIS.find((k) => k.id === "K-01").phase;
 const rapportOuvert = (() => { let n = 7; while (rapports.has(n)) n++; return n; })();
 const fauxAudit = JSON.stringify({ metadata: { vulnerabilities: { high: 1 } }, vulnerabilities: { "paquet-piege": { severity: "high", via: [{ source: 1, url: "https://github.com/advisories/GHSA-essai" }] } } });
 const BIBLIO = ["scripts/pare-feux/bibliotheques.mjs", "--rapport", "audit-essai.json"];
@@ -79,7 +81,9 @@ const ESSAIS = [
     ecrire("tests/pare-feux/failles-acceptees.json", JSON.stringify({ acceptees: [{ paquet: "paquet-piege", avis: "https://github.com/advisories/GHSA-essai", raison: "essai", jusqu_au: "2020-01-01" }] })); }, BIBLIO],
   ["indicateur en recul (une fiche cite une source privée)", "K-13 : indicateur en recul", () => remplacer(`data/spots/fiches/${fiche}`, /("QUAL-7":\s*\{\s*"ok":\s*)true/, "$1false"), ["scripts/kpi/mesurer.mjs", "--verifier", "--sans-couverture"]],
   ["seuil non atteint sans écart écrit", "indicateur K-04 (Moteur BORD) : seuil non atteint", () => remplacer("tests/pare-feux/kpis.mjs", /mesure: "auto", cle: "couverture\.moteur\.branches", ecart: \{[^}]*\} \}/, "mesure: \"auto\", cle: \"couverture.moteur.branches\" }")],
-  ["phase 8 close sans la mesure du moteur sur le journal", "indicateur K-01 (Moteur BORD) : la phase 8 n'est pas close sans sa mesure", () => ecrire("docs/rapports/v3/PHASE-8.md", "# rapport\n")],
+  [`phase ${phaseK01} close sans la mesure du moteur sur le journal`, `indicateur K-01 (Moteur BORD) : la phase ${phaseK01} n'est pas close sans sa mesure`, () => ecrire(`docs/rapports/v3/PHASE-${phaseK01}.md`, "# rapport\n")],
+  ["résultat inconnu compté comme une bredouille", "résultat inconnu ou absent écarté, jamais compté comme un zéro", () => remplacer("scripts/calibration/verification.mjs", 'if (s.resultat !== "prise" && s.resultat !== "bredouille") { ecartees.resultatInconnu++; continue; }', 'if (s.resultat !== "prise" && s.resultat !== "bredouille") s.resultat = "bredouille";'), ["tests/calibration.mjs"]],
+  ["seuil de sorties abaissé à trois", "aucune conclusion sous le seuil de sorties", () => remplacer("scripts/calibration/verification.mjs", "export const SEUILS = { sorties: 40, avecPrise: 10, bredouilles: 10 };", "export const SEUILS = { sorties: 3, avecPrise: 1, bredouilles: 1 };"), ["tests/calibration.mjs"]],
   ["tableau des indicateurs modifié à la main", "KPI.md à jour", () => ajouter("docs/regles/KPI.md", "x\n")],
   ["fonction V3 trop complexe, sans jugement écrit", "K-29 : seuil non atteint", () => ajouter("src/prototype-v3/modele.js", `\nexport function essaiComplexe(x) {\n${Array.from({ length: 17 }, (_, i) => `  if (x === ${i}) return ${i};`).join("\n")}\n  return -1;\n}\n`), ["scripts/kpi/mesurer.mjs", "--verifier", "--sans-couverture"]],
   ["spot retiré pour améliorer un indicateur", "K-37 : indicateur en recul", () => { const v3 = fs.readdirSync(f("data/spots/fiches")).find((x) => lire(`data/spots/fiches/${x}`).includes("\"v3_researched\"")); git("rm", "-q", `data/spots/fiches/${v3}`); }, ["scripts/kpi/mesurer.mjs", "--verifier", "--sans-couverture"]],

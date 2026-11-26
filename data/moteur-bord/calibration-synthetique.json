@@ -1,0 +1,305 @@
+{
+ "//": "Jeux SYNTHÉTIQUES de la phase 8 V3 (aucune sortie réelle). Régénérer : node scripts/calibration/journal-synthetique.mjs. Lecture : docs/validation/CALIBRATION-PHASE-8.md",
+ "c1_previsionnistesConnus": [
+  {
+   "sorties": 40,
+   "calibre": {
+    "bss": {
+     "mediane": 0.144,
+     "q05": -0.063,
+     "q95": 0.326
+    },
+    "pente": {
+     "mediane": 1.016,
+     "q05": 0.355,
+     "q95": 2.021
+    },
+    "auc": {
+     "mediane": 0.739,
+     "q05": 0.593,
+     "q95": 0.867
+    },
+    "partBssPositif": 0.875,
+    "partPenteDansLaBarre": 0.395
+   },
+   "tranche": {
+    "bss": {
+     "mediane": 0.083,
+     "q05": -0.225,
+     "q95": 0.363
+    },
+    "pente": {
+     "mediane": 0.517,
+     "q05": 0.267,
+     "q95": 1.011
+    },
+    "auc": {
+     "mediane": 0.739,
+     "q05": 0.593,
+     "q95": 0.867
+    },
+    "partBssPositif": 0.705,
+    "partPenteDansLaBarre": 0.1
+   },
+   "sansCompetence": {
+    "bss": {
+     "mediane": -0.011,
+     "q05": -0.083,
+     "q95": 0
+    },
+    "pente": {
+     "mediane": null,
+     "q05": null,
+     "q95": null
+    },
+    "auc": {
+     "mediane": 0.5,
+     "q05": 0.5,
+     "q95": 0.5
+    },
+    "partBssPositif": 0,
+    "partPenteDansLaBarre": 0
+   }
+  },
+  {
+   "sorties": 120,
+   "calibre": {
+    "bss": {
+     "mediane": 0.163,
+     "q05": 0.043,
+     "q95": 0.26
+    },
+    "pente": {
+     "mediane": 1.032,
+     "q05": 0.63,
+     "q95": 1.435
+    },
+    "auc": {
+     "mediane": 0.741,
+     "q05": 0.66,
+     "q95": 0.807
+    },
+    "partBssPositif": 0.995,
+    "partPenteDansLaBarre": 0.55
+   },
+   "tranche": {
+    "bss": {
+     "mediane": 0.104,
+     "q05": -0.072,
+     "q95": 0.265
+    },
+    "pente": {
+     "mediane": 0.516,
+     "q05": 0.315,
+     "q95": 0.717
+    },
+    "auc": {
+     "mediane": 0.741,
+     "q05": 0.66,
+     "q95": 0.807
+    },
+    "partBssPositif": 0.87,
+    "partPenteDansLaBarre": 0.015
+   },
+   "sansCompetence": {
+    "bss": {
+     "mediane": -0.004,
+     "q05": -0.03,
+     "q95": 0
+    },
+    "pente": {
+     "mediane": null,
+     "q05": null,
+     "q95": null
+    },
+    "auc": {
+     "mediane": 0.5,
+     "q05": 0.5,
+     "q95": 0.5
+    },
+    "partBssPositif": 0,
+    "partPenteDansLaBarre": 0
+   }
+  },
+  {
+   "sorties": 400,
+   "calibre": {
+    "bss": {
+     "mediane": 0.162,
+     "q05": 0.105,
+     "q95": 0.22
+    },
+    "pente": {
+     "mediane": 1.005,
+     "q05": 0.806,
+     "q95": 1.247
+    },
+    "auc": {
+     "mediane": 0.735,
+     "q05": 0.696,
+     "q95": 0.775
+    },
+    "partBssPositif": 1,
+    "partPenteDansLaBarre": 0.865
+   },
+   "tranche": {
+    "bss": {
+     "mediane": 0.109,
+     "q05": 0.022,
+     "q95": 0.195
+    },
+    "pente": {
+     "mediane": 0.503,
+     "q05": 0.403,
+     "q95": 0.624
+    },
+    "auc": {
+     "mediane": 0.735,
+     "q05": 0.696,
+     "q95": 0.775
+    },
+    "partBssPositif": 0.97,
+    "partPenteDansLaBarre": 0
+   },
+   "sansCompetence": {
+    "bss": {
+     "mediane": -0.001,
+     "q05": -0.008,
+     "q95": 0
+    },
+    "pente": {
+     "mediane": null,
+     "q05": null,
+     "q95": null
+    },
+    "auc": {
+     "mediane": 0.5,
+     "q05": 0.5,
+     "q95": 0.5
+    },
+    "partBssPositif": 0,
+    "partPenteDansLaBarre": 0
+   }
+  }
+ ],
+ "c2_biaisDeSelection": {
+  "lecture": "ordonnée de la droite de fiabilité (0 si calibré) et fréquence de prise apparente, journal complet contre journal sans 70 % des bredouilles",
+  "ordonneeComplet": -0.007,
+  "ordonneeSelection": 1.211,
+  "frequenceComplet": 0.449,
+  "frequenceSelection": 0.732
+ },
+ "c3_apprentissageTheta": {
+  "psi": 0.6,
+  "k": 2,
+  "thetaVrai": 1,
+  "a_zerosEtInconnus": {
+   "complet": 1.011,
+   "sansZeros": 1.584,
+   "inconnusEnZeros": 0.865
+  },
+  "b_priseIsolee": {
+   "dixBredouilles": {
+    "moyenne": 0.359,
+    "q05": 0.055,
+    "q95": 0.925
+   },
+   "neufBredouillesEtSixPrises": {
+    "moyenne": 1.377,
+    "q05": 0.575,
+    "q95": 2.58
+   }
+  },
+  "c_intervalleSelonSorties": [
+   {
+    "sortiesParPoste": 3,
+    "largeurIntervalle90Mediane": 1.72
+   },
+   {
+    "sortiesParPoste": 5,
+    "largeurIntervalle90Mediane": 1.55
+   },
+   {
+    "sortiesParPoste": 10,
+    "largeurIntervalle90Mediane": 1.38
+   },
+   {
+    "sortiesParPoste": 20,
+    "largeurIntervalle90Mediane": 1.11
+   },
+   {
+    "sortiesParPoste": 40,
+    "largeurIntervalle90Mediane": 0.87
+   },
+   {
+    "sortiesParPoste": 80,
+    "largeurIntervalle90Mediane": 0.62
+   }
+  ],
+  "d_surapprentissageParPoste": [
+   {
+    "sortiesParPoste": 3,
+    "ecartFauxEntreDixPostesIdentiques": 0.892
+   },
+   {
+    "sortiesParPoste": 5,
+    "ecartFauxEntreDixPostesIdentiques": 0.935
+   },
+   {
+    "sortiesParPoste": 10,
+    "ecartFauxEntreDixPostesIdentiques": 1.017
+   },
+   {
+    "sortiesParPoste": 20,
+    "ecartFauxEntreDixPostesIdentiques": 0.878
+   },
+   {
+    "sortiesParPoste": 40,
+    "ecartFauxEntreDixPostesIdentiques": 0.64
+   },
+   {
+    "sortiesParPoste": 80,
+    "ecartFauxEntreDixPostesIdentiques": 0.504
+   }
+  ],
+  "e_psi": [
+   {
+    "sorties": 10,
+    "psiVrai": 0.6,
+    "psiEstimeMoyen": 0.56,
+    "psiMin": 0.408,
+    "psiMax": 0.69
+   },
+   {
+    "sorties": 80,
+    "psiVrai": 0.6,
+    "psiEstimeMoyen": 0.59,
+    "psiMin": 0.533,
+    "psiMax": 0.661
+   },
+   {
+    "sorties": 400,
+    "psiVrai": 0.6,
+    "psiEstimeMoyen": 0.595,
+    "psiMin": 0.558,
+    "psiMax": 0.623
+   }
+  ],
+  "f_saison": {
+   "thetaAvecSaisonDansLambda": 0.879,
+   "thetaSiSaisonOubliee": 1.535,
+   "lecture": "θ vrai = 1 ; une saison oubliée dans Λ_base est apprise par θ (environ 1,8 ici), et serait appliquée telle quelle l'hiver"
+  }
+ },
+ "c4_gardeFous": {
+  "troisSorties": "insuffisant",
+  "troisSortiesManque": [
+   "37 sorties notées de plus",
+   "8 sorties avec prise de plus",
+   "9 bredouilles déclarées de plus"
+  ],
+  "soixanteSansBredouille": "insuffisant",
+  "soixanteMelangees": "mesuré",
+  "soixanteMelangeesChance": "non mesurée : SPUMY ne publie pas de chance de prise (D6-12)"
+ }
+}

@@ -78,6 +78,8 @@ jobs:
         run: npm run -s test:spots-v3
       - name: Étude du moteur BORD (phase 6 V3, identités ZINB, Gamma–Poisson, classement proposé, résultats reproductibles)
         run: npm run -s test:etude-moteur
+      - name: Calibration et épreuve du moteur BORD (phase 8 V3, outil K-01 à K-03, jeux synthétiques, journées archivées)
+        run: npm run -s test:calibration
       - name: Connaissances halieutiques (niveaux de preuve, sources, rubriques des spots)
         run: npm run -s test:knowledge
       - name: Système de design (contrastes WCAG des deux thèmes)

@@ -221,7 +221,9 @@ export const REGLES = [
     sources: ["V3-030"], portee: "produit",
     versions: {
       v2: { etat: "sansObjet", raison: fige },
-      v3: { etat: "prevu", phase: 8, raison: "calibration du moteur sur le journal : phase 8" },
+      v3: { etat: "controle", gardes: [["tests/calibration.mjs", "aucune conclusion sous le seuil de sorties"], ["tests/calibration.mjs", "résultat inconnu ou absent écarté, jamais compté comme un zéro"], ["tests/calibration.mjs", "aucune bredouille déclarée : biais de sélection"], ["tests/pare-feux-sabotage.mjs", "résultat inconnu compté comme une bredouille"]],
+        aCompleter: { phase: 13, quoi: "vue « notes face aux sorties » et boucle contrôlée sur le journal confirmé (V-07, V-08)" },
+        note: "posé en phase 8 : outil de vérification des notes (Brier, fiabilité, discrimination), garde-fous et jeux synthétiques ; aucune mesure réelle : 3 sorties notées connues" },
     } },
   { id: "PF-35", titre: "Espèce BORD : le bar seul",
     sources: ["V2 « Espèce BORD »"], portee: "produit",
