@@ -54,6 +54,38 @@ export const CLASSEMENT_V3 = {
     fenetre: "L'office de tourisme rapporte l'accès à l'heure de basse mer du jour (« 1? hours before and 1? hours after » : chiffre mal affiché sur la page lue) ; un pêcheur du site parle de « deux ou trois heures de pêche max ». Tant que la durée n'est pas relue sans ambiguïté, aucun intervalle HH:MM n'est calculé (§ 7.6) et le spot n'est jamais présenté comme praticable.",
   },
 };
+/**
+ * Phase 7 (26 nov. 2026, après la réponse de Félix à Q7-03 : il ne connaît pas ces spots) : consignes sourcées trouvées
+ * dans des pages publiques, ajoutées aux fiches. Une règle générale (commune, département) est dite telle ; aucune n'est
+ * propre au poste sauf mention.
+ */
+const J7 = "2026-11-26";
+const R_LANDEDA = { texte: "Règle générale de la commune de Landéda pour la pêche à pied : « Commencez à remonter à l'heure de marée basse » (pas propre au poste).", sources: ["src-landeda-guide-peche-a-pied-2017"] };
+const R_MANCHE = { texte: "Règle générale de la Manche pour la pêche à pied (dépliant 50-14, DDTM et CPIE) : « remontez dès l'heure de la basse mer » (pas propre au poste).", sources: ["src-flyer-peche-pied-50-14"] };
+export const CONSIGNES_PHASE7 = {
+  aberbenoit: [R_LANDEDA],
+  saintemarguerite: [R_LANDEDA],
+  paluden: [R_LANDEDA, { texte: "Le passage de Pont Krac'h, dit pont du Diable, est un « pont submersible » qui « disparaît avec la montée des eaux » (fiche et avis de randonneurs).", sources: ["src-visorando-pont-du-diable"] }],
+  kernic: [{ texte: "Baie du Kernic : « marnage très important » ; baignade « déconseillée dans la baie en raison des courants » (Tourisme Bretagne).", sources: ["src-tourisme-bretagne-kernic"] }],
+  agon: [R_MANCHE], gouville: [R_MANCHE], sciotot: [R_MANCHE], surtainville: [R_MANCHE],
+  regneville: [R_MANCHE, { texte: "Havre de la Sienne : « Passage qui inonde particulièrement vite du fait de la proximité avec la Sienne » ; en grande marée, la mer inonde presque tout le sentier du sud du havre (diagnostic des sentiers, Attitude Manche).", sources: ["src-attitude-manche-diag-coutances"] }],
+  portbail: [R_MANCHE, { texte: "Havre de Portbail : la passerelle du sentier est « submersible par grande marée (coefficient de marée de 95 à 100) » ; le havre nord est « inondé par grande marée » (diagnostic des sentiers, Attitude Manche ; porte sur le sentier, pas sur le platier).", sources: ["src-attitude-manche-diag-cotentin"] }],
+  pirou: [R_MANCHE, { texte: "Pirou : un groupe a été isolé par la marée « à 600m de la plage » le 17 août 2012 (presse) : un fait, pas une règle.", sources: ["src-tendanceouest-pirou-2012"] }],
+  granville: [R_MANCHE, { texte: "Pointe du Roc : quatre personnes piégées par la marée montante dans une grotte « au pied de la falaise » le 17 févr. 2019, hélitreuillées (presse) : un fait, pas une règle.", sources: ["src-tendanceouest-granville-2019"] }],
+};
+/** Fenêtres de sécurité lues sans ambiguïté dans une source publique (§ 7.6). */
+export const FENETRES_PHASE7 = {
+  grandbe: { statut: "INFÉRÉ", origine: "v3", sources: ["src-ot-saint-malo-acces-forts", "src-ville-saint-malo-vigilance-grand-be"], verifie_le: J7, niveau: 4,
+    valeur: { reference: "BM", avant_h: 1.5, apres_h: 1.5 },
+    texte: "Accès à pied de 1 h 30 avant à 1 h 30 après la basse mer du jour (office de tourisme de Saint-Malo : « une fenêtre d'accès de 3 heures ») ; la ville publie aussi des horaires d'accès sécurisés et rappelle que des visiteurs sont « piégés par la marée montante ». Aux très petits coefficients, le passage ne découvre pas (aucun seuil publié). Règle de visite, pas de pêche : pour pêcher, repartir avant la fin de la fenêtre." },
+};
+const ajouterConsignes = (f) => {
+  for (const c of CONSIGNES_PHASE7[f.id] || []) {
+    if (f.safety.consignes.some((x) => x.texte === c.texte)) continue;
+    f.safety.consignes.push({ statut: "INFÉRÉ", origine: "v3", texte: c.texte, sources: c.sources, verifie_le: J7 });
+  }
+  if (FENETRES_PHASE7[f.id]) f.windows.securite = FENETRES_PHASE7[f.id];
+};
 const JOUR = "2026-11-23";
 const LIBELLE = {
   praticable_a_basse_mer_seulement: "accès praticable seulement autour de la basse mer",
@@ -75,6 +107,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       s.acces_maree = { statut: "INFÉRÉ", origine: "v3", valeur: v3.codes, sources: [...new Set(v3.consignes.flatMap((x) => x.sources))], verifie_le: JOUR,
         texte: `${(([t]) => t[0].toUpperCase() + t.slice(1))([v3.codes.map((k) => LIBELLE[k]).join(" ; ")])}. Classement relu à la main depuis les consignes sourcées de la fiche.` };
       f.windows.securite = { statut: "INCONNU", origine: "v3", raison: v3.fenetre };
+      ajouterConsignes(f);
       for (const k of v3.codes) bilan[k] = (bilan[k] || 0) + 1;
       const q = qualite(f); f.quality.inconnus = q.inconnus; f.quality.completude = q.completude;
       fs.writeFileSync(path.join(DIR_FICHES, fichier), JSON.stringify(f, null, 1) + "\n");
@@ -95,6 +128,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       s.acces_maree = { statut: "INCONNU", origine: "v2", raison: "Aucune contrainte d'accès liée à la marée dans les consignes de la fiche : non documentée, ce qui ne veut pas dire sans risque." };
       bilan.non_documente = (bilan.non_documente || 0) + 1;
     }
+    ajouterConsignes(f);
     const q = qualite(f); f.quality.inconnus = q.inconnus; f.quality.completude = q.completude;
     fs.writeFileSync(path.join(DIR_FICHES, fichier), JSON.stringify(f, null, 1) + "\n");
   }

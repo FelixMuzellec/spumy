@@ -361,6 +361,15 @@
     "texte": "Le flot remonte entre les tables plus vite qu'il n'y paraît : garder une ligne de retraite dégagée. Parcs coupants : semelles épaisses.",
     "verifie_le": null,
     "source_texte": "fiche du spot (conseil)"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v3",
+    "texte": "Règle générale de la Manche pour la pêche à pied (dépliant 50-14, DDTM et CPIE) : « remontez dès l'heure de la basse mer » (pas propre au poste).",
+    "sources": [
+     "src-flyer-peche-pied-50-14"
+    ],
+    "verifie_le": "2026-11-26"
    }
   ],
   "houle_max_m": {
@@ -529,6 +538,7 @@
    "src-arrete-peche-loisir-2026-recfishing",
    "src-cpiecotentin-com-6c5656",
    "src-dirm-memn-projet-peche-pied-manche-2026",
+   "src-flyer-peche-pied-50-14",
    "src-georisques-bdmvt",
    "src-georisques-gaspar",
    "src-ign-geocodage-poi",
@@ -600,7 +610,7 @@
    },
    "QUAL-5": {
     "ok": true,
-    "detail": "engagement 3 (jugement V2), 1 consigne sourcée sur 2, contrainte de marée isolement_au_flot, mouvements de terrain 0"
+    "detail": "engagement 3 (jugement V2), 2 consignes sourcées sur 3, contrainte de marée isolement_au_flot, mouvements de terrain 0"
    },
    "QUAL-6": {
     "ok": false,

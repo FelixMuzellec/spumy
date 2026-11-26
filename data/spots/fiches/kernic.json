@@ -365,6 +365,15 @@
     "texte": "Baie qui découvre largement : à marée montante, garder le chemin du retour vers le haut de plage.",
     "verifie_le": null,
     "source_texte": "prudence du guide (baie qui découvre, déduit)"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v3",
+    "texte": "Baie du Kernic : « marnage très important » ; baignade « déconseillée dans la baie en raison des courants » (Tourisme Bretagne).",
+    "sources": [
+     "src-tourisme-bretagne-kernic"
+    ],
+    "verifie_le": "2026-11-26"
    }
   ],
   "houle_max_m": {
@@ -512,7 +521,8 @@
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
    "src-legifrance-tailles-minimales-2026",
-   "src-roscoff-tourisme-com-ae2d7f"
+   "src-roscoff-tourisme-com-ae2d7f",
+   "src-tourisme-bretagne-kernic"
   ],
   "sources_v2": [
    "cannes-peche.blog4ever.com — baie du Kernic et grande plage de Ker Emma",
@@ -579,7 +589,7 @@
    },
    "QUAL-5": {
     "ok": true,
-    "detail": "engagement 2 (jugement V2), 1 consigne sourcée sur 2, contrainte de marée isolement_au_flot, mouvements de terrain 0"
+    "detail": "engagement 2 (jugement V2), 2 consignes sourcées sur 3, contrainte de marée isolement_au_flot, mouvements de terrain 0"
    },
    "QUAL-6": {
     "ok": true,

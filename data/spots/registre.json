@@ -28,7 +28,7 @@
     "meilleur": 1,
     "plus_faible": 2
    },
-   "sources": 14,
+   "sources": 15,
    "sources_v2": 5,
    "derniere_verification": "2026-11-23",
    "completude": 0.8,
@@ -70,10 +70,10 @@
     "meilleur": 1,
     "plus_faible": 2
    },
-   "sources": 15,
+   "sources": 16,
    "sources_v2": 5,
    "derniere_verification": "2026-11-23",
-   "completude": 0.8,
+   "completude": 0.81,
    "inconnus": 9,
    "anomalies": 0,
    "guide_v2": "pirou"
@@ -646,7 +646,7 @@
     "meilleur": 1,
     "plus_faible": 2
    },
-   "sources": 13,
+   "sources": 14,
    "sources_v2": 5,
    "derniere_verification": "2026-11-23",
    "completude": 0.76,
@@ -688,11 +688,11 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 13,
+   "sources": 15,
    "sources_v2": 0,
    "derniere_verification": "2026-11-23",
-   "completude": 0.41,
-   "inconnus": 22,
+   "completude": 0.43,
+   "inconnus": 21,
    "anomalies": 1
   },
   {
@@ -708,10 +708,10 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 14,
+   "sources": 16,
    "sources_v2": 3,
    "derniere_verification": "2026-11-23",
-   "completude": 0.86,
+   "completude": 0.87,
    "inconnus": 6,
    "anomalies": 0,
    "guide_v2": "pirou"
@@ -832,7 +832,7 @@
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 3,
    "derniere_verification": "2026-11-23",
    "completude": 0.8,
@@ -1184,10 +1184,10 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 14,
+   "sources": 16,
    "sources_v2": 4,
    "derniere_verification": "2026-11-23",
-   "completude": 0.81,
+   "completude": 0.82,
    "inconnus": 8,
    "anomalies": 1,
    "guide_v2": "plouguerneau"
@@ -1392,10 +1392,10 @@
     "meilleur": 1,
     "plus_faible": 2
    },
-   "sources": 12,
+   "sources": 14,
    "sources_v2": 4,
    "derniere_verification": "2026-11-23",
-   "completude": 0.76,
+   "completude": 0.77,
    "inconnus": 11,
    "anomalies": 2,
    "guide_v2": "pirou"
@@ -1433,10 +1433,10 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 13,
+   "sources": 15,
    "sources_v2": 2,
    "derniere_verification": "2026-11-23",
-   "completude": 0.82,
+   "completude": 0.83,
    "inconnus": 8,
    "anomalies": 0,
    "guide_v2": "pirou"
@@ -1557,10 +1557,10 @@
     "meilleur": 1,
     "plus_faible": 2
    },
-   "sources": 14,
+   "sources": 16,
    "sources_v2": 4,
    "derniere_verification": "2026-11-23",
-   "completude": 0.8,
+   "completude": 0.81,
    "inconnus": 9,
    "anomalies": 0,
    "guide_v2": "pirou"
@@ -1681,7 +1681,7 @@
     "meilleur": 1,
     "plus_faible": 1
    },
-   "sources": 12,
+   "sources": 13,
    "sources_v2": 3,
    "derniere_verification": "2026-11-23",
    "completude": 0.8,
@@ -1785,10 +1785,10 @@
     "meilleur": 1,
     "plus_faible": 4
    },
-   "sources": 14,
+   "sources": 15,
    "sources_v2": 3,
    "derniere_verification": "2026-11-23",
-   "completude": 0.8,
+   "completude": 0.81,
    "inconnus": 9,
    "anomalies": 1,
    "guide_v2": "pirou"
@@ -1826,10 +1826,10 @@
     "meilleur": 1,
     "plus_faible": 2
    },
-   "sources": 11,
+   "sources": 12,
    "sources_v2": 3,
    "derniere_verification": "2026-11-23",
-   "completude": 0.75,
+   "completude": 0.76,
    "inconnus": 11,
    "anomalies": 1,
    "guide_v2": "pirou"

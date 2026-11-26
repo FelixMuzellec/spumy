@@ -239,3 +239,14 @@ Registre : `docs/halieutique/REGISTRE-INCONNUES-PHASE-7.md`. Une seule question 
 ## 14. Arrêt
 
 Phase 7 close : **VALIDATED (par délégation de Félix, 23 nov., 23 h 15 ; à confirmer par Félix)**. Aucune phase 8 sans son propre jeton ; rien n'est planifié au-delà. Aucun changement du moteur avant l'approbation qui suit la phase 9.
+
+## Complément du 26 nov. 2026 (après la réponse de Félix à Q7-03)
+
+Félix ne connaît pas les 23 spots de la question Q7-03. Il laisse le choix entre une recherche et ses retours terrain. Recherche faite sur la branche de la phase, sans toucher au moteur (registre, § 4) :
+- Grand Bé et Petit Bé : fenêtre sourcée de 1 h 30 avant à 1 h 30 après la basse mer (office de tourisme de Saint-Malo) ;
+- 12 autres fiches reçoivent des consignes sourcées ;
+- K-08 passe de 18 à 22 fiches ;
+- l'étude du moteur est recalculée : 22 contraintes de marée encore sans fenêtre au lieu de 23, et toujours aucune fiche SAFE.
+
+Les 10 spots sans rien de concret attendent les retours terrain de Félix. Le statut de la phase ne change pas.
+

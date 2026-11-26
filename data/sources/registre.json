@@ -1,30 +1,30 @@
 {
  "//": "Registre des sources (phase 5, 5.4 ; § 7.1). Généré par scripts/sources-registre.mjs ; les champs « evaluation » se complètent à la main et ne sont jamais écrasés.",
  "totaux": {
-  "sources": 365,
+  "sources": 375,
   "aEvaluer": 253,
-  "avecUrl": 122,
-  "editeurs": 110,
-  "editeurClasse": 355,
-  "groupes": 94,
+  "avecUrl": 132,
+  "editeurs": 118,
+  "editeurClasse": 365,
+  "groupes": 101,
   "parFamille": {
    "1": 26,
-   "2": 47,
-   "3": 9,
-   "4": 255,
+   "2": 51,
+   "3": 10,
+   "4": 260,
    "6": 19,
    "non fixée": 9
   },
   "parType": {
-   "site, guide ou presse spécialisée": 273,
+   "site, guide ou presse spécialisée": 275,
    "institutionnel ou scientifique": 40,
    "texte réglementaire": 3,
-   "collectivité ou tourisme": 21,
-   "forum ou communauté": 6,
-   "administration": 1,
+   "administration": 5,
+   "collectivité ou tourisme": 23,
+   "forum ou communauté": 7,
    "encyclopédie collaborative": 12,
+   "associatif": 2,
    "cartographie": 4,
-   "associatif": 1,
    "cartographie ouverte": 2,
    "blog ou site de pêcheurs": 1,
    "communautaire": 1
@@ -562,6 +562,56 @@
     "famille_inferee": 4,
     "classe_le": "2026-11-23"
    }
+  },
+  {
+   "id": "src-attitude-manche-diag-cotentin",
+   "texte": "Attitude Manche, diagnostic du cheminement littoral, CA du Cotentin : havre de Portbail, « Une passerelle assure la continuité mais elle est submersible par grande marée (coefficient de marée de 95 à 100) » ; havre Nord « inondé par grande marée »",
+   "editeur": "Attitude Manche (agence d'attractivité de la Manche)",
+   "url": "https://pro.attitude-manche.fr/diagnostic_cheminement_littoral_ca_cotentin",
+   "type": "administration",
+   "famille": 2,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Attitude Manche",
+    "date": "non daté",
+    "methode": "diagnostic des sentiers littoraux",
+    "precision": "havre de Portbail (passerelle et sentier), pas le platier",
+    "independance": "agence départementale",
+    "limites": "porte sur les sentiers, pas sur le poste de pêche",
+    "droits": "citation courte",
+    "consulte_le": "2026-11-26"
+   },
+   "manuelle": true,
+   "utilise_par": [
+    "spot:portbail"
+   ],
+   "groupe": "editeur:attitude-manche-agence-d-attract"
+  },
+  {
+   "id": "src-attitude-manche-diag-coutances",
+   "texte": "Attitude Manche, diagnostic du cheminement littoral, CC Coutances Mer et Bocage : à Regnéville, « Passage qui inonde particulièrement vite du fait de la proximité avec la Sienne » ; « En grande marée, la mer inonde quasiment tout le linéaire du sentier du Sud du havre »",
+   "editeur": "Attitude Manche (agence d'attractivité de la Manche)",
+   "url": "https://pro.attitude-manche.fr/diagnostic_cheminement_littoral_cc_coutances_mer_bocage",
+   "type": "administration",
+   "famille": 2,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Attitude Manche",
+    "date": "non daté",
+    "methode": "diagnostic des sentiers littoraux",
+    "precision": "sentiers du havre de la Sienne, pas le platier",
+    "independance": "agence départementale",
+    "limites": "porte sur les sentiers, pas sur le poste de pêche",
+    "droits": "citation courte",
+    "consulte_le": "2026-11-26"
+   },
+   "manuelle": true,
+   "utilise_par": [
+    "spot:regneville"
+   ],
+   "groupe": "editeur:attitude-manche-agence-d-attract"
   },
   {
    "id": "src-attitude-manche-sciotot",
@@ -4126,6 +4176,38 @@
    }
   },
   {
+   "id": "src-flyer-peche-pied-50-14",
+   "texte": "Dépliant de réglementation de la pêche à pied de loisir Manche et Calvados « 50-14 » (partenaires DDTM, CPIE du Cotentin, CPIE Vallée de l'Orne, associations) : « remontez dès l'heure de la basse mer »",
+   "editeur": "CPIE du Cotentin et partenaires",
+   "url": "https://chausey.gonm.org/public/peche/Flyer-50-14.pdf",
+   "type": "associatif",
+   "famille": 3,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "partenaires du dépliant 50-14 (éditeur exact non indiqué)",
+    "date": "2021 (métadonnées)",
+    "methode": "dépliant de prévention",
+    "precision": "toute la Manche ; aucun poste nommé",
+    "independance": "réseau associatif et services de l'État",
+    "limites": "règle générale, pas propre à un poste ; version hébergée par un tiers",
+    "droits": "citation courte",
+    "consulte_le": "2026-11-26"
+   },
+   "manuelle": true,
+   "utilise_par": [
+    "spot:agon",
+    "spot:gouville",
+    "spot:granville",
+    "spot:pirou",
+    "spot:portbail",
+    "spot:regneville",
+    "spot:sciotot",
+    "spot:surtainville"
+   ],
+   "groupe": "editeur:cpie-du-cotentin-et-partenaires"
+  },
+  {
    "id": "src-fr-wikipedia-org-a16630",
    "texte": "fr.wikipedia.org — Logonna-Daoulas",
    "editeur": "fr.wikipedia.org",
@@ -5432,6 +5514,33 @@
     "famille_inferee": 2,
     "classe_le": "2026-11-23"
    }
+  },
+  {
+   "id": "src-landeda-guide-peche-a-pied-2017",
+   "texte": "Commune de Landéda, guide de la pêche à pied (2017) : « Commencez à remonter à l'heure de marée basse »",
+   "editeur": "Commune de Landéda",
+   "url": "https://www.landeda.fr/wp-content/uploads/2017/07/pecheV_Web.pdf",
+   "type": "administration",
+   "famille": 2,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Commune de Landéda",
+    "date": "2017",
+    "methode": "conseil de sécurité général de la commune",
+    "precision": "toute la commune ; aucun poste nommé",
+    "independance": "collectivité",
+    "limites": "règle générale, pas propre à un poste",
+    "droits": "citation courte",
+    "consulte_le": "2026-11-26"
+   },
+   "manuelle": true,
+   "utilise_par": [
+    "spot:aberbenoit",
+    "spot:paluden",
+    "spot:saintemarguerite"
+   ],
+   "groupe": "editeur:commune-de-landeda"
   },
   {
    "id": "src-lcsm-anse-de-corsen",
@@ -9687,6 +9796,31 @@
    "groupe": "editeur:openstreetmap"
   },
   {
+   "id": "src-ot-saint-malo-acces-forts",
+   "texte": "Office de tourisme de Saint-Malo, « Accédez aux forts et aux îlots » : pour le Grand Bé, « se référer à l'heure de marée basse du jour et ajouter 1h30 avant et après », soit « une fenêtre d'accès de 3 heures » ; même règle pour le Petit Bé",
+   "editeur": "Office de tourisme de Saint-Malo",
+   "url": "https://www.saint-malo-tourisme.com/vivre-comme-chez-nous/a-voir-a-faire/culture-patrimoine/acces-aux-forts-et-aux-ilots/",
+   "type": "collectivité ou tourisme",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Office de tourisme de Saint-Malo",
+    "date": "non datée (lue le 26 nov. 2026)",
+    "methode": "règle d'accès publiée pour les visiteurs",
+    "precision": "îlot du Grand Bé et Petit Bé ; aucune règle de coefficient",
+    "independance": "organisme de tourisme local",
+    "limites": "règle de visite à pied, pas de pêche ; aux très petits coefficients le passage ne découvre pas (presse, mars 2026)",
+    "droits": "citation courte",
+    "consulte_le": "2026-11-26"
+   },
+   "manuelle": true,
+   "utilise_par": [
+    "spot:grandbe"
+   ],
+   "groupe": "editeur:office-de-tourisme-de-saint-malo"
+  },
+  {
    "id": "src-oupecher-saint-malo-bar",
    "texte": "oupecher.fr (Arno Convers) — « Pêche du bar à Saint Malo : des poissons de plus de 60 cm au pied de Saint Malo intra-muros ! »",
    "editeur": "oupecher.fr",
@@ -12507,6 +12641,81 @@
    }
   },
   {
+   "id": "src-tendanceouest-granville-2019",
+   "texte": "Tendance Ouest, 17 févr. 2019 : quatre personnes piégées par la marée montante dans une grotte « au pied de la falaise de la pointe du Roc », hélitreuillées",
+   "editeur": "Tendance Ouest",
+   "url": "https://www.tendanceouest.com/actualite-311931-granville-manche-quatre-personnes-piegees-par-la-maree-secourues-a-granville",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Thierry Valoi",
+    "date": "2019-02-17",
+    "methode": "fait divers",
+    "precision": "pied de la falaise de la pointe du Roc",
+    "independance": "presse régionale",
+    "limites": "un fait, pas une règle ; aucune durée",
+    "droits": "citation courte",
+    "consulte_le": "2026-11-26"
+   },
+   "manuelle": true,
+   "utilise_par": [
+    "spot:granville"
+   ],
+   "groupe": "editeur:tendance-ouest"
+  },
+  {
+   "id": "src-tendanceouest-pirou-2012",
+   "texte": "Tendance Ouest, 18 août 2012 : un groupe isolé par la marée « à 600m de la plage » de Pirou, alerte donnée par le poste de secours",
+   "editeur": "Tendance Ouest",
+   "url": "https://www.tendanceouest.com/actualite-34736-pirou-isoles-par-la-maree",
+   "type": "site, guide ou presse spécialisée",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Elodie Laval",
+    "date": "2012-08-18",
+    "methode": "fait divers",
+    "precision": "estran de Pirou",
+    "independance": "presse régionale",
+    "limites": "un fait, pas une règle ; aucune durée",
+    "droits": "citation courte",
+    "consulte_le": "2026-11-26"
+   },
+   "manuelle": true,
+   "utilise_par": [
+    "spot:pirou"
+   ],
+   "groupe": "editeur:tendance-ouest"
+  },
+  {
+   "id": "src-tourisme-bretagne-kernic",
+   "texte": "Tourisme Bretagne, plage de la baie du Kernic (Plouescat) : « marnage très important » ; « La baignade est déconseillée dans la baie en raison des courants »",
+   "editeur": "Tourisme Bretagne (comité régional du tourisme)",
+   "url": "https://www.tourismebretagne.com/preparer-mon-sejour/bouger-visiter/toutes-les-activites/plage-de-la-baie-du-kernic-plouescat-fr-1994409/",
+   "type": "collectivité ou tourisme",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Comité régional du tourisme de Bretagne",
+    "date": "non datée",
+    "methode": "fiche de plage",
+    "precision": "baie du Kernic",
+    "independance": "organisme de tourisme régional",
+    "limites": "aucune durée ni coefficient",
+    "droits": "citation courte",
+    "consulte_le": "2026-11-26"
+   },
+   "manuelle": true,
+   "utilise_par": [
+    "spot:kernic"
+   ],
+   "groupe": "editeur:tourisme-bretagne-comite-regiona"
+  },
+  {
    "id": "src-tourisme-landerneau-daoulas-fr-38d978",
    "texte": "tourisme-landerneau-daoulas.fr — Sites de L'Hôpital-Camfrout : Tibidy, Kerdreolet, Troaon, Kerhascoët (listés distinctement de ceux de Loperhet)",
    "editeur": "tourisme-landerneau-daoulas.fr",
@@ -12966,6 +13175,31 @@
     "famille_inferee": 4,
     "classe_le": "2026-11-23"
    }
+  },
+  {
+   "id": "src-ville-saint-malo-vigilance-grand-be",
+   "texte": "Ville de Saint-Malo, « Accès Grand Bé : Vigilance ! », 19 juin 2026 : « lors du retour, certains se retrouvent parfois piégés par la marée montante » ; « la montée des eaux est rapide et les courants peuvent être puissants »",
+   "editeur": "Ville de Saint-Malo",
+   "url": "https://www.saint-malo.fr/actualites/acces-grand-be-vigilance/",
+   "type": "administration",
+   "famille": 2,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "Ville de Saint-Malo",
+    "date": "2026-06-19",
+    "methode": "avertissement municipal",
+    "precision": "Grand Bé ; horaires d'accès sécurisés publiés à part (tableaux en image, non lus)",
+    "independance": "collectivité",
+    "limites": "aucun chiffre dans l'article",
+    "droits": "citation courte",
+    "consulte_le": "2026-11-26"
+   },
+   "manuelle": true,
+   "utilise_par": [
+    "spot:grandbe"
+   ],
+   "groupe": "editeur:ville-de-saint-malo"
   },
   {
    "id": "src-visorando-40ae1d",
@@ -13473,6 +13707,31 @@
     "famille_inferee": 4,
     "classe_le": "2026-11-23"
    }
+  },
+  {
+   "id": "src-visorando-pont-du-diable",
+   "texte": "Visorando, « Le Pont du Diable sur l'Aber Wrac'h » : « le pont submersible de Pont Krac'h dit Pont du Diable » ; avis de randonneurs : le pont « disparaît avec la montée des eaux » (17 août 2026), « était recouvert » (22 sept. 2025)",
+   "editeur": "Visorando",
+   "url": "https://www.visorando.com/randonnee-le-pont-du-diable-sur-l-aber-wrac-h/",
+   "type": "forum ou communauté",
+   "famille": 4,
+   "niveau_v2": null,
+   "evaluation": {
+    "statut": "évaluée",
+    "auteur": "dougere et avis de randonneurs",
+    "date": "2025-08-24 (fiche) ; avis de 2025 et 2026",
+    "methode": "fiche de randonnée et avis",
+    "precision": "pont submersible de l'Aber Wrac'h",
+    "independance": "site communautaire de randonnée",
+    "limites": "aucune durée de franchissement ; « départ 2 h avant la marée haute » vaut pour l'itinéraire, pas pour le passage",
+    "droits": "citation courte",
+    "consulte_le": "2026-11-26"
+   },
+   "manuelle": true,
+   "utilise_par": [
+    "spot:paluden"
+   ],
+   "groupe": "editeur:visorando"
   },
   {
    "id": "src-voileaviron-org-6589d4",

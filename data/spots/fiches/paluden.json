@@ -347,6 +347,24 @@
     "texte": "Le gué du pont du Diable n'est praticable qu'à marée basse : ne pas s'y engager au flot.",
     "verifie_le": null,
     "source_texte": "sitytrail.com (gué à marée basse) · prudence du guide"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v3",
+    "texte": "Règle générale de la commune de Landéda pour la pêche à pied : « Commencez à remonter à l'heure de marée basse » (pas propre au poste).",
+    "sources": [
+     "src-landeda-guide-peche-a-pied-2017"
+    ],
+    "verifie_le": "2026-11-26"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v3",
+    "texte": "Le passage de Pont Krac'h, dit pont du Diable, est un « pont submersible » qui « disparaît avec la montée des eaux » (fiche et avis de randonneurs).",
+    "sources": [
+     "src-visorando-pont-du-diable"
+    ],
+    "verifie_le": "2026-11-26"
    }
   ],
   "houle_max_m": {
@@ -539,10 +557,12 @@
    "src-ign-bdtopo-parkings",
    "src-ign-geocodage-poi",
    "src-ign-itineraire-pieton",
+   "src-landeda-guide-peche-a-pied-2017",
    "src-legifrance-tailles-minimales-2026",
    "src-mieuxpecher-com-613cb6",
    "src-peche-poissons-com-5a9560",
    "src-sitytrail-com-4b79fd",
+   "src-visorando-pont-du-diable",
    "src-voileaviron-org-a382c4",
    "src-wikimedia-commons-geo"
   ],
@@ -570,7 +590,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": "2026-11-23",
-  "completude": 0.81,
+  "completude": 0.82,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -603,7 +623,7 @@
    },
    "QUAL-5": {
     "ok": true,
-    "detail": "engagement 1 (jugement V2), 1 consigne sourcée sur 1, contrainte de marée praticable_a_basse_mer_seulement, mouvements de terrain 0"
+    "detail": "engagement 1 (jugement V2), 3 consignes sourcées sur 3, contrainte de marée praticable_a_basse_mer_seulement, mouvements de terrain 0"
    },
    "QUAL-6": {
     "ok": false,

@@ -403,6 +403,15 @@
     "texte": "Ne jamais traverser le havre à pied seul (« trop dangereux seul »).",
     "verifie_le": null,
     "source_texte": "Attitude Manche via Cirkwi — Le havre de Sienne"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v3",
+    "texte": "Règle générale de la Manche pour la pêche à pied (dépliant 50-14, DDTM et CPIE) : « remontez dès l'heure de la basse mer » (pas propre au poste).",
+    "sources": [
+     "src-flyer-peche-pied-50-14"
+    ],
+    "verifie_le": "2026-11-26"
    }
   ],
   "houle_max_m": {
@@ -557,6 +566,7 @@
    "src-cirkwi-com-f9fb38",
    "src-cpiecotentin-com-5726a4",
    "src-dirm-memn-projet-peche-pied-manche-2026",
+   "src-flyer-peche-pied-50-14",
    "src-georisques-bdmvt",
    "src-georisques-gaspar",
    "src-guide-peche-latitude-manche-1283c0",
@@ -589,7 +599,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": "2026-11-23",
-  "completude": 0.8,
+  "completude": 0.81,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -621,7 +631,7 @@
    },
    "QUAL-5": {
     "ok": true,
-    "detail": "engagement 3 (jugement V2), 2 consignes sourcées sur 3, contrainte de marée isolement_au_flot, mouvements de terrain 0"
+    "detail": "engagement 3 (jugement V2), 3 consignes sourcées sur 4, contrainte de marée isolement_au_flot, mouvements de terrain 0"
    },
    "QUAL-6": {
     "ok": false,

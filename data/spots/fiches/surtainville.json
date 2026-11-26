@@ -360,6 +360,15 @@
     "texte": "Estran plat : le flot gagne vite. Repérer sa ligne de retour avant de s'avancer vers les fosses.",
     "verifie_le": null,
     "source_texte": "prudence générale (déduit)"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v3",
+    "texte": "Règle générale de la Manche pour la pêche à pied (dépliant 50-14, DDTM et CPIE) : « remontez dès l'heure de la basse mer » (pas propre au poste).",
+    "sources": [
+     "src-flyer-peche-pied-50-14"
+    ],
+    "verifie_le": "2026-11-26"
    }
   ],
   "houle_max_m": {
@@ -515,6 +524,7 @@
    "src-arrete-peche-loisir-2026-recfishing",
    "src-cpiecotentin-com-1025cd",
    "src-dirm-memn-projet-peche-pied-manche-2026",
+   "src-flyer-peche-pied-50-14",
    "src-georisques-bdmvt",
    "src-georisques-gaspar",
    "src-ign-geocodage-poi",
@@ -538,7 +548,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": "2026-11-23",
-  "completude": 0.75,
+  "completude": 0.76,
   "inconnus": [
    "access.stationnement",
    "access.marche_min",
@@ -573,8 +583,8 @@
     "detail": "stationnement ou temps de marche inconnu"
    },
    "QUAL-5": {
-    "ok": false,
-    "detail": "engagement 2 (jugement V2), 0 consigne sourcée sur 1, contrainte de marée isolement_au_flot, mouvements de terrain 0"
+    "ok": true,
+    "detail": "engagement 2 (jugement V2), 1 consigne sourcée sur 2, contrainte de marée isolement_au_flot, mouvements de terrain 0"
    },
    "QUAL-6": {
     "ok": false,
@@ -589,7 +599,6 @@
    "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4)",
    "QUAL-3 : Coordonnées V2 seulement en texte, à la minute près (jusqu'à 1,85 km d'écart) : à vérifier en priorité.",
    "QUAL-4 : stationnement ou temps de marche inconnu",
-   "QUAL-5 : engagement 2 (jugement V2), 0 consigne sourcée sur 1, contrainte de marée isolement_au_flot, mouvements de terrain 0",
    "QUAL-6 : règle locale à vérifier au poste (Manche, texte signé non lu)"
   ]
  }

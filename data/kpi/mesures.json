@@ -2,8 +2,8 @@
   "//": "Valeurs mesurées par scripts/kpi/mesurer.mjs (KPI de tests/pare-feux/kpis.mjs).",
   "valeurs": {
     "couverture.moteur.branches": {
-      "valeur": 89.71,
-      "detail": "576/642 branches de scripts/etude-moteur-bord (c8, tests/etude-moteur-bord.mjs)"
+      "valeur": 89.73,
+      "detail": "577/643 branches de scripts/etude-moteur-bord (c8, tests/etude-moteur-bord.mjs)"
     },
     "couverture.moteur.instructions": {
       "valeur": 98.53,
@@ -14,9 +14,9 @@
       "detail": "66 spots V2 gardés et 32 spots V3 recherchés"
     },
     "donnees.securite_documentee": {
-      "valeur": 18.4,
-      "compte": 18,
-      "detail": "18 fiches sur 98"
+      "valeur": 22.4,
+      "compte": 22,
+      "detail": "22 fiches sur 98"
     },
     "donnees.credibilite": {
       "valeur": 49,
@@ -29,8 +29,8 @@
       "detail": "69 fiches sur 98"
     },
     "donnees.completude": {
-      "valeur": 64.3,
-      "compte": 63.01,
+      "valeur": 64.4,
+      "compte": 63.11,
       "detail": "moyenne sur 98 fiches"
     },
     "donnees.reglementation": {

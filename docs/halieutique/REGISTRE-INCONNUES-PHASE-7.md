@@ -9,7 +9,7 @@ Les comptes ci-dessous sont mesurés sur les 98 fiches de `data/spots/fiches/` l
 | Lacune | Fiches | Pourquoi les sources ne suffisent pas | Voie |
 | --- | --- | --- | --- |
 | Accès selon la marée (`safety.acces_maree`) | 75 sur 98 | Les guides et les offices de tourisme disent « attention à la marée » sans dire si le retour est coupé, ni quand | terrain ; journal de Félix (voie empirique) ; demande Q7-03 |
-| Fenêtre de sécurité des fiches à contrainte de marée connue (`windows.securite`) | 23 sur 23 | Aucune source lue ne donne une durée praticable (« repartir au plus tard BM + x h ») : sans elle, aucun horaire ne peut être calculé (§ 7.6) | demande Q7-03 ; à défaut, le spot n'est jamais présenté comme praticable |
+| Fenêtre de sécurité des fiches à contrainte de marée connue (`windows.securite`) | 22 sur 23 (le Grand Bé a la sienne depuis le 26 nov., § 4) | Aucune source lue ne donne une durée praticable (« repartir au plus tard BM + x h ») : sans elle, aucun horaire ne peut être calculé (§ 7.6) | demande Q7-03 ; à défaut, le spot n'est jamais présenté comme praticable |
 | Coefficient maximal (`safety.coef_max`) | 92 sur 98 | Une seule famille de sources (la V2) en donne, pour 6 fiches | même voie que la fenêtre de sécurité |
 | Phases de marée (`tide_approaches`) | 32 fiches sans aucune phase documentée, 33 avec moins de deux | Les sources de pêche donnent surtout « la montante » ; la basse mer, l'étale et le jusant sont rarement décrits | journal de Félix ; Q7-02 pour Penmarc'h |
 | Engagement (échelle SPUMY 1 à 3) | 66 jugements de la V2 seulement | C'est un jugement de SPUMY, pas une donnée publiée ; aucune source ne le valide | validation des niveaux par Félix (reste de la phase 5) |
@@ -29,7 +29,7 @@ Aucune n'est bloquante pour la phase 7 : les tâches qui en dépendent restent m
 
 | N° | Question | Raison | Tâches en attente | Option par défaut | Réponse |
 | --- | --- | --- | --- | --- | --- |
-| Q7-03 | Pour les 23 spots où la marée peut couper le retour ou noyer le poste, combien de temps avant ou après la basse mer repars-tu, et au-dessus de quel coefficient n'y vas-tu pas ? Commencer par ceux que tu pratiques. Liste : Aber Benoît, pointe d'Agon, Barnénez – Dourduff, Cap Coz, Carantec (Penn al Lann – Cosmeur), Gouville-sur-Mer, Saint-Malo (Grand Bé et Petit Bé), Granville, Kermorvan, baie du Kernic, Locquirec, Mousterlin, Aber Wrac'h (Paluden – pont du Diable), Penmarc'h, Penn Enez – Grève Blanche, embouchure de la Penzé, Pirou Plage, Portbail, Régnéville, dunes de Sainte-Marguerite, Sciotot, Surtainville, île de Térénez | aucune source ne donne de durée praticable ; sans elle, aucun horaire sûr n'est calculable | `windows.securite` et `coef_max` de ces fiches ; condition d'une fiche SAFE (D6-15, D6-21) | rester inconnu : le spot n'est jamais présenté comme praticable | — |
+| Q7-03 | Pour les 23 spots où la marée peut couper le retour ou noyer le poste, combien de temps avant ou après la basse mer repars-tu, et au-dessus de quel coefficient n'y vas-tu pas ? Commencer par ceux que tu pratiques. Liste : Aber Benoît, pointe d'Agon, Barnénez – Dourduff, Cap Coz, Carantec (Penn al Lann – Cosmeur), Gouville-sur-Mer, Saint-Malo (Grand Bé et Petit Bé), Granville, Kermorvan, baie du Kernic, Locquirec, Mousterlin, Aber Wrac'h (Paluden – pont du Diable), Penmarc'h, Penn Enez – Grève Blanche, embouchure de la Penzé, Pirou Plage, Portbail, Régnéville, dunes de Sainte-Marguerite, Sciotot, Surtainville, île de Térénez | aucune source ne donne de durée praticable ; sans elle, aucun horaire sûr n'est calculable | `windows.securite` et `coef_max` de ces fiches ; condition d'une fiche SAFE (D6-15, D6-21) | rester inconnu : le spot n'est jamais présenté comme praticable | Félix, 26 nov. 2026 : « Je ne sais rien du tout ne connaissant pas ces spots. Soit tu peux recueillir davantage d'informations, soit tu pourras attendre mes retours terrain avec des photos ou des écrits. » **Suite** : recherche des sources publiques (passe du 26 nov., § 4) ; ce qui reste sans source attend les retours terrain de Félix. Question close côté Félix tant qu'il n'a pas de retour terrain. |
 | Q7-01 | Mousterlin : pêches-tu à la pointe (bordures du platier) ou à l'exutoire des eaux pluviales, à environ 510 m ? Une photo du poste suffit | deux postes probables d'un même site | poste précis de la fiche ; challenge TOP_TIER | garder la pointe, poste « à préciser » | — |
 | Q7-02 | Penmarc'h : quel est ton poste habituel autour du phare d'Eckmühl, et à quelles phases de marée ? | phases haute et basse inconnues | `tide_approaches` de la fiche | inconnues gardées | — |
 | Q7-04 | Proposition : qu'un spot ne soit TOP_TIER qu'avec au moins deux phases de marée documentées. Les deux TOP_TIER actuels passeraient « à vérifier » | la qualification de la phase 5 est validée : tout changement est présenté (PF-04) | `scripts/qualifier-fiches.mjs` (rien n'est changé) | ne rien changer | — |
@@ -41,3 +41,24 @@ Questions déjà ouvertes, non reposées (§ 0.6, règle 3) : confirmation de la
 
 - Une réponse de Félix est intégrée dans la fiche concernée avec son statut (INFÉRÉ, « d'après Félix ») et sa date, puis la question est close ici.
 - Le texte signé de la Manche (arrêté n° 116/2026) est à relire dès qu'une copie lisible est publiée : ses règles passeraient alors de « à vérifier » à VÉRIFIÉ, et l'indicateur K-12 avancerait de 13 fiches au plus (les trois cantonnements et Sciotot gardent leur réserve).
+
+## 4. Passe de recherche après la réponse de Félix à Q7-03 (26 nov. 2026)
+
+Félix ne connaît pas ces 23 spots. Trois recherches parallèles ont visé les pages publiques : mairies, offices de tourisme, SNSM, Attitude Manche, CPIE, presse, guides de randonnée.
+
+**Résultat.** Un seul spot a une durée publiée sans ambiguïté :
+- **Grand Bé et Petit Bé** : de 1 h 30 avant à 1 h 30 après la basse mer du jour (office de tourisme de Saint-Malo). La ville rappelle que des visiteurs sont « piégés par la marée montante ». Fenêtre ajoutée, INFÉRÉ, niveau 4 : c'est une règle de visite, pas de pêche.
+
+Consignes sourcées ajoutées à 12 fiches (`scripts/securite-maree.mjs`, `CONSIGNES_PHASE7`) :
+- règle générale de Landéda, « Commencez à remonter à l'heure de marée basse » : Aber Benoît, Sainte-Marguerite, Paluden ;
+- règle générale de la Manche, « remontez dès l'heure de la basse mer » (dépliant 50-14) : Agon, Gouville, Granville, Pirou, Portbail, Régnéville, Sciotot, Surtainville ;
+- faits propres au lieu :
+    - pont du Diable submersible (Paluden) ;
+    - marnage et courants (Kernic) ;
+    - passage qui « inonde particulièrement vite » (Régnéville) ;
+    - passerelle submersible par coefficient 95 à 100, sur le sentier (Portbail) ;
+    - isolements de 2012 à Pirou et de 2019 à la pointe du Roc (Granville).
+
+Effet : l'indicateur K-08 (sécurité documentée) passe de 18 à 22 fiches. Aucune fiche n'est SAFE pour autant : l'engagement et la houle restent des jugements V2 (étude du moteur, E9).
+
+**Rien de concret** pour Barnénez, Cap Coz, Carantec, Kermorvan (éditeur de la seule page non vérifié), Locquirec, Mousterlin (le « coefficient 75 » de la V2 reste sans source), Penmarc'h, Penn Enez, embouchure de la Penzé (les règles de l'île Callot ne s'y appliquent pas) et Térénez. Ces fiches attendent les retours terrain de Félix : photos ou notes, avec l'heure par rapport à la basse mer et le coefficient du jour.

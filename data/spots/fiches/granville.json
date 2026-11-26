@@ -378,6 +378,24 @@
     "texte": "Marnage jusqu'à 12,6 m en vive-eau (calcul de marée du guide, 2026) : un poste accessible à basse mer peut disparaître vite. Photographier son poste et noter l'heure à l'arrivée.",
     "verifie_le": null,
     "source_texte": "calcul de marée du guide · fiche du spot (conseil)"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v3",
+    "texte": "Règle générale de la Manche pour la pêche à pied (dépliant 50-14, DDTM et CPIE) : « remontez dès l'heure de la basse mer » (pas propre au poste).",
+    "sources": [
+     "src-flyer-peche-pied-50-14"
+    ],
+    "verifie_le": "2026-11-26"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v3",
+    "texte": "Pointe du Roc : quatre personnes piégées par la marée montante dans une grotte « au pied de la falaise » le 17 févr. 2019, hélitreuillées (presse) : un fait, pas une règle.",
+    "sources": [
+     "src-tendanceouest-granville-2019"
+    ],
+    "verifie_le": "2026-11-26"
    }
   ],
   "houle_max_m": {
@@ -627,6 +645,7 @@
    "src-arrete-peche-loisir-2026-recfishing",
    "src-despoissonssigrands-com-f01490",
    "src-dirm-memn-projet-peche-pied-manche-2026",
+   "src-flyer-peche-pied-50-14",
    "src-georisques-bdmvt",
    "src-georisques-gaspar",
    "src-ign-bdtopo-parkings",
@@ -636,6 +655,7 @@
    "src-littorea-manche-arrete-116-2026",
    "src-peche-com-59bdb6",
    "src-shom-fr-maree-info-d55b87",
+   "src-tendanceouest-granville-2019",
    "src-wikimedia-commons-geo"
   ],
   "sources_v2": [
@@ -647,7 +667,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": "2026-11-23",
-  "completude": 0.86,
+  "completude": 0.87,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -675,8 +695,8 @@
     "detail": "stationnement et marche documentés (7 min)"
    },
    "QUAL-5": {
-    "ok": false,
-    "detail": "engagement 3 (jugement V2), 0 consigne sourcée sur 1, contrainte de marée submersible_a_pleine_mer, mouvements de terrain 4"
+    "ok": true,
+    "detail": "engagement 3 (jugement V2), 2 consignes sourcées sur 3, contrainte de marée submersible_a_pleine_mer, mouvements de terrain 4"
    },
    "QUAL-6": {
     "ok": false,
@@ -690,7 +710,6 @@
   "raisons": [
    "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4)",
    "QUAL-3 : position contrôlée par un toponyme qui n'est pas un lieu naturel (site de vol libre, zone d'activité ou d'intérêt), pas par le poste",
-   "QUAL-5 : engagement 3 (jugement V2), 0 consigne sourcée sur 1, contrainte de marée submersible_a_pleine_mer, mouvements de terrain 4",
    "QUAL-6 : règle locale à vérifier au poste (Manche, texte signé non lu)"
   ]
  }

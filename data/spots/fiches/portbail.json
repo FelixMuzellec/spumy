@@ -387,6 +387,24 @@
     "texte": "Platier accessible à basse mer seulement : surveiller la montée depuis le platier.",
     "verifie_le": null,
     "source_texte": "fiche du spot (accès)"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v3",
+    "texte": "Règle générale de la Manche pour la pêche à pied (dépliant 50-14, DDTM et CPIE) : « remontez dès l'heure de la basse mer » (pas propre au poste).",
+    "sources": [
+     "src-flyer-peche-pied-50-14"
+    ],
+    "verifie_le": "2026-11-26"
+   },
+   {
+    "statut": "INFÉRÉ",
+    "origine": "v3",
+    "texte": "Havre de Portbail : la passerelle du sentier est « submersible par grande marée (coefficient de marée de 95 à 100) » ; le havre nord est « inondé par grande marée » (diagnostic des sentiers, Attitude Manche ; porte sur le sentier, pas sur le platier).",
+    "sources": [
+     "src-attitude-manche-diag-cotentin"
+    ],
+    "verifie_le": "2026-11-26"
    }
   ],
   "houle_max_m": {
@@ -561,8 +579,10 @@
   "sources": [
    "src-arrete-bar-loisir-2026",
    "src-arrete-peche-loisir-2026-recfishing",
+   "src-attitude-manche-diag-cotentin",
    "src-cpiecotentin-com-1324b8",
    "src-dirm-memn-projet-peche-pied-manche-2026",
+   "src-flyer-peche-pied-50-14",
    "src-georisques-bdmvt",
    "src-georisques-gaspar",
    "src-ign-bdtopo-parkings",
@@ -587,7 +607,7 @@
  "quality": {
   "statut": "a_verifier",
   "derniere_verification": "2026-11-23",
-  "completude": 0.82,
+  "completude": 0.83,
   "inconnus": [
    "access.difficulte",
    "access.restrictions",
@@ -617,8 +637,8 @@
     "detail": "stationnement et marche documentés (4 min)"
    },
    "QUAL-5": {
-    "ok": false,
-    "detail": "engagement 2 (jugement V2), 0 consigne sourcée sur 1, contrainte de marée praticable_a_basse_mer_seulement, isolement_au_flot, mouvements de terrain 0"
+    "ok": true,
+    "detail": "engagement 2 (jugement V2), 2 consignes sourcées sur 3, contrainte de marée praticable_a_basse_mer_seulement, isolement_au_flot, mouvements de terrain 0"
    },
    "QUAL-6": {
     "ok": false,
@@ -631,7 +651,6 @@
   },
   "raisons": [
    "QUAL-1 : 0 groupe d'indépendance halieutique (famille 1 à 4)",
-   "QUAL-5 : engagement 2 (jugement V2), 0 consigne sourcée sur 1, contrainte de marée praticable_a_basse_mer_seulement, isolement_au_flot, mouvements de terrain 0",
    "QUAL-6 : règle locale à vérifier au poste (Manche, texte signé non lu)"
   ]
  }
