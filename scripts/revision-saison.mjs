@@ -22,8 +22,10 @@ const V2 = { roche: table("roche"), plage: table("plage"), abri: table("abri") }
 // Iroise et Bretagne nord : migrants majoritaires (67 à 71 %, de Pontual 2023), frai de janvier à avril-mai, pic de
 // mi-février à fin mars (Fritsch 2005), creux des débarquements à l'hameçon en mars-avril (Fritsch 2005, p. 134).
 // Au sud du 48ᵉ parallèle et au Cotentin : aucune source régionale ne justifie de changer les valeurs ; inchangées.
+// Cotentin : à l'est de 2° O et au nord de 48° 45' N (Granville compris), pour ne pas y ranger la côte d'Émeraude
+// (Saint-Malo, Cancale), où les marquages de Saint-Malo fondent la Bretagne nord (revue indépendante du 26 nov. 2026).
 export function zoneDe(lat, lon) {
-  if (lon > -2) return "cotentin";
+  if (lon > -2 && lat >= 48.75) return "cotentin";
   if (lat < 48) return "bretagne-sud";
   return "bretagne-nord-iroise";
 }

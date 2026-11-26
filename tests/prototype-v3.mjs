@@ -302,9 +302,9 @@ for (const w of [320, 375, 390]) {
     /53/.test(fe) && fe.includes("À vérifier") && /69/.test(fe) && fe.includes("Moyenne") && fe.includes("ne change pas le rang"));
   { // Phase 7, audit du mode BATEAU : règles des espèces des marques de démonstration égales à celles de 2026 (bateau.json).
     const marques = fs.readFileSync(path.join(root, "src/prototype-v3/data.js"), "utf8");
-    const attendu = { "Lieu jaune": /42 cm.*2 par jour.*1er janvier au 30 avril/, "Lieu noir": /35 cm/, Maquereau: /20 cm.*10 par jour/, Bar: /42 cm/ };
+    const attendu = { "Lieu jaune": /42 cm.*2 par jour.*1er janvier au 30 avril/, "Lieu noir": /35 cm/, Maquereau: /20 cm.*10 par jour/, Bar: /42 cm.*3 par jour au nord du 48e parallèle, 2 au sud.*relâcher seul du 1er février au 31 mars/ };
     const regles = [...marques.matchAll(/name: "([^"]+)", fav: \d+, conf: \d+, level: "[^"]+", rule: "([^"]*)"/g)];
-    t("BATEAU : règle de chaque espèce des marques conforme à 2026 (lieu jaune 42 cm, 2 par jour, fermé du 1er janvier au 30 avril ; lieu noir 35 cm ; maquereau 20 cm ; bar 42 cm)",
+    t("BATEAU : règle de chaque espèce des marques conforme à 2026 (lieu jaune 42 cm, 2 par jour, fermé du 1er janvier au 30 avril ; lieu noir 35 cm ; maquereau 20 cm ; bar 42 cm, 3 par jour au nord et 2 au sud, relâcher seul du 1er février au 31 mars au nord)",
       regles.length >= 5 && regles.every(([, n, r]) => !attendu[n] || attendu[n].test(r)), regles.map(([, n, r]) => `${n} : ${r}`).join(" | "));
   }
   const TITLES = { home: "Home", carte: "Carte", meteo: "Météo", profil: "Profil", journal: "Journal", "spot-agon": SPOT.agon.name, "spot-portbail": SPOT.portbail.name, "comparer-carteret-agon": "Comparaison" };

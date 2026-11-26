@@ -66,10 +66,16 @@ t("bar-bord.json : schéma, niveaux, sources, code utilisé, règles de leurres"
 // PF-33 (phase 7) : chaque règle du moteur sur le comportement du bar dit d'où viennent ses sources.
 const ZONES_REGIONALES = new Set(["bretagne-nord", "iroise", "bretagne-sud", "rades-rias", "cotentin"]);
 const ZONES_VOISINES = new Set(["manche", "gascogne"]);
+// Domaines connus : seuls la réglementation, la sécurité (choix de prudence de Félix) et les règles de leurres en sont exemptés ;
+// un domaine inconnu est refusé, pour qu'un changement de domaine ne sorte pas une règle du contrôle (revue du 26 nov. 2026).
+const DOMAINES_ZONES = new Set(["biologie", "comportement", "alimentation", "milieu"]);
+const DOMAINES_EXEMPTS = new Set(["réglementation", "sécurité", "leurres"]);
 function zonesProblems(doc) {
   const p = [];
-  for (const k of (doc.connaissances || []).filter((x) => ["biologie", "comportement", "alimentation"].includes(x.domaine))) {
+  for (const k of doc.connaissances || []) if (!DOMAINES_ZONES.has(k.domaine) && !DOMAINES_EXEMPTS.has(k.domaine)) p.push(`${k.id} : domaine inconnu « ${k.domaine} »`);
+  for (const k of (doc.connaissances || []).filter((x) => DOMAINES_ZONES.has(x.domaine))) {
     if (!k.zone_validite) { p.push(`${k.id} : zone de validité absente`); continue; }
+    if (!(k.zone_validite.texte || "").trim()) p.push(`${k.id} : zone de validité sans texte (d'où viennent les sources, ou pourquoi aucune)`);
     const z = (k.sources || []).flatMap((s) => s.zones || []);
     for (const s of k.sources || []) if (!s.zones) p.push(`${k.id} : source sans zone (${s.ref.slice(0, 40)})`);
     const calcule = z.some((x) => ZONES_REGIONALES.has(x)) ? "RÉGIONALE" : z.some((x) => ZONES_VOISINES.has(x)) ? "VOISINE" : "AUCUNE";
@@ -78,7 +84,7 @@ function zonesProblems(doc) {
   return p;
 }
 const zp = zonesProblems(K);
-t("PF-33 : chaque règle du moteur sur le comportement du bar porte la zone de ses sources (régionale, voisine ou aucune), et cette zone est juste", !zp.length, zp.slice(0, 6).join(" | "));
+t("PF-33 : chaque règle du moteur sur le comportement du bar porte la zone de ses sources (régionale, voisine ou aucune), et cette zone est juste ; contrôle de l'étiquetage des sources, les règles AUCUNE restent des lacunes déclarées", !zp.length, zp.slice(0, 6).join(" | "));
 t("bar-bord.json : les 5 niveaux de l'échelle sont définis", ["1", "2", "3", "4", "5"].every((n) => K.echelle[n]));
 t("bar-bord.json : les 82 règles du moteur de leurres sont classées", Object.values(K.regles_leurres).reduce((a, r) => a + r.regles, 0) === Object.values(lureCounts).reduce((a, n) => a + n, 0),
   `${Object.values(lureCounts).reduce((a, n) => a + n, 0)} dans le code`);

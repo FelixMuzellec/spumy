@@ -168,7 +168,7 @@
    "statut": "HYPOTHÈSE",
    "zone_validite": {
     "statut": "RÉGIONALE",
-    "texte": "Indice régional faible : cinq bars marqués à Audierne restés dans l'aire nord ou près du lieu de marquage (de Pontual 2023) ; aucun suivi en rade de Brest, dans les abers ni dans les havres du Cotentin ; ailleurs, le golfe de Gascogne et un port belge."
+    "texte": "Aucun indice régional d’un abri en rade : les cinq bars d’Audierne restés dans l’aire nord (Manche et mer Celtique) ou près du lieu de marquage (de Pontual 2023) et les deux résidents d’Iroise (de Pontual 2019) disent une résidence, pas une préférence pour une rade ; aucun suivi en rade de Brest, dans les abers ni dans les havres du Cotentin ; ailleurs, le golfe de Gascogne et un port belge."
    }
   },
   {
@@ -438,12 +438,19 @@
     {
      "ref": "bateaux.com — Savoir lire un atlas des courants de marée du SHOM (O. Tourchon, 08/10/2020) : vitesse croissante avec le coefficient",
      "url": "https://www.bateaux.com/article/34870/decouvrir-la-carte-des-courants-de-maree",
-     "niveau": 2
+     "niveau": 2,
+     "zones": [
+      "hors-zone"
+     ]
     }
    ],
    "limites": "Principe des atlas du SHOM, lu ici à travers un article de vulgarisation (niveau 2 tant que l'atlas lui-même n'est pas cité) ; les vitesses locales (Raz de Sein, Raz Blanchard, Libenter) viennent de sources de navigation.",
    "verdict": "conserver",
-   "statut": "VÉRIFIÉ"
+   "statut": "VÉRIFIÉ",
+   "zone_validite": {
+    "statut": "AUCUNE",
+    "texte": "Loi physique générale de la marée (sources de vulgarisation, sans région) ; l’effet sur le bar au poste n’est pas mesuré."
+   }
   },
   {
    "id": "regle-douziemes",
@@ -457,12 +464,19 @@
     {
      "ref": "peche.com — Comprendre et calculer les niveaux des marées avec la règle des douzièmes",
      "url": "https://peche.com/article/43574/comprendre-et-calculer-les-niveaux-des-marees-avec-la-regle-des-douziemes",
-     "niveau": 2
+     "niveau": 2,
+     "zones": [
+      "hors-zone"
+     ]
     }
    ],
    "limites": "Approximation de navigation : fausse là où la marée est déformée (Manche, Raz Blanchard, où l'application suit une autre règle).",
    "verdict": "conserver",
-   "statut": "VÉRIFIÉ"
+   "statut": "VÉRIFIÉ",
+   "zone_validite": {
+    "statut": "AUCUNE",
+    "texte": "Loi physique générale de la marée (sources de vulgarisation, sans région) ; l’effet sur le bar au poste n’est pas mesuré."
+   }
   },
   {
    "id": "vent-exposition",
@@ -550,7 +564,11 @@
    "sources": [],
    "limites": "Seuils du guide, aucune source.",
    "verdict": "source à trouver",
-   "statut": "HYPOTHÈSE"
+   "statut": "HYPOTHÈSE",
+   "zone_validite": {
+    "statut": "AUCUNE",
+    "texte": "Hypothèse de pêcheur, sans source ni région ; à éprouver sur le journal."
+   }
   },
   {
    "id": "houle-turbidite",
@@ -563,7 +581,11 @@
    "sources": [],
    "limites": "Seuil du guide, aucune source.",
    "verdict": "source à trouver",
-   "statut": "HYPOTHÈSE"
+   "statut": "HYPOTHÈSE",
+   "zone_validite": {
+    "statut": "AUCUNE",
+    "texte": "Hypothèse de pêcheur, sans source ni région ; à éprouver sur le journal."
+   }
   },
   {
    "id": "gros-coefficient-turbidite",
@@ -576,7 +598,11 @@
    "sources": [],
    "limites": "Le code le dit lui-même : seuil et effet supposés, aucune source relue ne le chiffre.",
    "verdict": "source à trouver",
-   "statut": "HYPOTHÈSE"
+   "statut": "HYPOTHÈSE",
+   "zone_validite": {
+    "statut": "AUCUNE",
+    "texte": "Hypothèse de pêcheur, sans source ni région ; à éprouver sur le journal."
+   }
   },
   {
    "id": "proies-calendrier",
@@ -786,18 +812,18 @@
      ]
     }
    ],
-   "limites": "Fritsch 2005, p. 71 et 77-78 (Manche ouest : registres de Saint-Malo à Audierne) ; la mention « avril et mai en Bretagne » cite Boulineau-Coatanea (1969), de seconde main. Frayères au large : la ponte dit l'absence probable des migrants à la côte, pas celle des résidents.",
+   "limites": "Fritsch 2005 : biopsies de femelles débarquées à la criée de Roscoff par des chalutiers de Manche ouest (p. 38-39) ; saison principale de mi-février à mi-avril (p. 71), pic de mi-février à fin mars (p. 77-78) ; premiers ovocytes hydratés début avril et stades de fin de ponte en mai (p. 43-45) ; la mention « avril et mai en Bretagne » cite Boulineau-Coatanea (1969), de seconde main. Frayères au large : la ponte dit l'absence probable des migrants à la côte, pas celle des résidents.",
    "verdict": "garder comme repère de la saison des migrants ; proposition chiffrée en phase 7",
    "statut": "VÉRIFIÉ",
    "zone_validite": {
     "statut": "RÉGIONALE",
-    "texte": "Manche ouest (de Saint-Malo à Audierne) et Bretagne ; pour le Cotentin ouest (Pirou), INFÉRÉ des zones voisines."
+    "texte": "Manche ouest (bars débarqués à Roscoff) ; pour l’Iroise, le cap Sizun et le Cotentin ouest (Pirou), INFÉRÉ des zones voisines."
    }
   },
   {
    "id": "calendrier-ligneurs",
    "domaine": "biologie",
-   "enonce": "Les débarquements de bar des ligneurs français sont faibles en mars-avril (moins de 10 t par mois), maximaux en juin (environ 50 t), encore élevés en septembre-octobre (30 à 40 t) et d'environ 15 t par mois de novembre à février.",
+   "enonce": "Les débarquements de bar des ligneurs français à la traîne (ligne de traîne, engin de bateau) sont faibles en mars-avril (moins de 10 t par mois), maximaux en juin (environ 50 t), encore élevés en septembre-octobre (30 à 40 t) et d’environ 15 t par mois de novembre à février.",
    "utilise_par": [
     "référence pour docs/moteur-bord/07-REVISION-PHASE-7.md : creux de printemps de la présence côtière"
    ],
@@ -813,7 +839,7 @@
      ]
     }
    ],
-   "limites": "Fritsch 2005, p. 134 : calendrier par métier, sans découpage Bretagne ou Normandie dans la partie lue ; années autour de 2000 ; un débarquement suit l'effort, la météo, le marché et la réglementation, pas seulement l'abondance du poisson à la côte.",
+   "limites": "Fritsch 2005, p. 134 : calendrier par métier, sans découpage Bretagne ou Normandie dans la partie lue ; années autour de 2000 ; un débarquement suit l'effort, la météo, le marché et la réglementation, pas seulement l'abondance du poisson à la côte. Revue indépendante du 26 nov. 2026 : ces chiffres sont ceux de la ligne de traîne (métier LH_), pas de tout l’hameçon ; la palangre de fond a le même creux de printemps et son maximum en août, la palangre dérivante ses maximums en août et en octobre.",
    "verdict": "indice du creux de mars-avril, à confronter au journal ; ne fixe aucun coefficient seul",
    "statut": "VÉRIFIÉ",
    "zone_validite": {

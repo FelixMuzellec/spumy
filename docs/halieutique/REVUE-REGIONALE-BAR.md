@@ -16,7 +16,7 @@ Ce document décrit ; il ne note pas. Les connaissances qu'il fonde sont dans `d
     - pages des projets BARGIP NOURRICERIES et BARFRAY (France Filière Pêche).
 - **Sources lues le 26 nov.** :
     - de Pontual et al. 2019 (ICES JMS 76 : 501-515, Iroise), version Archimer, en entier ;
-    - Fritsch 2005, p. 38 à 61 (la fin de la p. 37 seulement) : c'est la méthode du chapitre B (femelles de la criée de Roscoff, échelle de maturité), sans calendrier de ponte ni taille de première maturité ; le calendrier reste celui des p. 68 à 71, déjà lues.
+    - Fritsch 2005, p. 38 à 61 (la fin de la p. 37 seulement) : la méthode du chapitre B (femelles de la criée de Roscoff, échelle de maturité), sans taille de première maturité. Elle décrit pourtant le cycle par mois (p. 43-45) : stade II dès juin, stade IV dès octobre, premiers ovocytes hydratés (stade VI) début avril, stades de fin de ponte (VII) en mai. La ponte continue donc en avril et mai, au-delà du pic de mi-février à fin mars (p. 77-78).
 - **Source mal identifiée le 25 nov.** : l'article « des migrations autour du Royaume-Uni » cité comme *Movement Ecology* 2024 est en fait Goossens et al. 2024 (*Scientific Reports*), déjà lu. Un article distinct de *Movement Ecology* (doi 10.1186/s40462-024-00482-w) reste illisible : l'éditeur renvoie une page d'erreur de témoins de connexion.
 - **Source non lue** : la thèse de Carroll (2014, pays de Galles), hors zone (VOISINE, faible apport attendu) ; gardée en lacune (§ 6).
 - **Zones** : Bretagne nord ; Iroise et cap Sizun ; Bretagne sud ; rades et rias (rade de Brest, abers, rias du sud) ; Cotentin jusqu'à Cherbourg. Une zone de validité sert au moteur par la position du spot. Elle n'apparaît jamais à l'écran comme un secteur (PF-09).
@@ -29,8 +29,8 @@ Ce document décrit ; il ne note pas. Les connaissances qu'il fonde sont dans `d
 
 | Zone | Présence et résidence | Frai | Statut |
 | --- | --- | --- | --- |
-| Bretagne nord (Saint-Quay-Portrieux, Saint-Malo) | 71 % des bars marqués en juin partent frayer dans le golfe de Gascogne ; fidélité au site d'été 81 % ; fidélité à la frayère 92 % ; deux résidents dans l'aire nord sur les poissons suivis (de Pontual 2023) | Manche ouest : de début janvier à fin avril-début mai, pic de mi-février à fin mars (Fritsch 2005, p. 71 et 77-78) | VÉRIFIÉ, 1 |
-| Iroise et cap Sizun (Audierne) | 67 % vers le golfe de Gascogne ; fidélité au site d'été 96 % ; cinq poissons restés dans l'aire nord ou près du lieu de marquage. L'Iroise est une zone de mélange (de Pontual 2023). Marques d'Ouessant et du raz de Sein (2010-2012) : sur 25 bars suivis au moins un hiver, 68 % au golfe de Gascogne, 24 % en mer Celtique, 8 % résidents ; retour en Iroise au printemps ou en été de tous ceux suivis plus d'un an ; 9 sur 10 fidèles à leur frayère. L'Iroise sert de zone d'alimentation, de transit et d'abri à une petite population résidente (de Pontual 2019, p. 511) | mêmes dates qu'en Manche ouest (registres de Saint-Malo à Audierne) ; pontes signalées en avril et mai en Bretagne (Boulineau-Coatanea 1969, cité par Fritsch) | VÉRIFIÉ, 1 ; la mention d'avril et mai est de seconde main |
+| Bretagne nord (Saint-Quay-Portrieux, Saint-Malo) | 71 % des bars marqués en juin partent frayer dans le golfe de Gascogne ; fidélité au site d'été 81 % ; fidélité à la frayère 92 % ; deux résidents dans l'aire nord sur les poissons suivis (de Pontual 2023) | Manche ouest (bars débarqués à Roscoff) : de début janvier à fin avril-début mai ; saison principale de mi-février à mi-avril (Fritsch 2005, p. 71), pic de mi-février à fin mars (p. 77-78) | VÉRIFIÉ, 1 |
+| Iroise et cap Sizun (Audierne) | 67 % vers le golfe de Gascogne ; fidélité au site d'été 96 % ; cinq poissons restés dans l'aire nord ou près du lieu de marquage. L'Iroise est une zone de mélange (de Pontual 2023). Marques d'Ouessant et du raz de Sein (2010-2012) : sur 25 bars suivis au moins un hiver, 68 % au golfe de Gascogne, 24 % en mer Celtique, 8 % résidents ; retour en Iroise au printemps ou en été de tous ceux suivis plus d'un an ; 9 sur 10 fidèles à leur frayère. L'Iroise sert de zone d'alimentation, de transit et d'abri à une petite population résidente (de Pontual 2019, p. 511) | mêmes dates qu'en Manche ouest, **INFÉRÉ** : le calendrier vient de bars débarqués à Roscoff ; pontes signalées en avril et mai en Bretagne (Boulineau-Coatanea 1969, cité par Fritsch) | VÉRIFIÉ, 1 pour la migration ; INFÉRÉ pour le frai ; la mention d'avril et mai est de seconde main |
 | Bretagne sud | Au sud du 48ᵉ parallèle : stock du golfe de Gascogne, où les résidents sont les plus nombreux (centre du golfe : La Turballe, Noirmoutier, Oléron ; de Pontual 2023) | Golfe de Gascogne : janvier à mars (cartes de l'Ifremer, phase 5) | VÉRIFIÉ, 1 pour le golfe ; INFÉRÉ pour la côte bretonne au sud du 48ᵉ |
 | Rades et rias (rade de Brest) | Estuaire de l'Aulne : bars de 0 à 1 an dans les parties hautes et peu salées ; de 2 à 3 ans dans tout l'estuaire ; dès 4 ans, comportement d'adulte, lié à la côte pendant la belle saison (BARGIP NOURRICERIES) | — | VÉRIFIÉ, 2 (page de projet) |
 | Cotentin est (Saint-Vaast-la-Hougue) | La plupart des bars marqués restent dans l'aire nord (Manche et mer du Nord), avec des incursions d'hiver vers le 48ᵉ parallèle (de Pontual 2023). La synthèse de 2018 disait que des bars de Saint-Vaast ont frayé en mer Celtique (phase 5) | — | VÉRIFIÉ, 1 |
@@ -39,21 +39,21 @@ Ce document décrit ; il ne note pas. Les connaissances qu'il fonde sont dans `d
 
 ### 2.1 Calendrier côtier
 
-Débarquements de bar des ligneurs français, à l'hameçon (Fritsch 2005, p. 134) :
+Débarquements de bar des ligneurs français à la **ligne de traîne** (métier LH_, engin de bateau ; Fritsch 2005, p. 134) :
 - moins de 10 t par mois en mars et avril ;
 - environ 50 t en juin, le maximum ;
 - de 30 à 40 t en septembre et octobre ;
 - environ 15 t par mois de novembre à février.
 
-Les palangres ont le même creux en mars-avril et leur maximum en août. Les filets, eux, pêchent surtout d'octobre à janvier.
+La palangre de fond a le même creux en mars-avril et son maximum en août ; la palangre dérivante a ses maximums en août et en octobre. Les filets, eux, pêchent surtout d'octobre à janvier.
 
-Lecture : le creux du printemps tombe pendant et juste après la ponte au large. C'est à ce moment que la côte est la plus vide de migrants. Les mois d'hiver ne sont pas les plus pauvres pour la pêche à l'hameçon.
+Lecture : le creux du printemps tombe pendant et juste après la ponte au large. C'est à ce moment que la côte est la plus vide de migrants. Les mois d'hiver ne sont pas les plus pauvres pour la ligne de traîne.
 
 C'est un **indice** (niveau 1, VOISINE). Il ne s'agit pas d'une mesure d'abondance au bord.
 
 ### 2.2 Hiver et abri
 
-- Des bars restent l'hiver près de la côte : 13 sur 57 dans le port de Zeebrugge, jusqu'à 2,8 °C (Goossens 2023). Les minimums enregistrés en Manche ouest descendent à 6,5 °C (Goossens 2024 ; de Pontual 2023).
+- Des bars restent l'hiver près de la côte : 13 sur 57 dans le port de Zeebrugge, jusqu'à 2,8 °C (Goossens 2023). Les minimums enregistrés en Manche ouest descendent à 6,5 °C (Goossens 2024, tableau 2). De Pontual 2023 donne aussi un minimum vers 6,5 °C, sans zone, et le dit plus proche des eaux continentales ou estuariennes que du large.
 - En Bretagne, les résidents d'hiver suivis sont peu nombreux. Aucune étude ne suit des bars en rade de Brest, dans les abers ou dans les havres du Cotentin en hiver.
 - En Iroise, les bars marqués n'ont passé que 0,33 % de leurs jours sous 9 °C (41 jours sur 12 409 ; de Pontual 2019) : ils quittent l'eau froide plutôt qu'ils ne s'y tiennent. L'hiver, ils descendent au large à plus de 110 m ; un poisson suivi d'octobre à février y restait profond le jour et remontait près de la surface la nuit (p. 509). L'« abri » dont parle l'article est la mer d'Iroise entière, jamais une rade : la rade de Brest et la baie de Douarnenez n'y figurent pas.
 - L'hypothèse « abri » du moteur (écart de saison réduit de moitié en rade, ria ou havre) garde donc le niveau 4. Elle a un indice régional faible : cinq poissons à Audierne. La température de l'air n'est pas celle de l'eau : le moteur lit l'eau.
@@ -99,9 +99,9 @@ Contrôle : `tests/knowledge.mjs`, essai de sabotage dans `tests/pare-feux-sabot
 ## 5. Effet attendu sur le moteur
 
 Proposition chiffrée, avec son impact sur les 66 spots : `docs/moteur-bord/07-REVISION-PHASE-7.md`. En bref :
-- creux de saison déplacé de février vers mars-avril pour les spots dont la population migre (Bretagne nord, Iroise) ;
-- creux moins profond pour le Cotentin est ;
-- Confiance plus basse au Cotentin ouest (aucun marquage) ;
+- creux de saison déplacé de février à mars, avril abaissé, pour les spots au nord du 48ᵉ parallèle hors Cotentin (Bretagne nord, Iroise ; rade de Brest et baie de Douarnenez par extrapolation) ;
+- Cotentin et Bretagne sud inchangés (aucun des 10 spots V2 du Cotentin n'est sur la côte est) ;
+- Confiance plus basse de mars à mai pour les spots du Cotentin (aucun marquage sur la côte ouest) ;
 - abri gardé au niveau 4.
 
 ## 6. Lacunes et suite

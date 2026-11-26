@@ -134,11 +134,11 @@ export function homePhrase(cards, { scarce } = {}) {
  * 2026 (data/knowledge/bateau.json ; vérifié par tests/prototype-v3.mjs, phase 7). */
 export const MARKS = [
   { id: "m1", name: "Roche nord (démo)", x: 70, y: 210, depth: "40–55 m", fond: "roche", win: [7, 10.5], safety: "ok", shelter: 4.2,
-    species: [{ name: "Lieu jaune", fav: 74, conf: 58, level: "Faible", rule: "42 cm minimum ; 2 par jour ; fermé du 1er janvier au 30 avril" }, { name: "Bar", fav: 61, conf: 64, level: "Moyenne", rule: "42 cm minimum ; 3 par jour au nord du 48e parallèle" }] },
+    species: [{ name: "Lieu jaune", fav: 74, conf: 58, level: "Faible", rule: "42 cm minimum ; 2 par jour ; fermé du 1er janvier au 30 avril" }, { name: "Bar", fav: 61, conf: 64, level: "Moyenne", rule: "42 cm minimum ; 3 par jour au nord du 48e parallèle, 2 au sud ; au nord, relâcher seul du 1er février au 31 mars" }] },
   { id: "m2", name: "Épave (démo)", x: 40, y: 380, depth: "62 m", fond: "épave", win: [8.5, 11.5], safety: "ok", shelter: 6.8,
     species: [{ name: "Lieu noir", fav: 68, conf: 52, level: "Faible", rule: "35 cm minimum" }] },
   { id: "m3", name: "Basse sud (démo)", x: 150, y: 600, depth: "18–25 m", fond: "roche et sable", win: [9, 11], safety: "ok", shelter: 2.9,
-    species: [{ name: "Bar", fav: 57, conf: 60, level: "Moyenne", rule: "42 cm minimum" }] },
+    species: [{ name: "Bar", fav: 57, conf: 60, level: "Moyenne", rule: "42 cm minimum ; 3 par jour au nord du 48e parallèle, 2 au sud ; au nord, relâcher seul du 1er février au 31 mars" }] },
   { id: "m4", name: "Banc (démo)", x: 60, y: 520, depth: "30 m", fond: "sable", win: null, safety: "unknown", status: "verify", verifyWhy: "Houle croisée non documentée",
     species: [{ name: "Maquereau", fav: 70, conf: 35, level: "Faible", rule: "20 cm minimum ; 10 par jour" }] },
 ];
