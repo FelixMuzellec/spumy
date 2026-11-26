@@ -46,10 +46,9 @@ export function controler(f) {
   const src = f.provenance?.sources || [];
   const absentes = src.filter((s) => !REGISTRE.has(s));
   if (absentes.length) add("S", true, `sources absentes du registre : ${absentes.join(", ")}`);
-  const halieutiques = src.map((s) => REGISTRE.get(s)).filter((s) => s && s.famille >= 1 && s.famille <= 4);
-  const groupes = new Set(halieutiques.map((s) => s.groupe));
-  if (groupes.size < 2) add("S", false, `${groupes.size} groupe indépendant de sources halieutiques`);
-  const nonEvaluees = halieutiques.filter((s) => s.evaluation?.statut === "à évaluer").length;
+  // Corroboration : le critère QUAL-1 (deux groupes d'indépendance halieutiques), tel que la qualification le calcule.
+  if (!k["QUAL-1"]?.ok) add("S", false, `corroboration insuffisante : ${k["QUAL-1"]?.detail || "QUAL-1 absent"}`);
+  const nonEvaluees = src.map((s) => REGISTRE.get(s)).filter((s) => s && s.evaluation?.statut === "à évaluer").length;
   // D — dates.
   if (!f.quality?.derniere_verification) add("D", false, "aucune date de dernière vérification");
   // M — marée : phases documentées et non documentées.
@@ -72,7 +71,7 @@ export function controler(f) {
   const tousOk = CRITERES.every((q) => k[q]?.ok === true);
   if (tousOk !== (f.quality?.statut === "TOP_TIER" || f.quality?.statut === "reglementee" || f.quality?.statut === "inaccessible")) add("T", true, `statut ${f.quality?.statut} incohérent avec ses critères`);
   return { id: f.id, nom: f.name, origine: f.origin, statut: f.quality?.statut, strate: strate(f),
-    phasesDocumentees: docs, phasesNonDocumentees: nonDocs, sources: src.length, groupesIndependants: groupes.size, sourcesNonEvaluees: nonEvaluees,
+    phasesDocumentees: docs, phasesNonDocumentees: nonDocs, sources: src.length, corroboree: k["QUAL-1"]?.ok === true, sourcesNonEvaluees: nonEvaluees,
     engagement: inconnu(f.safety?.engagement) ? null : f.safety.engagement.valeur, consignes: consignes.length, consignesSourcees: sourcees,
     contrainteMaree: contrainte, fenetreSecurite: !inconnu(f.windows?.securite), constats: c };
 }
