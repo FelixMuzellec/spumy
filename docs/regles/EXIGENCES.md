@@ -6,11 +6,11 @@ Félix (25 nov. 2026, 7 h 25) : les exigences sont reliées aux pare-feux (PF-46
 
 ## Bilan
 
-- acceptée : 13
+- acceptée : 14
 - tenue sur le prototype : 8
-- spécifiée et éprouvée sur l'étude : 6
+- spécifiée et éprouvée sur l'étude : 7
 - écart : 7
-- à faire : 64
+- à faire : 62
 
 ## Exigences
 
@@ -37,7 +37,7 @@ Félix (25 nov. 2026, 7 h 25) : les exigences sont reliées aux pare-feux (PF-46
 | REC-08 | 6 | spécifiée et éprouvée sur l'étude, acceptation finale en phase 11 | `tests/etude-moteur-bord.mjs` |
 | REC-09 | 3, 10 | à faire, phase 10 | — |
 | REC-10 | 6, 10 | à faire, phase 10 | — |
-| REC-11 | 5 à 8 | à faire, phase 8 | — |
+| REC-11 | 5 à 8 | spécifiée et éprouvée sur l'étude, acceptation finale en phase 11 | `tests/calibration.mjs`, `tests/etude-moteur-bord.mjs` ; phase 8 : épreuve sur 234 journées archivées (docs/validation/EPREUVE-MOTEUR-PHASE-8.md) ; aucune calibration sur le journal possible (3 sorties notées), écart porté par K-01 à K-03 (phase 13) |
 | REC-12 | 6, 9 | à faire, phase 9 | — |
 | SEC-01 | 6, 10 | à faire, phase 10 | — |
 | SEC-02 | 6 | spécifiée et éprouvée sur l'étude, acceptation finale en phase 11 | `tests/etude-moteur-bord.mjs` ; écart déclaré pour la visibilité (D6-16, rapport de phase 6) |
@@ -59,7 +59,7 @@ Félix (25 nov. 2026, 7 h 25) : les exigences sont reliées aux pare-feux (PF-46
 | SPOT-04 | 5, 9 | à faire, phase 9 | — |
 | SPOT-05 | 3, 10 | à faire, phase 10 | — |
 | SPOT-06 | 10 | à faire, phase 10 | — |
-| SPOT-07 | 5, 7, 8 | à faire, phase 8 | — |
+| SPOT-07 | 5, 7, 8 | acceptée | `docs/validation/REVUE-INDEPENDANTE-PHASES-5-7.md`, `docs/validation/AUDIT-FICHES-PHASE-8.md`, `tests/calibration.mjs` ; phase 8 : revue indépendante sans constat MAJEUR après contre-vérification ; aucun ajout sans source ; le Trégor reste le trou le plus long (COUVERTURE.md § 7) |
 | SPOT-08 | 3 | écart, acceptation finale en phase 12 | le prototype affiche « Illustration » sur ses photos, mais aucun test ne le vérifie (PF-31) |
 | SPOT-09 | 3, 7 | tenue sur le prototype, acceptation finale en phase 12 | `tests/prototype-v3.mjs` ; courbe juste contre le calcul de marée et horaires identiques à Home : à éprouver sur l'application intégrée |
 | JRN-01 | 13 | à faire, phase 13 | — |
