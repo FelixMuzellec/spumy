@@ -114,6 +114,18 @@ Contrôles lancés pendant la phase :
 
 CI de la proposition sur 2d4ddc8 : « Tests », « Contrat IGN » et « Contrat Open-Meteo » en succès (passage 45767430356).
 
+### 7 bis. Gate final
+
+Gate rejoué sur un clone neuf de 442db1f, le commit de ce rapport, le 26 nov. 2026 :
+
+| Commande | Code | Résultat |
+| --- | --- | --- |
+| `npm ci --ignore-scripts` | 0 | 0 faille |
+| `npm run -s verifier` | 0 | 8 suites sur 8 au vert : npm test, accessibilité (0 violation), mise à jour 12/12, prototype V2 244/244, prototype V3 227/227, marque 35/35, indicateurs |
+| CI « Tests », « Contrat IGN », « Contrat Open-Meteo » sur 442db1f | success | passages 45808420072, 45808420219, 45808420032 |
+
+Un premier passage sur ce même commit avait échoué : un gate oublié tournait encore dans un autre clone et occupait le port 8765 (`EADDRINUSE`). Il a été arrêté, puis le gate a été relancé en entier. Ce n'est pas un défaut du code.
+
 ## 8. Résultats fonctionnels et qualité
 
 | Indicateur (objectif suivi, jamais au détriment des spots) | Valeur | Commentaire |
