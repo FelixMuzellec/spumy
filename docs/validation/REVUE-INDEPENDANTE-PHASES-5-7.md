@@ -20,7 +20,7 @@ Phase 8 V3, 27 nov. 2026. Référentiel, phase 8 : « revue critique séparée d
 
 ## 2. Constats et contre-vérification
 
-Bilan du relecteur : 2 MAJEUR, 11 MINEUR, 6 OBSERVATION. Après contre-vérification : **aucun MAJEUR ne tient tel quel**. Il reste 0 MAJEUR, 12 MINEUR et 7 OBSERVATION.
+Bilan du relecteur : 2 MAJEUR, 11 MINEUR, 6 OBSERVATION. Après contre-vérification : **aucun MAJEUR ne tient tel quel**. Il reste 0 MAJEUR, 13 MINEUR et 6 OBSERVATION. Les deux réductions sont celles de l'auteur de la phase 8 : elles reposent sur des faits relevés dans les fichiers (définition de QUAL-5, consignes propres au poste), et le constat 1 reste vrai dans le code (proposition de correction pour la phase 9).
 
 | N° | Grille | Constat du relecteur | Contre-vérification (phase 8) | Verdict | Suite |
 | --- | --- | --- | --- | --- | --- |

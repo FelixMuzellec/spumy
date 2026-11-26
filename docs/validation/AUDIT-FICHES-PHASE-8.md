@@ -17,23 +17,25 @@ Le tirage est fait à graine fixe. Les strates à risque sont tirées en entier 
 | --- | --- | --- |
 | TOP_TIER et corroborées | 3 | 3 |
 | Postes engagés (niveau 3) | 15 | 15 |
-| Contrainte de marée connue | 16 | 16 |
-| Position douteuse (QUAL-3 en échec) | 17 | 17 |
-| Candidats V3, autres | 27 | 9 |
+| Engagement inconnu (dont les 32 candidats V3) | 32 | 32 |
+| Contrainte de marée connue | 15 | 15 |
+| Position douteuse (QUAL-3 en échec) | 13 | 13 |
 | Fiches V2, autres | 20 | 7 |
-| **Total** | **98** | **67** |
+| **Total** | **98** | **85** |
 
-## 2. Contrôles automatiques (67 fiches tirées)
+Une fiche n'est comptée que dans sa première strate à risque. La strate « engagement inconnu » a été ajoutée après la revue indépendante : au sens de D6-15, ce sont les fiches les plus risquées.
+
+## 2. Contrôles automatiques (85 fiches tirées)
 
 | Contrôle | Fiches touchées | Lecture |
 | --- | --- | --- |
 | P, position | 16 | 8 jamais contrôlées par l'IGN ; 8 dont le toponyme officiel est entre 1,5 et 4,7 km (Laïta 4,7 km ; Paluden 4,1 km ; Merrien 3,3 km). Aucune hors de la Bretagne et du Cotentin |
-| S, corroboration (QUAL-1) | 38 | moins de deux groupes de sources halieutiques indépendants ; 182 sources sur 868 jamais évaluées page par page |
+| S, corroboration (QUAL-1) | 42 | moins de deux groupes de sources halieutiques indépendants ; sur 279 sources distinctes citées, 174 n'ont jamais été évaluées page par page |
 | D, dates | 0 | chaque fiche porte une date de dernière vérification |
-| M, marée | 14 | aucune phase documentée. Sur l'échantillon, les phases non documentées sont : la basse mer 62 fois, la pleine mer 52 fois, le jusant 30 fois, la montante 17 fois |
-| G, dangers | 67 | au moins une donnée de sécurité inconnue sur chaque fiche tirée. 22 des 23 contraintes de marée connues n'ont pas de fenêtre de sécurité : ces spots ne sont jamais présentés comme praticables |
+| M, marée | 32 | aucune phase documentée. Sur l'échantillon, les phases non documentées sont : la basse mer 79 fois, la pleine mer 73 fois, le jusant 45 fois, la montante 36 fois |
+| G, dangers | 85 | au moins une donnée de sécurité inconnue sur chaque fiche tirée. 22 des 23 contraintes de marée connues n'ont pas de fenêtre de sécurité : ces spots ne sont jamais présentés comme praticables |
 | C, contradictions | 0 (sur les 98) | aucun texte ne parle d'isolement par la marée sans contrainte connue ; aucun poste « facile » n'est décrit comme engagé |
-| I, sites isolés | 2 | Pointe de Dinan et Penn Enez : secours plus lents, attention accrue |
+| I, sites isolés | 3 (sur les 98) | Pointe de Dinan, Feunteun Aod et Penn Enez : secours plus lents, attention accrue |
 | T, TOP_TIER | 0 | chaque statut suit ses sept critères ; aucune note ni popularité n'entre dans le calcul |
 
 **Phases de marée des TOP_TIER.**
@@ -45,7 +47,7 @@ Le tirage est fait à graine fixe. Les strates à risque sont tirées en entier 
 - Dinan et Feunteun Aod : « site isolé » au sens d'un lieu reculé, pas d'un isolement par la marée ;
 - Paluden : le verbe « s'engager », pas un poste engagé.
 
-Les motifs ont été resserrés, et « site isolé » est désormais compté à part (I).
+Les motifs ont été resserrés, et « site isolé » est désormais compté à part (I), sur toutes les fiches, avec un motif qui reconnaît les lettres accentuées (constat de la revue indépendante).
 
 ## 3. Contrôle sur les pages publiques (10 fiches à haut risque)
 
