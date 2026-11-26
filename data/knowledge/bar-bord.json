@@ -153,9 +153,17 @@
      "zones": [
       "hors-zone"
      ]
+    },
+    {
+     "ref": "de Pontual H. et al. (2019). New insights into behavioural ecology of European seabass off the West Coast of France: implications at local and population scales. ICES Journal of Marine Science 76(2) : 501-515 (246 marques en Iroise, 2010-2012 ; version lue : Archimer, en entier)",
+     "url": "https://archimer.ifremer.fr/doc/00451/56230/57790.pdf",
+     "niveau": 1,
+     "zones": [
+      "iroise"
+     ]
     }
    ],
-   "limites": "Indice seulement : des bars marqués ont hiverné dans un port belge à 6,9 °C de température médiane (Goossens et al. 2023, cité par Edwards 2025) ; aucune observation en rade de Brest ni dans les abers. Phase 7 (25 nov. 2026) : à Zeebrugge, 13 bars sur 57 suivis sont restés l'hiver dans le port, jusqu'à 2,8 °C (Goossens 2023) ; en Bretagne, les résidents d'hiver sont rares : surtout au centre du golfe de Gascogne, et cinq bars marqués à Audierne restés dans l'aire nord ou près du lieu de marquage (de Pontual 2023). Aucun suivi publié en rade de Brest, dans les abers ou les havres du Cotentin : l'abri reste une hypothèse de niveau 4.",
+   "limites": "Indice seulement : des bars marqués ont hiverné dans un port belge à 6,9 °C de température médiane (Goossens et al. 2023, cité par Edwards 2025) ; aucune observation en rade de Brest ni dans les abers. Phase 7 (25 nov. 2026) : à Zeebrugge, 13 bars sur 57 suivis sont restés l'hiver dans le port, jusqu'à 2,8 °C (Goossens 2023) ; en Bretagne, les résidents d'hiver sont rares : surtout au centre du golfe de Gascogne, et cinq bars marqués à Audierne restés dans l'aire nord ou près du lieu de marquage (de Pontual 2023). Aucun suivi publié en rade de Brest, dans les abers ou les havres du Cotentin : l'abri reste une hypothèse de niveau 4. Phase 7 (26 nov. 2026) : de Pontual 2019 décrit l’Iroise comme zone d’alimentation, de transit et « abri » d’une population résidente (2 bars sur 25, et des juvéniles de l’année en été) ; mais « abri » y désigne la mer d’Iroise entière, pas une rade : aucune mention de la rade de Brest ni de la baie de Douarnenez. L’hypothèse reste au niveau 4.",
    "verdict": "garder, niveau 4 : compté avec les facteurs de saison, 21,4 % de la variance (phase 8 : part de la variance de la favorabilité sur 241 journées réelles × 1 000 tirages ; c'est une sensibilité, pas une preuve)",
    "statut": "HYPOTHÈSE",
    "zone_validite": {
@@ -231,9 +239,17 @@
      "zones": [
       "hors-zone"
      ]
+    },
+    {
+     "ref": "de Pontual H. et al. (2019). New insights into behavioural ecology of European seabass off the West Coast of France. ICES Journal of Marine Science 76(2) : 501-515 (version lue : Archimer, en entier)",
+     "url": "https://archimer.ifremer.fr/doc/00451/56230/57790.pdf",
+     "niveau": 1,
+     "zones": [
+      "iroise"
+     ]
     }
    ],
-   "limites": "Aucune source ne donne ces paliers. Des bars ont été suivis jusqu'à 6,5 °C (de Pontual 2023) et ont hiverné à 6,9 °C dans un port (Edwards 2025) : « l'essentiel des adultes a rejoint le large sous 7,5 °C » n'est pas démontré. Phase 7 : minimum de 6,5 °C enregistré par les marques archives en Manche ouest (Goossens 2024, tableau 2) ; 2,8 °C dans le port de Zeebrugge (Goossens 2023).",
+   "limites": "Aucune source ne donne ces paliers. Des bars ont été suivis jusqu'à 6,5 °C (de Pontual 2023) et ont hiverné à 6,9 °C dans un port (Edwards 2025) : « l'essentiel des adultes a rejoint le large sous 7,5 °C » n'est pas démontré. Phase 7 : minimum de 6,5 °C enregistré par les marques archives en Manche ouest (Goossens 2024, tableau 2) ; 2,8 °C dans le port de Zeebrugge (Goossens 2023). Phase 7 (26 nov. 2026) : en Iroise, les 34 bars dont les marques ont été lues ont connu de 6,8 à 21,9 °C et n’ont passé que 41 jours sur 12 409 (0,33 %) sous 9 °C (de Pontual 2019, p. 505 et 511) : ce bar fuit l’eau froide en se déplaçant (au large l’hiver), il ne s’y tient pas. C’est un indice en faveur d’un palier vers 9 °C, pas sa mesure au bord.",
    "verdict": "garder, niveau 4 : 4,8 % de la variance (phase 8 : part de la variance de la favorabilité sur 241 journées réelles × 1 000 tirages ; c'est une sensibilité, pas une preuve) ; la température de l'eau elle-même (±1 °C) en explique 6,5 %",
    "statut": "HYPOTHÈSE",
    "valeurs": {
@@ -242,7 +258,7 @@
    },
    "zone_validite": {
     "statut": "RÉGIONALE",
-    "texte": "Minimums mesurés en Manche ouest autour du Cotentin (Goossens 2024) ; les paliers eux-mêmes ne sont dans aucune source."
+    "texte": "Minimums mesurés en Manche ouest autour du Cotentin (Goossens 2024) ; les paliers eux-mêmes ne sont dans aucune source. Iroise : températures vécues par 34 bars marqués (de Pontual 2019)."
    }
   },
   {
@@ -808,7 +824,7 @@
   {
    "id": "migration-par-zone",
    "domaine": "biologie",
-   "enonce": "Bars marqués en été : 71 % de ceux de Saint-Quay-Portrieux et 67 % de ceux d'Audierne partent frayer dans le golfe de Gascogne ; ceux de Saint-Vaast-la-Hougue et de Port-en-Bessin restent pour la plupart dans l'aire nord (Manche et mer du Nord). La fidélité au site d'été atteint 81 % (Saint-Quay) et 96 % (Audierne).",
+   "enonce": "Bars marqués en été : 71 % de ceux de Saint-Quay-Portrieux et 67 % de ceux d'Audierne partent frayer dans le golfe de Gascogne ; ceux de Saint-Vaast-la-Hougue et de Port-en-Bessin restent pour la plupart dans l'aire nord (Manche et mer du Nord). La fidélité au site d'été atteint 81 % (Saint-Quay) et 96 % (Audierne). En Iroise (marques de 2010 à 2012), sur 25 bars suivis au moins un hiver, 17 (68 %) sont allés au golfe de Gascogne, 6 (24 %) en mer Celtique et 2 (8 %) sont restés résidents ; tous ceux suivis plus d’un an sont revenus en Iroise au printemps ou en été, et 9 sur 10 sont retournés à la même frayère.",
    "utilise_par": [
     "référence pour docs/moteur-bord/07-REVISION-PHASE-7.md : part des résidents par zone de validité"
    ],
@@ -823,9 +839,17 @@
       "iroise",
       "cotentin"
      ]
+    },
+    {
+     "ref": "de Pontual H. et al. (2019). New insights into behavioural ecology of European seabass off the West Coast of France: implications at local and population scales. ICES Journal of Marine Science 76(2) : 501-515 (246 marques en Iroise, 2010-2012 ; version lue : Archimer, en entier)",
+     "url": "https://archimer.ifremer.fr/doc/00451/56230/57790.pdf",
+     "niveau": 1,
+     "zones": [
+      "iroise"
+     ]
     }
    ],
-   "limites": "Poissons de plus de 41,5 cm marqués par des professionnels en juin ou en septembre (biais du cadrage) ; 39,5 % des marques récupérées ; trajectoires estimées, moins précises l'hiver et près des côtes ; aucun marquage sur la côte ouest du Cotentin (Pirou, Portbail) ni en rade de Brest : ce qui s'y applique est INFÉRÉ des zones voisines.",
+   "limites": "Poissons de plus de 41,5 cm marqués par des professionnels en juin ou en septembre (biais du cadrage) ; 39,5 % des marques récupérées ; trajectoires estimées, moins précises l'hiver et près des côtes ; aucun marquage sur la côte ouest du Cotentin (Pirou, Portbail) ni en rade de Brest : ce qui s'y applique est INFÉRÉ des zones voisines. De Pontual 2019 : bars de plus de 45 cm pris à la ligne par des professionnels à Ouessant et au raz de Sein, marqués en juillet ou en septembre ; dates de départ et de retour non données dans le texte.",
    "verdict": "garder : fonde une saison différente pour la Bretagne nord et l'Iroise d'une part, le Cotentin est d'autre part",
    "statut": "VÉRIFIÉ",
    "zone_validite": {

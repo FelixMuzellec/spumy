@@ -1,14 +1,14 @@
 {
  "//": "Registre des sources (phase 5, 5.4 ; § 7.1). Généré par scripts/sources-registre.mjs ; les champs « evaluation » se complètent à la main et ne sont jamais écrasés.",
  "totaux": {
-  "sources": 361,
-  "aEvaluer": 251,
-  "avecUrl": 118,
+  "sources": 363,
+  "aEvaluer": 253,
+  "avecUrl": 120,
   "editeurs": 108,
   "editeurClasse": 353,
   "groupes": 92,
   "parFamille": {
-   "1": 24,
+   "1": 26,
    "2": 46,
    "3": 8,
    "4": 255,
@@ -17,7 +17,7 @@
   },
   "parType": {
    "site, guide ou presse spécialisée": 273,
-   "institutionnel ou scientifique": 37,
+   "institutionnel ou scientifique": 39,
    "texte réglementaire": 3,
    "collectivité ou tourisme": 21,
    "forum ou communauté": 6,
@@ -64,6 +64,31 @@
     "famille_inferee": 4,
     "classe_le": "2026-11-23"
    }
+  },
+  {
+   "id": "src-archimer-ifremer-fr-0e6bf7",
+   "texte": "de Pontual H. et al. (2019). New insights into behavioural ecology of European seabass off the West Coast of France: implications at local and population scales. ICES Journal of Marine Science 76(2) : 501-515 (246 marques en Iroise, 2010-2012 ; version lue : Archimer, en entier)",
+   "editeur": "archimer.ifremer.fr",
+   "url": "https://archimer.ifremer.fr/doc/00451/56230/57790.pdf",
+   "type": "institutionnel ou scientifique",
+   "famille": 1,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bord:abri-hiver",
+    "connaissance:bord:migration-par-zone"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   },
+   "groupe": "editeur:archimer-ifremer-fr"
   },
   {
    "id": "src-archimer-ifremer-fr-1520a5",
@@ -150,6 +175,30 @@
    "niveau_v2": 1,
    "utilise_par": [
     "connaissance:bord:migration-par-zone"
+   ],
+   "evaluation": {
+    "statut": "à évaluer",
+    "auteur": null,
+    "date": null,
+    "methode": null,
+    "precision": null,
+    "independance": null,
+    "limites": null,
+    "droits": null,
+    "consulte_le": null
+   },
+   "groupe": "editeur:archimer-ifremer-fr"
+  },
+  {
+   "id": "src-archimer-ifremer-fr-d09e52",
+   "texte": "de Pontual H. et al. (2019). New insights into behavioural ecology of European seabass off the West Coast of France. ICES Journal of Marine Science 76(2) : 501-515 (version lue : Archimer, en entier)",
+   "editeur": "archimer.ifremer.fr",
+   "url": "https://archimer.ifremer.fr/doc/00451/56230/57790.pdf",
+   "type": "institutionnel ou scientifique",
+   "famille": 1,
+   "niveau_v2": 1,
+   "utilise_par": [
+    "connaissance:bord:seuils-thermiques"
    ],
    "evaluation": {
     "statut": "à évaluer",
