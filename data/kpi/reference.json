@@ -6,7 +6,7 @@
     "donnees.securite_documentee": 18,
     "donnees.credibilite": 48,
     "donnees.exactitude": 69,
-    "donnees.completude": 62.8,
+    "donnees.completude": 63.01,
     "donnees.reglementation": 63,
     "donnees.confidentialite": 100,
     "donnees.actualite": 100,
@@ -116,6 +116,16 @@
         "code.v3_fonctions_complexes": [
           13,
           null
+        ]
+      }
+    },
+    {
+      "date": "2026-11-26",
+      "raison": "progrès ou première mesure",
+      "changements": {
+        "donnees.completude": [
+          62.8,
+          63.01
         ]
       }
     }

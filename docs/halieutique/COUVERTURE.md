@@ -119,3 +119,23 @@ Hors listes de mieuxpecher.com, deux autres éditeurs indépendants ont suffi po
 **Règles locales (contrôle de la passe 5.13).** QUAL-6 exige désormais que les règles locales du département aient été recherchées dans un texte officiel lu : Finistère (synthèse de la DDTM, avril 2026), Côtes-d'Armor, Ille-et-Vilaine et Morbihan (synthèse de la DIRM Nord Atlantique – Manche Ouest, avril 2024 : état 2026 à vérifier). Sans cette recherche, l'absence de règle locale n'est plus lue comme une absence de règle. Conséquences : la fermeture du bar du 1er mars au 31 mai au large du cap Fréhel (arrêté n° 116/2005, rectangle qui contient le point de la fiche) est ajoutée à la fiche « Cap Fréhel », à vérifier au poste ; la Manche n'est pas couverte, donc Pointe d'Agon passe de corroborée à « à vérifier ». Pistes pour la Manche : arrêté n° 34/2021 de la pêche à pied et sous-marine de loisir et son projet de remplacement de 2026 (consultation close le 18 mai 2026), à lire. Dans le Morbihan, la pêche à pied de loisir des poissons est interdite à moins de 15 m des concessions conchylicoles (même synthèse, p. 10) : la distance des postes aux concessions n'est pas documentée.
 
 **Revue contradictoire (24 nov. 2026).** Un relecteur séparé, qui n'avait pas produit le travail, a contrôlé les statuts, les preuves, des citations en ligne et les règles de données. Ses constats et leurs corrections sont dans `docs/halieutique/QUALIFICATION.md` (§ 2) et dans le troisième complément du rapport de phase. Aucune donnée OpenStreetMap stockée, aucun texte privé, aucune source famille 6 comptée, aucune fenêtre de sécurité calculée : confirmé par le relecteur.
+
+## 7. Mise à jour de la phase 7 (26 nov. 2026)
+
+**Couverture mesurée** (98 fiches ; repères d'audit seulement, aucun secteur dans l'application) :
+
+| Repère | Fiches | Dont TOP_TIER ou corroborées | Dont à vérifier | Dont candidates V3 |
+| --- | --- | --- | --- | --- |
+| Finistère | 60 | 3 | 53 | 4 |
+| Manche | 17 | 0 | 10 | 7 |
+| Côtes-d'Armor | 9 | 0 | 0 | 9 |
+| Morbihan | 7 | 0 | 0 | 7 |
+| Ille-et-Vilaine | 5 | 0 | 0 | 5 |
+
+Écarts au plus proche voisin les plus grands (km, à vol d'oiseau) : pointe du Château de Plougrescant 25,7 (Bréhec) ; Goury 19,8 (Querqueville) ; Granville 18,9 (Agon) ; pointe des Poulains 15,6 ; Querqueville 15,2 ; Rosaires 15,2. Le trou le plus long est le Trégor, de Locquirec à Plougrescant (côte de granit rose, estuaire du Léguer).
+
+**Nouveaux candidats : aucun admis.** Passe ciblée sur le Trégor et le Goëlo (26 nov.) : la carte-guide 2024 de la fédération de pêche des Côtes-d'Armor ne parle que d'eau douce ; Le Figaro Nautisme (28 mars 2026) cite la côte de granit rose pour « les pêcheurs du bord » sans nommer le bar ni un poste ; peche.com (30 juin 2026) cite les estuaires du Léguer, du Jaudy, du Trieux et du Leff, Bréhat et Paimpol pour le bar à la mouche, sans dire bord ou bateau. Ce sont des **zones**, pas des postes : aucune fiche (§ 7.2). Pistes gardées : estuaire du Léguer, côte de granit rose, estuaire du Trieux.
+
+**Règles locales de la Manche** : recherchées le 26 nov. dans le projet officiel de la DIRM Manche Est – Mer du Nord, lu en entier ; le texte signé (arrêté n° 116/2026, annoncé par le réseau Littorea le 3 juillet 2026) n'a qu'une copie sans texte lisible. Les 17 fiches portent la règle, « à vérifier » ; trois cantonnements anciens (Blainville-sur-Mer 1977, Cosqueville 1965, Pirou 1978) sont ajoutés aux fiches voisines, à vérifier. K-12 n'avance pas : la réserve est réelle.
+
+**Niveaux de preuve** : `data/spots/registre.json` (meilleur et plus faible niveau par fiche) et `data/sources/registre.json` (365 sources, 110 éditeurs) sont régénérés ; les lacunes impossibles à résoudre et les demandes à Félix sont dans `docs/halieutique/REGISTRE-INCONNUES-PHASE-7.md`.
