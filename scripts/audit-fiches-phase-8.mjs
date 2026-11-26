@@ -28,6 +28,7 @@ export function strate(f) {
   const st = f.quality?.statut, eng = f.safety?.engagement;
   if (st === "TOP_TIER" || st === "corroboree") return "1-top-tier-corroboree";
   if (!inconnu(eng) && eng.valeur >= 3) return "2-poste-engage";
+  if (inconnu(eng)) return "2b-engagement-inconnu";
   if (!inconnu(f.safety?.acces_maree) && (f.safety.acces_maree.valeur || []).length) return "3-contrainte-maree";
   if (!f.quality?.criteres?.["QUAL-3"]?.ok) return "4-position-douteuse";
   return f.origin === "v2_preserved" ? "6-v2-autres" : "5-candidat-v3";
@@ -64,7 +65,7 @@ export function controler(f) {
   const t = texteDe(f);
   // « isolé » seul désigne souvent un site reculé (zone isolée), pas un isolement par la marée : compté à part (I).
   if (!contrainte && /isolé(?:e|s)? par la (?:marée|mer)|isolement au flot|piégé|coupe(?:r|nt)? le retour|retour coupé|submersible|encercl/.test(t)) add("C", true, "le texte parle d'isolement par la marée ou de retour coupé, sans contrainte de marée connue");
-  if (/site isolé|zone isolée|isolée?s?\b(?! par)/.test(t)) add("I", false, "site isolé (secours plus lents) : attention accrue");
+  if (/isolée?s?(?![\p{L}])(?! par la (?:marée|mer))/u.test(t)) add("I", false, "site isolé (secours plus lents) : attention accrue");
   if (!inconnu(f.safety?.engagement) && f.safety.engagement.valeur === 1 && /\bengagé|dangereu|à pic/.test(JSON.stringify(f.safety?.consignes || []).toLowerCase())) add("C", true, "poste « facile » (1) décrit comme engagé ou dangereux par ses consignes");
   if (f.quality?.statut === "TOP_TIER" && CRITERES.some((q) => !k[q]?.ok)) add("C", true, "TOP_TIER avec un critère en échec");
   // T — TOP_TIER : les sept critères, rien d'autre (ni note, ni popularité).
@@ -81,19 +82,23 @@ export function auditer() {
   const u = alea(20261127), parStrate = {}, tirees = [];
   for (const f of fiches) (parStrate[strate(f)] ||= []).push(f);
   for (const [s, l] of Object.entries(parStrate).sort()) {
-    const toutes = !s.startsWith("5") && !s.startsWith("6");
-    const choisies = toutes ? l : l.map((f) => [u(), f]).sort((a, b) => a[0] - b[0]).slice(0, Math.ceil(l.length / 3)).map((x) => x[1]);
+    const entiere = !s.startsWith("5") && !s.startsWith("6");
+    const choisies = entiere ? l : l.map((f) => [u(), f]).sort((a, b) => a[0] - b[0]).slice(0, Math.ceil(l.length / 3)).map((x) => x[1]);
     for (const f of choisies) tirees.push(controler(f));
   }
   const graves = tirees.filter((x) => x.constats.some((c) => c.grave));
   const compte = (code) => tirees.filter((x) => x.constats.some((c) => c.code === code)).length;
   // Toutes les fiches (pas seulement l'échantillon) pour les contrôles graves qu'une relecture ne doit jamais laisser passer.
-  const toutesGraves = fiches.map(controler).filter((x) => x.constats.some((c) => c.grave && c.code !== "G"));
+  const toutes = fiches.map(controler), toutesGraves = toutes.filter((x) => x.constats.some((c) => c.grave && c.code !== "G"));
+  const citees = new Set(tirees.flatMap((x) => fiches.find((f) => f.id === x.id).provenance?.sources || []));
+  const nonEvalueesDistinctes = [...citees].filter((id) => REGISTRE.get(id)?.evaluation?.statut === "à évaluer").length;
   return { "//": "Audit stratifié de la phase 8 V3. Régénérer : node scripts/audit-fiches-phase-8.mjs. Lecture : docs/validation/AUDIT-FICHES-PHASE-8.md",
     fiches: fiches.length, tirees: tirees.length,
     strates: Object.fromEntries(Object.entries(parStrate).sort().map(([s, l]) => [s, { fiches: l.length, tirees: tirees.filter((x) => x.strate === s).length }])),
     constatsParCode: Object.fromEntries(["P", "S", "D", "M", "G", "C", "I", "T"].map((c) => [c, compte(c)])),
     phasesNonDocumentees: Object.fromEntries(PHASES.map((p) => [p, tirees.filter((x) => x.phasesNonDocumentees.includes(p)).length])),
+    sourcesDistinctesCitees: citees.size, sourcesDistinctesNonEvaluees: nonEvalueesDistinctes,
+    sitesIsolesSurToutesLesFiches: toutes.filter((x) => x.constats.some((c) => c.code === "I")).map((x) => x.id),
     fichesAvecConstatGrave: graves.map((x) => ({ id: x.id, constats: x.constats.filter((c) => c.grave).map((c) => `${c.code} : ${c.texte}`) })),
     graveHorsSecuriteSurToutesLesFiches: toutesGraves.map((x) => ({ id: x.id, constats: x.constats.filter((c) => c.grave && c.code !== "G").map((c) => `${c.code} : ${c.texte}`) })),
     echantillon: tirees };
