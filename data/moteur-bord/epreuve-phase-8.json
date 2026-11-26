@@ -1,0 +1,1226 @@
+{
+ "//": "Épreuve de la phase 8 V3 sur les journées archivées (aucune session du journal). Régénérer : node scripts/epreuve-v3/epreuve.mjs. Lecture : docs/validation/EPREUVE-MOTEUR-PHASE-8.md",
+ "v01_proprietes": {
+  "creneaux": 6105,
+  "nombreAvecManque": 0,
+  "nombreEauInconnue": 0,
+  "bv2HorsIntervalle": 6,
+  "bv2Comparables": 6105,
+  "bv2EcartMax": 1,
+  "partHorsIntervalle": 0.1,
+  "critere": "aucune carte publiée en nombre avec un critère manquant",
+  "tenu": true
+ },
+ "v02_publication": {
+  "parSaison": {
+   "mai-octobre": {
+    "creneaux": 3434,
+    "nombre": 72.4,
+    "fourchette": 0,
+    "qualitatif": 27.6,
+    "aucune": 0
+   },
+   "novembre-avril": {
+    "creneaux": 2671,
+    "nombre": 63.3,
+    "fourchette": 8.5,
+    "qualitatif": 28.2,
+    "aucune": 0
+   }
+  },
+  "raisonsAucune": {},
+  "critere": "aucun « — » sans raison écrite",
+  "tenu": true
+ },
+ "v03_stabilite": {
+  "journees": 234,
+  "tirages": 60,
+  "journeesStablesA80": 234,
+  "part": 100,
+  "partStableMediane": 1,
+  "memeTop3ExactA80": 63.2,
+  "large": {
+   "stablesA80": 99.6,
+   "memeTop3ExactA80": 44
+  },
+  "critere": "Top 3 à 10 points près dans 80 % des tirages au moins ; sinon, la publication doit le dire (D6-02)",
+  "tenu": true
+ },
+ "v04_classementSecurite": {
+  "journees": 234,
+  "topAvecNonSafe": 0,
+  "topVide": 234,
+  "partTopVide": 100,
+  "topVideSiDocumente": 71,
+  "spotsDocumentesParJournee": 0,
+  "spotsDocumentesParJourneeSiDocumente": 4.97,
+  "spotsAVerifierParJournee": 7.936,
+  "critere": "aucun créneau DANGER ou BLOCKED dans un Top ; aucun INSUFFICIENT_DATA dans le groupe documenté",
+  "tenu": true
+ },
+ "securite": {
+  "creneaux": 6105,
+  "etats": {
+   "INSUFFICIENT_DATA": 6105
+  },
+  "etatsSiDocumente": {
+   "SAFE": 5029,
+   "CAUTION": 535,
+   "INSUFFICIENT_DATA": 541
+  },
+  "v2SansDouteMaisV3Danger": 0,
+  "v2NonRecommandeMaisV3Safe": 0,
+  "v2SansDouteMaisV3DangerSiDocumente": 0,
+  "exemplesDivergence": [],
+  "critere": "aucun créneau « non recommandé » en V2 qui devienne SAFE ; divergences V2 sans doute → V3 non recommandé comptées et expliquées",
+  "tenu": true
+ },
+ "saisonProposee": {
+  "journees": 234,
+  "memePremier": 97.4,
+  "top3Commun": 97.9,
+  "parMois": {
+   "10": 100,
+   "11": 100,
+   "12": 94.7,
+   "01": 100,
+   "02": 100,
+   "03": 94.4,
+   "04": 78.9,
+   "05": 100,
+   "06": 100,
+   "07": 100,
+   "08": 100,
+   "09": 100
+  },
+  "lecture": "effet de la table proposée sur le classement, à composantes égales ; aucune vérité terrain : ce n'est pas une preuve qu'elle classe mieux"
+ },
+ "baselines": {
+  "journees": 234,
+  "memePremierBV2BSimple": 42.3,
+  "spearmanBV2BSimpleMoyen": 0.585,
+  "spearmanBV2A1basMoyen": 0.903
+ },
+ "exemples": [
+  {
+   "guide": "logonna",
+   "date": "2026-01-06",
+   "saison": "novembre-avril",
+   "spots": [
+    {
+     "rang": 1,
+     "id": "armorique",
+     "creneau": "07h53–09h23",
+     "bV2": 43,
+     "palierV2": 1,
+     "points": {
+      "fenetre": 25,
+      "coef": 18.2,
+      "lumiere": 25,
+      "vent": 17
+     },
+     "criteresExclus": [],
+     "presence": 0.5,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 43,
+      "haut": 43
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 2,
+     "id": "landevennec",
+     "creneau": "07h53–10h53",
+     "bV2": 40,
+     "palierV2": 1,
+     "points": {
+      "fenetre": 25,
+      "coef": 13.9,
+      "lumiere": 25,
+      "vent": 16
+     },
+     "criteresExclus": [],
+     "presence": 0.5,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 40,
+      "haut": 40
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 3,
+     "id": "moulinmer",
+     "creneau": "16h16–18h46",
+     "bV2": 40,
+     "palierV2": 1,
+     "points": {
+      "fenetre": 25,
+      "coef": 12.8,
+      "lumiere": 25,
+      "vent": 18
+     },
+     "criteresExclus": [],
+     "presence": 0.5,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 40,
+      "haut": 40
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 4,
+     "id": "lauberlach",
+     "creneau": "18h46–20h46",
+     "bV2": 38,
+     "palierV2": 1,
+     "points": {
+      "fenetre": 25,
+      "coef": 19.1,
+      "lumiere": 15,
+      "vent": 16
+     },
+     "criteresExclus": [],
+     "presence": 0.5,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 38,
+      "haut": 38
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 5,
+     "id": "bendy",
+     "creneau": "17h16–20h16",
+     "bV2": 36,
+     "palierV2": 1,
+     "points": {
+      "fenetre": 25,
+      "coef": 16.5,
+      "lumiere": 15,
+      "vent": 16
+     },
+     "criteresExclus": [],
+     "presence": 0.5,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 36,
+      "haut": 36
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    }
+   ]
+  },
+  {
+   "guide": "logonna",
+   "date": "2026-04-06",
+   "saison": "novembre-avril",
+   "spots": [
+    {
+     "rang": 1,
+     "id": "espagnols",
+     "creneau": "07h29–08h53",
+     "bV2": 69,
+     "palierV2": 4,
+     "points": {
+      "fenetre": 25,
+      "coef": 20,
+      "lumiere": 25,
+      "vent": 22
+     },
+     "criteresExclus": [],
+     "presence": 0.75,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 69,
+      "haut": 69
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 2,
+     "id": "lauberlach",
+     "creneau": "19h52–21h52",
+     "bV2": 69,
+     "palierV2": 4,
+     "points": {
+      "fenetre": 25,
+      "coef": 20,
+      "lumiere": 25,
+      "vent": 16
+     },
+     "criteresExclus": [],
+     "presence": 0.8,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 69,
+      "haut": 69
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 3,
+     "id": "bendy",
+     "creneau": "06h11–09h11",
+     "bV2": 66,
+     "palierV2": 4,
+     "points": {
+      "fenetre": 25,
+      "coef": 20,
+      "lumiere": 25,
+      "vent": 13
+     },
+     "criteresExclus": [],
+     "presence": 0.8,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 66,
+      "haut": 66
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 4,
+     "id": "moulinmer",
+     "creneau": "05h11–07h41",
+     "bV2": 61,
+     "palierV2": 3,
+     "points": {
+      "fenetre": 25,
+      "coef": 20,
+      "lumiere": 15,
+      "vent": 16
+     },
+     "criteresExclus": [],
+     "presence": 0.8,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 61,
+      "haut": 61
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 5,
+     "id": "terenez",
+     "creneau": "19h22–21h22",
+     "bV2": 59,
+     "palierV2": 3,
+     "points": {
+      "fenetre": 25,
+      "coef": 11.3,
+      "lumiere": 25,
+      "vent": 13
+     },
+     "criteresExclus": [],
+     "presence": 0.8,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 59,
+      "haut": 59
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    }
+   ]
+  },
+  {
+   "guide": "logonna",
+   "date": "2026-07-06",
+   "saison": "mai-octobre",
+   "spots": [
+    {
+     "rang": 1,
+     "id": "rostiviec",
+     "creneau": "05h00–06h52",
+     "bV2": 63,
+     "palierV2": 3,
+     "points": {
+      "fenetre": 25,
+      "coef": 20,
+      "lumiere": 25,
+      "vent": 17
+     },
+     "criteresExclus": [],
+     "presence": 0.72,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 63,
+      "haut": 63
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 2,
+     "id": "camfrout",
+     "creneau": "05h00–06h52",
+     "bV2": 62,
+     "palierV2": 3,
+     "points": {
+      "fenetre": 25,
+      "coef": 20,
+      "lumiere": 25,
+      "vent": 16
+     },
+     "criteresExclus": [],
+     "presence": 0.72,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 62,
+      "haut": 62
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 3,
+     "id": "lauberlach",
+     "creneau": "05h22–08h22",
+     "bV2": 62,
+     "palierV2": 3,
+     "points": {
+      "fenetre": 25,
+      "coef": 20,
+      "lumiere": 25,
+      "vent": 16
+     },
+     "criteresExclus": [],
+     "presence": 0.72,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 62,
+      "haut": 62
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 4,
+     "id": "espagnols",
+     "creneau": "21h18–22h42",
+     "bV2": 60,
+     "palierV2": 3,
+     "points": {
+      "fenetre": 25,
+      "coef": 20,
+      "lumiere": 25,
+      "vent": 14
+     },
+     "criteresExclus": [],
+     "presence": 0.72,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 60,
+      "haut": 60
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 5,
+     "id": "penhir",
+     "creneau": "21h00–23h00",
+     "bV2": 60,
+     "palierV2": 3,
+     "points": {
+      "fenetre": 15,
+      "coef": 20,
+      "lumiere": 25,
+      "vent": 24
+     },
+     "criteresExclus": [],
+     "presence": 0.72,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 60,
+      "haut": 60
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    }
+   ]
+  },
+  {
+   "guide": "logonna",
+   "date": "2026-10-06",
+   "saison": "mai-octobre",
+   "spots": [
+    {
+     "rang": 1,
+     "id": "espagnols",
+     "creneau": "07h45–09h09",
+     "bV2": 93,
+     "palierV2": 5,
+     "points": {
+      "fenetre": 25,
+      "coef": 13,
+      "lumiere": 25,
+      "vent": 30
+     },
+     "criteresExclus": [],
+     "presence": 1,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 93,
+      "haut": 93
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 2,
+     "id": "penhir",
+     "creneau": "15h41–17h41",
+     "bV2": 85,
+     "palierV2": 5,
+     "points": {
+      "fenetre": 25,
+      "coef": 20,
+      "lumiere": 10,
+      "vent": 30
+     },
+     "criteresExclus": [],
+     "presence": 1,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 85,
+      "haut": 85
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 3,
+     "id": "terenez",
+     "creneau": "07h27–09h27",
+     "bV2": 85,
+     "palierV2": 5,
+     "points": {
+      "fenetre": 25,
+      "coef": 20,
+      "lumiere": 25,
+      "vent": 15
+     },
+     "criteresExclus": [],
+     "presence": 1,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 85,
+      "haut": 85
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 4,
+     "id": "armorique",
+     "creneau": "18h04–20h34",
+     "bV2": 83,
+     "palierV2": 5,
+     "points": {
+      "fenetre": 25,
+      "coef": 20,
+      "lumiere": 25,
+      "vent": 13
+     },
+     "criteresExclus": [],
+     "presence": 1,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 83,
+      "haut": 83
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 5,
+     "id": "minou",
+     "creneau": "19h04–20h34",
+     "bV2": 79,
+     "palierV2": 5,
+     "points": {
+      "fenetre": 25,
+      "coef": 20,
+      "lumiere": 25,
+      "vent": 9
+     },
+     "criteresExclus": [],
+     "presence": 1,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 79,
+      "haut": 79
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    }
+   ]
+  },
+  {
+   "guide": "pirou",
+   "date": "2026-01-06",
+   "saison": "novembre-avril",
+   "spots": [
+    {
+     "rang": 1,
+     "id": "portbail",
+     "creneau": "16h03–18h03",
+     "bV2": 38,
+     "palierV2": 1,
+     "points": {
+      "fenetre": 15,
+      "coef": 20,
+      "lumiere": 25,
+      "vent": 16
+     },
+     "criteresExclus": [],
+     "presence": 0.5,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 38,
+      "haut": 38
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 2,
+     "id": "regneville",
+     "creneau": "10h18–13h48",
+     "bV2": 34,
+     "palierV2": 1,
+     "points": {
+      "fenetre": 25,
+      "coef": 18,
+      "lumiere": 6,
+      "vent": 18
+     },
+     "criteresExclus": [],
+     "presence": 0.5,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 34,
+      "haut": 34
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 3,
+     "id": "sciotot",
+     "creneau": "16h00–19h00",
+     "bV2": 29,
+     "palierV2": 1,
+     "points": {
+      "fenetre": 25,
+      "coef": 20,
+      "lumiere": 25,
+      "vent": 26
+     },
+     "criteresExclus": [],
+     "presence": 0.3,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 29,
+      "haut": 29
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 4,
+     "id": "granville",
+     "creneau": "16h03–19h03",
+     "bV2": 28,
+     "palierV2": 1,
+     "points": {
+      "fenetre": 25,
+      "coef": 18.8,
+      "lumiere": 25,
+      "vent": 26
+     },
+     "criteresExclus": [],
+     "presence": 0.3,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 28,
+      "haut": 28
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 5,
+     "id": "surtainville",
+     "creneau": "06h34–08h34",
+     "bV2": 26,
+     "palierV2": 1,
+     "points": {
+      "fenetre": 25,
+      "coef": 18,
+      "lumiere": 15,
+      "vent": 28
+     },
+     "criteresExclus": [],
+     "presence": 0.3,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 26,
+      "haut": 26
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    }
+   ]
+  },
+  {
+   "guide": "pirou",
+   "date": "2026-04-06",
+   "saison": "novembre-avril",
+   "spots": [
+    {
+     "rang": 1,
+     "id": "agon",
+     "creneau": "06h33–09h03",
+     "bV2": 60,
+     "palierV2": 3,
+     "points": {
+      "fenetre": 25,
+      "coef": 20,
+      "lumiere": 25,
+      "vent": 10
+     },
+     "criteresExclus": [],
+     "presence": 0.75,
+     "eauConnue": false,
+     "a1": {
+      "publication": "qualitatif",
+      "bas": 24,
+      "haut": 60
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 2,
+     "id": "surtainville",
+     "creneau": "05h47–08h17",
+     "bV2": 60,
+     "palierV2": 3,
+     "points": {
+      "fenetre": 25,
+      "coef": 20,
+      "lumiere": 25,
+      "vent": 10
+     },
+     "criteresExclus": [],
+     "presence": 0.75,
+     "eauConnue": false,
+     "a1": {
+      "publication": "qualitatif",
+      "bas": 24,
+      "haut": 60
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 3,
+     "id": "gouville",
+     "creneau": "19h16–21h46",
+     "bV2": 59,
+     "palierV2": 3,
+     "points": {
+      "fenetre": 25,
+      "coef": 18,
+      "lumiere": 25,
+      "vent": 10
+     },
+     "criteresExclus": [],
+     "presence": 0.75,
+     "eauConnue": false,
+     "a1": {
+      "publication": "qualitatif",
+      "bas": 23,
+      "haut": 59
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 4,
+     "id": "pirou",
+     "creneau": "19h19–21h49",
+     "bV2": 59,
+     "palierV2": 3,
+     "points": {
+      "fenetre": 25,
+      "coef": 18,
+      "lumiere": 25,
+      "vent": 10
+     },
+     "criteresExclus": [],
+     "presence": 0.75,
+     "eauConnue": false,
+     "a1": {
+      "publication": "qualitatif",
+      "bas": 23,
+      "haut": 59
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 5,
+     "id": "sciotot",
+     "creneau": "19h38–22h08",
+     "bV2": 58,
+     "palierV2": 3,
+     "points": {
+      "fenetre": 25,
+      "coef": 18,
+      "lumiere": 25,
+      "vent": 9
+     },
+     "criteresExclus": [],
+     "presence": 0.75,
+     "eauConnue": false,
+     "a1": {
+      "publication": "qualitatif",
+      "bas": 23,
+      "haut": 58
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    }
+   ]
+  },
+  {
+   "guide": "pirou",
+   "date": "2026-07-06",
+   "saison": "mai-octobre",
+   "spots": [
+    {
+     "rang": 1,
+     "id": "agon",
+     "creneau": "20h17–22h47",
+     "bV2": 58,
+     "palierV2": 3,
+     "points": {
+      "fenetre": 25,
+      "coef": 11,
+      "lumiere": 25,
+      "vent": 19
+     },
+     "criteresExclus": [],
+     "presence": 0.72,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 58,
+      "haut": 58
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 2,
+     "id": "gouville",
+     "creneau": "20h50–23h00",
+     "bV2": 58,
+     "palierV2": 3,
+     "points": {
+      "fenetre": 25,
+      "coef": 11,
+      "lumiere": 25,
+      "vent": 20
+     },
+     "criteresExclus": [],
+     "presence": 0.72,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 58,
+      "haut": 58
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 3,
+     "id": "pirou",
+     "creneau": "20h53–23h00",
+     "bV2": 58,
+     "palierV2": 3,
+     "points": {
+      "fenetre": 25,
+      "coef": 11,
+      "lumiere": 25,
+      "vent": 19
+     },
+     "criteresExclus": [],
+     "presence": 0.72,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 58,
+      "haut": 58
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 4,
+     "id": "sciotot",
+     "creneau": "21h14–23h00",
+     "bV2": 57,
+     "palierV2": 3,
+     "points": {
+      "fenetre": 25,
+      "coef": 11,
+      "lumiere": 25,
+      "vent": 18
+     },
+     "criteresExclus": [],
+     "presence": 0.72,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 57,
+      "haut": 57
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 5,
+     "id": "surtainville",
+     "creneau": "21h39–23h00",
+     "bV2": 55,
+     "palierV2": 3,
+     "points": {
+      "fenetre": 25,
+      "coef": 11,
+      "lumiere": 25,
+      "vent": 16
+     },
+     "criteresExclus": [],
+     "presence": 0.72,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 55,
+      "haut": 55
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    }
+   ]
+  },
+  {
+   "guide": "pirou",
+   "date": "2026-10-06",
+   "saison": "mai-octobre",
+   "spots": [
+    {
+     "rang": 1,
+     "id": "goury",
+     "creneau": "18h42–20h12",
+     "bV2": 65,
+     "palierV2": 4,
+     "points": {
+      "fenetre": 15,
+      "coef": 5.3,
+      "lumiere": 25,
+      "vent": 20
+     },
+     "criteresExclus": [],
+     "presence": 1,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 65,
+      "haut": 65
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 2,
+     "id": "agon",
+     "creneau": "17h59–20h29",
+     "bV2": 64,
+     "palierV2": 3,
+     "points": {
+      "fenetre": 25,
+      "coef": 4,
+      "lumiere": 25,
+      "vent": 10
+     },
+     "criteresExclus": [],
+     "presence": 1,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 64,
+      "haut": 64
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 3,
+     "id": "portbail",
+     "creneau": "18h07–21h37",
+     "bV2": 56,
+     "palierV2": 3,
+     "points": {
+      "fenetre": 25,
+      "coef": 4,
+      "lumiere": 15,
+      "vent": 12
+     },
+     "criteresExclus": [],
+     "presence": 1,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 56,
+      "haut": 56
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 4,
+     "id": "regneville",
+     "creneau": "17h59–21h29",
+     "bV2": 56,
+     "palierV2": 3,
+     "points": {
+      "fenetre": 25,
+      "coef": 4,
+      "lumiere": 15,
+      "vent": 12
+     },
+     "criteresExclus": [],
+     "presence": 1,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 56,
+      "haut": 56
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    },
+    {
+     "rang": 5,
+     "id": "pirou",
+     "creneau": "18h33–20h33",
+     "bV2": 54,
+     "palierV2": 2,
+     "points": {
+      "fenetre": 15,
+      "coef": 4,
+      "lumiere": 25,
+      "vent": 10
+     },
+     "criteresExclus": [],
+     "presence": 1,
+     "eauConnue": true,
+     "a1": {
+      "publication": "nombre",
+      "bas": 54,
+      "haut": 54
+     },
+     "securiteV3": "INSUFFICIENT_DATA",
+     "manques": [
+      "fermeture",
+      "isolement"
+     ],
+     "securiteSiDocumente": "SAFE"
+    }
+   ]
+  }
+ ]
+}
