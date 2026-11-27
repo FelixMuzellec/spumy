@@ -293,3 +293,7 @@ Critères du § 13.4 :
 ## 14. Arrêt
 
 Phase 8 close : **TESTED, en attente de la validation de Félix**. Il n'y a ni phase 9 sans son propre jeton, ni rien de planifié au-delà. Aucun changement du moteur avant l'approbation qui suit la phase 9.
+
+## Complément du 27 nov. 2026 (réponse de Félix à la question du § 12)
+
+Félix ne peut retrouver **aucune** sortie passée. La solution B (rejouer des sorties passées sur la météo archivée) est donc écartée. La mesure de K-01 à K-03 se fera sur les sorties notées à partir de maintenant : la V2 garde déjà, pour chaque sortie, la note de SPUMY au moment de la saisie, le nombre de bars, la durée et la météo du moment. Le statut de la phase ne change pas : TESTED, en attente de la validation de Félix.
