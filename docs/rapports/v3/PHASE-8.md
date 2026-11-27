@@ -297,3 +297,7 @@ Phase 8 close : **TESTED, en attente de la validation de Félix**. Il n'y a ni p
 ## Complément du 27 nov. 2026 (réponse de Félix à la question du § 12)
 
 Félix ne peut retrouver **aucune** sortie passée. La solution B (rejouer des sorties passées sur la météo archivée) est donc écartée. La mesure de K-01 à K-03 se fera sur les sorties notées à partir de maintenant : la V2 garde déjà, pour chaque sortie, la note de SPUMY au moment de la saisie, le nombre de bars, la durée et la météo du moment. Le statut de la phase ne change pas : TESTED, en attente de la validation de Félix.
+
+## Validation (27 nov. 2026)
+
+Félix, 6 h 15 : « Je valide la phase 8. » Statut : **VALIDATED (Félix, 27 nov. 2026)**. Décisions prises avec lui le même matin, pour la phase 9 (journal des décisions) : note de chaque spot affinée par les sorties au bord, affichée à côté de la note du modèle seul et mise à jour seule, réversible ; sorties de chaque pêcheur séparées ; rubrique « d'après tes sorties » sur la fiche ; retours de terrain vers la fiche commune. Aucune phase 9 sans son propre jeton.

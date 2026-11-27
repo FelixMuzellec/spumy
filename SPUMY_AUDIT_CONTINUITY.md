@@ -13,7 +13,7 @@
 | 5. Audit BORD et référentiel des spots | close, tous ses gates PASS (ouverture de la phase 6 par le jeton conditionnel du 23 nov., 23 h 15) | `docs/rapports/v3/PHASE-5.md` |
 | 6. Conception et validation du moteur BORD | VALIDATED (par délégation de Félix, 23 nov., 23 h 15 ; à confirmer par Félix) | `docs/rapports/v3/PHASE-6.md` |
 | 7. Deuxième passe de recherche et enrichissement halieutique | VALIDATED (par délégation de Félix, 23 nov., 23 h 15 ; à confirmer par Félix) ; close le 26 nov. 2026 | `docs/rapports/v3/PHASE-7.md` |
-| 8. Validation indépendante du référentiel et calibration du moteur | TESTED, en attente de la validation de Félix (jeton du 26 nov. 2026, 23 h 48) ; close le 27 nov. 2026 | `docs/rapports/v3/PHASE-8.md` |
+| 8. Validation indépendante du référentiel et calibration du moteur | VALIDATED (Félix, 27 nov. 2026, 6 h 15) ; close le 27 nov. 2026 | `docs/rapports/v3/PHASE-8.md` |
 | 9 à 15 | NOT STARTED ; jamais de phase 9 sans son propre jeton | — |
 
 ## Checkpoint
@@ -26,14 +26,14 @@
 
 ## Points ouverts
 
-- **À valider par Félix** : phase 8 (TESTED) et ses livrables soumis à revue (rapport § 12). **À confirmer** : phases 6 et 7 VALIDATED par délégation ; questions Q7-01 à Q7-05 (`docs/halieutique/REGISTRE-INCONNUES-PHASE-7.md`, Q7-03 posée) ; décisions D6-01 à D6-21 après les phases 8 et 9 (notamment D6-15 et D6-21, règle de sécurité stricte).
+- **À arbitrer en phase 9** : livrables de la phase 8 soumis à revue (rapport § 12). **À confirmer** : phases 6 et 7 VALIDATED par délégation ; questions Q7-01 à Q7-05 (`docs/halieutique/REGISTRE-INCONNUES-PHASE-7.md`, Q7-03 posée) ; décisions D6-01 à D6-21 après les phases 8 et 9 (notamment D6-15 et D6-21, règle de sécurité stricte).
 - **Félix** : renommage des branches (`bash scripts/renommer-branches.sh`, `docs/BRANCHES.md`) ; réglages de sécurité recommandés (`docs/security/THREAT_MODEL.md`) ; archive ZIP de la V2 sur Drive reportée (« on verra cela plus tard »).
 - **Échéances écrites** : 7 écarts d'exigences (`docs/regles/EXIGENCES.md`) ; 9 versions de développement admises jusqu'au 30 nov. (`tests/pare-feux/failles-acceptees.json`) ; pare-feux, exigences et indicateurs prévus par phase (paquet de contexte).
 - **Indicateurs des spots** : objectifs suivis, jamais au détriment des spots ; à défaut de sources, voie empirique (journal).
 
 ## Prochaine action
 
-Phase 8 close le 27 nov. 2026 (rapport `docs/rapports/v3/PHASE-8.md`), statut TESTED : **elle attend la validation de Félix** (aucune délégation). Question posée à Félix : combien de sorties passées (date, spot, durée, résultat, bredouilles comprises) il peut retrouver. **Arrêt obligatoire** : rien à faire sans le jeton « APPROVED — PROCEED TO PHASE 9 », ni rien de planifié. Reports écrits pour la phase 9 : rapport § 12 et § 13. Une reprise planifiée qui trouve ce paragraphe ne fait rien de plus.
+Phase 8 VALIDATED par Félix le 27 nov. 2026 à 6 h 15 (rapport `docs/rapports/v3/PHASE-8.md`). **Arrêt obligatoire** : rien à faire sans le jeton « APPROVED — PROCEED TO PHASE 9 », ni rien de planifié. À reprendre en phase 9 : rapport de la phase 8, § 12 et § 13, et les décisions du 27 nov. (5 h 46 à 6 h 14) au journal. Une reprise planifiée qui trouve ce paragraphe ne fait rien de plus.
 
 - **Environnement** : le Playwright du dépôt attend Chromium 1194. Faire pointer `/opt/pw-browsers/chromium-1194/chrome-linux` et `chromium_headless_shell-1194/chrome-linux` vers les versions 1243 installées (`cp -rs`, et le lien `headless_shell`). `npm run -s verifier` dure plus de 10 min : le lancer en arrière-plan.
 
