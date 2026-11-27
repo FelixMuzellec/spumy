@@ -218,7 +218,7 @@ export const REGLES = [
         note: "posé en phase 7 (25 nov. 2026), durci le 26 nov. après la revue indépendante : chaque connaissance de biologie, de comportement, d'alimentation ou de milieu porte la zone de ses sources (RÉGIONALE : Bretagne nord, Iroise, Bretagne sud, rades et rias, Cotentin ; VOISINE : Manche, golfe de Gascogne ; AUCUNE), recalculée à partir des étiquettes de zone des sources, avec un texte ; un domaine inconnu est refusé, et une règle de model.js ne peut pas être déclarée de réglementation, de sécurité ou de leurres. Le contrôle porte sur l'étiquetage, pas sur la lecture des sources ; les règles AUCUNE (13) sont des lacunes déclarées, pas des règles citées par des sources régionales ; revue régionale : docs/halieutique/REVUE-REGIONALE-BAR.md" },
     } },
   { id: "PF-34", titre: "Les notes de SPUMY jugées sur le journal de sorties ; le modèle s'affine par la boucle contrôlée",
-    sources: ["V3-030", "27 nov. 2026, 5 h 46", "27 nov. 2026, 5 h 52"], portee: "produit",
+    sources: ["V3-030", "27 nov. 2026, 5 h 46", "27 nov. 2026, 5 h 52", "27 nov. 2026, 5 h 55"], portee: "produit",
     versions: {
       v2: { etat: "sansObjet", raison: fige },
       v3: { etat: "controle", gardes: [["tests/calibration.mjs", "aucune conclusion sous le seuil de sorties"], ["tests/calibration.mjs", "résultat inconnu ou absent écarté, jamais compté comme un zéro"], ["tests/calibration.mjs", "aucune bredouille déclarée : biais de sélection"], ["tests/pare-feux-sabotage.mjs", "résultat inconnu compté comme une bredouille"]],
