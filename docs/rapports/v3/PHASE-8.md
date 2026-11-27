@@ -136,7 +136,15 @@ Contrôles pendant la phase :
 
 ### 7 bis. Gate final
 
-Gate final sur clone neuf : à consigner ci-dessous.
+Gate rejoué sur un clone neuf de 6ee97cf, le 27 nov. 2026 (tout le code et les données de la phase ; seul ce paragraphe a été ajouté depuis) :
+
+| Commande | Code | Résultat |
+| --- | --- | --- |
+| `npm ci --ignore-scripts` | 0 | 0 faille |
+| `npm run -s verifier` | 0 | 8 suites sur 8 au vert : construction ; npm test (552 s) ; accessibilité (0 violation) ; mise à jour 12/12 ; prototype V2 244/244 ; prototype V3 227/227 ; marque 35/35 ; indicateurs (aucun recul) |
+| CI « tests », « contrat », « ign » sur 6ee97cf | success | passages 45912874059, 45912874141, 45912874146 |
+
+Un premier gate, lancé sur 5a05a7a, a été arrêté volontairement : les corrections de la passe 3 sont venues après.
 
 ## 8. Résultats fonctionnels et qualité
 
