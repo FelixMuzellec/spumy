@@ -112,7 +112,7 @@ export const REGLES = [
     versions: { toutes: { etat: "controle", gardes: [[PF, "nom de branche hors modèle"], [".githooks/pre-push", "refusé : push sur main"], [".github/workflows/tests.yml", "scripts/pare-feux/branche.mjs"]],
       note: "la protection de main sur GitHub est posée par Félix (23 nov. 2026, 19 h 47) ; garder les branches et n'en fusionner aucune sans son accord restent des consignes" } } },
   { id: "PF-14", titre: "Aucune phase sans son jeton ; jetons conditionnels des phases 6 et 7 ; jamais de phase 8 sans son propre jeton",
-    sources: ["23 nov. 2026, 23 h 15", "23 nov. 2026, 13 h 50", "23 nov. 2026, 20 h 02", "23 nov. 2026, 22 h 33", "25 nov. 2026, 21 h 23", "26 nov. 2026, 23 h 48", "27 nov. 2026, 6 h 15", "V3-001"], portee: "depot",
+    sources: ["23 nov. 2026, 23 h 15", "23 nov. 2026, 13 h 50", "23 nov. 2026, 20 h 02", "23 nov. 2026, 22 h 33", "25 nov. 2026, 21 h 23", "26 nov. 2026, 23 h 48", "27 nov. 2026, 6 h 15", "28 nov. 2026, 12 h 33", "V3-001"], portee: "depot",
     versions: { toutes: { etat: "controle", gardes: [[PF, "phase non autorisée"], [".github/workflows/tests.yml", "scripts/pare-feux/branche.mjs"]],
       note: "les gates de chaque phase (tests sur clone neuf, passes de challenge) sont vérifiés par le rapport de phase en 14 parties" } } },
   { id: "PF-15", titre: "Commits atomiques ; chaque message de Claude se termine par les deux lignes d'attribution de la session",

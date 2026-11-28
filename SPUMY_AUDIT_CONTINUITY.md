@@ -14,7 +14,8 @@
 | 6. Conception et validation du moteur BORD | VALIDATED (par délégation de Félix, 23 nov., 23 h 15 ; à confirmer par Félix) | `docs/rapports/v3/PHASE-6.md` |
 | 7. Deuxième passe de recherche et enrichissement halieutique | VALIDATED (par délégation de Félix, 23 nov., 23 h 15 ; à confirmer par Félix) ; close le 26 nov. 2026 | `docs/rapports/v3/PHASE-7.md` |
 | 8. Validation indépendante du référentiel et calibration du moteur | VALIDATED (Félix, 27 nov. 2026, 6 h 15) ; close le 27 nov. 2026 | `docs/rapports/v3/PHASE-8.md` |
-| 9 à 15 | NOT STARTED ; jamais de phase 9 sans son propre jeton | — |
+| 9. Spécifications fonctionnelles et techniques finales | NOT STARTED ; jeton donné par Félix le 28 nov. 2026 à 12 h 33 ; lancement planifié le jeudi 3 déc. 2026 à 8 h 01 (reprises 13 h 01, 18 h 01) | — |
+| 10 à 15 | NOT STARTED ; jamais de phase 10 sans son propre jeton | — |
 
 ## Checkpoint
 
@@ -33,7 +34,7 @@
 
 ## Prochaine action
 
-Phase 8 VALIDATED par Félix le 27 nov. 2026 à 6 h 15 (rapport `docs/rapports/v3/PHASE-8.md`). **Arrêt obligatoire** : rien à faire sans le jeton « APPROVED — PROCEED TO PHASE 9 », ni rien de planifié. À reprendre en phase 9 : rapport de la phase 8, § 12 et § 13, et les décisions du 27 nov. (5 h 46 à 6 h 14) au journal. Une reprise planifiée qui trouve ce paragraphe ne fait rien de plus.
+Phase 8 VALIDATED par Félix le 27 nov. 2026 à 6 h 15 (rapport `docs/rapports/v3/PHASE-8.md`). Jeton « APPROVED — PROCEED TO PHASE 9 » donné le 28 nov. 2026 à 12 h 33 (journal des décisions). **Phase 9** : démarre le jeudi 3 déc. 2026 à 8 h 01 (tâche planifiée, session neuve), branche `claude/v3-phase-09-specifications-finales` partie de la branche de la phase 8, proposition en brouillon vers elle. Entrée : `npm run -s contexte -- 9`, puis rapport de la phase 8, § 12 et § 13, et décisions du 27 nov. (5 h 46 à 6 h 14). Aucun changement de moteur dans `src/` ; statut final soumis à Félix (pas de délégation) ; arrêt à la fin, jamais de phase 10 sans son jeton.
 
 - **Environnement** : le Playwright du dépôt attend Chromium 1194. Faire pointer `/opt/pw-browsers/chromium-1194/chrome-linux` et `chromium_headless_shell-1194/chrome-linux` vers les versions 1243 installées (`cp -rs`, et le lien `headless_shell`). `npm run -s verifier` dure plus de 10 min : le lancer en arrière-plan.
 
