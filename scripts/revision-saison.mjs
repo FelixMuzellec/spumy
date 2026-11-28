@@ -84,8 +84,11 @@ export async function calculer() {
   };
 }
 
-const ecrit = JSON.stringify(await calculer(), null, 1) + "\n";
-if (process.argv.includes("--ecrire")) { fs.writeFileSync(SORTIE, ecrit); console.log(`[révision saison] ${path.relative(RACINE, SORTIE)} réécrit`); }
+// Lancé directement seulement : importé (épreuve de la phase 8), le module ne fait que fournir PROPOSE et zoneDe.
+const direct = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+const ecrit = direct ? JSON.stringify(await calculer(), null, 1) + "\n" : null;
+if (!direct) { /* import */ }
+else if (process.argv.includes("--ecrire")) { fs.writeFileSync(SORTIE, ecrit); console.log(`[révision saison] ${path.relative(RACINE, SORTIE)} réécrit`); }
 else if (process.argv.includes("--verifier")) {
   const ok = fs.existsSync(SORTIE) && fs.readFileSync(SORTIE, "utf8") === ecrit;
   console.log(ok ? "[révision saison] proposition à jour (66 spots)" : "✗ [révision saison] data/moteur-bord/revision-saison-phase-7.json pas à jour : relancer avec --ecrire");

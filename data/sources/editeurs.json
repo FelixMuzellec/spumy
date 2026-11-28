@@ -1110,7 +1110,7 @@
   },
   "saint-malo-tourisme.co.uk": {
    "famille": 4,
-   "groupe": "saint-malo-tourisme",
+   "groupe": "editeur:office-de-tourisme-de-saint-malo",
    "nature": "office de tourisme (Saint-Malo – Baie du Mont-Saint-Michel)",
    "domaines": [
     "accès",

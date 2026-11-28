@@ -6,7 +6,7 @@
   "avecUrl": 132,
   "editeurs": 118,
   "editeurClasse": 365,
-  "groupes": 101,
+  "groupes": 100,
   "parFamille": {
    "1": 26,
    "2": 51,
@@ -12030,7 +12030,7 @@
    "utilise_par": [
     "spot:grandbe"
    ],
-   "groupe": "saint-malo-tourisme",
+   "groupe": "editeur:office-de-tourisme-de-saint-malo",
    "editeur_classe": {
     "nature": "office de tourisme (Saint-Malo – Baie du Mont-Saint-Michel)",
     "domaines": [
